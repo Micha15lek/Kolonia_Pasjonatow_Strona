@@ -1,85 +1,126 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #101820;
-    color: white;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #050b18, #102a43);
+    color: #ffffff;
 }
 
+
+/* GÓRA STRONY */
+
 header {
-    background: #0057b8;
-    padding: 25px;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(10px);
+    padding: 35px 20px;
     text-align: center;
+    border-bottom: 3px solid #f5c542;
 }
 
 header h1 {
+    font-size: 45px;
     margin: 0;
-    font-size: 40px;
+    color: #f5c542;
 }
 
 header p {
-    font-size: 18px;
+    font-size: 20px;
+    color: #d9e6f2;
 }
 
+
+/* MENU */
+
 nav {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 nav a {
+    display: inline-block;
+    margin: 8px;
+    padding: 12px 25px;
     color: white;
     text-decoration: none;
-    background: #003f87;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 8px;
-    display: inline-block;
+    background: #0b4f8a;
+    border-radius: 30px;
+    transition: 0.3s;
 }
 
 nav a:hover {
-    background: #002b5c;
+    background: #f5c542;
+    color: black;
+    transform: translateY(-3px);
 }
+
+
+/* GŁÓWNA CZĘŚĆ */
 
 main {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
-    padding: 20px;
+    padding: 30px;
 }
+
 
 section {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
+
 
 h2 {
-    color: #00bfff;
+    color: #f5c542;
+    font-size: 30px;
 }
+
+
+/* KARTY */
 
 .box {
-    background: #1b2735;
-    padding: 20px;
-    border-radius: 15px;
-    margin-top: 15px;
-    box-shadow: 0 0 10px #000;
+    background: rgba(255,255,255,0.08);
+    padding: 25px;
+    border-radius: 20px;
+    margin-top: 20px;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: 0.3s;
 }
+
+
+.box:hover {
+    transform: scale(1.02);
+    border-color: #f5c542;
+}
+
 
 .box h3 {
-    color: #ffd700;
+    color: #4fc3f7;
+    font-size: 24px;
 }
+
+
+/* STOPKA */
 
 footer {
-    background: #003f87;
+    margin-top: 50px;
+    padding: 20px;
     text-align: center;
-    padding: 15px;
-    margin-top: 30px;
+    background: rgba(0,0,0,0.5);
+    color: #ccc;
 }
 
 
-@media (max-width: 600px) {
+/* TELEFON */
+
+@media(max-width:700px){
 
     header h1 {
-        font-size: 30px;
+        font-size: 32px;
     }
 
     nav a {
-        display: block;
+        display:block;
     }
 
+    main {
+        padding:15px;
+    }
 }
