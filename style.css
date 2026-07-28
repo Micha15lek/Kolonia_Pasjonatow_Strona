@@ -6,27 +6,42 @@ body {
 }
 
 
+
 /* NAGŁÓWEK */
 
 header {
+
     background: rgba(0,0,0,0.65);
     backdrop-filter: blur(10px);
+
     padding: 40px 20px;
+
     text-align: center;
+
     border-bottom: 3px solid #f5c542;
+
 }
+
 
 
 header h1 {
+
     font-size: 45px;
+
     margin: 0;
+
     color: #f5c542;
+
 }
 
 
+
 header p {
+
     font-size: 20px;
+
     color: #d8e6f3;
+
 }
 
 
@@ -34,17 +49,23 @@ header p {
 /* MENU */
 
 nav {
+
     margin-top: 25px;
+
 }
+
 
 
 nav a {
 
     display: inline-block;
+
     padding: 12px 25px;
+
     margin: 8px;
 
     color: white;
+
     text-decoration: none;
 
     background: #0b4f8a;
@@ -73,7 +94,6 @@ nav a:hover {
 
 /* GŁÓWNA CZĘŚĆ */
 
-
 main {
 
     max-width: 1100px;
@@ -86,12 +106,12 @@ main {
 
 
 
-
 section {
 
     margin-bottom: 45px;
 
 }
+
 
 
 
@@ -109,8 +129,8 @@ h2 {
 
 
 
-/* KAFELKI */
 
+/* KAFELKI */
 
 .box {
 
@@ -129,7 +149,6 @@ h2 {
     transition: 0.3s;
 
 }
-
 
 
 
@@ -157,8 +176,7 @@ h2 {
 
 
 
-/* LINKI JAKO PRZYCISKI */
-
+/* PRZYCISKI */
 
 .box a {
 
@@ -198,18 +216,75 @@ h2 {
 
 
 
-/* INPUTY W TYPOWANIU */
+/* LISTY */
+
+ul {
+
+    line-height: 1.8;
+
+}
 
 
-input {
 
-    padding: 10px;
 
-    border-radius: 10px;
 
-    border: none;
 
-    margin: 5px;
+
+/* TABELKI RANKINGU */
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 20px;
+
+    overflow: hidden;
+
+}
+
+
+
+th {
+
+    background: #0b4f8a;
+
+    color: white;
+
+    padding: 12px;
+
+    text-align: center;
+
+    font-size: 16px;
+
+}
+
+
+
+td {
+
+    padding: 12px;
+
+    text-align: center;
+
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+
+}
+
+
+
+tr:hover {
+
+    background: rgba(245,197,66,0.15);
+
+}
+
+
+
+.box table {
+
+    background: rgba(0,0,0,0.2);
 
 }
 
@@ -218,7 +293,6 @@ input {
 
 
 /* STOPKA */
-
 
 footer {
 
@@ -239,8 +313,9 @@ footer {
 
 
 
-/* TELEFON */
 
+
+/* TELEFON */
 
 @media(max-width:700px){
 
@@ -252,6 +327,7 @@ header h1 {
 }
 
 
+
 nav a {
 
     display:block;
@@ -259,9 +335,30 @@ nav a {
 }
 
 
+
 main {
 
     padding:15px;
+
+}
+
+
+
+table {
+
+    display:block;
+
+    overflow-x:auto;
+
+    white-space:nowrap;
+
+}
+
+
+
+th, td {
+
+    padding:10px;
 
 }
 
