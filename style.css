@@ -1,20 +1,38 @@
+/* ===================================
+   KOLONIA PASJONATÓW
+   GŁÓWNY STYLE.CSS
+   =================================== */
+
+
+* {
+    box-sizing: border-box;
+}
+
+
 body {
+
     margin: 0;
+
     font-family: 'Segoe UI', Arial, sans-serif;
+
     background: linear-gradient(135deg, #050b18, #102a43);
+
     color: white;
+
 }
 
 
 
-/* NAGŁÓWEK */
+/* =====================
+   HEADER
+   ===================== */
+
 
 header {
 
     background: rgba(0,0,0,0.65);
-    backdrop-filter: blur(10px);
 
-    padding: 40px 20px;
+    padding: 35px 20px;
 
     text-align: center;
 
@@ -23,30 +41,33 @@ header {
 }
 
 
-
 header h1 {
-
-    font-size: 45px;
 
     margin: 0;
 
     color: #f5c542;
 
-}
+    font-size: 45px;
 
+}
 
 
 header p {
 
     font-size: 20px;
 
-    color: #d8e6f3;
+    color: #ddd;
 
 }
 
 
 
-/* MENU */
+
+
+/* =====================
+   MENU
+   ===================== */
+
 
 nav {
 
@@ -55,27 +76,25 @@ nav {
 }
 
 
-
 nav a {
 
     display: inline-block;
 
+    margin: 8px;
+
     padding: 12px 25px;
 
-    margin: 8px;
+    background: #0b4f8a;
 
     color: white;
 
     text-decoration: none;
-
-    background: #0b4f8a;
 
     border-radius: 30px;
 
     transition: 0.3s;
 
 }
-
 
 
 nav a:hover {
@@ -92,7 +111,11 @@ nav a:hover {
 
 
 
-/* GŁÓWNA CZĘŚĆ */
+
+/* =====================
+   MAIN
+   ===================== */
+
 
 main {
 
@@ -105,14 +128,11 @@ main {
 }
 
 
-
 section {
 
-    margin-bottom: 45px;
+    margin-bottom: 40px;
 
 }
-
-
 
 
 
@@ -129,8 +149,10 @@ h2 {
 
 
 
+/* =====================
+   BOX
+   ===================== */
 
-/* KAFELKI */
 
 .box {
 
@@ -140,21 +162,18 @@ h2 {
 
     border-radius: 20px;
 
-    margin-top: 20px;
-
     border: 1px solid rgba(255,255,255,0.15);
 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 
-    transition: 0.3s;
+    margin-top: 20px;
 
 }
 
 
 
-.box:hover {
 
-    transform: translateY(-5px);
+.box:hover {
 
     border-color: #f5c542;
 
@@ -164,37 +183,28 @@ h2 {
 
 
 
-.box h3 {
-
-    color: #4fc3f7;
-
-    font-size: 24px;
-
-}
+/* =====================
+   LINKI I PRZYCISKI
+   ===================== */
 
 
+a.button,
+button {
 
-
-
-/* PRZYCISKI */
-
-.box a {
-
-    display: inline-block;
-
-    margin-top: 15px;
-
-    padding: 10px 20px;
 
     background: #f5c542;
 
     color: black;
 
-    text-decoration: none;
+    padding: 12px 30px;
 
-    border-radius: 25px;
+    border-radius: 30px;
+
+    border: none;
 
     font-weight: bold;
+
+    cursor: pointer;
 
     transition: 0.3s;
 
@@ -202,7 +212,8 @@ h2 {
 
 
 
-.box a:hover {
+button:hover,
+a.button:hover {
 
     background: white;
 
@@ -214,23 +225,10 @@ h2 {
 
 
 
+/* =====================
+   RANKING
+   ===================== */
 
-
-/* LISTY */
-
-ul {
-
-    line-height: 1.8;
-
-}
-
-
-
-
-
-
-
-/* TABELKI RANKINGU */
 
 table {
 
@@ -240,23 +238,16 @@ table {
 
     margin-top: 20px;
 
-    overflow: hidden;
-
 }
-
 
 
 th {
 
     background: #0b4f8a;
 
-    color: white;
-
     padding: 12px;
 
     text-align: center;
-
-    font-size: 16px;
 
 }
 
@@ -282,9 +273,24 @@ tr:hover {
 
 
 
-.box table {
 
-    background: rgba(0,0,0,0.2);
+
+
+
+/* =====================
+   TYPOWANIE
+   ===================== */
+
+
+.league-title {
+
+    color: #f5c542;
+
+    font-size: 32px;
+
+    text-align: center;
+
+    margin-top: 40px;
 
 }
 
@@ -292,7 +298,137 @@ tr:hover {
 
 
 
-/* STOPKA */
+.match {
+
+    background: rgba(255,255,255,0.08);
+
+    padding: 25px;
+
+    margin: 20px 0;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    transition: 0.3s;
+
+}
+
+
+
+.match:hover {
+
+    transform: translateY(-5px);
+
+    border-color: #f5c542;
+
+}
+
+
+
+.match h3 {
+
+    color: #4fc3f7;
+
+}
+
+
+
+.match input {
+
+
+    width: 65px;
+
+    height: 50px;
+
+    margin: 10px;
+
+    font-size: 24px;
+
+    text-align: center;
+
+    border-radius: 12px;
+
+    border: none;
+
+}
+
+
+
+
+
+.match input:focus {
+
+    outline: 3px solid #f5c542;
+
+}
+
+
+
+
+
+#username {
+
+    width: 80%;
+
+    max-width: 450px;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    border: none;
+
+    font-size: 18px;
+
+}
+
+
+
+
+
+
+.closed {
+
+    color: #ff5252;
+
+    font-weight: bold;
+
+    margin-top: 15px;
+
+}
+
+
+
+
+
+/* =====================
+   KONTAKT
+   ===================== */
+
+
+.contact-item {
+
+    background: rgba(255,255,255,0.08);
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    margin: 15px 0;
+
+}
+
+
+
+
+
+/* =====================
+   FOOTER
+   ===================== */
+
 
 footer {
 
@@ -314,8 +450,10 @@ footer {
 
 
 
+/* =====================
+   TELEFON
+   ===================== */
 
-/* TELEFON */
 
 @media(max-width:700px){
 
@@ -350,17 +488,34 @@ table {
 
     overflow-x:auto;
 
-    white-space:nowrap;
+}
+
+
+
+.match input {
+
+    width:50px;
+
+    height:40px;
 
 }
 
 
 
-th, td {
+h2 {
 
-    padding:10px;
+    font-size:25px;
 
 }
+
+
+
+button {
+
+    width:100%;
+
+}
+
 
 
 }
