@@ -1,28 +1,33 @@
-// ===============================
+// ===================================
 // KOLONIA PASJONATÓW
 // SYSTEM TYPOWANIA
-// ===============================
+// ===================================
 
 
-// Pobieranie meczów
+// LINK DO GOOGLE APPS SCRIPT
 
-const matches = document.querySelectorAll(".match");
+const SHEET_URL = 
+"https://script.google.com/macros/s/AKfycbyj_8vS9SJ69k_jxsXHGh569mQ9nFWGomAhioyRbbRL7vFHmkv9HaqJHi1XjS6SoHhX/exec";
 
 
 
 
-// Zapisywanie typów
+// ZAPIS TYPOWANIA
 
 function saveTips() {
 
 
-    const username = document.getElementById("username").value.trim();
+    const username =
+    document.getElementById("username").value.trim();
 
 
 
     if(username === "") {
 
-        alert("Wpisz nazwę użytkownika Discord!");
+
+        document.getElementById("message").innerHTML =
+        "❌ Wpisz nazwę użytkownika Discord";
+
 
         return;
 
@@ -30,35 +35,109 @@ function saveTips() {
 
 
 
-    let tips = [];
+
+    const matches =
+    document.querySelectorAll(".match");
+
+
+
+    let counter = 0;
 
 
 
     matches.forEach(match => {
 
 
-        const inputs = match.querySelectorAll("input");
 
-
-        const matchName =
-        match.querySelector("h3").innerText;
+        const title =
+        match.querySelector("h3");
 
 
 
-        tips.push({
-
-            discord: username,
-
-            mecz: matchName,
-
-            wynikGospodarzy: inputs[0].value,
-
-            wynikGosci: inputs[1].value,
-
-            dataZapisu: new Date().toLocaleString("pl-PL")
+        const inputs =
+        match.querySelectorAll("input");
 
 
-        });
+
+        // pomija mecze przełożone
+
+        if(inputs.length !== 2) {
+
+            return;
+
+        }
+
+
+
+
+        const home =
+        inputs[0].value;
+
+
+
+        const away =
+        inputs[1].value;
+
+
+
+
+        if(home !== "" && away !== "") {
+
+
+
+            fetch(SHEET_URL, {
+
+
+                method: "POST",
+
+                mode: "no-cors",
+
+
+                body: JSON.stringify({
+
+
+
+                    date:
+                    new Date().toLocaleString("pl-PL"),
+
+
+
+                    username:
+                    username,
+
+
+
+                    league:
+                    getLeague(match),
+
+
+
+                    match:
+                    title.innerText.replace("⚽ ",""),
+
+
+
+                    home:
+                    home,
+
+
+
+                    away:
+                    away
+
+
+                })
+
+
+            });
+
+
+
+            counter++;
+
+
+        }
+
 
 
     });
@@ -66,17 +145,62 @@ function saveTips() {
 
 
 
-    localStorage.setItem(
-        "typy_kolonia_pasjonatow",
-        JSON.stringify(tips)
-    );
+    if(counter > 0) {
+
+
+        document.getElementById("message").innerHTML =
+
+        "✅ Zapisano " + counter + " typów!";
+
+
+    }
+
+    else {
+
+
+        document.getElementById("message").innerHTML =
+
+        "❌ Nie wpisano żadnego typu";
+
+
+    }
+
+
+}
 
 
 
-    alert(
-        "✅ Typy zapisane dla użytkownika Discord: "
-        + username
-    );
+
+
+// ROZPOZNAWANIE LIGI
+
+function getLeague(element) {
+
+
+    let section =
+    element.closest("section");
+
+
+
+    let title =
+    section.querySelector(".league-title");
+
+
+
+    if(!title) {
+
+
+        return "Nieznana";
+
+
+    }
+
+
+
+    return title.innerText
+    .replace("🏆 ","")
+    .replace("🥇 ","")
+    .replace("🥈 ","");
 
 
 }
@@ -86,34 +210,44 @@ function saveTips() {
 
 
 
+// BLOKOWANIE TYPOWANIA PO ROZPOCZĘCIU MECZU
+
+
+function checkMatches() {
+
+
+    const matches =
+    document.querySelectorAll(".match");
 
 
 
-// Automatyczne zamykanie typowania
-
-
-matches.forEach(match => {
-
-
-    const startDate = match.dataset.date;
-
-
-    if(!startDate) return;
+    const now =
+    new Date();
 
 
 
-    const matchTime = new Date(startDate);
+
+    matches.forEach(match => {
 
 
 
-    function checkMatch() {
-
-
-        const now = new Date();
+        const date =
+        match.dataset.date;
 
 
 
-        if(now >= matchTime) {
+        if(!date) return;
+
+
+
+
+        const matchDate =
+        new Date(date);
+
+
+
+
+        if(now >= matchDate) {
 
 
 
@@ -124,26 +258,27 @@ matches.forEach(match => {
 
             inputs.forEach(input => {
 
+
                 input.disabled = true;
+
 
             });
 
 
 
+            let info =
+            document.createElement("p");
+
+
+
+            info.className = "closed";
+
+            info.innerHTML =
+            "🔒 Typowanie zamknięte";
+
+
 
             if(!match.querySelector(".closed")) {
-
-
-                const info =
-                document.createElement("p");
-
-
-                info.className = "closed";
-
-
-                info.innerHTML =
-                "🔒 Typowanie zamknięte - mecz już się rozpoczął";
-
 
 
                 match.appendChild(info);
@@ -152,24 +287,25 @@ matches.forEach(match => {
             }
 
 
+
         }
 
 
-    }
+
+    });
 
 
 
-
-    // sprawdzenie po wejściu
-
-    checkMatch();
+}
 
 
 
-    // sprawdzanie co 30 sekund
+// sprawdzanie przy wejściu
 
-    setInterval(checkMatch,30000);
+checkMatches();
 
 
 
-});
+// sprawdzanie co minutę
+
+setInterval(checkMatches,60000);
