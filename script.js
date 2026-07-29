@@ -361,7 +361,7 @@ async function saveTips(){
 
 
 // ===================================
-// START
+// START STRONY
 // ===================================
 
 
@@ -370,9 +370,133 @@ document.addEventListener(
 ()=>{
 
 
-    document.getElementById("matches").innerHTML =
+    const matches =
+    document.getElementById("matches");
 
-    "<h2>Wybierz kolejkę i ligę</h2>";
+
+    if(matches){
+
+
+        matches.innerHTML =
+
+        "<h2>Wybierz kolejkę i ligę</h2>";
+
+
+    }
+
+
+
+
+
+    // TRYB JASNY / CIEMNY
+
+
+    const themeButton =
+    document.getElementById("themeButton");
+
+
+
+    const savedTheme =
+    localStorage.getItem("theme");
+
+
+
+    if(savedTheme === "light"){
+
+
+        document.body.classList.add("light");
+
+
+    }
+
+
+
+    if(themeButton){
+
+
+        updateThemeButton(themeButton);
+
+
+
+        themeButton.addEventListener(
+        "click",
+        ()=>{
+
+
+            document.body.classList.toggle("light");
+
+
+
+            if(document.body.classList.contains("light")){
+
+
+                localStorage.setItem(
+                    "theme",
+                    "light"
+                );
+
+
+            }
+
+            else{
+
+
+                localStorage.setItem(
+                    "theme",
+                    "dark"
+                );
+
+
+            }
+
+
+
+            updateThemeButton(themeButton);
+
+
+
+        });
+
+
+    }
+
 
 
 });
+
+
+
+
+
+
+
+// ===================================
+// ZMIANA NAPISU PRZYCISKU MOTYWU
+// ===================================
+
+
+function updateThemeButton(button){
+
+
+
+    if(document.body.classList.contains("light")){
+
+
+        button.innerHTML =
+        "🌙 Tryb ciemny";
+
+
+    }
+
+    else{
+
+
+        button.innerHTML =
+        "☀️ Tryb jasny";
+
+
+    }
+
+
+
+}
