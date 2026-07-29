@@ -1,562 +1,87 @@
-/* ===================================
-   KOLONIA PASJONATÓW
-   GŁÓWNY STYLE.CSS
-=================================== */
-
-
-/* RESET */
-
 * {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
-
-
 
 body {
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    background:#0b1120;
-
-    color:white;
-
-    min-height:100vh;
-
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #101820;
+    color: white;
 }
 
-
-
-/* ===================================
-   MENU
-=================================== */
-
-
-.menu {
-
-    background:#111827;
-
-    padding:15px;
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:15px;
-
-    flex-wrap:wrap;
-
-    border-bottom:2px solid #facc15;
-
+header {
+    background: #182b3a;
+    padding: 30px;
+    text-align: center;
+    border-bottom: 3px solid #0078ff;
 }
 
-
-
-.menu a {
-
-    text-decoration:none;
-
-    color:white;
-
-    background:#1f2937;
-
-    padding:12px 22px;
-
-    border-radius:12px;
-
-    font-weight:bold;
-
-    transition:.3s;
-
+header h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
 }
 
-
-
-.menu a:hover {
-
-    background:#facc15;
-
-    color:#111827;
-
-    transform:translateY(-2px);
-
+header p {
+    font-size: 18px;
 }
 
-
-
-
-
-/* ===================================
-   GŁÓWNY KONTENER
-=================================== */
-
-
-.container {
-
-    max-width:1100px;
-
-    margin:40px auto;
-
-    padding:20px;
-
+nav {
+    margin-top: 25px;
 }
 
-
-
-h1 {
-
-    text-align:center;
-
-    font-size:42px;
-
-    margin-bottom:15px;
-
-    color:#facc15;
-
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+    padding: 10px 18px;
+    background: #0078ff;
+    border-radius: 8px;
+    display: inline-block;
 }
 
+nav a:hover {
+    background: #005ec4;
+}
 
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px;
+}
+
+section {
+    margin-bottom: 30px;
+}
 
 h2 {
-
-    margin-bottom:15px;
-
+    color: #00aaff;
 }
 
-
-
-
-
-p {
-
-    line-height:1.5;
-
+.box {
+    background: #22384a;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+    line-height: 1.8;
 }
 
-
-
-
-
-
-
-/* ===================================
-   KARTY
-=================================== */
-
-
-.card {
-
-    background:#111827;
-
-    padding:25px;
-
-    border-radius:20px;
-
-    margin:20px 0;
-
-    border:1px solid #374151;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.3);
-
+.button {
+    display: inline-block;
+    background: #00aaff;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
-
-
-
-
-/* ===================================
-   STRONA GŁÓWNA
-=================================== */
-
-
-.hero {
-
-    text-align:center;
-
-    background:#111827;
-
-    padding:50px 20px;
-
-    border-radius:25px;
-
+.button:hover {
+    background: #0088cc;
 }
-
-
-
-.hero h1 {
-
-    font-size:50px;
-
-}
-
-
-
-.buttons {
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:20px;
-
-    flex-wrap:wrap;
-
-    margin-top:30px;
-
-}
-
-
-
-.buttons a {
-
-
-    background:#facc15;
-
-    color:#111827;
-
-    padding:15px 30px;
-
-    border-radius:15px;
-
-    text-decoration:none;
-
-    font-weight:bold;
-
-
-}
-
-
-
-
-
-
-/* ===================================
-   TYPOWANIE
-=================================== */
-
-
-.user-panel {
-
-    background:#111827;
-
-    padding:25px;
-
-    border-radius:20px;
-
-    margin-bottom:25px;
-
-}
-
-
-
-input,
-select {
-
-
-    width:100%;
-
-    padding:14px;
-
-    margin:10px 0 20px;
-
-
-    background:#1f2937;
-
-    color:white;
-
-
-    border:1px solid #4b5563;
-
-    border-radius:12px;
-
-
-    font-size:16px;
-
-}
-
-
-
-
-
-#matches h2 {
-
-
-    background:#facc15;
-
-    color:#111827;
-
-    padding:15px;
-
-    border-radius:15px;
-
-    text-align:center;
-
-
-}
-
-
-
-
-
-.match {
-
-
-    background:#111827;
-
-    padding:20px;
-
-    margin:15px 0;
-
-    border-radius:18px;
-
-    border-left:5px solid #facc15;
-
-
-}
-
-
-
-.match h3 {
-
-    margin-bottom:10px;
-
-}
-
-
-
-.match p {
-
-    color:#9ca3af;
-
-}
-
-
-
-.match input {
-
-
-    width:70px;
-
-    display:inline-block;
-
-    text-align:center;
-
-    font-size:22px;
-
-}
-
-
-
-
-
-
-
-button {
-
-
-    width:100%;
-
-    padding:16px;
-
-
-    background:#22c55e;
-
-
-    color:white;
-
-
-    border:none;
-
-
-    border-radius:15px;
-
-
-    font-size:18px;
-
-
-    font-weight:bold;
-
-
-    cursor:pointer;
-
-
-}
-
-
-
-button:hover {
-
-
-    background:#16a34a;
-
-
-}
-
-
-
-
-
-
-
-/* ===================================
-   RANKING
-=================================== */
-
-
-table {
-
-
-    width:100%;
-
-    background:#111827;
-
-    border-collapse:collapse;
-
-    border-radius:15px;
-
-    overflow:hidden;
-
-
-}
-
-
-
-th {
-
-
-    background:#facc15;
-
-    color:#111827;
-
-    padding:15px;
-
-
-}
-
-
-
-td {
-
-
-    padding:15px;
-
-    text-align:center;
-
-    border-bottom:1px solid #374151;
-
-
-}
-
-
-
-
-
-
-
-/* ===================================
-   ADMIN
-=================================== */
-
-
-.admin-box {
-
-
-    background:#111827;
-
-    padding:30px;
-
-    border-radius:20px;
-
-    border:2px solid #facc15;
-
-
-}
-
-
-
-.admin-title {
-
-
-    color:#facc15;
-
-    text-align:center;
-
-}
-
-
-
-
-
-
-
-/* ===================================
-   STOPKA
-=================================== */
-
 
 footer {
-
-
-    margin-top:50px;
-
-    padding:20px;
-
-    text-align:center;
-
-    background:#111827;
-
-    color:#9ca3af;
-
-
-}
-
-
-
-
-
-
-/* ===================================
-   TELEFON
-=================================== */
-
-
-@media(max-width:700px){
-
-
-    .container {
-
-        margin:15px auto;
-
-        padding:15px;
-
-    }
-
-
-
-    h1 {
-
-        font-size:32px;
-
-    }
-
-
-
-    .menu a {
-
-        width:100%;
-
-        text-align:center;
-
-    }
-
-
-
-    .match input {
-
-        width:55px;
-
-    }
-
-
+    text-align: center;
+    padding: 20px;
+    background: #182b3a;
+    margin-top: 30px;
 }
