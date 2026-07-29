@@ -17,7 +17,14 @@
 <body>
 
 
-<nav class="menu">
+<header>
+
+<h1>🔐 Panel Admina</h1>
+
+<p>Kolonia Pasjonatów - zarządzanie typami</p>
+
+
+<nav>
 
 <a href="index.html">🏠 Start</a>
 
@@ -25,40 +32,265 @@
 
 <a href="ranking.html">📊 Ranking</a>
 
-<a href="mojetypy.html">📋 Moje typy</a>
-
 <a href="admin.html">🔐 Admin</a>
 
 </nav>
 
 
-
-<div class="container">
-
-
-<h1>🔐 Panel Admina</h1>
+</header>
 
 
-<div class="user-panel">
 
 
-<h2>Witaj właścicielu 👋</h2>
+
+<main>
+
+
+
+
+
+<section class="admin-box">
+
+
+<h2>📅 Filtr kolejki</h2>
+
+
+<select id="roundFilter" onchange="filterUsers()">
+
+
+<option value="all">
+Wszystkie kolejki
+</option>
+
+
+<option value="Kolejka 2">
+Kolejka 2
+</option>
+
+
+<option value="Kolejka 3">
+Kolejka 3
+</option>
+
+
+<option value="Kolejka 4">
+Kolejka 4
+</option>
+
+
+<option value="Kolejka 5">
+Kolejka 5
+</option>
+
+
+</select>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="admin-box">
+
+
+<h2>👥 Użytkownicy</h2>
+
+
+<div id="users">
+
+
+<!-- tutaj będą użytkownicy -->
+
+
+<div class="card" onclick="showUser('Michał')">
+
+
+<h3>
+👤 Michał
+</h3>
 
 
 <p>
-Tutaj będą wyświetlały się wszystkie oddane typy.
+📅 Kolejka 2
 </p>
 
 
 <p>
-Panel w trakcie tworzenia 🚧
+⚽ Typów: 9
 </p>
 
 
 </div>
 
 
+
+
+
+<div class="card" onclick="showUser('Kuba')">
+
+
+<h3>
+👤 Kuba
+</h3>
+
+
+<p>
+📅 Kolejka 2
+</p>
+
+
+<p>
+⚽ Typów: 9
+</p>
+
+
 </div>
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="admin-box">
+
+
+<h2>📋 Typy użytkownika</h2>
+
+
+
+<div id="userTips">
+
+
+<p>
+Kliknij użytkownika, aby zobaczyć typy.
+</p>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+</main>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+function showUser(user){
+
+
+let box =
+document.getElementById("userTips");
+
+
+
+box.innerHTML = `
+
+<h2>👤 ${user}</h2>
+
+
+<h3>🏆 Ekstraklasa</h3>
+
+
+<div class="box">
+
+⚽ Drużyna A - Drużyna B
+
+<br>
+
+Typ: 2 - 1
+
+</div>
+
+
+
+<h3>🥇 1 Liga</h3>
+
+
+<div class="box">
+
+⚽ Drużyna C - Drużyna D
+
+<br>
+
+Typ: 1 - 0
+
+</div>
+
+
+
+
+<h3>🥈 2 Liga</h3>
+
+
+<div class="box">
+
+⚽ Drużyna E - Drużyna F
+
+<br>
+
+Typ: 0 - 2
+
+</div>
+
+
+`;
+
+
+}
+
+
+
+
+
+function filterUsers(){
+
+
+console.log(
+"Filtr zmieniony"
+);
+
+
+}
+
+
+
+</script>
+
+
+
 
 
 
