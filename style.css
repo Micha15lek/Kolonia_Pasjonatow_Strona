@@ -7,26 +7,29 @@
 /* RESET */
 
 * {
+    margin:0;
+    padding:0;
     box-sizing:border-box;
 }
 
 
+
 body {
 
-    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
 
-    font-family:Arial, Helvetica, sans-serif;
-
-    background:#0b1220;
+    background:#0b1120;
 
     color:white;
+
+    min-height:100vh;
 
 }
 
 
 
 /* ===================================
-   MENU - WSZYSTKIE STRONY
+   MENU
 =================================== */
 
 
@@ -44,6 +47,8 @@ body {
 
     flex-wrap:wrap;
 
+    border-bottom:2px solid #facc15;
+
 }
 
 
@@ -56,7 +61,7 @@ body {
 
     background:#1f2937;
 
-    padding:12px 20px;
+    padding:12px 22px;
 
     border-radius:12px;
 
@@ -74,8 +79,9 @@ body {
 
     color:#111827;
 
-}
+    transform:translateY(-2px);
 
+}
 
 
 
@@ -88,9 +94,9 @@ body {
 
 .container {
 
-    max-width:1000px;
+    max-width:1100px;
 
-    margin:30px auto;
+    margin:40px auto;
 
     padding:20px;
 
@@ -102,7 +108,11 @@ h1 {
 
     text-align:center;
 
-    font-size:38px;
+    font-size:42px;
+
+    margin-bottom:15px;
+
+    color:#facc15;
 
 }
 
@@ -110,10 +120,46 @@ h1 {
 
 h2 {
 
-    margin-top:20px;
+    margin-bottom:15px;
 
 }
 
+
+
+
+
+p {
+
+    line-height:1.5;
+
+}
+
+
+
+
+
+
+
+/* ===================================
+   KARTY
+=================================== */
+
+
+.card {
+
+    background:#111827;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    margin:20px 0;
+
+    border:1px solid #374151;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+
+}
 
 
 
@@ -126,14 +172,13 @@ h2 {
 
 .hero {
 
+    text-align:center;
 
     background:#111827;
 
-    padding:40px;
+    padding:50px 20px;
 
-    border-radius:20px;
-
-    text-align:center;
+    border-radius:25px;
 
 }
 
@@ -141,20 +186,21 @@ h2 {
 
 .hero h1 {
 
-    color:#facc15;
+    font-size:50px;
 
 }
 
 
 
-.cards {
+.buttons {
 
+    display:flex;
 
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    justify-content:center;
 
     gap:20px;
+
+    flex-wrap:wrap;
 
     margin-top:30px;
 
@@ -162,39 +208,18 @@ h2 {
 
 
 
-.card {
+.buttons a {
 
-
-    background:#111827;
-
-    padding:25px;
-
-    border-radius:18px;
-
-    text-align:center;
-
-    border:1px solid #374151;
-
-}
-
-
-
-.card a {
-
-
-    display:inline-block;
-
-    margin-top:15px;
-
-    padding:10px 20px;
 
     background:#facc15;
 
     color:#111827;
 
-    text-decoration:none;
+    padding:15px 30px;
 
-    border-radius:10px;
+    border-radius:15px;
+
+    text-decoration:none;
 
     font-weight:bold;
 
@@ -213,7 +238,6 @@ h2 {
 
 .user-panel {
 
-
     background:#111827;
 
     padding:25px;
@@ -221,17 +245,6 @@ h2 {
     border-radius:20px;
 
     margin-bottom:25px;
-
-
-}
-
-
-
-.user-panel h2 {
-
-
-    color:#facc15;
-
 
 }
 
@@ -243,9 +256,9 @@ select {
 
     width:100%;
 
-    padding:13px;
+    padding:14px;
 
-    margin:8px 0 15px;
+    margin:10px 0 20px;
 
 
     background:#1f2937;
@@ -253,15 +266,16 @@ select {
     color:white;
 
 
-    border:1px solid #374151;
+    border:1px solid #4b5563;
 
-    border-radius:10px;
+    border-radius:12px;
 
 
     font-size:16px;
 
-
 }
+
+
 
 
 
@@ -280,6 +294,8 @@ select {
 
 
 }
+
+
 
 
 
@@ -303,7 +319,7 @@ select {
 
 .match h3 {
 
-    margin:0;
+    margin-bottom:10px;
 
 }
 
@@ -333,27 +349,31 @@ select {
 
 
 
+
+
+
 button {
 
 
     width:100%;
 
-    padding:15px;
-
-    margin-top:20px;
+    padding:16px;
 
 
     background:#22c55e;
+
 
     color:white;
 
 
     border:none;
 
-    border-radius:12px;
+
+    border-radius:15px;
 
 
     font-size:18px;
+
 
     font-weight:bold;
 
@@ -377,19 +397,6 @@ button:hover {
 
 
 
-#message {
-
-
-    text-align:center;
-
-    margin-top:20px;
-
-}
-
-
-
-
-
 
 
 /* ===================================
@@ -397,14 +404,14 @@ button:hover {
 =================================== */
 
 
-.ranking-table {
+table {
 
 
     width:100%;
 
-    border-collapse:collapse;
-
     background:#111827;
+
+    border-collapse:collapse;
 
     border-radius:15px;
 
@@ -415,7 +422,7 @@ button:hover {
 
 
 
-.ranking-table th {
+th {
 
 
     background:#facc15;
@@ -429,17 +436,18 @@ button:hover {
 
 
 
-.ranking-table td {
+td {
 
 
-    padding:12px;
-
-    border-bottom:1px solid #374151;
+    padding:15px;
 
     text-align:center;
 
+    border-bottom:1px solid #374151;
+
 
 }
+
 
 
 
@@ -447,31 +455,32 @@ button:hover {
 
 
 /* ===================================
-   MOJE TYPY
+   ADMIN
 =================================== */
 
 
-.tip-box {
+.admin-box {
 
 
     background:#111827;
 
-    padding:20px;
+    padding:30px;
 
-    margin:15px 0;
+    border-radius:20px;
 
-    border-radius:15px;
+    border:2px solid #facc15;
 
 
 }
 
 
 
-.tip-box span {
+.admin-title {
 
 
     color:#facc15;
 
+    text-align:center;
 
 }
 
@@ -489,7 +498,7 @@ button:hover {
 footer {
 
 
-    margin-top:40px;
+    margin-top:50px;
 
     padding:20px;
 
@@ -497,11 +506,10 @@ footer {
 
     background:#111827;
 
-    color:#aaa;
+    color:#9ca3af;
 
 
 }
-
 
 
 
@@ -513,14 +521,14 @@ footer {
 =================================== */
 
 
-@media(max-width:600px){
+@media(max-width:700px){
 
 
     .container {
 
-        margin:10px;
+        margin:15px auto;
 
-        padding:10px;
+        padding:15px;
 
     }
 
@@ -528,7 +536,7 @@ footer {
 
     h1 {
 
-        font-size:28px;
+        font-size:32px;
 
     }
 
