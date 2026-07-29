@@ -4,9 +4,14 @@
 <head>
 
 <meta charset="UTF-8">
-<title>Typowanie - Kolonia Pasjonatów</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Typowanie meczów - Kolonia Pasjonatów</title>
+
 
 <link rel="stylesheet" href="style.css">
+
 
 </head>
 
@@ -19,8 +24,13 @@
 
 <h1>⚽ Typowanie meczów</h1>
 
+<p>
+🏆 Kolonia Pasjonatów
+</p>
 
-<div class="user-box">
+
+
+<div class="user-panel">
 
 
 <h2>👤 Użytkownik</h2>
@@ -31,14 +41,44 @@ id="username"
 placeholder="Wpisz nazwę Discord">
 
 
-<h2>🏆 Wybierz ligę</h2>
+
+<h2>📅 Kolejka</h2>
 
 
-<select id="leagueSelect" onchange="changeLeague()">
+<select id="roundSelect" onchange="loadMatches()">
+
+
+
+<option value="">
+-- wybierz kolejkę --
+</option>
+
+
+
+<option value="Kolejka 2">
+Kolejka 2
+</option>
+
+
+
+</select>
+
+
+
+
+
+
+<h2>⚽ Liga</h2>
+
+
+<select id="leagueSelect" onchange="loadMatches()">
+
+
 
 <option value="">
 -- wybierz ligę --
 </option>
+
 
 
 <option value="Ekstraklasa">
@@ -46,9 +86,11 @@ placeholder="Wpisz nazwę Discord">
 </option>
 
 
+
 <option value="1 Liga">
 🥇 1 Liga
 </option>
+
 
 
 <option value="2 Liga">
@@ -56,44 +98,10 @@ placeholder="Wpisz nazwę Discord">
 </option>
 
 
+
 </select>
 
 
-</div>
-
-
-
-
-
-<section 
-class="league-section"
-data-league="Ekstraklasa">
-
-
-<h2>🏆 EKSTRAKLASA</h2>
-
-
-
-<div class="match" data-date="2026-07-31T18:00">
-
-<h3>⚽ Wisła Płock - Widzew Łódź</h3>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-
-<div class="match" data-date="2026-07-31T20:30">
-
-<h3>⚽ Motor Lublin - Jagiellonia</h3>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
 
 </div>
 
@@ -101,126 +109,17 @@ data-league="Ekstraklasa">
 
 
 
-<div class="match" data-date="2026-08-01T14:45">
 
-<h3>⚽ Piast Gliwice - Wisła Kraków</h3>
+<div id="matches">
 
-<input type="number" min="0">
-:
-<input type="number" min="0">
+
+<h2>
+Wybierz kolejkę i ligę
+</h2>
+
 
 </div>
 
-
-</section>
-
-
-
-
-
-
-
-
-
-<section 
-class="league-section"
-data-league="1 Liga">
-
-
-<h2>🥇 1 LIGA</h2>
-
-
-<div class="match" data-date="2026-07-31T18:00">
-
-<h3>⚽ ŁKS Łódź - Polonia Bytom</h3>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-<div class="match" data-date="2026-07-31T20:30">
-
-<h3>⚽ Lechia Gdańsk - Warta Poznań</h3>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-<div class="match" data-date="2026-08-01T15:30">
-
-<h3>⚽ Pogoń Siedlce - Bruk-Bet Termalica</h3>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<section 
-class="league-section"
-data-league="2 Liga">
-
-
-<h2>🥈 2 LIGA</h2>
-
-
-<div class="match" data-date="2026-07-31T20:30">
-
-<h3>⚽ Stal Stalowa Wola - GKS Tychy</h3>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-<div class="match" data-date="2026-08-01T17:00">
-
-<h3>⚽ Sokół Kleczew - Podhale Nowy Targ</h3>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-
-<div class="match" data-date="2026-08-01T17:00">
-
-<h3>⚽ Hutnik Kraków - Świt Skolwin</h3>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-</section>
 
 
 
@@ -233,6 +132,8 @@ data-league="2 Liga">
 </button>
 
 
+
+
 <p id="message"></p>
 
 
@@ -240,9 +141,17 @@ data-league="2 Liga">
 </div>
 
 
+
+
+
+
+<script src="mecze.js"></script>
+
 <script src="script.js"></script>
 
 
+
 </body>
+
 
 </html>
