@@ -17,9 +17,59 @@ const CURRENT_ROUND = 2;
 
 
 
+// ZMIANA LIGI
+
+function changeLeague(){
+
+
+    const league =
+    document.getElementById("leagueSelect").value;
+
+
+
+    const sections =
+    document.querySelectorAll(".league-section");
+
+
+
+    sections.forEach(section => {
+
+
+
+        if(section.dataset.league === league){
+
+
+            section.style.display = "block";
+
+
+        }
+
+        else{
+
+
+            section.style.display = "none";
+
+
+        }
+
+
+    });
+
+
+
+}
+
+
+
+
+
+
+
 // ZAPIS TYPOWANIA
 
-async function saveTips() {
+
+async function saveTips(){
+
 
 
     const username =
@@ -27,19 +77,53 @@ async function saveTips() {
 
 
 
-    if(username === "") {
+    const league =
+    document.getElementById("leagueSelect").value;
+
+
+
+    if(username === ""){
+
 
         document.getElementById("message").innerHTML =
+
         "❌ Wpisz nazwę użytkownika Discord";
 
+
         return;
+
 
     }
 
 
 
+    if(league === ""){
+
+
+        document.getElementById("message").innerHTML =
+
+        "❌ Wybierz ligę";
+
+
+        return;
+
+
+    }
+
+
+
+
+
+
+    const section =
+    document.querySelector(
+    `.league-section[data-league="${league}"]`
+    );
+
+
+
     const matches =
-    document.querySelectorAll(".match");
+    section.querySelectorAll(".match");
 
 
 
@@ -47,11 +131,10 @@ async function saveTips() {
 
 
 
-    for (const match of matches) {
 
 
-        const title =
-        match.querySelector("h3");
+    for(const match of matches){
+
 
 
         const inputs =
@@ -59,11 +142,8 @@ async function saveTips() {
 
 
 
-        if(inputs.length !== 2) {
-
-            continue;
-
-        }
+        const title =
+        match.querySelector("h3");
 
 
 
@@ -77,105 +157,160 @@ async function saveTips() {
 
 
 
-        if(home !== "" && away !== "") {
 
 
-
-            const response = await fetch(SHEET_URL, {
-
-                method: "POST",
-
-                headers: {
-
-                    "Content-Type": "application/json"
-
-                },
+        if(home === "" || away === ""){
 
 
-                body: JSON.stringify({
-
-                    date:
-                    new Date().toLocaleString("pl-PL"),
-
-
-                    username:
-                    username,
-
-
-                    league:
-                    getLeague(match),
-
-
-                    match:
-                    title.innerText.replace("⚽ ",""),
-
-
-                    home:
-                    home,
-
-
-                    away:
-                    away,
-
-
-                    round:
-                    CURRENT_ROUND
-
-
-                })
-
-            });
-
-
-
-            const result =
-            await response.text();
-
-
-
-            if(result === "ALREADY") {
-
-
-                document.getElementById("message").innerHTML =
-
-                "❌ Masz już oddane typy na tę kolejkę!";
-
-
-                return;
-
-
-            }
-
-
-
-            counter++;
+            continue;
 
 
         }
 
+
+
+
+
+
+
+        const response =
+        await fetch(SHEET_URL,{
+
+
+
+            method:"POST",
+
+
+
+            headers:{
+
+
+                "Content-Type":"application/json"
+
+
+            },
+
+
+
+            body:JSON.stringify({
+
+
+
+                date:
+                new Date().toLocaleString("pl-PL"),
+
+
+
+                username:
+                username,
+
+
+
+                league:
+                league,
+
+
+
+                match:
+                title.innerText.replace("⚽ ",""),
+
+
+
+                home:
+                home,
+
+
+
+                away:
+                away,
+
+
+
+                round:
+                CURRENT_ROUND
+
+
+
+            })
+
+
+
+        });
+
+
+
+
+
+
+        const result =
+        await response.text();
+
+
+
+
+
+        if(result === "ALREADY"){
+
+
+
+            document.getElementById("message").innerHTML =
+
+
+            "❌ Typy na tę kolejkę zostały już przez Ciebie oddane!";
+
+
+
+            return;
+
+
+
+        }
+
+
+
+
+
+        counter++;
+
+
+
+
     }
 
 
 
-    if(counter > 0) {
+
+
+
+
+    if(counter > 0){
+
 
 
         document.getElementById("message").innerHTML =
+
 
         "✅ Zapisano " + counter + " typów!";
 
 
+
     }
 
-    else {
+
+    else{
+
 
 
         document.getElementById("message").innerHTML =
 
+
         "❌ Nie wpisano żadnego typu";
 
 
+
     }
+
+
 
 
 }
@@ -186,47 +321,13 @@ async function saveTips() {
 
 
 
-// POBIERANIE LIGI
 
-function getLeague(element) {
-
-
-    const section =
-    element.closest("section");
+// BLOKADA PO ROZPOCZĘCIU MECZU
 
 
 
-    const title =
-    section.querySelector(".league-title");
+function checkMatches(){
 
-
-
-    if(!title) {
-
-        return "Nieznana";
-
-    }
-
-
-
-    return title.innerText
-    .replace("🏆 ","")
-    .replace("🥇 ","")
-    .replace("🥈 ","");
-
-
-}
-
-
-
-
-
-
-
-// BLOKOWANIE TYPOWANIA PO STARCIU MECZU
-
-
-function checkMatches() {
 
 
     const matches =
@@ -239,7 +340,9 @@ function checkMatches() {
 
 
 
-    matches.forEach(match => {
+
+    matches.forEach(match=>{
+
 
 
         const date =
@@ -251,12 +354,16 @@ function checkMatches() {
 
 
 
+
         const matchDate =
         new Date(date);
 
 
 
-        if(now >= matchDate) {
+
+
+        if(now >= matchDate){
+
 
 
             const inputs =
@@ -264,7 +371,7 @@ function checkMatches() {
 
 
 
-            inputs.forEach(input => {
+            inputs.forEach(input=>{
 
 
                 input.disabled = true;
@@ -274,31 +381,39 @@ function checkMatches() {
 
 
 
-            if(!match.querySelector(".closed")) {
 
 
-                const info =
+            if(!match.querySelector(".closed")){
+
+
+
+                const p =
                 document.createElement("p");
 
 
-                info.className =
-                "closed";
+
+                p.className="closed";
 
 
-                info.innerHTML =
+                p.innerHTML =
                 "🔒 Typowanie zamknięte";
 
 
-                match.appendChild(info);
+
+                match.appendChild(p);
+
 
 
             }
 
 
+
         }
 
 
+
     });
+
 
 
 }
@@ -306,11 +421,17 @@ function checkMatches() {
 
 
 
+
+
+
 // START
+
 
 checkMatches();
 
 
-// Sprawdzanie co minutę
+
+// sprawdzanie co minutę
+
 
 setInterval(checkMatches,60000);
