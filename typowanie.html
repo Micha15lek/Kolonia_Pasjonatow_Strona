@@ -17,62 +17,127 @@
 <body>
 
 
-<nav class="menu">
+<header>
 
-<a href="index.html">🏠 Start</a>
 
-<a href="typowanie.html">⚽ Typowanie</a>
+<h1>🌟 Kolonia Pasjonatów</h1>
 
-<a href="ranking.html">📊 Ranking</a>
 
-<a href="admin.html">🔐 Admin</a>
+<p>
+⚽ System typowania meczów
+</p>
+
+
+
+<nav>
+
+
+<a href="index.html">
+🏠 Start
+</a>
+
+
+<a href="typowanie.html">
+⚽ Typowanie
+</a>
+
+
+<a href="ranking.html">
+📊 Ranking
+</a>
+
+
+<a href="kontakt.html">
+📩 Kontakt
+</a>
+
+
+
+<button id="themeButton">
+☀️ Tryb jasny
+</button>
+
 
 </nav>
 
 
+</header>
 
 
 
-<div class="container">
 
 
-<h1>⚽ Typowanie</h1>
 
-<p>
-Kolonia Pasjonatów
+<main>
+
+
+
+<section class="typing-container">
+
+
+
+<h2>
+⚽ Typowanie
+</h2>
+
+
+
+<p class="typing-description">
+
+Wybierz kolejkę oraz ligę, następnie wpisz swoje przewidywane wyniki.
+
 </p>
 
 
 
 
 
-<div class="user-panel">
+<div class="typing-form">
 
 
-<h2>👤 Nazwa użytkownika Discord</h2>
+
+<label>
+👤 Nazwa użytkownika Discord
+</label>
 
 
 <input 
 id="username"
+type="text"
 placeholder="Wpisz nazwę użytkownika">
 
 
 
 
 
-<h2>📅 Kolejka</h2>
+
+<label>
+📅 Kolejka
+</label>
 
 
-<select id="roundSelect" onchange="loadMatches()">
+<select 
+id="roundSelect"
+onchange="loadMatches()">
 
 
 <option value="">
--- wybierz kolejkę --
+Wybierz kolejkę
+</option>
+
+
+<option value="Kolejka 1">
+Kolejka 1
 </option>
 
 
 <option value="Kolejka 2">
 Kolejka 2
+</option>
+
+
+<option value="Kolejka 3">
+Kolejka 3
 </option>
 
 
@@ -84,17 +149,20 @@ Kolejka 2
 
 
 
-<h2>🏆 Liga</h2>
+<label>
+🏆 Liga
+</label>
 
 
-<select id="leagueSelect" onchange="loadMatches()">
+<select 
+id="leagueSelect"
+onchange="loadMatches()">
 
 
 
 <option value="">
--- wybierz ligę --
+Wybierz ligę
 </option>
-
 
 
 <option value="Ekstraklasa">
@@ -102,11 +170,9 @@ Kolejka 2
 </option>
 
 
-
 <option value="1 Liga">
 🥇 1 Liga
 </option>
-
 
 
 <option value="2 Liga">
@@ -118,6 +184,7 @@ Kolejka 2
 </select>
 
 
+
 </div>
 
 
@@ -125,9 +192,7 @@ Kolejka 2
 
 
 
-
-
-<div id="matches">
+<section id="matches">
 
 
 <h2>
@@ -135,7 +200,7 @@ Wybierz kolejkę i ligę
 </h2>
 
 
-</div>
+</section>
 
 
 
@@ -143,7 +208,9 @@ Wybierz kolejkę i ligę
 
 
 
-<button onclick="saveTips()">
+<button 
+class="save-button"
+onclick="saveTips()">
 
 💾 Zapisz typy
 
@@ -159,9 +226,22 @@ Wybierz kolejkę i ligę
 
 
 
+</section>
 
-</div>
 
+
+</main>
+
+
+
+
+
+
+<footer>
+
+© 2026 Kolonia Pasjonatów
+
+</footer>
 
 
 
