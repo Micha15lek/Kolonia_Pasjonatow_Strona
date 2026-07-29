@@ -17,8 +17,6 @@
 <body>
 
 
-<!-- MENU STRONY -->
-
 <nav class="menu">
 
 <a href="index.html">🏠 Start</a>
@@ -38,32 +36,35 @@
 <div class="container">
 
 
-<h1>⚽ Typowanie meczów</h1>
+<h1>⚽ Typowanie</h1>
 
-<p>Kolonia Pasjonatów</p>
+<p>
+Kolonia Pasjonatów
+</p>
 
 
 
 
-
-<!-- DANE UŻYTKOWNIKA -->
 
 <div class="user-panel">
 
 
-<h2>👤 Użytkownik Discord</h2>
+<h2>👤 Nazwa użytkownika Discord</h2>
 
 
 <input 
 id="username"
-placeholder="Wpisz nazwę użytkownika Discord">
+placeholder="Wpisz nazwę użytkownika">
 
 
 
-<h2>📅 Wybierz kolejkę</h2>
+
+
+<h2>📅 Kolejka</h2>
 
 
 <select id="roundSelect" onchange="loadMatches()">
+
 
 <option value="">
 -- wybierz kolejkę --
@@ -81,10 +82,13 @@ Kolejka 2
 
 
 
-<h2>🏆 Wybierz ligę</h2>
+
+
+<h2>🏆 Liga</h2>
 
 
 <select id="leagueSelect" onchange="loadMatches()">
+
 
 
 <option value="">
@@ -92,9 +96,11 @@ Kolejka 2
 </option>
 
 
+
 <option value="Ekstraklasa">
 🏆 Ekstraklasa
 </option>
+
 
 
 <option value="1 Liga">
@@ -102,9 +108,11 @@ Kolejka 2
 </option>
 
 
+
 <option value="2 Liga">
 🥈 2 Liga
 </option>
+
 
 
 </select>
@@ -117,13 +125,13 @@ Kolejka 2
 
 
 
-<!-- TUTAJ POJAWIAJĄ SIĘ MECZE -->
+
 
 <div id="matches">
 
 
 <h2>
-Wybierz kolejkę oraz ligę
+Wybierz kolejkę i ligę
 </h2>
 
 
@@ -144,7 +152,11 @@ Wybierz kolejkę oraz ligę
 
 
 
+
 <p id="message"></p>
+
+
+
 
 
 
@@ -161,7 +173,7 @@ Wybierz kolejkę oraz ligę
 <script src="script.js"></script>
 
 
-</body>
 
+</body>
 
 </html>
