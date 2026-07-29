@@ -1,6 +1,7 @@
 // ===================================
 // KOLONIA PASJONATÓW
 // SYSTEM TYPOWANIA
+// script.js
 // ===================================
 
 
@@ -10,16 +11,23 @@ const SHEET_URL =
 "https://script.google.com/macros/s/AKfycbyj_8vS9SJ69k_jxsXHGh569mQ9nFWGomAhioyRbbRL7vFHmkv9HaqJHi1XjS6SoHhX/exec";
 
 
-// AKTUALNA KOLEJKA
-
-const CURRENT_ROUND = 2;
 
 
+// AKTUALNIE WYBRANE MECZE
+
+let currentMatches = [];
 
 
-// ZMIANA LIGI
 
-function changeLeague(){
+
+
+// ŁADOWANIE MECZÓW
+
+function loadMatches(){
+
+
+    const round =
+    document.getElementById("roundSelect").value;
 
 
     const league =
@@ -27,34 +35,97 @@ function changeLeague(){
 
 
 
-    const sections =
-    document.querySelectorAll(".league-section");
+    const box =
+    document.getElementById("matches");
 
 
 
-    sections.forEach(section => {
+    if(round === "" || league === ""){
+
+
+        box.innerHTML =
+        "<h2>Wybierz kolejkę i ligę</h2>";
+
+        return;
+
+    }
 
 
 
-        if(section.dataset.league === league){
+
+    currentMatches =
+    mecze[round][league];
 
 
-            section.style.display = "block";
+
+    box.innerHTML = "";
 
 
-        }
 
-        else{
-
-
-            section.style.display = "none";
+    let title =
+    document.createElement("h2");
 
 
-        }
+    title.innerHTML =
+    league;
+
+
+    box.appendChild(title);
+
+
+
+
+
+
+    currentMatches.forEach((match,index)=>{
+
+
+        let div =
+        document.createElement("div");
+
+
+
+        div.className =
+        "match";
+
+
+
+        div.innerHTML = `
+
+        <h3>
+        ⚽ ${match.home} - ${match.away}
+        </h3>
+
+        <p>
+        📅 ${match.date} ${match.time}
+        </p>
+
+
+        <input 
+        type="number"
+        min="0"
+        id="home-${index}"
+        placeholder="Gospodarz">
+
+
+        :
+
+        <input 
+        type="number"
+        min="0"
+        id="away-${index}"
+        placeholder="Gość">
+
+
+        `;
+
+
+
+        box.appendChild(div);
+
 
 
     });
-
 
 
 }
@@ -67,7 +138,6 @@ function changeLeague(){
 
 // ZAPIS TYPOWANIA
 
-
 async function saveTips(){
 
 
@@ -77,8 +147,15 @@ async function saveTips(){
 
 
 
+    const round =
+    document.getElementById("roundSelect").value;
+
+
+
     const league =
     document.getElementById("leagueSelect").value;
+
+
 
 
 
@@ -86,28 +163,26 @@ async function saveTips(){
 
 
         document.getElementById("message").innerHTML =
-
-        "❌ Wpisz nazwę użytkownika Discord";
+        "❌ Wpisz nazwę Discord";
 
 
         return;
-
 
     }
 
 
 
-    if(league === ""){
+
+
+    if(currentMatches.length === 0){
 
 
         document.getElementById("message").innerHTML =
-
         "❌ Wybierz ligę";
 
 
         return;
 
-
     }
 
 
@@ -115,45 +190,23 @@ async function saveTips(){
 
 
 
-    const section =
-    document.querySelector(
-    `.league-section[data-league="${league}"]`
-    );
-
-
-
-    const matches =
-    section.querySelectorAll(".match");
-
-
-
-    let counter = 0;
+    let saved = 0;
 
 
 
 
 
-    for(const match of matches){
-
-
-
-        const inputs =
-        match.querySelectorAll("input");
-
-
-
-        const title =
-        match.querySelector("h3");
+    for(let i = 0; i < currentMatches.length; i++){
 
 
 
         const home =
-        inputs[0].value.trim();
+        document.getElementById(`home-${i}`).value;
 
 
 
         const away =
-        inputs[1].value.trim();
+        document.getElementById(`away-${i}`).value;
 
 
 
@@ -161,11 +214,48 @@ async function saveTips(){
 
         if(home === "" || away === ""){
 
-
             continue;
 
-
         }
+
+
+
+
+
+        const match =
+        currentMatches[i];
+
+
+
+
+
+        const data = {
+
+
+            username: username,
+
+
+            round: round,
+
+
+            league: league,
+
+
+            match:
+            match.home + " - " + match.away,
+
+
+            home: home,
+
+
+            away: away,
+
+
+            date:
+            match.date + " " + match.time
+
+
+        };
 
 
 
@@ -177,9 +267,7 @@ async function saveTips(){
         await fetch(SHEET_URL,{
 
 
-
             method:"POST",
-
 
 
             headers:{
@@ -191,47 +279,8 @@ async function saveTips(){
             },
 
 
-
-            body:JSON.stringify({
-
-
-
-                date:
-                new Date().toLocaleString("pl-PL"),
-
-
-
-                username:
-                username,
-
-
-
-                league:
-                league,
-
-
-
-                match:
-                title.innerText.replace("⚽ ",""),
-
-
-
-                home:
-                home,
-
-
-
-                away:
-                away,
-
-
-
-                round:
-                CURRENT_ROUND
-
-
-
-            })
+            body:
+            JSON.stringify(data)
 
 
 
@@ -249,19 +298,17 @@ async function saveTips(){
 
 
 
+
         if(result === "ALREADY"){
 
 
 
             document.getElementById("message").innerHTML =
 
-
             "❌ Typy na tę kolejkę zostały już przez Ciebie oddane!";
 
 
-
             return;
-
 
 
         }
@@ -270,8 +317,7 @@ async function saveTips(){
 
 
 
-        counter++;
-
+        saved++;
 
 
 
@@ -281,35 +327,28 @@ async function saveTips(){
 
 
 
-
-
-    if(counter > 0){
+    if(saved > 0){
 
 
 
         document.getElementById("message").innerHTML =
 
 
-        "✅ Zapisano " + counter + " typów!";
-
+        "✅ Zapisano " + saved + " typów!";
 
 
     }
-
 
     else{
 
 
-
         document.getElementById("message").innerHTML =
 
 
-        "❌ Nie wpisano żadnego typu";
-
+        "❌ Nie wpisano żadnych wyników";
 
 
     }
-
 
 
 
@@ -320,19 +359,9 @@ async function saveTips(){
 
 
 
-
-
-// BLOKADA PO ROZPOCZĘCIU MECZU
-
-
+// BLOKOWANIE MECZÓW PO CZASIE
 
 function checkMatches(){
-
-
-
-    const matches =
-    document.querySelectorAll(".match");
-
 
 
     const now =
@@ -340,9 +369,8 @@ function checkMatches(){
 
 
 
-
-    matches.forEach(match=>{
-
+    document.querySelectorAll(".match")
+    .forEach(match=>{
 
 
         const date =
@@ -354,24 +382,12 @@ function checkMatches(){
 
 
 
-
-        const matchDate =
-        new Date(date);
+        if(now >= new Date(date)){
 
 
 
-
-
-        if(now >= matchDate){
-
-
-
-            const inputs =
-            match.querySelectorAll("input");
-
-
-
-            inputs.forEach(input=>{
+            match.querySelectorAll("input")
+            .forEach(input=>{
 
 
                 input.disabled = true;
@@ -380,58 +396,14 @@ function checkMatches(){
             });
 
 
-
-
-
-            if(!match.querySelector(".closed")){
-
-
-
-                const p =
-                document.createElement("p");
-
-
-
-                p.className="closed";
-
-
-                p.innerHTML =
-                "🔒 Typowanie zamknięte";
-
-
-
-                match.appendChild(p);
-
-
-
-            }
-
-
-
         }
-
 
 
     });
 
 
-
 }
 
-
-
-
-
-
-
-// START
-
-
-checkMatches();
-
-
-
-// sprawdzanie co minutę
 
 
 setInterval(checkMatches,60000);
