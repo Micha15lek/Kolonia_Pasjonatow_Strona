@@ -4,8 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Typowanie - Kolonia Pasjonatów</title>
 
 <link rel="stylesheet" href="style.css">
@@ -16,94 +14,82 @@
 <body>
 
 
-<header>
-
-<h1>🚆 Kolonia Pasjonatów</h1>
-
-<p>⚽ Centrum typowania</p>
+<div class="container">
 
 
-<nav>
-
-<a href="index.html">🏠 Start</a>
-<a href="typowanie.html">⚽ Typowanie</a>
-<a href="ranking.html">🏆 Ranking</a>
-<a href="kontakt.html">💬 Kontakt</a>
-
-</nav>
-
-</header>
+<h1>⚽ Typowanie meczów</h1>
 
 
+<div class="user-box">
 
-<main>
 
+<h2>👤 Użytkownik</h2>
 
-<section>
-
-<h2>💬 Użytkownik Discord</h2>
-
-<div class="box">
-
-<p>
-Podaj swoją nazwę użytkownika z Discorda:
-</p>
 
 <input 
 id="username"
-type="text"
-placeholder="np. Michał">
+placeholder="Wpisz nazwę Discord">
+
+
+<h2>🏆 Wybierz ligę</h2>
+
+
+<select id="leagueSelect" onchange="changeLeague()">
+
+<option value="">
+-- wybierz ligę --
+</option>
+
+
+<option value="Ekstraklasa">
+🏆 Ekstraklasa
+</option>
+
+
+<option value="1 Liga">
+🥇 1 Liga
+</option>
+
+
+<option value="2 Liga">
+🥈 2 Liga
+</option>
+
+
+</select>
+
 
 </div>
 
-</section>
 
 
 
 
-<section>
+<section 
+class="league-section"
+data-league="Ekstraklasa">
 
-<h2>📊 Punktacja</h2>
 
-<div class="box">
-
-<p>🎯 Dokładny wynik - <b>3 pkt</b></p>
-
-<p>✅ Zwycięzca lub remis - <b>1 pkt</b></p>
-
-<p>❌ Zły typ - <b>0 pkt</b></p>
-
-</div>
-
-</section>
+<h2>🏆 EKSTRAKLASA</h2>
 
 
 
-
-
-<section>
-
-
-<h2 class="league-title">
-🏆 PKO BP Ekstraklasa
-</h2>
-
-
-<div class="box">
-
-<h3>📅 Kolejka 2</h3>
-
-
-
-
-
-<div class="match" data-date="2026-07-31T18:00:00">
+<div class="match" data-date="2026-07-31T18:00">
 
 <h3>⚽ Wisła Płock - Widzew Łódź</h3>
 
-<p>
-📅 31.07.2026 | ⏰ 18:00
-</p>
+<input type="number" min="0">
+:
+<input type="number" min="0">
+
+</div>
+
+
+
+
+<div class="match" data-date="2026-07-31T20:30">
+
+<h3>⚽ Motor Lublin - Jagiellonia</h3>
 
 <input type="number" min="0">
 :
@@ -115,148 +101,16 @@ placeholder="np. Michał">
 
 
 
-<div class="match" data-date="2026-07-31T20:30:00">
-
-<h3>⚽ Motor Lublin - Jagiellonia Białystok</h3>
-
-<p>
-📅 31.07.2026 | ⏰ 20:30
-</p>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-
-
-<div class="match" data-date="2026-08-01T14:45:00">
+<div class="match" data-date="2026-08-01T14:45">
 
 <h3>⚽ Piast Gliwice - Wisła Kraków</h3>
 
-<p>
-📅 01.08.2026 | ⏰ 14:45
-</p>
-
 <input type="number" min="0">
 :
 <input type="number" min="0">
 
 </div>
 
-
-
-
-
-<div class="match" data-date="2026-08-01T17:30:00">
-
-<h3>⚽ Wieczysta Kraków - Lech Poznań</h3>
-
-<p>
-📅 01.08.2026 | ⏰ 17:30
-</p>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-
-
-<div class="match postponed">
-
-<h3>
-⚠️ Korona Kielce - Górnik Zabrze
-</h3>
-
-<p>
-📅 Mecz przełożony
-</p>
-
-<p>
-🔒 Brak możliwości typowania
-</p>
-
-</div>
-
-
-<div class="match" data-date="2026-08-02T14:45:00">
-
-<h3>⚽ Legia Warszawa - KGHM Zagłębie Lubin</h3>
-
-<p>
-📅 02.08.2026 | ⏰ 14:45
-</p>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-
-
-<div class="match" data-date="2026-08-02T17:30:00">
-
-<h3>⚽ Śląsk Wrocław - Raków Częstochowa</h3>
-
-<p>
-📅 02.08.2026 | ⏰ 17:30
-</p>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-
-
-<div class="match" data-date="2026-08-02T20:15:00">
-
-<h3>⚽ GKS Katowice - Radomiak Radom</h3>
-
-<p>
-📅 02.08.2026 | ⏰ 20:15
-</p>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-
-
-<div class="match" data-date="2026-08-03T19:00:00">
-
-<h3>⚽ Cracovia - Pogoń Szczecin</h3>
-
-<p>
-📅 03.08.2026 | ⏰ 19:00
-</p>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-</div>
 
 </section>
 
@@ -265,29 +119,21 @@ placeholder="np. Michał">
 
 
 
-<section>
-
-<h2 class="league-title">
-🥇 Betclic 1 Liga
-</h2>
-
-
-<div class="box">
-
-<h3>📅 Kolejka 2</h3>
 
 
 
+<section 
+class="league-section"
+data-league="1 Liga">
 
 
-<div class="match" data-date="2026-07-31T18:00:00">
+<h2>🥇 1 LIGA</h2>
+
+
+<div class="match" data-date="2026-07-31T18:00">
 
 <h3>⚽ ŁKS Łódź - Polonia Bytom</h3>
 
-<p>
-📅 31.07.2026 | ⏰ 18:00
-</p>
-
 <input type="number" min="0">
 :
 <input type="number" min="0">
@@ -296,16 +142,10 @@ placeholder="np. Michał">
 
 
 
-
-
-<div class="match" data-date="2026-07-31T20:30:00">
+<div class="match" data-date="2026-07-31T20:30">
 
 <h3>⚽ Lechia Gdańsk - Warta Poznań</h3>
 
-<p>
-📅 31.07.2026 | ⏰ 20:30
-</p>
-
 <input type="number" min="0">
 :
 <input type="number" min="0">
@@ -314,131 +154,16 @@ placeholder="np. Michał">
 
 
 
-
-
-<div class="match" data-date="2026-08-01T15:30:00">
+<div class="match" data-date="2026-08-01T15:30">
 
 <h3>⚽ Pogoń Siedlce - Bruk-Bet Termalica</h3>
 
-<p>
-📅 01.08.2026 | ⏰ 15:30
-</p>
-
 <input type="number" min="0">
 :
 <input type="number" min="0">
 
 </div>
 
-
-
-
-
-<div class="match" data-date="2026-08-01T15:30:00">
-
-<h3>⚽ Arka Gdynia - Stal Rzeszów</h3>
-
-<p>
-📅 01.08.2026 | ⏰ 15:30
-</p>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-
-
-<div class="match" data-date="2026-08-01T15:30:00">
-
-<h3>⚽ Polonia Warszawa - SAS Unia Skierniewice</h3>
-
-<p>
-📅 01.08.2026 | ⏰ 15:30
-</p>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-<div class="match" data-date="2026-08-02T14:30:00">
-
-<h3>⚽ Ruch Chorzów - Miedź Legnica</h3>
-
-<p>
-📅 02.08.2026 | ⏰ 14:30
-</p>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-
-
-<div class="match" data-date="2026-08-02T17:00:00">
-
-<h3>⚽ FKS Stal Mielec - Podbeskidzie Bielsko-Biała</h3>
-
-<p>
-📅 02.08.2026 | ⏰ 17:00
-</p>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-
-
-<div class="match" data-date="2026-08-02T19:30:00">
-
-<h3>⚽ Pogoń Grodzisk Mazowiecki - Puszcza Niepołomice</h3>
-
-<p>
-📅 02.08.2026 | ⏰ 19:30
-</p>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-
-
-<div class="match" data-date="2026-08-03T19:00:00">
-
-<h3>⚽ Chrobry Głogów - Odra Opole</h3>
-
-<p>
-📅 03.08.2026 | ⏰ 19:00
-</p>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-
-</div>
 
 </section>
 
@@ -448,31 +173,31 @@ placeholder="np. Michał">
 
 
 
-<section>
 
 
-<h2 class="league-title">
-🥈 Betclic 2 Liga
-</h2>
+<section 
+class="league-section"
+data-league="2 Liga">
 
 
-<div class="box">
+<h2>🥈 2 LIGA</h2>
 
 
-<h3>📅 Kolejka 2</h3>
-
-
-
-
-
-
-<div class="match" data-date="2026-07-31T20:30:00">
+<div class="match" data-date="2026-07-31T20:30">
 
 <h3>⚽ Stal Stalowa Wola - GKS Tychy</h3>
 
-<p>
-📅 31.07.2026 | ⏰ 20:30
-</p>
+<input type="number" min="0">
+:
+<input type="number" min="0">
+
+</div>
+
+
+
+<div class="match" data-date="2026-08-01T17:00">
+
+<h3>⚽ Sokół Kleczew - Podhale Nowy Targ</h3>
 
 <input type="number" min="0">
 :
@@ -483,15 +208,9 @@ placeholder="np. Michał">
 
 
 
+<div class="match" data-date="2026-08-01T17:00">
 
-
-<div class="match" data-date="2026-08-01T17:00:00">
-
-<h3>⚽ KS Sokół Kleczew - Podhale Nowy Targ</h3>
-
-<p>
-📅 01.08.2026 | ⏰ 17:00
-</p>
+<h3>⚽ Hutnik Kraków - Świt Skolwin</h3>
 
 <input type="number" min="0">
 :
@@ -500,123 +219,6 @@ placeholder="np. Michał">
 </div>
 
 
-
-
-
-
-<div class="match" data-date="2026-08-01T17:00:00">
-
-<h3>⚽ Hutnik Kraków - Świt Skolwin-Szczecin</h3>
-
-<p>
-📅 01.08.2026 | ⏰ 17:00
-</p>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-
-
-
-<div class="match" data-date="2026-08-01T18:00:00">
-
-<h3>⚽ Resovia Rzeszów - Śląsk II Wrocław</h3>
-
-<p>
-📅 01.08.2026 | ⏰ 18:00
-</p>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-
-
-
-<div class="match" data-date="2026-08-01T18:00:00">
-
-<h3>⚽ Górnik Łęczna - Avia Świdnik</h3>
-
-<p>
-📅 01.08.2026 | ⏰ 18:00
-</p>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-
-
-<div class="match" data-date="2026-08-01T20:30:00">
-
-<h3>⚽ Lechia Zielona Góra - Olimpia Grudziądz</h3>
-
-<p>
-📅 01.08.2026 | ⏰ 20:30
-</p>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-
-
-
-<div class="match" data-date="2026-08-02T14:30:00">
-
-<h3>⚽ BTS Rekord Bielsko-Biała - Zawisza Bydgoszcz</h3>
-
-<p>
-📅 02.08.2026 | ⏰ 14:30
-</p>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-
-
-
-<div class="match" data-date="2026-08-02T19:30:00">
-
-<h3>⚽ Sandecja Nowy Sącz - Chojniczanka Chojnice</h3>
-
-<p>
-📅 02.08.2026 | ⏰ 19:30
-</p>
-
-<input type="number" min="0">
-:
-<input type="number" min="0">
-
-</div>
-
-
-
-
-
-</div>
 
 </section>
 
@@ -624,57 +226,18 @@ placeholder="np. Michał">
 
 
 
-
-
-<section>
-
-<h2>💾 Zapis typów</h2>
-
-
-<div class="box save-area">
-
-
-<p>
-Po zapisaniu Twoje typy zostaną dodane do systemu.
-</p>
-
-
 <button onclick="saveTips()">
+
 💾 Zapisz typy
+
 </button>
 
 
 <p id="message"></p>
 
 
+
 </div>
-
-
-</section>
-
-
-
-
-
-
-</main>
-
-
-
-
-
-
-<footer>
-
-<p>
-© 2026 Kolonia Pasjonatów 🚆⚽
-</p>
-
-</footer>
-
-
-
-
 
 
 <script src="script.js"></script>
