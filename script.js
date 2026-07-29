@@ -6,15 +6,20 @@
 
 // LINK DO GOOGLE APPS SCRIPT
 
-const SHEET_URL = 
+const SHEET_URL =
 "https://script.google.com/macros/s/AKfycbyj_8vS9SJ69k_jxsXHGh569mQ9nFWGomAhioyRbbRL7vFHmkv9HaqJHi1XjS6SoHhX/exec";
+
+
+// AKTUALNA KOLEJKA
+
+const CURRENT_ROUND = 2;
 
 
 
 
 // ZAPIS TYPOWANIA
 
-function saveTips() {
+async function saveTips() {
 
 
     const username =
@@ -24,15 +29,12 @@ function saveTips() {
 
     if(username === "") {
 
-
         document.getElementById("message").innerHTML =
         "❌ Wpisz nazwę użytkownika Discord";
-
 
         return;
 
     }
-
 
 
 
@@ -45,13 +47,11 @@ function saveTips() {
 
 
 
-    matches.forEach(match => {
-
+    for (const match of matches) {
 
 
         const title =
         match.querySelector("h3");
-
 
 
         const inputs =
@@ -59,25 +59,21 @@ function saveTips() {
 
 
 
-        // pomija mecze przełożone
-
         if(inputs.length !== 2) {
 
-            return;
+            continue;
 
         }
 
 
 
-
         const home =
-        inputs[0].value;
+        inputs[0].value.trim();
 
 
 
         const away =
-        inputs[1].value;
-
+        inputs[1].value.trim();
 
 
 
@@ -85,51 +81,70 @@ function saveTips() {
 
 
 
-            fetch(SHEET_URL, {
-
+            const response = await fetch(SHEET_URL, {
 
                 method: "POST",
 
-                mode: "no-cors",
+                headers: {
+
+                    "Content-Type": "application/json"
+
+                },
 
 
                 body: JSON.stringify({
 
-
-
                     date:
                     new Date().toLocaleString("pl-PL"),
-
 
 
                     username:
                     username,
 
 
-
                     league:
                     getLeague(match),
-
 
 
                     match:
                     title.innerText.replace("⚽ ",""),
 
 
-
                     home:
                     home,
 
 
-
                     away:
-                    away
+                    away,
+
+
+                    round:
+                    CURRENT_ROUND
 
 
                 })
 
-
             });
+
+
+
+            const result =
+            await response.text();
+
+
+
+            if(result === "ALREADY") {
+
+
+                document.getElementById("message").innerHTML =
+
+                "❌ Masz już oddane typy na tę kolejkę!";
+
+
+                return;
+
+
+            }
 
 
 
@@ -138,10 +153,7 @@ function saveTips() {
 
         }
 
-
-
-    });
-
+    }
 
 
 
@@ -172,26 +184,26 @@ function saveTips() {
 
 
 
-// ROZPOZNAWANIE LIGI
+
+
+// POBIERANIE LIGI
 
 function getLeague(element) {
 
 
-    let section =
+    const section =
     element.closest("section");
 
 
 
-    let title =
+    const title =
     section.querySelector(".league-title");
 
 
 
     if(!title) {
 
-
         return "Nieznana";
-
 
     }
 
@@ -210,7 +222,8 @@ function getLeague(element) {
 
 
 
-// BLOKOWANIE TYPOWANIA PO ROZPOCZĘCIU MECZU
+
+// BLOKOWANIE TYPOWANIA PO STARCIU MECZU
 
 
 function checkMatches() {
@@ -226,9 +239,7 @@ function checkMatches() {
 
 
 
-
     matches.forEach(match => {
-
 
 
         const date =
@@ -240,15 +251,12 @@ function checkMatches() {
 
 
 
-
         const matchDate =
         new Date(date);
 
 
 
-
         if(now >= matchDate) {
-
 
 
             const inputs =
@@ -266,19 +274,19 @@ function checkMatches() {
 
 
 
-            let info =
-            document.createElement("p");
-
-
-
-            info.className = "closed";
-
-            info.innerHTML =
-            "🔒 Typowanie zamknięte";
-
-
-
             if(!match.querySelector(".closed")) {
+
+
+                const info =
+                document.createElement("p");
+
+
+                info.className =
+                "closed";
+
+
+                info.innerHTML =
+                "🔒 Typowanie zamknięte";
 
 
                 match.appendChild(info);
@@ -287,25 +295,22 @@ function checkMatches() {
             }
 
 
-
         }
 
 
-
     });
-
 
 
 }
 
 
 
-// sprawdzanie przy wejściu
+
+// START
 
 checkMatches();
 
 
-
-// sprawdzanie co minutę
+// Sprawdzanie co minutę
 
 setInterval(checkMatches,60000);
