@@ -1,22 +1,24 @@
 /* ===================================
    KOLONIA PASJONATÓW
-   PREMIUM STYLE
+   STYLE.CSS
+   PREMIUM + TYPOWANIE CENTER
 =================================== */
 
 
 * {
     box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
+
 
 
 body {
 
-    margin:0;
-
     font-family:Arial, Helvetica, sans-serif;
 
     background:
-    radial-gradient(circle at top,#182b3a,#101820 60%);
+    radial-gradient(circle at top,#203b52,#101820 70%);
 
     color:white;
 
@@ -26,12 +28,15 @@ body {
 
 
 
+
+
+
 /* ===================================
    ANIMACJE
 =================================== */
 
 
-@keyframes fade {
+@keyframes show {
 
     from {
 
@@ -53,42 +58,18 @@ body {
 }
 
 
-@keyframes gold {
-
-    0% {
-
-        box-shadow:0 0 5px #d4af37;
-
-    }
-
-
-    50% {
-
-        box-shadow:0 0 20px #d4af37;
-
-    }
-
-
-    100% {
-
-        box-shadow:0 0 5px #d4af37;
-
-    }
-
-}
-
-
-
 
 .container,
 .box,
 .match,
-.card,
-.user-panel {
+.user-panel,
+.card {
 
-    animation:fade .5s ease;
+    animation:show .5s ease;
 
 }
+
+
 
 
 
@@ -101,19 +82,13 @@ body {
 
 header {
 
+    background:#182b3a;
 
-    background:
-    linear-gradient(135deg,#182b3a,#101820);
-
-
-    padding:40px;
-
+    padding:35px;
 
     text-align:center;
 
-
     border-bottom:3px solid #d4af37;
-
 
 }
 
@@ -121,12 +96,9 @@ header {
 
 header h1 {
 
-
     font-size:45px;
 
-
     color:#d4af37;
-
 
 }
 
@@ -134,9 +106,9 @@ header h1 {
 
 header p {
 
+    color:#ccc;
 
-    color:#ddd;
-
+    margin-top:10px;
 
 }
 
@@ -153,9 +125,9 @@ header p {
 
 nav {
 
-
     margin-top:25px;
 
+    text-align:center;
 
 }
 
@@ -166,32 +138,21 @@ nav a {
 
     display:inline-block;
 
-
-    text-decoration:none;
-
+    background:#0078ff;
 
     color:white;
 
-
-    background:#0078ff;
-
+    text-decoration:none;
 
     padding:12px 25px;
 
-
-    margin:6px;
-
+    margin:5px;
 
     border-radius:12px;
 
-
     font-weight:bold;
 
-
     transition:.3s;
-
-
-    border:1px solid transparent;
 
 
 }
@@ -203,15 +164,9 @@ nav a:hover {
 
     background:#d4af37;
 
-
     color:#101820;
 
-
-    border-color:#fff;
-
-
     transform:translateY(-4px);
-
 
 }
 
@@ -222,21 +177,30 @@ nav a:hover {
 
 
 /* ===================================
-   MAIN
+   GŁÓWNY KONTENER
 =================================== */
 
 
-main {
-
+main,
+.container {
 
     max-width:1100px;
 
+    margin:40px auto;
 
-    margin:auto;
+    padding:20px;
+
+}
 
 
-    padding:30px;
 
+h1 {
+
+    text-align:center;
+
+    color:#d4af37;
+
+    margin-bottom:20px;
 
 }
 
@@ -244,15 +208,11 @@ main {
 
 h2 {
 
+    color:#00aaff;
 
-    color:#d4af37;
+    text-align:center;
 
-
-    border-bottom:2px solid #d4af37;
-
-
-    padding-bottom:8px;
-
+    margin-bottom:20px;
 
 }
 
@@ -260,8 +220,9 @@ h2 {
 
 
 
+
 /* ===================================
-   BOX / KARTY
+   KARTY
 =================================== */
 
 
@@ -276,32 +237,21 @@ h2 {
     padding:25px;
 
 
+    margin:20px auto;
+
+
     border-radius:20px;
-
-
-    margin:20px 0;
 
 
     border:1px solid #d4af37;
 
 
+    max-width:900px;
+
+
     box-shadow:
 
     0 10px 30px rgba(0,0,0,.4);
-
-
-}
-
-
-
-.box:hover,
-.card:hover {
-
-
-    transform:translateY(-5px);
-
-
-    transition:.3s;
 
 
 }
@@ -320,7 +270,9 @@ h2 {
 button {
 
 
-    display:inline-block;
+    display:block;
+
+    margin:25px auto;
 
 
     background:#0078ff;
@@ -332,16 +284,16 @@ button {
     text-decoration:none;
 
 
-    padding:14px 30px;
+    padding:15px 35px;
+
+
+    border:none;
 
 
     border-radius:14px;
 
 
     font-weight:bold;
-
-
-    border:none;
 
 
     cursor:pointer;
@@ -360,9 +312,7 @@ button:hover {
 
     background:#d4af37;
 
-
     color:#101820;
-
 
     transform:scale(1.05);
 
@@ -375,15 +325,19 @@ button:hover {
 
 
 
+
 /* ===================================
    TYPOWANIE
 =================================== */
 
 
+
 .user-panel {
 
 
-    animation:gold 3s infinite;
+    max-width:600px;
+
+    text-align:center;
 
 
 }
@@ -391,18 +345,22 @@ button:hover {
 
 
 
-
-input,
-select {
+.user-panel input,
+.user-panel select {
 
 
     width:100%;
 
+    max-width:400px;
+
+
+    display:block;
+
+
+    margin:10px auto 20px;
+
 
     padding:14px;
-
-
-    margin:10px 0 20px;
 
 
     background:#101820;
@@ -424,19 +382,37 @@ select {
 
 
 
-input:focus,
-select:focus {
 
 
-    outline:none;
+.user-panel input:focus,
+.user-panel select:focus {
 
 
     border-color:#d4af37;
+
+    outline:none;
 
 
 }
 
 
+
+
+
+
+#matches {
+
+
+    max-width:750px;
+
+
+    margin:30px auto;
+
+
+    text-align:center;
+
+
+}
 
 
 
@@ -456,9 +432,6 @@ select:focus {
     border-radius:15px;
 
 
-    text-align:center;
-
-
 }
 
 
@@ -469,19 +442,25 @@ select:focus {
 .match {
 
 
-    background:#182b3a;
+    max-width:700px;
+
+
+    margin:20px auto;
 
 
     padding:25px;
 
 
-    margin:20px 0;
+    background:#182b3a;
 
 
     border-radius:20px;
 
 
     border-left:6px solid #d4af37;
+
+
+    text-align:center;
 
 
     transition:.3s;
@@ -491,10 +470,14 @@ select:focus {
 
 
 
+
 .match:hover {
 
 
-    transform:scale(1.02);
+    transform:translateY(-5px);
+
+
+    box-shadow:0 10px 25px rgba(212,175,55,.3);
 
 
 }
@@ -506,10 +489,10 @@ select:focus {
 .match h3 {
 
 
-    text-align:center;
+    font-size:24px;
 
 
-    font-size:22px;
+    margin-bottom:15px;
 
 
 }
@@ -519,13 +502,15 @@ select:focus {
 .match p {
 
 
-    text-align:center;
-
-
     color:#aaa;
 
 
+    margin-bottom:20px;
+
+
 }
+
+
 
 
 
@@ -536,13 +521,51 @@ select:focus {
     width:80px;
 
 
-    display:inline-block;
+    height:55px;
+
+
+    font-size:25px;
 
 
     text-align:center;
 
 
-    font-size:24px;
+    margin:0 10px;
+
+
+    display:inline-block;
+
+
+    background:#101820;
+
+
+    color:white;
+
+
+    border:2px solid #0078ff;
+
+
+    border-radius:12px;
+
+
+}
+
+
+
+
+
+
+
+#message {
+
+
+    text-align:center;
+
+
+    font-size:20px;
+
+
+    font-weight:bold;
 
 
 }
@@ -554,7 +577,7 @@ select:focus {
 
 
 /* ===================================
-   TABELA RANKING
+   RANKING
 =================================== */
 
 
@@ -562,6 +585,12 @@ table {
 
 
     width:100%;
+
+
+    max-width:900px;
+
+
+    margin:auto;
 
 
     background:#182b3a;
@@ -624,6 +653,12 @@ td {
 .admin-box {
 
 
+    max-width:900px;
+
+
+    margin:25px auto;
+
+
     background:#182b3a;
 
 
@@ -644,8 +679,9 @@ td {
 
 
 
+
 /* ===================================
-   FOOTER
+   STOPKA
 =================================== */
 
 
@@ -678,6 +714,7 @@ footer {
 
 
 
+
 /* ===================================
    TELEFON
 =================================== */
@@ -694,9 +731,12 @@ footer {
 
 
 
-    main {
+    main,
+    .container {
 
-        padding:15px;
+        padding:10px;
+
+        margin:20px auto;
 
     }
 
@@ -706,8 +746,6 @@ footer {
 
         width:90%;
 
-        text-align:center;
-
     }
 
 
@@ -715,6 +753,8 @@ footer {
     .match input {
 
         width:60px;
+
+        margin:5px;
 
     }
 
