@@ -1,11 +1,11 @@
 /* ===================================
    KOLONIA PASJONATÓW
-   GŁÓWNY CSS
+   PREMIUM STYLE
 =================================== */
 
 
 * {
-    box-sizing: border-box;
+    box-sizing:border-box;
 }
 
 
@@ -13,11 +13,80 @@ body {
 
     margin:0;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 
-    background:#101820;
+    background:
+    radial-gradient(circle at top,#182b3a,#101820 60%);
 
     color:white;
+
+    min-height:100vh;
+
+}
+
+
+
+/* ===================================
+   ANIMACJE
+=================================== */
+
+
+@keyframes fade {
+
+    from {
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+@keyframes gold {
+
+    0% {
+
+        box-shadow:0 0 5px #d4af37;
+
+    }
+
+
+    50% {
+
+        box-shadow:0 0 20px #d4af37;
+
+    }
+
+
+    100% {
+
+        box-shadow:0 0 5px #d4af37;
+
+    }
+
+}
+
+
+
+
+.container,
+.box,
+.match,
+.card,
+.user-panel {
+
+    animation:fade .5s ease;
 
 }
 
@@ -25,18 +94,26 @@ body {
 
 
 
-/* HEADER */
+/* ===================================
+   HEADER
+=================================== */
+
 
 header {
+
 
     background:
     linear-gradient(135deg,#182b3a,#101820);
 
-    padding:35px;
+
+    padding:40px;
+
 
     text-align:center;
 
-    border-bottom:3px solid #0078ff;
+
+    border-bottom:3px solid #d4af37;
+
 
 }
 
@@ -44,9 +121,12 @@ header {
 
 header h1 {
 
-    font-size:42px;
 
-    margin:0 0 10px;
+    font-size:45px;
+
+
+    color:#d4af37;
+
 
 }
 
@@ -54,9 +134,9 @@ header h1 {
 
 header p {
 
-    font-size:18px;
 
-    color:#cbd5e1;
+    color:#ddd;
+
 
 }
 
@@ -64,11 +144,18 @@ header p {
 
 
 
-/* MENU */
+
+
+/* ===================================
+   MENU
+=================================== */
+
 
 nav {
 
+
     margin-top:25px;
+
 
 }
 
@@ -76,131 +163,23 @@ nav {
 
 nav a {
 
-    color:white;
+
+    display:inline-block;
+
 
     text-decoration:none;
 
-    margin:5px;
 
-    padding:12px 22px;
+    color:white;
+
 
     background:#0078ff;
 
-    border-radius:10px;
 
-    display:inline-block;
+    padding:12px 25px;
 
-    font-weight:bold;
 
-    transition:.3s;
-
-}
-
-
-
-nav a:hover {
-
-    background:#005ec4;
-
-    transform:translateY(-2px);
-
-}
-
-
-
-
-
-
-/* GŁÓWNA ZAWARTOŚĆ */
-
-
-main {
-
-
-    max-width:1100px;
-
-    margin:auto;
-
-    padding:30px;
-
-}
-
-
-
-section {
-
-    margin-bottom:35px;
-
-}
-
-
-
-h2 {
-
-    color:#00aaff;
-
-    margin-bottom:15px;
-
-}
-
-
-
-
-
-/* KARTY / BOX */
-
-
-.box {
-
-
-    background:#22384a;
-
-
-    padding:25px;
-
-
-    border-radius:15px;
-
-
-    margin:20px 0;
-
-
-    line-height:1.8;
-
-
-    box-shadow:
-
-    0 8px 20px rgba(0,0,0,.3);
-
-
-    border:1px solid #2f5068;
-
-
-}
-
-
-
-
-
-/* PRZYCISKI */
-
-
-.button {
-
-
-    display:inline-block;
-
-
-    background:#00aaff;
-
-
-    color:white;
-
-
-    text-decoration:none;
-
-
-    padding:14px 28px;
+    margin:6px;
 
 
     border-radius:12px;
@@ -212,14 +191,177 @@ h2 {
     transition:.3s;
 
 
+    border:1px solid transparent;
+
+
 }
 
 
 
-.button:hover {
+nav a:hover {
 
 
-    background:#0088cc;
+    background:#d4af37;
+
+
+    color:#101820;
+
+
+    border-color:#fff;
+
+
+    transform:translateY(-4px);
+
+
+}
+
+
+
+
+
+
+
+/* ===================================
+   MAIN
+=================================== */
+
+
+main {
+
+
+    max-width:1100px;
+
+
+    margin:auto;
+
+
+    padding:30px;
+
+
+}
+
+
+
+h2 {
+
+
+    color:#d4af37;
+
+
+    border-bottom:2px solid #d4af37;
+
+
+    padding-bottom:8px;
+
+
+}
+
+
+
+
+
+/* ===================================
+   BOX / KARTY
+=================================== */
+
+
+.box,
+.card,
+.user-panel {
+
+
+    background:#182b3a;
+
+
+    padding:25px;
+
+
+    border-radius:20px;
+
+
+    margin:20px 0;
+
+
+    border:1px solid #d4af37;
+
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.4);
+
+
+}
+
+
+
+.box:hover,
+.card:hover {
+
+
+    transform:translateY(-5px);
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+
+/* ===================================
+   PRZYCISKI
+=================================== */
+
+
+.button,
+button {
+
+
+    display:inline-block;
+
+
+    background:#0078ff;
+
+
+    color:white;
+
+
+    text-decoration:none;
+
+
+    padding:14px 30px;
+
+
+    border-radius:14px;
+
+
+    font-weight:bold;
+
+
+    border:none;
+
+
+    cursor:pointer;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.button:hover,
+button:hover {
+
+
+    background:#d4af37;
+
+
+    color:#101820;
 
 
     transform:scale(1.05);
@@ -233,22 +375,20 @@ h2 {
 
 
 
-/* TYPOWANIE */
+/* ===================================
+   TYPOWANIE
+=================================== */
 
 
 .user-panel {
 
 
-    background:#22384a;
-
-    padding:25px;
-
-    border-radius:15px;
-
-    margin-bottom:25px;
+    animation:gold 3s infinite;
 
 
 }
+
+
 
 
 
@@ -259,10 +399,10 @@ select {
     width:100%;
 
 
-    padding:13px;
+    padding:14px;
 
 
-    margin:10px 0;
+    margin:10px 0 20px;
 
 
     background:#101820;
@@ -271,16 +411,56 @@ select {
     color:white;
 
 
-    border:1px solid #0078ff;
+    border:2px solid #0078ff;
 
 
-    border-radius:10px;
+    border-radius:12px;
 
 
     font-size:16px;
 
 
 }
+
+
+
+input:focus,
+select:focus {
+
+
+    outline:none;
+
+
+    border-color:#d4af37;
+
+
+}
+
+
+
+
+
+
+#matches h2 {
+
+
+    background:#d4af37;
+
+
+    color:#101820;
+
+
+    padding:15px;
+
+
+    border-radius:15px;
+
+
+    text-align:center;
+
+
+}
+
 
 
 
@@ -289,23 +469,63 @@ select {
 .match {
 
 
-    background:#22384a;
+    background:#182b3a;
 
 
-    padding:20px;
+    padding:25px;
 
 
-    margin:15px 0;
+    margin:20px 0;
 
 
-    border-radius:15px;
+    border-radius:20px;
 
 
-    border-left:5px solid #0078ff;
+    border-left:6px solid #d4af37;
+
+
+    transition:.3s;
 
 
 }
 
+
+
+.match:hover {
+
+
+    transform:scale(1.02);
+
+
+}
+
+
+
+
+
+.match h3 {
+
+
+    text-align:center;
+
+
+    font-size:22px;
+
+
+}
+
+
+
+.match p {
+
+
+    text-align:center;
+
+
+    color:#aaa;
+
+
+}
 
 
 
@@ -313,55 +533,16 @@ select {
 .match input {
 
 
-    width:70px;
+    width:80px;
 
-    text-align:center;
 
     display:inline-block;
 
 
-}
+    text-align:center;
 
 
-
-
-
-
-
-button {
-
-
-    background:#00aaff;
-
-    color:white;
-
-
-    border:none;
-
-
-    padding:15px 25px;
-
-
-    border-radius:12px;
-
-
-    font-weight:bold;
-
-
-    cursor:pointer;
-
-
-    font-size:16px;
-
-
-}
-
-
-
-button:hover {
-
-
-    background:#0088cc;
+    font-size:24px;
 
 
 }
@@ -372,7 +553,9 @@ button:hover {
 
 
 
-/* TABELA RANKINGU */
+/* ===================================
+   TABELA RANKING
+=================================== */
 
 
 table {
@@ -381,13 +564,13 @@ table {
     width:100%;
 
 
-    background:#22384a;
+    background:#182b3a;
 
 
     border-collapse:collapse;
 
 
-    border-radius:12px;
+    border-radius:15px;
 
 
     overflow:hidden;
@@ -400,7 +583,10 @@ table {
 th {
 
 
-    background:#0078ff;
+    background:#d4af37;
+
+
+    color:#101820;
 
 
     padding:15px;
@@ -413,13 +599,13 @@ th {
 td {
 
 
-    padding:12px;
+    padding:14px;
 
 
     text-align:center;
 
 
-    border-bottom:1px solid #456;
+    border-bottom:1px solid #345;
 
 
 }
@@ -430,22 +616,24 @@ td {
 
 
 
-/* ADMIN */
+/* ===================================
+   ADMIN
+=================================== */
 
 
 .admin-box {
 
 
-    background:#22384a;
+    background:#182b3a;
 
 
-    padding:25px;
+    padding:30px;
 
 
-    border-radius:15px;
+    border-radius:20px;
 
 
-    border:2px solid #0078ff;
+    border:2px solid #d4af37;
 
 
 }
@@ -456,25 +644,30 @@ td {
 
 
 
-/* FOOTER */
+/* ===================================
+   FOOTER
+=================================== */
 
 
 footer {
 
 
-    text-align:center;
+    margin-top:50px;
 
 
     padding:25px;
 
 
+    text-align:center;
+
+
     background:#182b3a;
 
 
-    margin-top:40px;
-
-
     color:#aaa;
+
+
+    border-top:2px solid #d4af37;
 
 
 }
@@ -485,7 +678,9 @@ footer {
 
 
 
-/* TELEFON */
+/* ===================================
+   TELEFON
+=================================== */
 
 
 @media(max-width:700px){
@@ -511,10 +706,17 @@ footer {
 
         width:90%;
 
-        margin:5px auto;
+        text-align:center;
 
     }
 
+
+
+    .match input {
+
+        width:60px;
+
+    }
 
 
 }
