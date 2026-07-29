@@ -12,8 +12,7 @@ const SHEET_URL =
 
 
 
-
-// AKTUALNIE WYBRANE MECZE
+// przechowuje aktualne mecze
 
 let currentMatches = [];
 
@@ -21,7 +20,9 @@ let currentMatches = [];
 
 
 
+// ===================================
 // ŁADOWANIE MECZÓW
+// ===================================
 
 function loadMatches(){
 
@@ -52,13 +53,13 @@ function loadMatches(){
 
 
 
-
     currentMatches =
     mecze[round][league];
 
 
 
     box.innerHTML = "";
+
 
 
 
@@ -76,28 +77,26 @@ function loadMatches(){
 
 
 
-
     currentMatches.forEach((match,index)=>{
 
 
-        let div =
+        let card =
         document.createElement("div");
 
 
-
-        div.className =
+        card.className =
         "match";
 
 
 
-        div.innerHTML = `
+        card.innerHTML = `
 
         <h3>
         ⚽ ${match.home} - ${match.away}
         </h3>
 
         <p>
-        📅 ${match.date} ${match.time}
+        📅 ${match.date} | ${match.time}
         </p>
 
 
@@ -105,27 +104,28 @@ function loadMatches(){
         type="number"
         min="0"
         id="home-${index}"
-        placeholder="Gospodarz">
+        placeholder="0">
 
 
         :
+
 
         <input 
         type="number"
         min="0"
         id="away-${index}"
-        placeholder="Gość">
-
+        placeholder="0">
 
         `;
 
 
 
-        box.appendChild(div);
+        box.appendChild(card);
 
 
 
     });
+
 
 
 }
@@ -136,25 +136,32 @@ function loadMatches(){
 
 
 
+
+// ===================================
 // ZAPIS TYPOWANIA
+// ===================================
+
 
 async function saveTips(){
 
 
 
     const username =
-    document.getElementById("username").value.trim();
+    document.getElementById("username")
+    .value
+    .trim();
 
 
 
     const round =
-    document.getElementById("roundSelect").value;
+    document.getElementById("roundSelect")
+    .value;
 
 
 
     const league =
-    document.getElementById("leagueSelect").value;
-
+    document.getElementById("leagueSelect")
+    .value;
 
 
 
@@ -163,6 +170,7 @@ async function saveTips(){
 
 
         document.getElementById("message").innerHTML =
+
         "❌ Wpisz nazwę Discord";
 
 
@@ -178,7 +186,8 @@ async function saveTips(){
 
 
         document.getElementById("message").innerHTML =
-        "❌ Wybierz ligę";
+
+        "❌ Najpierw wybierz ligę";
 
 
         return;
@@ -196,17 +205,21 @@ async function saveTips(){
 
 
 
-    for(let i = 0; i < currentMatches.length; i++){
+    for(let i=0;i<currentMatches.length;i++){
 
 
 
         const home =
-        document.getElementById(`home-${i}`).value;
+        document.getElementById(
+        "home-"+i
+        ).value;
 
 
 
         const away =
-        document.getElementById(`away-${i}`).value;
+        document.getElementById(
+        "away-"+i
+        ).value;
 
 
 
@@ -262,7 +275,6 @@ async function saveTips(){
 
 
 
-
         const response =
         await fetch(SHEET_URL,{
 
@@ -274,7 +286,6 @@ async function saveTips(){
 
 
                 "Content-Type":"application/json"
-
 
             },
 
@@ -327,25 +338,25 @@ async function saveTips(){
 
 
 
+
     if(saved > 0){
 
 
 
         document.getElementById("message").innerHTML =
 
-
-        "✅ Zapisano " + saved + " typów!";
+        "✅ Zapisano "+saved+" typów!";
 
 
     }
+
 
     else{
 
 
         document.getElementById("message").innerHTML =
 
-
-        "❌ Nie wpisano żadnych wyników";
+        "❌ Nie wpisano żadnego wyniku";
 
 
     }
@@ -359,51 +370,20 @@ async function saveTips(){
 
 
 
-// BLOKOWANIE MECZÓW PO CZASIE
-
-function checkMatches(){
 
 
-    const now =
-    new Date();
+// ===================================
+// START
+// ===================================
 
 
-
-    document.querySelectorAll(".match")
-    .forEach(match=>{
-
-
-        const date =
-        match.dataset.date;
+document.addEventListener(
+"DOMContentLoaded",
+()=>{
 
 
-
-        if(!date) return;
-
-
-
-        if(now >= new Date(date)){
+    document.getElementById("matches").innerHTML =
+    "<h2>Wybierz kolejkę i ligę</h2>";
 
 
-
-            match.querySelectorAll("input")
-            .forEach(input=>{
-
-
-                input.disabled = true;
-
-
-            });
-
-
-        }
-
-
-    });
-
-
-}
-
-
-
-setInterval(checkMatches,60000);
+});
