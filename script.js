@@ -36,7 +36,6 @@ function loadMatches(){
     document.getElementById("leagueSelect").value;
 
 
-
     const box =
     document.getElementById("matches");
 
@@ -51,7 +50,6 @@ function loadMatches(){
         return;
 
     }
-
 
 
 
@@ -78,7 +76,6 @@ function loadMatches(){
 
 
 
-
     currentMatches.forEach((match,index)=>{
 
 
@@ -86,21 +83,25 @@ function loadMatches(){
         document.createElement("div");
 
 
-        div.className =
-        "match";
+        div.className = "match";
 
 
 
         div.innerHTML = `
 
         <h3>
-        ⚽ ${match.home} - ${match.away}
+        ⚽ ${match.home}
+        <br>
+        VS
+        <br>
+        ${match.away}
         </h3>
 
 
         <p>
         📅 ${match.date} | ${match.time}
         </p>
+
 
 
         <input 
@@ -150,26 +151,28 @@ async function saveTips(){
 
 
     const username =
-    document
-    .getElementById("username")
+    document.getElementById("username")
     .value
     .trim();
 
 
 
-
     const round =
-    document
-    .getElementById("roundSelect")
+    document.getElementById("roundSelect")
     .value;
 
 
 
     const league =
-    document
-    .getElementById("leagueSelect")
+    document.getElementById("leagueSelect")
     .value;
 
+
+
+
+
+    const message =
+    document.getElementById("message");
 
 
 
@@ -178,8 +181,7 @@ async function saveTips(){
     if(username === ""){
 
 
-        document.getElementById("message").innerHTML =
-
+        message.innerHTML =
         "❌ Wpisz nazwę użytkownika";
 
 
@@ -190,18 +192,17 @@ async function saveTips(){
 
 
 
+
     if(currentMatches.length === 0){
 
 
-        document.getElementById("message").innerHTML =
-
+        message.innerHTML =
         "❌ Wybierz ligę";
 
 
         return;
 
     }
-
 
 
 
@@ -214,23 +215,17 @@ async function saveTips(){
 
 
 
-
     for(let i=0;i<currentMatches.length;i++){
 
 
 
-        const home =
-        document
-        .getElementById("home-"+i)
-        .value;
+        let home =
+        document.getElementById("home-"+i).value;
 
 
 
-        const away =
-        document
-        .getElementById("away-"+i)
-        .value;
-
+        let away =
+        document.getElementById("away-"+i).value;
 
 
 
@@ -244,39 +239,36 @@ async function saveTips(){
 
 
 
-
-        const match =
+        let match =
         currentMatches[i];
 
 
 
 
+        let data = {
 
 
-        const data = {
+            username:username,
 
 
-            username: username,
+            round:round,
 
 
-            round: round,
-
-
-            league: league,
+            league:league,
 
 
             match:
-            match.home + " - " + match.away,
+            match.home+" - "+match.away,
 
 
-            home: home,
+            home:home,
 
 
-            away: away,
+            away:away,
 
 
             date:
-            match.date + " " + match.time
+            match.date+" "+match.time
 
 
         };
@@ -285,42 +277,23 @@ async function saveTips(){
 
 
 
-
-        console.log(data);
-
-
-
-
-
-
-
-        fetch(SHEET_URL, {
-
+        fetch(SHEET_URL,{
 
             method:"POST",
 
-
             mode:"no-cors",
-
 
             body:
             JSON.stringify(data)
 
-
         });
-
-
-
 
 
 
         saved++;
 
 
-
-
     }
-
 
 
 
@@ -330,10 +303,8 @@ async function saveTips(){
     if(saved > 0){
 
 
-        document.getElementById("message").innerHTML =
-
-
-        "✅ Zapisano " + saved + " typów!";
+        message.innerHTML =
+        "✅ Zapisano "+saved+" typów!";
 
 
     }
@@ -341,15 +312,11 @@ async function saveTips(){
     else{
 
 
-        document.getElementById("message").innerHTML =
-
-
+        message.innerHTML =
         "❌ Nie wpisano żadnego typu";
 
 
     }
-
-
 
 
 
@@ -360,48 +327,28 @@ async function saveTips(){
 
 
 
+
+
 // ===================================
-// START STRONY
+// TRYB JASNY / CIEMNY
 // ===================================
 
 
-document.addEventListener(
-"DOMContentLoaded",
-()=>{
-
-
-    const matches =
-    document.getElementById("matches");
-
-
-    if(matches){
-
-
-        matches.innerHTML =
-
-        "<h2>Wybierz kolejkę i ligę</h2>";
-
-
-    }
+function setupTheme(){
 
 
 
-
-
-    // TRYB JASNY / CIEMNY
-
-
-    const themeButton =
+    const button =
     document.getElementById("themeButton");
 
 
 
-    const savedTheme =
+    let theme =
     localStorage.getItem("theme");
 
 
 
-    if(savedTheme === "light"){
+    if(theme === "light"){
 
 
         document.body.classList.add("light");
@@ -411,19 +358,23 @@ document.addEventListener(
 
 
 
-    if(themeButton){
 
 
-        updateThemeButton(themeButton);
+    updateThemeButton(button);
 
 
 
-        themeButton.addEventListener(
-        "click",
-        ()=>{
+
+
+    if(button){
+
+
+        button.addEventListener("click",()=>{
+
 
 
             document.body.classList.toggle("light");
+
 
 
 
@@ -451,31 +402,31 @@ document.addEventListener(
 
 
 
-            updateThemeButton(themeButton);
+
+            updateThemeButton(button);
 
 
 
         });
 
 
+
     }
 
 
 
-});
+}
 
 
 
 
 
-
-
-// ===================================
-// ZMIANA NAPISU PRZYCISKU MOTYWU
-// ===================================
 
 
 function updateThemeButton(button){
+
+
+    if(!button) return;
 
 
 
@@ -500,3 +451,42 @@ function updateThemeButton(button){
 
 
 }
+
+
+
+
+
+
+
+
+// ===================================
+// START
+// ===================================
+
+
+document.addEventListener(
+"DOMContentLoaded",
+()=>{
+
+
+    const matches =
+    document.getElementById("matches");
+
+
+
+    if(matches){
+
+
+        matches.innerHTML =
+        "<h2>Wybierz kolejkę i ligę</h2>";
+
+
+    }
+
+
+
+    setupTheme();
+
+
+
+});
