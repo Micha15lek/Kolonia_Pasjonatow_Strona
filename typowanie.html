@@ -7,11 +7,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Typowanie meczów - Kolonia Pasjonatów</title>
-
+<title>Typowanie - Kolonia Pasjonatów</title>
 
 <link rel="stylesheet" href="style.css">
-
 
 </head>
 
@@ -19,40 +17,57 @@
 <body>
 
 
+<!-- MENU STRONY -->
+
+<nav class="menu">
+
+<a href="index.html">🏠 Start</a>
+
+<a href="typowanie.html">⚽ Typowanie</a>
+
+<a href="ranking.html">📊 Ranking</a>
+
+<a href="mojetypy.html">📋 Moje typy</a>
+
+</nav>
+
+
+
+
+
 <div class="container">
 
 
 <h1>⚽ Typowanie meczów</h1>
 
-<p>
-🏆 Kolonia Pasjonatów
-</p>
+<p>Kolonia Pasjonatów</p>
 
 
+
+
+
+<!-- DANE UŻYTKOWNIKA -->
 
 <div class="user-panel">
 
 
-<h2>👤 Użytkownik</h2>
+<h2>👤 Użytkownik Discord</h2>
 
 
 <input 
 id="username"
-placeholder="Wpisz nazwę Discord">
+placeholder="Wpisz nazwę użytkownika Discord">
 
 
 
-<h2>📅 Kolejka</h2>
+<h2>📅 Wybierz kolejkę</h2>
 
 
 <select id="roundSelect" onchange="loadMatches()">
 
-
-
 <option value="">
 -- wybierz kolejkę --
 </option>
-
 
 
 <option value="Kolejka 2">
@@ -60,19 +75,16 @@ Kolejka 2
 </option>
 
 
-
 </select>
 
 
 
 
 
-
-<h2>⚽ Liga</h2>
+<h2>🏆 Wybierz ligę</h2>
 
 
 <select id="leagueSelect" onchange="loadMatches()">
-
 
 
 <option value="">
@@ -80,11 +92,9 @@ Kolejka 2
 </option>
 
 
-
 <option value="Ekstraklasa">
 🏆 Ekstraklasa
 </option>
-
 
 
 <option value="1 Liga">
@@ -92,15 +102,12 @@ Kolejka 2
 </option>
 
 
-
 <option value="2 Liga">
 🥈 2 Liga
 </option>
 
 
-
 </select>
-
 
 
 </div>
@@ -109,16 +116,19 @@ Kolejka 2
 
 
 
+
+<!-- TUTAJ POJAWIAJĄ SIĘ MECZE -->
 
 <div id="matches">
 
 
 <h2>
-Wybierz kolejkę i ligę
+Wybierz kolejkę oraz ligę
 </h2>
 
 
 </div>
+
 
 
 
@@ -145,10 +155,10 @@ Wybierz kolejkę i ligę
 
 
 
+
 <script src="mecze.js"></script>
 
 <script src="script.js"></script>
-
 
 
 </body>
