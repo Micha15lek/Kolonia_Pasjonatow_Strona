@@ -12,7 +12,7 @@ const SHEET_URL =
 
 
 
-// przechowuje aktualne mecze
+// aktualne mecze
 
 let currentMatches = [];
 
@@ -23,6 +23,7 @@ let currentMatches = [];
 // ===================================
 // ŁADOWANIE MECZÓW
 // ===================================
+
 
 function loadMatches(){
 
@@ -53,6 +54,7 @@ function loadMatches(){
 
 
 
+
     currentMatches =
     mecze[round][league];
 
@@ -62,13 +64,12 @@ function loadMatches(){
 
 
 
-
     let title =
     document.createElement("h2");
 
 
     title.innerHTML =
-    league;
+    "⚽ " + league;
 
 
     box.appendChild(title);
@@ -77,23 +78,25 @@ function loadMatches(){
 
 
 
+
     currentMatches.forEach((match,index)=>{
 
 
-        let card =
+        let div =
         document.createElement("div");
 
 
-        card.className =
+        div.className =
         "match";
 
 
 
-        card.innerHTML = `
+        div.innerHTML = `
 
         <h3>
         ⚽ ${match.home} - ${match.away}
         </h3>
+
 
         <p>
         📅 ${match.date} | ${match.time}
@@ -116,12 +119,12 @@ function loadMatches(){
         id="away-${index}"
         placeholder="0">
 
+
         `;
 
 
 
-        box.appendChild(card);
-
+        box.appendChild(div);
 
 
     });
@@ -147,21 +150,27 @@ async function saveTips(){
 
 
     const username =
-    document.getElementById("username")
+    document
+    .getElementById("username")
     .value
     .trim();
 
 
 
+
     const round =
-    document.getElementById("roundSelect")
+    document
+    .getElementById("roundSelect")
     .value;
 
 
 
     const league =
-    document.getElementById("leagueSelect")
+    document
+    .getElementById("leagueSelect")
     .value;
+
+
 
 
 
@@ -171,7 +180,7 @@ async function saveTips(){
 
         document.getElementById("message").innerHTML =
 
-        "❌ Wpisz nazwę Discord";
+        "❌ Wpisz nazwę użytkownika";
 
 
         return;
@@ -181,13 +190,12 @@ async function saveTips(){
 
 
 
-
     if(currentMatches.length === 0){
 
 
         document.getElementById("message").innerHTML =
 
-        "❌ Najpierw wybierz ligę";
+        "❌ Wybierz ligę";
 
 
         return;
@@ -205,21 +213,23 @@ async function saveTips(){
 
 
 
+
+
     for(let i=0;i<currentMatches.length;i++){
 
 
 
         const home =
-        document.getElementById(
-        "home-"+i
-        ).value;
+        document
+        .getElementById("home-"+i)
+        .value;
 
 
 
         const away =
-        document.getElementById(
-        "away-"+i
-        ).value;
+        document
+        .getElementById("away-"+i)
+        .value;
 
 
 
@@ -237,6 +247,7 @@ async function saveTips(){
 
         const match =
         currentMatches[i];
+
 
 
 
@@ -275,24 +286,25 @@ async function saveTips(){
 
 
 
-        const response =
-        await fetch(SHEET_URL,{
+        console.log(data);
+
+
+
+
+
+
+
+        fetch(SHEET_URL, {
 
 
             method:"POST",
 
 
-            headers:{
-
-
-                "Content-Type":"application/json"
-
-            },
+            mode:"no-cors",
 
 
             body:
             JSON.stringify(data)
-
 
 
         });
@@ -302,37 +314,13 @@ async function saveTips(){
 
 
 
-        const result =
-        await response.text();
-
-
-
-
-
-
-        if(result === "ALREADY"){
-
-
-
-            document.getElementById("message").innerHTML =
-
-            "❌ Typy na tę kolejkę zostały już przez Ciebie oddane!";
-
-
-            return;
-
-
-        }
-
-
-
-
-
         saved++;
 
 
 
+
     }
+
 
 
 
@@ -342,30 +330,30 @@ async function saveTips(){
     if(saved > 0){
 
 
-
         document.getElementById("message").innerHTML =
 
-        "✅ Zapisano "+saved+" typów!";
+
+        "✅ Zapisano " + saved + " typów!";
 
 
     }
-
 
     else{
 
 
         document.getElementById("message").innerHTML =
 
-        "❌ Nie wpisano żadnego wyniku";
+
+        "❌ Nie wpisano żadnego typu";
 
 
     }
 
 
 
+
+
 }
-
-
 
 
 
@@ -383,6 +371,7 @@ document.addEventListener(
 
 
     document.getElementById("matches").innerHTML =
+
     "<h2>Wybierz kolejkę i ligę</h2>";
 
 
