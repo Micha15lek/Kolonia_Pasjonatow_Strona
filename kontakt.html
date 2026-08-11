@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,24 +12,36 @@
 
 <body>
 
-<main class="contact-page">
+<header>
 
-    <nav class="top-nav">
+    <div class="logo">
+        🌟 Kolonia Pasjonatów
+    </div>
 
-        <a href="index.html">
-            🏠 Strona główna
-        </a>
-
-        <a href="ranking.html">
-            🏆 Ranking
-        </a>
-
-        <a href="linki.html">
-            🔗 Linki
-        </a>
-
+    <nav>
+        <a href="index.html">🏠 Strona główna</a>
+        <a href="ranking.html">🏆 Ranking</a>
+        <a href="linki.html">🔗 Linki</a>
+        <a href="kontakt.html">📧 Kontakt</a>
+        <a href="kalendarz.html">📅 Kalendarz</a>
     </nav>
 
+    <button
+        id="themeToggle"
+        class="theme-toggle"
+        aria-label="Zmień motyw">
+
+        🌙
+
+    </button>
+
+</header>
+
+
+<main class="contact-page">
+
+
+    <!-- HERO -->
 
     <section class="hero">
 
@@ -41,6 +54,8 @@
 
     </section>
 
+
+    <!-- KONTAKT -->
 
     <section class="contact-list">
 
@@ -127,7 +142,123 @@
 
     </section>
 
+
 </main>
 
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 Kolonia Pasjonatów
+    </p>
+
+    <p>
+        📧 Kontakt
+    </p>
+
+</footer>
+
+
+<!-- =====================================================
+     SYSTEM MOTYWÓW
+     DARK → LIGHT → RETRO → DARK
+===================================================== -->
+
+<script>
+
+const themeToggle =
+    document.getElementById("themeToggle");
+
+
+const savedTheme =
+    localStorage.getItem("theme") || "dark";
+
+
+function applyTheme(theme) {
+
+    document.body.classList.remove(
+        "light",
+        "retro"
+    );
+
+
+    if (theme === "light") {
+
+        document.body.classList.add(
+            "light"
+        );
+
+        themeToggle.textContent =
+            "☀️";
+
+    }
+
+    else if (theme === "retro") {
+
+        document.body.classList.add(
+            "retro"
+        );
+
+        themeToggle.textContent =
+            "💾";
+
+    }
+
+    else {
+
+        themeToggle.textContent =
+            "🌙";
+
+    }
+
+
+    localStorage.setItem(
+        "theme",
+        theme
+    );
+
+}
+
+
+applyTheme(savedTheme);
+
+
+themeToggle.addEventListener(
+    "click",
+    () => {
+
+        const current =
+            localStorage.getItem(
+                "theme"
+            ) || "dark";
+
+
+        if (current === "dark") {
+
+            applyTheme("light");
+
+        }
+
+        else if (current === "light") {
+
+            applyTheme("retro");
+
+        }
+
+        else {
+
+            applyTheme("dark");
+
+        }
+
+    }
+);
+
+</script>
+
+
 </body>
+
 </html>
