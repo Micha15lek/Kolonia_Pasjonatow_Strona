@@ -21,12 +21,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 15px;
             margin-bottom: 25px;
         }
 
         .home-button,
         .theme-button,
-        .month-button {
+        .month-button,
+        .today-button {
             border: none;
             border-radius: 14px;
             padding: 12px 18px;
@@ -34,12 +36,13 @@
             text-decoration: none;
             font-weight: 700;
             font-size: 16px;
-            transition: .2s;
+            transition: .25s;
         }
 
         .home-button:hover,
         .theme-button:hover,
-        .month-button:hover {
+        .month-button:hover,
+        .today-button:hover {
             transform: translateY(-2px);
             filter: brightness(1.15);
         }
@@ -58,10 +61,16 @@
             text-align: center;
         }
 
+        .today-button {
+            display: block;
+            margin: 0 auto 20px;
+        }
+
         .calendar {
             padding: 20px;
             border-radius: 22px;
             background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.08);
         }
 
         .weekdays,
@@ -83,7 +92,8 @@
             border-radius: 14px;
             cursor: pointer;
             background: rgba(255,255,255,.05);
-            transition: .2s;
+            border: 1px solid transparent;
+            transition: .25s;
         }
 
         .day:hover {
@@ -100,12 +110,29 @@
             font-weight: 800;
         }
 
+        /* DZISIAJ */
+
+        .today-day {
+            border: 2px solid rgba(80,180,255,.95);
+
+            box-shadow:
+                0 0 0 2px rgba(80,180,255,.15),
+                0 0 20px rgba(80,180,255,.35);
+        }
+
+        .today-label {
+            margin-top: 6px;
+            font-size: 10px;
+            font-weight: 900;
+            color: #55b8ff;
+        }
+
         /* WYDARZENIE KOLONII */
 
         .event-day {
             box-shadow:
                 0 0 0 2px rgba(255,193,7,.75),
-                0 0 14px rgba(255,193,7,.18);
+                0 0 16px rgba(255,193,7,.20);
         }
 
         .event-dot {
@@ -120,7 +147,8 @@
 
         .holiday-day {
             box-shadow:
-                0 0 0 2px rgba(220,40,40,.75);
+                0 0 0 2px rgba(230,57,70,.75),
+                0 0 16px rgba(230,57,70,.18);
         }
 
         .holiday-dot {
@@ -135,7 +163,8 @@
 
         .birthday-day {
             box-shadow:
-                0 0 0 2px rgba(255,105,180,.75);
+                0 0 0 2px rgba(255,105,180,.75),
+                0 0 16px rgba(255,105,180,.18);
         }
 
         .birthday-dot {
@@ -146,11 +175,12 @@
             margin-top: 9px;
         }
 
-        /* SYLWESTER */
+        /* WYDARZENIE SPECJALNE */
 
         .special-day {
             box-shadow:
-                0 0 0 2px rgba(130,80,255,.75);
+                0 0 0 2px rgba(130,80,255,.75),
+                0 0 16px rgba(130,80,255,.18);
         }
 
         .special-dot {
@@ -168,6 +198,7 @@
             padding: 25px;
             border-radius: 20px;
             background: rgba(255,255,255,.07);
+            border: 1px solid rgba(255,255,255,.08);
             display: none;
             animation: showEvent .25s ease;
         }
@@ -200,7 +231,7 @@
         }
 
         .type-holiday {
-            background: rgba(220,40,40,.2);
+            background: rgba(230,57,70,.2);
         }
 
         .type-birthday {
@@ -232,6 +263,7 @@
             padding: 18px;
             border-radius: 18px;
             background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.08);
         }
 
         .legend-items {
@@ -268,15 +300,24 @@
             background: #8250ff;
         }
 
+        .legend-today {
+            background: #55b8ff;
+        }
+
         @media (max-width:600px) {
 
             .calendar-page {
                 padding: 12px;
             }
 
+            .top-bar {
+                flex-wrap: wrap;
+            }
+
             .home-button,
             .theme-button,
-            .month-button {
+            .month-button,
+            .today-button {
                 padding: 9px 12px;
                 font-size: 14px;
             }
@@ -300,9 +341,13 @@
             }
 
             .day {
-                min-height: 55px;
+                min-height: 60px;
                 padding: 6px;
                 font-size: 12px;
+            }
+
+            .today-label {
+                font-size: 8px;
             }
 
             .legend-items {
@@ -318,7 +363,6 @@
 <body>
 
 <main class="calendar-page">
-
 
     <!-- GÓRNY PASEK -->
 
@@ -342,11 +386,18 @@
         <h1>📅 Kalendarz Kolonii Pasjonatów</h1>
 
         <p>
-            Kliknij oznaczony dzień, aby zobaczyć
-            szczegóły wydarzenia.
+            Wydarzenia Kolonii, święta państwowe
+            oraz urodziny członków społeczności.
         </p>
 
     </section>
+
+
+    <!-- DZISIAJ -->
+
+    <button id="todayButton" class="today-button">
+        📍 Przejdź do dzisiaj
+    </button>
 
 
     <!-- MIESIĄC -->
@@ -402,7 +453,7 @@
 
             <div class="legend-item">
                 <span class="legend-color legend-holiday"></span>
-                🇵🇱 Święto
+                🇵🇱 Święto państwowe
             </div>
 
             <div class="legend-item">
@@ -415,12 +466,17 @@
                 🎆 Wydarzenie specjalne
             </div>
 
+            <div class="legend-item">
+                <span class="legend-color legend-today"></span>
+                📍 Dzisiaj
+            </div>
+
         </div>
 
     </div>
 
 
-    <!-- INFORMACJE O DNIU -->
+    <!-- INFORMACJE -->
 
     <div id="eventInfo" class="event-info">
 
@@ -434,29 +490,300 @@
 
     </div>
 
-
 </main>
 
 
 <script>
 
 /* =====================================================
-   WYDARZENIA
+   FUNKCJE
 ===================================================== */
 
-const events = {
+function pad(number) {
+    return String(number).padStart(2, "0");
+}
 
-    /* SIERPIEŃ */
 
-    "2026-08-04": {
-        title: "🎂 Urodziny właściciela",
+function dateKey(year, month, day) {
+
+    return `${year}-${pad(month + 1)}-${pad(day)}`;
+
+}
+
+
+/* =====================================================
+   WIELKANOC
+===================================================== */
+
+function getEaster(year) {
+
+    const a = year % 19;
+    const b = Math.floor(year / 100);
+    const c = year % 100;
+    const d = Math.floor(b / 4);
+    const e = b % 4;
+    const f = Math.floor((b + 8) / 25);
+    const g = Math.floor((b - f + 1) / 3);
+
+    const h =
+        (19 * a + b - d - g + 15) % 30;
+
+    const i =
+        Math.floor(c / 4);
+
+    const k =
+        c % 4;
+
+    const l =
+        (32 + 2 * e + 2 * i - h - k) % 7;
+
+    const m =
+        Math.floor(
+            (a + 11 * h + 22 * l) / 451
+        );
+
+    const month =
+        Math.floor(
+            (h + l - 7 * m + 114) / 31
+        );
+
+    const day =
+        ((h + l - 7 * m + 114) % 31) + 1;
+
+    return new Date(
+        year,
+        month - 1,
+        day
+    );
+
+}
+
+
+/* =====================================================
+   ŚWIĘTA PAŃSTWOWE
+   Automatycznie dla każdego roku.
+===================================================== */
+
+function getHolidays(year) {
+
+    const holidays = {};
+
+
+    function add(
+        month,
+        day,
+        title,
+        description
+    ) {
+
+        holidays[
+            dateKey(
+                year,
+                month - 1,
+                day
+            )
+        ] = {
+
+            title,
+            description,
+
+            type: "holiday",
+
+            typeName:
+                "🇵🇱 Święto państwowe"
+
+        };
+
+    }
+
+
+    /* STAŁE */
+
+    add(
+        1,
+        1,
+        "🎆 Nowy Rok",
+        "Pierwszy dzień nowego roku. Święto ustawowo wolne od pracy."
+    );
+
+    add(
+        1,
+        6,
+        "✝️ Święto Trzech Króli",
+        "Święto Objawienia Pańskiego. Dzień ustawowo wolny od pracy."
+    );
+
+    add(
+        5,
+        1,
+        "🇵🇱 Święto Pracy",
+        "Święto ustawowo wolne od pracy."
+    );
+
+    add(
+        5,
+        3,
+        "🇵🇱 Święto Konstytucji 3 Maja",
+        "Święto upamiętniające uchwalenie Konstytucji 3 maja 1791 roku."
+    );
+
+    add(
+        8,
+        15,
+        "🇵🇱 Wniebowzięcie Najświętszej Maryi Panny / Święto Wojska Polskiego",
+        "Święto ustawowo wolne od pracy."
+    );
+
+    add(
+        11,
+        1,
+        "🕯️ Wszystkich Świętych",
+        "Święto ustawowo wolne od pracy."
+    );
+
+    add(
+        11,
+        11,
+        "🇵🇱 Narodowe Święto Niepodległości",
+        "Święto upamiętniające odzyskanie przez Polskę niepodległości w 1918 roku."
+    );
+
+    add(
+        12,
+        24,
+        "🎄 Wigilia Bożego Narodzenia",
+        "Dzień ustawowo wolny od pracy."
+    );
+
+    add(
+        12,
+        25,
+        "🎄 Pierwszy dzień Bożego Narodzenia",
+        "Święto ustawowo wolne od pracy."
+    );
+
+    add(
+        12,
+        26,
+        "🎄 Drugi dzień Bożego Narodzenia",
+        "Święto ustawowo wolne od pracy."
+    );
+
+
+    /* RUCHOME */
+
+    const easter =
+        getEaster(year);
+
+
+    function addRelative(
+        days,
+        title,
+        description
+    ) {
+
+        const date =
+            new Date(easter);
+
+        date.setDate(
+            date.getDate() + days
+        );
+
+
+        holidays[
+            dateKey(
+                date.getFullYear(),
+                date.getMonth(),
+                date.getDate()
+            )
+        ] = {
+
+            title,
+            description,
+
+            type: "holiday",
+
+            typeName:
+                "🇵🇱 Święto państwowe"
+
+        };
+
+    }
+
+
+    addRelative(
+        1,
+        "🐣 Poniedziałek Wielkanocny",
+        "Drugi dzień Świąt Wielkanocnych. Dzień ustawowo wolny od pracy."
+    );
+
+
+    addRelative(
+        49,
+        "✝️ Zielone Świątki",
+        "Święto Zesłania Ducha Świętego."
+    );
+
+
+    addRelative(
+        60,
+        "✝️ Boże Ciało",
+        "Uroczystość Najświętszego Ciała i Krwi Chrystusa. Dzień ustawowo wolny od pracy."
+    );
+
+
+    return holidays;
+
+}
+
+
+/* =====================================================
+   URODZINY
+   Powtarzają się każdego roku.
+===================================================== */
+
+const birthdays = {
+
+    "02-04": {
+        title: "🎂 Urodziny KEBABKRAFTOWY",
         description:
-            "Dzień urodzin właściciela Kolonii Pasjonatów.",
-        type: "birthday",
-        typeName: "🎂 Urodziny"
+            "Dzisiaj swoje urodziny obchodzi KEBABKRAFTOWY."
     },
 
-    "2026-08-10": {
+    "06-02": {
+        title: "🎂 Urodziny Kubixtranspotter",
+        description:
+            "Dzisiaj swoje urodziny obchodzi Kubixtranspotter."
+    },
+
+    "06-25": {
+        title: "🎂 Urodziny Noworudzki_mk2",
+        description:
+            "Dzisiaj swoje urodziny obchodzi Noworudzki_mk2."
+    },
+
+    "08-04": {
+        title: "🎂 Urodziny właściciela",
+        description:
+            "Dzisiaj swoje urodziny obchodzi właściciel Kolonii Pasjonatów."
+    },
+
+    "12-23": {
+        title: "🎂 Urodziny Mikol yoriichi",
+        description:
+            "Dzisiaj swoje urodziny obchodzi Mikol yoriichi."
+    }
+
+};
+
+
+/* =====================================================
+   WYDARZENIA KOLONII
+===================================================== */
+
+const colonyEvents = {
+
+    "08-10": {
         title: "🏆 Start Strefy STS Pucharu Polski",
         description:
             "Oficjalne uruchomienie strefy poświęconej rozgrywkom Pucharu Polski.",
@@ -464,7 +791,7 @@ const events = {
         typeName: "🎉 Wydarzenie Kolonii"
     },
 
-    "2026-08-12": {
+    "08-12": {
         title: "🛠️ Naprawa automoderacji serwera",
         description:
             "Planowane poprawki oraz przywrócenie prawidłowego działania automoderacji.",
@@ -472,7 +799,7 @@ const events = {
         typeName: "🎉 Wydarzenie Kolonii"
     },
 
-    "2026-08-13": {
+    "08-13": {
         title: "🛠️ Naprawa automoderacji serwera",
         description:
             "Kontynuacja prac nad automoderacją serwera.",
@@ -480,7 +807,7 @@ const events = {
         typeName: "🎉 Wydarzenie Kolonii"
     },
 
-    "2026-08-14": {
+    "08-14": {
         title: "🛠️ Naprawa automoderacji serwera",
         description:
             "Ostatni zaplanowany dzień prac nad automoderacją.",
@@ -488,15 +815,7 @@ const events = {
         typeName: "🎉 Wydarzenie Kolonii"
     },
 
-    "2026-08-15": {
-        title: "🇵🇱 Wniebowzięcie Najświętszej Maryi Panny / Święto Wojska Polskiego",
-        description:
-            "Święto ustawowo wolne od pracy w Polsce.",
-        type: "holiday",
-        typeName: "🇵🇱 Święto"
-    },
-
-    "2026-08-17": {
+    "08-17": {
         title: "🌐 Uruchomienie strony serwerowej",
         description:
             "Planowane uruchomienie strony internetowej serwera Kolonii Pasjonatów.",
@@ -504,7 +823,7 @@ const events = {
         typeName: "🎉 Wydarzenie Kolonii"
     },
 
-    "2026-08-25": {
+    "08-25": {
         title: "🤖 Prace nad botem „Koloniarz”",
         description:
             "Orientacyjny koniec pierwszego etapu prac nad botem Koloniarz. Termin może ulec zmianie.",
@@ -512,7 +831,7 @@ const events = {
         typeName: "🎉 Wydarzenie Kolonii"
     },
 
-    "2026-08-31": {
+    "08-31": {
         title: "☀️ Zakończenie strefy wakacyjnej",
         description:
             "Oficjalne zakończenie wakacyjnego okresu na serwerze.",
@@ -521,18 +840,15 @@ const events = {
         time: "23:45"
     },
 
-
-    /* WRZESIEŃ */
-
-    "2026-09-23": {
+    "09-23": {
         title: "🍂 Kolej w jesiennym krajobrazie",
         description:
-            "Start jesiennego konkursu fotograficznego, w którym uczestnicy pokażą kolej w jesiennej scenerii. O wynikach zdecydują głosy publiczności oraz jury.",
+            "Start jesiennego konkursu fotograficznego, w którym uczestnicy pokażą kolej w jesiennej scenerii.",
         type: "event",
         typeName: "🎉 Wydarzenie Kolonii"
     },
 
-    "2026-10-09": {
+    "10-09": {
         title: "🍂 Kolej w jesiennym krajobrazie — zakończenie",
         description:
             "Zakończenie jesiennego konkursu fotograficznego.",
@@ -540,10 +856,7 @@ const events = {
         typeName: "🎉 Wydarzenie Kolonii"
     },
 
-
-    /* PAŹDZIERNIK */
-
-    "2026-10-10": {
+    "10-10": {
         title: "🍁 Jesienny Spotter",
         description:
             "Start wydarzenia. Wrzuć swoje jesienne zdjęcie kolei lub komunikacji miejskiej.",
@@ -551,100 +864,64 @@ const events = {
         typeName: "🎉 Wydarzenie Kolonii"
     },
 
-    "2026-10-18": {
+    "10-18": {
         title: "🍁 Jesienny Spotter — zakończenie",
         description:
-            "Zakończenie wydarzenia. Najlepsze zdjęcia mogą zostać wyróżnione i nagrodzone monetami w systemie ekonomii.",
+            "Zakończenie wydarzenia. Najlepsze zdjęcia mogą zostać wyróżnione i nagrodzone.",
         type: "event",
         typeName: "🎉 Wydarzenie Kolonii"
     },
 
-    "2026-10-31": {
+    "10-31": {
         title: "🎃 Halloween Kolonii Pasjonatów",
         description:
-            "Specjalne halloweenowe wydarzenie na serwerze z tematycznymi aktywnościami, zabawami i niespodziankami dla społeczności.",
+            "Specjalne halloweenowe wydarzenie na serwerze z tematycznymi aktywnościami, zabawami i niespodziankami.",
         type: "event",
         typeName: "🎉 Wydarzenie Kolonii"
     },
 
-
-    /* LISTOPAD */
-
-    "2026-11-01": {
-        title: "🕯️ Wszystkich Świętych",
-        description:
-            "Święto ustawowo wolne od pracy w Polsce.",
-        type: "holiday",
-        typeName: "🇵🇱 Święto"
-    },
-
-    "2026-11-11": {
-        title: "🇵🇱 Narodowe Święto Niepodległości",
-        description:
-            "Święto państwowe upamiętniające odzyskanie przez Polskę niepodległości w 1918 roku.",
-        type: "holiday",
-        typeName: "🇵🇱 Święto"
-    },
-
-
-    /* GRUDZIEŃ */
-
-    "2026-12-24": {
-        title: "🎄 Wigilia Bożego Narodzenia",
-        description:
-            "Dzień ustawowo wolny od pracy w Polsce.",
-        type: "holiday",
-        typeName: "🇵🇱 Święto"
-    },
-
-    "2026-12-25": {
-        title: "🎄 Pierwszy dzień Bożego Narodzenia",
-        description:
-            "Święto ustawowo wolne od pracy w Polsce.",
-        type: "holiday",
-        typeName: "🇵🇱 Święto"
-    },
-
-    "2026-12-26": {
-        title: "🎄 Drugi dzień Bożego Narodzenia",
-        description:
-            "Święto ustawowo wolne od pracy w Polsce.",
-        type: "holiday",
-        typeName: "🇵🇱 Święto"
-    },
-
-    "2026-12-31": {
+    "12-31": {
         title: "🎆 Sylwester",
         description:
-            "Specjalne wydarzenie kończące rok 2026. Wspólnie żegnamy stary rok i przygotowujemy się na nadejście 2027 roku.",
+            "Specjalne wydarzenie kończące rok. Wspólnie żegnamy stary rok i przygotowujemy się na nadejście kolejnego.",
         type: "special",
         typeName: "🎆 Wydarzenie specjalne"
-    },
-
-
-    /* STYCZEŃ 2027 */
-
-    "2027-01-01": {
-        title: "🎆 Nowy Rok",
-        description:
-            "Pierwszy dzień nowego roku. Święto ustawowo wolne od pracy w Polsce.",
-        type: "holiday",
-        typeName: "🇵🇱 Święto"
-    },
-
-    "2027-01-06": {
-        title: "✝️ Święto Trzech Króli",
-        description:
-            "Święto ustawowo wolne od pracy w Polsce.",
-        type: "holiday",
-        typeName: "🇵🇱 Święto"
     }
 
 };
 
 
 /* =====================================================
-   KALENDARZ
+   DZISIAJ — DATA Z URZĄDZENIA
+===================================================== */
+
+const deviceToday =
+    new Date();
+
+const todayYear =
+    deviceToday.getFullYear();
+
+const todayMonth =
+    deviceToday.getMonth();
+
+const todayDay =
+    deviceToday.getDate();
+
+
+/* =====================================================
+   AKTUALNY MIESIĄC
+===================================================== */
+
+let currentDate =
+    new Date(
+        todayYear,
+        todayMonth,
+        1
+    );
+
+
+/* =====================================================
+   ELEMENTY
 ===================================================== */
 
 const monthNames = [
@@ -663,30 +940,157 @@ const monthNames = [
 ];
 
 
-let currentDate = new Date(2026, 7, 1);
-
-
 const monthTitle =
-    document.getElementById("monthTitle");
+    document.getElementById(
+        "monthTitle"
+    );
 
 const calendarDays =
-    document.getElementById("calendarDays");
+    document.getElementById(
+        "calendarDays"
+    );
 
 const eventInfo =
-    document.getElementById("eventInfo");
+    document.getElementById(
+        "eventInfo"
+    );
 
 const eventType =
-    document.getElementById("eventType");
+    document.getElementById(
+        "eventType"
+    );
 
 const eventDate =
-    document.getElementById("eventDate");
+    document.getElementById(
+        "eventDate"
+    );
 
 const eventTitle =
-    document.getElementById("eventTitle");
+    document.getElementById(
+        "eventTitle"
+    );
 
 const eventDescription =
-    document.getElementById("eventDescription");
+    document.getElementById(
+        "eventDescription"
+    );
 
+
+/* =====================================================
+   EVENTY DLA ROKU
+===================================================== */
+
+function getEventsForYear(year) {
+
+    const events = {};
+
+
+    /* ŚWIĘTA */
+
+    Object.assign(
+        events,
+        getHolidays(year)
+    );
+
+
+    /* URODZINY */
+
+    for (
+        const birthday in birthdays
+    ) {
+
+        const key =
+            `${year}-${birthday}`;
+
+        events[key] = {
+
+            ...birthdays[birthday],
+
+            type: "birthday",
+
+            typeName:
+                "🎂 Urodziny"
+
+        };
+
+    }
+
+
+    /* WYDARZENIA KOLONII */
+
+    for (
+        const eventDate in colonyEvents
+    ) {
+
+        const key =
+            `${year}-${eventDate}`;
+
+        events[key] = {
+
+            ...colonyEvents[eventDate]
+
+        };
+
+    }
+
+
+    return events;
+
+}
+
+
+/* =====================================================
+   POKAZANIE INFORMACJI
+===================================================== */
+
+function showEvent(
+    event,
+    day,
+    month,
+    year
+) {
+
+    eventType.textContent =
+        event.typeName;
+
+    eventType.className =
+        "event-type type-" +
+        event.type;
+
+
+    eventDate.textContent =
+        `📅 ${pad(day)}.${pad(month + 1)}.${year}` +
+        (
+            event.time
+                ? ` | ⏰ ${event.time}`
+                : ""
+        );
+
+
+    eventTitle.textContent =
+        event.title;
+
+
+    eventDescription.textContent =
+        event.description;
+
+
+    eventInfo.classList.add(
+        "active"
+    );
+
+
+    eventInfo.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+    });
+
+}
+
+
+/* =====================================================
+   RYSOWANIE
+===================================================== */
 
 function renderCalendar() {
 
@@ -697,15 +1101,23 @@ function renderCalendar() {
         currentDate.getMonth();
 
 
+    const events =
+        getEventsForYear(year);
+
+
     monthTitle.textContent =
-        monthNames[month] + " " + year;
+        `${monthNames[month]} ${year}`;
 
 
     calendarDays.innerHTML = "";
 
 
     const firstDay =
-        new Date(year, month, 1);
+        new Date(
+            year,
+            month,
+            1
+        );
 
 
     let startDay =
@@ -725,6 +1137,8 @@ function renderCalendar() {
         ).getDate();
 
 
+    /* PUSTE */
+
     for (
         let i = 1;
         i < startDay;
@@ -732,15 +1146,21 @@ function renderCalendar() {
     ) {
 
         const empty =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
         empty.className =
             "day empty";
 
-        calendarDays.appendChild(empty);
+        calendarDays.appendChild(
+            empty
+        );
 
     }
 
+
+    /* DNI */
 
     for (
         let day = 1;
@@ -749,13 +1169,18 @@ function renderCalendar() {
     ) {
 
         const cell =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
-        cell.className = "day";
+        cell.className =
+            "day";
 
 
         const number =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
         number.className =
             "day-number";
@@ -763,27 +1188,57 @@ function renderCalendar() {
         number.textContent =
             day;
 
-        cell.appendChild(number);
+
+        cell.appendChild(
+            number
+        );
 
 
-        const monthNumber =
-            String(month + 1)
-            .padStart(2, "0");
+        const key =
+            dateKey(
+                year,
+                month,
+                day
+            );
 
 
-        const dayNumber =
-            String(day)
-            .padStart(2, "0");
+        /* DZISIAJ */
+
+        if (
+            year === todayYear &&
+            month === todayMonth &&
+            day === todayDay
+        ) {
+
+            cell.classList.add(
+                "today-day"
+            );
 
 
-        const dateKey =
-            `${year}-${monthNumber}-${dayNumber}`;
+            const label =
+                document.createElement(
+                    "div"
+                );
+
+            label.className =
+                "today-label";
+
+            label.textContent =
+                "Dzisiaj";
+
+            cell.appendChild(
+                label
+            );
+
+        }
 
 
-        if (events[dateKey]) {
+        /* EVENT */
+
+        if (events[key]) {
 
             const event =
-                events[dateKey];
+                events[key];
 
 
             cell.classList.add(
@@ -792,55 +1247,29 @@ function renderCalendar() {
 
 
             const dot =
-                document.createElement("div");
-
+                document.createElement(
+                    "div"
+                );
 
             dot.className =
                 event.type + "-dot";
 
 
-            cell.appendChild(dot);
+            cell.appendChild(
+                dot
+            );
 
 
             cell.addEventListener(
                 "click",
                 () => {
 
-                    eventType.textContent =
-                        event.typeName;
-
-
-                    eventType.className =
-                        "event-type type-" +
-                        event.type;
-
-
-                    eventDate.textContent =
-                        `📅 ${day}.${monthNumber}.${year}` +
-                        (
-                            event.time
-                                ? ` | ⏰ ${event.time}`
-                                : ""
-                        );
-
-
-                    eventTitle.textContent =
-                        event.title;
-
-
-                    eventDescription.textContent =
-                        event.description;
-
-
-                    eventInfo.classList.add(
-                        "active"
+                    showEvent(
+                        event,
+                        day,
+                        month,
+                        year
                     );
-
-
-                    eventInfo.scrollIntoView({
-                        behavior: "smooth",
-                        block: "nearest"
-                    });
 
                 }
             );
@@ -848,7 +1277,9 @@ function renderCalendar() {
         }
 
 
-        calendarDays.appendChild(cell);
+        calendarDays.appendChild(
+            cell
+        );
 
     }
 
@@ -856,11 +1287,13 @@ function renderCalendar() {
 
 
 /* =====================================================
-   ZMIANA MIESIĄCA
+   POPRZEDNI MIESIĄC
 ===================================================== */
 
 document
-    .getElementById("previousMonth")
+    .getElementById(
+        "previousMonth"
+    )
     .addEventListener(
         "click",
         () => {
@@ -879,8 +1312,14 @@ document
     );
 
 
+/* =====================================================
+   NASTĘPNY MIESIĄC
+===================================================== */
+
 document
-    .getElementById("nextMonth")
+    .getElementById(
+        "nextMonth"
+    )
     .addEventListener(
         "click",
         () => {
@@ -888,6 +1327,35 @@ document
             currentDate.setMonth(
                 currentDate.getMonth() + 1
             );
+
+            renderCalendar();
+
+            eventInfo.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+
+/* =====================================================
+   DZISIAJ
+===================================================== */
+
+document
+    .getElementById(
+        "todayButton"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            currentDate =
+                new Date(
+                    todayYear,
+                    todayMonth,
+                    1
+                );
 
             renderCalendar();
 
@@ -915,7 +1383,9 @@ const savedTheme =
     );
 
 
-if (savedTheme === "light") {
+if (
+    savedTheme === "light"
+) {
 
     document.body.classList.add(
         "light"
@@ -966,7 +1436,9 @@ themeButton.addEventListener(
 );
 
 
-/* START */
+/* =====================================================
+   START
+===================================================== */
 
 renderCalendar();
 
@@ -974,4 +1446,4 @@ renderCalendar();
 
 </body>
 
-</html>
+    </html>
