@@ -917,378 +917,1017 @@ footer p {
 
 /* =========================================================
    💾 RETRO MODE — KOLONIA PASJONATÓW
+   Styl Windows 95 / 98 / klasyczne strony WWW
 ========================================================= */
 
 body.retro {
+
     margin: 0;
 
-    color: #000080;
+    color: #000000;
 
     background:
         #008080;
 
     font-family:
-        "Times New Roman",
-        Times,
-        serif;
+        "MS Sans Serif",
+        "Arial",
+        sans-serif;
+
+    font-size: 14px;
+
+    image-rendering: pixelated;
 }
 
 
-/* Główne okno strony */
+/* =========================================================
+   GŁÓWNE ELEMENTY — OKNA WINDOWS
+========================================================= */
 
 body.retro header,
 body.retro .hero,
 body.retro .section,
 body.retro .info-card,
 body.retro .league-ranking,
-body.retro .contact-card {
-    background: #c0c0c0;
+body.retro .contact-card,
+body.retro .calendar,
+body.retro .legend,
+body.retro .event-info,
+body.retro .history-card,
+body.retro .admin-section,
+body.retro .koloniarz-card {
+
+    background:
+        #c0c0c0;
+
+    color:
+        #000000;
 
     border:
         2px outset #ffffff;
 
-    border-radius: 0;
+    border-radius:
+        0;
 
     box-shadow:
         3px 3px 0 #000000;
 
-    backdrop-filter: none;
+    backdrop-filter:
+        none;
 }
 
 
-/* Nagłówek */
+/* =========================================================
+   HEADER
+========================================================= */
 
 body.retro header {
-    margin: 10px;
 
-    padding: 10px;
+    margin:
+        8px;
+
+    padding:
+        7px 10px;
 
     border:
-        3px outset #ffffff;
+        2px outset #ffffff;
+
+    background:
+        #c0c0c0;
 }
 
 
-/* Logo */
+/* =========================================================
+   LOGO
+========================================================= */
 
 body.retro .logo {
-    color: #000080;
+
+    color:
+        #000080;
 
     font-family:
         "Courier New",
         monospace;
 
-    font-size: 22px;
+    font-size:
+        20px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
-    text-shadow: none;
+    text-shadow:
+        none;
 }
 
 
-/* Menu */
+/* =========================================================
+   MENU
+========================================================= */
 
 body.retro nav {
-    gap: 3px;
+
+    gap:
+        4px;
 }
 
 body.retro nav a {
-    padding: 6px 12px;
+
+    padding:
+        6px 12px;
 
     border:
         2px outset #ffffff;
 
-    border-radius: 0;
+    border-radius:
+        0;
 
-    background: #c0c0c0;
+    background:
+        #c0c0c0;
 
-    color: #000000;
+    color:
+        #000000;
 
     font-family:
-        "Arial",
+        Arial,
         sans-serif;
 
-    font-size: 14px;
+    font-size:
+        13px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
-    box-shadow: none;
+    box-shadow:
+        none;
 }
 
 body.retro nav a:hover {
-    transform: none;
 
-    background: #000080;
+    transform:
+        none;
 
-    color: #ffffff;
+    background:
+        #000080;
 
-    box-shadow: none;
+    color:
+        #ffffff;
+
+    box-shadow:
+        none;
+}
+
+body.retro nav a:active {
+
+    border:
+        2px inset #ffffff;
+
+    padding:
+        7px 11px 5px 13px;
 }
 
 
-/* Przycisk motywu */
+/* =========================================================
+   PRZYCISK MOTYWU
+========================================================= */
 
-body.retro .theme-toggle {
-    width: 42px;
-    height: 30px;
+body.retro .theme-toggle,
+body.retro .theme-button {
+
+    width:
+        42px;
+
+    height:
+        30px;
+
+    padding:
+        2px;
 
     border:
         2px outset #ffffff;
 
-    border-radius: 0;
+    border-radius:
+        0;
 
-    background: #c0c0c0;
+    background:
+        #c0c0c0;
 
-    color: #000000;
+    color:
+        #000000;
 
-    box-shadow: none;
+    box-shadow:
+        none;
 
-    font-size: 16px;
+    font-size:
+        16px;
 }
 
-body.retro .theme-toggle:hover {
-    transform: none;
+body.retro .theme-toggle:hover,
+body.retro .theme-button:hover {
 
-    box-shadow: none;
+    transform:
+        none;
+
+    filter:
+        none;
+
+    box-shadow:
+        none;
+}
+
+body.retro .theme-toggle:active,
+body.retro .theme-button:active {
+
+    border:
+        2px inset #ffffff;
 }
 
 
-/* Hero */
+/* =========================================================
+   HERO — OKNO TYPU WINDOWS
+========================================================= */
 
 body.retro .hero {
-    margin: 20px auto;
 
-    padding: 20px;
+    position:
+        relative;
 
-    max-width: 900px;
+    margin:
+        20px auto;
 
-    text-align: center;
+    padding:
+        35px 20px 20px;
+
+    max-width:
+        900px;
+
+    text-align:
+        center;
 }
 
+
+/* Pasek tytułowy */
+
+body.retro .hero::before {
+
+    content:
+        "Kolonia Pasjonatów";
+
+    position:
+        absolute;
+
+    top:
+        3px;
+
+    left:
+        3px;
+
+    right:
+        3px;
+
+    height:
+        24px;
+
+    padding-left:
+        7px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    background:
+        #000080;
+
+    color:
+        #ffffff;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        13px;
+
+    font-weight:
+        bold;
+
+    text-align:
+        left;
+}
+
+
 body.retro .hero h1 {
-    color: #000080;
+
+    margin-top:
+        5px;
+
+    color:
+        #000080;
 
     font-family:
         "Times New Roman",
         serif;
 
-    font-size: 36px;
+    font-size:
+        34px;
 
-    text-shadow: none;
+    text-shadow:
+        none;
 }
+
 
 body.retro .hero p {
-    color: #000000;
 
-    opacity: 1;
+    color:
+        #000000;
+
+    opacity:
+        1;
+
+    line-height:
+        1.5;
 }
 
 
-/* Sekcje */
+/* =========================================================
+   SEKCJE
+========================================================= */
 
 body.retro .section {
-    max-width: 900px;
 
-    margin: 20px auto;
+    max-width:
+        900px;
 
-    padding: 15px;
+    margin:
+        20px auto;
+
+    padding:
+        15px;
 }
 
 body.retro .section-title {
-    color: #000080;
 
-    text-decoration: underline;
+    color:
+        #000080;
 
-    text-shadow: none;
+    font-family:
+        "Times New Roman",
+        serif;
+
+    text-decoration:
+        underline;
+
+    text-shadow:
+        none;
 }
 
 
-/* Karty */
+/* =========================================================
+   KARTY
+========================================================= */
 
 body.retro .info-card {
-    min-height: 180px;
 
-    padding: 15px;
+    min-height:
+        180px;
 
-    color: #000000;
+    padding:
+        15px;
+
+    color:
+        #000000;
 }
 
 body.retro .info-card h2 {
-    color: #000080;
 
-    text-decoration: underline;
+    color:
+        #000080;
+
+    text-decoration:
+        underline;
 }
 
 body.retro .info-card p {
-    opacity: 1;
+
+    opacity:
+        1;
 }
 
 
-/* Przyciski */
+/* =========================================================
+   PRZYCISKI
+========================================================= */
 
-body.retro .button {
-    padding: 6px 14px;
+body.retro .button,
+body.retro .home-button,
+body.retro .month-button,
+body.retro .today-button {
+
+    padding:
+        6px 14px;
 
     border:
         2px outset #ffffff;
 
-    border-radius: 0;
+    border-radius:
+        0;
 
-    background: #c0c0c0;
+    background:
+        #c0c0c0;
 
-    color: #000000;
+    color:
+        #000000;
 
-    box-shadow: none;
+    box-shadow:
+        none;
 
     font-family:
         Arial,
         sans-serif;
+
+    font-weight:
+        bold;
 }
 
-body.retro .button:hover {
-    transform: none;
+body.retro .button:hover,
+body.retro .home-button:hover,
+body.retro .month-button:hover,
+body.retro .today-button:hover {
 
-    filter: none;
+    transform:
+        none;
 
-    background: #000080;
+    filter:
+        none;
 
-    color: #ffffff;
+    background:
+        #000080;
 
-    box-shadow: none;
+    color:
+        #ffffff;
+
+    box-shadow:
+        none;
+}
+
+body.retro .button:active,
+body.retro .home-button:active,
+body.retro .month-button:active,
+body.retro .today-button:active {
+
+    border:
+        2px inset #ffffff;
 }
 
 
-/* Status */
+/* =========================================================
+   STATUS
+========================================================= */
 
 body.retro .status {
-    padding: 5px 10px;
+
+    padding:
+        5px 10px;
+
+    border:
+        2px inset #ffffff;
+
+    border-radius:
+        0;
+
+    background:
+        #ffff00;
+
+    color:
+        #000000;
+
+    font-weight:
+        bold;
+
+    box-shadow:
+        none;
+}
+
+
+/* =========================================================
+   RANKING
+========================================================= */
+
+body.retro .league-ranking {
+
+    color:
+        #000000;
+}
+
+body.retro .league-ranking h2 {
+
+    color:
+        #000080;
+
+    text-decoration:
+        underline;
+
+    text-shadow:
+        none;
+}
+
+body.retro .ranking-container {
+
+    border:
+        2px inset #ffffff;
+}
+
+body.retro .ranking-container th {
+
+    padding:
+        8px;
+
+    background:
+        #000080;
+
+    color:
+        #ffffff;
+
+    border:
+        1px solid #000000;
+}
+
+body.retro .ranking-container td {
+
+    padding:
+        8px;
+
+    background:
+        #ffffff;
+
+    color:
+        #000000;
+
+    border:
+        1px solid #000000;
+}
+
+body.retro .ranking-container tbody tr:hover td {
+
+    background:
+        #ffff00;
+}
+
+
+/* =========================================================
+   KALENDARZ
+========================================================= */
+
+body.retro .calendar {
+
+    padding:
+        12px;
+}
+
+body.retro .weekday {
+
+    color:
+        #000080;
+
+    font-weight:
+        bold;
+
+    text-decoration:
+        underline;
+}
+
+body.retro .day {
+
+    min-height:
+        70px;
+
+    padding:
+        7px;
+
+    border:
+        2px outset #ffffff;
+
+    border-radius:
+        0;
+
+    background:
+        #c0c0c0;
+
+    color:
+        #000000;
+
+    box-shadow:
+        none;
+}
+
+body.retro .day:hover {
+
+    transform:
+        none;
+
+    filter:
+        none;
+
+    background:
+        #ffff00;
+}
+
+body.retro .day.empty {
+
+    background:
+        transparent;
+
+    border:
+        none;
+
+    box-shadow:
+        none;
+}
+
+body.retro .today-day {
+
+    border:
+        3px solid #0000ff;
+
+    box-shadow:
+        none;
+}
+
+body.retro .event-day {
+
+    border:
+        3px solid #ff0000;
+
+    box-shadow:
+        none;
+}
+
+body.retro .holiday-day {
+
+    border:
+        3px solid #ff0000;
+
+    box-shadow:
+        none;
+}
+
+body.retro .birthday-day {
+
+    border:
+        3px solid #ff00ff;
+
+    box-shadow:
+        none;
+}
+
+body.retro .special-day {
+
+    border:
+        3px solid #800080;
+
+    box-shadow:
+        none;
+}
+
+
+/* =========================================================
+   LEGENDA
+========================================================= */
+
+body.retro .legend {
+
+    color:
+        #000000;
+}
+
+body.retro .legend h3 {
+
+    color:
+        #000080;
+
+    text-decoration:
+        underline;
+}
+
+body.retro .legend-color {
 
     border:
         1px solid #000000;
 
-    border-radius: 0;
-
-    background: #ffff00;
-
-    color: #000000;
-
-    font-weight: bold;
+    border-radius:
+        0;
 }
 
 
-/* Ranking */
+/* =========================================================
+   INFORMACJE O WYDARZENIU
+========================================================= */
 
-body.retro .league-ranking {
-    color: #000000;
+body.retro .event-info {
+
+    color:
+        #000000;
 }
 
-body.retro .league-ranking h2 {
-    color: #000080;
+body.retro .event-info h2 {
 
-    text-decoration: underline;
+    color:
+        #000080;
 
-    text-shadow: none;
+    text-decoration:
+        underline;
 }
 
-body.retro .ranking-container th {
-    background: #000080;
+body.retro .event-type {
 
-    color: #ffffff;
+    border:
+        1px solid #000000;
 
-    border: 1px solid #000000;
-}
-
-body.retro .ranking-container td {
-    background: #ffffff;
-
-    color: #000000;
-
-    border: 1px solid #000000;
-}
-
-body.retro .ranking-container tbody tr:hover td {
-    background: #ffff00;
+    border-radius:
+        0;
 }
 
 
-/* Kontakt */
+/* =========================================================
+   HISTORIA
+========================================================= */
+
+body.retro .history-card {
+
+    color:
+        #000000;
+}
+
+body.retro .history-card h2 {
+
+    color:
+        #000080;
+
+    text-decoration:
+        underline;
+}
+
+body.retro .history-date {
+
+    color:
+        #000080;
+
+    opacity:
+        1;
+}
+
+
+/* =========================================================
+   ADMINISTRACJA
+========================================================= */
+
+body.retro .admin-section {
+
+    color:
+        #000000;
+}
+
+body.retro .admin-section h2 {
+
+    color:
+        #000080;
+
+    text-decoration:
+        underline;
+}
+
+body.retro .admin-person {
+
+    padding:
+        8px 12px;
+
+    border:
+        1px solid #000000;
+
+    border-radius:
+        0;
+
+    background:
+        #ffffff;
+
+    color:
+        #000000;
+}
+
+body.retro .admin-person:hover {
+
+    transform:
+        none;
+
+    background:
+        #ffff00;
+}
+
+
+/* =========================================================
+   KOLONIARZ
+========================================================= */
+
+body.retro .koloniarz-card {
+
+    color:
+        #000000;
+}
+
+body.retro .koloniarz-card h2 {
+
+    color:
+        #000080;
+
+    text-decoration:
+        underline;
+}
+
+body.retro .robot {
+
+    font-family:
+        "Times New Roman",
+        serif;
+}
+
+
+/* =========================================================
+   KONTAKT
+========================================================= */
 
 body.retro .contact-card {
-    color: #000000;
+
+    color:
+        #000000;
+}
+
+body.retro .contact-card h2 {
+
+    color:
+        #000080;
+
+    text-decoration:
+        underline;
 }
 
 body.retro .discord-button,
 body.retro .email-button,
 body.retro .disabled-button {
+
     border:
         2px outset #ffffff;
 
-    border-radius: 0;
+    border-radius:
+        0;
 
-    background: #c0c0c0;
+    background:
+        #c0c0c0;
 
-    color: #000000;
+    color:
+        #000000;
 
-    box-shadow: none;
+    box-shadow:
+        none;
 }
 
 body.retro .discord-button:hover,
 body.retro .email-button:hover {
-    background: #000080;
 
-    color: #ffffff;
+    transform:
+        none;
 
-    box-shadow: none;
+    background:
+        #000080;
+
+    color:
+        #ffffff;
+
+    box-shadow:
+        none;
 }
 
 
-/* Footer */
+/* =========================================================
+   STOPKA
+========================================================= */
 
 body.retro footer {
-    margin: 20px 10px;
 
-    padding: 10px;
+    margin:
+        20px 10px;
 
-    background: #c0c0c0;
+    padding:
+        10px;
 
-    color: #000000;
+    background:
+        #c0c0c0;
+
+    color:
+        #000000;
 
     border:
         2px outset #ffffff;
 
-    opacity: 1;
+    opacity:
+        1;
+
+    box-shadow:
+        3px 3px 0 #000000;
 }
 
 
-/* Retro linki */
+/* =========================================================
+   LINKI
+========================================================= */
 
 body.retro a {
-    color: #000080;
+
+    color:
+        #000080;
 }
 
 body.retro nav a,
-body.retro .button {
-    color: #000000;
+body.retro .button,
+body.retro .home-button,
+body.retro .month-button,
+body.retro .today-button {
+
+    color:
+        #000000;
 }
 
 body.retro nav a:hover,
-body.retro .button:hover {
-    color: #ffffff;
+body.retro .button:hover,
+body.retro .home-button:hover,
+body.retro .month-button:hover,
+body.retro .today-button:hover {
+
+    color:
+        #ffffff;
 }
 
 
-/* Retro scrollbar */
+/* =========================================================
+   ZAZNACZENIE TEKSTU
+========================================================= */
+
+body.retro ::selection {
+
+    background:
+        #000080;
+
+    color:
+        #ffffff;
+}
+
+
+/* =========================================================
+   SCROLLBAR — WINDOWS 95
+========================================================= */
 
 body.retro ::-webkit-scrollbar {
-    width: 16px;
+
+    width:
+        16px;
+
+    height:
+        16px;
 }
 
 body.retro ::-webkit-scrollbar-track {
-    background: #c0c0c0;
+
+    background:
+        #c0c0c0;
+
+    border:
+        1px inset #ffffff;
 }
 
 body.retro ::-webkit-scrollbar-thumb {
-    background: #808080;
+
+    background:
+        #c0c0c0;
 
     border:
         2px outset #ffffff;
 }
+
+body.retro ::-webkit-scrollbar-button {
+
+    display:
+        block;
+
+    width:
+        16px;
+
+    height:
+        16px;
+
+    background:
+        #c0c0c0;
+
+    border:
+        2px outset #ffffff;
+   }
