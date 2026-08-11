@@ -11,6 +11,10 @@
 
     <style>
 
+        /* =====================================================
+           RANKING
+        ===================================================== */
+
         .ranking-page {
             max-width: 1100px;
             margin: auto;
@@ -59,7 +63,7 @@
         }
 
         .place {
-            width: 80px;
+            width: 90px;
             font-weight: 800;
         }
 
@@ -98,6 +102,313 @@
             line-height: 1.6;
         }
 
+
+        /* =====================================================
+           RETRO — GŁÓWNY WYGLĄD RANKINGU
+        ===================================================== */
+
+        body.retro .ranking-page {
+            font-family:
+                "Courier New",
+                Courier,
+                monospace;
+        }
+
+
+        /* HERO */
+
+        body.retro .ranking-page .hero {
+
+            border: 3px solid #6b4f24;
+
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(0,0,0,.04),
+                    rgba(0,0,0,.04) 2px,
+                    transparent 2px,
+                    transparent 5px
+                ),
+                #d8c49a;
+
+            color: #2f2415;
+
+            box-shadow:
+                6px 6px 0 #6b4f24;
+
+            border-radius: 4px;
+        }
+
+
+        body.retro .ranking-page .hero h1 {
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            text-shadow:
+                2px 2px 0 #a58a59;
+        }
+
+
+        /* INFORMACJA */
+
+        body.retro .ranking-info {
+
+            background: #d8c49a;
+
+            color: #2f2415;
+
+            border: 3px solid #6b4f24;
+
+            border-radius: 3px;
+
+            box-shadow:
+                5px 5px 0 #6b4f24;
+        }
+
+
+        /* NAZWY LIG */
+
+        body.retro .ranking-section h2 {
+
+            font-family:
+                "Courier New",
+                Courier,
+                monospace;
+
+            color: #3b2b18;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* KARTA */
+
+        body.retro .ranking-card {
+
+            background: #cbb487;
+
+            border: 3px solid #6b4f24;
+
+            border-radius: 3px;
+
+            box-shadow:
+                6px 6px 0 #6b4f24;
+
+            padding: 12px;
+        }
+
+
+        /* TABELA */
+
+        body.retro .ranking-table {
+
+            background: #e2d0a5;
+
+            color: #2f2415;
+
+            border: 2px solid #6b4f24;
+        }
+
+
+        /* NAGŁÓWKI */
+
+        body.retro .ranking-table th {
+
+            background: #806437;
+
+            color: #fff4d2;
+
+            border: 2px solid #4f3a20;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* KOMÓRKI */
+
+        body.retro .ranking-table td {
+
+            border: 1px solid #8d7346;
+        }
+
+
+        /* NAPrzEMIENNE WIERSZE */
+
+        body.retro
+        .ranking-table
+        tbody
+        tr:nth-child(even) {
+
+            background: #d6c194;
+        }
+
+
+        /* HOVER */
+
+        body.retro
+        .ranking-table
+        tbody
+        tr:hover {
+
+            background: #bfa46e;
+
+            box-shadow:
+                inset 0 0 0 2px #6b4f24;
+        }
+
+
+        /* 1 MIEJSCE */
+
+        body.retro
+        .ranking-table
+        .first {
+
+            background: #e7cf79;
+
+            font-weight: 900;
+        }
+
+
+        /* 2 MIEJSCE */
+
+        body.retro
+        .ranking-table
+        .second {
+
+            background: #d2c2a1;
+
+            font-weight: 900;
+        }
+
+
+        /* 3 MIEJSCE */
+
+        body.retro
+        .ranking-table
+        .third {
+
+            background: #c99c62;
+
+            font-weight: 900;
+        }
+
+
+        /* PUNKTY */
+
+        body.retro
+        .ranking-table
+        .points {
+
+            color: #3d2a12;
+
+            font-weight: 900;
+        }
+
+
+        body.retro
+        .ranking-table
+        .zero {
+
+            opacity: .55;
+        }
+
+
+        /* =====================================================
+           EFEKT STAREGO MONITORA
+        ===================================================== */
+
+        body.retro .ranking-page::after {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 9999;
+
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(0,0,0,.035),
+                    rgba(0,0,0,.035) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
+
+            opacity: .35;
+        }
+
+
+        /* =====================================================
+           RETRO — GÓRNE MENU
+        ===================================================== */
+
+        body.retro header {
+
+            border-bottom:
+                3px solid #6b4f24;
+
+            background: #b99c68;
+        }
+
+
+        body.retro header .logo {
+
+            font-family:
+                "Courier New",
+                Courier,
+                monospace;
+
+            color: #2f2415;
+
+            text-transform: uppercase;
+        }
+
+
+        body.retro header nav a {
+
+            color: #2f2415;
+
+            border-radius: 3px;
+        }
+
+
+        body.retro header nav a:hover {
+
+            background: #806437;
+
+            color: #fff4d2;
+        }
+
+
+        body.retro .theme-toggle {
+
+            border-radius: 3px;
+
+            background: #806437;
+
+            color: #fff4d2;
+
+            border: 2px solid #4f3a20;
+
+            box-shadow:
+                3px 3px 0 #4f3a20;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
         @media (max-width: 600px) {
 
             .ranking-page {
@@ -105,7 +416,7 @@
             }
 
             .ranking-card {
-                padding: 10px;
+                padding: 8px;
             }
 
             .ranking-table th,
@@ -118,17 +429,30 @@
                 padding: 17px;
             }
 
+            body.retro .ranking-card {
+
+                box-shadow:
+                    4px 4px 0 #6b4f24;
+            }
+
+            body.retro .ranking-info {
+
+                box-shadow:
+                    4px 4px 0 #6b4f24;
+            }
+
         }
 
     </style>
 
 </head>
 
+
 <body>
 
 
 <!-- =====================================================
-     GÓRNY PASEK — TAKI SAM JAK NA INDEX.HTML
+     GÓRNY PASEK
 ===================================================== -->
 
 <header>
@@ -136,6 +460,7 @@
     <div class="logo">
         🌟 Kolonia Pasjonatów
     </div>
+
 
     <nav>
 
@@ -156,6 +481,7 @@
         </a>
 
     </nav>
+
 
     <button
         id="themeToggle"
@@ -196,16 +522,19 @@
 
     <section class="ranking-info">
 
-        <strong>📊 Ranking Kolonii Pasjonatów</strong>
+        <strong>
+            📊 Ranking Kolonii Pasjonatów
+        </strong>
 
         <p>
-            Punkty zdobywane są za prawidłowe typowanie
-            wyników spotkań w poszczególnych rozgrywkach.
+            Punkty zdobywane są za prawidłowe
+            typowanie wyników spotkań
+            w poszczególnych rozgrywkach.
         </p>
 
         <p>
-            Ranking jest aktualizowany wraz z kolejnymi
-            meczami i typowaniami.
+            Ranking jest aktualizowany wraz
+            z kolejnymi meczami i typowaniami.
         </p>
 
     </section>
@@ -220,6 +549,7 @@
         <h2 class="section-title">
             🏆 PKO BP Ekstraklasa
         </h2>
+
 
         <div class="ranking-card">
 
@@ -245,8 +575,8 @@
 
                 </thead>
 
-                <tbody>
 
+                <tbody>
 
                     <tr class="first">
 
@@ -332,7 +662,6 @@
 
                     </tr>
 
-
                 </tbody>
 
             </table>
@@ -351,6 +680,7 @@
         <h2 class="section-title">
             🏆 Betclic 1 Liga
         </h2>
+
 
         <div class="ranking-card">
 
@@ -376,8 +706,8 @@
 
                 </thead>
 
-                <tbody>
 
+                <tbody>
 
                     <tr class="first">
 
@@ -462,7 +792,6 @@
                         </td>
 
                     </tr>
-
 
                 </tbody>
 
@@ -483,6 +812,7 @@
             🏆 Betclic 2 Liga
         </h2>
 
+
         <div class="ranking-card">
 
             <table class="ranking-table">
@@ -507,8 +837,8 @@
 
                 </thead>
 
-                <tbody>
 
+                <tbody>
 
                     <tr class="first">
 
@@ -593,7 +923,6 @@
                         </td>
 
                     </tr>
-
 
                 </tbody>
 
