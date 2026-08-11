@@ -2,23 +2,15 @@
 <html lang="pl">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Kalendarz | Kolonia Pasjonatów</title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
-
 <body>
-
 
 <header>
 
@@ -26,60 +18,27 @@
         🌟 Kolonia Pasjonatów
     </div>
 
-
     <nav>
-
-        <a href="index.html">
-            🏠 Strona główna
-        </a>
-
-        <a href="ranking.html">
-            🏆 Ranking
-        </a>
-
-        <a href="statystyki.html">
-            📊 Statystyki
-        </a>
-
-        <a href="ogloszenia.html">
-            📢 Ogłoszenia
-        </a>
-
-        <a href="linki.html">
-            🔗 Linki
-        </a>
-
-        <a href="kontakt.html">
-            📧 Kontakt
-        </a>
-
+        <a href="index.html">🏠 Strona główna</a>
+        <a href="ranking.html">🏆 Ranking</a>
+        <a href="statystyki.html">📊 Statystyki</a>
+        <a href="ogloszenia.html">📢 Ogłoszenia</a>
+        <a href="linki.html">🔗 Linki</a>
+        <a href="kontakt.html">📧 Kontakt</a>
     </nav>
 
-
-    <button
-        id="themeToggle"
-        class="theme-toggle"
-        type="button"
-        aria-label="Zmień motyw"
-    >
+    <button id="themeButton" class="theme-button" type="button">
         🌙
     </button>
 
 </header>
 
 
-<main>
-
-
-    <!-- =====================================================
-         HERO
-    ===================================================== -->
+<main class="calendar-page">
 
     <section class="hero">
 
-        <h1>
-            📅 Kalendarz Kolonii Pasjonatów
-        </h1>
+        <h1>📅 Kalendarz Kolonii Pasjonatów</h1>
 
         <p>
             Wydarzenia Kolonii, święta państwowe,
@@ -89,224 +48,112 @@
     </section>
 
 
-    <!-- =====================================================
-         KALENDARZ
-    ===================================================== -->
-
-    <section class="section">
-
-        <div class="info-card">
-
-
-            <!-- PRZEJŚCIE DO DZISIAJ -->
-
-            <button
-                id="todayButton"
-                class="button"
-                type="button"
-            >
-                📍 Przejdź do dzisiaj
-            </button>
+    <button
+        id="todayButton"
+        class="today-button"
+        type="button">
+        📍 Przejdź do dzisiaj
+    </button>
 
 
-            <!-- NAWIGACJA MIESIĄCA -->
+    <div class="calendar-header">
 
-            <div class="calendar-header">
+        <button
+            id="previousMonth"
+            class="month-button"
+            type="button">
+            ◀
+        </button>
 
-                <button
-                    id="previousMonth"
-                    class="button"
-                    type="button"
-                >
-                    ◀
-                </button>
+        <div id="monthTitle" class="month-title"></div>
 
+        <button
+            id="nextMonth"
+            class="month-button"
+            type="button">
+            ▶
+        </button>
 
-                <h2
-                    id="monthTitle"
-                    class="month-title"
-                >
-                    —
-                </h2>
-
-
-                <button
-                    id="nextMonth"
-                    class="button"
-                    type="button"
-                >
-                    ▶
-                </button>
-
-            </div>
+    </div>
 
 
-            <!-- DNI TYGODNIA -->
+    <div class="calendar">
 
-            <div class="weekdays">
+        <div class="weekdays">
 
-                <div class="weekday">Pn</div>
-                <div class="weekday">Wt</div>
-                <div class="weekday">Śr</div>
-                <div class="weekday">Cz</div>
-                <div class="weekday">Pt</div>
-                <div class="weekday">Sb</div>
-                <div class="weekday">Nd</div>
-
-            </div>
-
-
-            <!-- DNI -->
-
-            <div
-                id="calendarDays"
-                class="days"
-            ></div>
-
+            <div class="weekday">Pn</div>
+            <div class="weekday">Wt</div>
+            <div class="weekday">Śr</div>
+            <div class="weekday">Cz</div>
+            <div class="weekday">Pt</div>
+            <div class="weekday">Sb</div>
+            <div class="weekday">Nd</div>
 
         </div>
 
-    </section>
+        <div id="calendarDays" class="days"></div>
+
+    </div>
 
 
-    <!-- =====================================================
-         INFORMACJE O WYDARZENIU
-    ===================================================== -->
+    <div class="legend">
 
-    <section
-        id="eventInfo"
-        class="section"
-        style="display:none;"
-    >
+        <h3>📌 Legenda</h3>
 
-        <div class="info-card">
+        <div class="legend-items">
 
-            <span
-                id="eventType"
-                class="status"
-            ></span>
+            <div class="legend-item">
+                <span class="legend-color legend-event"></span>
+                🎉 Wydarzenie Kolonii
+            </div>
 
+            <div class="legend-item">
+                <span class="legend-color legend-holiday"></span>
+                🇵🇱 Święto państwowe
+            </div>
 
-            <p
-                id="eventDate"
-            ></p>
+            <div class="legend-item">
+                <span class="legend-color legend-birthday"></span>
+                🎂 Urodziny
+            </div>
 
+            <div class="legend-item">
+                <span class="legend-color legend-special"></span>
+                🎆 Wydarzenie specjalne
+            </div>
 
-            <h2
-                id="eventTitle"
-            ></h2>
-
-
-            <p
-                id="eventDescription"
-            ></p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         LEGENDA
-    ===================================================== -->
-
-    <section class="section">
-
-        <div class="info-card">
-
-            <h2>
-                📌 Legenda
-            </h2>
-
-
-            <div class="info-grid">
-
-
-                <div class="info-card">
-
-                    <h3>
-                        🎉 Wydarzenie Kolonii
-                    </h3>
-
-                    <p>
-                        Wydarzenia organizowane
-                        przez Kolonię Pasjonatów.
-                    </p>
-
-                </div>
-
-
-                <div class="info-card">
-
-                    <h3>
-                        🇵🇱 Święto państwowe
-                    </h3>
-
-                    <p>
-                        Święta państwowe i dni ustawowo
-                        wolne od pracy.
-                    </p>
-
-                </div>
-
-
-                <div class="info-card">
-
-                    <h3>
-                        🎂 Urodziny
-                    </h3>
-
-                    <p>
-                        Urodziny członków społeczności.
-                    </p>
-
-                </div>
-
-
-                <div class="info-card">
-
-                    <h3>
-                        🎆 Wydarzenie specjalne
-                    </h3>
-
-                    <p>
-                        Wyjątkowe wydarzenia Kolonii.
-                    </p>
-
-                </div>
-
-
+            <div class="legend-item">
+                <span class="legend-color legend-today"></span>
+                📍 Dzisiaj
             </div>
 
         </div>
 
-    </section>
+    </div>
 
+
+    <div id="eventInfo" class="event-info">
+
+        <div id="eventType" class="event-type"></div>
+
+        <div id="eventDate" class="event-date"></div>
+
+        <h2 id="eventTitle"></h2>
+
+        <p id="eventDescription"></p>
+
+    </div>
 
 </main>
 
 
 <footer>
 
-    <p>
-        © 2026 Kolonia Pasjonatów
-    </p>
+    <p>© 2026 Kolonia Pasjonatów</p>
 
-    <p>
-        🌟 Oficjalna strona społeczności
-    </p>
+    <p>🌟 Oficjalna strona społeczności</p>
 
 </footer>
-
-
-<!-- =====================================================
-     DANE
-     
-     WAŻNE:
-     dane.js MUSI być przed kodem kalendarza.
-===================================================== -->
-
-<script src="dane.js"></script>
 
 
 <script>
@@ -316,9 +163,7 @@
 ========================================================= */
 
 function pad(number) {
-
     return String(number).padStart(2, "0");
-
 }
 
 
@@ -393,7 +238,6 @@ function getEaster(year) {
             ) % 31
         ) + 1;
 
-
     return new Date(
         year,
         month - 1,
@@ -410,7 +254,6 @@ function getEaster(year) {
 function getHolidays(year) {
 
     const holidays = {};
-
 
     function add(
         month,
@@ -429,11 +272,8 @@ function getHolidays(year) {
 
             title,
             description,
-
             type: "holiday",
-
-            typeName:
-                "🇵🇱 Święto państwowe"
+            typeName: "🇵🇱 Święto państwowe"
 
         };
 
@@ -444,7 +284,7 @@ function getHolidays(year) {
         1,
         1,
         "🎆 Nowy Rok",
-        "Pierwszy dzień nowego roku."
+        "Pierwszy dzień nowego roku. Święto ustawowo wolne od pracy."
     );
 
 
@@ -452,7 +292,7 @@ function getHolidays(year) {
         1,
         6,
         "✝️ Święto Trzech Króli",
-        "Święto Objawienia Pańskiego."
+        "Święto Objawienia Pańskiego. Dzień ustawowo wolny od pracy."
     );
 
 
@@ -468,15 +308,15 @@ function getHolidays(year) {
         5,
         3,
         "🇵🇱 Święto Konstytucji 3 Maja",
-        "Rocznica uchwalenia Konstytucji 3 maja 1791 roku."
+        "Święto upamiętniające uchwalenie Konstytucji 3 maja 1791 roku."
     );
 
 
     add(
         8,
         15,
-        "🇵🇱 Święto Wojska Polskiego",
-        "Święto Wojska Polskiego oraz Wniebowzięcie Najświętszej Maryi Panny."
+        "🇵🇱 Wniebowzięcie Najświętszej Maryi Panny / Święto Wojska Polskiego",
+        "Święto ustawowo wolne od pracy."
     );
 
 
@@ -520,8 +360,6 @@ function getHolidays(year) {
     );
 
 
-    /* ŚWIĘTA RUCHOME */
-
     const easter = getEaster(year);
 
 
@@ -531,13 +369,11 @@ function getHolidays(year) {
         description
     ) {
 
-        const date =
-            new Date(easter);
+        const date = new Date(easter);
 
         date.setDate(
             date.getDate() + days
         );
-
 
         holidays[
             dateKey(
@@ -549,11 +385,8 @@ function getHolidays(year) {
 
             title,
             description,
-
             type: "holiday",
-
-            typeName:
-                "🇵🇱 Święto państwowe"
+            typeName: "🇵🇱 Święto państwowe"
 
         };
 
@@ -563,7 +396,7 @@ function getHolidays(year) {
     addRelative(
         1,
         "🐣 Poniedziałek Wielkanocny",
-        "Drugi dzień Świąt Wielkanocnych."
+        "Drugi dzień Świąt Wielkanocnych. Dzień ustawowo wolny od pracy."
     );
 
 
@@ -577,7 +410,7 @@ function getHolidays(year) {
     addRelative(
         60,
         "✝️ Boże Ciało",
-        "Uroczystość Najświętszego Ciała i Krwi Chrystusa."
+        "Uroczystość Najświętszego Ciała i Krwi Chrystusa. Dzień ustawowo wolny od pracy."
     );
 
 
@@ -588,180 +421,250 @@ function getHolidays(year) {
 
 /* =========================================================
    URODZINY
-   CZYTANE Z dane.js
 ========================================================= */
 
-function getBirthdaysForYear(year) {
+const birthdays = {
 
-    const events = {};
+    "02-04": {
+        title: "🎂 Urodziny KEBABKRAFTOWY",
+        description: "Dzisiaj swoje urodziny obchodzi KEBABKRAFTOWY."
+    },
 
+    "06-02": {
+        title: "🎂 Urodziny Kubixtranspotter",
+        description: "Dzisiaj swoje urodziny obchodzi Kubixtranspotter."
+    },
 
-    if (
-        typeof birthdays === "undefined"
-    ) {
+    "06-25": {
+        title: "🎂 Urodziny Noworudzki_mk2",
+        description: "Dzisiaj swoje urodziny obchodzi Noworudzki_mk2."
+    },
 
-        console.warn(
-            "Brak zmiennej birthdays w dane.js"
-        );
+    "08-04": {
+        title: "🎂 Urodziny właściciela",
+        description: "Dzisiaj swoje urodziny obchodzi właściciel Kolonii Pasjonatów."
+    },
 
-        return events;
-
+    "12-23": {
+        title: "🎂 Urodziny Mikol yoriichi",
+        description: "Dzisiaj swoje urodziny obchodzi Mikol yoriichi."
     }
 
-
-    for (
-        const birthday in birthdays
-    ) {
-
-        const key =
-            `${year}-${birthday}`;
-
-
-        events[key] = {
-
-            ...birthdays[birthday],
-
-            type: "birthday",
-
-            typeName:
-                "🎂 Urodziny"
-
-        };
-
-    }
-
-
-    return events;
-
-}
+};
 
 
 /* =========================================================
-   WYDARZENIA KOLONII
-   CZYTANE Z dane.js
+   WYDARZENIA KOLONII 2026
 ========================================================= */
 
-function getColonyEventsForYear(year) {
+const colonyEvents2026 = {
 
-    const events = {};
+    "08-10": {
+
+        title: "🏆 Start Strefy STS Pucharu Polski",
+
+        description:
+            "Oficjalne uruchomienie strefy poświęconej rozgrywkom Pucharu Polski.",
+
+        type: "event",
+
+        typeName: "🎉 Wydarzenie Kolonii"
+
+    },
 
 
-    if (
-        year !== 2026
-    ) {
+    "08-12": {
 
-        return events;
+        title: "🛠️ Naprawa automoderacji serwera",
+
+        description:
+            "Planowane poprawki oraz przywrócenie prawidłowego działania automoderacji.",
+
+        type: "event",
+
+        typeName: "🎉 Wydarzenie Kolonii"
+
+    },
+
+
+    "08-13": {
+
+        title: "🛠️ Naprawa automoderacji serwera",
+
+        description:
+            "Kontynuacja prac nad automoderacją serwera.",
+
+        type: "event",
+
+        typeName: "🎉 Wydarzenie Kolonii"
+
+    },
+
+
+    "08-14": {
+
+        title: "🛠️ Naprawa automoderacji serwera",
+
+        description:
+            "Ostatni zaplanowany dzień prac nad automoderacją.",
+
+        type: "event",
+
+        typeName: "🎉 Wydarzenie Kolonii"
+
+    },
+
+
+    "08-17": {
+
+        title: "🌐 Uruchomienie strony serwerowej",
+
+        description:
+            "Planowane uruchomienie strony internetowej serwera Kolonii Pasjonatów.",
+
+        type: "event",
+
+        typeName: "🎉 Wydarzenie Kolonii"
+
+    },
+
+
+    "08-25": {
+
+        title: "🤖 Prace nad botem „Koloniarz”",
+
+        description:
+            "Orientacyjny koniec pierwszego etapu prac nad botem Koloniarz. Termin może ulec zmianie.",
+
+        type: "event",
+
+        typeName: "🎉 Wydarzenie Kolonii"
+
+    },
+
+
+    "08-31": {
+
+        title: "☀️ Zakończenie strefy wakacyjnej",
+
+        description:
+            "Oficjalne zakończenie wakacyjnego okresu na serwerze.",
+
+        type: "event",
+
+        typeName: "🎉 Wydarzenie Kolonii",
+
+        time: "23:45"
+
+    },
+
+
+    "09-23": {
+
+        title: "🍂 Kolej w jesiennym krajobrazie",
+
+        description:
+            "Start jesiennego konkursu fotograficznego, w którym uczestnicy pokażą kolej w jesiennej scenerii.",
+
+        type: "event",
+
+        typeName: "🎉 Wydarzenie Kolonii"
+
+    },
+
+
+    "10-09": {
+
+        title: "🍂 Kolej w jesiennym krajobrazie — zakończenie",
+
+        description:
+            "Zakończenie jesiennego konkursu fotograficznego.",
+
+        type: "event",
+
+        typeName: "🎉 Wydarzenie Kolonii"
+
+    },
+
+
+    "10-10": {
+
+        title: "🍁 Jesienny Spotter",
+
+        description:
+            "Start wydarzenia. Wrzuć swoje jesienne zdjęcie kolei lub komunikacji miejskiej.",
+
+        type: "event",
+
+        typeName: "🎉 Wydarzenie Kolonii"
+
+    },
+
+
+    "10-18": {
+
+        title: "🍁 Jesienny Spotter — zakończenie",
+
+        description:
+            "Zakończenie wydarzenia. Najlepsze zdjęcia mogą zostać wyróżnione i nagrodzone.",
+
+        type: "event",
+
+        typeName: "🎉 Wydarzenie Kolonii"
+
+    },
+
+
+    "10-31": {
+
+        title: "🎃 Halloween Kolonii Pasjonatów",
+
+        description:
+            "Specjalne halloweenowe wydarzenie na serwerze z tematycznymi aktywnościami, zabawami i niespodziankami.",
+
+        type: "event",
+
+        typeName: "🎉 Wydarzenie Kolonii"
+
+    },
+
+
+    "12-31": {
+
+        title: "🎆 Sylwester",
+
+        description:
+            "Specjalne wydarzenie kończące rok. Wspólnie żegnamy stary rok i przygotowujemy się na nadejście kolejnego.",
+
+        type: "special",
+
+        typeName: "🎆 Wydarzenie specjalne"
 
     }
 
-
-    if (
-        typeof colonyEvents2026 === "undefined"
-    ) {
-
-        console.warn(
-            "Brak colonyEvents2026 w dane.js"
-        );
-
-        return events;
-
-    }
-
-
-    for (
-        const eventDate in colonyEvents2026
-    ) {
-
-        const key =
-            `${year}-${eventDate}`;
-
-
-        events[key] = {
-
-            ...colonyEvents2026[eventDate]
-
-        };
-
-    }
-
-
-    return events;
-
-}
+};
 
 
 /* =========================================================
-   WSZYSTKIE WYDARZENIA
+   DZISIAJ
 ========================================================= */
 
-function getEventsForYear(year) {
+const now = new Date();
 
-    const events = {};
-
-
-    /* ŚWIĘTA */
-
-    Object.assign(
-        events,
-        getHolidays(year)
-    );
+const todayYear = now.getFullYear();
+const todayMonth = now.getMonth();
+const todayDay = now.getDate();
 
 
-    /* URODZINY */
-
-    Object.assign(
-        events,
-        getBirthdaysForYear(year)
-    );
-
-
-    /* WYDARZENIA KOLONII */
-
-    Object.assign(
-        events,
-        getColonyEventsForYear(year)
-    );
-
-
-    return events;
-
-}
+let currentDate = new Date(
+    todayYear,
+    todayMonth,
+    1
+);
 
 
 /* =========================================================
-   DATA DZISIAJ
-========================================================= */
-
-const today =
-    new Date();
-
-
-const todayYear =
-    today.getFullYear();
-
-
-const todayMonth =
-    today.getMonth();
-
-
-const todayDay =
-    today.getDate();
-
-
-/* =========================================================
-   AKTUALNY MIESIĄC
-========================================================= */
-
-let currentDate =
-    new Date(
-        todayYear,
-        todayMonth,
-        1
-    );
-
-
-/* =========================================================
-   NAZWY MIESIĘCY
+   MIESIĄCE
 ========================================================= */
 
 const monthNames = [
@@ -787,49 +690,84 @@ const monthNames = [
 ========================================================= */
 
 const monthTitle =
-    document.getElementById(
-        "monthTitle"
-    );
-
+    document.getElementById("monthTitle");
 
 const calendarDays =
-    document.getElementById(
-        "calendarDays"
-    );
-
+    document.getElementById("calendarDays");
 
 const eventInfo =
-    document.getElementById(
-        "eventInfo"
-    );
-
+    document.getElementById("eventInfo");
 
 const eventType =
-    document.getElementById(
-        "eventType"
-    );
-
+    document.getElementById("eventType");
 
 const eventDate =
-    document.getElementById(
-        "eventDate"
-    );
-
+    document.getElementById("eventDate");
 
 const eventTitle =
-    document.getElementById(
-        "eventTitle"
-    );
-
+    document.getElementById("eventTitle");
 
 const eventDescription =
-    document.getElementById(
-        "eventDescription"
-    );
+    document.getElementById("eventDescription");
 
 
 /* =========================================================
-   POKAZANIE WYDARZENIA
+   EVENTY DLA ROKU
+========================================================= */
+
+function getEventsForYear(year) {
+
+    const events = {};
+
+    Object.assign(
+        events,
+        getHolidays(year)
+    );
+
+
+    for (const birthday in birthdays) {
+
+        const key =
+            `${year}-${birthday}`;
+
+        events[key] = {
+
+            ...birthdays[birthday],
+
+            type: "birthday",
+
+            typeName: "🎂 Urodziny"
+
+        };
+
+    }
+
+
+    if (year === 2026) {
+
+        for (
+            const eventDate in colonyEvents2026
+        ) {
+
+            const key =
+                `${year}-${eventDate}`;
+
+            events[key] = {
+                ...colonyEvents2026[eventDate]
+            };
+
+        }
+
+    }
+
+
+    return events;
+
+}
+
+
+/* =========================================================
+   INFORMACJE O WYDARZENIU
 ========================================================= */
 
 function showEvent(
@@ -840,8 +778,11 @@ function showEvent(
 ) {
 
     eventType.textContent =
-        event.typeName || "📌 Informacja";
+        event.typeName;
 
+    eventType.className =
+        "event-type type-" +
+        event.type;
 
     eventDate.textContent =
         `📅 ${pad(day)}.${pad(month + 1)}.${year}` +
@@ -851,18 +792,13 @@ function showEvent(
                 : ""
         );
 
-
     eventTitle.textContent =
         event.title;
-
 
     eventDescription.textContent =
         event.description;
 
-
-    eventInfo.style.display =
-        "block";
-
+    eventInfo.classList.add("active");
 
     eventInfo.scrollIntoView({
 
@@ -884,10 +820,8 @@ function renderCalendar() {
     const year =
         currentDate.getFullYear();
 
-
     const month =
         currentDate.getMonth();
-
 
     const events =
         getEventsForYear(year);
@@ -897,8 +831,7 @@ function renderCalendar() {
         `${monthNames[month]} ${year}`;
 
 
-    calendarDays.innerHTML =
-        "";
+    calendarDays.innerHTML = "";
 
 
     const firstDay =
@@ -913,12 +846,8 @@ function renderCalendar() {
         firstDay.getDay();
 
 
-    if (
-        startDay === 0
-    ) {
-
+    if (startDay === 0) {
         startDay = 7;
-
     }
 
 
@@ -930,8 +859,6 @@ function renderCalendar() {
         ).getDate();
 
 
-    /* PUSTE POLA */
-
     for (
         let i = 1;
         i < startDay;
@@ -939,14 +866,10 @@ function renderCalendar() {
     ) {
 
         const empty =
-            document.createElement(
-                "div"
-            );
-
+            document.createElement("div");
 
         empty.className =
             "day empty";
-
 
         calendarDays.appendChild(
             empty
@@ -955,8 +878,6 @@ function renderCalendar() {
     }
 
 
-    /* DNI MIESIĄCA */
-
     for (
         let day = 1;
         day <= daysInMonth;
@@ -964,32 +885,22 @@ function renderCalendar() {
     ) {
 
         const cell =
-            document.createElement(
-                "div"
-            );
-
+            document.createElement("div");
 
         cell.className =
             "day";
 
 
         const number =
-            document.createElement(
-                "div"
-            );
-
+            document.createElement("div");
 
         number.className =
             "day-number";
 
-
         number.textContent =
             day;
 
-
-        cell.appendChild(
-            number
-        );
+        cell.appendChild(number);
 
 
         const key =
@@ -1014,45 +925,41 @@ function renderCalendar() {
                 "today-day"
             );
 
+
+            const label =
+                document.createElement("div");
+
+            label.className =
+                "today-label";
+
+            label.textContent =
+                "Dzisiaj";
+
+            cell.appendChild(label);
+
         }
 
 
         /* WYDARZENIE */
 
-        if (
-            events[key]
-        ) {
+        if (events[key]) {
 
             const event =
                 events[key];
 
 
             cell.classList.add(
-                `${event.type}-day`
+                event.type + "-day"
             );
 
 
             const dot =
-                document.createElement(
-                    "div"
-                );
-
+                document.createElement("div");
 
             dot.className =
-                `${event.type}-dot`;
+                event.type + "-dot";
 
-
-            cell.appendChild(
-                dot
-            );
-
-
-            cell.title =
-                event.title;
-
-
-            cell.style.cursor =
-                "pointer";
+            cell.appendChild(dot);
 
 
             cell.addEventListener(
@@ -1072,9 +979,7 @@ function renderCalendar() {
         }
 
 
-        calendarDays.appendChild(
-            cell
-        );
+        calendarDays.appendChild(cell);
 
     }
 
@@ -1086,9 +991,7 @@ function renderCalendar() {
 ========================================================= */
 
 document
-    .getElementById(
-        "previousMonth"
-    )
+    .getElementById("previousMonth")
     .addEventListener(
         "click",
         () => {
@@ -1097,12 +1000,11 @@ document
                 currentDate.getMonth() - 1
             );
 
-
-            eventInfo.style.display =
-                "none";
-
-
             renderCalendar();
+
+            eventInfo.classList.remove(
+                "active"
+            );
 
         }
     );
@@ -1113,9 +1015,7 @@ document
 ========================================================= */
 
 document
-    .getElementById(
-        "nextMonth"
-    )
+    .getElementById("nextMonth")
     .addEventListener(
         "click",
         () => {
@@ -1124,12 +1024,11 @@ document
                 currentDate.getMonth() + 1
             );
 
-
-            eventInfo.style.display =
-                "none";
-
-
             renderCalendar();
+
+            eventInfo.classList.remove(
+                "active"
+            );
 
         }
     );
@@ -1140,9 +1039,7 @@ document
 ========================================================= */
 
 document
-    .getElementById(
-        "todayButton"
-    )
+    .getElementById("todayButton")
     .addEventListener(
         "click",
         () => {
@@ -1154,12 +1051,11 @@ document
                     1
                 );
 
-
-            eventInfo.style.display =
-                "none";
-
-
             renderCalendar();
+
+            eventInfo.classList.remove(
+                "active"
+            );
 
         }
     );
@@ -1168,13 +1064,11 @@ document
 /* =========================================================
    MOTYW
    DARK → LIGHT → RETRO → DARK
-
-   Retro jest obsługiwane przez style.css.
 ========================================================= */
 
-const themeToggle =
+const themeButton =
     document.getElementById(
-        "themeToggle"
+        "themeButton"
     );
 
 
@@ -1192,39 +1086,31 @@ function applyTheme(theme) {
     );
 
 
-    if (
-        theme === "light"
-    ) {
+    if (theme === "light") {
 
         document.body.classList.add(
             "light"
         );
 
-
-        themeToggle.textContent =
+        themeButton.textContent =
             "☀️";
 
     }
 
-
-    else if (
-        theme === "retro"
-    ) {
+    else if (theme === "retro") {
 
         document.body.classList.add(
             "retro"
         );
 
-
-        themeToggle.textContent =
+        themeButton.textContent =
             "💾";
 
     }
 
-
     else {
 
-        themeToggle.textContent =
+        themeButton.textContent =
             "🌙";
 
     }
@@ -1238,12 +1124,10 @@ function applyTheme(theme) {
 }
 
 
-applyTheme(
-    savedTheme
-);
+applyTheme(savedTheme);
 
 
-themeToggle.addEventListener(
+themeButton.addEventListener(
     "click",
     () => {
 
@@ -1253,33 +1137,21 @@ themeToggle.addEventListener(
             ) || "dark";
 
 
-        if (
-            current === "dark"
-        ) {
+        if (current === "dark") {
 
-            applyTheme(
-                "light"
-            );
+            applyTheme("light");
 
         }
 
+        else if (current === "light") {
 
-        else if (
-            current === "light"
-        ) {
-
-            applyTheme(
-                "retro"
-            );
+            applyTheme("retro");
 
         }
-
 
         else {
 
-            applyTheme(
-                "dark"
-            );
+            applyTheme("dark");
 
         }
 
@@ -1295,7 +1167,5 @@ renderCalendar();
 
 </script>
 
-
 </body>
-
 </html>
