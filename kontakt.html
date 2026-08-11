@@ -17,11 +17,13 @@
             padding: 20px;
         }
 
+        /* GÓRNE MENU */
+
         .top-nav {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             margin-bottom: 35px;
             flex-wrap: wrap;
         }
@@ -31,7 +33,7 @@
             border-radius: 13px;
             text-decoration: none;
             font-weight: 700;
-            transition: .2s;
+            transition: .25s ease;
         }
 
         .top-nav a:hover {
@@ -39,71 +41,185 @@
             filter: brightness(1.15);
         }
 
+        /* TRYB JASNY / CIEMNY */
+
+        .theme-button {
+            position: fixed;
+            top: 18px;
+            right: 18px;
+
+            width: 46px;
+            height: 46px;
+
+            border: none;
+            border-radius: 50%;
+
+            cursor: pointer;
+            font-size: 20px;
+
+            z-index: 1000;
+
+            transition:
+                transform .25s ease,
+                filter .25s ease;
+        }
+
+        .theme-button:hover {
+            transform: rotate(12deg) scale(1.08);
+            filter: brightness(1.15);
+        }
+
+        /* KARTY */
+
         .contact-list {
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            gap: 20px;
             margin-top: 35px;
         }
 
         .contact-card {
-            padding: 24px;
-            border-radius: 20px;
+            padding: 26px;
+            border-radius: 22px;
             background: rgba(255,255,255,.07);
-            transition: .2s;
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
         }
 
         .contact-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-4px);
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.12);
         }
 
         .contact-card h2 {
             margin-top: 0;
+            margin-bottom: 10px;
         }
 
-        .contact-card a {
-            font-weight: 700;
-            word-break: break-word;
+        .contact-card p {
+            line-height: 1.65;
         }
 
-        .proposal-button {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 11px 16px;
-            border-radius: 12px;
+        /* PRZYCISKI */
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+
+            margin-top: 12px;
+
+            padding: 13px 20px;
+
+            border-radius: 14px;
+
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 800;
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease,
+                filter .25s ease;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            filter: brightness(1.12);
+        }
+
+        /* DISCORD */
+
+        .discord-button {
+            animation: discordPulse 2.5s infinite;
+        }
+
+        .discord-button:hover {
+            animation: none;
+
+            box-shadow:
+                0 0 0 4px rgba(255,255,255,.08),
+                0 0 25px rgba(88,101,242,.45);
+        }
+
+        @keyframes discordPulse {
+
+            0%,
+            100% {
+                box-shadow:
+                    0 0 0 0 rgba(88,101,242,0);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 0 6px rgba(88,101,242,.10),
+                    0 0 20px rgba(88,101,242,.25);
+            }
+
+        }
+
+        /* EMAIL */
+
+        .email-button:hover {
+            box-shadow:
+                0 0 20px rgba(255,193,7,.25);
+        }
+
+        /* PROPOZYCJE */
+
+        .disabled-button {
             opacity: .55;
             cursor: not-allowed;
         }
 
         .contact-note {
             margin-top: 10px;
-            opacity: .7;
+            opacity: .65;
             font-size: 14px;
         }
 
-        @media (max-width:600px) {
+        /* TELEFON */
+
+        @media (max-width: 600px) {
 
             .contact-page {
                 padding: 12px;
             }
 
             .top-nav {
+                padding-right: 45px;
                 gap: 7px;
             }
 
             .top-nav a {
                 padding: 9px 11px;
-                font-size: 14px;
+                font-size: 13px;
+            }
+
+            .theme-button {
+                top: 12px;
+                right: 12px;
+
+                width: 40px;
+                height: 40px;
+
+                font-size: 18px;
             }
 
             .contact-card {
-                padding: 18px;
+                padding: 19px;
             }
 
             .contact-card h2 {
                 font-size: 20px;
+            }
+
+            .contact-button {
+                width: 100%;
+                box-sizing: border-box;
             }
 
         }
@@ -112,7 +228,21 @@
 
 </head>
 
+
 <body>
+
+
+<!-- PRZYCISK TRYBU -->
+
+<button
+    id="themeButton"
+    class="theme-button"
+    aria-label="Zmień tryb">
+
+    🌙
+
+</button>
+
 
 <main class="contact-page">
 
@@ -143,9 +273,9 @@
         <h1>📩 Skontaktuj się z nami</h1>
 
         <p>
-            Masz pytanie, propozycję lub chcesz się
-            z nami skontaktować? Znajdziesz tutaj
-            wszystkie najważniejsze informacje.
+            Masz pytanie, propozycję lub chcesz
+            skontaktować się z Kolonią Pasjonatów?
+            Tutaj znajdziesz najważniejsze możliwości kontaktu.
         </p>
 
     </section>
@@ -163,38 +293,46 @@
             <h2>💬 Discord</h2>
 
             <p>
-                Dołącz do naszej społeczności
-                i skontaktuj się z nami bezpośrednio
-                na serwerze Discord.
+                Dołącz do naszego serwera Discord,
+                porozmawiaj ze społecznością i skontaktuj
+                się z administracją Kolonii Pasjonatów.
             </p>
 
             <a
+                class="contact-button discord-button"
                 href="https://discord.gg/886u97g22Q"
                 target="_blank"
                 rel="noopener noreferrer">
 
-                🔗 Dołącz do Discorda
+                💬 Dołącz do Discorda
 
             </a>
 
         </div>
 
 
-        <!-- E-MAIL -->
+        <!-- EMAIL -->
 
         <div class="contact-card">
 
             <h2>📧 E-mail</h2>
 
             <p>
-                Możesz również skontaktować się z nami
-                drogą mailową.
+                Jeśli wolisz kontakt mailowy,
+                możesz napisać bezpośrednio na nasz adres:
+            </p>
+
+            <p>
+                <strong>
+                    kontak.koloniapasjonatow@gmail.com
+                </strong>
             </p>
 
             <a
+                class="contact-button email-button"
                 href="mailto:kontak.koloniapasjonatow@gmail.com">
 
-                kontak.koloniapasjonatow@gmail.com
+                ✉️ Napisz e-maila
 
             </a>
 
@@ -213,12 +351,16 @@
                 za pomocą formularza Google.
             </p>
 
-            <span class="proposal-button">
+            <span class="contact-button disabled-button">
+
                 📝 Formularz propozycji
+
             </span>
 
             <div class="contact-note">
+
                 Formularz jest obecnie w przygotowaniu.
+
             </div>
 
         </div>
@@ -228,6 +370,87 @@
 
 
 </main>
+
+
+<script>
+
+/* TRYB JASNY / CIEMNY */
+
+const themeButton =
+    document.getElementById("themeButton");
+
+
+function applyTheme(theme) {
+
+    if (theme === "light") {
+
+        document.body.classList.add("light");
+
+        themeButton.textContent = "☀️";
+
+    } else {
+
+        document.body.classList.remove("light");
+
+        themeButton.textContent = "🌙";
+
+    }
+
+}
+
+
+/* ODCZYT ZAPISANEGO TRYBU */
+
+const savedTheme =
+    localStorage.getItem("theme");
+
+
+if (savedTheme === "light") {
+
+    applyTheme("light");
+
+} else {
+
+    applyTheme("dark");
+
+}
+
+
+/* ZMIANA TRYBU */
+
+themeButton.addEventListener(
+    "click",
+    function () {
+
+        const isLight =
+            document.body.classList.contains("light");
+
+
+        if (isLight) {
+
+            localStorage.setItem(
+                "theme",
+                "dark"
+            );
+
+            applyTheme("dark");
+
+        } else {
+
+            localStorage.setItem(
+                "theme",
+                "light"
+            );
+
+            applyTheme("light");
+
+        }
+
+    }
+);
+
+</script>
+
 
 </body>
 
