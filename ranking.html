@@ -2,405 +2,766 @@
 <html lang="pl">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Ranking | Kolonia Pasjonatów</title>
+    <title>Ranking Typera | Kolonia Pasjonatów</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <style>
+
+        /* =====================================================
+           RANKING PAGE
+        ===================================================== */
+
+        .ranking-page {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 20px;
+
+        }
+
+
+        /* =====================================================
+           GÓRNY PASEK
+        ===================================================== */
+
+        .top-bar {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .home-button,
+        .theme-button {
+
+            border: none;
+
+            border-radius: 14px;
+
+            padding: 12px 18px;
+
+            cursor: pointer;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            font-size: 16px;
+
+            transition: .25s;
+
+        }
+
+
+        .home-button:hover,
+        .theme-button:hover {
+
+            transform:
+                translateY(-2px);
+
+            filter:
+                brightness(1.15);
+
+        }
+
+
+        /* =====================================================
+           RANKINGI
+        ===================================================== */
+
+        .ranking-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 25px;
+
+            margin-top: 35px;
+
+        }
+
+
+        .league-ranking {
+
+            margin: 0 auto;
+
+            width: 100%;
+
+        }
+
+
+        .league-description {
+
+            text-align: center;
+
+            margin-top: -8px;
+
+            margin-bottom: 20px;
+
+            opacity: .65;
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .ranking-page {
+
+                padding: 12px;
+
+            }
+
+
+            .home-button,
+            .theme-button {
+
+                padding: 9px 12px;
+
+                font-size: 14px;
+
+            }
+
+
+            .ranking-list {
+
+                gap: 18px;
+
+                margin-top: 25px;
+
+            }
+
+
+            .league-ranking {
+
+                padding: 16px;
+
+            }
+
+
+            .league-ranking h2 {
+
+                font-size: 20px;
+
+            }
+
+
+            .ranking-container th,
+            .ranking-container td {
+
+                padding:
+                    10px 8px;
+
+                font-size: 13px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           BARDZO MAŁE TELEFONY
+        ===================================================== */
+
+        @media (max-width: 400px) {
+
+            .ranking-container th,
+            .ranking-container td {
+
+                padding:
+                    9px 6px;
+
+                font-size: 12px;
+
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<header>
 
-    <div class="logo">
-        🌟 Kolonia Pasjonatów
+<main class="ranking-page">
+
+
+    <!-- =====================================================
+         GÓRNY PASEK
+    ===================================================== -->
+
+    <div class="top-bar">
+
+
+        <a
+            href="index.html"
+            class="home-button"
+        >
+
+            🏠 Strona główna
+
+        </a>
+
+
+        <button
+            id="themeButton"
+            class="theme-button"
+            type="button"
+        >
+
+            🌙
+
+        </button>
+
+
     </div>
 
-    <nav>
-        <a href="index.html">🏠 Strona główna</a>
-        <a href="ranking.html">🏆 Ranking</a>
-        <a href="linki.html">🔗 Linki</a>
-        <a href="kontakt.html">📧 Kontakt</a>
-    </nav>
 
-    <button
-        id="themeToggle"
-        class="theme-toggle"
-        aria-label="Zmień motyw">
-        🌙
-    </button>
-
-</header>
-
-
-<main>
-
-    <!-- HERO -->
+    <!-- =====================================================
+         TYTUŁ
+    ===================================================== -->
 
     <section class="hero">
 
-        <h1>🏆 Ranking typerów</h1>
+        <h1>
+            🏆 Ranking Typera
+        </h1>
 
         <p>
-            Aktualna klasyfikacja typerów
-            Kolonii Pasjonatów.
+            Aktualne wyniki typerów Kolonii Pasjonatów
+            w polskich rozgrywkach piłkarskich.
         </p>
 
     </section>
 
 
-    <!-- EKSTRAKLASA -->
+    <!-- =====================================================
+         RANKINGI
+    ===================================================== -->
 
-    <section class="section league-ranking">
-
-        <h2>🏆 PKO BP Ekstraklasa</h2>
-
-        <div class="ranking-container">
-
-            <table>
-
-                <thead>
-
-                    <tr>
-                        <th>Miejsce</th>
-                        <th>Typer</th>
-                        <th>Punkty</th>
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-                    <tr>
-                        <td>1. 🥇</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td>2. 🥈</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td>3. 🥉</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td>4.</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td>5.</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </section>
+    <section class="ranking-list">
 
 
-    <!-- 1 LIGA -->
+        <!-- =================================================
+             PKO BP EKSTRAKLASA
+        ================================================= -->
 
-    <section class="section league-ranking">
-
-        <h2>🥇 Betclic 1 Liga</h2>
-
-        <div class="ranking-container">
-
-            <table>
-
-                <thead>
-
-                    <tr>
-                        <th>Miejsce</th>
-                        <th>Typer</th>
-                        <th>Punkty</th>
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-                    <tr>
-                        <td>1. 🥇</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td>2. 🥈</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td>3. 🥉</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td>4.</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td>5.</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </section>
+        <div class="league-ranking">
 
 
-    <!-- 2 LIGA -->
+            <h2>
+                🇵🇱 PKO BP Ekstraklasa
+            </h2>
 
-    <section class="section league-ranking">
 
-        <h2>🥈 Betclic 2 Liga</h2>
+            <p class="league-description">
+                Ranking punktów zdobytych w typerze PKO BP Ekstraklasy.
+            </p>
 
-        <div class="ranking-container">
 
-            <table>
+            <div class="ranking-container">
 
-                <thead>
+                <table>
 
-                    <tr>
-                        <th>Miejsce</th>
-                        <th>Typer</th>
-                        <th>Punkty</th>
-                    </tr>
+                    <thead>
 
-                </thead>
+                        <tr>
 
-                <tbody>
+                            <th>
+                                🏆 Miejsce
+                            </th>
 
-                    <tr>
-                        <td>1. 🥇</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                            <th>
+                                🎯 Typer
+                            </th>
 
-                    <tr>
-                        <td>2. 🥈</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                            <th>
+                                🏆 Punkty
+                            </th>
 
-                    <tr>
-                        <td>3. 🥉</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        </tr>
 
-                    <tr>
-                        <td>4.</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    </thead>
 
-                    <tr>
-                        <td>5.</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
 
-                </tbody>
+                    <tbody>
 
-            </table>
+
+                        <tr>
+
+                            <td>
+                                🥇 1.
+                            </td>
+
+                            <td>
+                                Michał
+                            </td>
+
+                            <td>
+                                18 pkt
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                🥈 2.
+                            </td>
+
+                            <td>
+                                Noworudzki_Mk08
+                            </td>
+
+                            <td>
+                                3 pkt
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                🥉 3.
+                            </td>
+
+                            <td>
+                                Mikol Yoriichi
+                            </td>
+
+                            <td>
+                                2 pkt
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                4.
+                            </td>
+
+                            <td>
+                                Kolej_farming
+                            </td>
+
+                            <td>
+                                0 pkt
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                5.
+                            </td>
+
+                            <td>
+                                KEBABKRAFTOWY
+                            </td>
+
+                            <td>
+                                0 pkt
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
 
         </div>
 
-    </section>
+
+        <!-- =================================================
+             BETCLIC 1 LIGA
+        ================================================= -->
+
+        <div class="league-ranking">
 
 
-    <!-- 3 LIGA -->
+            <h2>
+                🥇 Betclic 1 Liga
+            </h2>
 
-    <section class="section league-ranking">
 
-        <h2>🥉 Betclic 3 Liga</h2>
+            <p class="league-description">
+                Ranking punktów zdobytych w typerze Betclic 1 Ligi.
+            </p>
 
-        <div class="ranking-container">
 
-            <table>
+            <div class="ranking-container">
 
-                <thead>
+                <table>
 
-                    <tr>
-                        <th>Miejsce</th>
-                        <th>Typer</th>
-                        <th>Punkty</th>
-                    </tr>
+                    <thead>
 
-                </thead>
+                        <tr>
 
-                <tbody>
+                            <th>
+                                🏆 Miejsce
+                            </th>
 
-                    <tr>
-                        <td>1. 🥇</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                            <th>
+                                🎯 Typer
+                            </th>
 
-                    <tr>
-                        <td>2. 🥈</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                            <th>
+                                🏆 Punkty
+                            </th>
 
-                    <tr>
-                        <td>3. 🥉</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        </tr>
 
-                    <tr>
-                        <td>4.</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    </thead>
 
-                    <tr>
-                        <td>5.</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
 
-                </tbody>
+                    <tbody>
 
-            </table>
+
+                        <tr>
+
+                            <td>
+                                🥇 1.
+                            </td>
+
+                            <td>
+                                Michał
+                            </td>
+
+                            <td>
+                                7 pkt
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                🥈 2.
+                            </td>
+
+                            <td>
+                                noworudzki_mk2
+                            </td>
+
+                            <td>
+                                0 pkt
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                🥉 3.
+                            </td>
+
+                            <td>
+                                Kolej_farming
+                            </td>
+
+                            <td>
+                                0 pkt
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                4.
+                            </td>
+
+                            <td>
+                                Mikol Yoriichi
+                            </td>
+
+                            <td>
+                                0 pkt
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                5.
+                            </td>
+
+                            <td>
+                                KEBABKRAFTOWY
+                            </td>
+
+                            <td>
+                                0 pkt
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
 
         </div>
 
+
+        <!-- =================================================
+             BETCLIC 2 LIGA
+        ================================================= -->
+
+        <div class="league-ranking">
+
+
+            <h2>
+                🥈 Betclic 2 Liga
+            </h2>
+
+
+            <p class="league-description">
+                Ranking punktów zdobytych w typerze Betclic 2 Ligi.
+            </p>
+
+
+            <div class="ranking-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                🏆 Miejsce
+                            </th>
+
+                            <th>
+                                🎯 Typer
+                            </th>
+
+                            <th>
+                                🏆 Punkty
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+
+                        <tr>
+
+                            <td>
+                                🥇 1.
+                            </td>
+
+                            <td>
+                                Michał
+                            </td>
+
+                            <td>
+                                7 pkt
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                🥈 2.
+                            </td>
+
+                            <td>
+                                noworudzki_mk2
+                            </td>
+
+                            <td>
+                                0 pkt
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                🥉 3.
+                            </td>
+
+                            <td>
+                                Kolej_farming
+                            </td>
+
+                            <td>
+                                0 pkt
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                4.
+                            </td>
+
+                            <td>
+                                Mikol Yoriichi
+                            </td>
+
+                            <td>
+                                0 pkt
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                5.
+                            </td>
+
+                            <td>
+                                KEBABKRAFTOWY
+                            </td>
+
+                            <td>
+                                0 pkt
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
     </section>
+
 
 </main>
-
-
-<footer>
-
-    <p>
-        © 2026 Kolonia Pasjonatów
-    </p>
-
-    <p>
-        🏆 Ranking typerów
-    </p>
-
-</footer>
 
 
 <script>
 
 /* =====================================================
-   MOTYW — CIEMNY / JASNY / RETRO
+   TRYB JASNY / CIEMNY
 ===================================================== */
 
-const themeToggle =
-    document.getElementById("themeToggle");
+const themeButton =
+    document.getElementById(
+        "themeButton"
+    );
 
 
 const savedTheme =
-    localStorage.getItem("theme") || "dark";
-
-
-function applyTheme(theme) {
-
-    document.body.classList.remove(
-        "light",
-        "retro"
+    localStorage.getItem(
+        "theme"
     );
 
 
-    if (theme === "light") {
+/* =====================================================
+   WCZYTANIE MOTYWU
+===================================================== */
 
-        document.body.classList.add(
-            "light"
-        );
+if (
+    savedTheme === "light"
+) {
 
-        themeToggle.textContent =
-            "☀️";
-
-    }
-
-    else if (theme === "retro") {
-
-        document.body.classList.add(
-            "retro"
-        );
-
-        themeToggle.textContent =
-            "💾";
-
-    }
-
-    else {
-
-        themeToggle.textContent =
-            "🌙";
-
-    }
-
-
-    localStorage.setItem(
-        "theme",
-        theme
+    document.body.classList.add(
+        "light"
     );
+
+    themeButton.textContent =
+        "☀️";
 
 }
 
 
-/* USTAWIENIE MOTYWU PRZY URUCHOMIENIU */
+/* =====================================================
+   ZMIANA MOTYWU
+===================================================== */
 
-applyTheme(savedTheme);
-
-
-/* ZMIANA MOTYWU */
-
-themeToggle.addEventListener(
+themeButton.addEventListener(
     "click",
     () => {
 
-        const current =
-            localStorage.getItem("theme")
-            || "dark";
+        document.body.classList.toggle(
+            "light"
+        );
 
 
-        if (current === "dark") {
+        if (
+            document.body.classList.contains(
+                "light"
+            )
+        ) {
 
-            applyTheme("light");
+            localStorage.setItem(
+                "theme",
+                "light"
+            );
 
-        }
+            themeButton.textContent =
+                "☀️";
 
-        else if (current === "light") {
+        } else {
 
-            applyTheme("retro");
+            localStorage.setItem(
+                "theme",
+                "dark"
+            );
 
-        }
-
-        else {
-
-            applyTheme("dark");
+            themeButton.textContent =
+                "🌙";
 
         }
 
@@ -408,6 +769,7 @@ themeToggle.addEventListener(
 );
 
 </script>
+
 
 </body>
 
