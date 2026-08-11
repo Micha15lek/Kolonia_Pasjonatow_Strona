@@ -1,459 +1,420 @@
-/* ===================================
-   KOLONIA PASJONATÓW
-   GŁÓWNY CSS
-=================================== */
-
+/* ================================
+   KOLONIA PASJONATÓW — STYLE
+   ================================ */
 
 * {
-
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-
 }
 
-
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-
-    margin: 0;
-
-    font-family: Arial, sans-serif;
-
-    background: #0f1b2d;
-
-    color: white;
-
-    transition: 0.4s;
-
+    font-family: Arial, Helvetica, sans-serif;
+    background: #111827;
+    color: #f3f4f6;
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-
-
-/* ===================================
-   HEADER
-=================================== */
-
+/* ================================
+   GÓRNY PASEK
+   ================================ */
 
 header {
-
-    background: linear-gradient(
-        135deg,
-        #1d3557,
-        #274c77
-    );
-
-    padding: 30px;
-
-    text-align: center;
-
-    border-bottom: 3px solid #d4af37;
-
-    animation: slideDown 0.8s ease;
-
+    width: 100%;
+    padding: 18px 5%;
+    background: #172033;
+    border-bottom: 1px solid #29354a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(12px);
 }
 
-
-
-header h1 {
-
-    font-size: 40px;
-
-    color: #ffd700;
-
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration: none;
 }
-
-
 
 nav {
-
-    margin-top: 25px;
-
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
-
-
 
 nav a {
-
-    display: inline-block;
-
-    margin: 8px;
-
-    padding: 12px 22px;
-
-    background: #3a6ea5;
-
-    color: white;
-
+    color: #d1d5db;
     text-decoration: none;
-
-    border-radius: 12px;
-
-    transition: 0.3s;
-
+    padding: 9px 14px;
+    border-radius: 10px;
+    transition: 0.25s ease;
 }
-
-
 
 nav a:hover {
-
-    background: #d4af37;
-
-    color: #111;
-
-    transform: translateY(-4px);
-
+    background: #26344b;
+    color: #ffffff;
+    transform: translateY(-2px);
 }
 
-
-
-
-
-/* ===================================
-   GŁÓWNE ELEMENTY
-=================================== */
-
+/* ================================
+   GŁÓWNY KONTENER
+   ================================ */
 
 main {
-
-    max-width: 1100px;
-
-    margin: auto;
-
-    padding: 35px;
-
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    padding: 55px 0;
 }
 
-
-
-.box {
-
-    background: #203a5f;
-
-    padding: 30px;
-
-    border-radius: 20px;
-
-    margin-bottom: 35px;
-
-    border: 1px solid rgba(212,175,55,0.4);
-
-    box-shadow:
-
-    0 10px 30px rgba(0,0,0,0.3);
-
-    animation: fadeUp 0.8s ease;
-
-}
-
-
-
-h2 {
-
-    color: #ffd700;
-
-}
-
-
-
-
-
-/* ===================================
-   KAFELKI
-=================================== */
-
-
-.tile,
-.summary-card {
-
-    background: #294a73;
-
-    padding: 25px;
-
-    border-radius: 18px;
-
-    border: 2px solid transparent;
-
-    transition: 0.4s;
-
-    animation: fadeUp 0.8s ease;
-
-}
-
-
-
-.tile:hover,
-.summary-card:hover {
-
-    transform: translateY(-8px) scale(1.02);
-
-    border-color: #ffd700;
-
-    box-shadow:
-
-    0 0 25px rgba(255,215,0,0.35);
-
-}
-
-
-
-
-
-/* ===================================
-   RANKING
-=================================== */
-
-
-.ranking-table {
-
-    width: 100%;
-
-    border-collapse: collapse;
-
-    margin-top: 25px;
-
-    overflow: hidden;
-
-    border-radius: 15px;
-
-}
-
-
-
-.ranking-table th {
-
-    background: #d4af37;
-
-    color: #111;
-
-    padding: 18px;
-
-    font-size: 18px;
-
-}
-
-
-
-.ranking-table td {
-
-    background: #294a73;
-
-    padding: 18px;
-
+/* ================================
+   POWITANIE
+   ================================ */
+
+.hero {
     text-align: center;
-
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-
+    padding: 70px 20px 80px;
 }
 
-
-
-.ranking-table tr {
-
-    transition: 0.3s;
-
+.hero h1 {
+    font-size: clamp(34px, 6vw, 64px);
+    font-weight: 900;
+    margin-bottom: 15px;
 }
 
-
-
-.ranking-table tr:hover td {
-
-    background: #355f8d;
-
-    transform: scale(1.02);
-
+.hero p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #b9c1cf;
+    font-size: clamp(16px, 2vw, 20px);
 }
 
+/* ================================
+   SEKCJE
+   ================================ */
 
+.section {
+    margin-top: 55px;
+}
 
+.section-title {
+    text-align: center;
+    font-size: clamp(25px, 4vw, 38px);
+    margin-bottom: 28px;
+    font-weight: 800;
+}
 
+/* ================================
+   NASZE PROJEKTY
+   ================================ */
 
-/* ===================================
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+/* ================================
+   KAFELKI
+   ================================ */
+
+.project-card {
+    background: #182235;
+    border: 1px solid #2a3850;
+    border-radius: 20px;
+    padding: 30px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    animation: fadeUp 0.7s ease both;
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+    border-color: #52647f;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.project-card h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: #b8c1d1;
+}
+
+/* ================================
+   KOLONIARZ — SZEROKI KAFEL
+   ================================ */
+
+.project-card.wide {
+    grid-column: 1 / -1;
+    min-height: 210px;
+    background: #1b2940;
+}
+
+.project-card.wide h3 {
+    font-size: 29px;
+}
+
+/* ================================
+   STATUS
+   ================================ */
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    width: fit-content;
+    margin-top: 14px;
+    padding: 6px 11px;
+    border-radius: 999px;
+    background: #26354c;
+    color: #dbe4f0;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* ================================
    PRZYCISKI
-=================================== */
+   ================================ */
 
-
-.button,
-button {
-
-    background: #d4af37;
-
-    color: #111;
-
-    border: none;
-
-    padding: 13px 25px;
-
-    border-radius: 12px;
-
-    cursor: pointer;
-
-    font-weight: bold;
-
-    transition: 0.3s;
-
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin-top: 22px;
+    padding: 11px 18px;
+    border-radius: 11px;
+    background: #33445f;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.25s ease;
 }
 
-
-
-.button:hover,
-button:hover {
-
-    background: #ffd700;
-
-    transform: scale(1.08);
-
+.button:hover {
+    background: #415574;
+    transform: translateY(-2px);
 }
 
+/* ================================
+   KALENDARZ / HISTORIA
+   ================================ */
 
-
-
-
-/* ===================================
-   TRYB JASNY
-=================================== */
-
-
-body.light {
-
-    background: #eef3f8;
-
-    color: #111;
-
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
 }
 
-
-
-body.light header {
-
-    background: white;
-
+.info-card {
+    background: #182235;
+    border: 1px solid #2a3850;
+    border-radius: 20px;
+    padding: 30px;
+    transition: 0.3s ease;
 }
 
-
-
-body.light .box {
-
-    background: white;
-
-    color: #111;
-
+.info-card:hover {
+    transform: translateY(-5px);
+    border-color: #52647f;
 }
 
-
-
-body.light .tile,
-body.light .summary-card {
-
-    background: white;
-
-    color: #111;
-
+.info-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
-
-
-body.light .ranking-table td {
-
-    background: white;
-
-    color: #111;
-
+.info-card p {
+    color: #b8c1d1;
 }
 
-
-
-
-
-/* ===================================
-   TRYB BUTTON
-=================================== */
-
-
-.theme-switch {
-
-    position: fixed;
-
-    top: 20px;
-
-    right: 25px;
-
-    z-index: 1000;
-
-}
-
-
-
-
-
-/* ===================================
-   FOOTER
-=================================== */
-
+/* ================================
+   STOPKA
+   ================================ */
 
 footer {
-
+    margin-top: 70px;
+    padding: 30px 5%;
     text-align: center;
-
-    padding: 25px;
-
-    background: #162a46;
-
-    border-top: 2px solid #d4af37;
-
+    border-top: 1px solid #29354a;
+    background: #172033;
+    color: #9ca7b8;
 }
 
-
-
-
-
-/* ===================================
+/* ================================
    ANIMACJE
-=================================== */
-
+   ================================ */
 
 @keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
 
-
-from {
-
-    opacity: 0;
-
-    transform: translateY(30px);
-
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
+/* ================================
+   TABLET
+   ================================ */
 
-to {
+@media (max-width: 800px) {
 
-    opacity: 1;
+    header {
+        padding: 15px 4%;
+    }
 
-    transform: translateY(0);
+    nav {
+        gap: 4px;
+    }
 
+    nav a {
+        padding: 8px 9px;
+        font-size: 14px;
+    }
+
+    main {
+        width: 94%;
+        padding: 35px 0;
+    }
+
+    .hero {
+        padding: 50px 15px 55px;
+    }
+
+    .projects-grid,
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card.wide {
+        grid-column: auto;
+    }
 }
 
+/* ================================
+   TELEFON
+   ================================ */
 
+@media (max-width: 520px) {
+
+    header {
+        padding: 13px 4%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 13px;
+        padding: 7px 9px;
+    }
+
+    main {
+        width: 92%;
+        padding: 25px 0;
+    }
+
+    .hero {
+        padding: 35px 8px 45px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+        line-height: 1.15;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .section {
+        margin-top: 40px;
+    }
+
+    .section-title {
+        font-size: 27px;
+        margin-bottom: 20px;
+    }
+
+    .project-card,
+    .project-card.wide,
+    .info-card {
+        padding: 22px;
+        border-radius: 17px;
+        min-height: auto;
+    }
+
+    .project-card h3,
+    .project-card.wide h3,
+    .info-card h3 {
+        font-size: 21px;
+    }
+
+    .project-card p,
+    .info-card p {
+        font-size: 14px;
+    }
+
+    .button {
+        width: 100%;
+        margin-top: 18px;
+    }
+
+    footer {
+        margin-top: 45px;
+        font-size: 13px;
+    }
 }
 
+/* ================================
+   BARDZO MAŁE EKRANY
+   ================================ */
 
+@media (max-width: 360px) {
 
-@keyframes slideDown {
+    .hero h1 {
+        font-size: 29px;
+    }
 
+    nav a {
+        font-size: 12px;
+        padding: 6px 7px;
+    }
 
-from {
-
-    opacity:0;
-
-    transform:translateY(-30px);
-
-}
-
-
-to {
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
-
-
+    .project-card,
+    .project-card.wide,
+    .info-card {
+        padding: 18px;
+    }
 }
