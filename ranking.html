@@ -5,15 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ranking Typera | Kolonia Pasjonatów</title>
+    <title>Ranking | Kolonia Pasjonatów</title>
 
     <link rel="stylesheet" href="style.css">
 
     <style>
-
-        /* =========================================
-           RANKING — KOLONIA PASJONATÓW
-        ========================================= */
 
         .ranking-page {
             max-width: 1100px;
@@ -21,268 +17,86 @@
             padding: 20px;
         }
 
-        /* =========================================
-           NAWIGACJA
-        ========================================= */
-
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
+        .ranking-section {
+            margin-bottom: 45px;
         }
 
-        .navigation {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .nav-button,
-        .theme-button,
-        .retro-button {
-            border: none;
-            border-radius: 14px;
-            padding: 11px 16px;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 15px;
-            transition: .25s;
-        }
-
-        .nav-button:hover,
-        .theme-button:hover,
-        .retro-button:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.15);
-        }
-
-        /* =========================================
-           HERO
-        ========================================= */
-
-        .hero {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .hero h1 {
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            opacity: .75;
-        }
-
-        /* =========================================
-           LIGA
-        ========================================= */
-
-        .league-section {
-            margin-bottom: 35px;
-            padding: 22px;
-            border-radius: 22px;
-            background: rgba(255,255,255,.06);
-            border: 1px solid rgba(255,255,255,.08);
-            overflow: hidden;
-        }
-
-        .league-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
+        .ranking-section h2 {
             margin-bottom: 18px;
-            flex-wrap: wrap;
         }
 
-        .league-title h2 {
-            margin: 0;
-        }
-
-        .league-badge {
-            padding: 7px 12px;
-            border-radius: 10px;
-            font-size: 13px;
-            font-weight: 800;
-            background: rgba(255,193,7,.16);
-        }
-
-        /* =========================================
-           TABELA
-        ========================================= */
-
-        .ranking-table-wrapper {
+        .ranking-card {
+            padding: 20px;
+            border-radius: 20px;
+            background: rgba(255,255,255,.07);
+            border: 1px solid rgba(255,255,255,.08);
             overflow-x: auto;
         }
 
         .ranking-table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 600px;
+            min-width: 500px;
+        }
+
+        .ranking-table th,
+        .ranking-table td {
+            padding: 14px 12px;
+            text-align: left;
         }
 
         .ranking-table th {
-            padding: 14px 12px;
-            text-align: left;
-            font-size: 14px;
-            opacity: .75;
-            border-bottom: 1px solid rgba(255,255,255,.12);
+            font-weight: 800;
+            border-bottom: 2px solid rgba(255,255,255,.15);
         }
 
         .ranking-table td {
-            padding: 15px 12px;
-            border-bottom: 1px solid rgba(255,255,255,.07);
-            font-weight: 600;
+            border-bottom: 1px solid rgba(255,255,255,.08);
         }
 
-        .ranking-table tbody tr {
-            transition: .2s;
-        }
-
-        .ranking-table tbody tr:hover {
-            background: rgba(255,255,255,.05);
+        .ranking-table tr:last-child td {
+            border-bottom: none;
         }
 
         .place {
-            width: 70px;
-            font-weight: 900;
+            width: 80px;
+            font-weight: 800;
         }
 
         .typer {
-            font-weight: 800;
+            font-weight: 700;
         }
 
         .points {
             font-weight: 900;
-            text-align: right;
+            text-align: right !important;
             white-space: nowrap;
         }
 
-        /* =========================================
-           PODIUM
-        ========================================= */
-
-        .first-place {
-            background: rgba(255,193,7,.09);
+        .first {
+            font-size: 17px;
         }
 
-        .second-place {
-            background: rgba(192,192,192,.06);
+        .second {
+            font-size: 16px;
         }
 
-        .third-place {
-            background: rgba(205,127,50,.06);
+        .third {
+            font-size: 16px;
         }
 
-        .gold {
-            color: #ffc107;
+        .zero {
+            opacity: .65;
         }
-
-        .silver {
-            color: #c0c0c0;
-        }
-
-        .bronze {
-            color: #cd7f32;
-        }
-
-        /* =========================================
-           INFORMACJA
-        ========================================= */
 
         .ranking-info {
-            margin-top: 15px;
-            padding: 18px;
-            border-radius: 18px;
-            background: rgba(255,255,255,.05);
-            opacity: .8;
-            font-size: 14px;
+            margin-bottom: 35px;
+            padding: 20px;
+            border-radius: 20px;
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.08);
+            line-height: 1.6;
         }
-
-        /* =========================================
-           RETRO MODE
-        ========================================= */
-
-        body.retro-mode {
-            font-family: "Courier New", monospace;
-        }
-
-        body.retro-mode .league-section,
-        body.retro-mode .ranking-info {
-            border-radius: 0;
-            border: 2px solid currentColor;
-        }
-
-        body.retro-mode .nav-button,
-        body.retro-mode .theme-button,
-        body.retro-mode .retro-button {
-            border-radius: 0;
-            font-family: "Courier New", monospace;
-        }
-
-        body.retro-mode .ranking-table td,
-        body.retro-mode .ranking-table th {
-            border-bottom: 1px dashed currentColor;
-        }
-
-        body.retro-mode .hero h1 {
-            letter-spacing: 2px;
-        }
-
-        body.retro-mode .league-title h2::before {
-            content: "> ";
-        }
-
-        /* =========================================
-           EASTER EGG
-        ========================================= */
-
-        #secretMessage {
-            display: none;
-            position: fixed;
-            left: 50%;
-            bottom: 25px;
-            transform: translateX(-50%);
-            z-index: 9999;
-
-            padding: 15px 22px;
-            border-radius: 14px;
-
-            background: rgba(0,0,0,.92);
-            color: #fff;
-
-            font-weight: 800;
-            text-align: center;
-
-            box-shadow: 0 10px 35px rgba(0,0,0,.35);
-        }
-
-        #secretMessage.show {
-            display: block;
-            animation: secretShow .3s ease;
-        }
-
-        @keyframes secretShow {
-
-            from {
-                opacity: 0;
-                transform: translate(-50%, 10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translate(-50%, 0);
-            }
-
-        }
-
-        /* =========================================
-           MOBILE
-        ========================================= */
 
         @media (max-width: 600px) {
 
@@ -290,32 +104,18 @@
                 padding: 12px;
             }
 
-            .navigation {
-                width: 100%;
+            .ranking-card {
+                padding: 10px;
             }
 
-            .nav-button,
-            .theme-button,
-            .retro-button {
-                padding: 9px 11px;
-                font-size: 13px;
-            }
-
-            .league-section {
-                padding: 15px;
-            }
-
-            .league-title h2 {
-                font-size: 19px;
-            }
-
-            .ranking-table {
-                min-width: 520px;
-            }
-
-            .ranking-table td,
-            .ranking-table th {
+            .ranking-table th,
+            .ranking-table td {
                 padding: 11px 8px;
+                font-size: 14px;
+            }
+
+            .ranking-info {
+                padding: 17px;
             }
 
         }
@@ -324,65 +124,57 @@
 
 </head>
 
-
 <body>
+
+
+<!-- =====================================================
+     GÓRNY PASEK — TAKI SAM JAK NA INDEX.HTML
+===================================================== -->
+
+<header>
+
+    <div class="logo">
+        🌟 Kolonia Pasjonatów
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+            🏠 Strona główna
+        </a>
+
+        <a href="ranking.html">
+            🏆 Ranking
+        </a>
+
+        <a href="linki.html">
+            🔗 Linki
+        </a>
+
+        <a href="kontakt.html">
+            📧 Kontakt
+        </a>
+
+    </nav>
+
+    <button
+        id="themeToggle"
+        class="theme-toggle"
+        type="button">
+
+        🌙
+
+    </button>
+
+</header>
+
 
 <main class="ranking-page">
 
 
-    <!-- =========================================
-         NAWIGACJA
-    ========================================= -->
-
-    <div class="top-bar">
-
-        <nav class="navigation">
-
-            <a href="index.html" class="nav-button">
-                🏠 Strona główna
-            </a>
-
-            <a href="ranking.html" class="nav-button">
-                🏆 Ranking
-            </a>
-
-            <a href="linki.html" class="nav-button">
-                🔗 Linki
-            </a>
-
-            <a href="kontakt.html" class="nav-button">
-                📩 Kontakt
-            </a>
-
-        </nav>
-
-
-        <div>
-
-            <button
-                id="retroButton"
-                class="retro-button">
-
-                🕹️ Retro
-
-            </button>
-
-            <button
-                id="themeButton"
-                class="theme-button">
-
-                🌙
-
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =========================================
-         TYTUŁ
-    ========================================= -->
+    <!-- =================================================
+         HERO
+    ================================================= -->
 
     <section class="hero">
 
@@ -391,33 +183,45 @@
         </h1>
 
         <p>
-            Aktualna klasyfikacja uczestników typera
-            Kolonii Pasjonatów.
+            Aktualna klasyfikacja uczestników
+            typowania rozgrywek piłkarskich.
         </p>
 
     </section>
 
 
-    <!-- =========================================
+    <!-- =================================================
+         INFORMACJA
+    ================================================= -->
+
+    <section class="ranking-info">
+
+        <strong>📊 Ranking Kolonii Pasjonatów</strong>
+
+        <p>
+            Punkty zdobywane są za prawidłowe typowanie
+            wyników spotkań w poszczególnych rozgrywkach.
+        </p>
+
+        <p>
+            Ranking jest aktualizowany wraz z kolejnymi
+            meczami i typowaniami.
+        </p>
+
+    </section>
+
+
+    <!-- =================================================
          PKO BP EKSTRAKLASA
-    ========================================= -->
+    ================================================= -->
 
-    <section class="league-section">
+    <section class="ranking-section">
 
-        <div class="league-title">
+        <h2 class="section-title">
+            🏆 PKO BP Ekstraklasa
+        </h2>
 
-            <h2>
-                🏆 PKO BP Ekstraklasa
-            </h2>
-
-            <span class="league-badge">
-                🎯 Typer
-            </span>
-
-        </div>
-
-
-        <div class="ranking-table-wrapper">
+        <div class="ranking-card">
 
             <table class="ranking-table">
 
@@ -441,12 +245,12 @@
 
                 </thead>
 
-
                 <tbody>
 
-                    <tr class="first-place">
 
-                        <td class="place gold">
+                    <tr class="first">
+
+                        <td class="place">
                             🥇 1.
                         </td>
 
@@ -461,9 +265,9 @@
                     </tr>
 
 
-                    <tr class="second-place">
+                    <tr class="second">
 
-                        <td class="place silver">
+                        <td class="place">
                             🥈 2.
                         </td>
 
@@ -478,9 +282,9 @@
                     </tr>
 
 
-                    <tr class="third-place">
+                    <tr class="third">
 
-                        <td class="place bronze">
+                        <td class="place">
                             🥉 3.
                         </td>
 
@@ -505,7 +309,7 @@
                             Kolej_farming
                         </td>
 
-                        <td class="points">
+                        <td class="points zero">
                             0 pkt
                         </td>
 
@@ -522,11 +326,12 @@
                             KEBABKRAFTOWY
                         </td>
 
-                        <td class="points">
+                        <td class="points zero">
                             0 pkt
                         </td>
 
                     </tr>
+
 
                 </tbody>
 
@@ -537,26 +342,17 @@
     </section>
 
 
-    <!-- =========================================
+    <!-- =================================================
          BETCLIC 1 LIGA
-    ========================================= -->
+    ================================================= -->
 
-    <section class="league-section">
+    <section class="ranking-section">
 
-        <div class="league-title">
+        <h2 class="section-title">
+            🏆 Betclic 1 Liga
+        </h2>
 
-            <h2>
-                🏆 Betclic 1 Liga
-            </h2>
-
-            <span class="league-badge">
-                🎯 Typer
-            </span>
-
-        </div>
-
-
-        <div class="ranking-table-wrapper">
+        <div class="ranking-card">
 
             <table class="ranking-table">
 
@@ -580,12 +376,12 @@
 
                 </thead>
 
-
                 <tbody>
 
-                    <tr class="first-place">
 
-                        <td class="place gold">
+                    <tr class="first">
+
+                        <td class="place">
                             🥇 1.
                         </td>
 
@@ -600,9 +396,9 @@
                     </tr>
 
 
-                    <tr class="second-place">
+                    <tr class="second">
 
-                        <td class="place silver">
+                        <td class="place">
                             🥈 2.
                         </td>
 
@@ -610,16 +406,16 @@
                             noworudzki_mk2
                         </td>
 
-                        <td class="points">
+                        <td class="points zero">
                             0 pkt
                         </td>
 
                     </tr>
 
 
-                    <tr class="third-place">
+                    <tr class="third">
 
-                        <td class="place bronze">
+                        <td class="place">
                             🥉 3.
                         </td>
 
@@ -627,7 +423,7 @@
                             Kolej_farming
                         </td>
 
-                        <td class="points">
+                        <td class="points zero">
                             0 pkt
                         </td>
 
@@ -644,7 +440,7 @@
                             Mikol Yoriichi
                         </td>
 
-                        <td class="points">
+                        <td class="points zero">
                             0 pkt
                         </td>
 
@@ -661,11 +457,12 @@
                             KEBABKRAFTOWY
                         </td>
 
-                        <td class="points">
+                        <td class="points zero">
                             0 pkt
                         </td>
 
                     </tr>
+
 
                 </tbody>
 
@@ -676,26 +473,17 @@
     </section>
 
 
-    <!-- =========================================
+    <!-- =================================================
          BETCLIC 2 LIGA
-    ========================================= -->
+    ================================================= -->
 
-    <section class="league-section">
+    <section class="ranking-section">
 
-        <div class="league-title">
+        <h2 class="section-title">
+            🏆 Betclic 2 Liga
+        </h2>
 
-            <h2>
-                🏆 Betclic 2 Liga
-            </h2>
-
-            <span class="league-badge">
-                🎯 Typer
-            </span>
-
-        </div>
-
-
-        <div class="ranking-table-wrapper">
+        <div class="ranking-card">
 
             <table class="ranking-table">
 
@@ -719,12 +507,12 @@
 
                 </thead>
 
-
                 <tbody>
 
-                    <tr class="first-place">
 
-                        <td class="place gold">
+                    <tr class="first">
+
+                        <td class="place">
                             🥇 1.
                         </td>
 
@@ -739,9 +527,9 @@
                     </tr>
 
 
-                    <tr class="second-place">
+                    <tr class="second">
 
-                        <td class="place silver">
+                        <td class="place">
                             🥈 2.
                         </td>
 
@@ -749,16 +537,16 @@
                             noworudzki_mk2
                         </td>
 
-                        <td class="points">
+                        <td class="points zero">
                             0 pkt
                         </td>
 
                     </tr>
 
 
-                    <tr class="third-place">
+                    <tr class="third">
 
-                        <td class="place bronze">
+                        <td class="place">
                             🥉 3.
                         </td>
 
@@ -766,7 +554,7 @@
                             Kolej_farming
                         </td>
 
-                        <td class="points">
+                        <td class="points zero">
                             0 pkt
                         </td>
 
@@ -783,7 +571,7 @@
                             Mikol Yoriichi
                         </td>
 
-                        <td class="points">
+                        <td class="points zero">
                             0 pkt
                         </td>
 
@@ -800,11 +588,12 @@
                             KEBABKRAFTOWY
                         </td>
 
-                        <td class="points">
+                        <td class="points zero">
                             0 pkt
                         </td>
 
                     </tr>
+
 
                 </tbody>
 
@@ -813,189 +602,109 @@
         </div>
 
     </section>
-
-
-    <!-- =========================================
-         INFORMACJA
-    ========================================= -->
-
-    <div class="ranking-info">
-
-        ℹ️ Ranking przedstawia aktualny stan punktacji
-        typera. Wyniki mogą być aktualizowane po
-        kolejnych kolejkach.
-
-    </div>
 
 
 </main>
 
 
-<!-- =========================================
-     EASTER EGG
-========================================= -->
+<!-- =====================================================
+     STOPKA
+===================================================== -->
 
-<div id="secretMessage">
-    🚂 Koloniarz znalazł ukryty easter egg! 👀
-</div>
+<footer>
 
+    <p>
+        © 2026 Kolonia Pasjonatów
+    </p>
+
+    <p>
+        🌟 Oficjalna strona społeczności
+    </p>
+
+</footer>
+
+
+<!-- =====================================================
+     TRYB CIEMNY / JASNY / RETRO
+===================================================== -->
 
 <script>
 
-    /* =========================================
-       TRYB JASNY / CIEMNY
-    ========================================= */
-
-    const themeButton =
-        document.getElementById("themeButton");
-
-    const savedTheme =
-        localStorage.getItem("theme");
+const themeToggle =
+    document.getElementById("themeToggle");
 
 
-    if (savedTheme === "light") {
+const savedTheme =
+    localStorage.getItem("theme") || "dark";
+
+
+function applyTheme(theme) {
+
+    document.body.classList.remove(
+        "light",
+        "retro"
+    );
+
+
+    if (theme === "light") {
 
         document.body.classList.add("light");
 
-        themeButton.textContent = "☀️";
+        themeToggle.textContent = "☀️";
+
+    }
+
+    else if (theme === "retro") {
+
+        document.body.classList.add("retro");
+
+        themeToggle.textContent = "💾";
+
+    }
+
+    else {
+
+        themeToggle.textContent = "🌙";
 
     }
 
 
-    themeButton.addEventListener(
-        "click",
-        () => {
-
-            document.body.classList.toggle("light");
-
-
-            if (
-                document.body.classList.contains("light")
-            ) {
-
-                localStorage.setItem(
-                    "theme",
-                    "light"
-                );
-
-                themeButton.textContent = "☀️";
-
-            } else {
-
-                localStorage.setItem(
-                    "theme",
-                    "dark"
-                );
-
-                themeButton.textContent = "🌙";
-
-            }
-
-        }
+    localStorage.setItem(
+        "theme",
+        theme
     );
 
-
-    /* =========================================
-       TRYB RETRO
-    ========================================= */
-
-    const retroButton =
-        document.getElementById("retroButton");
+}
 
 
-    const savedRetro =
-        localStorage.getItem("retroMode");
+applyTheme(savedTheme);
 
 
-    if (savedRetro === "true") {
+themeToggle.addEventListener("click", () => {
 
-        document.body.classList.add(
-            "retro-mode"
-        );
+    const current =
+        localStorage.getItem("theme") || "dark";
 
-        retroButton.textContent =
-            "🕹️ Normalny";
+
+    if (current === "dark") {
+
+        applyTheme("light");
 
     }
 
+    else if (current === "light") {
 
-    retroButton.addEventListener(
-        "click",
-        () => {
+        applyTheme("retro");
 
-            document.body.classList.toggle(
-                "retro-mode"
-            );
+    }
 
+    else {
 
-            const retro =
-                document.body.classList.contains(
-                    "retro-mode"
-                );
+        applyTheme("dark");
 
+    }
 
-            localStorage.setItem(
-                "retroMode",
-                retro
-            );
-
-
-            retroButton.textContent =
-                retro
-                    ? "🕹️ Normalny"
-                    : "🕹️ Retro";
-
-        }
-    );
-
-
-    /* =========================================
-       EASTER EGG
-       5 KLIKNIĘĆ W TYTUŁ
-    ========================================= */
-
-    const heroTitle =
-        document.querySelector(".hero h1");
-
-    const secretMessage =
-        document.getElementById(
-            "secretMessage"
-        );
-
-    let clickCount = 0;
-
-
-    heroTitle.addEventListener(
-        "click",
-        () => {
-
-            clickCount++;
-
-
-            if (clickCount >= 5) {
-
-                secretMessage.classList.add(
-                    "show"
-                );
-
-                clickCount = 0;
-
-
-                setTimeout(
-                    () => {
-
-                        secretMessage.classList.remove(
-                            "show"
-                        );
-
-                    },
-                    3500
-                );
-
-            }
-
-        }
-    );
+});
 
 </script>
 
