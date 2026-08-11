@@ -11,11 +11,50 @@
 
     <style>
 
+        /* =====================================================
+           STRONA HISTORII
+        ===================================================== */
+
         .history-page {
-            max-width: 1000px;
+            max-width: 950px;
             margin: auto;
             padding: 20px;
         }
+
+
+        /* =====================================================
+           GÓRNY PASEK
+        ===================================================== */
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .home-button,
+        .theme-button {
+            border: none;
+            border-radius: 14px;
+            padding: 12px 18px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: .25s;
+        }
+
+        .home-button:hover,
+        .theme-button:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.15);
+        }
+
+
+        /* =====================================================
+           OŚ CZASU
+        ===================================================== */
 
         .timeline {
             position: relative;
@@ -24,32 +63,62 @@
 
         .timeline::before {
             content: "";
+
             position: absolute;
+
             left: 19px;
             top: 0;
             bottom: 0;
+
             width: 3px;
-            background: rgba(255,193,7,.6);
+
+            background:
+                rgba(255,193,7,.6);
         }
+
+
+        /* =====================================================
+           ELEMENT HISTORII
+        ===================================================== */
 
         .history-item {
             position: relative;
+
             padding-left: 60px;
+
             margin-bottom: 35px;
         }
 
+
+        /* =====================================================
+           KROPKA
+        ===================================================== */
+
         .history-dot {
             position: absolute;
+
             left: 7px;
             top: 4px;
+
             width: 27px;
             height: 27px;
+
             border-radius: 50%;
-            background: #ffc107;
+
+            background:
+                #ffc107;
 
             box-shadow:
                 0 0 15px rgba(255,193,7,.55);
+
+            animation:
+                goldenGlow 2.5s ease-in-out infinite;
         }
+
+
+        /* =====================================================
+           KARTA
+        ===================================================== */
 
         .history-card {
             padding: 23px;
@@ -57,7 +126,7 @@
             border-radius: 20px;
 
             background:
-                rgba(255,255,255,.055);
+                rgba(255,255,255,.07);
 
             border:
                 1px solid rgba(255,255,255,.08);
@@ -67,30 +136,22 @@
 
             transition:
                 transform .25s ease,
-                box-shadow .25s ease;
+                box-shadow .25s ease,
+                background .3s ease;
         }
 
         .history-card:hover {
             transform:
-                translateY(-4px);
+                translateY(-3px);
 
             box-shadow:
                 0 12px 30px rgba(255,193,7,.13);
         }
 
-        body.light .history-card {
-            background: #ffffff;
 
-            border-color: #dedede;
-
-            box-shadow:
-                0 8px 25px rgba(0,0,0,.07);
-        }
-
-        body.light .history-card:hover {
-            box-shadow:
-                0 12px 30px rgba(255,193,7,.18);
-        }
+        /* =====================================================
+           DATA
+        ===================================================== */
 
         .history-date {
             font-size: 17px;
@@ -102,6 +163,11 @@
             margin-bottom: 8px;
         }
 
+
+        /* =====================================================
+           TEKST
+        ===================================================== */
+
         .history-card h2 {
             margin-top: 5px;
         }
@@ -112,30 +178,68 @@
 
 
         /* =====================================================
+           JASNY TRYB
+        ===================================================== */
+
+        body.light .history-card {
+            background:
+                #ffffff;
+
+            border-color:
+                #dedede;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.07);
+        }
+
+        body.light .history-card:hover {
+            box-shadow:
+                0 12px 30px rgba(255,193,7,.18);
+        }
+
+
+        /* =====================================================
            RETRO
         ===================================================== */
 
         body.retro .timeline::before {
-            background: #000080;
+            width: 3px;
+
+            background:
+                #000080;
         }
 
         body.retro .history-dot {
-            border-radius: 0;
+            width: 27px;
+            height: 27px;
 
-            background: #000080;
-
-            box-shadow: none;
-        }
-
-        body.retro .history-card {
-            border-radius: 0;
+            background:
+                #000080;
 
             border:
                 2px outset #ffffff;
 
-            background: #c0c0c0;
+            border-radius: 0;
 
-            color: #000000;
+            box-shadow:
+                2px 2px 0 #000000;
+
+            animation: none;
+        }
+
+        body.retro .history-card {
+            padding: 17px;
+
+            background:
+                #c0c0c0;
+
+            color:
+                #000000;
+
+            border:
+                2px outset #ffffff;
+
+            border-radius: 0;
 
             box-shadow:
                 3px 3px 0 #000000;
@@ -148,9 +252,19 @@
                 3px 3px 0 #000000;
         }
 
-        body.retro .history-date,
+        body.retro .history-date {
+            color:
+                #000080;
+
+            opacity: 1;
+        }
+
         body.retro .history-card h2 {
-            color: #000080;
+            color:
+                #000080;
+
+            text-decoration:
+                underline;
         }
 
 
@@ -158,10 +272,16 @@
            TELEFONY
         ===================================================== */
 
-        @media (max-width: 600px) {
+        @media (max-width:600px) {
 
             .history-page {
                 padding: 12px;
+            }
+
+            .home-button,
+            .theme-button {
+                padding: 9px 12px;
+                font-size: 14px;
             }
 
             .timeline::before {
@@ -196,59 +316,41 @@
 
 <body>
 
-
-<header>
-
-    <div class="logo">
-        🌟 Kolonia Pasjonatów
-    </div>
-
-
-    <nav>
-
-        <a href="index.html">
-            🏠 Strona główna
-        </a>
-
-        <a href="ranking.html">
-            🏆 Ranking
-        </a>
-
-        <a href="linki.html">
-            🔗 Linki
-        </a>
-
-        <a href="kontakt.html">
-            📧 Kontakt
-        </a>
-
-        <a href="kalendarz.html">
-            📅 Kalendarz
-        </a>
-
-        <a href="historia.html">
-            📜 Historia
-        </a>
-
-    </nav>
-
-
-    <button
-        id="themeToggle"
-        class="theme-toggle"
-        aria-label="Zmień motyw">
-
-        🌙
-
-    </button>
-
-</header>
-
-
 <main class="history-page">
 
 
-    <!-- HERO -->
+    <!-- =====================================================
+         GÓRNY PASEK
+
+         Z HISTORII MOŻNA WYJŚĆ TYLKO DO STRONY GŁÓWNEJ
+    ====================================================== -->
+
+    <div class="top-bar">
+
+        <a
+            href="index.html"
+            class="home-button">
+
+            🏠 Strona główna
+
+        </a>
+
+
+        <button
+            id="themeButton"
+            class="theme-button"
+            aria-label="Zmień motyw">
+
+            🌙
+
+        </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         TYTUŁ
+    ====================================================== -->
 
     <section class="hero">
 
@@ -264,12 +366,16 @@
     </section>
 
 
-    <!-- OŚ CZASU -->
+    <!-- =====================================================
+         OŚ CZASU
+    ====================================================== -->
 
     <section class="timeline">
 
 
-        <!-- 05.04.2026 -->
+        <!-- =================================================
+             05.04.2026
+        ================================================== -->
 
         <div class="history-item">
 
@@ -295,7 +401,9 @@
         </div>
 
 
-        <!-- 11.06.2026 -->
+        <!-- =================================================
+             11.06.2026
+        ================================================== -->
 
         <div class="history-item">
 
@@ -321,7 +429,9 @@
         </div>
 
 
-        <!-- 15.06.2026 -->
+        <!-- =================================================
+             15.06.2026
+        ================================================== -->
 
         <div class="history-item">
 
@@ -354,7 +464,9 @@
         </div>
 
 
-        <!-- 11.06–20.07 -->
+        <!-- =================================================
+             11.06–20.07.2026
+        ================================================== -->
 
         <div class="history-item">
 
@@ -373,8 +485,8 @@
                 <p>
                     W tym okresie trwa pierwsza większa
                     strefa tematyczna w historii Kolonii
-                    Pasjonatów —
-                    <strong>Strefa Kibica Mundial 2026</strong>.
+                    Pasjonatów — <strong>Strefa Kibica
+                    Mundial 2026</strong>.
                 </p>
 
                 <p>
@@ -393,30 +505,22 @@
 </main>
 
 
-<!-- FOOTER -->
-
-<footer>
-
-    <p>
-        © 2026 Kolonia Pasjonatów
-    </p>
-
-    <p>
-        📜 Historia społeczności
-    </p>
-
-</footer>
-
-
 <!-- =====================================================
      SYSTEM MOTYWÓW
-     DARK → LIGHT → RETRO → DARK
-===================================================== -->
+
+     🌙 CIEMNY
+     ↓
+     ☀️ JASNY
+     ↓
+     💾 RETRO
+     ↓
+     🌙 CIEMNY
+====================================================== -->
 
 <script>
 
-const themeToggle =
-    document.getElementById("themeToggle");
+const themeButton =
+    document.getElementById("themeButton");
 
 
 const savedTheme =
@@ -435,7 +539,7 @@ function applyTheme(theme) {
 
         document.body.classList.add("light");
 
-        themeToggle.textContent = "☀️";
+        themeButton.textContent = "☀️";
 
     }
 
@@ -443,13 +547,13 @@ function applyTheme(theme) {
 
         document.body.classList.add("retro");
 
-        themeToggle.textContent = "💾";
+        themeButton.textContent = "💾";
 
     }
 
     else {
 
-        themeToggle.textContent = "🌙";
+        themeButton.textContent = "🌙";
 
     }
 
@@ -462,34 +566,45 @@ function applyTheme(theme) {
 }
 
 
+/* =====================================================
+   ZASTOSOWANIE ZAPISANEGO MOTYWU
+===================================================== */
+
 applyTheme(savedTheme);
 
 
-themeToggle.addEventListener("click", () => {
+/* =====================================================
+   ZMIANA MOTYWU
+===================================================== */
 
-    const current =
-        localStorage.getItem("theme") || "dark";
+themeButton.addEventListener(
+    "click",
+    () => {
+
+        const current =
+            localStorage.getItem("theme") || "dark";
 
 
-    if (current === "dark") {
+        if (current === "dark") {
 
-        applyTheme("light");
+            applyTheme("light");
+
+        }
+
+        else if (current === "light") {
+
+            applyTheme("retro");
+
+        }
+
+        else {
+
+            applyTheme("dark");
+
+        }
 
     }
-
-    else if (current === "light") {
-
-        applyTheme("retro");
-
-    }
-
-    else {
-
-        applyTheme("dark");
-
-    }
-
-});
+);
 
 </script>
 
