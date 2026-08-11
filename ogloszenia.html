@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ogłoszenia | Kolonia Pasjonatów</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🌟 Kolonia Pasjonatów
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+            🏠 Strona główna
+        </a>
+
+        <a href="ranking.html">
+            🏆 Ranking
+        </a>
+
+        <a href="statystyki.html">
+            📊 Statystyki
+        </a>
+
+        <a href="ogloszenia.html">
+            📢 Ogłoszenia
+        </a>
+
+        <a href="linki.html">
+            🔗 Linki
+        </a>
+
+        <a href="kontakt.html">
+            📧 Kontakt
+        </a>
+
+    </nav>
+
+    <button
+        id="themeToggle"
+        class="theme-toggle"
+        type="button">
+
+        🌙
+
+    </button>
+
+</header>
+
+
+<main>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h1>
+            📢 Ogłoszenia Kolonii Pasjonatów
+        </h1>
+
+        <p>
+            Najważniejsze komunikaty, informacje
+            oraz ogłoszenia dotyczące naszej społeczności.
+        </p>
+
+    </section>
+
+
+    <!-- OGŁOSZENIA -->
+
+    <section class="section">
+
+        <h2 class="section-title">
+            📌 Najnowsze ogłoszenia
+        </h2>
+
+        <div class="info-grid">
+
+
+            <!-- OGŁOSZENIE 1 -->
+
+            <article class="info-card">
+
+                <span class="status">
+                    🟢 AKTUALNE
+                </span>
+
+                <h2>
+                    🌐 Rozwój strony Kolonii
+                </h2>
+
+                <p>
+                    Strona internetowa Kolonii Pasjonatów
+                    jest obecnie rozwijana i otrzymuje
+                    kolejne podstrony oraz funkcje.
+                </p>
+
+                <p>
+                    📅 11.08.2026
+                </p>
+
+            </article>
+
+
+            <!-- OGŁOSZENIE 2 -->
+
+            <article class="info-card">
+
+                <span class="status">
+                    🟡 W TRAKCIE
+                </span>
+
+                <h2>
+                    🤖 Bot Koloniarz
+                </h2>
+
+                <p>
+                    Trwają prace nad przygotowaniem
+                    oficjalnego bota Kolonii Pasjonatów.
+                </p>
+
+                <p>
+                    📅 11.08.2026
+                </p>
+
+            </article>
+
+
+            <!-- OGŁOSZENIE 3 -->
+
+            <article class="info-card">
+
+                <span class="status">
+                    🟡 W PRZYGOTOWANIU
+                </span>
+
+                <h2>
+                    📱 Kanał WhatsApp
+                </h2>
+
+                <p>
+                    Kanał WhatsApp Kolonii Pasjonatów
+                    jest obecnie w trakcie tworzenia.
+                </p>
+
+                <p>
+                    📅 11.08.2026
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- INFORMACJE -->
+
+    <section class="section">
+
+        <h2 class="section-title">
+            ℹ️ Ważne informacje
+        </h2>
+
+        <div class="info-grid">
+
+
+            <article class="info-card">
+
+                <h2>
+                    📅 Kalendarz
+                </h2>
+
+                <p>
+                    Najważniejsze wydarzenia, konkursy
+                    oraz terminy znajdziesz w kalendarzu.
+                </p>
+
+                <a
+                    href="kalendarz.html"
+                    class="button">
+
+                    📅 Otwórz kalendarz
+
+                </a>
+
+            </article>
+
+
+            <article class="info-card">
+
+                <h2>
+                    🏆 Ranking
+                </h2>
+
+                <p>
+                    Aktualne wyniki typerów oraz
+                    klasyfikacje wszystkich lig.
+                </p>
+
+                <a
+                    href="ranking.html"
+                    class="button">
+
+                    🏆 Zobacz ranking
+
+                </a>
+
+            </article>
+
+
+            <article class="info-card">
+
+                <h2>
+                    💬 Discord
+                </h2>
+
+                <p>
+                    Oficjalne centrum naszej społeczności.
+                    Dołącz do Kolonii Pasjonatów!
+                </p>
+
+                <a
+                    href="https://discord.gg/886u97g22Q"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="button">
+
+                    💬 Discord
+
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Kolonia Pasjonatów
+    </p>
+
+    <p>
+        🌟 Oficjalna strona społeczności
+    </p>
+
+</footer>
+
+
+<!-- =====================================================
+     TRYB CIEMNY / JASNY / RETRO
+===================================================== -->
+
+<script>
+
+const themeToggle =
+    document.getElementById("themeToggle");
+
+
+const savedTheme =
+    localStorage.getItem("theme") || "dark";
+
+
+function applyTheme(theme) {
+
+    document.body.classList.remove(
+        "light",
+        "retro"
+    );
+
+
+    if (theme === "light") {
+
+        document.body.classList.add("light");
+
+        themeToggle.textContent = "☀️";
+
+    }
+
+    else if (theme === "retro") {
+
+        document.body.classList.add("retro");
+
+        themeToggle.textContent = "💾";
+
+    }
+
+    else {
+
+        themeToggle.textContent = "🌙";
+
+    }
+
+
+    localStorage.setItem(
+        "theme",
+        theme
+    );
+
+}
+
+
+applyTheme(savedTheme);
+
+
+themeToggle.addEventListener("click", () => {
+
+    const current =
+        localStorage.getItem("theme") || "dark";
+
+
+    if (current === "dark") {
+
+        applyTheme("light");
+
+    }
+
+    else if (current === "light") {
+
+        applyTheme("retro");
+
+    }
+
+    else {
+
+        applyTheme("dark");
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>
