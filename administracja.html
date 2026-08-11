@@ -19,21 +19,13 @@
     </div>
 
     <nav>
-
         <a href="index.html">🏠 Strona główna</a>
         <a href="ranking.html">🏆 Ranking</a>
-        <a href="kalendarz.html">📅 Kalendarz</a>
-        <a href="historia.html">📜 Historia</a>
-        <a href="kontakt.html">📧 Kontakt</a>
         <a href="linki.html">🔗 Linki</a>
-        <a href="administracja.html">👥 Administracja</a>
-        <a href="koloniarz.html">🤖 Koloniarz</a>
-
+        <a href="kontakt.html">📧 Kontakt</a>
     </nav>
 
-    <button
-        id="themeToggle"
-        class="theme-toggle">
+    <button id="themeToggle" class="theme-toggle">
         🌙
     </button>
 
@@ -42,172 +34,121 @@
 
 <main>
 
-    <!-- TYTUŁ -->
-
     <section class="hero">
 
-        <h1>
-            👥 Administracja
-        </h1>
+        <h1>👥 Skład administracji</h1>
 
         <p>
-            Poznaj osoby odpowiedzialne za prowadzenie,
+            Osoby odpowiedzialne za prowadzenie,
             moderowanie i rozwój Kolonii Pasjonatów.
         </p>
 
     </section>
 
 
-    <!-- WŁAŚCICIEL -->
-
     <section class="section">
-
-        <h2 class="section-title">
-            👑 Właściciel
-        </h2>
 
         <div class="info-grid">
 
-            <article class="info-card">
 
-                <h3>
-                    👑 Właściciel Kolonii Pasjonatów
-                </h3>
-
-                <p>
-                    <strong>Michał</strong>
-                </p>
-
-                <p>
-                    Odpowiada za prowadzenie społeczności,
-                    podejmowanie najważniejszych decyzji
-                    oraz rozwój projektów.
-                </p>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- ADMINISTRACJA -->
-
-    <section class="section">
-
-        <h2 class="section-title">
-            🛡️ Administracja
-        </h2>
-
-        <div class="info-grid">
+            <!-- WŁAŚCICIEL -->
 
             <article class="info-card">
 
-                <h3>
-                    🛡️ Administrator
-                </h3>
+                <h2>👑 Właściciel</h2>
 
                 <p>
-                    Miejsce na osobę pełniącą funkcję
-                    administratora serwera.
+                    - Michał
                 </p>
 
             </article>
 
 
+            <!-- NACZELNY ADMINISTRATOR -->
+
             <article class="info-card">
 
-                <h3>
-                    🔨 Moderator
-                </h3>
+                <h2>🛡️ Naczelny Administrator</h2>
 
                 <p>
-                    Miejsce na osobę odpowiedzialną
-                    za moderowanie serwera.
+                    - Mikol yoriichi
                 </p>
 
             </article>
 
-        </div>
 
-    </section>
-
-
-    <!-- PROJEKTY -->
-
-    <section class="section">
-
-        <h2 class="section-title">
-            🚀 Opieka nad projektami
-        </h2>
-
-        <div class="info-grid">
+            <!-- ADMINISTRATORZY -->
 
             <article class="info-card">
 
-                <h3>
-                    🤖 Koloniarz
-                </h3>
+                <h2>🔧 Administrator</h2>
 
                 <p>
-                    Za rozwój i opiekę nad projektem
-                    Koloniarz odpowiada właściciel
-                    Kolonii Pasjonatów.
+                    - Mikol yoriichi
                 </p>
 
-                <a
-                    href="koloniarz.html"
-                    class="button">
-
-                    🤖 Centrum Koloniarza
-
-                </a>
-
-            </article>
-
-
-            <article class="info-card">
-
-                <h3>
-                    🌐 Strona internetowa
-                </h3>
-
                 <p>
-                    Strona Kolonii Pasjonatów jest rozwijana
-                    i aktualizowana przez właściciela
-                    oraz osoby zaangażowane w projekt.
+                    - Noworudzki_Mk08
                 </p>
 
             </article>
 
-        </div>
 
-    </section>
+            <!-- MODERATOR -->
+
+            <article class="info-card">
+
+                <h2>🛡️ Moderator</h2>
+
+                <p>
+                    - KEBABKRAFTOWY
+                </p>
+
+            </article>
 
 
-    <!-- KONTAKT -->
+            <!-- TECHNIK -->
 
-    <section class="section">
+            <article class="info-card">
 
-        <div class="info-card">
+                <h2>💻 Technik</h2>
 
-            <h2>
-                📧 Kontakt z administracją
-            </h2>
+                <p>
+                    - Michał
+                </p>
 
-            <p>
-                Jeżeli potrzebujesz pomocy lub chcesz
-                zgłosić sprawę administracji, skorzystaj
-                z odpowiedniego kanału na serwerze Discord.
-            </p>
+            </article>
 
-            <a
-                href="kontakt.html"
-                class="button">
 
-                📧 Kontakt
+            <!-- POMOCNICY -->
 
-            </a>
+            <article class="info-card">
+
+                <h2>🤝 Pomocnik</h2>
+
+                <p>
+                    - Mikol Yoriichi
+                </p>
+
+                <p>
+                    - kolej_farming
+                </p>
+
+            </article>
+
+
+            <!-- MARKETINGOWIEC -->
+
+            <article class="info-card">
+
+                <h2>📢 Marketingowiec</h2>
+
+                <p>
+                    - nikt
+                </p>
+
+            </article>
+
 
         </div>
 
@@ -223,7 +164,7 @@
     </p>
 
     <p>
-        👥 Administracja
+        👥 Skład administracji
     </p>
 
 </footer>
@@ -237,6 +178,7 @@ const themeToggle =
 const savedTheme =
     localStorage.getItem("theme");
 
+
 if (savedTheme === "light") {
 
     document.body.classList.add("light");
@@ -245,9 +187,11 @@ if (savedTheme === "light") {
 
 }
 
+
 themeToggle.addEventListener("click", () => {
 
     document.body.classList.toggle("light");
+
 
     if (
         document.body.classList.contains("light")
