@@ -1,256 +1,331 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>Kolonia Pasjonatów</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Kolonia Pasjonatów</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+    <!-- ================================
+         NAGŁÓWEK
+         ================================ -->
 
-<!-- TRYB JASNY / CIEMNY -->
+    <header>
 
-<div class="theme-switch">
+        <a href="index.html" class="logo">
+            🌟 Kolonia Pasjonatów
+        </a>
 
-<button id="themeButton">
-☀️ Tryb jasny
-</button>
+        <nav>
+            <a href="index.html">🏠 Główna</a>
+            <a href="ranking.html">🏆 Ranking</a>
+            <a href="kalendarz.html">📅 Kalendarz</a>
+            <a href="kronika.html">📜 Historia</a>
+            <a href="kontakt.html">📧 Kontakt</a>
+        </nav>
 
-</div>
+    </header>
 
 
+    <!-- ================================
+         PRZYCISK TRYBU
+         ================================ -->
 
+    <button
+        class="theme-toggle"
+        id="themeToggle"
+        aria-label="Zmień tryb kolorystyczny">
+        🌙
+    </button>
 
 
-<header>
+    <!-- ================================
+         GŁÓWNA ZAWARTOŚĆ
+         ================================ -->
 
-<h1>
-🌟 Kolonia Pasjonatów
-</h1>
+    <main>
 
+        <!-- POWITANIE -->
 
+        <section class="hero">
 
-<nav>
+            <h1>
+                🌟 Witaj w Kolonii Pasjonatów!
+            </h1>
 
-<a href="index.html">
-🏠 Start
-</a>
+            <p>
+                Miejsce, w którym łączymy ludzi, pasje,
+                projekty i wspólną społeczność.
+            </p>
 
+        </section>
 
-<a href="ranking.html">
-📊 Ranking
-</a>
 
+        <!-- ================================
+             NASZE PROJEKTY
+             ================================ -->
 
-<a href="kontakt.html">
-📩 Kontakt
-</a>
+        <section class="section">
 
+            <h2 class="section-title">
+                🚀 Nasze projekty
+            </h2>
 
-</nav>
 
+            <div class="projects-grid">
 
-</header>
 
+                <!-- DISCORD -->
 
+                <article class="project-card">
 
+                    <div>
 
+                        <h3>
+                            💬 Serwer Discord
+                        </h3>
 
+                        <p>
+                            Dołącz do naszej społeczności na Discordzie,
+                            poznawaj innych pasjonatów i bierz udział
+                            w wydarzeniach.
+                        </p>
 
+                    </div>
 
-<main>
+                    <a
+                        href="https://discord.gg/886u97g22Q"
+                        class="button"
+                        target="_blank"
+                        rel="noopener">
+                        💬 Dołącz na Discord
+                    </a>
 
+                </article>
 
 
+                <!-- WHATSAPP -->
 
+                <article class="project-card">
 
-<section class="box welcome">
+                    <div>
 
+                        <h3>
+                            💚 WhatsApp
+                        </h3>
 
-<h2>
-🌟 Witaj w Kolonii Pasjonatów!
-</h2>
+                        <p>
+                            Projekt naszej społeczności jest obecnie
+                            w trakcie tworzenia.
+                        </p>
 
+                        <span class="status">
+                            🟡 W trakcie tworzenia
+                        </span>
 
-<p>
+                    </div>
 
-Kolonia Pasjonatów to społeczność tworzona dla osób,
-które chcą dzielić się swoimi zainteresowaniami,
-poznawać nowych ludzi oraz tworzyć wspólne projekty.
+                    <span class="button">
+                        🔒 Wkrótce
+                    </span>
 
-</p>
+                </article>
 
 
-<p>
+                <!-- KOLONIARZ -->
 
-To miejsce, gdzie różne pasje łączą ludzi.
-Znajdziesz tutaj informacje o naszej społeczności,
-wydarzeniach oraz najważniejszych projektach.
+                <article class="project-card wide">
 
-</p>
+                    <div>
 
+                        <h3>
+                            🤖 Koloniarz
+                        </h3>
 
+                        <p>
+                            Własny bot serwerowy stworzony specjalnie
+                            dla Kolonii Pasjonatów. Planowane funkcje
+                            obejmują między innymi ekonomię, moderację,
+                            statystyki, rankingi, typowanie, wydarzenia
+                            oraz wiele innych możliwości.
+                        </p>
 
-</section>
+                        <span class="status">
+                            🟡 Projekt w trakcie tworzenia
+                        </span>
 
+                    </div>
 
+                    <a
+                        href="#"
+                        class="button">
+                        🤖 Dowiedz się więcej
+                    </a>
 
+                </article>
 
+            </div>
 
+        </section>
 
 
+        <!-- ================================
+             KALENDARZ I HISTORIA
+             ================================ -->
 
+        <section class="section">
 
-<section>
+            <h2 class="section-title">
+                📚 Poznaj Kolonię Pasjonatów
+            </h2>
 
 
-<h2>
-🚀 Nasz projekt
-</h2>
+            <div class="info-grid">
 
 
+                <!-- KALENDARZ -->
 
+                <article class="info-card">
 
+                    <h3>
+                        📅 Kalendarz wydarzeń
+                    </h3>
 
-<div class="summary-box">
+                    <p>
+                        Sprawdź najważniejsze nadchodzące wydarzenia
+                        i plany naszej społeczności.
+                    </p>
 
+                    <a
+                        href="kalendarz.html"
+                        class="button">
+                        📅 Zobacz kalendarz
+                    </a>
 
+                </article>
 
 
+                <!-- HISTORIA -->
 
+                <article class="info-card">
 
-<div class="summary-card">
+                    <h3>
+                        📜 Historia Kolonii Pasjonatów
+                    </h3>
 
+                    <p>
+                        Poznaj najważniejsze wydarzenia i etapy
+                        rozwoju naszej społeczności.
+                    </p>
 
-<h3>
-💬 Serwer Discord Kolonia Pasjonatów
-</h3>
+                    <a
+                        href="kronika.html"
+                        class="button">
+                        📜 Zobacz historię
+                    </a>
 
+                </article>
 
-<p>
+            </div>
 
-Oficjalne centrum naszej społeczności.
-Rozmowy, wydarzenia, konkursy oraz wspólne projekty
-tworzone przez użytkowników.
+        </section>
 
-</p>
 
+        <!-- ================================
+             KONTAKT
+             ================================ -->
 
-<a href="#" class="button">
-Dołącz do serwera →
-</a>
+        <section class="section">
 
+            <h2 class="section-title">
+                📧 Kontakt
+            </h2>
 
-</div>
+            <div class="info-card">
 
+                <p>
+                    Masz pytanie lub propozycję dotyczącą
+                    Kolonii Pasjonatów?
+                </p>
 
+                <a
+                    href="kontakt.html"
+                    class="button">
+                    📧 Przejdź do kontaktu
+                </a>
 
+            </div>
 
+        </section>
 
+    </main>
 
 
-<div class="summary-card">
+    <!-- ================================
+         STOPKA
+         ================================ -->
 
+    <footer>
 
-<h3>
-📅 Kalendarz wydarzeń
-</h3>
+        <p>
+            © 2026 Kolonia Pasjonatów
+        </p>
 
+        <p>
+            🌟 Razem tworzymy naszą społeczność.
+        </p>
 
-<p>
+    </footer>
 
-Sprawdź najważniejsze wydarzenia,
-konkursy oraz aktywności organizowane
-dla społeczności.
 
-</p>
+    <!-- ================================
+         TRYB JASNY / CIEMNY
+         ================================ -->
 
+    <script>
 
-<a href="kalendarz.html" class="button">
-Zobacz kalendarz →
-</a>
+        const themeToggle =
+            document.getElementById("themeToggle");
 
+        const savedTheme =
+            localStorage.getItem("theme");
 
-</div>
+        if (savedTheme === "light") {
 
+            document.body.classList.add("light");
 
+            themeToggle.textContent = "☀️";
 
+        }
 
 
+        themeToggle.addEventListener("click", () => {
 
+            document.body.classList.toggle("light");
 
-<div class="summary-card">
 
+            if (document.body.classList.contains("light")) {
 
-<h3>
-📜 Historia Kolonii Pasjonatów
-</h3>
+                localStorage.setItem("theme", "light");
 
+                themeToggle.textContent = "☀️";
 
-<p>
+            } else {
 
-Poznaj początki projektu,
-jego rozwój oraz najważniejsze momenty
-w historii społeczności.
+                localStorage.setItem("theme", "dark");
 
-</p>
+                themeToggle.textContent = "🌙";
 
+            }
 
-<a href="historia.html" class="button">
-Poznaj historię →
-</a>
+        });
 
-
-</div>
-
-
-
-
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-</main>
-
-
-
-
-
-
-
-<footer>
-
-© 2026 Kolonia Pasjonatów
-
-</footer>
-
-
-
-
-
-
-<script src="script.js"></script>
-
+    </script>
 
 </body>
-
 </html>
