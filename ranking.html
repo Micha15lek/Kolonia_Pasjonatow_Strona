@@ -2,418 +2,435 @@
 <html lang="pl">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>Ranking typerów | Kolonia Pasjonatów</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Ranking typowania - Kolonia Pasjonatów</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+    <!-- ================================
+         NAWIGACJA
+         ================================ -->
 
-<div class="theme-switch">
+    <header>
 
-<button id="themeButton">
-☀️ Tryb jasny
-</button>
+        <div class="logo">
+            🌟 Kolonia Pasjonatów
+        </div>
 
-</div>
+        <nav>
 
+            <a href="index.html">
+                🏠 Strona główna
+            </a>
 
+            <a href="ranking.html">
+                🏆 Ranking typerów
+            </a>
 
+            <a href="kalendarz.html">
+                📅 Kalendarz
+            </a>
 
+            <a href="historia.html">
+                📜 Historia
+            </a>
 
-<header>
+            <a href="kontakt.html">
+                📧 Kontakt
+            </a>
 
-<h1>
-🌟 Kolonia Pasjonatów
-</h1>
+            <a href="linki.html">
+                🔗 Linki
+            </a>
 
+            <a href="administracja.html">
+                👥 Administracja
+            </a>
 
-<nav>
+            <a href="koloniarz.html">
+                🤖 Koloniarz
+            </a>
 
-<a href="index.html">
-🏠 Start
-</a>
+        </nav>
 
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Zmień tryb">
+            🌙
+        </button>
 
-<a href="ranking.html">
-📊 Ranking
-</a>
+    </header>
 
 
-<a href="kontakt.html">
-📩 Kontakt
-</a>
+    <!-- ================================
+         GŁÓWNA ZAWARTOŚĆ
+         ================================ -->
 
+    <main>
 
-</nav>
+        <section class="hero">
 
+            <h1>
+                🏆 Ranking typerów
+            </h1>
 
-</header>
+            <p>
+                Sprawdź aktualną klasyfikację uczestników
+                typowania oraz ich wyniki.
+            </p>
 
+        </section>
 
 
+        <!-- ================================
+             INFORMACJE
+             ================================ -->
 
+        <section class="section">
 
+            <div class="info-card">
 
+                <h2>
+                    📊 Klasyfikacja
+                </h2>
 
-<main>
+                <p>
+                    Ranking przedstawia wyniki uczestników
+                    na podstawie zdobytych punktów oraz
+                    poprawnych typów.
+                </p>
 
+            </div>
 
+        </section>
 
-<section class="box ranking-box">
 
+        <!-- ================================
+             FILTRY
+             ================================ -->
 
-<h2>
-🏆 Ranking typowania
-</h2>
+        <section class="section">
 
+            <div class="ranking-filters">
 
-<p>
-Sezon 2026/2027
-</p>
+                <button class="ranking-filter active">
+                    🏆 Wszystkie
+                </button>
 
+                <button class="ranking-filter">
+                    ⚽ Ekstraklasa
+                </button>
 
+                <button class="ranking-filter">
+                    🏆 Puchar Polski
+                </button>
 
+                <button class="ranking-filter">
+                    🌍 Inne
+                </button>
 
+            </div>
 
+        </section>
 
 
+        <!-- ================================
+             TABELA RANKINGU
+             ================================ -->
 
+        <section class="section">
 
-<!-- EKSTRAKLASA -->
+            <div class="ranking-container">
 
+                <table>
 
-<h2>
-⚽ PKO BP Ekstraklasa
-</h2>
+                    <thead>
 
+                        <tr>
 
+                            <th>
+                                #
+                            </th>
 
-<table class="ranking-table">
+                            <th>
+                                👤 Typer
+                            </th>
 
+                            <th>
+                                🎯 Typy
+                            </th>
 
-<thead>
+                            <th>
+                                ✅ Trafione
+                            </th>
 
-<tr>
+                            <th>
+                                ❌ Nietrafione
+                            </th>
 
-<th>#</th>
-<th>👤 Użytkownik</th>
-<th>🎯 Typy</th>
-<th>✅ Trafione</th>
-<th>🏆 Punkty</th>
-<th>📈 Skuteczność</th>
-<th>🔥 Seria</th>
+                            <th>
+                                📊 Skuteczność
+                            </th>
 
-</tr>
+                            <th>
+                                🏆 Punkty
+                            </th>
 
-</thead>
+                            <th>
+                                🔥 Seria
+                            </th>
 
+                        </tr>
 
+                    </thead>
 
-<tbody>
 
+                    <tbody>
 
-<tr>
-<td>🥇 1</td>
-<td>Michał</td>
-<td>9</td>
-<td>7</td>
-<td>14</td>
-<td>77,8%</td>
-<td>4</td>
-</tr>
+                        <!-- PRZYKŁADOWY WPIS -->
 
+                        <tr>
 
-<tr>
-<td>🥈 2</td>
-<td>noworudzki_mk2</td>
-<td>3</td>
-<td>1</td>
-<td>3</td>
-<td>33,3%</td>
-<td>1</td>
-</tr>
+                            <td>
+                                1
+                            </td>
 
+                            <td>
+                                👤 PrzykładowyTyper
+                            </td>
 
-<tr>
-<td>🥉 3</td>
-<td>Kolej_farming</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0%</td>
-<td>-</td>
-</tr>
+                            <td>
+                                25
+                            </td>
 
+                            <td>
+                                19
+                            </td>
 
-<tr>
-<td>4</td>
-<td>Mikol-Mostowo</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0%</td>
-<td>-</td>
-</tr>
+                            <td>
+                                6
+                            </td>
 
+                            <td>
+                                76%
+                            </td>
 
-<tr>
-<td>5</td>
-<td>KEBABKRAFTOWY</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0%</td>
-<td>-</td>
-</tr>
+                            <td>
+                                🏆 57
+                            </td>
 
+                            <td>
+                                🔥 5
+                            </td>
 
-</tbody>
+                        </tr>
 
-</table>
 
+                        <tr>
 
+                            <td>
+                                2
+                            </td>
 
+                            <td>
+                                👤 DrugiTyper
+                            </td>
 
+                            <td>
+                                23
+                            </td>
 
+                            <td>
+                                16
+                            </td>
 
+                            <td>
+                                7
+                            </td>
 
+                            <td>
+                                70%
+                            </td>
 
+                            <td>
+                                🏆 48
+                            </td>
 
-<!-- 1 LIGA -->
+                            <td>
+                                🔥 3
+                            </td>
 
+                        </tr>
 
-<h2>
-⚽ Betclic 1 Liga
-</h2>
 
+                        <tr>
 
+                            <td>
+                                3
+                            </td>
 
-<table class="ranking-table">
+                            <td>
+                                👤 TrzeciTyper
+                            </td>
 
+                            <td>
+                                20
+                            </td>
 
-<thead>
+                            <td>
+                                13
+                            </td>
 
-<tr>
+                            <td>
+                                7
+                            </td>
 
-<th>#</th>
-<th>👤 Użytkownik</th>
-<th>🎯 Typy</th>
-<th>✅ Trafione</th>
-<th>🏆 Punkty</th>
-<th>📈 Skuteczność</th>
-<th>🔥 Seria</th>
+                            <td>
+                                65%
+                            </td>
 
-</tr>
+                            <td>
+                                🏆 39
+                            </td>
 
-</thead>
+                            <td>
+                                🔥 2
+                            </td>
 
+                        </tr>
 
 
-<tbody>
+                    </tbody>
 
+                </table>
 
-<tr>
-<td>🥇 1</td>
-<td>Michał</td>
-<td>9</td>
-<td>3</td>
-<td>7</td>
-<td>33,3%</td>
-<td>0</td>
-</tr>
+            </div>
 
+        </section>
 
-<tr>
-<td>🥈 2</td>
-<td>noworudzki_mk2</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0%</td>
-<td>-</td>
-</tr>
 
+        <!-- ================================
+             INFORMACJA
+             ================================ -->
 
-<tr>
-<td>🥉 3</td>
-<td>Kolej_farming</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0%</td>
-<td>-</td>
-</tr>
+        <section class="section">
 
+            <div class="info-card">
 
-<tr>
-<td>4</td>
-<td>Mikol-Mostowo</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0%</td>
-<td>-</td>
-</tr>
+                <h2>
+                    ℹ️ Jak działa ranking?
+                </h2>
 
+                <p>
+                    Za poprawne typy uczestnicy otrzymują punkty.
+                    Wyniki są aktualizowane po zakończeniu
+                    odpowiednich spotkań.
+                </p>
 
-<tr>
-<td>5</td>
-<td>KEBABKRAFTOWY</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0%</td>
-<td>-</td>
-</tr>
+                <p>
+                    Szczegółowe zasady typowania mogą być
+                    dostępne na serwerze Discord.
+                </p>
 
+            </div>
 
-</tbody>
+        </section>
 
-</table>
 
+        <!-- ================================
+             POWRÓT
+             ================================ -->
 
+        <section class="section">
 
+            <div class="info-card">
 
+                <h2>
+                    🏠 Wróć na stronę główną
+                </h2>
 
+                <a
+                    href="index.html"
+                    class="button">
 
+                    🏠 Strona główna
 
+                </a>
 
+            </div>
 
-<!-- 2 LIGA -->
+        </section>
 
+    </main>
 
-<h2>
-⚽ Betclic 2 Liga
-</h2>
 
+    <!-- ================================
+         STOPKA
+         ================================ -->
 
+    <footer>
 
+        <p>
+            © 2026 Kolonia Pasjonatów
+        </p>
 
-<table class="ranking-table">
+        <p>
+            🏆 Ranking typerów
+        </p>
 
+    </footer>
 
-<thead>
 
-<tr>
+    <!-- ================================
+         TRYB JASNY / CIEMNY
+         ================================ -->
 
-<th>#</th>
-<th>👤 Użytkownik</th>
-<th>🎯 Typy</th>
-<th>✅ Trafione</th>
-<th>🏆 Punkty</th>
-<th>📈 Skuteczność</th>
-<th>🔥 Seria</th>
+    <script>
 
-</tr>
+        const themeToggle =
+            document.getElementById("themeToggle");
 
-</thead>
+        const savedTheme =
+            localStorage.getItem("theme");
 
+        if (savedTheme === "light") {
 
+            document.body.classList.add("light");
 
-<tbody>
+            themeToggle.textContent = "☀️";
 
+        }
 
-<tr>
-<td>🥇 1</td>
-<td>Michał</td>
-<td>9</td>
-<td>3</td>
-<td>7</td>
-<td>33,3%</td>
-<td>0</td>
-</tr>
 
+        themeToggle.addEventListener("click", () => {
 
-<tr>
-<td>🥈 2</td>
-<td>noworudzki_mk2</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0%</td>
-<td>-</td>
-</tr>
+            document.body.classList.toggle("light");
 
+            if (
+                document.body.classList.contains("light")
+            ) {
 
-<tr>
-<td>🥉 3</td>
-<td>Kolej_farming</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0%</td>
-<td>-</td>
-</tr>
+                localStorage.setItem("theme", "light");
 
+                themeToggle.textContent = "☀️";
 
-<tr>
-<td>4</td>
-<td>Mikol-Mostowo</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0%</td>
-<td>-</td>
-</tr>
+            } else {
 
+                localStorage.setItem("theme", "dark");
 
-<tr>
-<td>5</td>
-<td>KEBABKRAFTOWY</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0%</td>
-<td>-</td>
-</tr>
+                themeToggle.textContent = "🌙";
 
+            }
 
-</tbody>
+        });
 
-
-</table>
-
-
-
-
-
-
-
-</section>
-
-
-
-</main>
-
-
-
-
-
-
-
-<footer>
-
-© 2026 Kolonia Pasjonatów
-
-</footer>
-
-
-
-
-
-
-
-<script src="script.js"></script>
-
+    </script>
 
 </body>
 
