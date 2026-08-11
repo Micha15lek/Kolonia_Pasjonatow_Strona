@@ -1,11 +1,17 @@
-/* =========================================================
-   🌟 KOLONIA PASJONATÓW — GŁÓWNY CSS
-   ========================================================= */
+/* =========================================
+   KOLONIA PASJONATÓW — GŁÓWNY CSS
+   PC + TELEFON + TABLET
+   ========================================= */
+
+
+/* =========================================
+   RESET
+   ========================================= */
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
@@ -13,525 +19,187 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #151d2d;
-    color: #f4f5f7;
-    line-height: 1.6;
     min-height: 100vh;
-    overflow-x: hidden;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #202020 0%,
+            #111111 45%,
+            #090909 100%
+        );
+
+    color: #f5f5f5;
 
     transition:
         background 0.3s ease,
         color 0.3s ease;
+
+    overflow-x: hidden;
 }
 
 
-/* =========================================================
-   🌙 JASNY TRYB
-   ========================================================= */
+/* =========================================
+   JASNY TRYB
+   ========================================= */
 
 body.light {
-    background: #f2f4f8;
-    color: #202632;
-}
+    background:
+        radial-gradient(
+            circle at top,
+            #ffffff 0%,
+            #f3f3f3 55%,
+            #e8e8e8 100%
+        );
 
-body.light header,
-body.light footer {
-    background: #ffffff;
-    border-color: #dce1e8;
-}
-
-body.light .project-card,
-body.light .info-card,
-body.light .calendar-container,
-body.light .contact-card {
-    background: #ffffff;
-    border-color: #dce1e8;
-}
-
-body.light p {
-    color: #596273;
-}
-
-body.light nav a {
-    color: #3f4858;
-}
-
-body.light nav a:hover {
-    background: #edf0f5;
-    color: #111827;
-}
-
-body.light .button {
-    background: #e8ebf0;
-    color: #202632;
-}
-
-body.light .button:hover {
-    background: #dfe4eb;
+    color: #171717;
 }
 
 
-/* =========================================================
-   🧭 HEADER
-   ========================================================= */
+/* =========================================
+   NAWIGACJA
+   ========================================= */
 
 header {
-    width: 100%;
-    min-height: 70px;
-    padding: 15px 5%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-
-    background: #1a2436;
-    border-bottom: 1px solid #2b3850;
-
     position: sticky;
+
     top: 0;
+
     z-index: 1000;
 
-    backdrop-filter: blur(14px);
+    width: 100%;
 
-    transition:
-        background 0.3s ease,
-        border-color 0.3s ease;
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding:
+        16px 28px;
+
+    background:
+        rgba(10, 10, 10, 0.94);
+
+    border-bottom:
+        1px solid
+        rgba(255, 193, 7, 0.25);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+body.light header {
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    border-bottom:
+        1px solid
+        rgba(150, 110, 0, 0.25);
 }
 
 
-/* =========================================================
-   🌟 LOGO
-   ========================================================= */
+/* =========================================
+   LOGO
+   ========================================= */
 
 .logo {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 21px;
+    flex-shrink: 0;
+
+    font-size: 20px;
+
     font-weight: 800;
 
-    transition: 0.25s ease;
+    white-space: nowrap;
+
+    color: #ffd54a;
+
+    text-shadow:
+        0 0 12px
+        rgba(255, 193, 7, 0.45);
 }
 
-.logo:hover {
-    transform: translateY(-1px);
-}
 
-
-/* =========================================================
-   🔗 NAWIGACJA
-   ========================================================= */
+/* =========================================
+   MENU
+   ========================================= */
 
 nav {
     display: flex;
+
     align-items: center;
+
     justify-content: center;
-    gap: 7px;
+
+    gap: 6px;
+
+    flex: 1;
+
     flex-wrap: wrap;
 }
 
 nav a {
-    color: #d6dce6;
+    color: inherit;
+
     text-decoration: none;
 
-    padding: 9px 13px;
+    padding:
+        9px 12px;
+
     border-radius: 10px;
 
+    font-size: 14px;
+
+    font-weight: 600;
+
     transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+        background 0.2s ease,
+        transform 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 nav a:hover {
-    background: #27344a;
-    color: #ffffff;
-    transform: translateY(-2px);
-}
+    color: #ffd54a;
 
-nav a:active {
-    transform: scale(0.96);
+    background:
+        rgba(255, 193, 7, 0.10);
+
+    transform:
+        translateY(-1px);
 
     box-shadow:
-        0 0 8px rgba(255, 210, 90, 0.55),
-        0 0 22px rgba(255, 190, 50, 0.3);
+        0 0 15px
+        rgba(255, 193, 7, 0.12);
 }
 
 
-/* =========================================================
-   🌙 PRZYCISK JASNY / CIEMNY
-   ========================================================= */
+/* =========================================
+   TRYB JASNY / CIEMNY
+   ========================================= */
 
-.theme-toggle,
-#themeToggle {
-    position: fixed;
-
-    top: 18px;
-    right: 20px;
+.theme-toggle {
+    flex-shrink: 0;
 
     width: 44px;
     height: 44px;
 
-    border: 1px solid #35435b;
+    border: 1px solid
+        rgba(255, 193, 7, 0.35);
+
     border-radius: 12px;
 
-    background: #202c40;
-    color: #ffffff;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    cursor: pointer;
-
-    z-index: 2000;
-
-    transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-.theme-toggle:hover,
-#themeToggle:hover {
-    transform: scale(1.05);
-}
-
-.theme-toggle:active,
-#themeToggle:active {
-    transform: scale(0.94);
-
-    box-shadow:
-        0 0 8px rgba(255, 210, 90, 0.65),
-        0 0 24px rgba(255, 190, 50, 0.35);
-}
-
-body.light .theme-toggle,
-body.light #themeToggle {
-    background: #ffffff;
-    color: #202632;
-    border-color: #d5dbe4;
-}
-
-
-/* =========================================================
-   📦 MAIN
-   ========================================================= */
-
-main {
-    width: min(1200px, 92%);
-    margin: 0 auto;
-    padding: 50px 0;
-}
-
-
-/* =========================================================
-   👋 HERO
-   ========================================================= */
-
-.hero {
-    text-align: center;
-    padding: 70px 20px 75px;
-}
-
-.hero h1 {
-    font-size: clamp(34px, 6vw, 62px);
-    line-height: 1.15;
-    font-weight: 900;
-    margin-bottom: 18px;
-}
-
-.hero p {
-    max-width: 720px;
-    margin: 0 auto;
-
-    color: #b9c3d2;
-    font-size: clamp(16px, 2vw, 20px);
-}
-
-
-/* =========================================================
-   📚 SEKCJE
-   ========================================================= */
-
-.section {
-    margin-top: 55px;
-}
-
-.section-title {
-    text-align: center;
-
-    font-size: clamp(26px, 4vw, 38px);
-    font-weight: 800;
-
-    margin-bottom: 28px;
-}
-
-
-/* =========================================================
-   🚀 PROJEKTY
-   ========================================================= */
-
-.projects-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-    gap: 22px;
-}
-
-
-/* =========================================================
-   🧩 KAFELKI
-   ========================================================= */
-
-.project-card,
-.info-card,
-.contact-card {
-    background: #1c273a;
-
-    border: 1px solid #2d3b53;
-    border-radius: 20px;
-
-    padding: 30px;
-
-    min-width: 0;
-
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        background 0.3s ease,
-        box-shadow 0.3s ease;
-
-    animation: fadeUp 0.6s ease both;
-}
-
-.project-card:hover,
-.info-card:hover,
-.contact-card:hover {
-    transform: translateY(-5px);
-    border-color: #465873;
-    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.22);
-}
-
-.project-card h3,
-.info-card h3,
-.contact-card h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.project-card p,
-.info-card p,
-.contact-card p {
-    color: #b9c3d2;
-}
-
-
-/* =========================================================
-   🤖 KOLONIARZ — SZEROKI KAFEL
-   ========================================================= */
-
-.project-card.wide {
-    grid-column: 1 / -1;
-
-    min-height: 220px;
-
     background:
-        linear-gradient(
-            135deg,
-            #1d2b41,
-            #202e45
-        );
-}
+        rgba(255, 193, 7, 0.08);
 
-.project-card.wide h3 {
-    font-size: 29px;
-}
+    color: inherit;
 
-
-/* =========================================================
-   🟡 STATUS
-   ========================================================= */
-
-.status {
-    display: inline-flex;
-    align-items: center;
-
-    width: fit-content;
-
-    margin-top: 15px;
-    padding: 6px 12px;
-
-    border-radius: 999px;
-
-    background: #27364d;
-    color: #e2e7ee;
-
-    font-size: 13px;
-    font-weight: 700;
-}
-
-
-/* =========================================================
-   🔘 PRZYCISKI
-   ========================================================= */
-
-.button {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    width: fit-content;
-
-    margin-top: 22px;
-    padding: 11px 19px;
-
-    border-radius: 11px;
-
-    background: #34455f;
-    color: #ffffff;
-
-    text-decoration: none;
-    font-weight: 700;
-
-    cursor: pointer;
-
-    border: 1px solid transparent;
-
-    transition:
-        background 0.25s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
-}
-
-.button:hover {
-    background: #405574;
-
-    transform: translateY(-2px);
-
-    border-color: #596d8c;
-
-    box-shadow:
-        0 0 10px rgba(255, 210, 90, 0.2);
-}
-
-.button:active {
-    transform: scale(0.96);
-
-    box-shadow:
-        0 0 9px rgba(255, 210, 90, 0.65),
-        0 0 25px rgba(255, 190, 50, 0.35);
-}
-
-
-/* =========================================================
-   📧 KONTAKT — PRZYCISKI JAK NA GŁÓWNEJ
-   ========================================================= */
-
-.contact-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 20px;
-}
-
-.contact-buttons .button {
-    margin-top: 0;
-}
-
-
-/* Discord */
-
-.contact-discord {
-    background: #344b75;
-}
-
-.contact-discord:hover {
-    background: #405c8d;
-}
-
-
-/* E-mail */
-
-.contact-email {
-    background: #3d4657;
-}
-
-.contact-email:hover {
-    background: #4b566a;
-}
-
-
-/* WhatsApp */
-
-.contact-whatsapp {
-    background: #315b4b;
-}
-
-.contact-whatsapp:hover {
-    background: #3c6f5a;
-}
-
-
-/* =========================================================
-   📅 KALENDARZ
-   ========================================================= */
-
-.calendar-container {
-    background: #1c273a;
-
-    border: 1px solid #2d3b53;
-    border-radius: 20px;
-
-    padding: 25px;
-
-    transition:
-        background 0.3s ease,
-        border-color 0.3s ease;
-}
-
-
-/* Nagłówek kalendarza */
-
-.calendar-header {
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 15px;
-
-    margin-bottom: 22px;
-}
-
-.calendar-header h2 {
-    font-size: 25px;
-}
-
-
-/* Strzałki */
-
-.calendar-nav {
-    display: flex;
-    gap: 8px;
-}
-
-.calendar-nav button {
-    width: 40px;
-    height: 40px;
-
-    border: 1px solid #35445c;
-    border-radius: 10px;
-
-    background: #27354b;
-    color: #ffffff;
+    font-size: 20px;
 
     cursor: pointer;
 
@@ -541,336 +209,715 @@ main {
         background 0.2s ease;
 }
 
-.calendar-nav button:hover {
-    background: #354760;
-    transform: translateY(-2px);
-}
-
-.calendar-nav button:active {
-    transform: scale(0.94);
+.theme-toggle:hover {
+    transform:
+        scale(1.06);
 
     box-shadow:
-        0 0 9px rgba(255, 210, 90, 0.65);
+        0 0 18px
+        rgba(255, 193, 7, 0.30);
 }
 
 
-/* Dni tygodnia */
+/* =========================================
+   GŁÓWNA ZAWARTOŚĆ
+   ========================================= */
+
+main {
+    width: min(
+        1200px,
+        calc(100% - 40px)
+    );
+
+    margin:
+        0 auto;
+
+    padding:
+        50px 0 70px;
+}
+
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.hero {
+    text-align: center;
+
+    padding:
+        70px 30px;
+
+    margin-bottom: 45px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 193, 7, 0.10),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    border:
+        1px solid
+        rgba(255, 193, 7, 0.20);
+
+    box-shadow:
+        0 15px 50px
+        rgba(0, 0, 0, 0.30);
+}
+
+.hero h1 {
+    font-size:
+        clamp(
+            30px,
+            5vw,
+            52px
+        );
+
+    margin-bottom: 18px;
+
+    color: #ffd54a;
+
+    text-shadow:
+        0 0 25px
+        rgba(255, 193, 7, 0.35);
+}
+
+.hero p {
+    max-width: 760px;
+
+    margin:
+        0 auto;
+
+    line-height: 1.7;
+
+    font-size: 17px;
+
+    opacity: 0.85;
+}
+
+
+/* =========================================
+   SEKCJE
+   ========================================= */
+
+.section {
+    margin-bottom: 45px;
+}
+
+.section-title {
+    margin-bottom: 20px;
+
+    font-size: 28px;
+
+    color: #ffd54a;
+}
+
+
+/* =========================================
+   GRID
+   ========================================= */
+
+.projects-grid,
+.info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 22px;
+}
+
+
+/* =========================================
+   KARTY
+   ========================================= */
+
+.project-card,
+.info-card,
+.contact-card,
+.history-card,
+.calendar-event {
+    padding: 26px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.22);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.project-card:hover,
+.info-card:hover,
+.contact-card:hover,
+.history-card:hover {
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(255, 193, 7, 0.30);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.30),
+        0 0 25px
+        rgba(255, 193, 7, 0.07);
+}
+
+body.light .project-card,
+body.light .info-card,
+body.light .contact-card,
+body.light .history-card,
+body.light .calendar-event {
+    background:
+        rgba(255, 255, 255, 0.80);
+
+    border-color:
+        rgba(0, 0, 0, 0.09);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   SZEROKA KARTA
+   ========================================= */
+
+.project-card.wide {
+    grid-column:
+        1 / -1;
+}
+
+
+/* =========================================
+   NAGŁÓWKI KART
+   ========================================= */
+
+.project-card h3,
+.info-card h3,
+.contact-card h3,
+.history-card h3 {
+    margin-bottom: 12px;
+
+    font-size: 21px;
+
+    color: #ffd54a;
+}
+
+
+/* =========================================
+   TEKST
+   ========================================= */
+
+.project-card p,
+.info-card p,
+.contact-card p,
+.history-card p,
+.calendar-event p {
+    line-height: 1.7;
+
+    margin-bottom: 12px;
+
+    opacity: 0.86;
+}
+
+
+/* =========================================
+   PRZYCISKI
+   ========================================= */
+
+.button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    margin-top: 10px;
+
+    padding:
+        11px 17px;
+
+    border:
+        1px solid
+        rgba(255, 193, 7, 0.35);
+
+    border-radius: 11px;
+
+    background:
+        rgba(255, 193, 7, 0.10);
+
+    color: #ffd54a;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.button:hover {
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(255, 193, 7, 0.18);
+
+    box-shadow:
+        0 0 20px
+        rgba(255, 193, 7, 0.20);
+}
+
+
+/* =========================================
+   ZŁOTA POŚWIATA PRZY KLIKNIĘCIU
+   ========================================= */
+
+.button:active,
+nav a:active,
+.theme-toggle:active,
+.calendar-button:active,
+.calendar-day:active {
+    transform:
+        scale(0.96);
+
+    box-shadow:
+        0 0 30px
+        rgba(255, 193, 7, 0.65),
+        0 0 60px
+        rgba(255, 193, 7, 0.25);
+}
+
+
+/* =========================================
+   KONTAKT
+   ========================================= */
+
+.contact-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.contact-card {
+    min-height: 220px;
+}
+
+
+/* =========================================
+   RANKING
+   ========================================= */
+
+.ranking-container {
+    width: 100%;
+
+    overflow-x: auto;
+
+    border-radius: 18px;
+
+    border:
+        1px solid
+        rgba(255, 193, 7, 0.18);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+}
+
+table {
+    width: 100%;
+
+    min-width: 850px;
+
+    border-collapse: collapse;
+}
+
+thead {
+    background:
+        rgba(255, 193, 7, 0.12);
+}
+
+th,
+td {
+    padding:
+        15px 13px;
+
+    text-align: center;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+}
+
+th {
+    color: #ffd54a;
+
+    font-weight: 800;
+}
+
+tbody tr {
+    transition:
+        background 0.2s ease;
+}
+
+tbody tr:hover {
+    background:
+        rgba(255, 193, 7, 0.07);
+}
+
+body.light th,
+body.light td {
+    border-color:
+        rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   FILTRY RANKINGU
+   ========================================= */
+
+.ranking-filters {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.ranking-filter {
+    padding:
+        10px 16px;
+
+    border:
+        1px solid
+        rgba(255, 193, 7, 0.25);
+
+    border-radius: 10px;
+
+    background:
+        rgba(255, 193, 7, 0.07);
+
+    color: inherit;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    transition:
+        0.2s ease;
+}
+
+.ranking-filter:hover,
+.ranking-filter.active {
+    color: #ffd54a;
+
+    background:
+        rgba(255, 193, 7, 0.16);
+
+    box-shadow:
+        0 0 15px
+        rgba(255, 193, 7, 0.15);
+}
+
+
+/* =========================================
+   KALENDARZ
+   ========================================= */
+
+.calendar-container {
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    border:
+        1px solid
+        rgba(255, 193, 7, 0.16);
+}
+
+.calendar-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.calendar-header h2 {
+    color: #ffd54a;
+
+    text-align: center;
+}
+
+.calendar-button {
+    width: 45px;
+    height: 45px;
+
+    border:
+        1px solid
+        rgba(255, 193, 7, 0.30);
+
+    border-radius: 11px;
+
+    background:
+        rgba(255, 193, 7, 0.09);
+
+    color: #ffd54a;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
 
 .calendar-weekdays,
 .calendar-days {
     display: grid;
 
     grid-template-columns:
-        repeat(7, minmax(0, 1fr));
+        repeat(7, 1fr);
 
     gap: 7px;
 }
 
-.calendar-weekdays {
-    margin-bottom: 7px;
-}
-
 .calendar-weekdays div {
+    padding:
+        10px 5px;
+
     text-align: center;
 
-    color: #9da8b9;
+    font-weight: 800;
 
-    font-size: 13px;
-    font-weight: 700;
-
-    padding: 7px 0;
+    color: #ffd54a;
 }
 
-
-/* Dni */
-
 .calendar-day {
-    min-height: 48px;
+    min-height: 55px;
 
-    border: 1px solid #2d3b53;
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
     border-radius: 10px;
 
-    background: #202c40;
-    color: #e9edf3;
+    background:
+        rgba(255, 255, 255, 0.035);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: inherit;
 
     cursor: pointer;
 
+    font-weight: 700;
+
     transition:
-        background 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        border-color 0.2s ease;
+        0.2s ease;
 }
 
 .calendar-day:hover {
-    background: #2b3a52;
+    background:
+        rgba(255, 193, 7, 0.14);
 
-    transform: translateY(-2px);
-
-    border-color: #566b89;
-}
-
-.calendar-day:active {
-    transform: scale(0.94);
+    border-color:
+        rgba(255, 193, 7, 0.35);
 
     box-shadow:
-        0 0 10px rgba(255, 210, 90, 0.6);
+        0 0 15px
+        rgba(255, 193, 7, 0.12);
 }
-
-
-/* Dzień z wydarzeniem */
 
 .calendar-day.event {
-    border-color: #b18a38;
+    background:
+        rgba(255, 193, 7, 0.13);
 
-    box-shadow:
-        inset 0 -3px 0 #c69a3c;
+    border-color:
+        rgba(255, 193, 7, 0.45);
+
+    color: #ffd54a;
 }
 
-.calendar-day.event::after {
-    content: "•";
+.calendar-day.empty {
+    pointer-events: none;
 
-    position: absolute;
-
-    color: #e0b64e;
-}
-
-
-/* Wybrany dzień */
-
-.calendar-day.active {
-    background: #3b4657;
-
-    border-color: #e3b84e;
-
-    box-shadow:
-        0 0 10px rgba(255, 210, 90, 0.35);
+    opacity: 0;
 }
 
 
-/* Informacje o wybranym dniu */
+/* =========================================
+   WYDARZENIE
+   ========================================= */
 
 .calendar-event {
-    margin-top: 22px;
+    margin-top: 20px;
 
-    padding: 20px;
-
-    background: #202c40;
-
-    border: 1px solid #35445c;
-    border-radius: 14px;
-
-    animation: fadeUp 0.3s ease;
+    border-color:
+        rgba(255, 193, 7, 0.22);
 }
 
-.calendar-event h3 {
-    margin-bottom: 7px;
-}
+.calendar-event-item {
+    padding:
+        15px;
 
-.calendar-event p {
-    color: #b9c3d2;
-}
+    margin-top: 12px;
 
+    border-radius: 12px;
 
-/* =========================================================
-   🔗 LINKI / KAFELKI INFORMACYJNE
-   ========================================================= */
+    background:
+        rgba(255, 193, 7, 0.06);
 
-.info-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-    gap: 22px;
+    border-left:
+        3px solid
+        #ffd54a;
 }
 
 
-/* =========================================================
-   👑 ADMINISTRACJA / ZAPRZYJAŹNIONE KANAŁY
-   ========================================================= */
+/* =========================================
+   HISTORIA
+   ========================================= */
 
-.people-grid,
-.friends-grid {
-    display: grid;
+.history-timeline {
+    display: flex;
 
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+    flex-direction: column;
 
-    gap: 15px;
+    gap: 20px;
 }
-
-.people-card,
-.friend-card {
-    padding: 20px;
-
-    background: #202c40;
-
-    border: 1px solid #2d3b53;
-    border-radius: 15px;
-
-    transition: 0.25s ease;
-}
-
-.people-card:hover,
-.friend-card:hover {
-    transform: translateY(-3px);
-
-    border-color: #566b89;
-
-    box-shadow:
-        0 0 18px rgba(255, 210, 90, 0.08);
-}
-
-
-/* =========================================================
-   📜 HISTORIA
-   ========================================================= */
 
 .history-card {
-    padding: 25px;
+    position: relative;
 
-    background: #1c273a;
+    padding-left: 30px;
 
-    border: 1px solid #2d3b53;
-    border-radius: 18px;
-
-    margin-bottom: 15px;
-
-    transition: 0.25s ease;
+    border-left:
+        3px solid
+        rgba(255, 193, 7, 0.55);
 }
 
-.history-card:hover {
-    transform: translateX(4px);
-    border-color: #4b5e7b;
-}
+.history-date {
+    margin-bottom: 10px;
 
+    color: #ffd54a;
 
-/* =========================================================
-   ✨ ANIMACJE
-   ========================================================= */
+    font-weight: 800;
 
-@keyframes fadeUp {
-
-    from {
-        opacity: 0;
-        transform: translateY(18px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    font-size: 14px;
 }
 
 
-/* =========================================================
-   🦶 FOOTER
-   ========================================================= */
+/* =========================================
+   STOPKA
+   ========================================= */
 
 footer {
-    margin-top: 70px;
-
-    padding: 30px 5%;
+    padding:
+        30px 20px;
 
     text-align: center;
 
-    background: #1a2436;
+    border-top:
+        1px solid
+        rgba(255, 193, 7, 0.15);
 
-    border-top: 1px solid #2b3850;
+    background:
+        rgba(0, 0, 0, 0.20);
 
-    color: #9da8b9;
+    opacity: 0.85;
+}
 
-    transition:
-        background 0.3s ease,
-        border-color 0.3s ease;
+footer p {
+    margin: 5px;
 }
 
 
-/* =========================================================
-   💻 LAPTOP
-   ========================================================= */
+/* =========================================
+   TELEFONY I TABLETY
+   ========================================= */
 
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
 
-    main {
-        width: 94%;
+    header {
+        flex-wrap: wrap;
+
+        padding:
+            14px 18px;
+    }
+
+    .logo {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .theme-toggle {
+        margin:
+            0 auto;
     }
 
     .projects-grid,
     .info-grid {
-        gap: 18px;
-    }
-}
-
-
-/* =========================================================
-   📱 TABLET
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-    header {
-        padding: 14px 4%;
-
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    nav {
-        width: 100%;
-    }
-
-    .projects-grid,
-    .info-grid,
-    .people-grid,
-    .friends-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
 
     .project-card.wide {
-        grid-column: auto;
+        grid-column:
+            auto;
     }
 
-    .ranking-container {
-        width: 100%;
-        overflow-x: auto;
-
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .ranking-container table {
-        min-width: 700px;
-    }
-
-    table {
-        max-width: 100%;
-    }
 }
 
 
-/* =========================================================
-   📱 TELEFON
-   ========================================================= */
+/* =========================================
+   MAŁE TELEFONY
+   ========================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
 
-    body {
-        overflow-x: hidden;
+    main {
+        width:
+            calc(100% - 22px);
+
+        padding-top:
+            25px;
     }
 
     header {
-        padding: 12px 3%;
-
         gap: 10px;
-    }
-
-    .logo {
-        font-size: 18px;
     }
 
     nav {
@@ -879,191 +926,137 @@ footer {
 
     nav a {
         font-size: 12px;
-        padding: 7px 8px;
-    }
 
-    main {
-        width: 92%;
-        padding: 30px 0;
+        padding:
+            8px 9px;
     }
 
     .hero {
-        padding: 35px 8px 45px;
+        padding:
+            45px 18px;
+
+        border-radius:
+            18px;
     }
 
     .hero h1 {
-        font-size: 31px;
+        font-size:
+            30px;
     }
 
     .hero p {
-        font-size: 15px;
-    }
-
-    .section {
-        margin-top: 40px;
+        font-size:
+            15px;
     }
 
     .section-title {
-        font-size: 26px;
+        font-size:
+            23px;
     }
 
     .project-card,
-    .project-card.wide,
     .info-card,
-    .contact-card {
-        padding: 20px;
-
-        border-radius: 17px;
+    .contact-card,
+    .history-card,
+    .calendar-event {
+        padding:
+            20px;
     }
-
-    .project-card h3,
-    .project-card.wide h3,
-    .info-card h3,
-    .contact-card h3 {
-        font-size: 21px;
-    }
-
-    .project-card p,
-    .info-card p,
-    .contact-card p {
-        font-size: 14px;
-    }
-
-
-    /* Przyciski */
-
-    .button {
-        width: 100%;
-
-        text-align: center;
-
-        margin-top: 17px;
-    }
-
-    .contact-buttons {
-        flex-direction: column;
-        gap: 9px;
-    }
-
-    .contact-buttons .button {
-        width: 100%;
-    }
-
-
-    /* Kalendarz */
 
     .calendar-container {
-        padding: 15px;
-        border-radius: 16px;
-    }
-
-    .calendar-header {
-        align-items: center;
-    }
-
-    .calendar-header h2 {
-        font-size: 20px;
+        padding:
+            12px;
     }
 
     .calendar-weekdays,
     .calendar-days {
-        gap: 4px;
+        gap:
+            4px;
+    }
+
+    .calendar-day {
+        min-height:
+            43px;
+
+        font-size:
+            13px;
+
+        border-radius:
+            8px;
     }
 
     .calendar-weekdays div {
-        font-size: 11px;
+        font-size:
+            11px;
     }
 
-    .calendar-day {
-        min-height: 40px;
-        border-radius: 8px;
-        font-size: 13px;
+    .calendar-header h2 {
+        font-size:
+            20px;
     }
 
-    .calendar-event {
-        padding: 16px;
+    .calendar-button {
+        width:
+            38px;
+
+        height:
+            38px;
     }
 
-
-    /* Ranking */
-
-    .ranking-container {
-        width: 100%;
-
+    .ranking-filters {
         overflow-x: auto;
 
-        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+
+        padding-bottom:
+            5px;
     }
 
-    .ranking-container table {
-        min-width: 700px;
+    .ranking-filter {
+        flex-shrink: 0;
     }
 
-
-    /* Tryb */
-
-    .theme-toggle,
-    #themeToggle {
-        top: 10px;
-        right: 10px;
-
-        width: 40px;
-        height: 40px;
+    table {
+        min-width:
+            800px;
     }
 
+    .button {
+        width:
+            100%;
 
-    /* Multimedia */
-
-    img,
-    video,
-    iframe {
-        max-width: 100%;
-        height: auto;
+        text-align:
+            center;
     }
 
-
-    footer {
-        margin-top: 45px;
-        padding: 25px 4%;
-        font-size: 13px;
-    }
 }
 
 
-/* =========================================================
-   📱 BARDZO MAŁE TELEFONY
-   ========================================================= */
+/* =========================================
+   BARDZO MAŁE TELEFONY
+   ========================================= */
 
-@media (max-width: 360px) {
-
-    main {
-        width: 90%;
-    }
+@media (max-width: 380px) {
 
     nav a {
-        font-size: 11px;
-        padding: 6px 7px;
+        font-size:
+            11px;
+
+        padding:
+            7px;
     }
 
     .hero h1 {
-        font-size: 28px;
-    }
-
-    .project-card,
-    .project-card.wide,
-    .info-card,
-    .contact-card {
-        padding: 17px;
+        font-size:
+            26px;
     }
 
     .calendar-day {
-        min-height: 36px;
-        font-size: 12px;
+        min-height:
+            38px;
+
+        font-size:
+            12px;
     }
 
-    .theme-toggle,
-    #themeToggle {
-        width: 38px;
-        height: 38px;
-    }
 }
