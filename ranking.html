@@ -2,200 +2,320 @@
 <html lang="pl">
 
 <head>
-
     <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Ranking Typera | Kolonia Pasjonatów</title>
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    <link rel="stylesheet" href="style.css">
 
     <style>
 
-        /* =====================================================
-           RANKING PAGE
-        ===================================================== */
+        /* =========================================
+           RANKING — KOLONIA PASJONATÓW
+        ========================================= */
 
         .ranking-page {
-
             max-width: 1100px;
-
             margin: auto;
-
             padding: 20px;
-
         }
 
-
-        /* =====================================================
-           GÓRNY PASEK
-        ===================================================== */
+        /* =========================================
+           NAWIGACJA
+        ========================================= */
 
         .top-bar {
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
+            gap: 15px;
             margin-bottom: 25px;
-
+            flex-wrap: wrap;
         }
 
+        .navigation {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
 
-        .home-button,
-        .theme-button {
-
+        .nav-button,
+        .theme-button,
+        .retro-button {
             border: none;
+            border-radius: 14px;
+            padding: 11px 16px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 15px;
+            transition: .25s;
+        }
 
+        .nav-button:hover,
+        .theme-button:hover,
+        .retro-button:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.15);
+        }
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .hero h1 {
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            opacity: .75;
+        }
+
+        /* =========================================
+           LIGA
+        ========================================= */
+
+        .league-section {
+            margin-bottom: 35px;
+            padding: 22px;
+            border-radius: 22px;
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.08);
+            overflow: hidden;
+        }
+
+        .league-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+
+        .league-title h2 {
+            margin: 0;
+        }
+
+        .league-badge {
+            padding: 7px 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 800;
+            background: rgba(255,193,7,.16);
+        }
+
+        /* =========================================
+           TABELA
+        ========================================= */
+
+        .ranking-table-wrapper {
+            overflow-x: auto;
+        }
+
+        .ranking-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        .ranking-table th {
+            padding: 14px 12px;
+            text-align: left;
+            font-size: 14px;
+            opacity: .75;
+            border-bottom: 1px solid rgba(255,255,255,.12);
+        }
+
+        .ranking-table td {
+            padding: 15px 12px;
+            border-bottom: 1px solid rgba(255,255,255,.07);
+            font-weight: 600;
+        }
+
+        .ranking-table tbody tr {
+            transition: .2s;
+        }
+
+        .ranking-table tbody tr:hover {
+            background: rgba(255,255,255,.05);
+        }
+
+        .place {
+            width: 70px;
+            font-weight: 900;
+        }
+
+        .typer {
+            font-weight: 800;
+        }
+
+        .points {
+            font-weight: 900;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        /* =========================================
+           PODIUM
+        ========================================= */
+
+        .first-place {
+            background: rgba(255,193,7,.09);
+        }
+
+        .second-place {
+            background: rgba(192,192,192,.06);
+        }
+
+        .third-place {
+            background: rgba(205,127,50,.06);
+        }
+
+        .gold {
+            color: #ffc107;
+        }
+
+        .silver {
+            color: #c0c0c0;
+        }
+
+        .bronze {
+            color: #cd7f32;
+        }
+
+        /* =========================================
+           INFORMACJA
+        ========================================= */
+
+        .ranking-info {
+            margin-top: 15px;
+            padding: 18px;
+            border-radius: 18px;
+            background: rgba(255,255,255,.05);
+            opacity: .8;
+            font-size: 14px;
+        }
+
+        /* =========================================
+           RETRO MODE
+        ========================================= */
+
+        body.retro-mode {
+            font-family: "Courier New", monospace;
+        }
+
+        body.retro-mode .league-section,
+        body.retro-mode .ranking-info {
+            border-radius: 0;
+            border: 2px solid currentColor;
+        }
+
+        body.retro-mode .nav-button,
+        body.retro-mode .theme-button,
+        body.retro-mode .retro-button {
+            border-radius: 0;
+            font-family: "Courier New", monospace;
+        }
+
+        body.retro-mode .ranking-table td,
+        body.retro-mode .ranking-table th {
+            border-bottom: 1px dashed currentColor;
+        }
+
+        body.retro-mode .hero h1 {
+            letter-spacing: 2px;
+        }
+
+        body.retro-mode .league-title h2::before {
+            content: "> ";
+        }
+
+        /* =========================================
+           EASTER EGG
+        ========================================= */
+
+        #secretMessage {
+            display: none;
+            position: fixed;
+            left: 50%;
+            bottom: 25px;
+            transform: translateX(-50%);
+            z-index: 9999;
+
+            padding: 15px 22px;
             border-radius: 14px;
 
-            padding: 12px 18px;
+            background: rgba(0,0,0,.92);
+            color: #fff;
 
-            cursor: pointer;
-
-            text-decoration: none;
-
-            font-weight: 700;
-
-            font-size: 16px;
-
-            transition: .25s;
-
-        }
-
-
-        .home-button:hover,
-        .theme-button:hover {
-
-            transform:
-                translateY(-2px);
-
-            filter:
-                brightness(1.15);
-
-        }
-
-
-        /* =====================================================
-           RANKINGI
-        ===================================================== */
-
-        .ranking-list {
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 25px;
-
-            margin-top: 35px;
-
-        }
-
-
-        .league-ranking {
-
-            margin: 0 auto;
-
-            width: 100%;
-
-        }
-
-
-        .league-description {
-
+            font-weight: 800;
             text-align: center;
 
-            margin-top: -8px;
+            box-shadow: 0 10px 35px rgba(0,0,0,.35);
+        }
 
-            margin-bottom: 20px;
+        #secretMessage.show {
+            display: block;
+            animation: secretShow .3s ease;
+        }
 
-            opacity: .65;
+        @keyframes secretShow {
+
+            from {
+                opacity: 0;
+                transform: translate(-50%, 10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
 
         }
 
-
-        /* =====================================================
+        /* =========================================
            MOBILE
-        ===================================================== */
+        ========================================= */
 
         @media (max-width: 600px) {
 
             .ranking-page {
-
                 padding: 12px;
-
             }
 
-
-            .home-button,
-            .theme-button {
-
-                padding: 9px 12px;
-
-                font-size: 14px;
-
+            .navigation {
+                width: 100%;
             }
 
-
-            .ranking-list {
-
-                gap: 18px;
-
-                margin-top: 25px;
-
-            }
-
-
-            .league-ranking {
-
-                padding: 16px;
-
-            }
-
-
-            .league-ranking h2 {
-
-                font-size: 20px;
-
-            }
-
-
-            .ranking-container th,
-            .ranking-container td {
-
-                padding:
-                    10px 8px;
-
+            .nav-button,
+            .theme-button,
+            .retro-button {
+                padding: 9px 11px;
                 font-size: 13px;
-
             }
 
-        }
+            .league-section {
+                padding: 15px;
+            }
 
+            .league-title h2 {
+                font-size: 19px;
+            }
 
-        /* =====================================================
-           BARDZO MAŁE TELEFONY
-        ===================================================== */
+            .ranking-table {
+                min-width: 520px;
+            }
 
-        @media (max-width: 400px) {
-
-            .ranking-container th,
-            .ranking-container td {
-
-                padding:
-                    9px 6px;
-
-                font-size: 12px;
-
+            .ranking-table td,
+            .ranking-table th {
+                padding: 11px 8px;
             }
 
         }
@@ -207,44 +327,62 @@
 
 <body>
 
-
 <main class="ranking-page">
 
 
-    <!-- =====================================================
-         GÓRNY PASEK
-    ===================================================== -->
+    <!-- =========================================
+         NAWIGACJA
+    ========================================= -->
 
     <div class="top-bar">
 
+        <nav class="navigation">
 
-        <a
-            href="index.html"
-            class="home-button"
-        >
+            <a href="index.html" class="nav-button">
+                🏠 Strona główna
+            </a>
 
-            🏠 Strona główna
+            <a href="ranking.html" class="nav-button">
+                🏆 Ranking
+            </a>
 
-        </a>
+            <a href="linki.html" class="nav-button">
+                🔗 Linki
+            </a>
+
+            <a href="kontakt.html" class="nav-button">
+                📩 Kontakt
+            </a>
+
+        </nav>
 
 
-        <button
-            id="themeButton"
-            class="theme-button"
-            type="button"
-        >
+        <div>
 
-            🌙
+            <button
+                id="retroButton"
+                class="retro-button">
 
-        </button>
+                🕹️ Retro
 
+            </button>
+
+            <button
+                id="themeButton"
+                class="theme-button">
+
+                🌙
+
+            </button>
+
+        </div>
 
     </div>
 
 
-    <!-- =====================================================
+    <!-- =========================================
          TYTUŁ
-    ===================================================== -->
+    ========================================= -->
 
     <section class="hero">
 
@@ -253,520 +391,611 @@
         </h1>
 
         <p>
-            Aktualne wyniki typerów Kolonii Pasjonatów
-            w polskich rozgrywkach piłkarskich.
+            Aktualna klasyfikacja uczestników typera
+            Kolonii Pasjonatów.
         </p>
 
     </section>
 
 
-    <!-- =====================================================
-         RANKINGI
-    ===================================================== -->
+    <!-- =========================================
+         PKO BP EKSTRAKLASA
+    ========================================= -->
 
-    <section class="ranking-list">
+    <section class="league-section">
 
-
-        <!-- =================================================
-             PKO BP EKSTRAKLASA
-        ================================================= -->
-
-        <div class="league-ranking">
-
+        <div class="league-title">
 
             <h2>
-                🇵🇱 PKO BP Ekstraklasa
+                🏆 PKO BP Ekstraklasa
             </h2>
 
-
-            <p class="league-description">
-                Ranking punktów zdobytych w typerze PKO BP Ekstraklasy.
-            </p>
-
-
-            <div class="ranking-container">
-
-                <table>
-
-                    <thead>
-
-                        <tr>
-
-                            <th>
-                                🏆 Miejsce
-                            </th>
-
-                            <th>
-                                🎯 Typer
-                            </th>
-
-                            <th>
-                                🏆 Punkty
-                            </th>
-
-                        </tr>
-
-                    </thead>
-
-
-                    <tbody>
-
-
-                        <tr>
-
-                            <td>
-                                🥇 1.
-                            </td>
-
-                            <td>
-                                Michał
-                            </td>
-
-                            <td>
-                                18 pkt
-                            </td>
-
-                        </tr>
-
-
-                        <tr>
-
-                            <td>
-                                🥈 2.
-                            </td>
-
-                            <td>
-                                Noworudzki_Mk08
-                            </td>
-
-                            <td>
-                                3 pkt
-                            </td>
-
-                        </tr>
-
-
-                        <tr>
-
-                            <td>
-                                🥉 3.
-                            </td>
-
-                            <td>
-                                Mikol Yoriichi
-                            </td>
-
-                            <td>
-                                2 pkt
-                            </td>
-
-                        </tr>
-
-
-                        <tr>
-
-                            <td>
-                                4.
-                            </td>
-
-                            <td>
-                                Kolej_farming
-                            </td>
-
-                            <td>
-                                0 pkt
-                            </td>
-
-                        </tr>
-
-
-                        <tr>
-
-                            <td>
-                                5.
-                            </td>
-
-                            <td>
-                                KEBABKRAFTOWY
-                            </td>
-
-                            <td>
-                                0 pkt
-                            </td>
-
-                        </tr>
-
-
-                    </tbody>
-
-                </table>
-
-            </div>
+            <span class="league-badge">
+                🎯 Typer
+            </span>
 
         </div>
 
 
-        <!-- =================================================
-             BETCLIC 1 LIGA
-        ================================================= -->
+        <div class="ranking-table-wrapper">
 
-        <div class="league-ranking">
+            <table class="ranking-table">
 
+                <thead>
 
-            <h2>
-                🥇 Betclic 1 Liga
-            </h2>
+                    <tr>
 
+                        <th>
+                            🏆 Miejsce
+                        </th>
 
-            <p class="league-description">
-                Ranking punktów zdobytych w typerze Betclic 1 Ligi.
-            </p>
+                        <th>
+                            🎯 Typer
+                        </th>
 
+                        <th class="points">
+                            🏆 Punkty
+                        </th>
 
-            <div class="ranking-container">
+                    </tr>
 
-                <table>
-
-                    <thead>
-
-                        <tr>
-
-                            <th>
-                                🏆 Miejsce
-                            </th>
-
-                            <th>
-                                🎯 Typer
-                            </th>
-
-                            <th>
-                                🏆 Punkty
-                            </th>
-
-                        </tr>
-
-                    </thead>
+                </thead>
 
 
-                    <tbody>
+                <tbody>
+
+                    <tr class="first-place">
+
+                        <td class="place gold">
+                            🥇 1.
+                        </td>
+
+                        <td class="typer">
+                            Michał
+                        </td>
+
+                        <td class="points">
+                            18 pkt
+                        </td>
+
+                    </tr>
 
 
-                        <tr>
+                    <tr class="second-place">
 
-                            <td>
-                                🥇 1.
-                            </td>
+                        <td class="place silver">
+                            🥈 2.
+                        </td>
 
-                            <td>
-                                Michał
-                            </td>
+                        <td class="typer">
+                            Noworudzki_Mk08
+                        </td>
 
-                            <td>
-                                7 pkt
-                            </td>
+                        <td class="points">
+                            3 pkt
+                        </td>
 
-                        </tr>
-
-
-                        <tr>
-
-                            <td>
-                                🥈 2.
-                            </td>
-
-                            <td>
-                                noworudzki_mk2
-                            </td>
-
-                            <td>
-                                0 pkt
-                            </td>
-
-                        </tr>
+                    </tr>
 
 
-                        <tr>
+                    <tr class="third-place">
 
-                            <td>
-                                🥉 3.
-                            </td>
+                        <td class="place bronze">
+                            🥉 3.
+                        </td>
 
-                            <td>
-                                Kolej_farming
-                            </td>
+                        <td class="typer">
+                            Mikol Yoriichi
+                        </td>
 
-                            <td>
-                                0 pkt
-                            </td>
+                        <td class="points">
+                            2 pkt
+                        </td>
 
-                        </tr>
-
-
-                        <tr>
-
-                            <td>
-                                4.
-                            </td>
-
-                            <td>
-                                Mikol Yoriichi
-                            </td>
-
-                            <td>
-                                0 pkt
-                            </td>
-
-                        </tr>
+                    </tr>
 
 
-                        <tr>
+                    <tr>
 
-                            <td>
-                                5.
-                            </td>
+                        <td class="place">
+                            4.
+                        </td>
 
-                            <td>
-                                KEBABKRAFTOWY
-                            </td>
+                        <td class="typer">
+                            Kolej_farming
+                        </td>
 
-                            <td>
-                                0 pkt
-                            </td>
+                        <td class="points">
+                            0 pkt
+                        </td>
 
-                        </tr>
+                    </tr>
 
 
-                    </tbody>
+                    <tr>
 
-                </table>
+                        <td class="place">
+                            5.
+                        </td>
 
-            </div>
+                        <td class="typer">
+                            KEBABKRAFTOWY
+                        </td>
+
+                        <td class="points">
+                            0 pkt
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
 
         </div>
-
-
-        <!-- =================================================
-             BETCLIC 2 LIGA
-        ================================================= -->
-
-        <div class="league-ranking">
-
-
-            <h2>
-                🥈 Betclic 2 Liga
-            </h2>
-
-
-            <p class="league-description">
-                Ranking punktów zdobytych w typerze Betclic 2 Ligi.
-            </p>
-
-
-            <div class="ranking-container">
-
-                <table>
-
-                    <thead>
-
-                        <tr>
-
-                            <th>
-                                🏆 Miejsce
-                            </th>
-
-                            <th>
-                                🎯 Typer
-                            </th>
-
-                            <th>
-                                🏆 Punkty
-                            </th>
-
-                        </tr>
-
-                    </thead>
-
-
-                    <tbody>
-
-
-                        <tr>
-
-                            <td>
-                                🥇 1.
-                            </td>
-
-                            <td>
-                                Michał
-                            </td>
-
-                            <td>
-                                7 pkt
-                            </td>
-
-                        </tr>
-
-
-                        <tr>
-
-                            <td>
-                                🥈 2.
-                            </td>
-
-                            <td>
-                                noworudzki_mk2
-                            </td>
-
-                            <td>
-                                0 pkt
-                            </td>
-
-                        </tr>
-
-
-                        <tr>
-
-                            <td>
-                                🥉 3.
-                            </td>
-
-                            <td>
-                                Kolej_farming
-                            </td>
-
-                            <td>
-                                0 pkt
-                            </td>
-
-                        </tr>
-
-
-                        <tr>
-
-                            <td>
-                                4.
-                            </td>
-
-                            <td>
-                                Mikol Yoriichi
-                            </td>
-
-                            <td>
-                                0 pkt
-                            </td>
-
-                        </tr>
-
-
-                        <tr>
-
-                            <td>
-                                5.
-                            </td>
-
-                            <td>
-                                KEBABKRAFTOWY
-                            </td>
-
-                            <td>
-                                0 pkt
-                            </td>
-
-                        </tr>
-
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </div>
-
 
     </section>
+
+
+    <!-- =========================================
+         BETCLIC 1 LIGA
+    ========================================= -->
+
+    <section class="league-section">
+
+        <div class="league-title">
+
+            <h2>
+                🏆 Betclic 1 Liga
+            </h2>
+
+            <span class="league-badge">
+                🎯 Typer
+            </span>
+
+        </div>
+
+
+        <div class="ranking-table-wrapper">
+
+            <table class="ranking-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            🏆 Miejsce
+                        </th>
+
+                        <th>
+                            🎯 Typer
+                        </th>
+
+                        <th class="points">
+                            🏆 Punkty
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr class="first-place">
+
+                        <td class="place gold">
+                            🥇 1.
+                        </td>
+
+                        <td class="typer">
+                            Michał
+                        </td>
+
+                        <td class="points">
+                            7 pkt
+                        </td>
+
+                    </tr>
+
+
+                    <tr class="second-place">
+
+                        <td class="place silver">
+                            🥈 2.
+                        </td>
+
+                        <td class="typer">
+                            noworudzki_mk2
+                        </td>
+
+                        <td class="points">
+                            0 pkt
+                        </td>
+
+                    </tr>
+
+
+                    <tr class="third-place">
+
+                        <td class="place bronze">
+                            🥉 3.
+                        </td>
+
+                        <td class="typer">
+                            Kolej_farming
+                        </td>
+
+                        <td class="points">
+                            0 pkt
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td class="place">
+                            4.
+                        </td>
+
+                        <td class="typer">
+                            Mikol Yoriichi
+                        </td>
+
+                        <td class="points">
+                            0 pkt
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td class="place">
+                            5.
+                        </td>
+
+                        <td class="typer">
+                            KEBABKRAFTOWY
+                        </td>
+
+                        <td class="points">
+                            0 pkt
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         BETCLIC 2 LIGA
+    ========================================= -->
+
+    <section class="league-section">
+
+        <div class="league-title">
+
+            <h2>
+                🏆 Betclic 2 Liga
+            </h2>
+
+            <span class="league-badge">
+                🎯 Typer
+            </span>
+
+        </div>
+
+
+        <div class="ranking-table-wrapper">
+
+            <table class="ranking-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            🏆 Miejsce
+                        </th>
+
+                        <th>
+                            🎯 Typer
+                        </th>
+
+                        <th class="points">
+                            🏆 Punkty
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr class="first-place">
+
+                        <td class="place gold">
+                            🥇 1.
+                        </td>
+
+                        <td class="typer">
+                            Michał
+                        </td>
+
+                        <td class="points">
+                            7 pkt
+                        </td>
+
+                    </tr>
+
+
+                    <tr class="second-place">
+
+                        <td class="place silver">
+                            🥈 2.
+                        </td>
+
+                        <td class="typer">
+                            noworudzki_mk2
+                        </td>
+
+                        <td class="points">
+                            0 pkt
+                        </td>
+
+                    </tr>
+
+
+                    <tr class="third-place">
+
+                        <td class="place bronze">
+                            🥉 3.
+                        </td>
+
+                        <td class="typer">
+                            Kolej_farming
+                        </td>
+
+                        <td class="points">
+                            0 pkt
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td class="place">
+                            4.
+                        </td>
+
+                        <td class="typer">
+                            Mikol Yoriichi
+                        </td>
+
+                        <td class="points">
+                            0 pkt
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td class="place">
+                            5.
+                        </td>
+
+                        <td class="typer">
+                            KEBABKRAFTOWY
+                        </td>
+
+                        <td class="points">
+                            0 pkt
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         INFORMACJA
+    ========================================= -->
+
+    <div class="ranking-info">
+
+        ℹ️ Ranking przedstawia aktualny stan punktacji
+        typera. Wyniki mogą być aktualizowane po
+        kolejnych kolejkach.
+
+    </div>
 
 
 </main>
 
 
+<!-- =========================================
+     EASTER EGG
+========================================= -->
+
+<div id="secretMessage">
+    🚂 Koloniarz znalazł ukryty easter egg! 👀
+</div>
+
+
 <script>
 
-/* =====================================================
-   TRYB JASNY / CIEMNY
-===================================================== */
+    /* =========================================
+       TRYB JASNY / CIEMNY
+    ========================================= */
 
-const themeButton =
-    document.getElementById(
-        "themeButton"
-    );
+    const themeButton =
+        document.getElementById("themeButton");
 
-
-const savedTheme =
-    localStorage.getItem(
-        "theme"
-    );
+    const savedTheme =
+        localStorage.getItem("theme");
 
 
-/* =====================================================
-   WCZYTANIE MOTYWU
-===================================================== */
+    if (savedTheme === "light") {
 
-if (
-    savedTheme === "light"
-) {
+        document.body.classList.add("light");
 
-    document.body.classList.add(
-        "light"
-    );
-
-    themeButton.textContent =
-        "☀️";
-
-}
-
-
-/* =====================================================
-   ZMIANA MOTYWU
-===================================================== */
-
-themeButton.addEventListener(
-    "click",
-    () => {
-
-        document.body.classList.toggle(
-            "light"
-        );
-
-
-        if (
-            document.body.classList.contains(
-                "light"
-            )
-        ) {
-
-            localStorage.setItem(
-                "theme",
-                "light"
-            );
-
-            themeButton.textContent =
-                "☀️";
-
-        } else {
-
-            localStorage.setItem(
-                "theme",
-                "dark"
-            );
-
-            themeButton.textContent =
-                "🌙";
-
-        }
+        themeButton.textContent = "☀️";
 
     }
-);
+
+
+    themeButton.addEventListener(
+        "click",
+        () => {
+
+            document.body.classList.toggle("light");
+
+
+            if (
+                document.body.classList.contains("light")
+            ) {
+
+                localStorage.setItem(
+                    "theme",
+                    "light"
+                );
+
+                themeButton.textContent = "☀️";
+
+            } else {
+
+                localStorage.setItem(
+                    "theme",
+                    "dark"
+                );
+
+                themeButton.textContent = "🌙";
+
+            }
+
+        }
+    );
+
+
+    /* =========================================
+       TRYB RETRO
+    ========================================= */
+
+    const retroButton =
+        document.getElementById("retroButton");
+
+
+    const savedRetro =
+        localStorage.getItem("retroMode");
+
+
+    if (savedRetro === "true") {
+
+        document.body.classList.add(
+            "retro-mode"
+        );
+
+        retroButton.textContent =
+            "🕹️ Normalny";
+
+    }
+
+
+    retroButton.addEventListener(
+        "click",
+        () => {
+
+            document.body.classList.toggle(
+                "retro-mode"
+            );
+
+
+            const retro =
+                document.body.classList.contains(
+                    "retro-mode"
+                );
+
+
+            localStorage.setItem(
+                "retroMode",
+                retro
+            );
+
+
+            retroButton.textContent =
+                retro
+                    ? "🕹️ Normalny"
+                    : "🕹️ Retro";
+
+        }
+    );
+
+
+    /* =========================================
+       EASTER EGG
+       5 KLIKNIĘĆ W TYTUŁ
+    ========================================= */
+
+    const heroTitle =
+        document.querySelector(".hero h1");
+
+    const secretMessage =
+        document.getElementById(
+            "secretMessage"
+        );
+
+    let clickCount = 0;
+
+
+    heroTitle.addEventListener(
+        "click",
+        () => {
+
+            clickCount++;
+
+
+            if (clickCount >= 5) {
+
+                secretMessage.classList.add(
+                    "show"
+                );
+
+                clickCount = 0;
+
+
+                setTimeout(
+                    () => {
+
+                        secretMessage.classList.remove(
+                            "show"
+                        );
+
+                    },
+                    3500
+                );
+
+            }
+
+        }
+    );
 
 </script>
 
