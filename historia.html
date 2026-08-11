@@ -8,408 +8,255 @@
     <title>Historia | Kolonia Pasjonatów</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .history-page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px 60px;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 18px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: rgba(255, 193, 7, 0.55);
+        }
+
+        .history-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 55px;
+        }
+
+        .history-dot {
+            position: absolute;
+            left: 8px;
+            top: 5px;
+            width: 23px;
+            height: 23px;
+            border-radius: 50%;
+            background: #ffc107;
+            box-shadow: 0 0 15px rgba(255, 193, 7, 0.55);
+        }
+
+        .history-card {
+            padding: 22px;
+            border-radius: 18px;
+            background: var(--card-bg, rgba(255,255,255,0.08));
+            transition: 0.2s;
+        }
+
+        .history-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .history-date {
+            font-weight: 800;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .history-card h2 {
+            margin-top: 5px;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        @media (max-width: 600px) {
+
+            .history-page {
+                padding: 20px 10px 40px;
+            }
+
+            .history-item {
+                padding-left: 45px;
+            }
+
+            .timeline::before {
+                left: 14px;
+            }
+
+            .history-dot {
+                left: 4px;
+            }
+
+            .history-card {
+                padding: 17px;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-    <!-- =====================================
-         NAWIGACJA
-         ===================================== -->
+<main class="history-page">
 
-    <header>
 
-        <div class="logo">
-            🌟 Kolonia Pasjonatów
+    <section class="hero">
+
+        <h1>📜 Historia Kolonii Pasjonatów</h1>
+
+        <p>
+            Najważniejsze wydarzenia w historii
+            naszej społeczności.
+        </p>
+
+    </section>
+
+
+    <section class="timeline">
+
+
+        <!-- 05.04.2026 -->
+
+        <div class="history-item">
+
+            <div class="history-dot"></div>
+
+            <div class="history-card">
+
+                <div class="history-date">
+                    📅 05.04.2026
+                </div>
+
+                <h2>
+                    👥 Powstanie społeczności
+                </h2>
+
+                <p>
+                    Powstaje nasza społeczność pod nazwą
+                    <strong>Widzowie Kolejowy_Michał</strong>.
+                </p>
+
+            </div>
+
         </div>
 
-        <nav>
 
-            <a href="index.html">
-                🏠 Strona główna
-            </a>
+        <!-- 11.06.2026 -->
 
-            <a href="ranking.html">
-                🏆 Ranking typerów
-            </a>
+        <div class="history-item">
 
-            <a href="kalendarz.html">
-                📅 Kalendarz
-            </a>
+            <div class="history-dot"></div>
 
-            <a href="historia.html">
-                📜 Historia
-            </a>
+            <div class="history-card">
 
-            <a href="kontakt.html">
-                📧 Kontakt
-            </a>
-
-            <a href="linki.html">
-                🔗 Linki
-            </a>
-
-            <a href="administracja.html">
-                👥 Administracja
-            </a>
-
-            <a href="koloniarz.html">
-                🤖 Koloniarz
-            </a>
-
-        </nav>
-
-        <button
-            id="themeToggle"
-            class="theme-toggle"
-            aria-label="Zmień tryb">
-            🌙
-        </button>
-
-    </header>
-
-
-    <!-- =====================================
-         GŁÓWNA ZAWARTOŚĆ
-         ===================================== -->
-
-    <main>
-
-        <!-- =====================================
-             TYTUŁ
-             ===================================== -->
-
-        <section class="hero">
-
-            <h1>
-                📜 Historia Kolonii Pasjonatów
-            </h1>
-
-            <p>
-                Poznaj najważniejsze wydarzenia,
-                projekty i etapy rozwoju naszej społeczności.
-            </p>
-
-        </section>
-
-
-        <!-- =====================================
-             O HISTORII
-             ===================================== -->
-
-        <section class="section">
-
-            <div class="info-card">
+                <div class="history-date">
+                    📅 11.06.2026
+                </div>
 
                 <h2>
-                    🌟 Nasza historia
+                    🚀 Oficjalny start serwera
                 </h2>
 
                 <p>
-                    Kolonia Pasjonatów rozwija się dzięki
-                    społeczności oraz kolejnym projektom
-                    tworzonym z myślą o jej użytkownikach.
-                </p>
-
-                <p>
-                    Poniżej znajdują się najważniejsze
-                    wydarzenia związane z rozwojem serwera,
-                    strony oraz projektów.
+                    Oficjalnie uruchomiony zostaje serwer
+                    naszej społeczności.
                 </p>
 
             </div>
 
-        </section>
+        </div>
 
 
-        <!-- =====================================
-             OŚ CZASU
-             ===================================== -->
+        <!-- 15.06.2026 -->
 
-        <section class="section">
+        <div class="history-item">
 
-            <h2 class="section-title">
-                🕰️ Oś czasu
-            </h2>
+            <div class="history-dot"></div>
 
+            <div class="history-card">
 
-            <div class="history-timeline">
-
-
-                <!-- WPIS -->
-
-                <article class="history-card">
-
-                    <div class="history-date">
-                        📅 2026
-                    </div>
-
-                    <h3>
-                        🌟 Powstanie Kolonii Pasjonatów
-                    </h3>
-
-                    <p>
-                        Początek działalności społeczności
-                        i rozwój pierwszych pomysłów
-                        oraz projektów.
-                    </p>
-
-                </article>
-
-
-                <!-- WPIS -->
-
-                <article class="history-card">
-
-                    <div class="history-date">
-                        📅 2026
-                    </div>
-
-                    <h3>
-                        💬 Rozwój serwera Discord
-                    </h3>
-
-                    <p>
-                        Serwer zaczął być rozwijany o kolejne
-                        kanały, role, wydarzenia i strefy
-                        tematyczne.
-                    </p>
-
-                </article>
-
-
-                <!-- WPIS -->
-
-                <article class="history-card">
-
-                    <div class="history-date">
-                        📅 2026
-                    </div>
-
-                    <h3>
-                        🏆 Strefa Pucharu Polski
-                    </h3>
-
-                    <p>
-                        Rozpoczęto przygotowania specjalnej
-                        strefy poświęconej rozgrywkom
-                        Pucharu Polski.
-                    </p>
-
-                </article>
-
-
-                <!-- WPIS -->
-
-                <article class="history-card">
-
-                    <div class="history-date">
-                        📅 2026
-                    </div>
-
-                    <h3>
-                        🌐 Powstanie strony internetowej
-                    </h3>
-
-                    <p>
-                        Rozpoczęto tworzenie oficjalnej strony
-                        Kolonii Pasjonatów, która ma gromadzić
-                        najważniejsze informacje i projekty
-                        społeczności w jednym miejscu.
-                    </p>
-
-                </article>
-
-
-                <!-- WPIS -->
-
-                <article class="history-card">
-
-                    <div class="history-date">
-                        📅 2026
-                    </div>
-
-                    <h3>
-                        🤖 Projekt Koloniarz
-                    </h3>
-
-                    <p>
-                        Rozpoczęto planowanie własnego
-                        bota serwerowego o nazwie
-                        <strong>Koloniarz</strong>.
-                    </p>
-
-                    <p>
-                        Bot ma w przyszłości otrzymać wiele
-                        funkcji związanych między innymi
-                        z serwerem, statystykami, ekonomią,
-                        rankingami i wydarzeniami.
-                    </p>
-
-                </article>
-
-
-                <!-- PRZYSZŁE WYDARZENIA -->
-
-                <article class="history-card">
-
-                    <div class="history-date">
-                        🔮 Przyszłość
-                    </div>
-
-                    <h3>
-                        🚀 Kolejne projekty
-                    </h3>
-
-                    <p>
-                        Historia Kolonii Pasjonatów nadal
-                        się tworzy. Kolejne wydarzenia,
-                        projekty i ważne momenty będą
-                        sukcesywnie dodawane do tej osi czasu.
-                    </p>
-
-                </article>
-
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================
-             DODAWANIE HISTORII
-             ===================================== -->
-
-        <section class="section">
-
-            <div class="info-card">
+                <div class="history-date">
+                    📅 15.06.2026
+                </div>
 
                 <h2>
-                    📝 Historia wciąż się tworzy
+                    🔄 Zmiana nazwy społeczności
                 </h2>
 
                 <p>
-                    Ta strona będzie regularnie aktualizowana
-                    o kolejne ważne wydarzenia związane
-                    z Kolonią Pasjonatów.
+                    Nazwa <strong>Widzowie Kolejowy_Michał</strong>
+                    zostaje zmieniona na
+                    <strong>Miłośnicy Kolei Polska</strong>.
+                </p>
+
+                <p>
+                    Obecna nazwa społeczności:
+                    <strong>Kolonia Pasjonatów</strong>.
                 </p>
 
             </div>
 
-        </section>
+        </div>
 
 
-        <!-- =====================================
-             POWRÓT
-             ===================================== -->
+        <!-- 11.06–20.07.2026 -->
 
-        <section class="section">
+        <div class="history-item">
 
-            <div class="info-card">
+            <div class="history-dot"></div>
+
+            <div class="history-card">
+
+                <div class="history-date">
+                    📅 11.06.2026 – 20.07.2026
+                </div>
 
                 <h2>
-                    🏠 Wróć do centrum
+                    ⚽ Pierwsza strefa społeczności
                 </h2>
 
-                <a
-                    href="index.html"
-                    class="button">
+                <p>
+                    W tym okresie trwa pierwsza większa
+                    strefa w historii Kolonii Pasjonatów —
+                    <strong>Strefa Kibica Mundial 2026</strong>.
+                </p>
 
-                    🏠 Strona główna
-
-                </a>
+                <p>
+                    Była to pierwsza specjalna strefa
+                    tematyczna przygotowana dla naszej
+                    społeczności.
+                </p>
 
             </div>
 
-        </section>
-
-    </main>
+        </div>
 
 
-    <!-- =====================================
-         STOPKA
-         ===================================== -->
-
-    <footer>
-
-        <p>
-            © 2026 Kolonia Pasjonatów
-        </p>
-
-        <p>
-            📜 Historia Kolonii Pasjonatów
-        </p>
-
-    </footer>
+    </section>
 
 
-    <!-- =====================================
-         TRYB JASNY / CIEMNY
-         ===================================== -->
+    <a
+        href="index.html"
+        class="back-home">
 
-    <script>
+        ← 🏠 Strona główna
 
-        const themeToggle =
-            document.getElementById(
-                "themeToggle"
-            );
-
-        const savedTheme =
-            localStorage.getItem(
-                "theme"
-            );
+    </a>
 
 
-        if (savedTheme === "light") {
-
-            document.body.classList.add(
-                "light"
-            );
-
-            themeToggle.textContent =
-                "☀️";
-
-        }
-
-
-        themeToggle.addEventListener(
-            "click",
-            () => {
-
-                document.body.classList.toggle(
-                    "light"
-                );
-
-
-                if (
-                    document.body.classList.contains(
-                        "light"
-                    )
-                ) {
-
-                    localStorage.setItem(
-                        "theme",
-                        "light"
-                    );
-
-                    themeToggle.textContent =
-                        "☀️";
-
-                } else {
-
-                    localStorage.setItem(
-                        "theme",
-                        "dark"
-                    );
-
-                    themeToggle.textContent =
-                        "🌙";
-
-                }
-
-            }
-        );
-
-    </script>
+</main>
 
 </body>
 
