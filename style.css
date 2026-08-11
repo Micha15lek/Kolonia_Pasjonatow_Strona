@@ -1,6 +1,6 @@
-/* ================================
-   KOLONIA PASJONATÓW — STYLE
-   ================================ */
+/* =========================================================
+   🌟 KOLONIA PASJONATÓW — GŁÓWNY CSS
+   ========================================================= */
 
 * {
     margin: 0;
@@ -14,93 +14,248 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #111827;
-    color: #f3f4f6;
-    min-height: 100vh;
+    background: #151d2d;
+    color: #f4f5f7;
     line-height: 1.6;
+    min-height: 100vh;
     overflow-x: hidden;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
 }
 
-/* ================================
-   GÓRNY PASEK
-   ================================ */
+
+/* =========================================================
+   🌙 JASNY TRYB
+   ========================================================= */
+
+body.light {
+    background: #f2f4f8;
+    color: #202632;
+}
+
+body.light header,
+body.light footer {
+    background: #ffffff;
+    border-color: #dce1e8;
+}
+
+body.light .project-card,
+body.light .info-card,
+body.light .calendar-container,
+body.light .contact-card {
+    background: #ffffff;
+    border-color: #dce1e8;
+}
+
+body.light p {
+    color: #596273;
+}
+
+body.light nav a {
+    color: #3f4858;
+}
+
+body.light nav a:hover {
+    background: #edf0f5;
+    color: #111827;
+}
+
+body.light .button {
+    background: #e8ebf0;
+    color: #202632;
+}
+
+body.light .button:hover {
+    background: #dfe4eb;
+}
+
+
+/* =========================================================
+   🧭 HEADER
+   ========================================================= */
 
 header {
     width: 100%;
-    padding: 18px 5%;
-    background: #172033;
-    border-bottom: 1px solid #29354a;
+    min-height: 70px;
+    padding: 15px 5%;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
+
+    background: #1a2436;
+    border-bottom: 1px solid #2b3850;
+
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(12px);
+
+    backdrop-filter: blur(14px);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease;
 }
 
+
+/* =========================================================
+   🌟 LOGO
+   ========================================================= */
+
 .logo {
-    font-size: 22px;
-    font-weight: 800;
     color: #ffffff;
     text-decoration: none;
+    font-size: 21px;
+    font-weight: 800;
+
+    transition: 0.25s ease;
 }
+
+.logo:hover {
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   🔗 NAWIGACJA
+   ========================================================= */
 
 nav {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 7px;
+    flex-wrap: wrap;
 }
 
 nav a {
-    color: #d1d5db;
+    color: #d6dce6;
     text-decoration: none;
-    padding: 9px 14px;
+
+    padding: 9px 13px;
     border-radius: 10px;
-    transition: 0.25s ease;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 nav a:hover {
-    background: #26344b;
+    background: #27344a;
     color: #ffffff;
     transform: translateY(-2px);
 }
 
-/* ================================
-   GŁÓWNY KONTENER
-   ================================ */
+nav a:active {
+    transform: scale(0.96);
+
+    box-shadow:
+        0 0 8px rgba(255, 210, 90, 0.55),
+        0 0 22px rgba(255, 190, 50, 0.3);
+}
+
+
+/* =========================================================
+   🌙 PRZYCISK JASNY / CIEMNY
+   ========================================================= */
+
+.theme-toggle,
+#themeToggle {
+    position: fixed;
+
+    top: 18px;
+    right: 20px;
+
+    width: 44px;
+    height: 44px;
+
+    border: 1px solid #35435b;
+    border-radius: 12px;
+
+    background: #202c40;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 2000;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.theme-toggle:hover,
+#themeToggle:hover {
+    transform: scale(1.05);
+}
+
+.theme-toggle:active,
+#themeToggle:active {
+    transform: scale(0.94);
+
+    box-shadow:
+        0 0 8px rgba(255, 210, 90, 0.65),
+        0 0 24px rgba(255, 190, 50, 0.35);
+}
+
+body.light .theme-toggle,
+body.light #themeToggle {
+    background: #ffffff;
+    color: #202632;
+    border-color: #d5dbe4;
+}
+
+
+/* =========================================================
+   📦 MAIN
+   ========================================================= */
 
 main {
     width: min(1200px, 92%);
     margin: 0 auto;
-    padding: 55px 0;
+    padding: 50px 0;
 }
 
-/* ================================
-   POWITANIE
-   ================================ */
+
+/* =========================================================
+   👋 HERO
+   ========================================================= */
 
 .hero {
     text-align: center;
-    padding: 70px 20px 80px;
+    padding: 70px 20px 75px;
 }
 
 .hero h1 {
-    font-size: clamp(34px, 6vw, 64px);
+    font-size: clamp(34px, 6vw, 62px);
+    line-height: 1.15;
     font-weight: 900;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 }
 
 .hero p {
-    max-width: 700px;
+    max-width: 720px;
     margin: 0 auto;
-    color: #b9c1cf;
+
+    color: #b9c3d2;
     font-size: clamp(16px, 2vw, 20px);
 }
 
-/* ================================
-   SEKCJE
-   ================================ */
+
+/* =========================================================
+   📚 SEKCJE
+   ========================================================= */
 
 .section {
     margin-top: 55px;
@@ -108,165 +263,502 @@ main {
 
 .section-title {
     text-align: center;
-    font-size: clamp(25px, 4vw, 38px);
-    margin-bottom: 28px;
+
+    font-size: clamp(26px, 4vw, 38px);
     font-weight: 800;
+
+    margin-bottom: 28px;
 }
 
-/* ================================
-   NASZE PROJEKTY
-   ================================ */
+
+/* =========================================================
+   🚀 PROJEKTY
+   ========================================================= */
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
     gap: 22px;
 }
 
-/* ================================
-   KAFELKI
-   ================================ */
 
-.project-card {
-    background: #182235;
-    border: 1px solid #2a3850;
+/* =========================================================
+   🧩 KAFELKI
+   ========================================================= */
+
+.project-card,
+.info-card,
+.contact-card {
+    background: #1c273a;
+
+    border: 1px solid #2d3b53;
     border-radius: 20px;
+
     padding: 30px;
-    min-height: 220px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+
+    min-width: 0;
+
     transition:
         transform 0.3s ease,
         border-color 0.3s ease,
+        background 0.3s ease,
         box-shadow 0.3s ease;
-    animation: fadeUp 0.7s ease both;
+
+    animation: fadeUp 0.6s ease both;
 }
 
-.project-card:hover {
-    transform: translateY(-7px);
-    border-color: #52647f;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+.project-card:hover,
+.info-card:hover,
+.contact-card:hover {
+    transform: translateY(-5px);
+    border-color: #465873;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.22);
 }
 
-.project-card h3 {
-    font-size: 25px;
+.project-card h3,
+.info-card h3,
+.contact-card h3 {
+    font-size: 24px;
     margin-bottom: 10px;
 }
 
-.project-card p {
-    color: #b8c1d1;
+.project-card p,
+.info-card p,
+.contact-card p {
+    color: #b9c3d2;
 }
 
-/* ================================
-   KOLONIARZ — SZEROKI KAFEL
-   ================================ */
+
+/* =========================================================
+   🤖 KOLONIARZ — SZEROKI KAFEL
+   ========================================================= */
 
 .project-card.wide {
     grid-column: 1 / -1;
-    min-height: 210px;
-    background: #1b2940;
+
+    min-height: 220px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1d2b41,
+            #202e45
+        );
 }
 
 .project-card.wide h3 {
     font-size: 29px;
 }
 
-/* ================================
-   STATUS
-   ================================ */
+
+/* =========================================================
+   🟡 STATUS
+   ========================================================= */
 
 .status {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
+
     width: fit-content;
-    margin-top: 14px;
-    padding: 6px 11px;
+
+    margin-top: 15px;
+    padding: 6px 12px;
+
     border-radius: 999px;
-    background: #26354c;
-    color: #dbe4f0;
+
+    background: #27364d;
+    color: #e2e7ee;
+
     font-size: 13px;
     font-weight: 700;
 }
 
-/* ================================
-   PRZYCISKI
-   ================================ */
+
+/* =========================================================
+   🔘 PRZYCISKI
+   ========================================================= */
 
 .button {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
+
     width: fit-content;
+
     margin-top: 22px;
-    padding: 11px 18px;
+    padding: 11px 19px;
+
     border-radius: 11px;
-    background: #33445f;
+
+    background: #34455f;
     color: #ffffff;
+
     text-decoration: none;
     font-weight: 700;
-    transition: 0.25s ease;
+
+    cursor: pointer;
+
+    border: 1px solid transparent;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
 }
 
 .button:hover {
-    background: #415574;
+    background: #405574;
+
+    transform: translateY(-2px);
+
+    border-color: #596d8c;
+
+    box-shadow:
+        0 0 10px rgba(255, 210, 90, 0.2);
+}
+
+.button:active {
+    transform: scale(0.96);
+
+    box-shadow:
+        0 0 9px rgba(255, 210, 90, 0.65),
+        0 0 25px rgba(255, 190, 50, 0.35);
+}
+
+
+/* =========================================================
+   📧 KONTAKT — PRZYCISKI JAK NA GŁÓWNEJ
+   ========================================================= */
+
+.contact-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.contact-buttons .button {
+    margin-top: 0;
+}
+
+
+/* Discord */
+
+.contact-discord {
+    background: #344b75;
+}
+
+.contact-discord:hover {
+    background: #405c8d;
+}
+
+
+/* E-mail */
+
+.contact-email {
+    background: #3d4657;
+}
+
+.contact-email:hover {
+    background: #4b566a;
+}
+
+
+/* WhatsApp */
+
+.contact-whatsapp {
+    background: #315b4b;
+}
+
+.contact-whatsapp:hover {
+    background: #3c6f5a;
+}
+
+
+/* =========================================================
+   📅 KALENDARZ
+   ========================================================= */
+
+.calendar-container {
+    background: #1c273a;
+
+    border: 1px solid #2d3b53;
+    border-radius: 20px;
+
+    padding: 25px;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* Nagłówek kalendarza */
+
+.calendar-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 22px;
+}
+
+.calendar-header h2 {
+    font-size: 25px;
+}
+
+
+/* Strzałki */
+
+.calendar-nav {
+    display: flex;
+    gap: 8px;
+}
+
+.calendar-nav button {
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid #35445c;
+    border-radius: 10px;
+
+    background: #27354b;
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.calendar-nav button:hover {
+    background: #354760;
     transform: translateY(-2px);
 }
 
-/* ================================
-   KALENDARZ / HISTORIA
-   ================================ */
+.calendar-nav button:active {
+    transform: scale(0.94);
+
+    box-shadow:
+        0 0 9px rgba(255, 210, 90, 0.65);
+}
+
+
+/* Dni tygodnia */
+
+.calendar-weekdays,
+.calendar-days {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, minmax(0, 1fr));
+
+    gap: 7px;
+}
+
+.calendar-weekdays {
+    margin-bottom: 7px;
+}
+
+.calendar-weekdays div {
+    text-align: center;
+
+    color: #9da8b9;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    padding: 7px 0;
+}
+
+
+/* Dni */
+
+.calendar-day {
+    min-height: 48px;
+
+    border: 1px solid #2d3b53;
+    border-radius: 10px;
+
+    background: #202c40;
+    color: #e9edf3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.calendar-day:hover {
+    background: #2b3a52;
+
+    transform: translateY(-2px);
+
+    border-color: #566b89;
+}
+
+.calendar-day:active {
+    transform: scale(0.94);
+
+    box-shadow:
+        0 0 10px rgba(255, 210, 90, 0.6);
+}
+
+
+/* Dzień z wydarzeniem */
+
+.calendar-day.event {
+    border-color: #b18a38;
+
+    box-shadow:
+        inset 0 -3px 0 #c69a3c;
+}
+
+.calendar-day.event::after {
+    content: "•";
+
+    position: absolute;
+
+    color: #e0b64e;
+}
+
+
+/* Wybrany dzień */
+
+.calendar-day.active {
+    background: #3b4657;
+
+    border-color: #e3b84e;
+
+    box-shadow:
+        0 0 10px rgba(255, 210, 90, 0.35);
+}
+
+
+/* Informacje o wybranym dniu */
+
+.calendar-event {
+    margin-top: 22px;
+
+    padding: 20px;
+
+    background: #202c40;
+
+    border: 1px solid #35445c;
+    border-radius: 14px;
+
+    animation: fadeUp 0.3s ease;
+}
+
+.calendar-event h3 {
+    margin-bottom: 7px;
+}
+
+.calendar-event p {
+    color: #b9c3d2;
+}
+
+
+/* =========================================================
+   🔗 LINKI / KAFELKI INFORMACYJNE
+   ========================================================= */
 
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
     gap: 22px;
 }
 
-.info-card {
-    background: #182235;
-    border: 1px solid #2a3850;
-    border-radius: 20px;
-    padding: 30px;
-    transition: 0.3s ease;
+
+/* =========================================================
+   👑 ADMINISTRACJA / ZAPRZYJAŹNIONE KANAŁY
+   ========================================================= */
+
+.people-grid,
+.friends-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
 }
 
-.info-card:hover {
-    transform: translateY(-5px);
-    border-color: #52647f;
+.people-card,
+.friend-card {
+    padding: 20px;
+
+    background: #202c40;
+
+    border: 1px solid #2d3b53;
+    border-radius: 15px;
+
+    transition: 0.25s ease;
 }
 
-.info-card h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
+.people-card:hover,
+.friend-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #566b89;
+
+    box-shadow:
+        0 0 18px rgba(255, 210, 90, 0.08);
 }
 
-.info-card p {
-    color: #b8c1d1;
+
+/* =========================================================
+   📜 HISTORIA
+   ========================================================= */
+
+.history-card {
+    padding: 25px;
+
+    background: #1c273a;
+
+    border: 1px solid #2d3b53;
+    border-radius: 18px;
+
+    margin-bottom: 15px;
+
+    transition: 0.25s ease;
 }
 
-/* ================================
-   STOPKA
-   ================================ */
-
-footer {
-    margin-top: 70px;
-    padding: 30px 5%;
-    text-align: center;
-    border-top: 1px solid #29354a;
-    background: #172033;
-    color: #9ca7b8;
+.history-card:hover {
+    transform: translateX(4px);
+    border-color: #4b5e7b;
 }
 
-/* ================================
-   ANIMACJE
-   ================================ */
+
+/* =========================================================
+   ✨ ANIMACJE
+   ========================================================= */
 
 @keyframes fadeUp {
+
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(18px);
     }
 
     to {
@@ -275,14 +767,110 @@ footer {
     }
 }
 
-/* ================================
-   TABLET
-   ================================ */
 
-@media (max-width: 800px) {
+/* =========================================================
+   🦶 FOOTER
+   ========================================================= */
+
+footer {
+    margin-top: 70px;
+
+    padding: 30px 5%;
+
+    text-align: center;
+
+    background: #1a2436;
+
+    border-top: 1px solid #2b3850;
+
+    color: #9da8b9;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* =========================================================
+   💻 LAPTOP
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+    main {
+        width: 94%;
+    }
+
+    .projects-grid,
+    .info-grid {
+        gap: 18px;
+    }
+}
+
+
+/* =========================================================
+   📱 TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
 
     header {
-        padding: 15px 4%;
+        padding: 14px 4%;
+
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .projects-grid,
+    .info-grid,
+    .people-grid,
+    .friends-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card.wide {
+        grid-column: auto;
+    }
+
+    .ranking-container {
+        width: 100%;
+        overflow-x: auto;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .ranking-container table {
+        min-width: 700px;
+    }
+
+    table {
+        max-width: 100%;
+    }
+}
+
+
+/* =========================================================
+   📱 TELEFON
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    header {
+        padding: 12px 3%;
+
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 18px;
     }
 
     nav {
@@ -290,59 +878,13 @@ footer {
     }
 
     nav a {
-        padding: 8px 9px;
-        font-size: 14px;
-    }
-
-    main {
-        width: 94%;
-        padding: 35px 0;
-    }
-
-    .hero {
-        padding: 50px 15px 55px;
-    }
-
-    .projects-grid,
-    .info-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-card.wide {
-        grid-column: auto;
-    }
-}
-
-/* ================================
-   TELEFON
-   ================================ */
-
-@media (max-width: 520px) {
-
-    header {
-        padding: 13px 4%;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .logo {
-        font-size: 19px;
-    }
-
-    nav {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    nav a {
-        font-size: 13px;
-        padding: 7px 9px;
+        font-size: 12px;
+        padding: 7px 8px;
     }
 
     main {
         width: 92%;
-        padding: 25px 0;
+        padding: 30px 0;
     }
 
     .hero {
@@ -350,8 +892,7 @@ footer {
     }
 
     .hero h1 {
-        font-size: 34px;
-        line-height: 1.15;
+        font-size: 31px;
     }
 
     .hero p {
@@ -363,58 +904,166 @@ footer {
     }
 
     .section-title {
-        font-size: 27px;
-        margin-bottom: 20px;
+        font-size: 26px;
     }
 
     .project-card,
     .project-card.wide,
-    .info-card {
-        padding: 22px;
+    .info-card,
+    .contact-card {
+        padding: 20px;
+
         border-radius: 17px;
-        min-height: auto;
     }
 
     .project-card h3,
     .project-card.wide h3,
-    .info-card h3 {
+    .info-card h3,
+    .contact-card h3 {
         font-size: 21px;
     }
 
     .project-card p,
-    .info-card p {
+    .info-card p,
+    .contact-card p {
         font-size: 14px;
     }
 
+
+    /* Przyciski */
+
     .button {
         width: 100%;
-        margin-top: 18px;
+
+        text-align: center;
+
+        margin-top: 17px;
     }
+
+    .contact-buttons {
+        flex-direction: column;
+        gap: 9px;
+    }
+
+    .contact-buttons .button {
+        width: 100%;
+    }
+
+
+    /* Kalendarz */
+
+    .calendar-container {
+        padding: 15px;
+        border-radius: 16px;
+    }
+
+    .calendar-header {
+        align-items: center;
+    }
+
+    .calendar-header h2 {
+        font-size: 20px;
+    }
+
+    .calendar-weekdays,
+    .calendar-days {
+        gap: 4px;
+    }
+
+    .calendar-weekdays div {
+        font-size: 11px;
+    }
+
+    .calendar-day {
+        min-height: 40px;
+        border-radius: 8px;
+        font-size: 13px;
+    }
+
+    .calendar-event {
+        padding: 16px;
+    }
+
+
+    /* Ranking */
+
+    .ranking-container {
+        width: 100%;
+
+        overflow-x: auto;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .ranking-container table {
+        min-width: 700px;
+    }
+
+
+    /* Tryb */
+
+    .theme-toggle,
+    #themeToggle {
+        top: 10px;
+        right: 10px;
+
+        width: 40px;
+        height: 40px;
+    }
+
+
+    /* Multimedia */
+
+    img,
+    video,
+    iframe {
+        max-width: 100%;
+        height: auto;
+    }
+
 
     footer {
         margin-top: 45px;
+        padding: 25px 4%;
         font-size: 13px;
     }
 }
 
-/* ================================
-   BARDZO MAŁE EKRANY
-   ================================ */
+
+/* =========================================================
+   📱 BARDZO MAŁE TELEFONY
+   ========================================================= */
 
 @media (max-width: 360px) {
 
-    .hero h1 {
-        font-size: 29px;
+    main {
+        width: 90%;
     }
 
     nav a {
-        font-size: 12px;
+        font-size: 11px;
         padding: 6px 7px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
     }
 
     .project-card,
     .project-card.wide,
-    .info-card {
-        padding: 18px;
+    .info-card,
+    .contact-card {
+        padding: 17px;
+    }
+
+    .calendar-day {
+        min-height: 36px;
+        font-size: 12px;
+    }
+
+    .theme-toggle,
+    #themeToggle {
+        width: 38px;
+        height: 38px;
     }
 }
