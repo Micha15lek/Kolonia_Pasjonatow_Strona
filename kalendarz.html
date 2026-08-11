@@ -13,37 +13,55 @@
 
         .calendar-page {
             max-width: 1100px;
-            margin: 0 auto;
-            padding: 30px 20px 60px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .home-button,
+        .theme-button,
+        .month-button {
+            border: none;
+            border-radius: 14px;
+            padding: 12px 18px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: .2s;
+        }
+
+        .home-button:hover,
+        .theme-button:hover,
+        .month-button:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.15);
         }
 
         .calendar-header {
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
+            margin: 25px 0;
             gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .calendar-header button {
-            border: none;
-            border-radius: 12px;
-            padding: 12px 18px;
-            cursor: pointer;
-            font-size: 18px;
         }
 
         .month-title {
-            text-align: center;
             font-size: 28px;
             font-weight: 800;
+            text-align: center;
         }
 
         .calendar {
-            background: var(--card-bg, rgba(255,255,255,0.08));
-            border-radius: 20px;
             padding: 20px;
-            overflow: hidden;
+            border-radius: 22px;
+            background: rgba(255,255,255,.06);
         }
 
         .weekdays,
@@ -55,85 +73,220 @@
 
         .weekday {
             text-align: center;
-            font-weight: 700;
-            padding: 10px 5px;
+            font-weight: 800;
+            padding: 10px;
         }
 
         .day {
-            min-height: 75px;
-            border-radius: 12px;
-            padding: 8px;
+            min-height: 80px;
+            padding: 9px;
+            border-radius: 14px;
             cursor: pointer;
-            transition: 0.2s;
-            position: relative;
+            background: rgba(255,255,255,.05);
+            transition: .2s;
         }
 
         .day:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.12);
+            transform: translateY(-3px);
+            filter: brightness(1.15);
+        }
+
+        .day.empty {
+            opacity: 0;
+            cursor: default;
         }
 
         .day-number {
-            font-weight: 700;
+            font-weight: 800;
         }
 
-        .empty {
-            cursor: default;
-            opacity: 0;
-        }
+        /* WYDARZENIE KOLONII */
 
         .event-day {
-            box-shadow: inset 0 0 0 2px rgba(255, 200, 70, 0.65);
+            box-shadow:
+                0 0 0 2px rgba(255,193,7,.75),
+                0 0 14px rgba(255,193,7,.18);
         }
 
         .event-dot {
-            width: 8px;
-            height: 8px;
+            width: 9px;
+            height: 9px;
             border-radius: 50%;
-            background: #ffd166;
-            margin-top: 8px;
+            background: #ffc107;
+            margin-top: 9px;
         }
 
-        .event-list {
+        /* ŚWIĘTO */
+
+        .holiday-day {
+            box-shadow:
+                0 0 0 2px rgba(220,40,40,.75);
+        }
+
+        .holiday-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #e63946;
+            margin-top: 9px;
+        }
+
+        /* URODZINY */
+
+        .birthday-day {
+            box-shadow:
+                0 0 0 2px rgba(255,105,180,.75);
+        }
+
+        .birthday-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #ff69b4;
+            margin-top: 9px;
+        }
+
+        /* SYLWESTER */
+
+        .special-day {
+            box-shadow:
+                0 0 0 2px rgba(130,80,255,.75);
+        }
+
+        .special-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #8250ff;
+            margin-top: 9px;
+        }
+
+        /* INFORMACJE */
+
+        .event-info {
             margin-top: 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+            padding: 25px;
+            border-radius: 20px;
+            background: rgba(255,255,255,.07);
+            display: none;
+            animation: showEvent .25s ease;
         }
 
-        .event-card {
-            padding: 20px;
-            border-radius: 16px;
-            background: var(--card-bg, rgba(255,255,255,0.08));
+        .event-info.active {
+            display: block;
         }
 
-        .event-card h3 {
+        .event-info h2 {
             margin-top: 0;
         }
 
         .event-date {
             font-weight: 700;
-            opacity: 0.8;
-            margin-bottom: 8px;
+            opacity: .75;
+            margin-bottom: 10px;
         }
 
-        .back-home {
+        .event-type {
             display: inline-block;
-            margin-top: 25px;
-            padding: 12px 20px;
-            border-radius: 12px;
-            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            font-size: 13px;
             font-weight: 700;
         }
 
-        @media (max-width: 600px) {
+        .type-event {
+            background: rgba(255,193,7,.2);
+        }
+
+        .type-holiday {
+            background: rgba(220,40,40,.2);
+        }
+
+        .type-birthday {
+            background: rgba(255,105,180,.2);
+        }
+
+        .type-special {
+            background: rgba(130,80,255,.2);
+        }
+
+        @keyframes showEvent {
+
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* LEGENDA */
+
+        .legend {
+            margin-top: 25px;
+            padding: 18px;
+            border-radius: 18px;
+            background: rgba(255,255,255,.06);
+        }
+
+        .legend-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .legend-event {
+            background: #ffc107;
+        }
+
+        .legend-holiday {
+            background: #e63946;
+        }
+
+        .legend-birthday {
+            background: #ff69b4;
+        }
+
+        .legend-special {
+            background: #8250ff;
+        }
+
+        @media (max-width:600px) {
 
             .calendar-page {
-                padding: 20px 10px 40px;
+                padding: 12px;
+            }
+
+            .home-button,
+            .theme-button,
+            .month-button {
+                padding: 9px 12px;
+                font-size: 14px;
+            }
+
+            .month-title {
+                font-size: 21px;
             }
 
             .calendar {
-                padding: 10px;
+                padding: 8px;
             }
 
             .weekdays,
@@ -141,24 +294,19 @@
                 gap: 4px;
             }
 
-            .day {
-                min-height: 55px;
-                padding: 5px;
-                font-size: 13px;
-            }
-
             .weekday {
-                font-size: 12px;
+                font-size: 11px;
                 padding: 7px 2px;
             }
 
-            .month-title {
-                font-size: 22px;
+            .day {
+                min-height: 55px;
+                padding: 6px;
+                font-size: 12px;
             }
 
-            .calendar-header button {
-                padding: 9px 12px;
-                font-size: 15px;
+            .legend-items {
+                flex-direction: column;
             }
 
         }
@@ -169,39 +317,56 @@
 
 <body>
 
-
 <main class="calendar-page">
 
+
+    <!-- GÓRNY PASEK -->
+
+    <div class="top-bar">
+
+        <a href="index.html" class="home-button">
+            🏠 Strona główna
+        </a>
+
+        <button id="themeButton" class="theme-button">
+            🌙
+        </button>
+
+    </div>
+
+
+    <!-- TYTUŁ -->
 
     <section class="hero">
 
         <h1>📅 Kalendarz Kolonii Pasjonatów</h1>
 
         <p>
-            Najważniejsze wydarzenia, konkursy i terminy
-            zaplanowane dla naszej społeczności.
+            Kliknij oznaczony dzień, aby zobaczyć
+            szczegóły wydarzenia.
         </p>
 
     </section>
 
 
+    <!-- MIESIĄC -->
+
     <div class="calendar-header">
 
-        <button id="previousMonth">
+        <button id="previousMonth" class="month-button">
             ◀
         </button>
 
-        <div
-            class="month-title"
-            id="monthTitle">
-        </div>
+        <div id="monthTitle" class="month-title"></div>
 
-        <button id="nextMonth">
+        <button id="nextMonth" class="month-button">
             ▶
         </button>
 
     </div>
 
+
+    <!-- KALENDARZ -->
 
     <div class="calendar">
 
@@ -217,175 +382,57 @@
 
         </div>
 
+        <div id="calendarDays" class="days"></div>
 
-        <div
-            class="days"
-            id="calendarDays">
+    </div>
+
+
+    <!-- LEGENDA -->
+
+    <div class="legend">
+
+        <h3>📌 Legenda</h3>
+
+        <div class="legend-items">
+
+            <div class="legend-item">
+                <span class="legend-color legend-event"></span>
+                🎉 Wydarzenie Kolonii
+            </div>
+
+            <div class="legend-item">
+                <span class="legend-color legend-holiday"></span>
+                🇵🇱 Święto
+            </div>
+
+            <div class="legend-item">
+                <span class="legend-color legend-birthday"></span>
+                🎂 Urodziny
+            </div>
+
+            <div class="legend-item">
+                <span class="legend-color legend-special"></span>
+                🎆 Wydarzenie specjalne
+            </div>
+
         </div>
 
     </div>
 
 
-    <section class="event-list">
+    <!-- INFORMACJE O DNIU -->
 
-        <div class="event-card">
+    <div id="eventInfo" class="event-info">
 
-            <div class="event-date">
-                📅 10.08.2026
-            </div>
+        <div id="eventType" class="event-type"></div>
 
-            <h3>
-                🏆 Start Strefy STS Pucharu Polski
-            </h3>
+        <div id="eventDate" class="event-date"></div>
 
-            <p>
-                Oficjalne uruchomienie strefy poświęconej
-                rozgrywkom Pucharu Polski.
-            </p>
+        <h2 id="eventTitle"></h2>
 
-        </div>
+        <p id="eventDescription"></p>
 
-
-        <div class="event-card">
-
-            <div class="event-date">
-                📅 12.08–14.08.2026
-            </div>
-
-            <h3>
-                🛠️ Naprawa automoderacji serwera
-            </h3>
-
-            <p>
-                Planowane poprawki oraz przywrócenie
-                prawidłowego działania automoderacji.
-            </p>
-
-        </div>
-
-
-        <div class="event-card">
-
-            <div class="event-date">
-                📅 12.08–17.08.2026
-            </div>
-
-            <h3>
-                🌐 Uruchomienie strony serwerowej
-            </h3>
-
-            <p>
-                Planowane uruchomienie strony internetowej
-                serwera Kolonii Pasjonatów.
-            </p>
-
-        </div>
-
-
-        <div class="event-card">
-
-            <div class="event-date">
-                📅 12.08–25.08.2026
-            </div>
-
-            <h3>
-                🤖 Prace nad botem „Koloniarz”
-            </h3>
-
-            <p>
-                Rozpoczęcie prac nad własnym botem serwera.
-                Termin jest orientacyjny i może ulec zmianie.
-            </p>
-
-        </div>
-
-
-        <div class="event-card">
-
-            <div class="event-date">
-                📅 31.08.2026 | 23:45
-            </div>
-
-            <h3>
-                ☀️ Zakończenie strefy wakacyjnej
-            </h3>
-
-            <p>
-                Oficjalne zakończenie wakacyjnego okresu
-                na serwerze.
-            </p>
-
-        </div>
-
-
-        <div class="event-card">
-
-            <div class="event-date">
-                📅 23.09–09.10.2026
-            </div>
-
-            <h3>
-                🍂 Kolej w jesiennym krajobrazie
-            </h3>
-
-            <p>
-                Jesienny konkurs fotograficzny, w którym
-                uczestnicy pokażą kolej w jesiennej scenerii.
-                O wynikach zdecydują głosy publiczności
-                oraz jury.
-            </p>
-
-        </div>
-
-
-        <div class="event-card">
-
-            <div class="event-date">
-                📅 10.10–18.10.2026
-            </div>
-
-            <h3>
-                🍁 Jesienny Spotter
-            </h3>
-
-            <p>
-                Wrzuć swoje jesienne zdjęcie kolei
-                lub komunikacji miejskiej. Najlepsze zdjęcia
-                mogą zostać wyróżnione i nagrodzone monetami
-                w systemie ekonomii.
-            </p>
-
-        </div>
-
-
-        <div class="event-card">
-
-            <div class="event-date">
-                📅 31.10.2026
-            </div>
-
-            <h3>
-                🎃 Halloween Kolonii Pasjonatów
-            </h3>
-
-            <p>
-                Specjalne halloweenowe wydarzenie na serwerze
-                z tematycznymi aktywnościami, zabawami
-                i niespodziankami dla społeczności.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <a
-        href="index.html"
-        class="back-home">
-
-        ← 🏠 Strona główna
-
-    </a>
+    </div>
 
 
 </main>
@@ -393,37 +440,214 @@
 
 <script>
 
+/* =====================================================
+   WYDARZENIA
+===================================================== */
+
 const events = {
 
-    "2026-08-10": "🏆 Start Strefy STS Pucharu Polski",
+    /* SIERPIEŃ */
 
-    "2026-08-12": "🛠️ Naprawa automoderacji serwera",
+    "2026-08-04": {
+        title: "🎂 Urodziny właściciela",
+        description:
+            "Dzień urodzin właściciela Kolonii Pasjonatów.",
+        type: "birthday",
+        typeName: "🎂 Urodziny"
+    },
 
-    "2026-08-13": "🛠️ Naprawa automoderacji serwera",
+    "2026-08-10": {
+        title: "🏆 Start Strefy STS Pucharu Polski",
+        description:
+            "Oficjalne uruchomienie strefy poświęconej rozgrywkom Pucharu Polski.",
+        type: "event",
+        typeName: "🎉 Wydarzenie Kolonii"
+    },
 
-    "2026-08-14": "🛠️ Naprawa automoderacji serwera",
+    "2026-08-12": {
+        title: "🛠️ Naprawa automoderacji serwera",
+        description:
+            "Planowane poprawki oraz przywrócenie prawidłowego działania automoderacji.",
+        type: "event",
+        typeName: "🎉 Wydarzenie Kolonii"
+    },
 
-    "2026-08-17": "🌐 Uruchomienie strony serwerowej",
+    "2026-08-13": {
+        title: "🛠️ Naprawa automoderacji serwera",
+        description:
+            "Kontynuacja prac nad automoderacją serwera.",
+        type: "event",
+        typeName: "🎉 Wydarzenie Kolonii"
+    },
 
-    "2026-08-25": "🤖 Koniec orientacyjnego terminu prac nad Koloniarzem",
+    "2026-08-14": {
+        title: "🛠️ Naprawa automoderacji serwera",
+        description:
+            "Ostatni zaplanowany dzień prac nad automoderacją.",
+        type: "event",
+        typeName: "🎉 Wydarzenie Kolonii"
+    },
 
-    "2026-08-31": "☀️ Zakończenie strefy wakacyjnej",
+    "2026-08-15": {
+        title: "🇵🇱 Wniebowzięcie Najświętszej Maryi Panny / Święto Wojska Polskiego",
+        description:
+            "Święto ustawowo wolne od pracy w Polsce.",
+        type: "holiday",
+        typeName: "🇵🇱 Święto"
+    },
 
-    "2026-09-23": "🍂 Kolej w jesiennym krajobrazie",
+    "2026-08-17": {
+        title: "🌐 Uruchomienie strony serwerowej",
+        description:
+            "Planowane uruchomienie strony internetowej serwera Kolonii Pasjonatów.",
+        type: "event",
+        typeName: "🎉 Wydarzenie Kolonii"
+    },
 
-    "2026-10-09": "🍂 Kolej w jesiennym krajobrazie",
+    "2026-08-25": {
+        title: "🤖 Prace nad botem „Koloniarz”",
+        description:
+            "Orientacyjny koniec pierwszego etapu prac nad botem Koloniarz. Termin może ulec zmianie.",
+        type: "event",
+        typeName: "🎉 Wydarzenie Kolonii"
+    },
 
-    "2026-10-10": "🍁 Jesienny Spotter",
+    "2026-08-31": {
+        title: "☀️ Zakończenie strefy wakacyjnej",
+        description:
+            "Oficjalne zakończenie wakacyjnego okresu na serwerze.",
+        type: "event",
+        typeName: "🎉 Wydarzenie Kolonii",
+        time: "23:45"
+    },
 
-    "2026-10-18": "🍁 Jesienny Spotter",
 
-    "2026-10-31": "🎃 Halloween Kolonii Pasjonatów"
+    /* WRZESIEŃ */
+
+    "2026-09-23": {
+        title: "🍂 Kolej w jesiennym krajobrazie",
+        description:
+            "Start jesiennego konkursu fotograficznego, w którym uczestnicy pokażą kolej w jesiennej scenerii. O wynikach zdecydują głosy publiczności oraz jury.",
+        type: "event",
+        typeName: "🎉 Wydarzenie Kolonii"
+    },
+
+    "2026-10-09": {
+        title: "🍂 Kolej w jesiennym krajobrazie — zakończenie",
+        description:
+            "Zakończenie jesiennego konkursu fotograficznego.",
+        type: "event",
+        typeName: "🎉 Wydarzenie Kolonii"
+    },
+
+
+    /* PAŹDZIERNIK */
+
+    "2026-10-10": {
+        title: "🍁 Jesienny Spotter",
+        description:
+            "Start wydarzenia. Wrzuć swoje jesienne zdjęcie kolei lub komunikacji miejskiej.",
+        type: "event",
+        typeName: "🎉 Wydarzenie Kolonii"
+    },
+
+    "2026-10-18": {
+        title: "🍁 Jesienny Spotter — zakończenie",
+        description:
+            "Zakończenie wydarzenia. Najlepsze zdjęcia mogą zostać wyróżnione i nagrodzone monetami w systemie ekonomii.",
+        type: "event",
+        typeName: "🎉 Wydarzenie Kolonii"
+    },
+
+    "2026-10-31": {
+        title: "🎃 Halloween Kolonii Pasjonatów",
+        description:
+            "Specjalne halloweenowe wydarzenie na serwerze z tematycznymi aktywnościami, zabawami i niespodziankami dla społeczności.",
+        type: "event",
+        typeName: "🎉 Wydarzenie Kolonii"
+    },
+
+
+    /* LISTOPAD */
+
+    "2026-11-01": {
+        title: "🕯️ Wszystkich Świętych",
+        description:
+            "Święto ustawowo wolne od pracy w Polsce.",
+        type: "holiday",
+        typeName: "🇵🇱 Święto"
+    },
+
+    "2026-11-11": {
+        title: "🇵🇱 Narodowe Święto Niepodległości",
+        description:
+            "Święto państwowe upamiętniające odzyskanie przez Polskę niepodległości w 1918 roku.",
+        type: "holiday",
+        typeName: "🇵🇱 Święto"
+    },
+
+
+    /* GRUDZIEŃ */
+
+    "2026-12-24": {
+        title: "🎄 Wigilia Bożego Narodzenia",
+        description:
+            "Dzień ustawowo wolny od pracy w Polsce.",
+        type: "holiday",
+        typeName: "🇵🇱 Święto"
+    },
+
+    "2026-12-25": {
+        title: "🎄 Pierwszy dzień Bożego Narodzenia",
+        description:
+            "Święto ustawowo wolne od pracy w Polsce.",
+        type: "holiday",
+        typeName: "🇵🇱 Święto"
+    },
+
+    "2026-12-26": {
+        title: "🎄 Drugi dzień Bożego Narodzenia",
+        description:
+            "Święto ustawowo wolne od pracy w Polsce.",
+        type: "holiday",
+        typeName: "🇵🇱 Święto"
+    },
+
+    "2026-12-31": {
+        title: "🎆 Sylwester",
+        description:
+            "Specjalne wydarzenie kończące rok 2026. Wspólnie żegnamy stary rok i przygotowujemy się na nadejście 2027 roku.",
+        type: "special",
+        typeName: "🎆 Wydarzenie specjalne"
+    },
+
+
+    /* STYCZEŃ 2027 */
+
+    "2027-01-01": {
+        title: "🎆 Nowy Rok",
+        description:
+            "Pierwszy dzień nowego roku. Święto ustawowo wolne od pracy w Polsce.",
+        type: "holiday",
+        typeName: "🇵🇱 Święto"
+    },
+
+    "2027-01-06": {
+        title: "✝️ Święto Trzech Króli",
+        description:
+            "Święto ustawowo wolne od pracy w Polsce.",
+        type: "holiday",
+        typeName: "🇵🇱 Święto"
+    }
 
 };
 
 
-const monthNames = [
+/* =====================================================
+   KALENDARZ
+===================================================== */
 
+const monthNames = [
     "Styczeń",
     "Luty",
     "Marzec",
@@ -436,12 +660,10 @@ const monthNames = [
     "Październik",
     "Listopad",
     "Grudzień"
-
 ];
 
 
-let currentDate =
-    new Date(2026, 7, 1);
+let currentDate = new Date(2026, 7, 1);
 
 
 const monthTitle =
@@ -449,6 +671,21 @@ const monthTitle =
 
 const calendarDays =
     document.getElementById("calendarDays");
+
+const eventInfo =
+    document.getElementById("eventInfo");
+
+const eventType =
+    document.getElementById("eventType");
+
+const eventDate =
+    document.getElementById("eventDate");
+
+const eventTitle =
+    document.getElementById("eventTitle");
+
+const eventDescription =
+    document.getElementById("eventDescription");
 
 
 function renderCalendar() {
@@ -514,8 +751,7 @@ function renderCalendar() {
         const cell =
             document.createElement("div");
 
-        cell.className =
-            "day";
+        cell.className = "day";
 
 
         const number =
@@ -526,7 +762,6 @@ function renderCalendar() {
 
         number.textContent =
             day;
-
 
         cell.appendChild(number);
 
@@ -547,31 +782,65 @@ function renderCalendar() {
 
         if (events[dateKey]) {
 
+            const event =
+                events[dateKey];
+
+
             cell.classList.add(
-                "event-day"
+                event.type + "-day"
             );
 
 
             const dot =
                 document.createElement("div");
 
+
             dot.className =
-                "event-dot";
+                event.type + "-dot";
+
 
             cell.appendChild(dot);
-
-
-            cell.title =
-                events[dateKey];
 
 
             cell.addEventListener(
                 "click",
                 () => {
 
-                    alert(
-                        events[dateKey]
+                    eventType.textContent =
+                        event.typeName;
+
+
+                    eventType.className =
+                        "event-type type-" +
+                        event.type;
+
+
+                    eventDate.textContent =
+                        `📅 ${day}.${monthNumber}.${year}` +
+                        (
+                            event.time
+                                ? ` | ⏰ ${event.time}`
+                                : ""
+                        );
+
+
+                    eventTitle.textContent =
+                        event.title;
+
+
+                    eventDescription.textContent =
+                        event.description;
+
+
+                    eventInfo.classList.add(
+                        "active"
                     );
+
+
+                    eventInfo.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest"
+                    });
 
                 }
             );
@@ -586,6 +855,10 @@ function renderCalendar() {
 }
 
 
+/* =====================================================
+   ZMIANA MIESIĄCA
+===================================================== */
+
 document
     .getElementById("previousMonth")
     .addEventListener(
@@ -597,6 +870,10 @@ document
             );
 
             renderCalendar();
+
+            eventInfo.classList.remove(
+                "active"
+            );
 
         }
     );
@@ -614,9 +891,82 @@ document
 
             renderCalendar();
 
+            eventInfo.classList.remove(
+                "active"
+            );
+
         }
     );
 
+
+/* =====================================================
+   TRYB JASNY / CIEMNY
+===================================================== */
+
+const themeButton =
+    document.getElementById(
+        "themeButton"
+    );
+
+
+const savedTheme =
+    localStorage.getItem(
+        "theme"
+    );
+
+
+if (savedTheme === "light") {
+
+    document.body.classList.add(
+        "light"
+    );
+
+    themeButton.textContent =
+        "☀️";
+
+}
+
+
+themeButton.addEventListener(
+    "click",
+    () => {
+
+        document.body.classList.toggle(
+            "light"
+        );
+
+
+        if (
+            document.body.classList.contains(
+                "light"
+            )
+        ) {
+
+            localStorage.setItem(
+                "theme",
+                "light"
+            );
+
+            themeButton.textContent =
+                "☀️";
+
+        } else {
+
+            localStorage.setItem(
+                "theme",
+                "dark"
+            );
+
+            themeButton.textContent =
+                "🌙";
+
+        }
+
+    }
+);
+
+
+/* START */
 
 renderCalendar();
 
