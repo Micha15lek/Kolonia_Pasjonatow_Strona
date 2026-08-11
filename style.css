@@ -913,3 +913,382 @@ footer p {
             8px 10px;
     }
 }
+
+
+/* =========================================================
+   💾 RETRO MODE — KOLONIA PASJONATÓW
+========================================================= */
+
+body.retro {
+    margin: 0;
+
+    color: #000080;
+
+    background:
+        #008080;
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+}
+
+
+/* Główne okno strony */
+
+body.retro header,
+body.retro .hero,
+body.retro .section,
+body.retro .info-card,
+body.retro .league-ranking,
+body.retro .contact-card {
+    background: #c0c0c0;
+
+    border:
+        2px outset #ffffff;
+
+    border-radius: 0;
+
+    box-shadow:
+        3px 3px 0 #000000;
+
+    backdrop-filter: none;
+}
+
+
+/* Nagłówek */
+
+body.retro header {
+    margin: 10px;
+
+    padding: 10px;
+
+    border:
+        3px outset #ffffff;
+}
+
+
+/* Logo */
+
+body.retro .logo {
+    color: #000080;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    text-shadow: none;
+}
+
+
+/* Menu */
+
+body.retro nav {
+    gap: 3px;
+}
+
+body.retro nav a {
+    padding: 6px 12px;
+
+    border:
+        2px outset #ffffff;
+
+    border-radius: 0;
+
+    background: #c0c0c0;
+
+    color: #000000;
+
+    font-family:
+        "Arial",
+        sans-serif;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    box-shadow: none;
+}
+
+body.retro nav a:hover {
+    transform: none;
+
+    background: #000080;
+
+    color: #ffffff;
+
+    box-shadow: none;
+}
+
+
+/* Przycisk motywu */
+
+body.retro .theme-toggle {
+    width: 42px;
+    height: 30px;
+
+    border:
+        2px outset #ffffff;
+
+    border-radius: 0;
+
+    background: #c0c0c0;
+
+    color: #000000;
+
+    box-shadow: none;
+
+    font-size: 16px;
+}
+
+body.retro .theme-toggle:hover {
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* Hero */
+
+body.retro .hero {
+    margin: 20px auto;
+
+    padding: 20px;
+
+    max-width: 900px;
+
+    text-align: center;
+}
+
+body.retro .hero h1 {
+    color: #000080;
+
+    font-family:
+        "Times New Roman",
+        serif;
+
+    font-size: 36px;
+
+    text-shadow: none;
+}
+
+body.retro .hero p {
+    color: #000000;
+
+    opacity: 1;
+}
+
+
+/* Sekcje */
+
+body.retro .section {
+    max-width: 900px;
+
+    margin: 20px auto;
+
+    padding: 15px;
+}
+
+body.retro .section-title {
+    color: #000080;
+
+    text-decoration: underline;
+
+    text-shadow: none;
+}
+
+
+/* Karty */
+
+body.retro .info-card {
+    min-height: 180px;
+
+    padding: 15px;
+
+    color: #000000;
+}
+
+body.retro .info-card h2 {
+    color: #000080;
+
+    text-decoration: underline;
+}
+
+body.retro .info-card p {
+    opacity: 1;
+}
+
+
+/* Przyciski */
+
+body.retro .button {
+    padding: 6px 14px;
+
+    border:
+        2px outset #ffffff;
+
+    border-radius: 0;
+
+    background: #c0c0c0;
+
+    color: #000000;
+
+    box-shadow: none;
+
+    font-family:
+        Arial,
+        sans-serif;
+}
+
+body.retro .button:hover {
+    transform: none;
+
+    filter: none;
+
+    background: #000080;
+
+    color: #ffffff;
+
+    box-shadow: none;
+}
+
+
+/* Status */
+
+body.retro .status {
+    padding: 5px 10px;
+
+    border:
+        1px solid #000000;
+
+    border-radius: 0;
+
+    background: #ffff00;
+
+    color: #000000;
+
+    font-weight: bold;
+}
+
+
+/* Ranking */
+
+body.retro .league-ranking {
+    color: #000000;
+}
+
+body.retro .league-ranking h2 {
+    color: #000080;
+
+    text-decoration: underline;
+
+    text-shadow: none;
+}
+
+body.retro .ranking-container th {
+    background: #000080;
+
+    color: #ffffff;
+
+    border: 1px solid #000000;
+}
+
+body.retro .ranking-container td {
+    background: #ffffff;
+
+    color: #000000;
+
+    border: 1px solid #000000;
+}
+
+body.retro .ranking-container tbody tr:hover td {
+    background: #ffff00;
+}
+
+
+/* Kontakt */
+
+body.retro .contact-card {
+    color: #000000;
+}
+
+body.retro .discord-button,
+body.retro .email-button,
+body.retro .disabled-button {
+    border:
+        2px outset #ffffff;
+
+    border-radius: 0;
+
+    background: #c0c0c0;
+
+    color: #000000;
+
+    box-shadow: none;
+}
+
+body.retro .discord-button:hover,
+body.retro .email-button:hover {
+    background: #000080;
+
+    color: #ffffff;
+
+    box-shadow: none;
+}
+
+
+/* Footer */
+
+body.retro footer {
+    margin: 20px 10px;
+
+    padding: 10px;
+
+    background: #c0c0c0;
+
+    color: #000000;
+
+    border:
+        2px outset #ffffff;
+
+    opacity: 1;
+}
+
+
+/* Retro linki */
+
+body.retro a {
+    color: #000080;
+}
+
+body.retro nav a,
+body.retro .button {
+    color: #000000;
+}
+
+body.retro nav a:hover,
+body.retro .button:hover {
+    color: #ffffff;
+}
+
+
+/* Retro scrollbar */
+
+body.retro ::-webkit-scrollbar {
+    width: 16px;
+}
+
+body.retro ::-webkit-scrollbar-track {
+    background: #c0c0c0;
+}
+
+body.retro ::-webkit-scrollbar-thumb {
+    background: #808080;
+
+    border:
+        2px outset #ffffff;
+}
