@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Ranking | Kolonia Pasjonatów</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -23,25 +25,33 @@
         <a href="kontakt.html">📧 Kontakt</a>
     </nav>
 
-    <button id="themeToggle" class="theme-toggle">🌙</button>
+    <button
+        id="themeToggle"
+        class="theme-toggle"
+        aria-label="Zmień motyw">
+        🌙
+    </button>
 
 </header>
 
 
 <main>
 
+    <!-- HERO -->
+
     <section class="hero">
 
         <h1>🏆 Ranking typerów</h1>
 
         <p>
-            Aktualna klasyfikacja typerów Kolonii Pasjonatów.
+            Aktualna klasyfikacja typerów
+            Kolonii Pasjonatów.
         </p>
 
     </section>
 
 
-    <!-- PKO BP EKSTRAKLASA -->
+    <!-- EKSTRAKLASA -->
 
     <section class="section league-ranking">
 
@@ -52,14 +62,17 @@
             <table>
 
                 <thead>
+
                     <tr>
                         <th>Miejsce</th>
                         <th>Typer</th>
                         <th>Punkty</th>
                     </tr>
+
                 </thead>
 
                 <tbody>
+
                     <tr>
                         <td>1. 🥇</td>
                         <td></td>
@@ -89,6 +102,7 @@
                         <td></td>
                         <td></td>
                     </tr>
+
                 </tbody>
 
             </table>
@@ -98,25 +112,28 @@
     </section>
 
 
-    <!-- BETCLIC 1 LIGA -->
+    <!-- 1 LIGA -->
 
     <section class="section league-ranking">
 
-        <h2>🥇 Betclic_1_Liga</h2>
+        <h2>🥇 Betclic 1 Liga</h2>
 
         <div class="ranking-container">
 
             <table>
 
                 <thead>
+
                     <tr>
                         <th>Miejsce</th>
                         <th>Typer</th>
                         <th>Punkty</th>
                     </tr>
+
                 </thead>
 
                 <tbody>
+
                     <tr>
                         <td>1. 🥇</td>
                         <td></td>
@@ -146,6 +163,7 @@
                         <td></td>
                         <td></td>
                     </tr>
+
                 </tbody>
 
             </table>
@@ -155,25 +173,28 @@
     </section>
 
 
-    <!-- BETCLIC 2 LIGA -->
+    <!-- 2 LIGA -->
 
     <section class="section league-ranking">
 
-        <h2>🥈 Betclic_2_Liga</h2>
+        <h2>🥈 Betclic 2 Liga</h2>
 
         <div class="ranking-container">
 
             <table>
 
                 <thead>
+
                     <tr>
                         <th>Miejsce</th>
                         <th>Typer</th>
                         <th>Punkty</th>
                     </tr>
+
                 </thead>
 
                 <tbody>
+
                     <tr>
                         <td>1. 🥇</td>
                         <td></td>
@@ -203,6 +224,7 @@
                         <td></td>
                         <td></td>
                     </tr>
+
                 </tbody>
 
             </table>
@@ -212,25 +234,28 @@
     </section>
 
 
-    <!-- BETCLIC 3 LIGA -->
+    <!-- 3 LIGA -->
 
     <section class="section league-ranking">
 
-        <h2>🥉 Betclic_3_Liga</h2>
+        <h2>🥉 Betclic 3 Liga</h2>
 
         <div class="ranking-container">
 
             <table>
 
                 <thead>
+
                     <tr>
                         <th>Miejsce</th>
                         <th>Typer</th>
                         <th>Punkty</th>
                     </tr>
+
                 </thead>
 
                 <tbody>
+
                     <tr>
                         <td>1. 🥇</td>
                         <td></td>
@@ -260,6 +285,7 @@
                         <td></td>
                         <td></td>
                     </tr>
+
                 </tbody>
 
             </table>
@@ -273,44 +299,113 @@
 
 <footer>
 
-    <p>© 2026 Kolonia Pasjonatów</p>
-    <p>🏆 Ranking typerów</p>
+    <p>
+        © 2026 Kolonia Pasjonatów
+    </p>
+
+    <p>
+        🏆 Ranking typerów
+    </p>
 
 </footer>
 
 
 <script>
 
+/* =====================================================
+   MOTYW — CIEMNY / JASNY / RETRO
+===================================================== */
+
 const themeToggle =
     document.getElementById("themeToggle");
 
+
 const savedTheme =
-    localStorage.getItem("theme");
+    localStorage.getItem("theme") || "dark";
 
-if (savedTheme === "light") {
 
-    document.body.classList.add("light");
-    themeToggle.textContent = "☀️";
+function applyTheme(theme) {
 
-}
+    document.body.classList.remove(
+        "light",
+        "retro"
+    );
 
-themeToggle.addEventListener("click", () => {
 
-    document.body.classList.toggle("light");
+    if (theme === "light") {
 
-    if (document.body.classList.contains("light")) {
+        document.body.classList.add(
+            "light"
+        );
 
-        localStorage.setItem("theme", "light");
-        themeToggle.textContent = "☀️";
-
-    } else {
-
-        localStorage.setItem("theme", "dark");
-        themeToggle.textContent = "🌙";
+        themeToggle.textContent =
+            "☀️";
 
     }
 
-});
+    else if (theme === "retro") {
+
+        document.body.classList.add(
+            "retro"
+        );
+
+        themeToggle.textContent =
+            "💾";
+
+    }
+
+    else {
+
+        themeToggle.textContent =
+            "🌙";
+
+    }
+
+
+    localStorage.setItem(
+        "theme",
+        theme
+    );
+
+}
+
+
+/* USTAWIENIE MOTYWU PRZY URUCHOMIENIU */
+
+applyTheme(savedTheme);
+
+
+/* ZMIANA MOTYWU */
+
+themeToggle.addEventListener(
+    "click",
+    () => {
+
+        const current =
+            localStorage.getItem("theme")
+            || "dark";
+
+
+        if (current === "dark") {
+
+            applyTheme("light");
+
+        }
+
+        else if (current === "light") {
+
+            applyTheme("retro");
+
+        }
+
+        else {
+
+            applyTheme("dark");
+
+        }
+
+    }
+);
 
 </script>
 
