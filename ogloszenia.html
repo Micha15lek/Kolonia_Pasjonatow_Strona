@@ -60,8 +60,9 @@
 
 <main>
 
-
-    <!-- HERO -->
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
 
     <section class="hero">
 
@@ -77,7 +78,9 @@
     </section>
 
 
-    <!-- OGŁOSZENIA -->
+    <!-- =====================================================
+         NAJNOWSZE OGŁOSZENIA
+    ====================================================== -->
 
     <section class="section">
 
@@ -85,88 +88,23 @@
             📌 Najnowsze ogłoszenia
         </h2>
 
-        <div class="info-grid">
+        <div
+            id="announcements"
+            class="info-grid">
 
-
-            <!-- OGŁOSZENIE 1 -->
-
-            <article class="info-card">
-
-                <span class="status">
-                    🟢 AKTUALNE
-                </span>
-
-                <h2>
-                    🌐 Rozwój strony Kolonii
-                </h2>
-
-                <p>
-                    Strona internetowa Kolonii Pasjonatów
-                    jest obecnie rozwijana i otrzymuje
-                    kolejne podstrony oraz funkcje.
-                </p>
-
-                <p>
-                    📅 11.08.2026
-                </p>
-
-            </article>
-
-
-            <!-- OGŁOSZENIE 2 -->
-
-            <article class="info-card">
-
-                <span class="status">
-                    🟡 W TRAKCIE
-                </span>
-
-                <h2>
-                    🤖 Bot Koloniarz
-                </h2>
-
-                <p>
-                    Trwają prace nad przygotowaniem
-                    oficjalnego bota Kolonii Pasjonatów.
-                </p>
-
-                <p>
-                    📅 11.08.2026
-                </p>
-
-            </article>
-
-
-            <!-- OGŁOSZENIE 3 -->
-
-            <article class="info-card">
-
-                <span class="status">
-                    🟡 W PRZYGOTOWANIU
-                </span>
-
-                <h2>
-                    📱 Kanał WhatsApp
-                </h2>
-
-                <p>
-                    Kanał WhatsApp Kolonii Pasjonatów
-                    jest obecnie w trakcie tworzenia.
-                </p>
-
-                <p>
-                    📅 11.08.2026
-                </p>
-
-            </article>
-
+            <!--
+                Ogłoszenia zostaną automatycznie
+                wczytane z pliku dane.js.
+            -->
 
         </div>
 
     </section>
 
 
-    <!-- INFORMACJE -->
+    <!-- =====================================================
+         WAŻNE INFORMACJE
+    ====================================================== -->
 
     <section class="section">
 
@@ -176,6 +114,8 @@
 
         <div class="info-grid">
 
+
+            <!-- KALENDARZ -->
 
             <article class="info-card">
 
@@ -199,6 +139,8 @@
             </article>
 
 
+            <!-- RANKING -->
+
             <article class="info-card">
 
                 <h2>
@@ -221,6 +163,32 @@
             </article>
 
 
+            <!-- STATYSTYKI -->
+
+            <article class="info-card">
+
+                <h2>
+                    📊 Statystyki
+                </h2>
+
+                <p>
+                    Sprawdź najważniejsze statystyki
+                    dotyczące Kolonii Pasjonatów.
+                </p>
+
+                <a
+                    href="statystyki.html"
+                    class="button">
+
+                    📊 Zobacz statystyki
+
+                </a>
+
+            </article>
+
+
+            <!-- DISCORD -->
+
             <article class="info-card">
 
                 <h2>
@@ -238,7 +206,7 @@
                     rel="noopener noreferrer"
                     class="button">
 
-                    💬 Discord
+                    💬 Dołącz na Discord
 
                 </a>
 
@@ -249,9 +217,12 @@
 
     </section>
 
-
 </main>
 
+
+<!-- =====================================================
+     STOPKA
+===================================================== -->
 
 <footer>
 
@@ -264,6 +235,172 @@
     </p>
 
 </footer>
+
+
+<!-- =====================================================
+     DANE
+===================================================== -->
+
+<script src="dane.js"></script>
+
+
+<!-- =====================================================
+     WYŚWIETLANIE OGŁOSZEŃ
+===================================================== -->
+
+<script>
+
+const announcementsContainer =
+    document.getElementById("announcements");
+
+
+/*
+    Sprawdzenie, czy dane.js
+    zawiera tablicę announcements.
+*/
+
+if (
+    typeof announcements !== "undefined" &&
+    Array.isArray(announcements)
+) {
+
+    announcementsContainer.innerHTML = "";
+
+
+    announcements.forEach(
+        announcement => {
+
+            const card =
+                document.createElement("article");
+
+            card.className =
+                "info-card";
+
+
+            /* STATUS */
+
+            if (announcement.status) {
+
+                const status =
+                    document.createElement("span");
+
+                status.className =
+                    "status";
+
+                status.textContent =
+                    announcement.status;
+
+                card.appendChild(status);
+
+            }
+
+
+            /* TYTUŁ */
+
+            const title =
+                document.createElement("h2");
+
+            title.textContent =
+                announcement.title;
+
+            card.appendChild(title);
+
+
+            /* OPIS */
+
+            const description =
+                document.createElement("p");
+
+            description.textContent =
+                announcement.description;
+
+            card.appendChild(description);
+
+
+            /* DATA */
+
+            if (announcement.date) {
+
+                const date =
+                    document.createElement("p");
+
+                date.textContent =
+                    "📅 " + announcement.date;
+
+                card.appendChild(date);
+
+            }
+
+
+            /* LINK */
+
+            if (announcement.link) {
+
+                const link =
+                    document.createElement("a");
+
+                link.href =
+                    announcement.link;
+
+                link.className =
+                    "button";
+
+                link.textContent =
+                    "🔗 Zobacz więcej";
+
+
+                if (announcement.external) {
+
+                    link.target =
+                        "_blank";
+
+                    link.rel =
+                        "noopener noreferrer";
+
+                }
+
+
+                card.appendChild(link);
+
+            }
+
+
+            announcementsContainer.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   BRAK OGŁOSZEŃ
+===================================================== */
+
+else {
+
+    announcementsContainer.innerHTML = `
+
+        <article class="info-card">
+
+            <h2>
+                📭 Brak ogłoszeń
+            </h2>
+
+            <p>
+                Obecnie nie ma żadnych
+                aktywnych ogłoszeń.
+            </p>
+
+        </article>
+
+    `;
+
+}
+
+</script>
 
 
 <!-- =====================================================
@@ -290,23 +427,30 @@ function applyTheme(theme) {
 
     if (theme === "light") {
 
-        document.body.classList.add("light");
+        document.body.classList.add(
+            "light"
+        );
 
-        themeToggle.textContent = "☀️";
+        themeToggle.textContent =
+            "☀️";
 
     }
 
     else if (theme === "retro") {
 
-        document.body.classList.add("retro");
+        document.body.classList.add(
+            "retro"
+        );
 
-        themeToggle.textContent = "💾";
+        themeToggle.textContent =
+            "💾";
 
     }
 
     else {
 
-        themeToggle.textContent = "🌙";
+        themeToggle.textContent =
+            "🌙";
 
     }
 
@@ -319,34 +463,50 @@ function applyTheme(theme) {
 }
 
 
-applyTheme(savedTheme);
+applyTheme(
+    savedTheme
+);
 
 
-themeToggle.addEventListener("click", () => {
+themeToggle.addEventListener(
+    "click",
+    () => {
 
-    const current =
-        localStorage.getItem("theme") || "dark";
+        const current =
+            localStorage.getItem("theme")
+            || "dark";
 
 
-    if (current === "dark") {
+        if (
+            current === "dark"
+        ) {
 
-        applyTheme("light");
+            applyTheme(
+                "light"
+            );
+
+        }
+
+        else if (
+            current === "light"
+        ) {
+
+            applyTheme(
+                "retro"
+            );
+
+        }
+
+        else {
+
+            applyTheme(
+                "dark"
+            );
+
+        }
 
     }
-
-    else if (current === "light") {
-
-        applyTheme("retro");
-
-    }
-
-    else {
-
-        applyTheme("dark");
-
-    }
-
-});
+);
 
 </script>
 
