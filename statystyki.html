@@ -8,217 +8,15 @@
     <title>Statystyki | Kolonia Pasjonatów</title>
 
     <link rel="stylesheet" href="style.css">
-
-    <style>
-
-        /* =====================================================
-           STATYSTYKI
-        ===================================================== */
-
-        .stats-intro {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .stats-date {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 14px;
-            border-radius: 12px;
-            background: rgba(255,255,255,.07);
-            font-size: 14px;
-            opacity: .8;
-        }
-
-
-        /* =====================================================
-           KARTY
-        ===================================================== */
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns:
-                repeat(3, minmax(0, 1fr));
-
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-
-        .stat-card {
-            padding: 25px;
-            border-radius: 20px;
-
-            background:
-                rgba(255,255,255,.07);
-
-            border:
-                1px solid rgba(255,255,255,.08);
-
-            text-align: center;
-
-            transition: .25s;
-        }
-
-
-        .stat-card:hover {
-            transform:
-                translateY(-5px);
-
-            filter:
-                brightness(1.08);
-        }
-
-
-        .stat-icon {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
-
-
-        .stat-number {
-            font-size: 38px;
-            font-weight: 900;
-            margin: 5px 0;
-        }
-
-
-        .stat-name {
-            font-size: 16px;
-            font-weight: 700;
-            opacity: .8;
-        }
-
-
-        /* =====================================================
-           DUŻA KARTA
-        ===================================================== */
-
-        .main-stat {
-            grid-column:
-                span 3;
-
-            padding: 35px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,193,7,.15),
-                    rgba(255,255,255,.06)
-                );
-        }
-
-
-        .main-stat .stat-number {
-            font-size: 55px;
-        }
-
-
-        /* =====================================================
-           SEKCJE
-        ===================================================== */
-
-        .stats-section {
-            margin-top: 45px;
-        }
-
-
-        .stats-section-title {
-            margin-bottom: 20px;
-        }
-
-
-        /* =====================================================
-           INFORMACJA
-        ===================================================== */
-
-        .stats-info {
-            margin-top: 35px;
-            padding: 22px;
-
-            border-radius: 18px;
-
-            background:
-                rgba(255,255,255,.05);
-
-            border:
-                1px solid rgba(255,255,255,.07);
-
-            line-height: 1.6;
-        }
-
-
-        .stats-loading {
-            opacity: .7;
-            font-size: 14px;
-        }
-
-
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-
-        @media (max-width: 800px) {
-
-            .stats-grid {
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-            }
-
-            .main-stat {
-                grid-column:
-                    span 2;
-            }
-
-        }
-
-
-        @media (max-width: 600px) {
-
-            .stats-grid {
-                grid-template-columns:
-                    1fr;
-            }
-
-            .main-stat {
-                grid-column:
-                    span 1;
-            }
-
-            .stat-card {
-                padding: 22px;
-            }
-
-            .stat-number {
-                font-size: 34px;
-            }
-
-            .main-stat .stat-number {
-                font-size: 45px;
-            }
-
-        }
-
-    </style>
-
 </head>
-
 
 <body>
 
-
 <header>
 
-    <!-- LOGO -->
-
     <div class="logo">
-
         🌟 Kolonia Pasjonatów
-
     </div>
-
-
-    <!-- MENU -->
 
     <nav>
 
@@ -230,6 +28,14 @@
             🏆 Ranking
         </a>
 
+        <a href="statystyki.html">
+            📊 Statystyki
+        </a>
+
+        <a href="ogloszenia.html">
+            📢 Ogłoszenia
+        </a>
+
         <a href="linki.html">
             🔗 Linki
         </a>
@@ -238,14 +44,7 @@
             📧 Kontakt
         </a>
 
-        <a href="statystyki.html">
-            📊 Statystyki
-        </a>
-
     </nav>
-
-
-    <!-- MOTYW -->
 
     <button
         id="themeToggle"
@@ -259,13 +58,9 @@
 </header>
 
 
-
 <main>
 
-
-    <!-- =====================================================
-         HERO
-    ===================================================== -->
+    <!-- HERO -->
 
     <section class="hero">
 
@@ -274,263 +69,211 @@
         </h1>
 
         <p>
-            Najważniejsze liczby dotyczące
-            naszej społeczności.
+            Najważniejsze statystyki naszej społeczności
+            oraz informacje o jej rozwoju.
         </p>
-
-        <div class="stats-date">
-
-            📅 Statystyki liczone od
-            <strong>11.06.2026</strong>
-
-        </div>
 
     </section>
 
 
-
-    <!-- =====================================================
-         CZAS DZIAŁANIA
-    ===================================================== -->
+    <!-- SPOŁECZNOŚĆ -->
 
     <section class="section">
 
         <h2 class="section-title">
-            ⏳ Historia działalności
+            👥 Społeczność
         </h2>
 
+        <div class="info-grid">
 
-        <div class="stats-grid">
+            <article class="info-card">
 
+                <h2>
+                    👤 Liczba osób
+                </h2>
 
-            <article class="stat-card main-stat">
-
-                <div class="stat-icon">
-                    📅
-                </div>
-
-                <div
-                    id="daysActive"
+                <p
+                    id="liczbaOsob"
                     class="stat-number">
 
-                    ...
-
-                </div>
-
-                <div class="stat-name">
-
-                    dni od oficjalnego otwarcia serwera
-
-                </div>
-
-            </article>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         SPOŁECZNOŚĆ
-    ===================================================== -->
-
-    <section class="section stats-section">
-
-        <h2 class="section-title">
-            👥 Nasza społeczność
-        </h2>
-
-
-        <div class="stats-grid">
-
-
-            <!-- OSOBY -->
-
-            <article class="stat-card">
-
-                <div class="stat-icon">
-                    👤
-                </div>
-
-                <div class="stat-number">
                     17
-                </div>
 
-                <div class="stat-name">
-                    Liczba osób
-                </div>
+                </p>
 
             </article>
 
 
-            <!-- BOTY -->
+            <article class="info-card">
 
-            <article class="stat-card">
+                <h2>
+                    🤖 Liczba botów
+                </h2>
 
-                <div class="stat-icon">
-                    🤖
-                </div>
+                <p
+                    id="liczbaBotow"
+                    class="stat-number">
 
-                <div class="stat-number">
                     10
-                </div>
 
-                <div class="stat-name">
-                    Liczba botów
-                </div>
+                </p>
 
             </article>
 
 
-            <!-- ŁĄCZNIE -->
+            <article class="info-card">
 
-            <article class="stat-card">
+                <h2>
+                    👥 Łącznie
+                </h2>
 
-                <div class="stat-icon">
-                    🌐
-                </div>
-
-                <div
-                    id="totalMembers"
+                <p
+                    id="liczbaLacznie"
                     class="stat-number">
 
                     27
 
-                </div>
-
-                <div class="stat-name">
-                    Łącznie
-                </div>
+                </p>
 
             </article>
-
-
-            <!-- TYPERZY -->
-
-            <article class="stat-card">
-
-                <div class="stat-icon">
-                    🏆
-                </div>
-
-                <div class="stat-number">
-                    3
-                </div>
-
-                <div class="stat-name">
-                    Typerzy, którzy oddali typy
-                </div>
-
-            </article>
-
 
         </div>
 
     </section>
 
 
+    <!-- AKTYWNOŚĆ -->
 
-    <!-- =====================================================
-         AKTYWNOŚĆ STRONY
-    ===================================================== -->
-
-    <section class="section stats-section">
+    <section class="section">
 
         <h2 class="section-title">
             📈 Aktywność Kolonii
         </h2>
 
+        <div class="info-grid">
 
-        <div class="stats-grid">
+            <article class="info-card">
 
+                <h2>
+                    🎯 Typerzy
+                </h2>
 
-            <!-- WYDARZENIA -->
-
-            <article class="stat-card">
-
-                <div class="stat-icon">
-                    📅
-                </div>
-
-                <div
-                    id="eventsCount"
+                <p
+                    id="liczbaTyperow"
                     class="stat-number">
 
-                    ...
+                    3
 
-                </div>
+                </p>
 
-                <div class="stat-name">
-                    Wydarzenia w kalendarzu
-                </div>
+                <p>
+                    Liczba typerów, którzy oddali typy.
+                </p>
 
             </article>
 
 
-            <!-- OGŁOSZENIA -->
+            <article class="info-card">
 
-            <article class="stat-card">
+                <h2>
+                    🎉 Wydarzenia
+                </h2>
 
-                <div class="stat-icon">
-                    📢
-                </div>
-
-                <div
-                    id="announcementsCount"
+                <p
+                    id="liczbaWydarzen"
                     class="stat-number">
 
-                    ...
+                    0
 
-                </div>
+                </p>
 
-                <div class="stat-name">
-                    Ogłoszenia
-                </div>
+                <p>
+                    Liczba wydarzeń Kolonii
+                    zapisanych w kalendarzu.
+                </p>
 
             </article>
 
+
+            <article class="info-card">
+
+                <h2>
+                    📢 Ogłoszenia
+                </h2>
+
+                <p
+                    id="liczbaOgloszen"
+                    class="stat-number">
+
+                    0
+
+                </p>
+
+                <p>
+                    Liczba ogłoszeń zapisanych
+                    w bazie strony.
+                </p>
+
+            </article>
 
         </div>
 
     </section>
 
 
+    <!-- HISTORIA -->
 
-    <!-- =====================================================
-         INFORMACJA
-    ===================================================== -->
+    <section class="section">
 
-    <section class="stats-info">
+        <h2 class="section-title">
+            📅 Historia społeczności
+        </h2>
 
-        <strong>
-            ℹ️ Informacje o statystykach
-        </strong>
+        <div class="info-grid">
 
-        <p>
-            Statystyki społeczności są aktualizowane
-            na podstawie aktualnych danych strony.
-        </p>
+            <article class="info-card">
 
-        <p>
-            Liczba dni działania serwera jest
-            obliczana automatycznie od
-            <strong>11 czerwca 2026 roku</strong>.
-        </p>
+                <h2>
+                    🚀 Oficjalne otwarcie
+                </h2>
 
-        <p>
-            Liczba wydarzeń jest pobierana
-            automatycznie z kalendarza,
-            a liczba ogłoszeń z podstrony
-            ogłoszeń.
-        </p>
+                <p>
+                    Kolonia Pasjonatów działa oficjalnie
+                    od:
+                </p>
+
+                <p class="stat-number">
+                    11.06.2026
+                </p>
+
+            </article>
+
+
+            <article class="info-card">
+
+                <h2>
+                    ⏳ Działamy już
+                </h2>
+
+                <p
+                    id="dniDzialania"
+                    class="stat-number">
+
+                    0
+
+                </p>
+
+                <p>
+                    dni od oficjalnego otwarcia serwera.
+                </p>
+
+            </article>
+
+        </div>
 
     </section>
 
 
 </main>
-
 
 
 <footer>
@@ -546,19 +289,145 @@
 </footer>
 
 
-
 <!-- =====================================================
-     TRYB CIEMNY / JASNY / RETRO
+     DANE
 ===================================================== -->
+
+<script src="dane.js"></script>
+
 
 <script>
 
+/* =====================================================
+   PODSTAWOWE DANE
+===================================================== */
+
+const liczbaOsob = 17;
+
+const liczbaBotow = 10;
+
+const liczbaTyperow = 3;
+
+
+/* =====================================================
+   ŁĄCZNIE
+===================================================== */
+
+const liczbaLacznie =
+    liczbaOsob + liczbaBotow;
+
+
+/* =====================================================
+   WYDARZENIA Z dane.js
+===================================================== */
+
+const liczbaWydarzen =
+    typeof colonyEvents2026 !== "undefined"
+        ? Object.keys(colonyEvents2026).length
+        : 0;
+
+
+/* =====================================================
+   OGŁOSZENIA Z dane.js
+===================================================== */
+
+const liczbaOgloszen =
+    typeof announcements !== "undefined"
+        ? announcements.length
+        : 0;
+
+
+/* =====================================================
+   WYŚWIETLANIE
+===================================================== */
+
+document.getElementById(
+    "liczbaOsob"
+).textContent = liczbaOsob;
+
+
+document.getElementById(
+    "liczbaBotow"
+).textContent = liczbaBotow;
+
+
+document.getElementById(
+    "liczbaLacznie"
+).textContent = liczbaLacznie;
+
+
+document.getElementById(
+    "liczbaTyperow"
+).textContent = liczbaTyperow;
+
+
+document.getElementById(
+    "liczbaWydarzen"
+).textContent = liczbaWydarzen;
+
+
+document.getElementById(
+    "liczbaOgloszen"
+).textContent = liczbaOgloszen;
+
+
+/* =====================================================
+   DNI OD OTWARCIA — 11.06.2026
+===================================================== */
+
+const dataOtwarcia =
+    new Date(
+        2026,
+        5,
+        11
+    );
+
+
+const dzisiaj =
+    new Date();
+
+
+const roznica =
+    dzisiaj.getTime()
+    -
+    dataOtwarcia.getTime();
+
+
+const dniDzialania =
+    Math.max(
+        0,
+        Math.floor(
+            roznica /
+            (
+                1000 *
+                60 *
+                60 *
+                24
+            )
+        )
+    );
+
+
+document.getElementById(
+    "dniDzialania"
+).textContent =
+    dniDzialania;
+
+
+/* =====================================================
+   TRYB CIEMNY / JASNY / RETRO
+===================================================== */
+
 const themeToggle =
-    document.getElementById("themeToggle");
+    document.getElementById(
+        "themeToggle"
+    );
 
 
 const savedTheme =
-    localStorage.getItem("theme") || "dark";
+    localStorage.getItem(
+        "theme"
+    ) || "dark";
 
 
 function applyTheme(theme) {
@@ -571,7 +440,9 @@ function applyTheme(theme) {
 
     if (theme === "light") {
 
-        document.body.classList.add("light");
+        document.body.classList.add(
+            "light"
+        );
 
         themeToggle.textContent =
             "☀️";
@@ -580,7 +451,9 @@ function applyTheme(theme) {
 
     else if (theme === "retro") {
 
-        document.body.classList.add("retro");
+        document.body.classList.add(
+            "retro"
+        );
 
         themeToggle.textContent =
             "💾";
@@ -611,8 +484,9 @@ themeToggle.addEventListener(
     () => {
 
         const current =
-            localStorage.getItem("theme")
-            || "dark";
+            localStorage.getItem(
+                "theme"
+            ) || "dark";
 
 
         if (current === "dark") {
@@ -636,224 +510,7 @@ themeToggle.addEventListener(
     }
 );
 
-
-
-/* =====================================================
-   DNI OD OTWARCIA
-===================================================== */
-
-function calculateDaysActive() {
-
-    const startDate =
-        new Date(
-            2026,
-            5,
-            11
-        );
-
-    const today =
-        new Date();
-
-
-    startDate.setHours(
-        0, 0, 0, 0
-    );
-
-    today.setHours(
-        0, 0, 0, 0
-    );
-
-
-    const difference =
-        today.getTime()
-        -
-        startDate.getTime();
-
-
-    const days =
-        Math.floor(
-            difference /
-            (1000 * 60 * 60 * 24)
-        );
-
-
-    return Math.max(
-        0,
-        days
-    );
-
-}
-
-
-document.getElementById(
-    "daysActive"
-).textContent =
-    calculateDaysActive();
-
-
-
-/* =====================================================
-   ŁĄCZNA LICZBA OSÓB + BOTÓW
-===================================================== */
-
-const people =
-    17;
-
-const bots =
-    10;
-
-
-document.getElementById(
-    "totalMembers"
-).textContent =
-    people + bots;
-
-
-
-/* =====================================================
-   LICZENIE WYDARZEŃ
-===================================================== */
-
-async function countEvents() {
-
-    const counter =
-        document.getElementById(
-            "eventsCount"
-        );
-
-
-    try {
-
-        const response =
-            await fetch(
-                "kalendarz.html"
-            );
-
-
-        if (!response.ok) {
-            throw new Error();
-        }
-
-
-        const html =
-            await response.text();
-
-
-        const parser =
-            new DOMParser();
-
-
-        const documentPage =
-            parser.parseFromString(
-                html,
-                "text/html"
-            );
-
-
-        /*
-         * Liczymy elementy posiadające
-         * data-event="true".
-         */
-
-        const events =
-            documentPage.querySelectorAll(
-                '[data-event="true"]'
-            );
-
-
-        counter.textContent =
-            events.length;
-
-    }
-
-    catch {
-
-        counter.textContent =
-            "—";
-
-    }
-
-}
-
-
-
-/* =====================================================
-   LICZENIE OGŁOSZEŃ
-===================================================== */
-
-async function countAnnouncements() {
-
-    const counter =
-        document.getElementById(
-            "announcementsCount"
-        );
-
-
-    try {
-
-        const response =
-            await fetch(
-                "ogloszenia.html"
-            );
-
-
-        if (!response.ok) {
-            throw new Error();
-        }
-
-
-        const html =
-            await response.text();
-
-
-        const parser =
-            new DOMParser();
-
-
-        const documentPage =
-            parser.parseFromString(
-                html,
-                "text/html"
-            );
-
-
-        /*
-         * Liczymy elementy posiadające
-         * data-announcement="true".
-         */
-
-        const announcements =
-            documentPage.querySelectorAll(
-                '[data-announcement="true"]'
-            );
-
-
-        counter.textContent =
-            announcements.length;
-
-    }
-
-    catch {
-
-        counter.textContent =
-            "—";
-
-    }
-
-}
-
-
-
-/* =====================================================
-   START
-===================================================== */
-
-countEvents();
-
-countAnnouncements();
-
 </script>
-
 
 </body>
 
