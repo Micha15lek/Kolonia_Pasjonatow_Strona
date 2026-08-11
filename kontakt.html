@@ -2,252 +2,434 @@
 <html lang="pl">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>Kontakt | Kolonia Pasjonatów</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Kontakt - Kolonia Pasjonatów</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+    <!-- =====================================
+         NAWIGACJA
+         ===================================== -->
 
-<div class="theme-switch">
+    <header>
 
-<button id="themeButton">
-☀️ Tryb jasny
-</button>
+        <div class="logo">
+            🌟 Kolonia Pasjonatów
+        </div>
 
-</div>
+        <nav>
 
+            <a href="index.html">
+                🏠 Strona główna
+            </a>
 
+            <a href="ranking.html">
+                🏆 Ranking typerów
+            </a>
 
+            <a href="kalendarz.html">
+                📅 Kalendarz
+            </a>
 
+            <a href="historia.html">
+                📜 Historia
+            </a>
 
-<header>
+            <a href="kontakt.html">
+                📧 Kontakt
+            </a>
 
-<h1>
-🌟 Kolonia Pasjonatów
-</h1>
+            <a href="linki.html">
+                🔗 Linki
+            </a>
 
+            <a href="administracja.html">
+                👥 Administracja
+            </a>
 
-<nav>
+            <a href="koloniarz.html">
+                🤖 Koloniarz
+            </a>
 
-<a href="index.html">
-🏠 Start
-</a>
+        </nav>
 
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Zmień tryb">
+            🌙
+        </button>
 
-<a href="ranking.html">
-📊 Ranking
-</a>
+    </header>
 
 
-<a href="kontakt.html">
-📩 Kontakt
-</a>
+    <!-- =====================================
+         GŁÓWNA ZAWARTOŚĆ
+         ===================================== -->
 
+    <main>
 
-</nav>
+        <!-- =====================================
+             TYTUŁ
+             ===================================== -->
 
+        <section class="hero">
 
-</header>
+            <h1>
+                📧 Kontakt
+            </h1>
 
+            <p>
+                Masz pytanie, propozycję lub chcesz
+                skontaktować się z administracją?
+                Wybierz odpowiednią formę kontaktu.
+            </p>
 
+        </section>
 
 
+        <!-- =====================================
+             GŁÓWNE KONTAKTY
+             ===================================== -->
 
+        <section class="section">
 
+            <h2 class="section-title">
+                📬 Skontaktuj się z nami
+            </h2>
 
-<main>
 
+            <div class="info-grid">
 
 
-<section class="box">
+                <!-- DISCORD -->
 
+                <article class="contact-card">
 
-<h2>
-📩 Kontakt
-</h2>
+                    <h3>
+                        💬 Discord
+                    </h3>
 
+                    <p>
+                        Najlepszy sposób na szybki kontakt
+                        ze społecznością oraz administracją
+                        Kolonii Pasjonatów.
+                    </p>
 
-<p>
+                    <div class="contact-buttons">
 
-Masz pytanie, propozycję współpracy albo chcesz
-dołączyć do społeczności Kolonii Pasjonatów?
+                        <a
+                            href="https://discord.gg/886u97g22Q"
+                            target="_blank"
+                            rel="noopener"
+                            class="button contact-discord">
 
-Skontaktuj się z nami.
+                            💬 Otwórz Discord
 
-</p>
+                        </a>
 
+                    </div>
 
-</section>
+                </article>
 
 
+                <!-- E-MAIL -->
 
+                <article class="contact-card">
 
+                    <h3>
+                        📧 E-mail
+                    </h3>
 
+                    <p>
+                        W sprawach oficjalnych możesz
+                        skontaktować się z nami drogą mailową.
+                    </p>
 
+                    <div class="contact-buttons">
 
-<section class="summary-box">
+                        <!-- UZUPEŁNIJ ADRES -->
 
+                        <a
+                            href="mailto:TWOJ_EMAIL@example.com"
+                            class="button contact-email">
 
+                            📧 Napisz e-mail
 
+                        </a>
 
+                    </div>
 
-<div class="summary-card">
+                </article>
 
 
-<h3>
-💬 Discord
-</h3>
+                <!-- WŁAŚCICIEL -->
 
+                <article class="contact-card">
 
-<p>
+                    <h3>
+                        👑 Właściciel
+                    </h3>
 
-Dołącz do naszego serwera Discord.
-To główne miejsce rozmów, wydarzeń
-oraz wspólnych projektów społeczności.
+                    <p>
+                        W sprawach dotyczących działania
+                        społeczności, strony oraz większych
+                        projektów możesz skontaktować się
+                        bezpośrednio z właścicielem.
+                    </p>
 
-</p>
+                    <div class="contact-buttons">
 
+                        <a
+                            href="kontakt.html#wlasciciel"
+                            class="button">
 
+                            👑 Informacje
 
-<a 
-href="https://discord.gg/886u97g22Q"
-target="_blank"
-class="gold-button contact-button">
+                        </a>
 
-💬 Dołącz do Discorda
+                    </div>
 
-</a>
+                </article>
 
 
+                <!-- KOLONIARZ -->
 
-</div>
+                <article class="contact-card">
 
+                    <h3>
+                        🤖 Koloniarz
+                    </h3>
 
+                    <p>
+                        Masz pytanie dotyczące naszego
+                        bota serwerowego? Sprawdź centrum
+                        informacji o projekcie Koloniarz.
+                    </p>
 
+                    <div class="contact-buttons">
 
+                        <a
+                            href="koloniarz.html"
+                            class="button">
 
+                            🤖 Centrum Koloniarza
 
+                        </a>
 
+                    </div>
 
-<div class="summary-card">
+                </article>
 
+            </div>
 
-<h3>
-📧 E-mail
-</h3>
+        </section>
 
 
-<p>
+        <!-- =====================================
+             PYTANIA I PROPOZYCJE
+             ===================================== -->
 
-Kontakt w sprawach:
+        <section class="section">
 
-<br>
+            <div class="contact-card">
 
-🤝 Współpracy
+                <h2>
+                    💡 Masz pomysł?
+                </h2>
 
-<br>
+                <p>
+                    Jeżeli masz pomysł na nowe wydarzenie,
+                    kanał, funkcję strony, funkcję Koloniarza
+                    lub inną zmianę dotyczącą społeczności —
+                    możesz się z nami skontaktować.
+                </p>
 
-🚀 Projektów
+                <p>
+                    Każda sensowna propozycja może zostać
+                    rozpatrzona przez administrację.
+                </p>
 
-<br>
+            </div>
 
-📢 Ważnych informacji
+        </section>
 
-</p>
 
+        <!-- =====================================
+             WŁAŚCICIEL
+             ===================================== -->
 
+        <section
+            class="section"
+            id="wlasciciel">
 
-<a 
-href="mailto:kontak.koloniapasjonatow@gmail.com"
-class="gold-button contact-button">
+            <div class="contact-card">
 
-📧 Napisz wiadomość
+                <h2>
+                    👑 Właściciel i opieka nad stroną
+                </h2>
 
-</a>
+                <p>
+                    Za prowadzenie i rozwój Kolonii Pasjonatów
+                    odpowiada właściciel społeczności.
+                </p>
 
+                <p>
+                    Właściciel sprawuje również opiekę nad
+                    stroną internetową oraz projektem
+                    <strong>Koloniarz</strong>.
+                </p>
 
+            </div>
 
-</div>
+        </section>
 
 
+        <!-- =====================================
+             INFORMACJA
+             ===================================== -->
 
+        <section class="section">
 
+            <div class="info-card">
 
+                <h2>
+                    ℹ️ Ważne
+                </h2>
 
+                <p>
+                    W przypadku spraw dotyczących konkretnego
+                    kanału lub wydarzenia najlepiej skorzystać
+                    z odpowiedniego kanału na serwerze Discord.
+                </p>
 
+                <p>
+                    Prosimy również o zachowanie kultury
+                    i dokładne opisanie sprawy podczas kontaktu.
+                </p>
 
-<div class="summary-card">
+            </div>
 
+        </section>
 
-<h3>
-🌟 Kolonia Pasjonatów
-</h3>
 
+        <!-- =====================================
+             POWRÓT
+             ===================================== -->
 
-<p>
+        <section class="section">
 
-Masz pomysł na rozwój strony,
-nowy projekt lub wydarzenie?
+            <div class="info-card">
 
-Jesteśmy otwarci na propozycje
-od naszej społeczności.
+                <h2>
+                    🏠 Wróć do centrum
+                </h2>
 
-</p>
+                <a
+                    href="index.html"
+                    class="button">
 
+                    🏠 Strona główna
 
+                </a>
 
-<a 
-href="mailto:kontak.koloniapasjonatow@gmail.com"
-class="gold-button contact-button">
+            </div>
 
-🚀 Skontaktuj się
+        </section>
 
-</a>
+    </main>
 
 
+    <!-- =====================================
+         STOPKA
+         ===================================== -->
 
-</div>
+    <footer>
 
+        <p>
+            © 2026 Kolonia Pasjonatów
+        </p>
 
+        <p>
+            📧 Kontakt z Kolonią Pasjonatów
+        </p>
 
+    </footer>
 
 
+    <!-- =====================================
+         TRYB JASNY / CIEMNY
+         ===================================== -->
 
+    <script>
 
-</section>
+        const themeToggle =
+            document.getElementById(
+                "themeToggle"
+            );
 
+        const savedTheme =
+            localStorage.getItem(
+                "theme"
+            );
 
 
-</main>
+        if (savedTheme === "light") {
 
+            document.body.classList.add(
+                "light"
+            );
 
+            themeToggle.textContent =
+                "☀️";
 
+        }
 
 
+        themeToggle.addEventListener(
+            "click",
+            () => {
 
+                document.body.classList.toggle(
+                    "light"
+                );
 
-<footer>
 
-© 2026 Kolonia Pasjonatów
+                if (
+                    document.body.classList.contains(
+                        "light"
+                    )
+                ) {
 
-</footer>
+                    localStorage.setItem(
+                        "theme",
+                        "light"
+                    );
 
+                    themeToggle.textContent =
+                        "☀️";
 
+                } else {
 
+                    localStorage.setItem(
+                        "theme",
+                        "dark"
+                    );
 
+                    themeToggle.textContent =
+                        "🌙";
 
+                }
 
-<script src="script.js"></script>
+            }
+        );
 
+    </script>
 
 </body>
 
