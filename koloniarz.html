@@ -33,7 +33,7 @@
             text-decoration: none;
             font-weight: 700;
             font-size: 16px;
-            transition: .2s;
+            transition: .25s;
         }
 
         .home-button:hover,
@@ -47,7 +47,27 @@
             padding: 40px 25px;
             border-radius: 22px;
             text-align: center;
-            background: rgba(255,255,255,.07);
+
+            background:
+                rgba(255,255,255,.07);
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,.18);
+
+            transition:
+                background .3s ease,
+                box-shadow .3s ease,
+                transform .25s ease;
+        }
+
+        .koloniarz-card:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 35px rgba(255,193,7,.12);
         }
 
         .robot {
@@ -57,16 +77,98 @@
 
         .status {
             display: inline-block;
+
             margin: 20px 0;
+
             padding: 10px 18px;
+
             border-radius: 12px;
+
             font-weight: 800;
-            background: rgba(255,193,7,.18);
+
+            background:
+                rgba(255,193,7,.18);
+
+            border:
+                1px solid rgba(255,193,7,.25);
+
+            color: #ffc107;
         }
 
         .koloniarz-card p {
             line-height: 1.7;
         }
+
+
+        /* =====================================================
+           JASNY TRYB
+        ===================================================== */
+
+        body.light .koloniarz-card {
+            background: #ffffff;
+
+            border-color: #dedede;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,.07);
+        }
+
+        body.light .koloniarz-card:hover {
+            box-shadow:
+                0 12px 35px rgba(255,193,7,.18);
+        }
+
+
+        /* =====================================================
+           RETRO
+        ===================================================== */
+
+        body.retro .koloniarz-card {
+            padding: 25px;
+
+            background: #c0c0c0;
+
+            border:
+                2px outset #ffffff;
+
+            border-radius: 0;
+
+            box-shadow:
+                3px 3px 0 #000000;
+
+            color: #000000;
+        }
+
+        body.retro .robot {
+            font-family:
+                "Times New Roman",
+                Times,
+                serif;
+        }
+
+        body.retro .koloniarz-card h2 {
+            color: #000080;
+
+            text-decoration: underline;
+        }
+
+        body.retro .status {
+            padding: 6px 12px;
+
+            border:
+                2px outset #ffffff;
+
+            border-radius: 0;
+
+            background: #ffff00;
+
+            color: #000000;
+        }
+
+
+        /* =====================================================
+           TELEFONY
+        ===================================================== */
 
         @media (max-width:600px) {
 
@@ -98,12 +200,15 @@
 
 </head>
 
+
 <body>
 
 <main class="koloniarz-page">
 
 
-    <!-- GÓRNY PASEK -->
+    <!-- =====================================================
+         GÓRNY PASEK
+    ====================================================== -->
 
     <div class="top-bar">
 
@@ -118,7 +223,8 @@
 
         <button
             id="themeButton"
-            class="theme-button">
+            class="theme-button"
+            aria-label="Zmień motyw">
 
             🌙
 
@@ -127,7 +233,9 @@
     </div>
 
 
-    <!-- TYTUŁ -->
+    <!-- =====================================================
+         TYTUŁ
+    ====================================================== -->
 
     <section class="hero">
 
@@ -140,7 +248,9 @@
     </section>
 
 
-    <!-- INFORMACJA -->
+    <!-- =====================================================
+         INFORMACJA
+    ====================================================== -->
 
     <section class="koloniarz-card">
 
@@ -148,13 +258,16 @@
             🤖
         </div>
 
+
         <h2>
             🚧 Strona w przygotowaniu
         </h2>
 
+
         <div class="status">
             🛠️ W trakcie tworzenia
         </div>
+
 
         <p>
             Trwają prace nad przygotowaniem
@@ -162,12 +275,14 @@
             <strong>Koloniarz</strong>.
         </p>
 
+
         <p>
             W przyszłości znajdą się tutaj
             informacje o funkcjach bota,
             jego możliwościach oraz postępach
             prac nad projektem.
         </p>
+
 
         <p>
             ⏳ Więcej informacji już wkrótce!
@@ -179,68 +294,86 @@
 </main>
 
 
+<!-- =====================================================
+     SYSTEM MOTYWÓW
+     🌙 Ciemny → ☀️ Jasny → 💾 Retro
+====================================================== -->
+
 <script>
 
-/* =========================
-   TRYB JASNY / CIEMNY
-========================= */
-
 const themeButton =
-    document.getElementById(
-        "themeButton"
-    );
+    document.getElementById("themeButton");
 
 
 const savedTheme =
-    localStorage.getItem(
-        "theme"
+    localStorage.getItem("theme") || "dark";
+
+
+function applyTheme(theme) {
+
+    document.body.classList.remove(
+        "light",
+        "retro"
     );
 
 
-if (savedTheme === "light") {
+    if (theme === "light") {
 
-    document.body.classList.add(
-        "light"
+        document.body.classList.add("light");
+
+        themeButton.textContent = "☀️";
+
+    }
+
+    else if (theme === "retro") {
+
+        document.body.classList.add("retro");
+
+        themeButton.textContent = "💾";
+
+    }
+
+    else {
+
+        themeButton.textContent = "🌙";
+
+    }
+
+
+    localStorage.setItem(
+        "theme",
+        theme
     );
-
-    themeButton.textContent =
-        "☀️";
 
 }
+
+
+applyTheme(savedTheme);
 
 
 themeButton.addEventListener(
     "click",
     () => {
 
-        document.body.classList.toggle(
-            "light"
-        );
+        const current =
+            localStorage.getItem("theme") || "dark";
 
 
-        if (
-            document.body.classList.contains(
-                "light"
-            )
-        ) {
+        if (current === "dark") {
 
-            localStorage.setItem(
-                "theme",
-                "light"
-            );
+            applyTheme("light");
 
-            themeButton.textContent =
-                "☀️";
+        }
 
-        } else {
+        else if (current === "light") {
 
-            localStorage.setItem(
-                "theme",
-                "dark"
-            );
+            applyTheme("retro");
 
-            themeButton.textContent =
-                "🌙";
+        }
+
+        else {
+
+            applyTheme("dark");
 
         }
 
@@ -248,6 +381,7 @@ themeButton.addEventListener(
 );
 
 </script>
+
 
 </body>
 
