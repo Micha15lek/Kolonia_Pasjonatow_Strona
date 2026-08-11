@@ -33,7 +33,7 @@
             text-decoration: none;
             font-weight: 700;
             font-size: 16px;
-            transition: .2s;
+            transition: .25s;
         }
 
         .home-button:hover,
@@ -44,15 +44,38 @@
 
         .admin-list {
             margin-top: 35px;
+
             display: flex;
             flex-direction: column;
+
             gap: 18px;
         }
 
         .admin-section {
             padding: 22px;
+
             border-radius: 20px;
-            background: rgba(255,255,255,.07);
+
+            background:
+                rgba(255,255,255,.07);
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.18);
+
+            transition:
+                transform .25s ease,
+                background .3s ease,
+                box-shadow .3s ease;
+        }
+
+        .admin-section:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 30px rgba(255,193,7,.12);
         }
 
         .admin-section h2 {
@@ -63,15 +86,127 @@
         .admin-person {
             padding: 10px 14px;
             margin: 7px 0;
+
             border-radius: 12px;
-            background: rgba(255,255,255,.05);
+
+            background:
+                rgba(255,255,255,.05);
+
+            border:
+                1px solid rgba(255,255,255,.05);
+
             font-weight: 600;
+
+            transition:
+                background .25s ease,
+                transform .2s ease;
+        }
+
+        .admin-person:hover {
+            transform: translateX(3px);
+
+            background:
+                rgba(255,193,7,.10);
         }
 
         .empty-person {
             opacity: .65;
             font-style: italic;
         }
+
+
+        /* =====================================================
+           JASNY TRYB
+        ===================================================== */
+
+        body.light .admin-section {
+            background: #ffffff;
+
+            border-color: #dedede;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.07);
+        }
+
+        body.light .admin-section:hover {
+            box-shadow:
+                0 12px 30px rgba(255,193,7,.18);
+        }
+
+        body.light .admin-person {
+            background:
+                #f7f7f7;
+
+            border-color:
+                #e5e5e5;
+        }
+
+        body.light .admin-person:hover {
+            background:
+                rgba(255,193,7,.10);
+        }
+
+
+        /* =====================================================
+           RETRO
+        ===================================================== */
+
+        body.retro .admin-section {
+            padding: 17px;
+
+            background: #c0c0c0;
+
+            border:
+                2px outset #ffffff;
+
+            border-radius: 0;
+
+            box-shadow:
+                3px 3px 0 #000000;
+
+            color: #000000;
+        }
+
+        body.retro .admin-section:hover {
+            transform: none;
+
+            box-shadow:
+                3px 3px 0 #000000;
+        }
+
+        body.retro .admin-section h2 {
+            color: #000080;
+
+            text-decoration: underline;
+        }
+
+        body.retro .admin-person {
+            padding: 8px 12px;
+
+            background: #ffffff;
+
+            border:
+                1px solid #000000;
+
+            border-radius: 0;
+
+            color: #000000;
+        }
+
+        body.retro .admin-person:hover {
+            transform: none;
+
+            background: #ffff00;
+        }
+
+        body.retro .empty-person {
+            background: #d0d0d0;
+        }
+
+
+        /* =====================================================
+           TELEFONY
+        ===================================================== */
 
         @media (max-width:600px) {
 
@@ -99,12 +234,15 @@
 
 </head>
 
+
 <body>
 
 <main class="admin-page">
 
 
-    <!-- GÓRNY PASEK -->
+    <!-- =====================================================
+         GÓRNY PASEK
+    ====================================================== -->
 
     <div class="top-bar">
 
@@ -119,7 +257,8 @@
 
         <button
             id="themeButton"
-            class="theme-button">
+            class="theme-button"
+            aria-label="Zmień motyw">
 
             🌙
 
@@ -128,11 +267,15 @@
     </div>
 
 
-    <!-- TYTUŁ -->
+    <!-- =====================================================
+         TYTUŁ
+    ====================================================== -->
 
     <section class="hero">
 
-        <h1>👥 Administracja Kolonii Pasjonatów</h1>
+        <h1>
+            👥 Administracja Kolonii Pasjonatów
+        </h1>
 
         <p>
             Skład administracji naszej społeczności.
@@ -141,7 +284,9 @@
     </section>
 
 
-    <!-- ADMINISTRACJA -->
+    <!-- =====================================================
+         ADMINISTRACJA
+    ====================================================== -->
 
     <section class="admin-list">
 
@@ -150,7 +295,9 @@
 
         <div class="admin-section">
 
-            <h2>👑 Właściciel</h2>
+            <h2>
+                👑 Właściciel
+            </h2>
 
             <div class="admin-person">
                 Michał
@@ -163,7 +310,9 @@
 
         <div class="admin-section">
 
-            <h2>🛡️ Naczelny Administrator</h2>
+            <h2>
+                🛡️ Naczelny Administrator
+            </h2>
 
             <div class="admin-person">
                 Mikol yoriichi
@@ -176,7 +325,9 @@
 
         <div class="admin-section">
 
-            <h2>⚙️ Administrator</h2>
+            <h2>
+                ⚙️ Administrator
+            </h2>
 
             <div class="admin-person">
                 Mikol yoriichi
@@ -193,7 +344,9 @@
 
         <div class="admin-section">
 
-            <h2>🔨 Moderator</h2>
+            <h2>
+                🔨 Moderator
+            </h2>
 
             <div class="admin-person">
                 KEBABKRAFTOWY
@@ -206,7 +359,9 @@
 
         <div class="admin-section">
 
-            <h2>💻 Technik</h2>
+            <h2>
+                💻 Technik
+            </h2>
 
             <div class="admin-person">
                 Michał
@@ -219,7 +374,9 @@
 
         <div class="admin-section">
 
-            <h2>🤝 Pomocnik</h2>
+            <h2>
+                🤝 Pomocnik
+            </h2>
 
             <div class="admin-person">
                 Mikol Yoriichi
@@ -236,7 +393,9 @@
 
         <div class="admin-section">
 
-            <h2>📢 Marketingowiec</h2>
+            <h2>
+                📢 Marketingowiec
+            </h2>
 
             <div class="admin-person empty-person">
                 Nikt
@@ -251,68 +410,86 @@
 </main>
 
 
+<!-- =====================================================
+     SYSTEM MOTYWÓW
+     🌙 Ciemny → ☀️ Jasny → 💾 Retro
+====================================================== -->
+
 <script>
 
-/* =========================
-   TRYB JASNY / CIEMNY
-========================= */
-
 const themeButton =
-    document.getElementById(
-        "themeButton"
-    );
+    document.getElementById("themeButton");
 
 
 const savedTheme =
-    localStorage.getItem(
-        "theme"
+    localStorage.getItem("theme") || "dark";
+
+
+function applyTheme(theme) {
+
+    document.body.classList.remove(
+        "light",
+        "retro"
     );
 
 
-if (savedTheme === "light") {
+    if (theme === "light") {
 
-    document.body.classList.add(
-        "light"
+        document.body.classList.add("light");
+
+        themeButton.textContent = "☀️";
+
+    }
+
+    else if (theme === "retro") {
+
+        document.body.classList.add("retro");
+
+        themeButton.textContent = "💾";
+
+    }
+
+    else {
+
+        themeButton.textContent = "🌙";
+
+    }
+
+
+    localStorage.setItem(
+        "theme",
+        theme
     );
-
-    themeButton.textContent =
-        "☀️";
 
 }
+
+
+applyTheme(savedTheme);
 
 
 themeButton.addEventListener(
     "click",
     () => {
 
-        document.body.classList.toggle(
-            "light"
-        );
+        const current =
+            localStorage.getItem("theme") || "dark";
 
 
-        if (
-            document.body.classList.contains(
-                "light"
-            )
-        ) {
+        if (current === "dark") {
 
-            localStorage.setItem(
-                "theme",
-                "light"
-            );
+            applyTheme("light");
 
-            themeButton.textContent =
-                "☀️";
+        }
 
-        } else {
+        else if (current === "light") {
 
-            localStorage.setItem(
-                "theme",
-                "dark"
-            );
+            applyTheme("retro");
 
-            themeButton.textContent =
-                "🌙";
+        }
+
+        else {
+
+            applyTheme("dark");
 
         }
 
@@ -320,6 +497,7 @@ themeButton.addEventListener(
 );
 
 </script>
+
 
 </body>
 
