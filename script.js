@@ -1,91 +1,60 @@
-// ===================================
-// TRYB JASNY / CIEMNY
-// KOLONIA PASJONATÓW
-// ===================================
+<script>
+const themeToggle = document.getElementById("themeToggle");
 
+const savedTheme =
+    localStorage.getItem("theme") || "dark";
 
-document.addEventListener("DOMContentLoaded", () => {
+function applyTheme(theme) {
 
+    document.body.classList.remove(
+        "light",
+        "retro"
+    );
 
-    const themeButton = document.getElementById("themeButton");
-
-
-    // jeżeli na stronie nie ma przycisku
-    if (!themeButton) return;
-
-
-
-    // sprawdzenie zapisanego wyglądu
-
-    const savedTheme = localStorage.getItem("theme");
-
-
-
-    if (savedTheme === "light") {
+    if (theme === "light") {
 
         document.body.classList.add("light");
 
-        themeButton.innerHTML = "🌙 Tryb ciemny";
+        themeToggle.textContent = "☀️";
 
-    } 
-    else {
+    } else if (theme === "retro") {
 
-        themeButton.innerHTML = "☀️ Tryb jasny";
+        document.body.classList.add("retro");
+
+        themeToggle.textContent = "💾";
+
+    } else {
+
+        themeToggle.textContent = "🌙";
 
     }
 
+    localStorage.setItem(
+        "theme",
+        theme
+    );
+}
 
+applyTheme(savedTheme);
 
+themeToggle.addEventListener("click", () => {
 
+    const current =
+        localStorage.getItem("theme") || "dark";
 
-    // zmiana po kliknięciu
+    if (current === "dark") {
 
-    themeButton.addEventListener("click", () => {
+        applyTheme("light");
 
+    } else if (current === "light") {
 
+        applyTheme("retro");
 
-        document.body.classList.toggle("light");
+    } else {
 
+        applyTheme("dark");
 
-
-        if (document.body.classList.contains("light")) {
-
-
-
-            localStorage.setItem(
-                "theme",
-                "light"
-            );
-
-
-            themeButton.innerHTML =
-            "🌙 Tryb ciemny";
-
-
-
-        } 
-        
-        else {
-
-
-
-            localStorage.setItem(
-                "theme",
-                "dark"
-            );
-
-
-            themeButton.innerHTML =
-            "☀️ Tryb jasny";
-
-
-
-        }
-
-
-
-    });
-
-
+    }
 
 });
+</script> 
