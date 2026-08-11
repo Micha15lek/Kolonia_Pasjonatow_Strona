@@ -1,11 +1,12 @@
 /* =========================================================
    KOLONIA PASJONATÓW
    WSPÓLNY STYLE.CSS
+   MODERN + WINDOWS 95/98 RETRO MODE
 ========================================================= */
 
 
 /* =========================================================
-   RESET
+   1. RESET
 ========================================================= */
 
 * {
@@ -45,13 +46,16 @@ a {
     text-decoration: none;
 }
 
-button {
+button,
+input,
+textarea,
+select {
     font-family: inherit;
 }
 
 
 /* =========================================================
-   JASNY TRYB
+   2. JASNY TRYB
 ========================================================= */
 
 body.light {
@@ -68,14 +72,14 @@ body.light {
 
 
 /* =========================================================
-   HEADER
+   3. HEADER
 ========================================================= */
 
 header {
     position: relative;
+    z-index: 100;
 
     display: flex;
-
     align-items: center;
     justify-content: space-between;
 
@@ -94,7 +98,10 @@ header {
     box-shadow:
         0 5px 25px rgba(0,0,0,.20);
 
-    z-index: 100;
+    transition:
+        background .3s ease,
+        border .3s ease,
+        box-shadow .3s ease;
 }
 
 body.light header {
@@ -110,14 +117,12 @@ body.light header {
 
 
 /* =========================================================
-   LOGO
+   4. LOGO
 ========================================================= */
 
 .logo {
     font-size: 20px;
-
     font-weight: 900;
-
     white-space: nowrap;
 
     text-shadow:
@@ -126,23 +131,20 @@ body.light header {
 
 
 /* =========================================================
-   MENU
+   5. NAWIGACJA
 ========================================================= */
 
 nav {
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     gap: 8px;
-
     flex-wrap: wrap;
 }
 
 nav a {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
@@ -161,12 +163,12 @@ nav a {
     transition:
         transform .25s ease,
         background .25s ease,
-        box-shadow .25s ease;
+        box-shadow .25s ease,
+        color .25s ease;
 }
 
 nav a:hover {
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 
     background:
         rgba(255,193,7,.12);
@@ -185,7 +187,7 @@ body.light nav a {
 
 
 /* =========================================================
-   PRZYCISK JASNY / CIEMNY
+   6. PRZEŁĄCZNIK TRYBU
 ========================================================= */
 
 .theme-toggle {
@@ -233,7 +235,7 @@ body.light .theme-toggle {
 
 
 /* =========================================================
-   HERO
+   7. HERO
 ========================================================= */
 
 .hero {
@@ -255,6 +257,12 @@ body.light .theme-toggle {
 
     box-shadow:
         0 10px 35px rgba(0,0,0,.20);
+
+    transition:
+        background .3s ease,
+        border .3s ease,
+        box-shadow .3s ease,
+        border-radius .3s ease;
 }
 
 body.light .hero {
@@ -290,7 +298,7 @@ body.light .hero {
 
 
 /* =========================================================
-   SEKCJE
+   8. SEKCJE
 ========================================================= */
 
 .section {
@@ -314,7 +322,7 @@ body.light .hero {
 
 
 /* =========================================================
-   SIATKA
+   9. SIATKA
 ========================================================= */
 
 .info-grid {
@@ -328,14 +336,12 @@ body.light .hero {
 
 
 /* =========================================================
-   KARTY
+   10. KARTY
 ========================================================= */
 
 .info-card {
     display: flex;
-
     flex-direction: column;
-
     align-items: flex-start;
 
     padding: 25px;
@@ -356,23 +362,21 @@ body.light .hero {
     transition:
         transform .25s ease,
         box-shadow .25s ease,
-        background .25s ease;
+        background .25s ease,
+        border-radius .25s ease;
 }
 
 .info-card:hover {
-    transform:
-        translateY(-5px);
+    transform: translateY(-5px);
 
     box-shadow:
         0 12px 35px rgba(255,193,7,.13);
 }
 
 body.light .info-card {
-    background:
-        #ffffff;
+    background: #ffffff;
 
-    border-color:
-        #dedede;
+    border-color: #dedede;
 
     box-shadow:
         0 8px 25px rgba(0,0,0,.07);
@@ -385,13 +389,11 @@ body.light .info-card:hover {
 
 .info-card h2 {
     margin-top: 0;
-
     font-size: 21px;
 }
 
 .info-card p {
     line-height: 1.6;
-
     opacity: .70;
 
     flex: 1;
@@ -399,17 +401,15 @@ body.light .info-card:hover {
 
 
 /* =========================================================
-   PRZYCISKI
+   11. PRZYCISKI
 ========================================================= */
 
 .button {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
     padding: 12px 18px;
-
     margin-top: 12px;
 
     border-radius: 14px;
@@ -447,16 +447,14 @@ body.light .info-card:hover {
 
 
 /* =========================================================
-   STATUS
+   12. STATUS
 ========================================================= */
 
 .status {
     display: inline-flex;
-
     align-items: center;
 
     padding: 10px 14px;
-
     margin-top: 12px;
 
     border-radius: 12px;
@@ -474,7 +472,7 @@ body.light .info-card:hover {
 
 
 /* =========================================================
-   RANKING
+   13. RANKING
 ========================================================= */
 
 .league-ranking {
@@ -498,23 +496,21 @@ body.light .info-card:hover {
     transition:
         background .3s ease,
         box-shadow .3s ease,
-        transform .25s ease;
+        transform .25s ease,
+        border-radius .25s ease;
 }
 
 .league-ranking:hover {
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 
     box-shadow:
         0 12px 35px rgba(255,193,7,.12);
 }
 
 body.light .league-ranking {
-    background:
-        #ffffff;
+    background: #ffffff;
 
-    border-color:
-        #dddddd;
+    border-color: #dddddd;
 
     box-shadow:
         0 10px 30px rgba(0,0,0,.08);
@@ -533,7 +529,6 @@ body.light .league-ranking {
 
 .ranking-container {
     width: 100%;
-
     overflow-x: auto;
 
     border-radius: 16px;
@@ -541,7 +536,6 @@ body.light .league-ranking {
 
 .ranking-container table {
     width: 100%;
-
     border-collapse: collapse;
 }
 
@@ -590,8 +584,7 @@ body.light .ranking-container th {
 }
 
 body.light .ranking-container td {
-    background:
-        #fafafa;
+    background: #fafafa;
 
     border-bottom-color:
         #e8e8e8;
@@ -607,7 +600,6 @@ body.light .ranking-container tbody tr:hover td {
 
 .ranking-container tbody tr:nth-child(1) td:first-child {
     color: #ffd700;
-
     font-weight: 900;
 
     text-shadow:
@@ -616,7 +608,6 @@ body.light .ranking-container tbody tr:hover td {
 
 .ranking-container tbody tr:nth-child(2) td:first-child {
     color: #cfcfcf;
-
     font-weight: 900;
 
     text-shadow:
@@ -625,7 +616,6 @@ body.light .ranking-container tbody tr:hover td {
 
 .ranking-container tbody tr:nth-child(3) td:first-child {
     color: #cd7f32;
-
     font-weight: 900;
 
     text-shadow:
@@ -634,7 +624,7 @@ body.light .ranking-container tbody tr:hover td {
 
 
 /* =========================================================
-   KONTAKT
+   14. KONTAKT
 ========================================================= */
 
 .contact-page {
@@ -647,7 +637,6 @@ body.light .ranking-container tbody tr:hover td {
 
 .contact-list {
     display: flex;
-
     flex-direction: column;
 
     gap: 20px;
@@ -666,6 +655,10 @@ body.light .ranking-container tbody tr:hover td {
 
     box-shadow:
         0 8px 25px rgba(0,0,0,.18);
+
+    transition:
+        background .3s ease,
+        border-radius .3s ease;
 }
 
 body.light .contact-card {
@@ -679,14 +672,12 @@ body.light .contact-card {
 
 .contact-button {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
     gap: 8px;
 
     padding: 13px 20px;
-
     margin-top: 8px;
 
     border-radius: 14px;
@@ -704,7 +695,6 @@ body.light .contact-card {
 
 .discord-button {
     background: #5865F2;
-
     color: #fff;
 
     box-shadow:
@@ -726,11 +716,9 @@ body.light .contact-card {
 
 .disabled-button {
     opacity: .45;
-
     cursor: not-allowed;
 
     background: #555;
-
     color: #fff;
 }
 
@@ -744,7 +732,573 @@ body.light .contact-card {
 
 
 /* =========================================================
-   FOOTER
+   15. KALENDARZ
+========================================================= */
+
+.calendar-page {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 20px;
+}
+
+.top-bar {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+}
+
+.calendar-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 12px 0;
+
+    padding: 10px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+}
+
+body.light .calendar-header {
+    background: #fff;
+    border-color: #ddd;
+}
+
+.month-title {
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.today-button {
+    display: block;
+
+    margin: 10px auto;
+}
+
+.calendar {
+    padding: 10px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.18);
+
+    transition:
+        background .3s ease,
+        border-radius .3s ease;
+}
+
+body.light .calendar {
+    background: #fff;
+    border-color: #ddd;
+}
+
+.weekdays,
+.days {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 5px;
+}
+
+.weekday {
+    padding: 10px;
+
+    text-align: center;
+
+    font-weight: 900;
+
+    border-radius: 9px;
+
+    background:
+        rgba(255,193,7,.12);
+}
+
+.day {
+    min-height: 85px;
+
+    padding: 7px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        transform .2s ease,
+        border-radius .2s ease;
+}
+
+.day:hover {
+    transform: translateY(-2px);
+
+    background:
+        rgba(255,193,7,.10);
+}
+
+body.light .day {
+    background: #fafafa;
+    border-color: #e5e5e5;
+}
+
+.day.empty {
+    opacity: .25;
+    cursor: default;
+}
+
+.day.empty:hover {
+    transform: none;
+}
+
+.day-number {
+    font-weight: 900;
+}
+
+.today-day {
+    outline:
+        2px solid #ffc107;
+
+    background:
+        rgba(255,193,7,.14) !important;
+}
+
+.today-label {
+    margin-top: 5px;
+
+    font-size: 10px;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   16. WYDARZENIA KALENDARZA
+========================================================= */
+
+.event-day {
+    background:
+        rgba(255,193,7,.12);
+}
+
+.holiday-day {
+    background:
+        rgba(255,80,80,.12);
+}
+
+.birthday-day {
+    background:
+        rgba(255,105,180,.12);
+}
+
+.special-day {
+    background:
+        rgba(128,0,128,.12);
+}
+
+.event-dot,
+.holiday-dot,
+.birthday-dot,
+.special-dot {
+    width: 8px;
+    height: 8px;
+
+    margin-top: 7px;
+
+    border-radius: 50%;
+}
+
+.event-dot {
+    background: #ffc107;
+}
+
+.holiday-dot {
+    background: #ff3b3b;
+}
+
+.birthday-dot {
+    background: #ff69b4;
+}
+
+.special-dot {
+    background: #a855f7;
+}
+
+
+/* =========================================================
+   17. INFORMACJE O WYDARZENIU
+========================================================= */
+
+.event-info {
+    margin-top: 15px;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.18);
+}
+
+body.light .event-info {
+    background: #fff;
+    border-color: #ddd;
+}
+
+.event-type {
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    border-radius: 8px;
+
+    background:
+        rgba(255,193,7,.12);
+
+    border:
+        1px solid rgba(255,193,7,.25);
+
+    font-weight: 900;
+}
+
+.event-date {
+    font-weight: 900;
+
+    margin: 10px 0;
+}
+
+
+/* =========================================================
+   18. LEGENDA
+========================================================= */
+
+.legend {
+    margin-top: 15px;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+}
+
+body.light .legend {
+    background: #fff;
+    border-color: #ddd;
+}
+
+.legend-items {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+.legend-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+
+    border-radius: 3px;
+}
+
+.legend-event {
+    background: #ffc107;
+}
+
+.legend-holiday {
+    background: #ff0000;
+}
+
+.legend-birthday {
+    background: #ff69b4;
+}
+
+.legend-special {
+    background: #800080;
+}
+
+.legend-today {
+    background: #000080;
+}
+
+
+/* =========================================================
+   19. STATYSTYKI
+========================================================= */
+
+.stat-card {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+
+    font-size: 38px;
+
+    font-weight: 900;
+
+    color: #ffc107;
+
+    margin: 15px 0;
+
+    text-shadow:
+        0 0 18px rgba(255,193,7,.25);
+}
+
+
+/* =========================================================
+   20. FORMULARZE
+========================================================= */
+
+input,
+textarea,
+select {
+    width: 100%;
+
+    padding: 11px 12px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    color: inherit;
+
+    outline: none;
+
+    transition:
+        border .2s ease,
+        background .2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #ffc107;
+
+    background:
+        rgba(255,255,255,.10);
+}
+
+body.light input,
+body.light textarea,
+body.light select {
+    background: #fff;
+    color: #222;
+    border-color: #ddd;
+}
+
+textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+
+/* =========================================================
+   21. LINKI / FIKCYJNA PRZEGLĄDARKA
+========================================================= */
+
+.browser-window {
+    max-width: 1100px;
+
+    margin: 20px auto;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
+}
+
+.browser-title {
+    padding: 12px 15px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    font-weight: 900;
+}
+
+.browser-toolbar {
+    display: flex;
+
+    gap: 8px;
+
+    padding: 10px;
+
+    background:
+        rgba(0,0,0,.15);
+}
+
+.browser-address {
+    flex: 1;
+
+    padding: 9px 12px;
+
+    border-radius: 8px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid rgba(255,255,255,.10);
+}
+
+.browser-content {
+    min-height: 300px;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,.10);
+}
+
+body.light .browser-window {
+    background: #fff;
+    border-color: #ddd;
+}
+
+body.light .browser-content {
+    background: #fafafa;
+}
+
+
+/* =========================================================
+   22. ADMINISTRACJA
+========================================================= */
+
+.admin-panel {
+    max-width: 1000px;
+
+    margin: 20px auto;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.18);
+}
+
+body.light .admin-panel {
+    background: #fff;
+    border-color: #ddd;
+}
+
+.admin-warning {
+    padding: 14px;
+
+    margin: 12px 0;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,193,7,.14);
+
+    border:
+        1px solid rgba(255,193,7,.35);
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   23. HISTORIA
+========================================================= */
+
+.history-item {
+    margin: 12px 0;
+
+    padding: 15px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+}
+
+body.light .history-item {
+    background: #fff;
+    border-color: #ddd;
+}
+
+.history-date {
+    font-weight: 900;
+
+    color: #ffc107;
+}
+
+
+/* =========================================================
+   24. STOPKA
 ========================================================= */
 
 footer {
@@ -777,8 +1331,7 @@ footer p {
 
 
 /* =========================================================
-   POŚWIATA DLA DZIAŁAJĄCYCH PODSTRON
-   Nie zmieniamy ich głównego układu.
+   25. ANIMACJE
 ========================================================= */
 
 .event-day,
@@ -801,7 +1354,1167 @@ footer p {
 
 
 /* =========================================================
-   TELEFONY
+   =========================================================
+   WINDOWS 95 / 98 RETRO MODE
+   =========================================================
+
+   WAŻNE:
+   Wszystko poniżej działa TYLKO z:
+
+       <body class="retro">
+
+   Nie jest to globalny styl.
+========================================================= */
+
+
+/* =========================================================
+   RETRO — CAŁA STRONA
+========================================================= */
+
+body.retro {
+    margin: 0;
+
+    color: #000;
+
+    background: #008080;
+
+    font-family:
+        "MS Sans Serif",
+        "Microsoft Sans Serif",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    font-size: 14px;
+
+    image-rendering: pixelated;
+}
+
+body.retro a {
+    color: #000080;
+    text-decoration: underline;
+}
+
+body.retro a:visited {
+    color: #800080;
+}
+
+body.retro a:hover {
+    color: #ff0000;
+}
+
+
+/* =========================================================
+   RETRO — HEADER
+========================================================= */
+
+body.retro header {
+    min-height: 48px;
+
+    padding: 5px 8px;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+
+    box-shadow: none;
+
+    backdrop-filter: none;
+
+    border-radius: 0;
+}
+
+body.retro .logo {
+    padding: 5px 8px;
+
+    color: #fff;
+
+    background: #000080;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    text-shadow: none;
+}
+
+
+/* =========================================================
+   RETRO — NAV
+========================================================= */
+
+body.retro nav {
+    gap: 4px;
+}
+
+body.retro nav a {
+    padding: 5px 8px;
+
+    color: #000;
+
+    background: #c0c0c0;
+
+    border-radius: 0;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+
+    box-shadow: none;
+}
+
+body.retro nav a:hover {
+    color: #fff;
+
+    background: #000080;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+body.retro nav a:active {
+    border-top-color: #000;
+    border-left-color: #000;
+    border-right-color: #fff;
+    border-bottom-color: #fff;
+}
+
+
+/* =========================================================
+   RETRO — THEME TOGGLE
+========================================================= */
+
+body.retro .theme-toggle {
+    width: 38px;
+    height: 28px;
+
+    border-radius: 0;
+
+    background: #c0c0c0;
+
+    color: #000;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+
+    box-shadow: none;
+
+    font-size: 14px;
+}
+
+body.retro .theme-toggle:hover {
+    transform: none;
+
+    background: #d4d4d4;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   RETRO — HERO
+========================================================= */
+
+body.retro .hero {
+    max-width: 1100px;
+
+    margin: 15px auto;
+
+    padding: 0 15px 15px;
+
+    text-align: left;
+
+    border-radius: 0;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+
+    box-shadow: 2px 2px 0 #000;
+}
+
+body.retro .hero::before {
+    content: "🌟 Kolonia Pasjonatów — Informacje";
+
+    display: block;
+
+    margin: 0 -15px 15px;
+
+    padding: 4px 7px;
+
+    background: #000080;
+
+    color: #fff;
+
+    font-weight: bold;
+}
+
+body.retro .hero h1 {
+    margin: 10px 0;
+
+    color: #000;
+
+    font-size: 24px;
+
+    text-shadow: none;
+}
+
+body.retro .hero p {
+    margin: 8px 0;
+
+    color: #000;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   RETRO — SEKCJE
+========================================================= */
+
+body.retro .section {
+    max-width: 1100px;
+
+    margin: 15px auto;
+
+    padding: 0 15px 15px;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+
+    box-shadow: 2px 2px 0 #000;
+
+    border-radius: 0;
+}
+
+body.retro .section-title {
+    margin: 0 -15px 15px;
+
+    padding: 5px 8px;
+
+    text-align: left;
+
+    background: #000080;
+
+    color: #fff;
+
+    font-size: 16px;
+
+    text-shadow: none;
+}
+
+
+/* =========================================================
+   RETRO — KARTY
+========================================================= */
+
+body.retro .info-grid {
+    gap: 12px;
+}
+
+body.retro .info-card {
+    min-height: 220px;
+
+    padding: 0 12px 12px;
+
+    border-radius: 0;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+
+    box-shadow: 1px 1px 0 #808080;
+
+    color: #000;
+}
+
+body.retro .info-card:hover {
+    transform: none;
+
+    box-shadow: 1px 1px 0 #808080;
+}
+
+body.retro .info-card::before {
+    content: "▣";
+
+    display: block;
+
+    margin: 0 -12px 10px;
+
+    padding: 3px 6px;
+
+    background: #000080;
+
+    color: #fff;
+
+    font-weight: bold;
+}
+
+body.retro .info-card h2 {
+    font-size: 16px;
+}
+
+body.retro .info-card p {
+    opacity: 1;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   RETRO — PRZYCISKI
+========================================================= */
+
+body.retro button,
+body.retro .button,
+body.retro .home-button,
+body.retro .theme-button,
+body.retro .month-button,
+body.retro .today-button {
+    display: inline-block;
+
+    padding: 5px 12px;
+
+    min-height: 28px;
+
+    color: #000;
+
+    background: #c0c0c0;
+
+    border-radius: 0;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+
+    box-shadow: none;
+
+    font-family:
+        "MS Sans Serif",
+        "Microsoft Sans Serif",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    filter: none;
+}
+
+body.retro button:hover,
+body.retro .button:hover,
+body.retro .home-button:hover,
+body.retro .theme-button:hover,
+body.retro .month-button:hover,
+body.retro .today-button:hover {
+    transform: none;
+
+    background: #d4d4d4;
+
+    box-shadow: none;
+
+    filter: none;
+}
+
+body.retro button:active,
+body.retro .button:active,
+body.retro .home-button:active,
+body.retro .theme-button:active,
+body.retro .month-button:active,
+body.retro .today-button:active {
+    border-top-color: #000;
+    border-left-color: #000;
+    border-right-color: #fff;
+    border-bottom-color: #fff;
+}
+
+
+/* =========================================================
+   RETRO — STATUS
+========================================================= */
+
+body.retro .status {
+    padding: 3px 7px;
+
+    border-radius: 0;
+
+    background: #fff;
+
+    border: 1px solid #000;
+
+    color: #000;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   RETRO — RANKING
+========================================================= */
+
+body.retro .league-ranking,
+body.retro .ranking-card {
+    max-width: 1100px;
+
+    margin: 15px auto;
+
+    padding: 0 12px 12px;
+
+    border-radius: 0;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+
+    box-shadow: 2px 2px 0 #000;
+}
+
+body.retro .league-ranking:hover {
+    transform: none;
+
+    box-shadow: 2px 2px 0 #000;
+}
+
+body.retro .league-ranking h2 {
+    margin: 0 -12px 12px;
+
+    padding: 5px 7px;
+
+    text-align: left;
+
+    background: #000080;
+
+    color: #fff;
+
+    font-size: 16px;
+
+    text-shadow: none;
+}
+
+body.retro .ranking-container {
+    border-radius: 0;
+}
+
+body.retro .ranking-container table,
+body.retro .ranking-card table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: #fff;
+}
+
+body.retro .ranking-container th,
+body.retro .ranking-card th {
+    padding: 6px;
+
+    background: #000080;
+
+    color: #fff;
+
+    border: 1px solid #000;
+}
+
+body.retro .ranking-container td,
+body.retro .ranking-card td {
+    padding: 6px;
+
+    color: #000;
+
+    background: #fff;
+
+    border: 1px solid #808080;
+}
+
+body.retro .ranking-container tbody tr:nth-child(even) td,
+body.retro .ranking-card tr:nth-child(even) td {
+    background: #e0e0e0;
+}
+
+body.retro .ranking-container tbody tr:hover td,
+body.retro .ranking-card tr:hover td {
+    background: #ffff00;
+
+    color: #000;
+}
+
+body.retro .ranking-container tbody tr:nth-child(1) td:first-child,
+body.retro .ranking-container tbody tr:nth-child(2) td:first-child,
+body.retro .ranking-container tbody tr:nth-child(3) td:first-child {
+    color: #000080;
+
+    text-shadow: none;
+}
+
+
+/* =========================================================
+   RETRO — KALENDARZ
+========================================================= */
+
+body.retro .calendar-page {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 15px;
+}
+
+body.retro .calendar-header {
+    margin: 12px 0;
+
+    padding: 5px;
+
+    border-radius: 0;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+body.retro .month-title {
+    padding: 4px 20px;
+
+    background: #000080;
+
+    color: #fff;
+
+    font-size: 18px;
+}
+
+body.retro .calendar {
+    padding: 8px;
+
+    border-radius: 0;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+
+    box-shadow: 1px 1px 0 #808080;
+}
+
+body.retro .weekdays,
+body.retro .days {
+    gap: 3px;
+}
+
+body.retro .weekday {
+    padding: 6px;
+
+    border-radius: 0;
+
+    background: #000080;
+
+    color: #fff;
+}
+
+body.retro .day {
+    min-height: 75px;
+
+    padding: 5px;
+
+    border-radius: 0;
+
+    background: #fff;
+
+    border: 1px solid #808080;
+
+    color: #000;
+}
+
+body.retro .day:hover {
+    transform: none;
+
+    background: #000080;
+
+    color: #fff;
+}
+
+body.retro .day.empty {
+    background: #c0c0c0;
+}
+
+body.retro .today-day {
+    outline: 2px solid #000080;
+
+    background: #ffff00 !important;
+
+    color: #000 !important;
+}
+
+body.retro .event-day {
+    background: #ffffcc;
+}
+
+body.retro .holiday-day {
+    background: #ffe0e0;
+}
+
+body.retro .birthday-day {
+    background: #ffe0f0;
+}
+
+body.retro .special-day {
+    background: #e8ddff;
+}
+
+
+/* =========================================================
+   RETRO — KROPKI KALENDARZA
+========================================================= */
+
+body.retro .event-dot,
+body.retro .holiday-dot,
+body.retro .birthday-dot,
+body.retro .special-dot {
+    border-radius: 0;
+
+    border: 1px solid #000;
+}
+
+
+/* =========================================================
+   RETRO — INFORMACJE O WYDARZENIU
+========================================================= */
+
+body.retro .event-info {
+    padding: 0 15px 15px;
+
+    border-radius: 0;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+body.retro .event-info::before {
+    content: "📄 Informacje o wydarzeniu";
+
+    display: block;
+
+    margin: 0 -15px 12px;
+
+    padding: 4px 6px;
+
+    background: #000080;
+
+    color: #fff;
+
+    font-weight: bold;
+}
+
+body.retro .event-type {
+    padding: 3px 7px;
+
+    border-radius: 0;
+
+    border: 1px solid #000;
+
+    background: #fff;
+
+    color: #000;
+}
+
+
+/* =========================================================
+   RETRO — LEGENDA
+========================================================= */
+
+body.retro .legend {
+    padding: 0 15px 15px;
+
+    border-radius: 0;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+body.retro .legend::before {
+    content: "📌 Legenda";
+
+    display: block;
+
+    margin: 0 -15px 10px;
+
+    padding: 4px 6px;
+
+    background: #000080;
+
+    color: #fff;
+
+    font-weight: bold;
+}
+
+body.retro .legend-color {
+    border-radius: 0;
+
+    border: 1px solid #000;
+}
+
+
+/* =========================================================
+   RETRO — STATYSTYKI
+========================================================= */
+
+body.retro .stat-card {
+    text-align: center;
+}
+
+body.retro .stat-number {
+    display: block;
+
+    margin: 10px 0;
+
+    padding: 10px;
+
+    color: #000080;
+
+    background: #fff;
+
+    border-radius: 0;
+
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+
+    font-size: 32px;
+
+    text-shadow: none;
+}
+
+
+/* =========================================================
+   RETRO — FORMULARZE
+========================================================= */
+
+body.retro input,
+body.retro textarea,
+body.retro select {
+    width: 100%;
+
+    padding: 5px;
+
+    border-radius: 0;
+
+    background: #fff;
+
+    color: #000;
+
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+
+    outline: none;
+}
+
+body.retro input:focus,
+body.retro textarea:focus,
+body.retro select:focus {
+    outline: 1px dotted #000;
+
+    outline-offset: -3px;
+}
+
+
+/* =========================================================
+   RETRO — KONTAKT
+========================================================= */
+
+body.retro .contact-card {
+    max-width: 850px;
+
+    margin: 15px auto;
+
+    padding: 0 15px 15px;
+
+    border-radius: 0;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+
+    box-shadow: 2px 2px 0 #000;
+}
+
+body.retro .contact-button {
+    padding: 6px 12px;
+
+    border-radius: 0;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+body.retro .contact-button:hover {
+    transform: none;
+}
+
+body.retro .contact-item {
+    margin: 10px 0;
+
+    padding: 8px;
+
+    background: #fff;
+
+    border:
+        2px inset #808080;
+}
+
+
+/* =========================================================
+   RETRO — PRZEGLĄDARKA
+========================================================= */
+
+body.retro .browser-window {
+    max-width: 1100px;
+
+    margin: 15px auto;
+
+    border-radius: 0;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+
+    box-shadow: 2px 2px 0 #000;
+}
+
+body.retro .browser-title {
+    padding: 4px 7px;
+
+    background: #000080;
+
+    color: #fff;
+
+    font-weight: bold;
+}
+
+body.retro .browser-toolbar {
+    padding: 5px;
+
+    background: #c0c0c0;
+
+    border-bottom: 1px solid #808080;
+}
+
+body.retro .browser-address {
+    padding: 4px;
+
+    border-radius: 0;
+
+    background: #fff;
+
+    border: 2px inset #808080;
+}
+
+body.retro .browser-content {
+    min-height: 300px;
+
+    padding: 15px;
+
+    background: #fff;
+
+    color: #000;
+}
+
+
+/* =========================================================
+   RETRO — ADMINISTRACJA
+========================================================= */
+
+body.retro .admin-panel {
+    max-width: 1000px;
+
+    margin: 15px auto;
+
+    padding: 0 15px 15px;
+
+    border-radius: 0;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+
+    box-shadow: 2px 2px 0 #000;
+}
+
+body.retro .admin-warning {
+    padding: 10px;
+
+    margin: 10px 0;
+
+    border-radius: 0;
+
+    background: #ffff00;
+
+    border: 2px solid #000;
+
+    color: #000;
+}
+
+
+/* =========================================================
+   RETRO — HISTORIA
+========================================================= */
+
+body.retro .history-item {
+    margin: 10px 0;
+
+    padding: 10px;
+
+    border-radius: 0;
+
+    background: #fff;
+
+    border: 2px inset #808080;
+
+    color: #000;
+}
+
+body.retro .history-date {
+    color: #000080;
+}
+
+
+/* =========================================================
+   RETRO — STOPKA
+========================================================= */
+
+body.retro footer {
+    margin-top: 25px;
+
+    padding: 10px;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+
+    color: #000;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   RETRO — PASEK ZADAŃ
+========================================================= */
+
+body.retro .taskbar {
+    position: fixed;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 3px;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #fff;
+
+    z-index: 9999;
+}
+
+body.retro .start-button {
+    padding: 5px 10px;
+
+    font-weight: bold;
+}
+
+body.retro .clock {
+    margin-left: auto;
+
+    padding: 4px 8px;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+
+    color: #000;
+}
+
+
+/* =========================================================
+   RETRO — OKNA SYSTEMOWE
+========================================================= */
+
+body.retro .system-window {
+    width: min(500px, 90%);
+
+    margin: 20px auto;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+
+    box-shadow: 4px 4px 0 rgba(0,0,0,.4);
+
+    border-radius: 0;
+}
+
+body.retro .system-window-title {
+    background: #000080;
+
+    color: #fff;
+
+    padding: 4px 7px;
+
+    font-weight: bold;
+}
+
+body.retro .system-window-content {
+    padding: 15px;
+
+    color: #000;
+}
+
+
+/* =========================================================
+   RETRO — ALERTY
+========================================================= */
+
+body.retro .alert {
+    padding: 10px;
+
+    margin: 10px 0;
+
+    border-radius: 0;
+
+    background: #fff;
+
+    border: 2px inset #808080;
+
+    color: #000;
+}
+
+body.retro .alert-success {
+    background: #c0ffc0;
+}
+
+body.retro .alert-warning {
+    background: #ffff80;
+}
+
+body.retro .alert-danger {
+    background: #ff8080;
+}
+
+
+/* =========================================================
+   RETRO — IKONY PULPITU
+========================================================= */
+
+body.retro .desktop-icon {
+    width: 90px;
+
+    padding: 8px;
+
+    text-align: center;
+
+    color: #fff;
+
+    text-decoration: none;
+}
+
+body.retro .desktop-icon span {
+    display: block;
+
+    font-size: 32px;
+
+    margin-bottom: 4px;
+}
+
+body.retro .desktop-icon:hover {
+    background: #000080;
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   RETRO — WYŁĄCZENIE NOWOCZESNYCH ANIMACJI
+========================================================= */
+
+body.retro .event-day,
+body.retro .history-dot {
+    animation: none;
+}
+
+
+/* =========================================================
+   26. RESPONSYWNOŚĆ — NORMALNA
 ========================================================= */
 
 @media (max-width: 850px) {
@@ -840,19 +2553,15 @@ footer p {
     }
 
     .hero {
-        margin:
-            25px 12px;
+        margin: 25px 12px;
 
-        padding:
-            28px 18px;
+        padding: 28px 18px;
     }
 
     .section {
-        margin:
-            25px 0;
+        margin: 25px 0;
 
-        padding:
-            12px;
+        padding: 12px;
     }
 
     .info-grid {
@@ -867,7 +2576,6 @@ footer p {
         position: absolute;
 
         top: 15px;
-
         right: 15px;
     }
 
@@ -876,8 +2584,7 @@ footer p {
     }
 
     .league-ranking {
-        margin:
-            20px 12px;
+        margin: 20px 12px;
 
         padding: 16px;
     }
@@ -888,14 +2595,23 @@ footer p {
 
     .ranking-container th,
     .ranking-container td {
-        padding:
-            11px 9px;
+        padding: 11px 9px;
 
         font-size: 14px;
     }
 
     .contact-button {
         width: 100%;
+    }
+
+    .calendar-page {
+        padding: 12px;
+    }
+
+    .day {
+        min-height: 60px;
+
+        font-size: 12px;
     }
 }
 
@@ -909,1872 +2625,101 @@ footer p {
     nav a {
         font-size: 13px;
 
-        padding:
-            8px 10px;
+        padding: 8px 10px;
+    }
+
+    .day {
+        min-height: 50px;
+
+        padding: 3px;
+
+        font-size: 10px;
+    }
+
+    .weekday {
+        font-size: 9px;
+
+        padding: 5px 2px;
+    }
+
+    .today-label {
+        font-size: 7px;
     }
 }
 
 
-
-    background:
-        #c0c0c0;
-}
-
-
 /* =========================================================
-   KOLONIA PASJONATÓW
-   WINDOWS 95 / 98 RETRO SYSTEM
-   style.css
-========================================================= */
-
-
-/* =========================================================
-   RESET
-========================================================= */
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    min-height: 100%;
-}
-
-body {
-    margin: 0;
-    min-height: 100vh;
-
-    font-family:
-        "MS Sans Serif",
-        "Microsoft Sans Serif",
-        Tahoma,
-        Arial,
-        sans-serif;
-
-    font-size: 14px;
-
-    color: #000;
-
-    background:
-        #008080;
-
-    image-rendering: pixelated;
-
-    cursor: default;
-}
-
-
-/* =========================================================
-   LINKI
-========================================================= */
-
-a {
-    color: #000080;
-    text-decoration: underline;
-}
-
-a:visited {
-    color: #800080;
-}
-
-a:hover {
-    color: #ff0000;
-}
-
-
-/* =========================================================
-   GŁÓWNY KONTENER
-========================================================= */
-
-main {
-    width: 100%;
-}
-
-
-/* =========================================================
-   WINDOWS — GŁÓWNE OKNA
-========================================================= */
-
-.window,
-.card,
-.info-card,
-.section,
-.calendar,
-.legend,
-.event-info,
-.stat-card,
-.ranking-card,
-.hero,
-.panel {
-    background: #c0c0c0;
-
-    border-top:
-        2px solid #ffffff;
-
-    border-left:
-        2px solid #ffffff;
-
-    border-right:
-        2px solid #000000;
-
-    border-bottom:
-        2px solid #000000;
-
-    box-shadow:
-        1px 1px 0 #808080;
-
-    color: #000;
-}
-
-
-/* =========================================================
-   NAGŁÓWKI OKIEN
-========================================================= */
-
-.window-title,
-.card-title,
-.panel-title {
-    background:
-        #000080;
-
-    color:
-        #ffffff;
-
-    font-weight:
-        bold;
-
-    padding:
-        3px 6px;
-
-    min-height:
-        22px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
-
-    user-select:
-        none;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-    margin:
-        15px auto;
-
-    max-width:
-        1100px;
-
-    padding:
-        0 0 15px;
-
-    text-align:
-        left;
-}
-
-
-/* Pasek tytułu hero */
-
-.hero::before {
-    content:
-        "🌟 Kolonia Pasjonatów — Informacje";
-
-    display:
-        block;
-
-    background:
-        #000080;
-
-    color:
-        white;
-
-    font-weight:
-        bold;
-
-    padding:
-        4px 7px;
-
-    margin-bottom:
-        15px;
-}
-
-
-/* =========================================================
-   HERO TEKST
-========================================================= */
-
-.hero h1 {
-    margin:
-        10px 15px;
-
-    font-size:
-        24px;
-
-    color:
-        #000;
-}
-
-.hero p {
-    margin:
-        8px 15px;
-
-    line-height:
-        1.5;
-}
-
-
-/* =========================================================
-   NAGŁÓWEK STRONY
-========================================================= */
-
-header {
-    width:
-        100%;
-
-    min-height:
-        52px;
-
-    padding:
-        5px 8px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        12px;
-
-    background:
-        #c0c0c0;
-
-    border-top:
-        2px solid #ffffff;
-
-    border-left:
-        2px solid #ffffff;
-
-    border-bottom:
-        2px solid #000000;
-
-    border-right:
-        2px solid #000000;
-
-    position:
-        relative;
-
-    z-index:
-        100;
-}
-
-
-/* =========================================================
-   LOGO
-========================================================= */
-
-.logo {
-    background:
-        #000080;
-
-    color:
-        #ffffff;
-
-    padding:
-        5px 8px;
-
-    font-weight:
-        bold;
-
-    white-space:
-        nowrap;
-}
-
-
-/* =========================================================
-   NAWIGACJA
-========================================================= */
-
-nav {
-    display:
-        flex;
-
-    flex-wrap:
-        wrap;
-
-    gap:
-        4px;
-
-    flex:
-        1;
-}
-
-nav a {
-    display:
-        inline-block;
-
-    padding:
-        5px 8px;
-
-    color:
-        #000;
-
-    background:
-        #c0c0c0;
-
-    text-decoration:
-        none;
-
-    border-top:
-        2px solid #ffffff;
-
-    border-left:
-        2px solid #ffffff;
-
-    border-right:
-        2px solid #000000;
-
-    border-bottom:
-        2px solid #000000;
-}
-
-nav a:hover {
-    color:
-        #ffffff;
-
-    background:
-        #000080;
-}
-
-nav a:active {
-    border-top:
-        2px solid #000000;
-
-    border-left:
-        2px solid #000000;
-
-    border-right:
-        2px solid #ffffff;
-
-    border-bottom:
-        2px solid #ffffff;
-}
-
-
-/* =========================================================
-   PRZYCISKI
-========================================================= */
-
-button,
-.button,
-.home-button,
-.theme-button,
-.month-button,
-.today-button {
-    font-family:
-        "MS Sans Serif",
-        "Microsoft Sans Serif",
-        Tahoma,
-        Arial,
-        sans-serif;
-
-    font-size:
-        13px;
-
-    font-weight:
-        bold;
-
-    color:
-        #000;
-
-    background:
-        #c0c0c0;
-
-    border-top:
-        2px solid #ffffff;
-
-    border-left:
-        2px solid #ffffff;
-
-    border-right:
-        2px solid #000000;
-
-    border-bottom:
-        2px solid #000000;
-
-    padding:
-        5px 12px;
-
-    min-height:
-        28px;
-
-    cursor:
-        pointer;
-
-    text-decoration:
-        none;
-}
-
-button:hover,
-.button:hover,
-.home-button:hover,
-.theme-button:hover,
-.month-button:hover,
-.today-button:hover {
-    background:
-        #d4d4d4;
-}
-
-button:active,
-.button:active,
-.home-button:active,
-.theme-button:active,
-.month-button:active,
-.today-button:active {
-    border-top:
-        2px solid #000000;
-
-    border-left:
-        2px solid #000000;
-
-    border-right:
-        2px solid #ffffff;
-
-    border-bottom:
-        2px solid #ffffff;
-
-    padding-top:
-        6px;
-
-    padding-left:
-        13px;
-}
-
-
-/* =========================================================
-   SEKCJE
-========================================================= */
-
-.section {
-    max-width:
-        1100px;
-
-    margin:
-        15px auto;
-
-    padding:
-        0 15px 15px;
-}
-
-
-/* =========================================================
-   TYTUŁ SEKCJI
-========================================================= */
-
-.section-title {
-    margin:
-        0 -15px 15px;
-
-    padding:
-        5px 8px;
-
-    color:
-        #ffffff;
-
-    background:
-        #000080;
-
-    font-size:
-        16px;
-
-    font-weight:
-        bold;
-}
-
-
-/* =========================================================
-   SIATKI
-========================================================= */
-
-.info-grid {
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(250px, 1fr));
-
-    gap:
-        12px;
-}
-
-
-/* =========================================================
-   KARTY
-========================================================= */
-
-.info-card,
-.stat-card,
-.card {
-    padding:
-        0 12px 12px;
-}
-
-.info-card::before,
-.stat-card::before,
-.card::before {
-    content:
-        "▣";
-
-    display:
-        block;
-
-    background:
-        #000080;
-
-    color:
-        #ffffff;
-
-    padding:
-        3px 6px;
-
-    margin:
-        0 -12px 10px;
-
-    font-weight:
-        bold;
-}
-
-.info-card h2,
-.stat-card h2,
-.card h2 {
-    font-size:
-        16px;
-
-    margin:
-        8px 0;
-}
-
-.info-card p,
-.stat-card p,
-.card p {
-    line-height:
-        1.5;
-}
-
-
-/* =========================================================
-   STATUS
-========================================================= */
-
-.status {
-    display:
-        inline-block;
-
-    margin-top:
-        10px;
-
-    padding:
-        3px 7px;
-
-    background:
-        #ffffff;
-
-    border:
-        1px solid #000;
-
-    font-size:
-        12px;
-
-    font-weight:
-        bold;
-}
-
-
-/* =========================================================
-   KALENDARZ
-========================================================= */
-
-.calendar-page {
-    max-width:
-        1100px;
-
-    margin:
-        auto;
-
-    padding:
-        15px;
-}
-
-
-/* =========================================================
-   PASEK KALENDARZA
-========================================================= */
-
-.top-bar {
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    align-items:
-        center;
-
-    gap:
-        10px;
-
-    margin-bottom:
-        15px;
-}
-
-
-/* =========================================================
-   NAGŁÓWEK MIESIĄCA
-========================================================= */
-
-.calendar-header {
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    align-items:
-        center;
-
-    margin:
-        12px 0;
-
-    background:
-        #c0c0c0;
-
-    padding:
-        5px;
-
-    border-top:
-        2px solid #ffffff;
-
-    border-left:
-        2px solid #ffffff;
-
-    border-right:
-        2px solid #000000;
-
-    border-bottom:
-        2px solid #000000;
-}
-
-.month-title {
-    font-weight:
-        bold;
-
-    font-size:
-        18px;
-
-    color:
-        #ffffff;
-
-    background:
-        #000080;
-
-    padding:
-        4px 20px;
-}
-
-
-/* =========================================================
-   DZISIAJ
-========================================================= */
-
-.today-button {
-    display:
-        block;
-
-    margin:
-        10px auto;
-}
-
-
-/* =========================================================
-   KALENDARZ — SIATKA
-========================================================= */
-
-.calendar {
-    padding:
-        8px;
-}
-
-.weekdays,
-.days {
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(7, 1fr);
-
-    gap:
-        3px;
-}
-
-.weekday {
-    text-align:
-        center;
-
-    font-weight:
-        bold;
-
-    background:
-        #000080;
-
-    color:
-        #ffffff;
-
-    padding:
-        6px;
-}
-
-.day {
-    min-height:
-        75px;
-
-    padding:
-        5px;
-
-    background:
-        #ffffff;
-
-    border:
-        1px solid #808080;
-
-    cursor:
-        pointer;
-}
-
-.day:hover {
-    background:
-        #000080;
-
-    color:
-        #ffffff;
-}
-
-.day.empty {
-    background:
-        #c0c0c0;
-
-    cursor:
-        default;
-
-    opacity:
-        1;
-}
-
-.day-number {
-    font-weight:
-        bold;
-}
-
-
-/* =========================================================
-   DZISIAJ W KALENDARZU
-========================================================= */
-
-.today-day {
-    outline:
-        2px solid #000080;
-
-    background:
-        #ffff00 !important;
-
-    color:
-        #000 !important;
-}
-
-.today-label {
-    margin-top:
-        5px;
-
-    font-size:
-        10px;
-
-    font-weight:
-        bold;
-}
-
-
-/* =========================================================
-   WYDARZENIA
-========================================================= */
-
-.event-day {
-    background:
-        #ffffcc;
-}
-
-.event-dot,
-.holiday-dot,
-.birthday-dot,
-.special-dot {
-    width:
-        8px;
-
-    height:
-        8px;
-
-    margin-top:
-        7px;
-
-    border:
-        1px solid #000;
-}
-
-.event-dot {
-    background:
-        #ffff00;
-}
-
-.holiday-dot {
-    background:
-        #ff0000;
-}
-
-.birthday-dot {
-    background:
-        #ff69b4;
-}
-
-.special-dot {
-    background:
-        #800080;
-}
-
-
-/* =========================================================
-   ŚWIĘTA
-========================================================= */
-
-.holiday-day {
-    background:
-        #ffe0e0;
-}
-
-
-/* =========================================================
-   URODZINY
-========================================================= */
-
-.birthday-day {
-    background:
-        #ffe0f0;
-}
-
-
-/* =========================================================
-   SPECJALNE
-========================================================= */
-
-.special-day {
-    background:
-        #e8ddff;
-}
-
-
-/* =========================================================
-   INFORMACJE O WYDARZENIU
-========================================================= */
-
-.event-info {
-    margin-top:
-        15px;
-
-    padding:
-        0 15px 15px;
-}
-
-.event-info::before {
-    content:
-        "📄 Informacje o wydarzeniu";
-
-    display:
-        block;
-
-    background:
-        #000080;
-
-    color:
-        #ffffff;
-
-    padding:
-        4px 6px;
-
-    margin:
-        0 -15px 12px;
-
-    font-weight:
-        bold;
-}
-
-.event-info.active {
-    display:
-        block;
-}
-
-.event-type {
-    display:
-        inline-block;
-
-    padding:
-        3px 7px;
-
-    border:
-        1px solid #000;
-
-    background:
-        #ffffff;
-
-    font-weight:
-        bold;
-}
-
-.event-date {
-    font-weight:
-        bold;
-
-    margin:
-        8px 0;
-}
-
-
-/* =========================================================
-   LEGENDA
-========================================================= */
-
-.legend {
-    margin-top:
-        15px;
-
-    padding:
-        0 15px 15px;
-}
-
-.legend::before {
-    content:
-        "📌 Legenda";
-
-    display:
-        block;
-
-    margin:
-        0 -15px 10px;
-
-    padding:
-        4px 6px;
-
-    background:
-        #000080;
-
-    color:
-        #ffffff;
-
-    font-weight:
-        bold;
-}
-
-.legend-items {
-    display:
-        flex;
-
-    flex-wrap:
-        wrap;
-
-    gap:
-        12px;
-}
-
-.legend-item {
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        5px;
-}
-
-.legend-color {
-    width:
-        10px;
-
-    height:
-        10px;
-
-    border:
-        1px solid #000;
-}
-
-.legend-event {
-    background:
-        #ffff00;
-}
-
-.legend-holiday {
-    background:
-        #ff0000;
-}
-
-.legend-birthday {
-    background:
-        #ff69b4;
-}
-
-.legend-special {
-    background:
-        #800080;
-}
-
-.legend-today {
-    background:
-        #000080;
-}
-
-
-/* =========================================================
-   RANKING
-========================================================= */
-
-.ranking-card {
-    max-width:
-        1100px;
-
-    margin:
-        15px auto;
-
-    padding:
-        0 12px 12px;
-
-    overflow:
-        hidden;
-}
-
-.ranking-card table {
-    width:
-        100%;
-
-    border-collapse:
-        collapse;
-
-    background:
-        #ffffff;
-}
-
-.ranking-card th {
-    background:
-        #000080;
-
-    color:
-        #ffffff;
-
-    padding:
-        6px;
-
-    border:
-        1px solid #000;
-}
-
-.ranking-card td {
-    padding:
-        6px;
-
-    border:
-        1px solid #808080;
-}
-
-.ranking-card tr:nth-child(even) {
-    background:
-        #e0e0e0;
-}
-
-.ranking-card tr:hover {
-    background:
-        #ffff00;
-    color:
-        #000;
-}
-
-
-/* =========================================================
-   STATYSTYKI
-========================================================= */
-
-.stat-card {
-    text-align:
-        center;
-}
-
-.stat-number {
-    display:
-        block;
-
-    font-size:
-        32px;
-
-    font-weight:
-        bold;
-
-    color:
-        #000080;
-
-    background:
-        #ffffff;
-
-    border:
-        2px inset #808080;
-
-    padding:
-        10px;
-
-    margin:
-        10px 0;
-}
-
-
-/* =========================================================
-   FORMULARZE
-========================================================= */
-
-input,
-textarea,
-select {
-    width:
-        100%;
-
-    padding:
-        5px;
-
-    font-family:
-        "MS Sans Serif",
-        Tahoma,
-        Arial,
-        sans-serif;
-
-    font-size:
-        13px;
-
-    background:
-        #ffffff;
-
-    color:
-        #000;
-
-    border-top:
-        2px solid #808080;
-
-    border-left:
-        2px solid #808080;
-
-    border-right:
-        2px solid #ffffff;
-
-    border-bottom:
-        2px solid #ffffff;
-
-    outline:
-        none;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-    outline:
-        1px dotted #000;
-
-    outline-offset:
-        -3px;
-}
-
-textarea {
-    min-height:
-        120px;
-
-    resize:
-        vertical;
-}
-
-
-/* =========================================================
-   KONTAKT
-========================================================= */
-
-.contact-card {
-    max-width:
-        850px;
-
-    margin:
-        15px auto;
-
-    padding:
-        0 15px 15px;
-}
-
-.contact-item {
-    margin:
-        10px 0;
-
-    padding:
-        8px;
-
-    background:
-        #ffffff;
-
-    border:
-        2px inset #808080;
-}
-
-
-/* =========================================================
-   LINKI / PRZEGLĄDARKA
-========================================================= */
-
-.browser-window {
-    max-width:
-        1100px;
-
-    margin:
-        15px auto;
-
-    background:
-        #c0c0c0;
-
-    border-top:
-        2px solid #ffffff;
-
-    border-left:
-        2px solid #ffffff;
-
-    border-right:
-        2px solid #000000;
-
-    border-bottom:
-        2px solid #000000;
-}
-
-.browser-title {
-    background:
-        #000080;
-
-    color:
-        #ffffff;
-
-    padding:
-        4px 7px;
-
-    font-weight:
-        bold;
-}
-
-.browser-toolbar {
-    display:
-        flex;
-
-    gap:
-        5px;
-
-    padding:
-        5px;
-
-    background:
-        #c0c0c0;
-
-    border-bottom:
-        1px solid #808080;
-}
-
-.browser-address {
-    flex:
-        1;
-
-    background:
-        #ffffff;
-
-    border:
-        2px inset #808080;
-
-    padding:
-        4px;
-}
-
-.browser-content {
-    min-height:
-        300px;
-
-    padding:
-        15px;
-
-    background:
-        #ffffff;
-}
-
-
-/* =========================================================
-   ADMINISTRACJA
-========================================================= */
-
-.admin-panel {
-    max-width:
-        1000px;
-
-    margin:
-        15px auto;
-
-    padding:
-        0 15px 15px;
-}
-
-.admin-warning {
-    padding:
-        10px;
-
-    margin:
-        10px 0;
-
-    background:
-        #ffff00;
-
-    border:
-        2px solid #000;
-
-    font-weight:
-        bold;
-}
-
-
-/* =========================================================
-   HISTORIA
-========================================================= */
-
-.history-item {
-    margin:
-        10px 0;
-
-    padding:
-        10px;
-
-    background:
-        #ffffff;
-
-    border:
-        2px inset #808080;
-}
-
-.history-date {
-    font-weight:
-        bold;
-
-    color:
-        #000080;
-}
-
-
-/* =========================================================
-   STOPKA
-========================================================= */
-
-footer {
-    margin-top:
-        25px;
-
-    padding:
-        10px;
-
-    background:
-        #c0c0c0;
-
-    border-top:
-        2px solid #ffffff;
-
-    border-left:
-        2px solid #ffffff;
-
-    border-right:
-        2px solid #000000;
-
-    border-bottom:
-        2px solid #000000;
-
-    text-align:
-        center;
-
-    font-size:
-        12px;
-}
-
-footer p {
-    margin:
-        4px;
-}
-
-
-/* =========================================================
-   PASEK ZADAŃ — OPCJONALNY
-========================================================= */
-
-.taskbar {
-    position:
-        fixed;
-
-    bottom:
-        0;
-
-    left:
-        0;
-
-    right:
-        0;
-
-    height:
-        36px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        5px;
-
-    padding:
-        3px;
-
-    background:
-        #c0c0c0;
-
-    border-top:
-        2px solid #ffffff;
-
-    z-index:
-        9999;
-}
-
-.start-button {
-    font-weight:
-        bold;
-
-    padding:
-        5px 10px;
-}
-
-.clock {
-    margin-left:
-        auto;
-
-    padding:
-        4px 8px;
-
-    background:
-        #c0c0c0;
-
-    border-top:
-        2px solid #808080;
-
-    border-left:
-        2px solid #808080;
-
-    border-right:
-        2px solid #ffffff;
-
-    border-bottom:
-        2px solid #ffffff;
-}
-
-
-/* =========================================================
-   OKNA SYSTEMOWE
-========================================================= */
-
-.system-window {
-    width:
-        min(500px, 90%);
-
-    margin:
-        20px auto;
-
-    background:
-        #c0c0c0;
-
-    border-top:
-        2px solid #ffffff;
-
-    border-left:
-        2px solid #ffffff;
-
-    border-right:
-        2px solid #000000;
-
-    border-bottom:
-        2px solid #000000;
-
-    box-shadow:
-        4px 4px 0 rgba(0,0,0,.4);
-}
-
-.system-window-title {
-    background:
-        #000080;
-
-    color:
-        #ffffff;
-
-    padding:
-        4px 7px;
-
-    font-weight:
-        bold;
-}
-
-.system-window-content {
-    padding:
-        15px;
-}
-
-
-/* =========================================================
-   ALERT
-========================================================= */
-
-.alert {
-    padding:
-        10px;
-
-    margin:
-        10px 0;
-
-    background:
-        #ffffff;
-
-    border:
-        2px inset #808080;
-}
-
-.alert-success {
-    background:
-        #c0ffc0;
-}
-
-.alert-warning {
-    background:
-        #ffff80;
-}
-
-.alert-danger {
-    background:
-        #ff8080;
-}
-
-
-/* =========================================================
-   IKONY
-========================================================= */
-
-.desktop-icon {
-    width:
-        90px;
-
-    padding:
-        8px;
-
-    text-align:
-        center;
-
-    color:
-        #ffffff;
-
-    text-decoration:
-        none;
-
-    display:
-        inline-block;
-}
-
-.desktop-icon span {
-    display:
-        block;
-
-    font-size:
-        32px;
-
-    margin-bottom:
-        4px;
-}
-
-.desktop-icon:hover {
-    background:
-        #000080;
-
-    color:
-        #ffffff;
-}
-
-
-/* =========================================================
-   TRYB JASNY
-   nadal retro
-========================================================= */
-
-body.light {
-    background:
-        #008080;
-
-    color:
-        #000;
-}
-
-body.light header,
-body.light footer,
-body.light .card,
-body.light .info-card,
-body.light .section,
-body.light .calendar,
-body.light .legend,
-body.light .event-info,
-body.light .stat-card {
-    background:
-        #c0c0c0;
-}
-
-
-/* =========================================================
-   TRYB RETRO
-   WINDOWS 95 / 98
-========================================================= */
-
-body.retro {
-    background:
-        #008080;
-
-    color:
-        #000000;
-
-    font-family:
-        "MS Sans Serif",
-        "Microsoft Sans Serif",
-        Tahoma,
-        sans-serif;
-}
-
-
-/* Wszystkie okna */
-
-body.retro .window,
-body.retro .card,
-body.retro .info-card,
-body.retro .section,
-body.retro .calendar,
-body.retro .legend,
-body.retro .event-info,
-body.retro .stat-card,
-body.retro .ranking-card,
-body.retro .hero,
-body.retro .panel {
-    background:
-        #c0c0c0;
-
-    color:
-        #000000;
-
-    border-top:
-        2px solid #ffffff;
-
-    border-left:
-        2px solid #ffffff;
-
-    border-right:
-        2px solid #000000;
-
-    border-bottom:
-        2px solid #000000;
-
-    border-radius:
-        0;
-
-    box-shadow:
-        2px 2px 0 #000000;
-}
-
-
-/* Pasek tytułu */
-
-body.retro .section-title,
-body.retro .browser-title,
-body.retro .system-window-title,
-body.retro .panel-title {
-    background:
-        #000080;
-
-    color:
-        #ffffff;
-
-    border-radius:
-        0;
-}
-
-
-/* Usuwamy nowoczesne zaokrąglenia */
-
-body.retro button,
-body.retro .button,
-body.retro input,
-body.retro textarea,
-body.retro select,
-body.retro .home-button,
-body.retro .theme-button,
-body.retro .month-button,
-body.retro .today-button {
-    border-radius:
-        0;
-}
-
-
-/* =========================================================
-   RESPONSYWNOŚĆ
+   27. RESPONSYWNOŚĆ RETRO
 ========================================================= */
 
 @media (max-width: 700px) {
 
-    header {
-        flex-direction:
-            column;
+    body.retro header {
+        flex-direction: column;
 
-        align-items:
-            stretch;
+        align-items: stretch;
     }
 
-    .logo {
-        text-align:
-            center;
+    body.retro .logo {
+        text-align: center;
+
+        padding-right: 8px;
     }
 
-    nav {
-        justify-content:
-            center;
+    body.retro nav {
+        justify-content: center;
     }
 
-    nav a {
-        flex:
-            1;
+    body.retro nav a {
+        flex: 1;
 
-        text-align:
-            center;
+        text-align: center;
     }
 
-    .hero,
-    .section,
-    .ranking-card,
-    .browser-window,
-    .contact-card,
-    .admin-panel {
-        margin-left:
-            7px;
+    body.retro .hero,
+    body.retro .section,
+    body.retro .league-ranking,
+    body.retro .ranking-card,
+    body.retro .browser-window,
+    body.retro .contact-card,
+    body.retro .admin-panel {
+        margin-left: 7px;
 
-        margin-right:
-            7px;
+        margin-right: 7px;
     }
 
-    .calendar-page {
-        padding:
-            7px;
+    body.retro .calendar-page {
+        padding: 7px;
     }
 
-    .day {
-        min-height:
-            58px;
+    body.retro .day {
+        min-height: 58px;
 
-        font-size:
-            12px;
+        font-size: 12px;
     }
 
-    .weekday {
-        font-size:
-            11px;
+    body.retro .weekday {
+        font-size: 11px;
 
-        padding:
-            5px 2px;
+        padding: 5px 2px;
     }
 
-    .month-title {
-        font-size:
-            15px;
+    body.retro .month-title {
+        font-size: 15px;
 
-        padding:
-            4px 8px;
+        padding: 4px 8px;
     }
 
-    .top-bar {
-        flex-wrap:
-            wrap;
+    body.retro .top-bar {
+        flex-wrap: wrap;
     }
 
-    .info-grid {
-        grid-template-columns:
-            1fr;
+    body.retro .info-grid {
+        grid-template-columns: 1fr;
     }
-
 }
 
 
 /* =========================================================
-   BARDZO MAŁE TELEFONY
-========================================================= */
-
-@media (max-width: 420px) {
-
-    body {
-        font-size:
-            12px;
-    }
-
-    nav a {
-        font-size:
-            11px;
-
-        padding:
-            4px;
-    }
-
-    .day {
-        min-height:
-            50px;
-
-        padding:
-            3px;
-
-        font-size:
-            10px;
-    }
-
-    .weekday {
-        font-size:
-            9px;
-    }
-
-    .today-label {
-        font-size:
-            7px;
-    }
-
-}
-
-
-/* =========================================================
-   KONIEC SYSTEMU
+   KONIEC STYLE.CSS
 ========================================================= */
