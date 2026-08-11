@@ -1,6 +1,6 @@
 /* =========================================================
-   KOLONIA PASJONATÓW — WSPÓLNY STYLE.CSS
-   Każda podstrona ma własną klasę body.
+   KOLONIA PASJONATÓW
+   WSPÓLNY STYLE.CSS
 ========================================================= */
 
 
@@ -25,6 +25,16 @@ body {
         Helvetica,
         sans-serif;
 
+    color: #f5f5f5;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #252525 0%,
+            #121212 50%,
+            #080808 100%
+        );
+
     transition:
         background .3s ease,
         color .3s ease;
@@ -41,24 +51,7 @@ button {
 
 
 /* =========================================================
-   WSPÓLNY CIEMNY TRYB
-========================================================= */
-
-body {
-    color: #f5f5f5;
-
-    background:
-        radial-gradient(
-            circle at top,
-            #252525 0%,
-            #121212 50%,
-            #080808 100%
-        );
-}
-
-
-/* =========================================================
-   WSPÓLNY JASNY TRYB
+   JASNY TRYB
 ========================================================= */
 
 body.light {
@@ -75,39 +68,95 @@ body.light {
 
 
 /* =========================================================
-   WSPÓLNE MENU
+   HEADER
 ========================================================= */
 
-.top-nav {
+header {
+    position: relative;
+
     display: flex;
 
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
 
-    gap: 10px;
+    gap: 20px;
 
-    flex-wrap: wrap;
+    padding: 20px 30px;
 
-    padding: 20px;
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
+
+    background:
+        rgba(10,10,10,.55);
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 5px 25px rgba(0,0,0,.20);
+
+    z-index: 100;
 }
 
-.top-nav a {
+body.light header {
+    background:
+        rgba(255,255,255,.82);
+
+    border-bottom-color:
+        rgba(0,0,0,.08);
+
+    box-shadow:
+        0 5px 25px rgba(0,0,0,.08);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+    font-size: 20px;
+
+    font-weight: 900;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 0 15px rgba(255,193,7,.18);
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+nav {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+}
+
+nav a {
     display: inline-flex;
 
     align-items: center;
     justify-content: center;
 
-    padding: 11px 18px;
+    padding: 10px 14px;
 
-    border-radius: 14px;
-
-    background:
-        rgba(255,255,255,.07);
-
-    border:
-        1px solid rgba(255,255,255,.09);
+    border-radius: 13px;
 
     font-weight: 800;
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid rgba(255,255,255,.08);
 
     transition:
         transform .25s ease,
@@ -115,57 +164,49 @@ body.light {
         box-shadow .25s ease;
 }
 
-.top-nav a:hover,
-.top-nav a.active {
-    transform: translateY(-3px);
+nav a:hover {
+    transform:
+        translateY(-2px);
 
     background:
-        rgba(255,193,7,.13);
+        rgba(255,193,7,.12);
 
     box-shadow:
-        0 0 20px rgba(255,193,7,.25);
+        0 0 18px rgba(255,193,7,.20);
 }
 
-body.light .top-nav a {
+body.light nav a {
     background:
-        rgba(255,255,255,.8);
+        rgba(255,255,255,.9);
 
     border-color:
-        rgba(0,0,0,.08);
-
-    box-shadow:
-        0 0 10px rgba(255,193,7,.08);
+        #dedede;
 }
 
 
 /* =========================================================
-   PRZYCISK TRYBU
+   PRZYCISK JASNY / CIEMNY
 ========================================================= */
 
-.theme-button {
-    position: fixed;
-
-    top: 18px;
-    right: 18px;
-
+.theme-toggle {
     width: 45px;
     height: 45px;
 
-    border: 1px solid
-        rgba(255,193,7,.25);
+    flex-shrink: 0;
+
+    border:
+        1px solid rgba(255,193,7,.25);
 
     border-radius: 50%;
 
     background:
-        rgba(255,255,255,.08);
+        rgba(255,255,255,.07);
 
     color: inherit;
 
-    cursor: pointer;
-
     font-size: 19px;
 
-    z-index: 9999;
+    cursor: pointer;
 
     transition:
         transform .25s ease,
@@ -173,60 +214,133 @@ body.light .top-nav a {
         background .25s ease;
 }
 
-.theme-button:hover {
+.theme-toggle:hover {
     transform:
         scale(1.08)
         rotate(8deg);
 
     box-shadow:
-        0 0 22px rgba(255,193,7,.30);
+        0 0 25px rgba(255,193,7,.30);
 }
 
-body.light .theme-button {
+body.light .theme-toggle {
     background:
         rgba(255,255,255,.9);
 
-    color: #222;
-
     box-shadow:
-        0 0 15px rgba(255,193,7,.18);
+        0 0 18px rgba(255,193,7,.18);
 }
 
 
 /* =========================================================
-   STRONA GŁÓWNA
+   HERO
 ========================================================= */
 
-.page-home .hero {
+.hero {
     max-width: 1000px;
 
-    margin: 40px auto;
+    margin: 45px auto 30px;
 
-    padding: 20px;
+    padding: 35px 25px;
 
     text-align: center;
+
+    border-radius: 26px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.20);
 }
 
-.page-home .hero h1 {
-    font-size:
-        clamp(30px, 6vw, 52px);
+body.light .hero {
+    background:
+        rgba(255,255,255,.85);
 
-    margin-bottom: 12px;
+    border-color:
+        #dedede;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.07);
+}
+
+.hero h1 {
+    margin: 0 0 15px;
+
+    font-size:
+        clamp(32px, 6vw, 52px);
 
     text-shadow:
-        0 0 20px rgba(255,193,7,.15);
+        0 0 25px rgba(255,193,7,.18);
 }
 
-.page-home .hero p {
-    opacity: .7;
+.hero p {
+    max-width: 700px;
+
+    margin: auto;
+
+    line-height: 1.7;
+
+    opacity: .72;
 }
 
-.page-home .card {
-    max-width: 1000px;
 
-    margin: 20px auto;
+/* =========================================================
+   SEKCJE
+========================================================= */
+
+.section {
+    max-width: 1100px;
+
+    margin: 35px auto;
+
+    padding: 20px;
+}
+
+.section-title {
+    margin-bottom: 25px;
+
+    text-align: center;
+
+    font-size: 27px;
+
+    text-shadow:
+        0 0 18px rgba(255,193,7,.12);
+}
+
+
+/* =========================================================
+   SIATKA
+========================================================= */
+
+.info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   KARTY
+========================================================= */
+
+.info-card {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
 
     padding: 25px;
+
+    min-height: 230px;
 
     border-radius: 22px;
 
@@ -238,10 +352,124 @@ body.light .theme-button {
 
     box-shadow:
         0 8px 25px rgba(0,0,0,.18);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
 }
 
-.page-home.light .card {
-    background: #fff;
+.info-card:hover {
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 12px 35px rgba(255,193,7,.13);
+}
+
+body.light .info-card {
+    background:
+        #ffffff;
+
+    border-color:
+        #dedede;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.07);
+}
+
+body.light .info-card:hover {
+    box-shadow:
+        0 12px 30px rgba(255,193,7,.18);
+}
+
+.info-card h2 {
+    margin-top: 0;
+
+    font-size: 21px;
+}
+
+.info-card p {
+    line-height: 1.6;
+
+    opacity: .70;
+
+    flex: 1;
+}
+
+
+/* =========================================================
+   PRZYCISKI
+========================================================= */
+
+.button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 18px;
+
+    margin-top: 12px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffc107,
+            #ff9800
+        );
+
+    color: #171717;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 5px 18px rgba(255,193,7,.18);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        filter .25s ease;
+}
+
+.button:hover {
+    transform:
+        translateY(-3px)
+        scale(1.02);
+
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 8px 25px rgba(255,193,7,.35);
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 10px 14px;
+
+    margin-top: 12px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,193,7,.10);
+
+    border:
+        1px solid rgba(255,193,7,.20);
+
+    color: #ffc107;
+
+    font-weight: 800;
 }
 
 
@@ -249,184 +477,159 @@ body.light .theme-button {
    RANKING
 ========================================================= */
 
-.page-ranking {
-    padding-bottom: 40px;
-}
-
-.page-ranking .ranking-page {
+.league-ranking {
     max-width: 1000px;
 
-    margin: auto;
+    margin: 30px auto;
 
-    padding: 20px;
-}
+    padding: 25px;
 
-.page-ranking .ranking-title {
-    text-align: center;
-
-    margin: 30px 0;
-}
-
-.page-ranking .league {
-    margin: 25px 0;
-
-    padding: 22px;
-
-    border-radius: 22px;
+    border-radius: 24px;
 
     background:
         rgba(255,255,255,.055);
 
     border:
-        1px solid rgba(255,255,255,.08);
+        1px solid rgba(255,255,255,.09);
 
     box-shadow:
-        0 8px 25px rgba(0,0,0,.18);
-}
-
-body.light.page-ranking .league {
-    background: #fff;
-
-    border-color: #ddd;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.08);
-}
-
-.page-ranking .rank-row {
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    padding: 13px;
-
-    margin: 7px 0;
-
-    border-radius: 13px;
-
-    background:
-        rgba(255,255,255,.05);
+        0 10px 30px rgba(0,0,0,.25);
 
     transition:
-        transform .2s ease,
-        box-shadow .2s ease;
+        background .3s ease,
+        box-shadow .3s ease,
+        transform .25s ease;
 }
 
-.page-ranking .rank-row:hover {
-    transform: translateX(4px);
-
-    box-shadow:
-        0 0 16px rgba(255,193,7,.15);
-}
-
-body.light.page-ranking .rank-row {
-    background:
-        #f5f5f5;
-}
-
-.page-ranking .place {
-    min-width: 30px;
-
-    font-weight: 900;
-}
-
-.page-ranking .gold {
-    box-shadow:
-        0 0 18px rgba(255,193,7,.28);
-}
-
-.page-ranking .silver {
-    box-shadow:
-        0 0 18px rgba(190,190,190,.22);
-}
-
-.page-ranking .bronze {
-    box-shadow:
-        0 0 18px rgba(180,100,40,.25);
-}
-
-
-/* =========================================================
-   LINKI
-========================================================= */
-
-.page-links .links-page {
-    max-width: 900px;
-
-    margin: auto;
-
-    padding: 20px;
-}
-
-.page-links .links-title {
-    text-align: center;
-
-    margin: 35px 0;
-}
-
-.page-links .channel-card {
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 15px;
-
-    padding: 20px;
-
-    margin: 15px 0;
-
-    border-radius: 20px;
-
-    background:
-        rgba(255,255,255,.055);
-
-    border:
-        1px solid rgba(255,255,255,.08);
-
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
-}
-
-.page-links .channel-card:hover {
+.league-ranking:hover {
     transform:
-        translateY(-3px);
+        translateY(-2px);
 
     box-shadow:
-        0 0 22px rgba(255,193,7,.16);
+        0 12px 35px rgba(255,193,7,.12);
 }
 
-body.light.page-links .channel-card {
-    background: #fff;
+body.light .league-ranking {
+    background:
+        #ffffff;
 
-    border-color: #ddd;
+    border-color:
+        #dddddd;
 
     box-shadow:
-        0 6px 20px rgba(0,0,0,.08);
+        0 10px 30px rgba(0,0,0,.08);
 }
 
-.page-links .channel-button {
-    padding: 11px 17px;
+.league-ranking h2 {
+    margin: 0 0 20px;
 
-    border-radius: 13px;
+    text-align: center;
 
-    background: #ff0000;
+    font-size: 24px;
 
-    color: #fff;
+    text-shadow:
+        0 0 15px rgba(255,193,7,.12);
+}
+
+.ranking-container {
+    width: 100%;
+
+    overflow-x: auto;
+
+    border-radius: 16px;
+}
+
+.ranking-container table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.ranking-container th {
+    padding: 14px 12px;
+
+    text-align: left;
+
+    background:
+        rgba(255,193,7,.12);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.10);
 
     font-weight: 800;
-
-    transition: .25s;
 }
 
-.page-links .channel-button:hover {
-    transform: scale(1.05);
+.ranking-container td {
+    padding: 14px 12px;
 
-    box-shadow:
-        0 0 20px rgba(255,0,0,.30);
+    border-bottom:
+        1px solid rgba(255,255,255,.06);
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition:
+        background .2s ease;
+}
+
+.ranking-container tr:last-child td {
+    border-bottom: none;
+}
+
+.ranking-container tbody tr:hover td {
+    background:
+        rgba(255,193,7,.07);
+}
+
+body.light .ranking-container th {
+    background:
+        rgba(255,193,7,.13);
+
+    border-bottom-color:
+        #e5e5e5;
+}
+
+body.light .ranking-container td {
+    background:
+        #fafafa;
+
+    border-bottom-color:
+        #e8e8e8;
+}
+
+body.light .ranking-container tbody tr:hover td {
+    background:
+        rgba(255,193,7,.10);
+}
+
+
+/* MEDALE */
+
+.ranking-container tbody tr:nth-child(1) td:first-child {
+    color: #ffd700;
+
+    font-weight: 900;
+
+    text-shadow:
+        0 0 12px rgba(255,215,0,.35);
+}
+
+.ranking-container tbody tr:nth-child(2) td:first-child {
+    color: #cfcfcf;
+
+    font-weight: 900;
+
+    text-shadow:
+        0 0 12px rgba(210,210,210,.30);
+}
+
+.ranking-container tbody tr:nth-child(3) td:first-child {
+    color: #cd7f32;
+
+    font-weight: 900;
+
+    text-shadow:
+        0 0 12px rgba(205,127,50,.30);
 }
 
 
@@ -434,7 +637,7 @@ body.light.page-links .channel-card {
    KONTAKT
 ========================================================= */
 
-.page-contact .contact-page {
+.contact-page {
     max-width: 1000px;
 
     margin: auto;
@@ -442,17 +645,7 @@ body.light.page-links .channel-card {
     padding: 20px;
 }
 
-.page-contact .hero {
-    text-align: center;
-
-    margin: 30px 0 35px;
-}
-
-.page-contact .hero p {
-    opacity: .7;
-}
-
-.page-contact .contact-list {
+.contact-list {
     display: flex;
 
     flex-direction: column;
@@ -460,7 +653,7 @@ body.light.page-links .channel-card {
     gap: 20px;
 }
 
-.page-contact .contact-card {
+.contact-card {
     padding: 25px;
 
     border-radius: 22px;
@@ -473,21 +666,9 @@ body.light.page-links .channel-card {
 
     box-shadow:
         0 8px 25px rgba(0,0,0,.18);
-
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
 }
 
-.page-contact .contact-card:hover {
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 0 25px rgba(255,193,7,.15);
-}
-
-body.light.page-contact .contact-card {
+body.light .contact-card {
     background: #fff;
 
     border-color: #ddd;
@@ -496,7 +677,7 @@ body.light.page-contact .contact-card {
         0 8px 25px rgba(0,0,0,.08);
 }
 
-.page-contact .contact-button {
+.contact-button {
     display: inline-flex;
 
     align-items: center;
@@ -515,13 +696,13 @@ body.light.page-contact .contact-card {
     transition: .25s;
 }
 
-.page-contact .contact-button:hover {
+.contact-button:hover {
     transform:
         translateY(-3px)
         scale(1.02);
 }
 
-.page-contact .discord-button {
+.discord-button {
     background: #5865F2;
 
     color: #fff;
@@ -530,12 +711,12 @@ body.light.page-contact .contact-card {
         0 0 15px rgba(88,101,242,.20);
 }
 
-.page-contact .discord-button:hover {
+.discord-button:hover {
     box-shadow:
         0 0 30px rgba(88,101,242,.45);
 }
 
-.page-contact .email-button {
+.email-button {
     background:
         rgba(255,193,7,.15);
 
@@ -543,12 +724,7 @@ body.light.page-contact .contact-card {
         1px solid rgba(255,193,7,.35);
 }
 
-.page-contact .email-button:hover {
-    box-shadow:
-        0 0 25px rgba(255,193,7,.30);
-}
-
-.page-contact .disabled-button {
+.disabled-button {
     opacity: .45;
 
     cursor: not-allowed;
@@ -558,7 +734,7 @@ body.light.page-contact .contact-card {
     color: #fff;
 }
 
-.page-contact .contact-note {
+.contact-note {
     margin-top: 10px;
 
     opacity: .6;
@@ -568,88 +744,48 @@ body.light.page-contact .contact-card {
 
 
 /* =========================================================
-   KALENDARZ
-   — osobna przestrzeń, nie nadpisujemy jego wyglądu
+   FOOTER
 ========================================================= */
 
-.page-calendar {
-    padding-bottom: 40px;
+footer {
+    margin-top: 50px;
+
+    padding: 25px 20px;
+
+    text-align: center;
+
+    border-top:
+        1px solid rgba(255,255,255,.07);
+
+    background:
+        rgba(0,0,0,.20);
+
+    opacity: .8;
 }
 
-.page-calendar .theme-button {
-    box-shadow:
-        0 0 18px rgba(255,193,7,.25);
+body.light footer {
+    background:
+        rgba(255,255,255,.6);
+
+    border-top-color:
+        #ddd;
 }
 
-body.light.page-calendar .theme-button {
-    box-shadow:
-        0 0 20px rgba(255,193,7,.30);
+footer p {
+    margin: 6px 0;
 }
 
 
 /* =========================================================
-   HISTORIA
-   — zachowanie własnego wyglądu
+   POŚWIATA DLA DZIAŁAJĄCYCH PODSTRON
+   Nie zmieniamy ich głównego układu.
 ========================================================= */
 
-.page-history {
-    padding-bottom: 40px;
+.event-day,
+.history-dot {
+    animation:
+        goldenGlow 2.5s ease-in-out infinite;
 }
-
-.page-history .theme-button {
-    box-shadow:
-        0 0 18px rgba(255,193,7,.25);
-}
-
-body.light.page-history .theme-button {
-    box-shadow:
-        0 0 20px rgba(255,193,7,.30);
-}
-
-
-/* =========================================================
-   KOLONIARZ
-   — zachowanie własnego wyglądu
-========================================================= */
-
-.page-koloniarz {
-    padding-bottom: 40px;
-}
-
-.page-koloniarz .theme-button {
-    box-shadow:
-        0 0 18px rgba(255,193,7,.25);
-}
-
-body.light.page-koloniarz .theme-button {
-    box-shadow:
-        0 0 20px rgba(255,193,7,.30);
-}
-
-
-/* =========================================================
-   ADMINISTRACJA
-   — zachowanie własnego wyglądu
-========================================================= */
-
-.page-admin {
-    padding-bottom: 40px;
-}
-
-.page-admin .theme-button {
-    box-shadow:
-        0 0 18px rgba(255,193,7,.25);
-}
-
-body.light.page-admin .theme-button {
-    box-shadow:
-        0 0 20px rgba(255,193,7,.30);
-}
-
-
-/* =========================================================
-   ANIMACJA GLOW
-========================================================= */
 
 @keyframes goldenGlow {
 
@@ -663,76 +799,117 @@ body.light.page-admin .theme-button {
     }
 }
 
-.page-ranking .gold,
-.page-calendar .event-day,
-.page-history .history-dot {
-    animation:
-        goldenGlow 2.5s ease-in-out infinite;
-}
-
 
 /* =========================================================
    TELEFONY
 ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 850px) {
 
-    .top-nav {
-        gap: 7px;
+    header {
+        flex-wrap: wrap;
 
-        padding: 14px;
+        justify-content: center;
+
+        padding: 18px;
     }
 
-    .top-nav a {
-        padding: 9px 12px;
+    .info-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+
+        gap: 14px;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav a {
+        flex: 1;
+
+        min-width: 130px;
+    }
+
+    .hero {
+        margin:
+            25px 12px;
+
+        padding:
+            28px 18px;
+    }
+
+    .section {
+        margin:
+            25px 0;
+
+        padding:
+            12px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-card {
+        min-height: auto;
+    }
+
+    .theme-toggle {
+        position: absolute;
+
+        top: 15px;
+
+        right: 15px;
+    }
+
+    .logo {
+        padding-right: 50px;
+    }
+
+    .league-ranking {
+        margin:
+            20px 12px;
+
+        padding: 16px;
+    }
+
+    .league-ranking h2 {
+        font-size: 20px;
+    }
+
+    .ranking-container th,
+    .ranking-container td {
+        padding:
+            11px 9px;
 
         font-size: 14px;
     }
 
-    .theme-button {
-        width: 42px;
-        height: 42px;
-
-        top: 12px;
-        right: 12px;
-    }
-
-    .page-home .card,
-    .page-ranking .league,
-    .page-contact .contact-card {
-        margin-left: 12px;
-        margin-right: 12px;
-    }
-
-    .page-links .channel-card {
-        flex-direction: column;
-
-        text-align: center;
-    }
-
-    .page-links .channel-button {
-        width: 100%;
-    }
-
-    .page-contact .contact-button {
+    .contact-button {
         width: 100%;
     }
 }
 
 
-/* =========================================================
-   BARDZO MAŁE TELEFONY
-========================================================= */
-
 @media (max-width: 400px) {
 
-    .top-nav {
+    nav {
         gap: 5px;
     }
 
-    .top-nav a {
+    nav a {
         font-size: 13px;
 
-        padding: 8px 10px;
+        padding:
+            8px 10px;
     }
 }
