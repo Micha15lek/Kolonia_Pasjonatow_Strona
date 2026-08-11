@@ -19,14 +19,32 @@
     </div>
 
     <nav>
-        <a href="index.html">🏠 Strona główna</a>
-        <a href="ranking.html">🏆 Ranking</a>
-        <a href="linki.html">🔗 Linki</a>
-        <a href="kontakt.html">📧 Kontakt</a>
+
+        <a href="index.html">
+            🏠 Strona główna
+        </a>
+
+        <a href="ranking.html">
+            🏆 Ranking
+        </a>
+
+        <a href="linki.html">
+            🔗 Linki
+        </a>
+
+        <a href="kontakt.html">
+            📧 Kontakt
+        </a>
+
     </nav>
 
-    <button id="themeToggle" class="theme-toggle">
+    <button
+        id="themeToggle"
+        class="theme-toggle"
+        type="button">
+
         🌙
+
     </button>
 
 </header>
@@ -39,7 +57,9 @@
 
     <section class="hero">
 
-        <h1>🌟 Kolonia Pasjonatów</h1>
+        <h1>
+            🌟 Kolonia Pasjonatów
+        </h1>
 
         <p>
             Oficjalna strona naszej społeczności.
@@ -65,7 +85,9 @@
 
             <article class="info-card">
 
-                <h2>💬 Serwer Discord</h2>
+                <h2>
+                    💬 Serwer Discord
+                </h2>
 
                 <p>
                     Oficjalne centrum naszej społeczności.
@@ -75,7 +97,7 @@
                 <a
                     href="https://discord.gg/886u97g22Q"
                     target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                     class="button">
 
                     💬 Dołącz na Discord
@@ -89,7 +111,9 @@
 
             <article class="info-card">
 
-                <h2>📱 Kanał WhatsApp</h2>
+                <h2>
+                    📱 Kanał WhatsApp
+                </h2>
 
                 <p>
                     Kanał WhatsApp jest obecnie
@@ -107,7 +131,9 @@
 
             <article class="info-card">
 
-                <h2>🤖 Bot Koloniarz</h2>
+                <h2>
+                    🤖 Bot Koloniarz
+                </h2>
 
                 <p>
                     Własny bot Kolonii Pasjonatów,
@@ -145,7 +171,9 @@
 
             <article class="info-card">
 
-                <h2>📅 Kalendarz</h2>
+                <h2>
+                    📅 Kalendarz
+                </h2>
 
                 <p>
                     Sprawdź nadchodzące wydarzenia,
@@ -167,7 +195,9 @@
 
             <article class="info-card">
 
-                <h2>📜 Historia</h2>
+                <h2>
+                    📜 Historia
+                </h2>
 
                 <p>
                     Poznaj najważniejsze wydarzenia
@@ -189,7 +219,9 @@
 
             <article class="info-card">
 
-                <h2>👥 Administracja</h2>
+                <h2>
+                    👥 Administracja
+                </h2>
 
                 <p>
                     Sprawdź aktualny skład administracji
@@ -228,54 +260,90 @@
 </footer>
 
 
+<!-- =====================================================
+     TRYB CIEMNY / JASNY / RETRO
+===================================================== -->
+
 <script>
 
 const themeToggle =
     document.getElementById("themeToggle");
 
+
 const savedTheme =
-    localStorage.getItem("theme");
+    localStorage.getItem("theme") || "dark";
 
 
-if (savedTheme === "light") {
+function applyTheme(theme) {
 
-    document.body.classList.add("light");
+    document.body.classList.remove(
+        "light",
+        "retro"
+    );
 
-    themeToggle.textContent = "☀️";
+
+    if (theme === "light") {
+
+        document.body.classList.add("light");
+
+        themeToggle.textContent = "☀️";
+
+    }
+
+    else if (theme === "retro") {
+
+        document.body.classList.add("retro");
+
+        themeToggle.textContent = "💾";
+
+    }
+
+    else {
+
+        themeToggle.textContent = "🌙";
+
+    }
+
+
+    localStorage.setItem(
+        "theme",
+        theme
+    );
 
 }
 
 
+applyTheme(savedTheme);
+
+
 themeToggle.addEventListener("click", () => {
 
-    document.body.classList.toggle("light");
+    const current =
+        localStorage.getItem("theme") || "dark";
 
 
-    if (
-        document.body.classList.contains("light")
-    ) {
+    if (current === "dark") {
 
-        localStorage.setItem(
-            "theme",
-            "light"
-        );
+        applyTheme("light");
 
-        themeToggle.textContent = "☀️";
+    }
 
-    } else {
+    else if (current === "light") {
 
-        localStorage.setItem(
-            "theme",
-            "dark"
-        );
+        applyTheme("retro");
 
-        themeToggle.textContent = "🌙";
+    }
+
+    else {
+
+        applyTheme("dark");
 
     }
 
 });
 
 </script>
+
 
 </body>
 
