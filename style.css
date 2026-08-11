@@ -915,215 +915,280 @@ footer p {
 }
 
 
-/* =========================================================
-   💾 RETRO MODE — KOLONIA PASJONATÓW
-   Styl Windows 95 / 98 / klasyczne strony WWW
-========================================================= */
-
-body.retro {
-
-    margin: 0;
-
-    color: #000000;
 
     background:
-        #008080;
-
-    font-family:
-        "MS Sans Serif",
-        "Arial",
-        sans-serif;
-
-    font-size: 14px;
-
-    image-rendering: pixelated;
+        #c0c0c0;
 }
 
 
-/* =========================================================
-   GŁÓWNE ELEMENTY — OKNA WINDOWS
-========================================================= */
+/* =====================================================
+   💾 TRYB RETRO — WINDOWS 95 / 98
+===================================================== */
 
-body.retro header,
-body.retro .hero,
-body.retro .section,
-body.retro .info-card,
-body.retro .league-ranking,
-body.retro .contact-card,
-body.retro .calendar,
-body.retro .legend,
-body.retro .event-info,
-body.retro .history-card,
-body.retro .admin-section,
-body.retro .koloniarz-card {
+body.retro {
+
+    /* Klasyczne tło Windows 95/98 */
+    background:
+        #008080;
+
+    color:
+        #000;
+
+    font-family:
+        "MS Sans Serif",
+        "Microsoft Sans Serif",
+        Arial,
+        sans-serif;
+
+}
+
+
+/* =====================================================
+   GÓRNY PASEK
+===================================================== */
+
+body.retro header {
 
     background:
         #c0c0c0;
 
     color:
-        #000000;
+        #000;
 
     border:
-        2px outset #ffffff;
+        2px solid #fff;
 
-    border-radius:
-        0;
+    border-right-color:
+        #404040;
+
+    border-bottom-color:
+        #404040;
 
     box-shadow:
-        3px 3px 0 #000000;
+        2px 2px 0 #000;
 
-    backdrop-filter:
-        none;
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
-
-body.retro header {
-
-    margin:
-        8px;
-
-    padding:
-        7px 10px;
-
-    border:
-        2px outset #ffffff;
-
-    background:
-        #c0c0c0;
-}
-
-
-/* =========================================================
+/* =====================================================
    LOGO
-========================================================= */
+===================================================== */
 
 body.retro .logo {
 
     color:
-        #000080;
-
-    font-family:
-        "Courier New",
-        monospace;
-
-    font-size:
-        20px;
+        #000;
 
     font-weight:
-        bold;
+        900;
 
     text-shadow:
         none;
+
 }
 
 
-/* =========================================================
-   MENU
-========================================================= */
-
-body.retro nav {
-
-    gap:
-        4px;
-}
+/* =====================================================
+   NAWIGACJA
+===================================================== */
 
 body.retro nav a {
 
-    padding:
-        6px 12px;
-
-    border:
-        2px outset #ffffff;
-
-    border-radius:
-        0;
+    color:
+        #000;
 
     background:
         #c0c0c0;
 
-    color:
-        #000000;
+    border:
+        2px solid #fff;
 
-    font-family:
-        Arial,
-        sans-serif;
+    border-right-color:
+        #404040;
 
-    font-size:
-        13px;
+    border-bottom-color:
+        #404040;
 
-    font-weight:
-        bold;
+    border-radius:
+        0;
 
     box-shadow:
-        none;
+        1px 1px 0 #000;
+
 }
 
+
 body.retro nav a:hover {
+
+    background:
+        #000080;
+
+    color:
+        #fff;
 
     transform:
         none;
 
-    background:
-        #000080;
-
-    color:
-        #ffffff;
-
-    box-shadow:
-        none;
-}
-
-body.retro nav a:active {
-
-    border:
-        2px inset #ffffff;
-
-    padding:
-        7px 11px 5px 13px;
 }
 
 
-/* =========================================================
+/* =====================================================
    PRZYCISK MOTYWU
-========================================================= */
+===================================================== */
 
-body.retro .theme-toggle,
-body.retro .theme-button {
-
-    width:
-        42px;
-
-    height:
-        30px;
-
-    padding:
-        2px;
-
-    border:
-        2px outset #ffffff;
-
-    border-radius:
-        0;
+body.retro .theme-toggle {
 
     background:
         #c0c0c0;
 
     color:
-        #000000;
+        #000;
+
+    border:
+        2px solid #fff;
+
+    border-right-color:
+        #404040;
+
+    border-bottom-color:
+        #404040;
+
+    border-radius:
+        0;
+
+    box-shadow:
+        1px 1px 0 #000;
+
+}
+
+
+body.retro .theme-toggle:active {
+
+    border:
+        2px solid #404040;
+
+    border-right-color:
+        #fff;
+
+    border-bottom-color:
+        #fff;
 
     box-shadow:
         none;
 
-    font-size:
-        16px;
 }
 
-body.retro .theme-toggle:hover,
-body.retro .theme-button:hover {
+
+/* =====================================================
+   HERO
+===================================================== */
+
+body.retro .hero {
+
+    background:
+        #c0c0c0;
+
+    color:
+        #000;
+
+    border:
+        2px solid #fff;
+
+    border-right-color:
+        #404040;
+
+    border-bottom-color:
+        #404040;
+
+    border-radius:
+        0;
+
+    box-shadow:
+        3px 3px 0 #000;
+
+}
+
+
+body.retro .hero h1 {
+
+    color:
+        #000080;
+
+    text-shadow:
+        none;
+
+}
+
+
+/* =====================================================
+   SEKCJE
+===================================================== */
+
+body.retro .section {
+
+    background:
+        transparent;
+
+}
+
+
+body.retro .section-title {
+
+    color:
+        #fff;
+
+    background:
+        #000080;
+
+    padding:
+        6px 10px;
+
+    border:
+        2px solid #fff;
+
+    border-right-color:
+        #404040;
+
+    border-bottom-color:
+        #404040;
+
+    border-radius:
+        0;
+
+}
+
+
+/* =====================================================
+   KARTY
+===================================================== */
+
+body.retro .info-card {
+
+    background:
+        #c0c0c0;
+
+    color:
+        #000;
+
+    border:
+        2px solid #fff;
+
+    border-right-color:
+        #404040;
+
+    border-bottom-color:
+        #404040;
+
+    border-radius:
+        0;
+
+    box-shadow:
+        3px 3px 0 #000;
+
+}
+
+
+body.retro .info-card:hover {
 
     transform:
         none;
@@ -1131,803 +1196,412 @@ body.retro .theme-button:hover {
     filter:
         none;
 
-    box-shadow:
-        none;
-}
-
-body.retro .theme-toggle:active,
-body.retro .theme-button:active {
-
-    border:
-        2px inset #ffffff;
 }
 
 
-/* =========================================================
-   HERO — OKNO TYPU WINDOWS
-========================================================= */
-
-body.retro .hero {
-
-    position:
-        relative;
-
-    margin:
-        20px auto;
-
-    padding:
-        35px 20px 20px;
-
-    max-width:
-        900px;
-
-    text-align:
-        center;
-}
-
-
-/* Pasek tytułowy */
-
-body.retro .hero::before {
-
-    content:
-        "Kolonia Pasjonatów";
-
-    position:
-        absolute;
-
-    top:
-        3px;
-
-    left:
-        3px;
-
-    right:
-        3px;
-
-    height:
-        24px;
-
-    padding-left:
-        7px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    background:
-        #000080;
-
-    color:
-        #ffffff;
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size:
-        13px;
-
-    font-weight:
-        bold;
-
-    text-align:
-        left;
-}
-
-
-body.retro .hero h1 {
-
-    margin-top:
-        5px;
-
-    color:
-        #000080;
-
-    font-family:
-        "Times New Roman",
-        serif;
-
-    font-size:
-        34px;
-
-    text-shadow:
-        none;
-}
-
-
-body.retro .hero p {
-
-    color:
-        #000000;
-
-    opacity:
-        1;
-
-    line-height:
-        1.5;
-}
-
-
-/* =========================================================
-   SEKCJE
-========================================================= */
-
-body.retro .section {
-
-    max-width:
-        900px;
-
-    margin:
-        20px auto;
-
-    padding:
-        15px;
-}
-
-body.retro .section-title {
-
-    color:
-        #000080;
-
-    font-family:
-        "Times New Roman",
-        serif;
-
-    text-decoration:
-        underline;
-
-    text-shadow:
-        none;
-}
-
-
-/* =========================================================
-   KARTY
-========================================================= */
-
-body.retro .info-card {
-
-    min-height:
-        180px;
-
-    padding:
-        15px;
-
-    color:
-        #000000;
-}
+/* =====================================================
+   NAGŁÓWKI KART
+===================================================== */
 
 body.retro .info-card h2 {
 
     color:
         #000080;
 
-    text-decoration:
-        underline;
+    border-bottom:
+        1px solid #808080;
+
+    padding-bottom:
+        5px;
+
 }
 
-body.retro .info-card p {
 
-    opacity:
-        1;
+/* =====================================================
+   TEKST
+===================================================== */
+
+body.retro p {
+
+    color:
+        #000;
+
 }
 
 
-/* =========================================================
+body.retro strong {
+
+    color:
+        #000080;
+
+}
+
+
+/* =====================================================
    PRZYCISKI
-========================================================= */
+===================================================== */
 
-body.retro .button,
-body.retro .home-button,
-body.retro .month-button,
-body.retro .today-button {
+body.retro .button {
 
-    padding:
-        6px 14px;
-
-    border:
-        2px outset #ffffff;
-
-    border-radius:
-        0;
+    display:
+        inline-block;
 
     background:
         #c0c0c0;
 
     color:
-        #000000;
+        #000;
+
+    border:
+        2px solid #fff;
+
+    border-right-color:
+        #404040;
+
+    border-bottom-color:
+        #404040;
+
+    border-radius:
+        0;
 
     box-shadow:
+        1px 1px 0 #000;
+
+    text-decoration:
         none;
 
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-weight:
-        bold;
 }
 
-body.retro .button:hover,
-body.retro .home-button:hover,
-body.retro .month-button:hover,
-body.retro .today-button:hover {
+
+body.retro .button:hover {
+
+    background:
+        #000080;
+
+    color:
+        #fff;
 
     transform:
         none;
 
-    filter:
-        none;
+}
 
-    background:
-        #000080;
 
-    color:
-        #ffffff;
+body.retro .button:active {
+
+    border:
+        2px solid #404040;
+
+    border-right-color:
+        #fff;
+
+    border-bottom-color:
+        #fff;
 
     box-shadow:
         none;
-}
 
-body.retro .button:active,
-body.retro .home-button:active,
-body.retro .month-button:active,
-body.retro .today-button:active {
-
-    border:
-        2px inset #ffffff;
 }
 
 
-/* =========================================================
+/* =====================================================
    STATUS
-========================================================= */
+===================================================== */
 
 body.retro .status {
 
-    padding:
-        5px 10px;
-
-    border:
-        2px inset #ffffff;
-
-    border-radius:
-        0;
-
     background:
         #ffff00;
 
     color:
-        #000000;
+        #000;
+
+    border:
+        2px solid #808080;
+
+    border-radius:
+        0;
 
     font-weight:
-        bold;
+        900;
 
-    box-shadow:
-        none;
 }
 
 
-/* =========================================================
+/* =====================================================
    RANKING
-========================================================= */
+===================================================== */
 
-body.retro .league-ranking {
-
-    color:
-        #000000;
-}
-
-body.retro .league-ranking h2 {
-
-    color:
-        #000080;
-
-    text-decoration:
-        underline;
-
-    text-shadow:
-        none;
-}
-
-body.retro .ranking-container {
-
-    border:
-        2px inset #ffffff;
-}
-
-body.retro .ranking-container th {
-
-    padding:
-        8px;
-
-    background:
-        #000080;
-
-    color:
-        #ffffff;
-
-    border:
-        1px solid #000000;
-}
-
-body.retro .ranking-container td {
-
-    padding:
-        8px;
-
-    background:
-        #ffffff;
-
-    color:
-        #000000;
-
-    border:
-        1px solid #000000;
-}
-
-body.retro .ranking-container tbody tr:hover td {
-
-    background:
-        #ffff00;
-}
-
-
-/* =========================================================
-   KALENDARZ
-========================================================= */
-
-body.retro .calendar {
-
-    padding:
-        12px;
-}
-
-body.retro .weekday {
-
-    color:
-        #000080;
-
-    font-weight:
-        bold;
-
-    text-decoration:
-        underline;
-}
-
-body.retro .day {
-
-    min-height:
-        70px;
-
-    padding:
-        7px;
-
-    border:
-        2px outset #ffffff;
-
-    border-radius:
-        0;
+body.retro .ranking-card,
+body.retro .ranking-table,
+body.retro .ranking-section {
 
     background:
         #c0c0c0;
 
     color:
-        #000000;
+        #000;
+
+    border:
+        2px solid #fff;
+
+    border-right-color:
+        #404040;
+
+    border-bottom-color:
+        #404040;
+
+    border-radius:
+        0;
 
     box-shadow:
-        none;
+        3px 3px 0 #000;
+
 }
+
+
+body.retro table {
+
+    background:
+        #c0c0c0;
+
+    color:
+        #000;
+
+    border-collapse:
+        collapse;
+
+}
+
+
+body.retro th {
+
+    background:
+        #000080;
+
+    color:
+        #fff;
+
+    border:
+        1px solid #000;
+
+}
+
+
+body.retro td {
+
+    background:
+        #c0c0c0;
+
+    color:
+        #000;
+
+    border:
+        1px solid #808080;
+
+}
+
+
+/* =====================================================
+   PODIUM
+===================================================== */
+
+body.retro .first-place,
+body.retro .second-place,
+body.retro .third-place {
+
+    border:
+        2px solid #000;
+
+    border-radius:
+        0;
+
+}
+
+
+/* =====================================================
+   KALENDARZ
+===================================================== */
+
+body.retro .calendar {
+
+    background:
+        #c0c0c0;
+
+    border:
+        2px solid #fff;
+
+    border-right-color:
+        #404040;
+
+    border-bottom-color:
+        #404040;
+
+    border-radius:
+        0;
+
+    box-shadow:
+        3px 3px 0 #000;
+
+}
+
+
+body.retro .day {
+
+    background:
+        #fff;
+
+    color:
+        #000;
+
+    border:
+        1px solid #808080;
+
+    border-radius:
+        0;
+
+}
+
 
 body.retro .day:hover {
 
     transform:
         none;
 
-    filter:
-        none;
-
     background:
-        #ffff00;
-}
+        #dcdcdc;
 
-body.retro .day.empty {
-
-    background:
-        transparent;
-
-    border:
-        none;
-
-    box-shadow:
-        none;
-}
-
-body.retro .today-day {
-
-    border:
-        3px solid #0000ff;
-
-    box-shadow:
-        none;
-}
-
-body.retro .event-day {
-
-    border:
-        3px solid #ff0000;
-
-    box-shadow:
-        none;
-}
-
-body.retro .holiday-day {
-
-    border:
-        3px solid #ff0000;
-
-    box-shadow:
-        none;
-}
-
-body.retro .birthday-day {
-
-    border:
-        3px solid #ff00ff;
-
-    box-shadow:
-        none;
-}
-
-body.retro .special-day {
-
-    border:
-        3px solid #800080;
-
-    box-shadow:
-        none;
 }
 
 
-/* =========================================================
-   LEGENDA
-========================================================= */
+/* =====================================================
+   LEGENDA / INFORMACJE
+===================================================== */
 
-body.retro .legend {
-
-    color:
-        #000000;
-}
-
-body.retro .legend h3 {
-
-    color:
-        #000080;
-
-    text-decoration:
-        underline;
-}
-
-body.retro .legend-color {
-
-    border:
-        1px solid #000000;
-
-    border-radius:
-        0;
-}
-
-
-/* =========================================================
-   INFORMACJE O WYDARZENIU
-========================================================= */
-
+body.retro .legend,
 body.retro .event-info {
-
-    color:
-        #000000;
-}
-
-body.retro .event-info h2 {
-
-    color:
-        #000080;
-
-    text-decoration:
-        underline;
-}
-
-body.retro .event-type {
-
-    border:
-        1px solid #000000;
-
-    border-radius:
-        0;
-}
-
-
-/* =========================================================
-   HISTORIA
-========================================================= */
-
-body.retro .history-card {
-
-    color:
-        #000000;
-}
-
-body.retro .history-card h2 {
-
-    color:
-        #000080;
-
-    text-decoration:
-        underline;
-}
-
-body.retro .history-date {
-
-    color:
-        #000080;
-
-    opacity:
-        1;
-}
-
-
-/* =========================================================
-   ADMINISTRACJA
-========================================================= */
-
-body.retro .admin-section {
-
-    color:
-        #000000;
-}
-
-body.retro .admin-section h2 {
-
-    color:
-        #000080;
-
-    text-decoration:
-        underline;
-}
-
-body.retro .admin-person {
-
-    padding:
-        8px 12px;
-
-    border:
-        1px solid #000000;
-
-    border-radius:
-        0;
-
-    background:
-        #ffffff;
-
-    color:
-        #000000;
-}
-
-body.retro .admin-person:hover {
-
-    transform:
-        none;
-
-    background:
-        #ffff00;
-}
-
-
-/* =========================================================
-   KOLONIARZ
-========================================================= */
-
-body.retro .koloniarz-card {
-
-    color:
-        #000000;
-}
-
-body.retro .koloniarz-card h2 {
-
-    color:
-        #000080;
-
-    text-decoration:
-        underline;
-}
-
-body.retro .robot {
-
-    font-family:
-        "Times New Roman",
-        serif;
-}
-
-
-/* =========================================================
-   KONTAKT
-========================================================= */
-
-body.retro .contact-card {
-
-    color:
-        #000000;
-}
-
-body.retro .contact-card h2 {
-
-    color:
-        #000080;
-
-    text-decoration:
-        underline;
-}
-
-body.retro .discord-button,
-body.retro .email-button,
-body.retro .disabled-button {
-
-    border:
-        2px outset #ffffff;
-
-    border-radius:
-        0;
 
     background:
         #c0c0c0;
 
     color:
-        #000000;
+        #000;
+
+    border:
+        2px solid #fff;
+
+    border-right-color:
+        #404040;
+
+    border-bottom-color:
+        #404040;
+
+    border-radius:
+        0;
 
     box-shadow:
-        none;
-}
+        3px 3px 0 #000;
 
-body.retro .discord-button:hover,
-body.retro .email-button:hover {
-
-    transform:
-        none;
-
-    background:
-        #000080;
-
-    color:
-        #ffffff;
-
-    box-shadow:
-        none;
 }
 
 
-/* =========================================================
+/* =====================================================
    STOPKA
-========================================================= */
+===================================================== */
 
 body.retro footer {
 
-    margin:
-        20px 10px;
-
-    padding:
-        10px;
-
     background:
         #c0c0c0;
 
     color:
-        #000000;
+        #000;
 
-    border:
-        2px outset #ffffff;
-
-    opacity:
-        1;
+    border-top:
+        2px solid #fff;
 
     box-shadow:
-        3px 3px 0 #000000;
+        0 -2px 0 #404040;
+
 }
 
 
-/* =========================================================
+/* =====================================================
    LINKI
-========================================================= */
+===================================================== */
 
 body.retro a {
 
     color:
         #000080;
+
 }
 
-body.retro nav a,
-body.retro .button,
-body.retro .home-button,
-body.retro .month-button,
-body.retro .today-button {
+
+body.retro a:hover {
 
     color:
-        #000000;
-}
+        #fff;
 
-body.retro nav a:hover,
-body.retro .button:hover,
-body.retro .home-button:hover,
-body.retro .month-button:hover,
-body.retro .today-button:hover {
-
-    color:
-        #ffffff;
 }
 
 
-/* =========================================================
-   ZAZNACZENIE TEKSTU
-========================================================= */
+/* =====================================================
+   DELIKATNY EFEKT CRT
+===================================================== */
 
-body.retro ::selection {
+body.retro::after {
+
+    content:
+        "";
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+
+    z-index:
+        9999;
 
     background:
-        #000080;
+        repeating-linear-gradient(
+            to bottom,
+            rgba(0,0,0,.035) 0px,
+            rgba(0,0,0,.035) 1px,
+            transparent 1px,
+            transparent 3px
+        );
 
-    color:
-        #ffffff;
 }
 
 
-/* =========================================================
-   SCROLLBAR — WINDOWS 95
-========================================================= */
+/* =====================================================
+   TELEFON
+===================================================== */
 
-body.retro ::-webkit-scrollbar {
+@media (max-width: 600px) {
 
-    width:
-        16px;
+    body.retro header {
 
-    height:
-        16px;
+        border-radius:
+            0;
+
+    }
+
+
+    body.retro .hero,
+    body.retro .info-card,
+    body.retro .calendar,
+    body.retro .legend,
+    body.retro .event-info {
+
+        box-shadow:
+            2px 2px 0 #000;
+
+    }
+
 }
-
-body.retro ::-webkit-scrollbar-track {
-
-    background:
-        #c0c0c0;
-
-    border:
-        1px inset #ffffff;
-}
-
-body.retro ::-webkit-scrollbar-thumb {
-
-    background:
-        #c0c0c0;
-
-    border:
-        2px outset #ffffff;
-}
-
-body.retro ::-webkit-scrollbar-button {
-
-    display:
-        block;
-
-    width:
-        16px;
-
-    height:
-        16px;
-
-    background:
-        #c0c0c0;
-
-    border:
-        2px outset #ffffff;
-   }
