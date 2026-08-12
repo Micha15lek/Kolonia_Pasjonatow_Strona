@@ -11,259 +11,373 @@
 
 <body>
 
-<header>
-
-    <div class="logo">
-        🚂 Kolonia Pasjonatów
-    </div>
-
-    <nav>
-        <a href="index.html">Start</a>
-        <a href="kalendarz.html">Kalendarz</a>
-        <a href="ranking.html">Ranking</a>
-        <a href="statystyki.html">Statystyki</a>
-        <a href="ogloszenia.html">Ogłoszenia</a>
-        <a href="historia.html">Historia</a>
-        <a href="linki.html">Ważne linki</a>
-        <a href="administracja.html" class="active">Administracja</a>
-        <a href="kontakt.html">Kontakt</a>
-    </nav>
-
-    <button
-        id="themeToggle"
-        class="theme-toggle"
-        type="button"
-        title="Zmień tryb">
-        🌓
-    </button>
-
-</header>
-
-
-<main>
-
     <!-- =====================================================
-         NAGŁÓWEK
+         HEADER
     ====================================================== -->
 
-    <section class="hero">
+    <header>
 
-        <h1>⚙️ Administracja</h1>
-
-        <p>
-            Poznaj osoby odpowiedzialne za Kolonię Pasjonatów.
-            Kliknij wybraną osobę, aby zobaczyć jej profil.
-        </p>
-
-    </section>
-
-
-    <!-- =====================================================
-         WŁAŚCICIEL
-    ====================================================== -->
-
-    <section class="section">
-
-        <h2 class="section-title">
-            👑 Właściciel
-        </h2>
-
-        <div
-            id="ownerList"
-            class="admin-grid">
+        <div class="logo">
+            🚂 Kolonia Pasjonatów
         </div>
 
-    </section>
+        <nav>
+            <a href="index.html">Start</a>
+            <a href="kalendarz.html">Kalendarz</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="statystyki.html">Statystyki</a>
+            <a href="ogloszenia.html">Ogłoszenia</a>
+            <a href="historia.html">Historia</a>
+            <a href="linki.html">Ważne linki</a>
+            <a href="administracja.html" class="active">
+                Administracja
+            </a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
+
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Zmień tryb">
+
+            🌓
+
+        </button>
+
+    </header>
 
 
     <!-- =====================================================
-         NACZELNY ADMINISTRATOR
+         GŁÓWNA ZAWARTOŚĆ
     ====================================================== -->
 
-    <section class="section">
+    <main>
 
-        <h2 class="section-title">
-            🛡️ Naczelny Administrator
-        </h2>
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="hero">
+
+            <h1>⚙️ Administracja</h1>
+
+            <p>
+                Poznaj osoby odpowiedzialne za funkcjonowanie
+                Kolonii Pasjonatów.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             WŁAŚCICIEL
+        ================================================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                👑 Właściciel
+            </h2>
+
+            <div
+                id="ownerList"
+                class="admin-grid">
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             NACZELNY ADMINISTRATOR
+        ================================================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                🛡️ Naczelny Administrator
+            </h2>
+
+            <div
+                id="chiefAdminList"
+                class="admin-grid">
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ADMINISTRATORZY
+        ================================================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                🔧 Administratorzy
+            </h2>
+
+            <div
+                id="adminList"
+                class="admin-grid">
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MODERATORZY
+        ================================================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                🔨 Moderatorzy
+            </h2>
+
+            <div
+                id="moderatorList"
+                class="admin-grid">
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             TECHNIK
+        ================================================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                💻 Technik
+            </h2>
+
+            <div
+                id="technicianList"
+                class="admin-grid">
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             POMOCNICY
+        ================================================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                🤝 Pomocnicy
+            </h2>
+
+            <div
+                id="helperList"
+                class="admin-grid">
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MARKETINGOWIEC
+        ================================================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                📣 Marketingowiec
+            </h2>
+
+            <div
+                id="marketingList"
+                class="admin-grid">
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         PROFIL CZŁONKA
+         Modal otwierany na środku aktualnej strony
+    ====================================================== -->
+
+    <div
+        id="profileModal"
+        class="profile-modal"
+        hidden
+        aria-hidden="true">
 
         <div
-            id="chiefAdminList"
-            class="admin-grid">
+            id="profileOverlay"
+            class="profile-overlay">
         </div>
 
-    </section>
-
-
-    <!-- =====================================================
-         ADMINISTRATORZY
-    ====================================================== -->
-
-    <section class="section">
-
-        <h2 class="section-title">
-            🔧 Administratorzy
-        </h2>
 
         <div
-            id="adminList"
-            class="admin-grid">
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         MODERATORZY
-    ====================================================== -->
-
-    <section class="section">
-
-        <h2 class="section-title">
-            🔨 Moderatorzy
-        </h2>
-
-        <div
-            id="moderatorList"
-            class="admin-grid">
-        </div>
-
-    </section>
+            class="profile-window"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="profileName">
 
 
-    <!-- =====================================================
-         TECHNIK
-    ====================================================== -->
-
-    <section class="section">
-
-        <h2 class="section-title">
-            💻 Technik
-        </h2>
-
-        <div
-            id="technicianList"
-            class="admin-grid">
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         POMOCNICY
-    ====================================================== -->
-
-    <section class="section">
-
-        <h2 class="section-title">
-            🤝 Pomocnicy
-        </h2>
-
-        <div
-            id="helperList"
-            class="admin-grid">
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         MARKETINGOWIEC
-    ====================================================== -->
-
-    <section class="section">
-
-        <h2 class="section-title">
-            📣 Marketingowiec
-        </h2>
-
-        <div
-            id="marketingList"
-            class="admin-grid">
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         PROFIL OSOBY
-    ====================================================== -->
-
-    <section
-        id="profileSection"
-        class="profile-section"
-        hidden>
-
-        <div class="profile-window">
+            <!-- =================================================
+                 PASEK PROFILU
+            ================================================== -->
 
             <div class="profile-header">
 
-                <h2 id="profileName">
-                    Profil
-                </h2>
+                <span>
+                    👤 Profil członka
+                </span>
 
                 <button
                     id="closeProfile"
                     class="profile-close"
-                    type="button">
+                    type="button"
+                    aria-label="Zamknij profil">
+
                     ✕
+
                 </button>
 
             </div>
 
 
+            <!-- =================================================
+                 PROFIL
+            ================================================== -->
+
             <div class="profile-content">
 
-                <div
-                    id="profileRole"
-                    class="profile-role">
+                <div class="profile-main">
+
+                    <div class="profile-avatar">
+
+                        <span id="profileAvatar">
+                            👤
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2 id="profileName">
+                            —
+                        </h2>
+
+                        <div
+                            id="profileRole"
+                            class="profile-role">
+                            —
+                        </div>
+
+                    </div>
+
                 </div>
 
+
+                <!-- =================================================
+                     INFORMACJE
+                ================================================== -->
 
                 <div class="profile-info">
 
                     <div class="profile-row">
-                        <span>🏷️ Rola</span>
-                        <strong id="profileRoleInfo"></strong>
+
+                        <span>
+                            🏷️ Rola
+                        </span>
+
+                        <strong id="profileRoleInfo">
+                            —
+                        </strong>
+
                     </div>
 
 
                     <div class="profile-row">
-                        <span>📅 Członek Kolonii od</span>
-                        <strong id="profileJoinDate"></strong>
+
+                        <span>
+                            📅 Członek Kolonii od
+                        </span>
+
+                        <strong id="profileJoinDate">
+                            —
+                        </strong>
+
                     </div>
 
 
                     <div class="profile-row">
-                        <span>⏳ W Kolonii</span>
-                        <strong id="profileDays"></strong>
+
+                        <span>
+                            ⏳ W Kolonii
+                        </span>
+
+                        <strong id="profileDays">
+                            —
+                        </strong>
+
                     </div>
 
 
                     <div class="profile-row">
-                        <span>🎂 Urodziny</span>
-                        <strong id="profileBirthday"></strong>
+
+                        <span>
+                            🎂 Urodziny
+                        </span>
+
+                        <strong id="profileBirthday">
+                            —
+                        </strong>
+
                     </div>
 
 
                     <div class="profile-row">
-                        <span>🟢 Status</span>
-                        <strong id="profileStatus"></strong>
+
+                        <span>
+                            🟢 Status
+                        </span>
+
+                        <strong id="profileStatus">
+                            —
+                        </strong>
+
                     </div>
 
 
                     <div class="profile-row">
-                        <span>🎯 Odpowiedzialność</span>
-                        <strong id="profileResponsibility"></strong>
+
+                        <span>
+                            🎯 Odpowiedzialność
+                        </span>
+
+                        <strong id="profileResponsibility">
+                            —
+                        </strong>
+
                     </div>
 
                 </div>
 
 
+                <!-- =================================================
+                     OPIS
+                ================================================== -->
+
                 <div class="profile-description">
 
-                    <h3>📝 O osobie</h3>
+                    <h3>
+                        📝 Informacje
+                    </h3>
 
-                    <p id="profileDescription"></p>
+                    <p id="profileDescription">
+                        —
+                    </p>
 
                 </div>
 
@@ -271,29 +385,31 @@
 
         </div>
 
-    </section>
-
-</main>
+    </div>
 
 
-<!-- =========================================================
-     STOPKA
-========================================================= -->
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
 
-<footer>
+    <footer>
 
-    <p>© Kolonia Pasjonatów</p>
+        <p>
+            © Kolonia Pasjonatów
+        </p>
 
-    <p>Administracja</p>
+        <p>
+            Administracja Kolonii Pasjonatów
+        </p>
 
-</footer>
+    </footer>
 
 
-<!-- =========================================================
-     DANE I OBSŁUGA
-========================================================= -->
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
-<script src="administracja.js"></script>
+    <script src="administracja.js"></script>
 
 </body>
 </html>
