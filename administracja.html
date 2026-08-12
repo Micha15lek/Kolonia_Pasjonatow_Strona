@@ -3,189 +3,134 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>⚠️ Awaria strony — Kolonia Pasjonatów</title>
 
-    <title>
-        ⚠️ Awaria strony — Administracja | Kolonia Pasjonatów
-    </title>
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- =====================================================
-         NAGŁÓWEK
-    ====================================================== -->
+<header>
 
-    <header>
+    <div class="logo">
+        🚂 Kolonia Pasjonatów
+    </div>
 
-        <div class="logo">
-            🚂 Kolonia Pasjonatów
-        </div>
+    <nav>
+        <a href="index.html">
+            🏠 Strona główna
+        </a>
+    </nav>
 
-        <nav>
+    <button
+        id="themeToggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Zmień tryb">
+        🌓
+    </button>
 
-            <a href="index.html">
-                🏠 Strona główna
-            </a>
-
-        </nav>
-
-        <!-- Wspólny przełącznik trybu -->
-        <button
-            id="themeToggle"
-            class="theme-toggle"
-            type="button"
-            aria-label="Zmień tryb"
-        >
-            🌓
-        </button>
-
-    </header>
+</header>
 
 
-    <!-- =====================================================
-         GŁÓWNA ZAWARTOŚĆ
-    ====================================================== -->
+<main>
 
-    <main>
+    <section class="hero">
 
-        <!-- Nagłówek -->
+        <h1>
+            ⚠️ Awaria strony
+        </h1>
 
-        <section class="hero">
+        <p>
+            Podstrona jest obecnie niedostępna.
+        </p>
 
-            <h1>
-                ⚠️ Awaria strony
-            </h1>
-
-            <p>
-                Podstrona administracji jest obecnie
-                niedostępna z powodu problemów technicznych.
-            </p>
-
-        </section>
+    </section>
 
 
-        <!-- Komunikat -->
+    <section class="section">
 
-        <section class="section">
+        <h2 class="section-title">
+            ⚠️ Strona chwilowo niedostępna
+        </h2>
 
-            <h2 class="section-title">
-                ⚠️ Strona chwilowo niedostępna
+        <div class="info-card">
+
+            <h2>
+                🔧 Trwają prace naprawcze
             </h2>
 
-            <div class="info-card">
+            <p>
+                Kod podstrony został naruszony,
+                przez co nie działa ona prawidłowo.
+            </p>
 
-                <h2>
-                    🔧 Trwają prace naprawcze
-                </h2>
+            <p>
+                Trwa przebudowa i naprawa uszkodzonych
+                elementów strony.
+            </p>
 
-                <p>
-                    Kod tej podstrony został naruszony,
-                    przez co część funkcji może nie działać
-                    prawidłowo.
-                </p>
-
-                <p>
-                    Trwa przebudowa oraz naprawa
-                    uszkodzonych elementów strony.
-                </p>
-
-                <div class="status">
-                    🟡 Status: trwa naprawa
-                </div>
-
+            <div class="status">
+                🟡 Status: trwa naprawa
             </div>
 
-        </section>
+        </div>
+
+    </section>
 
 
-        <!-- Informacja -->
+    <section class="section">
 
-        <section class="section">
+        <div class="info-card">
 
-            <div class="info-card">
+            <h2>
+                🛠️ Informacja
+            </h2>
 
-                <h2>
-                    🛠️ Co się dzieje?
-                </h2>
+            <p>
+                Prosimy o cierpliwość. Podstrona zostanie
+                przywrócona po zakończeniu prac.
+            </p>
 
-                <p>
-                    Administracja zostanie przywrócona
-                    po zakończeniu prac nad kodem podstrony.
-                </p>
+        </div>
 
-                <p>
-                    Do tego czasu niektóre informacje
-                    i funkcje administracyjne mogą być
-                    niedostępne.
-                </p>
-
-            </div>
-
-        </section>
+    </section>
 
 
-        <!-- Powrót -->
+    <section class="section">
 
-        <section class="section">
+        <div class="info-card">
 
-            <div class="info-card">
+            <a
+                href="index.html"
+                class="button">
+                🏠 Wróć na stronę główną
+            </a>
 
-                <h2>
-                    🏠 Chcesz wrócić?
-                </h2>
+        </div>
 
-                <p>
-                    Możesz wrócić na stronę główną
-                    Kolonii Pasjonatów.
-                </p>
+    </section>
 
-                <a
-                    href="index.html"
-                    class="button"
-                >
-                    🏠 Strona główna
-                </a>
-
-            </div>
-
-        </section>
-
-    </main>
+</main>
 
 
-    <!-- =====================================================
-         STOPKA
-    ====================================================== -->
+<footer>
 
-    <footer>
+    <p>
+        © Kolonia Pasjonatów
+    </p>
 
-        <p>
-            © Kolonia Pasjonatów
-        </p>
+    <p>
+        ⚠️ Trwa naprawa podstrony
+    </p>
 
-        <p>
-            ⚠️ Podstrona administracji — trwa naprawa
-        </p>
-
-    </footer>
+</footer>
 
 
-    <!-- =====================================================
-         WSPÓLNY JS
-    ====================================================== -->
-
-    <script src="script.js"></script>
+<!-- TEN SAM JS CO NA STRONIE GŁÓWNEJ -->
+<script src="script.js"></script>
 
 </body>
-
 </html>
