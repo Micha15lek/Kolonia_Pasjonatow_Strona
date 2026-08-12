@@ -5,132 +5,182 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>⚠️ Awaria strony — Kolonia Pasjonatów</title>
+    <title>Awaria strony — Kolonia Pasjonatów</title>
 
+    <!-- WSPÓLNY CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
+    <!-- =====================================================
+         NAGŁÓWEK
+    ====================================================== -->
 
-    <div class="logo">
-        🚂 Kolonia Pasjonatów
-    </div>
+    <header>
 
-    <nav>
-        <a href="index.html">
-            🏠 Strona główna
-        </a>
-    </nav>
+        <div class="logo">
+            🚂 Kolonia Pasjonatów
+        </div>
 
-    <button
-        id="themeToggle"
-        class="theme-toggle"
-        type="button"
-        aria-label="Zmień tryb">
-        🌓
-    </button>
+        <nav>
+            <a href="index.html">
+                🏠 Strona główna
+            </a>
+        </nav>
 
-</header>
+        <!-- TEN SAM PRZEŁĄCZNIK TRYBU CO NA INNYCH STRONACH -->
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Zmień tryb"
+        >
+            🌓
+        </button>
 
-
-<main>
-
-    <section class="hero">
-
-        <h1>
-            ⚠️ Awaria strony
-        </h1>
-
-        <p>
-            Podstrona jest obecnie niedostępna.
-        </p>
-
-    </section>
+    </header>
 
 
-    <section class="section">
+    <!-- =====================================================
+         GŁÓWNA ZAWARTOŚĆ
+    ====================================================== -->
 
-        <h2 class="section-title">
-            ⚠️ Strona chwilowo niedostępna
-        </h2>
+    <main>
 
-        <div class="info-card">
+        <section class="hero">
 
-            <h2>
-                🔧 Trwają prace naprawcze
+            <h1>
+                ⚠️ Awaria strony
+            </h1>
+
+            <p>
+                Podstrona jest obecnie niedostępna
+                z powodu problemów technicznych.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             KOMUNIKAT
+        ================================================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                ⚠️ Strona chwilowo niedostępna
             </h2>
 
-            <p>
-                Kod podstrony został naruszony,
-                przez co nie działa ona prawidłowo.
-            </p>
+            <div class="info-card">
 
-            <p>
-                Trwa przebudowa i naprawa uszkodzonych
-                elementów strony.
-            </p>
+                <h2>
+                    🔧 Trwają prace naprawcze
+                </h2>
 
-            <div class="status">
-                🟡 Status: trwa naprawa
+                <p>
+                    Kod tej podstrony został naruszony,
+                    przez co część funkcji nie działa
+                    prawidłowo.
+                </p>
+
+                <p>
+                    Trwa przebudowa oraz naprawa
+                    uszkodzonych elementów strony.
+                </p>
+
+                <div class="status">
+                    🟡 Status: trwa naprawa
+                </div>
+
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <section class="section">
+        <!-- =================================================
+             INFORMACJA
+        ================================================== -->
 
-        <div class="info-card">
+        <section class="section">
 
-            <h2>
-                🛠️ Informacja
-            </h2>
+            <div class="info-card">
 
-            <p>
-                Prosimy o cierpliwość. Podstrona zostanie
-                przywrócona po zakończeniu prac.
-            </p>
+                <h2>
+                    🛠️ Co się dzieje?
+                </h2>
 
-        </div>
+                <p>
+                    Podstrona zostanie przywrócona
+                    po zakończeniu prac nad jej kodem.
+                </p>
 
-    </section>
+                <p>
+                    Do tego czasu funkcje związane
+                    z administracją mogą być niedostępne.
+                </p>
 
+            </div>
 
-    <section class="section">
-
-        <div class="info-card">
-
-            <a
-                href="index.html"
-                class="button">
-                🏠 Wróć na stronę główną
-            </a>
-
-        </div>
-
-    </section>
-
-</main>
+        </section>
 
 
-<footer>
+        <!-- =================================================
+             POWRÓT
+        ================================================== -->
 
-    <p>
-        © Kolonia Pasjonatów
-    </p>
+        <section class="section">
 
-    <p>
-        ⚠️ Trwa naprawa podstrony
-    </p>
+            <div class="info-card">
 
-</footer>
+                <h2>
+                    🏠 Wróć na stronę główną
+                </h2>
+
+                <p>
+                    Możesz przejść z powrotem do
+                    strony głównej Kolonii Pasjonatów.
+                </p>
+
+                <a
+                    href="index.html"
+                    class="button"
+                >
+                    🏠 Strona główna
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
 
 
-<!-- TEN SAM JS CO NA STRONIE GŁÓWNEJ -->
-<script src="script.js"></script>
+    <!-- =====================================================
+         STOPKA
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+            © Kolonia Pasjonatów
+        </p>
+
+        <p>
+            ⚠️ Podstrona w trakcie naprawy
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         WSPÓLNY JAVASCRIPT
+         Ten sam plik, który jest używany na stronie głównej
+         i pozostałych podstronach.
+    ====================================================== -->
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
