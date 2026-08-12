@@ -1,517 +1,304 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Statystyki | Kolonia Pasjonatów</title>
+    <title>Licznik — Kolonia Pasjonatów</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
 
-    <div class="logo">
-        🌟 Kolonia Pasjonatów
-    </div>
+    <header>
 
-    <nav>
+        <div class="logo">
+            🚂 Kolonia Pasjonatów
+        </div>
 
-        <a href="index.html">
-            🏠 Strona główna
-        </a>
+        <nav>
+            <a href="index.html">Start</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="statystyki.html" class="active">Licznik</a>
+            <a href="ogloszenia.html">Ogłoszenia</a>
+            <a href="linki.html">Ważne linki</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
 
-        <a href="ranking.html">
-            🏆 Ranking
-        </a>
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Zmień tryb">
 
-        <a href="statystyki.html">
-            📊 Statystyki
-        </a>
+            🌓
 
-        <a href="ogloszenia.html">
-            📢 Ogłoszenia
-        </a>
+        </button>
 
-        <a href="linki.html">
-            🔗 Linki
-        </a>
-
-        <a href="kontakt.html">
-            📧 Kontakt
-        </a>
-
-    </nav>
-
-    <button
-        id="themeToggle"
-        class="theme-toggle"
-        type="button">
-
-        🌙
-
-    </button>
-
-</header>
+    </header>
 
 
-<main>
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
 
-    <!-- HERO -->
+    <main>
 
-    <section class="hero">
+        <!-- =================================================
+             HERO
+        ================================================== -->
 
-        <h1>
-            📊 Statystyki Kolonii Pasjonatów
-        </h1>
+        <section class="hero">
+
+            <h1>📊 Kolonia w liczbach</h1>
+
+            <p>
+                Automatycznie aktualizowane informacje dotyczące
+                Kolonii Pasjonatów.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             LICZNIKI
+        ================================================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                📈 Liczniki Kolonii
+            </h2>
+
+
+            <div class="info-grid">
+
+
+                <!-- UŻYTKOWNICY -->
+
+                <div class="info-card stat-card">
+
+                    <h2>👥 Użytkownicy</h2>
+
+                    <span
+                        id="usersCount"
+                        class="stat-number">
+
+                        0
+
+                    </span>
+
+                    <p>
+                        Aktualna liczba użytkowników Kolonii.
+                    </p>
+
+                </div>
+
+
+                <!-- DNI OD STARTU -->
+
+                <div class="info-card stat-card">
+
+                    <h2>📅 Dni od startu</h2>
+
+                    <span
+                        id="daysSinceStart"
+                        class="stat-number">
+
+                        0
+
+                    </span>
+
+                    <p>
+                        Liczba dni od rozpoczęcia działalności
+                        Kolonii Pasjonatów.
+                    </p>
+
+                </div>
+
+
+                <!-- CZAS DZIAŁANIA -->
+
+                <div class="info-card stat-card">
+
+                    <h2>⏱️ Czas działania</h2>
+
+                    <span
+                        id="uptime"
+                        class="stat-number">
+
+                        0 dni
+
+                    </span>
+
+                    <p>
+                        Dokładny czas od rozpoczęcia działalności.
+                    </p>
+
+                </div>
+
+
+                <!-- DNI DO ŚWIĄT -->
+
+                <div class="info-card stat-card">
+
+                    <h2>🎄 Do Świąt</h2>
+
+                    <span
+                        id="daysToChristmas"
+                        class="stat-number">
+
+                        0
+
+                    </span>
+
+                    <p>
+                        Dni pozostałych do najbliższego Bożego Narodzenia.
+                    </p>
+
+                </div>
+
+
+                <!-- DNI DO NOWEGO ROKU -->
+
+                <div class="info-card stat-card">
+
+                    <h2>🎆 Do Nowego Roku</h2>
+
+                    <span
+                        id="daysToNewYear"
+                        class="stat-number">
+
+                        0
+
+                    </span>
+
+                    <p>
+                        Dni pozostałych do Nowego Roku.
+                    </p>
+
+                </div>
+
+
+                <!-- DNI DO KOŃCA ROKU -->
+
+                <div class="info-card stat-card">
+
+                    <h2>📆 Do końca roku</h2>
+
+                    <span
+                        id="daysToYearEnd"
+                        class="stat-number">
+
+                        0
+
+                    </span>
+
+                    <p>
+                        Ile dni pozostało do końca bieżącego roku.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DOKŁADNY CZAS
+        ================================================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                🕐 Aktualny czas działania Kolonii
+            </h2>
+
+            <div class="info-card">
+
+                <p>
+                    Kolonia Pasjonatów działa już:
+                </p>
+
+                <div
+                    id="detailedUptime"
+                    class="status">
+
+                    Obliczanie...
+
+                </div>
+
+                <p class="contact-note">
+
+                    Licznik aktualizuje się automatycznie
+                    co sekundę.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             OSTATNIA AKTUALIZACJA
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="info-card">
+
+                <h2>
+                    🔄 Aktualizacja
+                </h2>
+
+                <p>
+                    Ostatnia aktualizacja licznika:
+                </p>
+
+                <div
+                    id="lastUpdate"
+                    class="status">
+
+                    —
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
 
         <p>
-            Najważniejsze statystyki naszej społeczności
-            oraz informacje o jej rozwoju.
+            © Kolonia Pasjonatów
         </p>
 
-    </section>
+        <p>
+            Statystyki i liczniki aktualizowane automatycznie
+        </p>
 
+    </footer>
 
-    <!-- SPOŁECZNOŚĆ -->
 
-    <section class="section">
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
-        <h2 class="section-title">
-            👥 Społeczność
-        </h2>
-
-        <div class="info-grid">
-
-            <article class="info-card">
-
-                <h2>
-                    👤 Liczba osób
-                </h2>
-
-                <p
-                    id="liczbaOsob"
-                    class="stat-number">
-
-                    17
-
-                </p>
-
-            </article>
-
-
-            <article class="info-card">
-
-                <h2>
-                    🤖 Liczba botów
-                </h2>
-
-                <p
-                    id="liczbaBotow"
-                    class="stat-number">
-
-                    10
-
-                </p>
-
-            </article>
-
-
-            <article class="info-card">
-
-                <h2>
-                    👥 Łącznie
-                </h2>
-
-                <p
-                    id="liczbaLacznie"
-                    class="stat-number">
-
-                    27
-
-                </p>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- AKTYWNOŚĆ -->
-
-    <section class="section">
-
-        <h2 class="section-title">
-            📈 Aktywność Kolonii
-        </h2>
-
-        <div class="info-grid">
-
-            <article class="info-card">
-
-                <h2>
-                    🎯 Typerzy
-                </h2>
-
-                <p
-                    id="liczbaTyperow"
-                    class="stat-number">
-
-                    3
-
-                </p>
-
-                <p>
-                    Liczba typerów, którzy oddali typy.
-                </p>
-
-            </article>
-
-
-            <article class="info-card">
-
-                <h2>
-                    🎉 Wydarzenia
-                </h2>
-
-                <p
-                    id="liczbaWydarzen"
-                    class="stat-number">
-
-                    0
-
-                </p>
-
-                <p>
-                    Liczba wydarzeń Kolonii
-                    zapisanych w kalendarzu.
-                </p>
-
-            </article>
-
-
-            <article class="info-card">
-
-                <h2>
-                    📢 Ogłoszenia
-                </h2>
-
-                <p
-                    id="liczbaOgloszen"
-                    class="stat-number">
-
-                    0
-
-                </p>
-
-                <p>
-                    Liczba ogłoszeń zapisanych
-                    w bazie strony.
-                </p>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- HISTORIA -->
-
-    <section class="section">
-
-        <h2 class="section-title">
-            📅 Historia społeczności
-        </h2>
-
-        <div class="info-grid">
-
-            <article class="info-card">
-
-                <h2>
-                    🚀 Oficjalne otwarcie
-                </h2>
-
-                <p>
-                    Kolonia Pasjonatów działa oficjalnie
-                    od:
-                </p>
-
-                <p class="stat-number">
-                    11.06.2026
-                </p>
-
-            </article>
-
-
-            <article class="info-card">
-
-                <h2>
-                    ⏳ Działamy już
-                </h2>
-
-                <p
-                    id="dniDzialania"
-                    class="stat-number">
-
-                    0
-
-                </p>
-
-                <p>
-                    dni od oficjalnego otwarcia serwera.
-                </p>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-</main>
-
-
-<footer>
-
-    <p>
-        © 2026 Kolonia Pasjonatów
-    </p>
-
-    <p>
-        🌟 Oficjalna strona społeczności
-    </p>
-
-</footer>
-
-
-<!-- =====================================================
-     DANE
-===================================================== -->
-
-<script src="dane.js"></script>
-
-
-<script>
-
-/* =====================================================
-   PODSTAWOWE DANE
-===================================================== */
-
-const liczbaOsob = 17;
-
-const liczbaBotow = 10;
-
-const liczbaTyperow = 3;
-
-
-/* =====================================================
-   ŁĄCZNIE
-===================================================== */
-
-const liczbaLacznie =
-    liczbaOsob + liczbaBotow;
-
-
-/* =====================================================
-   WYDARZENIA Z dane.js
-===================================================== */
-
-const liczbaWydarzen =
-    typeof colonyEvents2026 !== "undefined"
-        ? Object.keys(colonyEvents2026).length
-        : 0;
-
-
-/* =====================================================
-   OGŁOSZENIA Z dane.js
-===================================================== */
-
-const liczbaOgloszen =
-    typeof announcements !== "undefined"
-        ? announcements.length
-        : 0;
-
-
-/* =====================================================
-   WYŚWIETLANIE
-===================================================== */
-
-document.getElementById(
-    "liczbaOsob"
-).textContent = liczbaOsob;
-
-
-document.getElementById(
-    "liczbaBotow"
-).textContent = liczbaBotow;
-
-
-document.getElementById(
-    "liczbaLacznie"
-).textContent = liczbaLacznie;
-
-
-document.getElementById(
-    "liczbaTyperow"
-).textContent = liczbaTyperow;
-
-
-document.getElementById(
-    "liczbaWydarzen"
-).textContent = liczbaWydarzen;
-
-
-document.getElementById(
-    "liczbaOgloszen"
-).textContent = liczbaOgloszen;
-
-
-/* =====================================================
-   DNI OD OTWARCIA — 11.06.2026
-===================================================== */
-
-const dataOtwarcia =
-    new Date(
-        2026,
-        5,
-        11
-    );
-
-
-const dzisiaj =
-    new Date();
-
-
-const roznica =
-    dzisiaj.getTime()
-    -
-    dataOtwarcia.getTime();
-
-
-const dniDzialania =
-    Math.max(
-        0,
-        Math.floor(
-            roznica /
-            (
-                1000 *
-                60 *
-                60 *
-                24
-            )
-        )
-    );
-
-
-document.getElementById(
-    "dniDzialania"
-).textContent =
-    dniDzialania;
-
-
-/* =====================================================
-   TRYB CIEMNY / JASNY / RETRO
-===================================================== */
-
-const themeToggle =
-    document.getElementById(
-        "themeToggle"
-    );
-
-
-const savedTheme =
-    localStorage.getItem(
-        "theme"
-    ) || "dark";
-
-
-function applyTheme(theme) {
-
-    document.body.classList.remove(
-        "light",
-        "retro"
-    );
-
-
-    if (theme === "light") {
-
-        document.body.classList.add(
-            "light"
-        );
-
-        themeToggle.textContent =
-            "☀️";
-
-    }
-
-    else if (theme === "retro") {
-
-        document.body.classList.add(
-            "retro"
-        );
-
-        themeToggle.textContent =
-            "💾";
-
-    }
-
-    else {
-
-        themeToggle.textContent =
-            "🌙";
-
-    }
-
-
-    localStorage.setItem(
-        "theme",
-        theme
-    );
-
-}
-
-
-applyTheme(savedTheme);
-
-
-themeToggle.addEventListener(
-    "click",
-    () => {
-
-        const current =
-            localStorage.getItem(
-                "theme"
-            ) || "dark";
-
-
-        if (current === "dark") {
-
-            applyTheme("light");
-
-        }
-
-        else if (current === "light") {
-
-            applyTheme("retro");
-
-        }
-
-        else {
-
-            applyTheme("dark");
-
-        }
-
-    }
-);
-
-</script>
+    <script src="licznik.js"></script>
 
 </body>
-
 </html>
