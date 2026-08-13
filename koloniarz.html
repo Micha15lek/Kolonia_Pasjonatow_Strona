@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Kalendarz | Kolonia Pasjonatów</title>
+    <title>Koloniarz | Kolonia Pasjonatów</title>
 
     <link rel="stylesheet" href="style.css">
 
     <style>
         /* =====================================================
-           KALENDARZ – DODATKOWE STYLE
+           KOLONIARZ – PODSTRONA
            ===================================================== */
 
-        .calendar-page {
-            width: min(1100px, calc(100% - 30px));
+        .koloniarz-page {
+            width: min(950px, calc(100% - 30px));
             margin: auto;
             padding: 20px 0 40px;
         }
 
-        /* POWRÓT – TYLKO STRONA GŁÓWNA */
-        .calendar-back {
+        /* POWRÓT */
+        .koloniarz-back {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -44,7 +45,7 @@
                 box-shadow .2s ease;
         }
 
-        .calendar-back:hover {
+        .koloniarz-back:hover {
             transform: translateY(-2px);
 
             background: rgba(255,193,7,.11);
@@ -54,656 +55,461 @@
                 0 5px 18px rgba(255,193,7,.12);
         }
 
-        body.light .calendar-back {
+        body.light .koloniarz-back {
             background: #fff;
             border-color: #dcdcdc;
         }
 
-        /* NAGŁÓWEK KALENDARZA */
-        .calendar-header {
+        /* =====================================================
+           GŁÓWNA KARTA
+           ===================================================== */
+
+        .koloniarz-card {
+            padding: 28px;
+
+            border-radius: 22px;
+
+            background: rgba(255,255,255,.045);
+            border: 1px solid rgba(255,255,255,.085);
+
+            box-shadow:
+                0 10px 35px rgba(0,0,0,.18);
+        }
+
+        body.light .koloniarz-card {
+            background: #fff;
+            border-color: #ddd;
+        }
+
+        /* NAGŁÓWEK */
+
+        .koloniarz-header {
+            text-align: center;
+
+            padding-bottom: 22px;
+            margin-bottom: 22px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.08);
+        }
+
+        body.light .koloniarz-header {
+            border-bottom-color: #e2e2e2;
+        }
+
+        .koloniarz-icon {
+            font-size: 64px;
+            margin-bottom: 8px;
+        }
+
+        .koloniarz-title {
+            margin: 0;
+
+            font-size: 34px;
+            font-weight: 950;
+        }
+
+        .koloniarz-subtitle {
+            margin-top: 8px;
+
+            opacity: .7;
+
+            font-weight: 700;
+        }
+
+        /* =====================================================
+           STATUS
+           ===================================================== */
+
+        .koloniarz-status {
             display: flex;
             align-items: center;
             justify-content: space-between;
 
-            gap: 12px;
+            gap: 15px;
 
-            margin-bottom: 15px;
-            padding: 15px;
+            padding: 15px 17px;
 
-            border-radius: 18px;
+            margin-bottom: 22px;
 
-            background: rgba(255,255,255,.045);
-            border: 1px solid rgba(255,255,255,.08);
-
-            box-shadow:
-                0 8px 25px rgba(0,0,0,.15);
-        }
-
-        body.light .calendar-header {
-            background: #fff;
-            border-color: #ddd;
-        }
-
-        .month-title {
-            flex: 1;
-
-            text-align: center;
-
-            font-size: 22px;
-            font-weight: 900;
-        }
-
-        .month-button {
-            width: 44px;
-            height: 44px;
-
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 12px;
-
-            background: rgba(255,255,255,.06);
-            border: 1px solid rgba(255,255,255,.10);
-
-            color: inherit;
-
-            font-size: 20px;
-            font-weight: 900;
-
-            cursor: pointer;
-
-            transition:
-                transform .2s ease,
-                background .2s ease,
-                border-color .2s ease;
-        }
-
-        .month-button:hover {
-            transform: translateY(-2px);
-
-            background: rgba(255,193,7,.12);
-            border-color: rgba(255,193,7,.40);
-
-            color: #ffc107;
-        }
-
-        body.light .month-button {
-            background: #fff;
-            border-color: #ddd;
-        }
-
-        /* DZISIAJ */
-        .today-button {
-            display: block;
-
-            margin: 10px auto 18px;
-
-            padding: 9px 15px;
-
-            border-radius: 11px;
-
-            background: rgba(255,193,7,.10);
-
-            border: 1px solid rgba(255,193,7,.25);
-
-            color: #ffc107;
-
-            font-weight: 900;
-
-            cursor: pointer;
-        }
-
-        /* KALENDARZ */
-        .calendar {
-            padding: 10px;
-
-            border-radius: 20px;
+            border-radius: 15px;
 
             background: rgba(255,255,255,.04);
-
             border: 1px solid rgba(255,255,255,.08);
-
-            box-shadow:
-                0 10px 30px rgba(0,0,0,.18);
         }
 
-        body.light .calendar {
-            background: #fff;
-            border-color: #ddd;
+        body.light .koloniarz-status {
+            background: #fafafa;
+            border-color: #e1e1e1;
         }
 
-        .weekdays,
-        .days {
-            display: grid;
-
-            grid-template-columns:
-                repeat(7, minmax(0, 1fr));
-
-            gap: 6px;
-        }
-
-        .weekday {
-            padding: 10px 5px;
-
-            text-align: center;
-
-            border-radius: 10px;
-
-            background: rgba(255,193,7,.11);
+        .status-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
 
             font-weight: 900;
         }
 
-        .day {
-            position: relative;
+        .status-dot {
+            width: 13px;
+            height: 13px;
 
-            min-height: 88px;
+            border-radius: 50%;
 
-            padding: 8px;
+            background: #22c55e;
 
-            border-radius: 13px;
+            box-shadow:
+                0 0 12px rgba(34,197,94,.5);
+        }
+
+        .status-text {
+            color: #22c55e;
+
+            font-weight: 900;
+        }
+
+        /* =====================================================
+           SEKCJE
+           ===================================================== */
+
+        .koloniarz-section {
+            margin-top: 20px;
+
+            padding: 20px;
+
+            border-radius: 17px;
 
             background: rgba(255,255,255,.035);
-
             border: 1px solid rgba(255,255,255,.07);
-
-            cursor: pointer;
-
-            transition:
-                transform .2s ease,
-                background .2s ease,
-                border-color .2s ease,
-                box-shadow .2s ease;
         }
 
-        .day:hover {
-            transform: translateY(-2px);
-
-            background: rgba(255,193,7,.09);
-
-            border-color:
-                rgba(255,193,7,.28);
-        }
-
-        body.light .day {
+        body.light .koloniarz-section {
             background: #fafafa;
             border-color: #e5e5e5;
         }
 
-        /* PUSTY DZIEŃ */
-        .day.empty {
-            opacity: .25;
-            cursor: default;
+        .koloniarz-section h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+
+            font-size: 21px;
         }
 
-        .day.empty:hover {
-            transform: none;
-            background: inherit;
-            border-color: inherit;
-        }
+        .koloniarz-section p {
+            margin-bottom: 0;
 
-        /* NUMER DNIA */
-        .day-number {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            width: 30px;
-            height: 30px;
-
-            border-radius: 50%;
-
-            font-weight: 900;
-
-            margin-bottom: 4px;
-        }
-
-        /* DZISIAJ – OKRĄG */
-        .today-day .day-number {
-            border: 2px solid #ffc107;
-
-            color: #ffc107;
-
-            box-shadow:
-                0 0 14px rgba(255,193,7,.22);
+            line-height: 1.7;
         }
 
         /* =====================================================
-           KATEGORIE – OKRĄG WOKÓŁ DNIA
+           FUNKCJE
            ===================================================== */
 
-        /* WYDARZENIE */
-        .event-day .day-number {
-            border: 2px solid #ffc107;
+        .koloniarz-features {
+            display: grid;
 
-            background: rgba(255,193,7,.08);
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
 
-            color: #ffc107;
+            gap: 12px;
+
+            margin-top: 15px;
         }
 
-        /* ŚWIĘTO */
-        .holiday-day .day-number {
-            border: 2px solid #ff3b3b;
+        .feature {
+            padding: 15px;
 
-            background: rgba(255,59,59,.08);
-
-            color: #ff5b5b;
-        }
-
-        /* URODZINY */
-        .birthday-day .day-number {
-            border: 2px solid #ff69b4;
-
-            background: rgba(255,105,180,.08);
-
-            color: #ff69b4;
-        }
-
-        /* SPECJALNE */
-        .special-day .day-number {
-            border: 2px solid #a855f7;
-
-            background: rgba(168,85,247,.08);
-
-            color: #b56cff;
-        }
-
-        /* JEŚLI DZIEŃ MA WIĘCEJ KATEGORII */
-        .today-day.event-day .day-number {
-            border:
-                3px solid #ffc107;
-        }
-
-        .today-label {
-            margin-top: 4px;
-
-            font-size: 10px;
-            font-weight: 900;
-
-            color: #ffc107;
-        }
-
-        /* OPISY WYDARZEŃ */
-        .day-events {
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 3px;
-
-            margin-top: 3px;
-        }
-
-        .day-event {
-            overflow: hidden;
-
-            font-size: 10px;
-            line-height: 1.2;
-
-            white-space: nowrap;
-            text-overflow: ellipsis;
-
-            opacity: .82;
-        }
-
-        .day-event.event {
-            color: #ffc107;
-        }
-
-        .day-event.holiday {
-            color: #ff5555;
-        }
-
-        .day-event.birthday {
-            color: #ff69b4;
-        }
-
-        .day-event.special {
-            color: #b56cff;
-        }
-
-        /* INFORMACJA */
-        .event-info {
-            margin-top: 18px;
-
-            padding: 20px;
-
-            border-radius: 18px;
-
-            background: rgba(255,255,255,.045);
-
-            border: 1px solid rgba(255,255,255,.085);
-
-            box-shadow:
-                0 9px 30px rgba(0,0,0,.17);
-        }
-
-        body.light .event-info {
-            background: #fff;
-            border-color: #ddd;
-        }
-
-        .event-info h2 {
-            margin-top: 0;
-        }
-
-        .event-list {
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 10px;
-        }
-
-        .event-list-item {
-            padding: 12px 14px;
-
-            border-radius: 12px;
+            border-radius: 13px;
 
             background: rgba(255,255,255,.04);
 
-            border-left: 4px solid #ffc107;
+            border: 1px solid rgba(255,255,255,.07);
         }
 
-        body.light .event-list-item {
-            background: #fafafa;
+        body.light .feature {
+            background: #fff;
+            border-color: #e5e5e5;
         }
 
-        .event-list-item.birthday {
-            border-left-color: #ff69b4;
-        }
-
-        .event-list-item.holiday {
-            border-left-color: #ff3b3b;
-        }
-
-        .event-list-item.special {
-            border-left-color: #a855f7;
-        }
-
-        .event-list-date {
-            font-size: 13px;
+        .feature-title {
             font-weight: 900;
 
-            opacity: .65;
-
-            margin-bottom: 3px;
+            margin-bottom: 5px;
         }
 
-        .event-list-title {
-            font-weight: 900;
+        .feature-description {
+            font-size: 14px;
+            opacity: .72;
+
+            line-height: 1.5;
         }
 
-        /* LEGENDA */
-        .legend {
-            margin-top: 15px;
+        /* =====================================================
+           INFORMACJA TECHNICZNA
+           ===================================================== */
+
+        .koloniarz-info {
+            margin-top: 20px;
 
             padding: 18px;
 
-            border-radius: 18px;
+            border-radius: 15px;
 
-            background: rgba(255,255,255,.045);
+            background: rgba(255,193,7,.07);
 
-            border: 1px solid rgba(255,255,255,.085);
+            border: 1px solid rgba(255,193,7,.18);
         }
 
-        body.light .legend {
-            background: #fff;
-            border-color: #ddd;
+        .koloniarz-info strong {
+            color: #ffc107;
         }
 
-        .legend-items {
-            display: flex;
+        /* =====================================================
+           STOPKA KARTY
+           ===================================================== */
 
-            flex-wrap: wrap;
+        .koloniarz-footer {
+            margin-top: 25px;
 
-            gap: 15px;
+            padding-top: 18px;
+
+            border-top:
+                1px solid rgba(255,255,255,.08);
+
+            text-align: center;
+
+            font-size: 13px;
+
+            opacity: .6;
         }
 
-        .legend-item {
-            display: flex;
-
-            align-items: center;
-
-            gap: 7px;
+        body.light .koloniarz-footer {
+            border-top-color: #e2e2e2;
         }
 
-        .legend-color {
-            width: 14px;
-            height: 14px;
+        /* =====================================================
+           MOBILE
+           ===================================================== */
 
-            border-radius: 50%;
-        }
+        @media (max-width: 650px) {
 
-        .legend-event {
-            background: #ffc107;
-        }
-
-        .legend-holiday {
-            background: #ff3b3b;
-        }
-
-        .legend-birthday {
-            background: #ff69b4;
-        }
-
-        .legend-special {
-            background: #a855f7;
-        }
-
-        .legend-today {
-            background: transparent;
-
-            border: 2px solid #ffc107;
-        }
-
-        @media (max-width: 600px) {
-
-            .calendar-page {
+            .koloniarz-page {
                 width: calc(100% - 24px);
             }
 
-            .calendar {
-                padding: 7px;
+            .koloniarz-card {
+                padding: 20px;
             }
 
-            .weekdays,
-            .days {
-                gap: 4px;
+            .koloniarz-title {
+                font-size: 28px;
             }
 
-            .weekday {
-                padding: 8px 2px;
-                font-size: 11px;
+            .koloniarz-icon {
+                font-size: 52px;
             }
 
-            .day {
-                min-height: 68px;
-                padding: 5px;
-                font-size: 11px;
+            .koloniarz-features {
+                grid-template-columns: 1fr;
             }
 
-            .day-number {
-                width: 27px;
-                height: 27px;
+            .koloniarz-status {
+                align-items: flex-start;
+                flex-direction: column;
             }
 
-            .day-event {
-                font-size: 8px;
-            }
-
-            .month-title {
-                font-size: 18px;
-            }
-
-            .month-button {
-                width: 40px;
-                height: 40px;
-            }
-        }
-
-        @media (max-width: 400px) {
-
-            .day {
-                min-height: 56px;
-                padding: 4px;
-                font-size: 10px;
-            }
-
-            .day-number {
-                width: 24px;
-                height: 24px;
-            }
-
-            .day-event {
-                font-size: 7px;
-            }
-
-            .weekday {
-                font-size: 9px;
-            }
         }
     </style>
 </head>
 
+
 <body>
-
-<header>
-
-    <div class="logo">
-        Kolonia Pasjonatów
-    </div>
-
-    <nav>
-        <a href="index.html">Strona główna</a>
-        <a href="kalendarz.html" class="active">Kalendarz</a>
-        <a href="ogloszenia.html">Ogłoszenia</a>
-        <a href="historia.html">Historia</a>
-    </nav>
-
-    <button
-        class="theme-toggle"
-        id="themeToggle"
-        aria-label="Zmień motyw">
-        🌙
-    </button>
-
-</header>
-
 
 <main>
 
-    <div class="calendar-page">
+    <div class="koloniarz-page">
 
         <!-- TYLKO POWRÓT DO STRONY GŁÓWNEJ -->
-        <a href="index.html" class="calendar-back">
+
+        <a href="index.html" class="koloniarz-back">
             ← Powrót do strony głównej
         </a>
 
 
-        <!-- NAGŁÓWEK -->
-        <div class="calendar-header">
+        <!-- GŁÓWNA KARTA -->
 
-            <button
-                class="month-button"
-                id="prevMonth"
-                aria-label="Poprzedni miesiąc">
-                ‹
-            </button>
-
-            <div
-                class="month-title"
-                id="monthTitle">
-            </div>
-
-            <button
-                class="month-button"
-                id="nextMonth"
-                aria-label="Następny miesiąc">
-                ›
-            </button>
-
-        </div>
+        <div class="koloniarz-card">
 
 
-        <!-- POWRÓT DO DZISIAJ -->
-        <button
-            class="today-button"
-            id="todayButton">
-            📅 Dzisiaj
-        </button>
+            <!-- NAGŁÓWEK -->
 
+            <div class="koloniarz-header">
 
-        <!-- KALENDARZ -->
-        <div class="calendar">
+                <div class="koloniarz-icon">
+                    🤖
+                </div>
 
-            <div class="weekdays">
+                <h1 class="koloniarz-title">
+                    Koloniarz
+                </h1>
 
-                <div class="weekday">Pon</div>
-                <div class="weekday">Wt</div>
-                <div class="weekday">Śr</div>
-                <div class="weekday">Czw</div>
-                <div class="weekday">Pt</div>
-                <div class="weekday">Sob</div>
-                <div class="weekday">Nd</div>
+                <div class="koloniarz-subtitle">
+                    Bot serwerowy Kolonii Pasjonatów
+                </div>
 
             </div>
 
-            <div
-                class="days"
-                id="calendarDays">
+
+            <!-- STATUS -->
+
+            <div class="koloniarz-status">
+
+                <div class="status-left">
+
+                    <span class="status-dot"></span>
+
+                    <span>
+                        Status bota
+                    </span>
+
+                </div>
+
+                <span class="status-text">
+                    Online
+                </span>
+
             </div>
 
-        </div>
+
+            <!-- O KOLONIARZU -->
+
+            <section class="koloniarz-section">
+
+                <h2>
+                    🤖 Czym jest Koloniarz?
+                </h2>
+
+                <p>
+                    <strong>Koloniarz</strong> to bot stworzony
+                    specjalnie dla serwerów społeczności
+                    <strong>Kolonii Pasjonatów</strong>.
+                    Jego zadaniem jest wspieranie administracji,
+                    automatyzacja wybranych czynności oraz
+                    ułatwianie codziennego korzystania z serwera.
+                </p>
+
+            </section>
 
 
-        <!-- INFORMACJE O WYBRANYM DNIU -->
-        <div
-            class="event-info"
-            id="eventInfo">
+            <!-- FUNKCJE -->
 
-            <h2>📅 Wydarzenia</h2>
+            <section class="koloniarz-section">
 
-            <p>
-                Wybierz dzień w kalendarzu, aby zobaczyć
-                zaplanowane wydarzenia.
-            </p>
+                <h2>
+                    ⚙️ Możliwości Koloniarza
+                </h2>
 
-        </div>
+                <div class="koloniarz-features">
+
+                    <div class="feature">
+
+                        <div class="feature-title">
+                            🛡️ Automoderacja
+                        </div>
+
+                        <div class="feature-description">
+                            Pomoc w pilnowaniu porządku
+                            i automatycznej moderacji serwera.
+                        </div>
+
+                    </div>
 
 
-        <!-- LEGENDA -->
-        <div class="legend">
+                    <div class="feature">
 
-            <h3>Legenda</h3>
+                        <div class="feature-title">
+                            🎉 Eventy
+                        </div>
 
-            <div class="legend-items">
+                        <div class="feature-description">
+                            Wsparcie przy organizacji wydarzeń
+                            i aktywności społeczności.
+                        </div>
 
-                <div class="legend-item">
-                    <span class="legend-color legend-event"></span>
-                    Wydarzenie Kolonii
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-title">
+                            📢 Powiadomienia
+                        </div>
+
+                        <div class="feature-description">
+                            Automatyczne informacje dotyczące
+                            ważnych wydarzeń na serwerze.
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-title">
+                            🔧 Narzędzia administracyjne
+                        </div>
+
+                        <div class="feature-description">
+                            Przydatne funkcje ułatwiające pracę
+                            administracji serwera.
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <div class="legend-item">
-                    <span class="legend-color legend-holiday"></span>
-                    Święto
-                </div>
+            </section>
 
-                <div class="legend-item">
-                    <span class="legend-color legend-birthday"></span>
-                    Urodziny
-                </div>
 
-                <div class="legend-item">
-                    <span class="legend-color legend-special"></span>
-                    Wydarzenie specjalne
-                </div>
+            <!-- INFORMACJA -->
 
-                <div class="legend-item">
-                    <span class="legend-color legend-today"></span>
-                    Dzisiaj
-                </div>
+            <div class="koloniarz-info">
+
+                <strong>💡 Informacja:</strong>
+
+                Koloniarz jest obecnie rozwijany i z czasem
+                może otrzymywać kolejne funkcje oraz ulepszenia
+                przygotowane specjalnie dla społeczności
+                Kolonii Pasjonatów.
+
+            </div>
+
+
+            <!-- INFORMACJE TECHNICZNE -->
+
+            <section class="koloniarz-section">
+
+                <h2>
+                    📊 Informacje
+                </h2>
+
+                <p>
+                    <strong>Nazwa:</strong> Koloniarz<br>
+                    <strong>Typ:</strong> Bot serwerowy<br>
+                    <strong>Przeznaczenie:</strong> Kolonia Pasjonatów<br>
+                    <strong>Status:</strong> <span class="status-text">Online</span><br>
+                    <strong>Rozwój:</strong> W toku
+                </p>
+
+            </section>
+
+
+            <!-- STOPKA -->
+
+            <div class="koloniarz-footer">
+
+                Koloniarz • Bot stworzony dla Kolonii Pasjonatów
 
             </div>
 
@@ -714,900 +520,18 @@
 </main>
 
 
-<footer>
-
-    <p>
-        © 2026 Kolonia Pasjonatów
-    </p>
-
-    <p>
-        Kalendarz wydarzeń społeczności
-    </p>
-
-</footer>
-
-
 <script>
 
     /* =====================================================
-       MOTYW
+       MOTYW – ZGODNY Z STYLE.CSS
        ===================================================== */
-
-    const themeToggle =
-        document.getElementById("themeToggle");
 
     const savedTheme =
         localStorage.getItem("kolonia-theme");
 
     if (savedTheme === "light") {
-
         document.body.classList.add("light");
-
-        themeToggle.textContent = "☀️";
-
     }
-
-    themeToggle.addEventListener("click", () => {
-
-        document.body.classList.toggle("light");
-
-        const isLight =
-            document.body.classList.contains("light");
-
-        localStorage.setItem(
-            "kolonia-theme",
-            isLight ? "light" : "dark"
-        );
-
-        themeToggle.textContent =
-            isLight ? "☀️" : "🌙";
-
-    });
-
-
-    /* =====================================================
-       DATY – AUTOMATYCZNIE Z URZĄDZENIA
-       ===================================================== */
-
-    const deviceToday = new Date();
-
-    let currentMonth =
-        deviceToday.getMonth();
-
-    let currentYear =
-        deviceToday.getFullYear();
-
-
-    /* =====================================================
-       NAZWY MIESIĘCY
-       ===================================================== */
-
-    const months = [
-        "Styczeń",
-        "Luty",
-        "Marzec",
-        "Kwiecień",
-        "Maj",
-        "Czerwiec",
-        "Lipiec",
-        "Sierpień",
-        "Wrzesień",
-        "Październik",
-        "Listopad",
-        "Grudzień"
-    ];
-
-
-    /* =====================================================
-       WYDARZENIA KOLONII PASJONATÓW
-       ===================================================== */
-
-    const events = [
-
-        {
-            date: "2026-08-10",
-            title: "Start strefy STS Pucharu Polski",
-            type: "event"
-        },
-
-        {
-            date: "2026-08-12",
-            title: "Naprawa automoderacji",
-            type: "event"
-        },
-
-        {
-            date: "2026-08-13",
-            title: "Start strony internetowej Kolonia Pasjonatów",
-            type: "event"
-        },
-
-        {
-            date: "2026-08-14",
-            title: "Naprawa automoderacji",
-            type: "event"
-        },
-
-        {
-            date: "2026-08-31",
-            title: "Koniec strefy wakacyjnej – 23:45",
-            type: "event"
-        },
-
-        {
-            date: "2026-09-23",
-            title: "Kolej w jesiennym krajobrazie – start",
-            type: "special"
-        },
-
-        {
-            date: "2026-09-24",
-            title: "Kolej w jesiennym krajobrazie",
-            type: "special"
-        },
-
-        {
-            date: "2026-09-25",
-            title: "Kolej w jesiennym krajobrazie",
-            type: "special"
-        },
-
-        {
-            date: "2026-09-26",
-            title: "Kolej w jesiennym krajobrazie",
-            type: "special"
-        },
-
-        {
-            date: "2026-09-27",
-            title: "Kolej w jesiennym krajobrazie",
-            type: "special"
-        },
-
-        {
-            date: "2026-09-28",
-            title: "Kolej w jesiennym krajobrazie",
-            type: "special"
-        },
-
-        {
-            date: "2026-09-29",
-            title: "Kolej w jesiennym krajobrazie",
-            type: "special"
-        },
-
-        {
-            date: "2026-09-30",
-            title: "Kolej w jesiennym krajobrazie",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-01",
-            title: "Kolej w jesiennym krajobrazie",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-02",
-            title: "Kolej w jesiennym krajobrazie",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-03",
-            title: "Kolej w jesiennym krajobrazie",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-04",
-            title: "Kolej w jesiennym krajobrazie",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-05",
-            title: "Kolej w jesiennym krajobrazie",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-06",
-            title: "Kolej w jesiennym krajobrazie",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-07",
-            title: "Kolej w jesiennym krajobrazie",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-08",
-            title: "Kolej w jesiennym krajobrazie",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-09",
-            title: "Kolej w jesiennym krajobrazie – koniec",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-10",
-            title: "Jesienny Spotter – start konkursu",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-11",
-            title: "Jesienny Spotter",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-12",
-            title: "Jesienny Spotter",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-13",
-            title: "Jesienny Spotter",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-14",
-            title: "Jesienny Spotter",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-15",
-            title: "Jesienny Spotter",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-16",
-            title: "Jesienny Spotter",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-17",
-            title: "Jesienny Spotter",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-18",
-            title: "Jesienny Spotter – koniec konkursu",
-            type: "special"
-        }
-
-    ];
-
-
-    /* =====================================================
-       URODZINY
-       ===================================================== */
-
-    const birthdays = [
-
-        {
-            date: "2026-02-04",
-            title: "Urodziny – KEBABKRAFTOWY",
-            type: "birthday"
-        },
-
-        {
-            date: "2026-06-02",
-            title: "Urodziny – Kubixtranspotter",
-            type: "birthday"
-        },
-
-        {
-            date: "2026-06-25",
-            title: "Urodziny – Noworudzki_mk2",
-            type: "birthday"
-        },
-
-        {
-            date: "2026-08-04",
-            title: "Urodziny – Michał",
-            type: "birthday"
-        },
-
-        {
-            date: "2026-12-23",
-            title: "Urodziny – Mikol Yoriichi",
-            type: "birthday"
-        }
-
-    ];
-
-
-    /* =====================================================
-       ŚWIĘTA – POLSKA
-       ===================================================== */
-
-    const holidays = [
-
-        {
-            date: "2026-01-01",
-            title: "Nowy Rok",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-01-06",
-            title: "Święto Trzech Króli",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-04-05",
-            title: "Wielkanoc",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-04-06",
-            title: "Poniedziałek Wielkanocny",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-05-01",
-            title: "Święto Pracy",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-05-03",
-            title: "Święto Konstytucji 3 Maja",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-05-24",
-            title: "Zielone Świątki",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-06-04",
-            title: "Boże Ciało",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-08-15",
-            title: "Wniebowzięcie Najświętszej Maryi Panny / Święto Wojska Polskiego",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-11-01",
-            title: "Wszystkich Świętych",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-11-11",
-            title: "Narodowe Święto Niepodległości",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-12-24",
-            title: "Wigilia Bożego Narodzenia",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-12-25",
-            title: "Boże Narodzenie – pierwszy dzień",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-12-26",
-            title: "Boże Narodzenie – drugi dzień",
-            type: "holiday"
-        }
-
-    ];
-
-
-    /* =====================================================
-       POŁĄCZENIE WSZYSTKICH WYDARZEŃ
-       ===================================================== */
-
-    const allEvents = [
-        ...events,
-        ...birthdays,
-        ...holidays
-    ];
-
-
-    /* =====================================================
-       ELEMENTY
-       ===================================================== */
-
-    const monthTitle =
-        document.getElementById("monthTitle");
-
-    const calendarDays =
-        document.getElementById("calendarDays");
-
-    const eventInfo =
-        document.getElementById("eventInfo");
-
-
-    /* =====================================================
-       FORMAT DATY
-       ===================================================== */
-
-    function dateKey(year, month, day) {
-
-        return (
-            year +
-            "-" +
-            String(month + 1).padStart(2, "0") +
-            "-" +
-            String(day).padStart(2, "0")
-        );
-
-    }
-
-
-    /* =====================================================
-       WYŚWIETLANIE WYDARZEŃ DLA DNIA
-       ===================================================== */
-
-    function getEventsForDate(key) {
-
-        return allEvents.filter(
-            event => event.date === key
-        );
-
-    }
-
-
-    /* =====================================================
-       RYSOWANIE KALENDARZA
-       ===================================================== */
-
-    function renderCalendar() {
-
-        monthTitle.textContent =
-            months[currentMonth] +
-            " " +
-            currentYear;
-
-        calendarDays.innerHTML = "";
-
-
-        const firstDay =
-            new Date(
-                currentYear,
-                currentMonth,
-                1
-            );
-
-        const daysInMonth =
-            new Date(
-                currentYear,
-                currentMonth + 1,
-                0
-            ).getDate();
-
-
-        /*
-         * JS:
-         * 0 = niedziela
-         * 1 = poniedziałek
-         *
-         * Zmieniamy na:
-         * 0 = poniedziałek
-         */
-
-        let startDay =
-            firstDay.getDay() - 1;
-
-        if (startDay < 0) {
-            startDay = 6;
-        }
-
-
-        /* PUSTE POLA */
-
-        for (
-            let i = 0;
-            i < startDay;
-            i++
-        ) {
-
-            const empty =
-                document.createElement("div");
-
-            empty.className = "day empty";
-
-            calendarDays.appendChild(empty);
-
-        }
-
-
-        /* DNI MIESIĄCA */
-
-        for (
-            let day = 1;
-            day <= daysInMonth;
-            day++
-        ) {
-
-            const key =
-                dateKey(
-                    currentYear,
-                    currentMonth,
-                    day
-                );
-
-            const dayEvents =
-                getEventsForDate(key);
-
-
-            const dayElement =
-                document.createElement("div");
-
-            dayElement.className = "day";
-
-
-            /* DZISIAJ */
-
-            if (
-                currentYear === deviceToday.getFullYear() &&
-                currentMonth === deviceToday.getMonth() &&
-                day === deviceToday.getDate()
-            ) {
-
-                dayElement.classList.add(
-                    "today-day"
-                );
-
-            }
-
-
-            /* KATEGORIE */
-
-            if (
-                dayEvents.some(
-                    e => e.type === "event"
-                )
-            ) {
-
-                dayElement.classList.add(
-                    "event-day"
-                );
-
-            }
-
-            if (
-                dayEvents.some(
-                    e => e.type === "holiday"
-                )
-            ) {
-
-                dayElement.classList.add(
-                    "holiday-day"
-                );
-
-            }
-
-            if (
-                dayEvents.some(
-                    e => e.type === "birthday"
-                )
-            ) {
-
-                dayElement.classList.add(
-                    "birthday-day"
-                );
-
-            }
-
-            if (
-                dayEvents.some(
-                    e => e.type === "special"
-                )
-            ) {
-
-                dayElement.classList.add(
-                    "special-day"
-                );
-
-            }
-
-
-            /* NUMER */
-
-            const number =
-                document.createElement("div");
-
-            number.className =
-                "day-number";
-
-            number.textContent =
-                day;
-
-
-            dayElement.appendChild(number);
-
-
-            /* NAPIS DZISIAJ */
-
-            if (
-                currentYear === deviceToday.getFullYear() &&
-                currentMonth === deviceToday.getMonth() &&
-                day === deviceToday.getDate()
-            ) {
-
-                const todayLabel =
-                    document.createElement("div");
-
-                todayLabel.className =
-                    "today-label";
-
-                todayLabel.textContent =
-                    "DZISIAJ";
-
-                dayElement.appendChild(
-                    todayLabel
-                );
-
-            }
-
-
-            /* WYDARZENIA */
-
-            if (dayEvents.length > 0) {
-
-                const eventsContainer =
-                    document.createElement("div");
-
-                eventsContainer.className =
-                    "day-events";
-
-
-                dayEvents.forEach(event => {
-
-                    const eventElement =
-                        document.createElement("div");
-
-                    eventElement.className =
-                        "day-event " +
-                        event.type;
-
-                    eventElement.textContent =
-                        event.title;
-
-                    eventsContainer.appendChild(
-                        eventElement
-                    );
-
-                });
-
-
-                dayElement.appendChild(
-                    eventsContainer
-                );
-
-            }
-
-
-            /* KLIKNIĘCIE */
-
-            dayElement.addEventListener(
-                "click",
-                () => {
-
-                    showEvents(
-                        key,
-                        dayEvents
-                    );
-
-                }
-            );
-
-
-            calendarDays.appendChild(
-                dayElement
-            );
-
-        }
-
-    }
-
-
-    /* =====================================================
-       INFORMACJA O WYDARZENIACH
-       ===================================================== */
-
-    function showEvents(
-        key,
-        dayEvents
-    ) {
-
-        const parts =
-            key.split("-");
-
-        const year =
-            parts[0];
-
-        const month =
-            parts[1];
-
-        const day =
-            parts[2];
-
-
-        if (dayEvents.length === 0) {
-
-            eventInfo.innerHTML = `
-
-                <h2>📅 ${day}.${month}.${year}</h2>
-
-                <p>
-                    Tego dnia nie ma zapisanych wydarzeń.
-                </p>
-
-            `;
-
-            return;
-
-        }
-
-
-        let html = `
-
-            <h2>📅 ${day}.${month}.${year}</h2>
-
-            <div class="event-list">
-
-        `;
-
-
-        dayEvents.forEach(event => {
-
-            html += `
-
-                <div class="event-list-item ${event.type}">
-
-                    <div class="event-list-date">
-                        ${event.type === "birthday"
-                            ? "🎂 Urodziny"
-                            : event.type === "holiday"
-                                ? "🔴 Święto"
-                                : event.type === "special"
-                                    ? "🟣 Wydarzenie specjalne"
-                                    : "🟡 Wydarzenie Kolonii"}
-                    </div>
-
-                    <div class="event-list-title">
-                        ${event.title}
-                    </div>
-
-                </div>
-
-            `;
-
-        });
-
-
-        html += `</div>`;
-
-        eventInfo.innerHTML =
-            html;
-
-    }
-
-
-    /* =====================================================
-       ZMIANA MIESIĄCA
-       ===================================================== */
-
-    document
-        .getElementById("prevMonth")
-        .addEventListener(
-            "click",
-            () => {
-
-                currentMonth--;
-
-                if (currentMonth < 0) {
-
-                    currentMonth = 11;
-
-                    currentYear--;
-
-                }
-
-                renderCalendar();
-
-            }
-        );
-
-
-    document
-        .getElementById("nextMonth")
-        .addEventListener(
-            "click",
-            () => {
-
-                currentMonth++;
-
-                if (currentMonth > 11) {
-
-                    currentMonth = 0;
-
-                    currentYear++;
-
-                }
-
-                renderCalendar();
-
-            }
-        );
-
-
-    /* =====================================================
-       PRZYCISK DZISIAJ
-       ===================================================== */
-
-    document
-        .getElementById("todayButton")
-        .addEventListener(
-            "click",
-            () => {
-
-                currentMonth =
-                    deviceToday.getMonth();
-
-                currentYear =
-                    deviceToday.getFullYear();
-
-                renderCalendar();
-
-                showEvents(
-                    dateKey(
-                        deviceToday.getFullYear(),
-                        deviceToday.getMonth(),
-                        deviceToday.getDate()
-                    ),
-                    getEventsForDate(
-                        dateKey(
-                            deviceToday.getFullYear(),
-                            deviceToday.getMonth(),
-                            deviceToday.getDate()
-                        )
-                    )
-                );
-
-            }
-        );
-
-
-    /* =====================================================
-       START
-       ===================================================== */
-
-    renderCalendar();
 
 </script>
 
