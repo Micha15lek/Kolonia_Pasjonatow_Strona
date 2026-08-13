@@ -1,60 +1,135 @@
-<script>
+/* =========================================================
+   KOLONIA PASJONATÓW
+   SCRIPT.JS
+   TRYB JASNY / CIEMNY
+   ========================================================= */
+
+
+/* =========================================================
+   1. PRZEŁĄCZNIK MOTYWU
+========================================================= */
+
 const themeToggle = document.getElementById("themeToggle");
+
+
+/* =========================================================
+   2. ODCZYT ZAPISANEGO MOTYWU
+========================================================= */
 
 const savedTheme =
     localStorage.getItem("theme") || "dark";
 
-function applyTheme(theme) {
 
-    document.body.classList.remove(
-        "light",
-        "retro"
-    );
+/* =========================================================
+   3. ZMIANA MOTYWU
+========================================================= */
+
+function applyTheme(theme) {
 
     if (theme === "light") {
 
         document.body.classList.add("light");
 
-        themeToggle.textContent = "☀️";
-
-    } else if (theme === "retro") {
-
-        document.body.classList.add("retro");
-
-        themeToggle.textContent = "💾";
-
     } else {
 
-        themeToggle.textContent = "🌙";
+        document.body.classList.remove("light");
 
     }
+
+
+    /* Zmiana samej ikonki */
+
+    if (themeToggle) {
+
+        themeToggle.textContent =
+            theme === "light"
+                ? "🌙"
+                : "☀️";
+
+    }
+
+
+    /* Zapamiętanie wyboru */
 
     localStorage.setItem(
         "theme",
         theme
     );
+
 }
+
+
+/* =========================================================
+   4. URUCHOMIENIE MOTYWU
+========================================================= */
 
 applyTheme(savedTheme);
 
-themeToggle.addEventListener("click", () => {
 
-    const current =
-        localStorage.getItem("theme") || "dark";
+/* =========================================================
+   5. PRZYCISK JASNY / CIEMNY
+========================================================= */
 
-    if (current === "dark") {
+if (themeToggle) {
 
-        applyTheme("light");
+    themeToggle.addEventListener(
+        "click",
+        () => {
 
-    } else if (current === "light") {
+            const currentTheme =
+                localStorage.getItem("theme") || "dark";
 
-        applyTheme("retro");
 
-    } else {
+            if (currentTheme === "dark") {
 
-        applyTheme("dark");
+                applyTheme("light");
+
+            } else {
+
+                applyTheme("dark");
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   6. ANIMACJA PO ZAŁADOWANIU STRONY
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        document.body.classList.add(
+            "page-loaded"
+        );
 
     }
+);
 
-});
-</script> 
+
+/* =========================================================
+   7. OBSŁUGA LINKÓW ZEWNĘTRZNYCH
+========================================================= */
+
+document.querySelectorAll(
+    'a[target="_blank"]'
+).forEach(
+    link => {
+
+        link.setAttribute(
+            "rel",
+            "noopener noreferrer"
+        );
+
+    }
+);
+
+
+/* =========================================================
+   8. KONIEC SCRIPT.JS
+========================================================= */
