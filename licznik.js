@@ -80,6 +80,7 @@ const lastUpdate =
 
 /* =====================================================
    LICZBA UŻYTKOWNIKÓW
+   TYLKO JEŚLI ELEMENT ISTNIEJE
 ===================================================== */
 
 if (usersCount) {
@@ -275,7 +276,7 @@ function getEasterDate(year) {
 
 
 /* =====================================================
-   NAJBLIŻSZE WAKACJE
+   WAKACJE
 ===================================================== */
 
 function getSummerDate() {
@@ -283,15 +284,9 @@ function getSummerDate() {
     const now =
         new Date();
 
-
     const year =
         now.getFullYear();
 
-
-    /*
-        Początek wakacji:
-        26 czerwca
-    */
 
     const summerStart =
         new Date(
@@ -303,12 +298,6 @@ function getSummerDate() {
             0
         );
 
-
-    /*
-        Koniec wakacji:
-        31 sierpnia
-        godz. 23:59:59
-    */
 
     const summerEnd =
         new Date(
@@ -322,8 +311,8 @@ function getSummerDate() {
 
 
     /*
-        Jeżeli jesteśmy w trakcie wakacji,
-        liczymy do ich końca.
+        W TRAKCIE WAKACJI
+        → liczymy do końca wakacji
     */
 
     if (
@@ -344,8 +333,8 @@ function getSummerDate() {
 
 
     /*
-        Jeżeli wakacje już się skończyły,
-        liczymy do początku kolejnych wakacji.
+        PO WAKACJACH
+        → liczymy do następnych wakacji
     */
 
     if (
@@ -373,8 +362,8 @@ function getSummerDate() {
 
 
     /*
-        Jeżeli jesteśmy przed 26 czerwca,
-        liczymy do początku wakacji.
+        PRZED WAKACJAMI
+        → liczymy do 26 czerwca
     */
 
     return {
@@ -399,7 +388,6 @@ function getEventDates() {
     const now =
         new Date();
 
-
     const year =
         now.getFullYear();
 
@@ -418,11 +406,6 @@ function getEventDates() {
             0
         );
 
-
-    /*
-        Jeżeli Halloween już minęło,
-        następne będzie w kolejnym roku.
-    */
 
     if (
         now > halloween
@@ -456,11 +439,6 @@ function getEventDates() {
         );
 
 
-    /*
-        24.12 pokazujemy komunikat.
-        Od 25.12 liczymy już do następnej Wigilii.
-    */
-
     if (
         now.getMonth() === 11 &&
         now.getDate() >= 25
@@ -492,52 +470,6 @@ function getEventDates() {
             0,
             0
         );
-
-
-    /*
-        Po 31.12 licznik przechodzi
-        do kolejnego 31 grudnia.
-    */
-
-    if (
-        now.getMonth() === 0
-    ) {
-
-        newYear =
-            new Date(
-                year,
-                11,
-                31,
-                0,
-                0,
-                0
-            );
-
-    }
-
-
-    /*
-        Od 01.01 do 30.12
-        zawsze liczymy do 31.12
-        bieżącego roku.
-    */
-
-    if (
-        now.getMonth() >= 1 &&
-        now.getMonth() <= 11
-    ) {
-
-        newYear =
-            new Date(
-                year,
-                11,
-                31,
-                0,
-                0,
-                0
-            );
-
-    }
 
 
     /* =================================================
@@ -582,11 +514,6 @@ function getEventDates() {
         );
 
 
-    /*
-        Po Wielkanocy liczymy już
-        do Wielkanocy następnego roku.
-    */
-
     if (
         now > easter
     ) {
@@ -602,13 +529,9 @@ function getEventDates() {
     return {
 
         halloween,
-
         christmas,
-
         newYear,
-
         yearEnd,
-
         easter
 
     };
@@ -627,84 +550,95 @@ function updateCounters() {
 
 
     /* =================================================
-       CZAS OD STARTU KOLONII
+       KOLONIA
+       WYKONUJE SIĘ TYLKO NA STRONIE
+       GDZIE JEST colonyUptime
     ================================================= */
 
-    const colonyDifference =
-        now.getTime() -
-        COLONY_START.getTime();
+    if (
+        colonyUptime ||
+        detailedUptime
+    ) {
+
+        const colonyDifference =
+            now.getTime() -
+            COLONY_START.getTime();
 
 
-    const colonyTime =
-        formatDuration(
-            colonyDifference
-        );
+        const colonyTime =
+            formatDuration(
+                colonyDifference
+            );
 
 
-    if (colonyUptime) {
+        if (colonyUptime) {
 
-        colonyUptime.textContent =
-            colonyTime;
+            colonyUptime.textContent =
+                colonyTime;
 
-    }
+        }
 
 
-    if (detailedUptime) {
+        if (detailedUptime) {
 
-        detailedUptime.textContent =
-            colonyTime;
+            detailedUptime.textContent =
+                colonyTime;
+
+        }
 
     }
 
 
     /* =================================================
-       CZAS OD STARTU STRONY
+       STRONA
+       WYKONUJE SIĘ TYLKO NA STRONIE
+       GDZIE JEST websiteUptime
     ================================================= */
 
-    const websiteDifference =
-        now.getTime() -
-        WEBSITE_START.getTime();
+    if (
+        websiteUptime ||
+        websiteDetailedUptime
+    ) {
+
+        const websiteDifference =
+            now.getTime() -
+            WEBSITE_START.getTime();
 
 
-    const websiteTime =
-        formatDuration(
-            websiteDifference
-        );
+        const websiteTime =
+            formatDuration(
+                websiteDifference
+            );
 
 
-    if (websiteUptime) {
+        if (websiteUptime) {
 
-        websiteUptime.textContent =
-            websiteTime;
+            websiteUptime.textContent =
+                websiteTime;
 
-    }
+        }
 
 
-    if (websiteDetailedUptime) {
+        if (websiteDetailedUptime) {
 
-        websiteDetailedUptime.textContent =
-            websiteTime;
+            websiteDetailedUptime.textContent =
+                websiteTime;
+
+        }
 
     }
 
 
     /* =================================================
        WAKACJE
+       TYLKO JEŚLI LICZNIK ISTNIEJE
     ================================================= */
-
-    const summer =
-        getSummerDate();
-
 
     if (daysToSummerEnd) {
 
-        /*
-            Podczas wakacji licznik pokazuje
-            czas do 31.08.
+        const summer =
+            getSummerDate();
 
-            Po wakacjach pokazuje czas
-            do 26.06 kolejnego roku.
-        */
 
         daysToSummerEnd.textContent =
             countdown(
@@ -716,108 +650,165 @@ function updateCounters() {
 
 
     /* =================================================
-       POZOSTAŁE DATY
+       ŚWIĘTA
+       DATY SĄ OBLICZANE TYLKO WTEDY,
+       GDY POTRZEBNY JEST PRZYNAJMNIEJ JEDEN
+       LICZNIK ŚWIĄTECZNY
     ================================================= */
 
-    const dates =
-        getEventDates();
+    if (
+        daysToHalloween ||
+        daysToChristmas ||
+        daysToNewYear ||
+        daysToYearEnd ||
+        daysToEaster
+    ) {
+
+        const dates =
+            getEventDates();
 
 
-    /* =================================================
-       HALLOWEEN
-    ================================================= */
+        /* =============================================
+           HALLOWEEN
+        ============================================= */
 
-    if (daysToHalloween) {
+        if (daysToHalloween) {
 
-        /*
-            31.10 — komunikat.
-            01.11 — automatycznie kolejny rok.
-        */
-
-        const halloweenNow =
-            new Date();
-
-        const halloweenToday =
-            halloweenNow.getMonth() === 9 &&
-            halloweenNow.getDate() === 31;
+            const halloweenToday =
+                now.getMonth() === 9 &&
+                now.getDate() === 31;
 
 
-        if (halloweenToday) {
+            if (halloweenToday) {
 
-            daysToHalloween.textContent =
-                "🎃 Już jest! Wesołego Halloween! 👻";
+                daysToHalloween.textContent =
+                    "🎃 Już jest! Wesołego Halloween! 👻";
+
+            }
+
+            else {
+
+                daysToHalloween.textContent =
+                    countdown(
+                        dates.halloween,
+                        "🎃 Już jest! Wesołego Halloween! 👻"
+                    );
+
+            }
 
         }
 
-        else {
 
-            daysToHalloween.textContent =
+        /* =============================================
+           WIGILIA
+        ============================================= */
+
+        if (daysToChristmas) {
+
+            const christmasToday =
+                now.getMonth() === 11 &&
+                now.getDate() === 24;
+
+
+            if (christmasToday) {
+
+                daysToChristmas.textContent =
+                    "🎄 Już są! Wesołych Świąt! ❤️";
+
+            }
+
+            else {
+
+                daysToChristmas.textContent =
+                    countdown(
+                        dates.christmas,
+                        "🎄 Już są! Wesołych Świąt! ❤️"
+                    );
+
+            }
+
+        }
+
+
+        /* =============================================
+           NOWY ROK
+        ============================================= */
+
+        if (daysToNewYear) {
+
+            const newYearToday =
+                now.getMonth() === 11 &&
+                now.getDate() === 31;
+
+
+            if (newYearToday) {
+
+                daysToNewYear.textContent =
+                    "🎆 Już jest! Szczęśliwego Nowego Roku! 🥳";
+
+            }
+
+            else {
+
+                daysToNewYear.textContent =
+                    countdown(
+                        dates.newYear,
+                        "🎆 Już jest! Szczęśliwego Nowego Roku! 🥳"
+                    );
+
+            }
+
+        }
+
+
+        /* =============================================
+           KONIEC ROKU
+        ============================================= */
+
+        if (daysToYearEnd) {
+
+            daysToYearEnd.textContent =
                 countdown(
-                    dates.halloween,
-                    "🎃 Już jest! Wesołego Halloween! 👻"
+                    dates.yearEnd,
+                    "🎆 To już koniec roku! Szczęśliwego Nowego Roku!"
                 );
 
         }
 
-    }
+
+        /* =============================================
+           WIELKANOC
+        ============================================= */
+
+        if (daysToEaster) {
+
+            const easterToday =
+                now.getFullYear() ===
+                    dates.easter.getFullYear() &&
+
+                now.getMonth() ===
+                    dates.easter.getMonth() &&
+
+                now.getDate() ===
+                    dates.easter.getDate();
 
 
-    /* =================================================
-       WIGILIA
-    ================================================= */
+            if (easterToday) {
 
-    if (daysToChristmas) {
+                daysToEaster.textContent =
+                    "🐣 Już są! Wesołych Świąt Wielkanocnych! 🐰";
 
-        const christmasToday =
-            now.getMonth() === 11 &&
-            now.getDate() === 24;
+            }
 
+            else {
 
-        if (christmasToday) {
+                daysToEaster.textContent =
+                    countdown(
+                        dates.easter,
+                        "🐣 Już są! Wesołych Świąt Wielkanocnych! 🐰"
+                    );
 
-            daysToChristmas.textContent =
-                "🎄 Już są! Wesołych Świąt! ❤️";
-
-        }
-
-        else {
-
-            daysToChristmas.textContent =
-                countdown(
-                    dates.christmas,
-                    "🎄 Już są! Wesołych Świąt! ❤️"
-                );
-
-        }
-
-    }
-
-
-    /* =================================================
-       NOWY ROK
-    ================================================= */
-
-    if (daysToNewYear) {
-
-        const newYearToday =
-            now.getMonth() === 11 &&
-            now.getDate() === 31;
-
-
-        if (newYearToday) {
-
-            daysToNewYear.textContent =
-                "🎆 Już jest! Szczęśliwego Nowego Roku! 🥳";
-
-        }
-
-        else {
-
-            daysToNewYear.textContent =
-                countdown(
-                    dates.newYear,
-                    "🎆 Już jest! Szczęśliwego Nowego Roku! 🥳"
-                );
+            }
 
         }
 
@@ -825,62 +816,8 @@ function updateCounters() {
 
 
     /* =================================================
-       KONIEC ROKU
-    ================================================= */
-
-    if (daysToYearEnd) {
-
-        daysToYearEnd.textContent =
-            countdown(
-                dates.yearEnd,
-                "🎆 To już koniec roku! Szczęśliwego Nowego Roku!"
-            );
-
-    }
-
-
-    /* =================================================
-       WIELKANOC
-    ================================================= */
-
-    if (daysToEaster) {
-
-        const today =
-            new Date();
-
-        const easterToday =
-            today.getFullYear() ===
-                dates.easter.getFullYear() &&
-
-            today.getMonth() ===
-                dates.easter.getMonth() &&
-
-            today.getDate() ===
-                dates.easter.getDate();
-
-
-        if (easterToday) {
-
-            daysToEaster.textContent =
-                "🐣 Już są! Wesołych Świąt Wielkanocnych! 🐰";
-
-        }
-
-        else {
-
-            daysToEaster.textContent =
-                countdown(
-                    dates.easter,
-                    "🐣 Już są! Wesołych Świąt Wielkanocnych! 🐰"
-                );
-
-        }
-
-    }
-
-
-    /* =================================================
-       AKTUALNY CZAS URZĄDZENIA
+       OSTATNIA AKTUALIZACJA
+       TYLKO JEŚLI ELEMENT ISTNIEJE
     ================================================= */
 
     if (lastUpdate) {
