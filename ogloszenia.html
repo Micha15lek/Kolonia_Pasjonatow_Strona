@@ -18,34 +18,6 @@
         🌟 Kolonia Pasjonatów
     </div>
 
-    <nav>
-
-        <a href="index.html">
-            🏠 Strona główna
-        </a>
-
-        <a href="ranking.html">
-            🏆 Ranking
-        </a>
-
-        <a href="statystyki.html">
-            ⏱️ Licznik
-        </a>
-
-        <a href="ogloszenia.html">
-            📢 Ogłoszenia
-        </a>
-
-        <a href="linki.html">
-            🔗 Linki
-        </a>
-
-        <a href="kontakt.html">
-            📧 Kontakt
-        </a>
-
-    </nav>
-
     <button
         id="themeToggle"
         class="theme-toggle"
@@ -60,7 +32,6 @@
 
 
 <main>
-
 
     <!-- =====================================================
          HERO
@@ -90,12 +61,42 @@
             📌 Najnowsze ogłoszenia
         </h2>
 
-        <div class="info-grid" id="announcements">
+        <div class="info-grid">
 
-            <!--
-                Ogłoszenia zostaną tutaj
-                automatycznie wyświetlone.
-            -->
+            <!-- OGŁOSZENIE -->
+
+            <article class="info-card">
+
+                <span class="status">
+                    🆕 NOWE
+                </span>
+
+                <h2>
+                    🌐 Oficjalny start strony internetowej
+                </h2>
+
+                <p>
+                    Oficjalna strona internetowa Kolonii Pasjonatów
+                    właśnie wystartowała! 🎉
+                </p>
+
+                <p>
+                    Na stronie znajdziecie między innymi informacje
+                    o naszej społeczności, kalendarz wydarzeń,
+                    statystyki oraz najważniejsze ogłoszenia.
+                </p>
+
+                <p>
+                    🚀 To dopiero początek! Wkrótce pojawi się
+                    jeszcze więcej funkcji oraz nowych elementów
+                    strony.
+                </p>
+
+                <p>
+                    📅 Data publikacji: 13.08.2026
+                </p>
+
+            </article>
 
         </div>
 
@@ -103,7 +104,7 @@
 
 
     <!-- =====================================================
-         INFORMACJA
+         KONTAKT
     ====================================================== -->
 
     <section class="section">
@@ -111,19 +112,23 @@
         <div class="info-card">
 
             <h2>
-                ℹ️ Informacja
+                📧 Znalazłeś błąd?
             </h2>
 
             <p>
-                Wszystkie najważniejsze komunikaty
-                dotyczące Kolonii Pasjonatów
-                będą publikowane właśnie tutaj.
+                Jeżeli znajdziesz błąd, niedziałającą funkcję
+                lub inny problem związany ze stroną,
+                skontaktuj się z nami przez e-mail.
+            </p>
+
+            <p>
+                🛠️ Każde zgłoszenie pomoże nam ulepszać
+                stronę Kolonii Pasjonatów.
             </p>
 
         </div>
 
     </section>
-
 
 </main>
 
@@ -146,170 +151,10 @@
 
 
 <!-- =====================================================
-     DANE OGŁOSZEŃ
+     GŁÓWNY SKRYPT
 ====================================================== -->
-
-<script src="dane.js"></script>
-
-
-<!-- =====================================================
-     WYŚWIETLANIE OGŁOSZEŃ
-====================================================== -->
-
-<script>
-
-const announcementsContainer =
-    document.getElementById("announcements");
-
-
-if (
-    typeof announcements !== "undefined" &&
-    Array.isArray(announcements)
-) {
-
-    announcementsContainer.innerHTML = "";
-
-
-    announcements.forEach(
-        announcement => {
-
-            const card =
-                document.createElement("article");
-
-            card.className =
-                "info-card";
-
-
-            /* NOWE */
-
-            if (announcement.isNew) {
-
-                const status =
-                    document.createElement("span");
-
-                status.className =
-                    "status";
-
-                status.textContent =
-                    "🆕 NOWE";
-
-                card.appendChild(status);
-
-            }
-
-
-            /* TYTUŁ */
-
-            const title =
-                document.createElement("h2");
-
-            title.textContent =
-                announcement.title;
-
-            card.appendChild(title);
-
-
-            /* OPIS */
-
-            const description =
-                document.createElement("p");
-
-            description.textContent =
-                announcement.description;
-
-            card.appendChild(description);
-
-
-            /* DATA */
-
-            if (announcement.date) {
-
-                const date =
-                    document.createElement("p");
-
-                date.textContent =
-                    "📅 " + announcement.date;
-
-                card.appendChild(date);
-
-            }
-
-
-            /* PRZYCISK */
-
-            if (announcement.link) {
-
-                const link =
-                    document.createElement("a");
-
-                link.href =
-                    announcement.link;
-
-                link.className =
-                    "button";
-
-                link.textContent =
-                    "🔗 Zobacz więcej";
-
-                if (announcement.external) {
-
-                    link.target =
-                        "_blank";
-
-                    link.rel =
-                        "noopener noreferrer";
-
-                }
-
-                card.appendChild(link);
-
-            }
-
-
-            announcementsContainer.appendChild(
-                card
-            );
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   BRAK OGŁOSZEŃ
-===================================================== */
-
-else {
-
-    announcementsContainer.innerHTML = `
-
-        <article class="info-card">
-
-            <h2>
-                📭 Brak ogłoszeń
-            </h2>
-
-            <p>
-                Obecnie nie ma żadnych
-                aktywnych ogłoszeń.
-            </p>
-
-        </article>
-
-    `;
-
-}
-
-</script>
-
-
-<!-- =====================================================
-     MOTYW
-===================================================== -->
 
 <script src="script.js"></script>
-
 
 </body>
 
