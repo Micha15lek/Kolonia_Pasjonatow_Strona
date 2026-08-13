@@ -18,33 +18,13 @@
         🌟 Kolonia Pasjonatów
     </div>
 
-    <nav>
+    <a
+        href="index.html"
+        class="button home-button">
 
-        <a href="index.html">
-            🏠 Strona główna
-        </a>
+        🏠 Strona główna
 
-        <a href="ranking.html">
-            🏆 Ranking
-        </a>
-
-        <a href="statystyki.html">
-            ⏱️ Licznik
-        </a>
-
-        <a href="ogloszenia.html">
-            📢 Ogłoszenia
-        </a>
-
-        <a href="linki.html">
-            🔗 Linki
-        </a>
-
-        <a href="kontakt.html">
-            📧 Kontakt
-        </a>
-
-    </nav>
+    </a>
 
     <button
         id="themeToggle"
@@ -60,7 +40,6 @@
 
 
 <main>
-
 
     <!-- =====================================================
          HERO
@@ -101,7 +80,6 @@
             <div
                 class="month-title"
                 id="monthTitle">
-
             </div>
 
 
@@ -145,15 +123,12 @@
             <div
                 class="days"
                 id="calendarDays">
-
             </div>
 
         </div>
 
 
-        <!-- =================================================
-             INFORMACJA O WYDARZENIU
-        ================================================== -->
+        <!-- INFORMACJA O WYDARZENIU -->
 
         <div
             class="event-info"
@@ -177,9 +152,7 @@
         </div>
 
 
-        <!-- =================================================
-             LEGENDA
-        ================================================== -->
+        <!-- LEGENDA -->
 
         <div class="legend">
 
@@ -190,38 +163,23 @@
             <div class="legend-items">
 
                 <div class="legend-item">
-
                     <span class="legend-color legend-event"></span>
-
                     Wydarzenie
-
                 </div>
 
-
                 <div class="legend-item">
-
                     <span class="legend-color legend-holiday"></span>
-
                     Święto
-
                 </div>
 
-
                 <div class="legend-item">
-
                     <span class="legend-color legend-special"></span>
-
                     Wydarzenie specjalne
-
                 </div>
 
-
                 <div class="legend-item">
-
                     <span class="legend-color legend-today"></span>
-
                     Dzisiaj
-
                 </div>
 
             </div>
@@ -385,7 +343,6 @@ let currentDate =
 
 
 const monthNames = [
-
     "Styczeń",
     "Luty",
     "Marzec",
@@ -398,20 +355,17 @@ const monthNames = [
     "Październik",
     "Listopad",
     "Grudzień"
-
 ];
 
 
 function formatDate(year, month, day) {
 
     return (
-
         year +
         "-" +
         String(month + 1).padStart(2, "0") +
         "-" +
         String(day).padStart(2, "0")
-
     );
 
 }
@@ -437,13 +391,11 @@ function formatPolishDate(dateString) {
         dateString.split("-");
 
     return (
-
         parts[2] +
         "." +
         parts[1] +
         "." +
         parts[0]
-
     );
 
 }
@@ -495,10 +447,8 @@ function showEvent(event, dateString) {
 
 
     eventInfo.scrollIntoView({
-
         behavior: "smooth",
         block: "nearest"
-
     });
 
 }
@@ -598,11 +548,9 @@ function renderCalendar() {
 
 
         if (
-
             year === todayYear &&
             month === todayMonth &&
             day === todayDay
-
         ) {
 
             dayElement.classList.add(
@@ -634,9 +582,7 @@ function renderCalendar() {
 
         dayEvents.forEach(event => {
 
-            if (
-                event.type === "special"
-            ) {
+            if (event.type === "special") {
 
                 dayElement.classList.add(
                     "special-day"
@@ -644,9 +590,7 @@ function renderCalendar() {
 
             }
 
-            else if (
-                event.type === "update"
-            ) {
+            else if (event.type === "update") {
 
                 dayElement.classList.add(
                     "event-day"
@@ -654,9 +598,7 @@ function renderCalendar() {
 
             }
 
-            else if (
-                event.type === "important"
-            ) {
+            else if (event.type === "important") {
 
                 dayElement.classList.add(
                     "holiday-day"
@@ -677,18 +619,14 @@ function renderCalendar() {
                 document.createElement("div");
 
 
-            if (
-                event.type === "special"
-            ) {
+            if (event.type === "special") {
 
                 dot.className =
                     "special-dot";
 
             }
 
-            else if (
-                event.type === "important"
-            ) {
+            else if (event.type === "important") {
 
                 dot.className =
                     "holiday-dot";
@@ -800,10 +738,6 @@ renderCalendar();
 
 </script>
 
-
-<!-- =====================================================
-     GŁÓWNY SKRYPT STRONY
-====================================================== -->
 
 <script src="script.js"></script>
 
