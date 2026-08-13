@@ -8,532 +8,157 @@
     <title>Koloniarz | Kolonia Pasjonatów</title>
 
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        /* =====================================================
-           KOLONIARZ – PODSTRONA
-           ===================================================== */
-
-        .koloniarz-page {
-            width: min(950px, calc(100% - 30px));
-            margin: auto;
-            padding: 20px 0 40px;
-        }
-
-        /* POWRÓT */
-        .koloniarz-back {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            min-height: 43px;
-            padding: 10px 17px;
-
-            margin-bottom: 20px;
-
-            border-radius: 12px;
-
-            background: rgba(255,255,255,.05);
-            border: 1px solid rgba(255,255,255,.10);
-
-            font-weight: 800;
-
-            transition:
-                transform .2s ease,
-                background .2s ease,
-                border-color .2s ease,
-                box-shadow .2s ease;
-        }
-
-        .koloniarz-back:hover {
-            transform: translateY(-2px);
-
-            background: rgba(255,193,7,.11);
-            border-color: rgba(255,193,7,.38);
-
-            box-shadow:
-                0 5px 18px rgba(255,193,7,.12);
-        }
-
-        body.light .koloniarz-back {
-            background: #fff;
-            border-color: #dcdcdc;
-        }
-
-        /* =====================================================
-           GŁÓWNA KARTA
-           ===================================================== */
-
-        .koloniarz-card {
-            padding: 28px;
-
-            border-radius: 22px;
-
-            background: rgba(255,255,255,.045);
-            border: 1px solid rgba(255,255,255,.085);
-
-            box-shadow:
-                0 10px 35px rgba(0,0,0,.18);
-        }
-
-        body.light .koloniarz-card {
-            background: #fff;
-            border-color: #ddd;
-        }
-
-        /* NAGŁÓWEK */
-
-        .koloniarz-header {
-            text-align: center;
-
-            padding-bottom: 22px;
-            margin-bottom: 22px;
-
-            border-bottom:
-                1px solid rgba(255,255,255,.08);
-        }
-
-        body.light .koloniarz-header {
-            border-bottom-color: #e2e2e2;
-        }
-
-        .koloniarz-icon {
-            font-size: 64px;
-            margin-bottom: 8px;
-        }
-
-        .koloniarz-title {
-            margin: 0;
-
-            font-size: 34px;
-            font-weight: 950;
-        }
-
-        .koloniarz-subtitle {
-            margin-top: 8px;
-
-            opacity: .7;
-
-            font-weight: 700;
-        }
-
-        /* =====================================================
-           STATUS
-           ===================================================== */
-
-        .koloniarz-status {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            gap: 15px;
-
-            padding: 15px 17px;
-
-            margin-bottom: 22px;
-
-            border-radius: 15px;
-
-            background: rgba(255,255,255,.04);
-            border: 1px solid rgba(255,255,255,.08);
-        }
-
-        body.light .koloniarz-status {
-            background: #fafafa;
-            border-color: #e1e1e1;
-        }
-
-        .status-left {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-
-            font-weight: 900;
-        }
-
-        .status-dot {
-            width: 13px;
-            height: 13px;
-
-            border-radius: 50%;
-
-            background: #22c55e;
-
-            box-shadow:
-                0 0 12px rgba(34,197,94,.5);
-        }
-
-        .status-text {
-            color: #22c55e;
-
-            font-weight: 900;
-        }
-
-        /* =====================================================
-           SEKCJE
-           ===================================================== */
-
-        .koloniarz-section {
-            margin-top: 20px;
-
-            padding: 20px;
-
-            border-radius: 17px;
-
-            background: rgba(255,255,255,.035);
-            border: 1px solid rgba(255,255,255,.07);
-        }
-
-        body.light .koloniarz-section {
-            background: #fafafa;
-            border-color: #e5e5e5;
-        }
-
-        .koloniarz-section h2 {
-            margin-top: 0;
-            margin-bottom: 10px;
-
-            font-size: 21px;
-        }
-
-        .koloniarz-section p {
-            margin-bottom: 0;
-
-            line-height: 1.7;
-        }
-
-        /* =====================================================
-           FUNKCJE
-           ===================================================== */
-
-        .koloniarz-features {
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
-
-            gap: 12px;
-
-            margin-top: 15px;
-        }
-
-        .feature {
-            padding: 15px;
-
-            border-radius: 13px;
-
-            background: rgba(255,255,255,.04);
-
-            border: 1px solid rgba(255,255,255,.07);
-        }
-
-        body.light .feature {
-            background: #fff;
-            border-color: #e5e5e5;
-        }
-
-        .feature-title {
-            font-weight: 900;
-
-            margin-bottom: 5px;
-        }
-
-        .feature-description {
-            font-size: 14px;
-            opacity: .72;
-
-            line-height: 1.5;
-        }
-
-        /* =====================================================
-           INFORMACJA TECHNICZNA
-           ===================================================== */
-
-        .koloniarz-info {
-            margin-top: 20px;
-
-            padding: 18px;
-
-            border-radius: 15px;
-
-            background: rgba(255,193,7,.07);
-
-            border: 1px solid rgba(255,193,7,.18);
-        }
-
-        .koloniarz-info strong {
-            color: #ffc107;
-        }
-
-        /* =====================================================
-           STOPKA KARTY
-           ===================================================== */
-
-        .koloniarz-footer {
-            margin-top: 25px;
-
-            padding-top: 18px;
-
-            border-top:
-                1px solid rgba(255,255,255,.08);
-
-            text-align: center;
-
-            font-size: 13px;
-
-            opacity: .6;
-        }
-
-        body.light .koloniarz-footer {
-            border-top-color: #e2e2e2;
-        }
-
-        /* =====================================================
-           MOBILE
-           ===================================================== */
-
-        @media (max-width: 650px) {
-
-            .koloniarz-page {
-                width: calc(100% - 24px);
-            }
-
-            .koloniarz-card {
-                padding: 20px;
-            }
-
-            .koloniarz-title {
-                font-size: 28px;
-            }
-
-            .koloniarz-icon {
-                font-size: 52px;
-            }
-
-            .koloniarz-features {
-                grid-template-columns: 1fr;
-            }
-
-            .koloniarz-status {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-        }
-    </style>
 </head>
-
 
 <body>
 
-<main>
+<header>
 
-    <div class="koloniarz-page">
+    <div class="logo">
+        🌟 Kolonia Pasjonatów
+    </div>
 
-        <!-- TYLKO POWRÓT DO STRONY GŁÓWNEJ -->
+    <nav>
 
-        <a href="index.html" class="koloniarz-back">
-            ← Powrót do strony głównej
+        <a href="index.html">
+            🏠 Strona główna
         </a>
 
+    </nav>
 
-        <!-- GŁÓWNA KARTA -->
+    <button
+        id="themeToggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Zmień motyw">
 
-        <div class="koloniarz-card">
+        ☀️
+
+    </button>
+
+</header>
 
 
-            <!-- NAGŁÓWEK -->
+<main>
 
-            <div class="koloniarz-header">
+    <!-- =====================================================
+         KOLONIARZ — HERO
+    ====================================================== -->
+
+    <section class="koloniarz-page">
+
+        <div class="koloniarz-hero">
+
+            <h1>
+                🤖 Koloniarz
+            </h1>
+
+            <p>
+                Oficjalny bot Kolonii Pasjonatów.
+                Poznaj jego możliwości oraz informacje
+                dotyczące projektu.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             INFORMACJE
+        ================================================== -->
+
+        <div class="koloniarz-grid">
+
+
+            <article class="koloniarz-card">
 
                 <div class="koloniarz-icon">
                     🤖
                 </div>
 
-                <h1 class="koloniarz-title">
-                    Koloniarz
-                </h1>
+                <h2>
+                    Czym jest Koloniarz?
+                </h2>
 
-                <div class="koloniarz-subtitle">
-                    Bot serwerowy Kolonii Pasjonatów
+                <p>
+                    Koloniarz to własny bot stworzony
+                    z myślą o społeczności Kolonii Pasjonatów.
+                    Ma pomagać w codziennym funkcjonowaniu
+                    serwera Discord.
+                </p>
+
+            </article>
+
+
+            <article class="koloniarz-card">
+
+                <div class="koloniarz-icon">
+                    ⚙️
                 </div>
 
-            </div>
+                <h2>
+                    Funkcje
+                </h2>
+
+                <p>
+                    Bot będzie stopniowo otrzymywał nowe
+                    funkcje, które ułatwią korzystanie
+                    z serwera i organizację społeczności.
+                </p>
+
+            </article>
 
 
-            <!-- STATUS -->
+            <article class="koloniarz-card">
 
-            <div class="koloniarz-status">
-
-                <div class="status-left">
-
-                    <span class="status-dot"></span>
-
-                    <span>
-                        Status bota
-                    </span>
-
+                <div class="koloniarz-icon">
+                    🚧
                 </div>
 
-                <span class="status-text">
-                    Online
+                <h2>
+                    Status projektu
+                </h2>
+
+                <p>
+                    Koloniarz jest obecnie w fazie
+                    przygotowania. Więcej informacji
+                    pojawi się wraz z rozwojem projektu.
+                </p>
+
+                <span class="status">
+                    🚧 W przygotowaniu
                 </span>
 
-            </div>
+            </article>
 
-
-            <!-- O KOLONIARZU -->
-
-            <section class="koloniarz-section">
-
-                <h2>
-                    🤖 Czym jest Koloniarz?
-                </h2>
-
-                <p>
-                    <strong>Koloniarz</strong> to bot stworzony
-                    specjalnie dla serwerów społeczności
-                    <strong>Kolonii Pasjonatów</strong>.
-                    Jego zadaniem jest wspieranie administracji,
-                    automatyzacja wybranych czynności oraz
-                    ułatwianie codziennego korzystania z serwera.
-                </p>
-
-            </section>
-
-
-            <!-- FUNKCJE -->
-
-            <section class="koloniarz-section">
-
-                <h2>
-                    ⚙️ Możliwości Koloniarza
-                </h2>
-
-                <div class="koloniarz-features">
-
-                    <div class="feature">
-
-                        <div class="feature-title">
-                            🛡️ Automoderacja
-                        </div>
-
-                        <div class="feature-description">
-                            Pomoc w pilnowaniu porządku
-                            i automatycznej moderacji serwera.
-                        </div>
-
-                    </div>
-
-
-                    <div class="feature">
-
-                        <div class="feature-title">
-                            🎉 Eventy
-                        </div>
-
-                        <div class="feature-description">
-                            Wsparcie przy organizacji wydarzeń
-                            i aktywności społeczności.
-                        </div>
-
-                    </div>
-
-
-                    <div class="feature">
-
-                        <div class="feature-title">
-                            📢 Powiadomienia
-                        </div>
-
-                        <div class="feature-description">
-                            Automatyczne informacje dotyczące
-                            ważnych wydarzeń na serwerze.
-                        </div>
-
-                    </div>
-
-
-                    <div class="feature">
-
-                        <div class="feature-title">
-                            🔧 Narzędzia administracyjne
-                        </div>
-
-                        <div class="feature-description">
-                            Przydatne funkcje ułatwiające pracę
-                            administracji serwera.
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- INFORMACJA -->
-
-            <div class="koloniarz-info">
-
-                <strong>💡 Informacja:</strong>
-
-                Koloniarz jest obecnie rozwijany i z czasem
-                może otrzymywać kolejne funkcje oraz ulepszenia
-                przygotowane specjalnie dla społeczności
-                Kolonii Pasjonatów.
-
-            </div>
-
-
-            <!-- INFORMACJE TECHNICZNE -->
-
-            <section class="koloniarz-section">
-
-                <h2>
-                    📊 Informacje
-                </h2>
-
-                <p>
-                    <strong>Nazwa:</strong> Koloniarz<br>
-                    <strong>Typ:</strong> Bot serwerowy<br>
-                    <strong>Przeznaczenie:</strong> Kolonia Pasjonatów<br>
-                    <strong>Status:</strong> <span class="status-text">Online</span><br>
-                    <strong>Rozwój:</strong> W toku
-                </p>
-
-            </section>
-
-
-            <!-- STOPKA -->
-
-            <div class="koloniarz-footer">
-
-                Koloniarz • Bot stworzony dla Kolonii Pasjonatów
-
-            </div>
 
         </div>
 
-    </div>
+    </section>
 
 </main>
 
 
-<script>
+<!-- =====================================================
+     STOPKA
+====================================================== -->
 
-    /* =====================================================
-       MOTYW – ZGODNY Z STYLE.CSS
-       ===================================================== */
+<footer>
 
-    const savedTheme =
-        localStorage.getItem("kolonia-theme");
+    <p>
+        © 2026 Kolonia Pasjonatów
+    </p>
 
-    if (savedTheme === "light") {
-        document.body.classList.add("light");
-    }
+    <p>
+        🌟 Oficjalna strona społeczności
+    </p>
 
-</script>
+</footer>
+
+
+<!-- WSPÓLNY SKRYPT -->
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
