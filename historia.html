@@ -7,223 +7,256 @@
 
     <title>Historia | Kolonia Pasjonatów</title>
 
+    <!-- WSPÓLNY CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<main>
+    <!-- =====================================================
+         GŁÓWNA ZAWARTOŚĆ
+    ====================================================== -->
 
-    <div class="history-page">
+    <main>
 
-        <!-- POWRÓT DO STRONY GŁÓWNEJ -->
-        <a href="index.html" class="history-back">
-            ← Powrót do strony głównej
-        </a>
+        <!-- GÓRNY PASEK -->
+
+        <div class="top-bar">
+
+            <!-- POWRÓT -->
+
+            <a href="index.html" class="home-button">
+                ← Strona główna
+            </a>
 
 
-        <!-- GŁÓWNA KARTA HISTORII -->
-        <section class="history-card">
+            <!-- TRYB JASNY / CIEMNY -->
 
-            <div class="history-header">
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Zmień tryb">
+                🌙
+            </button>
 
-                <div class="history-icon">
-                    📖
-                </div>
+        </div>
 
-                <h1 class="history-title">
+
+        <!-- =================================================
+             HISTORIA
+        ================================================== -->
+
+        <section class="history-page">
+
+            <div class="hero">
+
+                <h1>
                     Historia Kolonii Pasjonatów
                 </h1>
 
-                <p class="history-subtitle">
-                    Najważniejsze momenty w historii społeczności
+                <p>
+                    Poznaj najważniejsze wydarzenia w historii
+                    naszej społeczności.
                 </p>
 
             </div>
 
 
-            <!-- WPROWADZENIE -->
+            <!-- =================================================
+                 OŚ CZASU
+            ================================================== -->
 
-            <div class="history-intro">
-
-                <p>
-                    <strong>Kolonia Pasjonatów</strong> to społeczność
-                    skupiająca osoby zainteresowane koleją, transportem,
-                    sportem, grami oraz wspólnym spędzaniem czasu.
-                </p>
-
-                <p>
-                    Na tej stronie znajdziesz najważniejsze informacje
-                    dotyczące rozwoju Kolonii Pasjonatów.
-                </p>
-
-            </div>
+            <div class="history-list">
 
 
-            <!-- OŚ CZASU -->
+                <!-- 05.04.2026 -->
 
-            <div class="history-timeline">
+                <div class="history-item creation">
 
+                    <div class="history-date">
+                        05.04.2026
+                    </div>
 
-                <article class="history-item">
-
-                    <span class="history-date">
-                        2026
-                    </span>
-
-                    <h2>
-                        🚀 Powstanie Kolonii Pasjonatów
+                    <h2 class="history-title">
+                        Rozpoczęcie tworzenia serwera
                     </h2>
 
-                    <p>
-                        Powstaje Kolonia Pasjonatów – społeczność,
-                        której głównym miejscem spotkań jest serwer Discord.
-                    </p>
-
-                </article>
-
-
-                <article class="history-item">
-
-                    <span class="history-date">
-                        2026
-                    </span>
-
-                    <h2>
-                        🚂 Rozwój społeczności
-                    </h2>
-
-                    <p>
-                        Kolonia zaczyna się rozwijać. Pojawiają się
-                        nowe kanały, role, wydarzenia oraz inicjatywy
-                        skierowane do członków społeczności.
-                    </p>
-
-                </article>
-
-
-                <article class="history-item">
-
-                    <span class="history-date">
-                        2026
-                    </span>
-
-                    <h2>
-                        🎉 Pierwsze wydarzenia
-                    </h2>
-
-                    <p>
-                        Rozpoczynają się konkursy, wydarzenia
-                        społecznościowe oraz różnego rodzaju akcje
-                        organizowane dla członków Kolonii.
-                    </p>
-
-                </article>
-
-
-                <article class="history-item">
-
-                    <span class="history-date">
-                        2026
-                    </span>
-
-                    <h2>
-                        🚂 Rozwój tematyki kolejowej
-                    </h2>
-
-                    <p>
-                        Kolej staje się jednym z ważniejszych tematów
-                        społeczności. Powstają specjalne kanały
-                        poświęcone kolei, taborowi oraz wydarzeniom
-                        kolejowym.
-                    </p>
-
-                </article>
-
-
-                <article class="history-item">
-
-                    <span class="history-date">
-                        2026
-                    </span>
-
-                    <h2>
-                        🤖 Powstanie Koloniarza
-                    </h2>
-
-                    <p>
-                        Rozpoczyna się rozwój <strong>Koloniarza</strong> –
-                        bota serwerowego stworzonego specjalnie dla
+                    <p class="history-description">
+                        Rozpoczęto tworzenie serwera pod nazwą
+                        <strong>Widzowie Kolejowy_Michał</strong>.
+                        Był to początek projektu, który z czasem
+                        przekształcił się w obecną społeczność
                         Kolonii Pasjonatów.
                     </p>
 
-                </article>
-
-
-                <article class="history-item">
-
-                    <span class="history-date">
-                        13.08.2026
+                    <span class="history-category">
+                        Początek
                     </span>
 
-                    <h2>
-                        🌐 Start strony internetowej
+                </div>
+
+
+                <!-- 11.06.2026 -->
+
+                <div class="history-item event">
+
+                    <div class="history-date">
+                        11.06.2026
+                    </div>
+
+                    <h2 class="history-title">
+                        Otwarcie serwera
                     </h2>
 
-                    <p>
-                        Uruchomiona zostaje oficjalna strona internetowa
-                        Kolonii Pasjonatów. Strona staje się miejscem,
-                        w którym można znaleźć najważniejsze informacje
-                        o społeczności, wydarzeniach oraz jej historii.
+                    <p class="history-description">
+                        Serwer
+                        <strong>Widzowie Kolejowy_Michał</strong>
+                        został oficjalnie otwarty dla społeczności.
                     </p>
 
-                </article>
+                    <span class="history-category">
+                        Ważne wydarzenie
+                    </span>
+
+                </div>
 
 
-            </div>
+                <!-- 16.06.2026 -->
+
+                <div class="history-item update">
+
+                    <div class="history-date">
+                        16.06.2026
+                    </div>
+
+                    <h2 class="history-title">
+                        Zmiana nazwy serwera
+                    </h2>
+
+                    <p class="history-description">
+                        Nazwa serwera została zmieniona z
+                        <strong>Widzowie Kolejowy_Michał</strong>
+                        na
+                        <strong>Miłośnicy Kolei Polska</strong>.
+                    </p>
+
+                    <span class="history-category">
+                        Zmiana nazwy
+                    </span>
+
+                </div>
 
 
-            <!-- ZAKOŃCZENIE -->
+                <!-- OBECNA NAZWA -->
 
-            <div class="history-end">
+                <div class="history-item important">
 
-                <h2>
-                    ❤️ To dopiero początek!
-                </h2>
+                    <div class="history-date">
+                        Obecnie
+                    </div>
 
-                <p>
-                    Historia Kolonii Pasjonatów będzie się dalej
-                    rozwijać wraz z kolejnymi wydarzeniami,
-                    projektami i wspólnymi inicjatywami.
-                </p>
+                    <h2 class="history-title">
+                        Kolonia Pasjonatów
+                    </h2>
 
-            </div>
+                    <p class="history-description">
+                        Obecną nazwą społeczności jest
+                        <strong>Kolonia Pasjonatów</strong>.
+                        Jest to kolejny etap rozwoju serwera
+                        i całej społeczności.
+                    </p>
 
+                    <span class="history-category">
+                        Obecna nazwa
+                    </span>
 
-            <div class="history-footer">
-
-                Kolonia Pasjonatów • Historia społeczności
+                </div>
 
             </div>
 
         </section>
 
-    </div>
-
-</main>
+    </main>
 
 
-<footer>
+    <!-- =====================================================
+         STOPKA
+    ====================================================== -->
 
-    <p>
-        © 2026 Kolonia Pasjonatów
-    </p>
+    <footer>
 
-    <p>
-        Historia społeczności
-    </p>
+        <p>
+            © 2026 Kolonia Pasjonatów
+        </p>
 
-</footer>
+    </footer>
+
+
+    <!-- =====================================================
+         TRYB JASNY / CIEMNY
+    ====================================================== -->
+
+    <script>
+
+        const themeToggle =
+            document.getElementById("themeToggle");
+
+
+        /* Odczyt zapisanego motywu */
+
+        const savedTheme =
+            localStorage.getItem("kolonia-theme");
+
+
+        if (savedTheme === "light") {
+
+            document.body.classList.add("light");
+
+            themeToggle.textContent = "☀️";
+
+        } else {
+
+            document.body.classList.remove("light");
+
+            themeToggle.textContent = "🌙";
+
+        }
+
+
+        /* Zmiana motywu */
+
+        themeToggle.addEventListener("click", function () {
+
+            document.body.classList.toggle("light");
+
+
+            if (
+                document.body.classList.contains("light")
+            ) {
+
+                localStorage.setItem(
+                    "kolonia-theme",
+                    "light"
+                );
+
+                themeToggle.textContent = "☀️";
+
+            } else {
+
+                localStorage.setItem(
+                    "kolonia-theme",
+                    "dark"
+                );
+
+                themeToggle.textContent = "🌙";
+
+            }
+
+        });
+
+    </script>
 
 </body>
+
 </html>
