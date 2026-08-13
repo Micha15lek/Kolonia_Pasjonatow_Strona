@@ -1,56 +1,78 @@
-/* =====================================================
-   LICZNIK — KOLONIA PASJONATÓW
-===================================================== */
-
+"use strict";
 
 /* =====================================================
-   UŻYTKOWNICY
-
-   Wpisz tutaj aktualną liczbę członków Kolonii
-   BEZ BOTÓW.
+   USTAWIENIA
 ===================================================== */
 
-const USERS_COUNT = 0;
+/*
+   Aktualna liczba użytkowników Kolonii Pasjonatów.
+   Liczba NIE obejmuje botów.
+*/
+const USERS_COUNT = 17;
 
 
 /* =====================================================
-   DATY STARTOWE
+   DATY STARTU
 ===================================================== */
 
-const colonyStart =
+/*
+   Start Kolonii Pasjonatów:
+   11.06.2026
+*/
+const COLONY_START =
     new Date("2026-06-11T00:00:00");
 
-const websiteStart =
+
+/*
+   Start strony internetowej:
+   13.08.2026, godz. 19:00
+*/
+const WEBSITE_START =
     new Date("2026-08-13T19:00:00");
 
 
 /* =====================================================
-   DATY WYDARZEŃ
+   DATY ODLICZAŃ
 ===================================================== */
 
-const events = {
+/*
+   Koniec wakacji:
+   31.08.2026, godz. 23:59:59
+*/
+const VACATION_END =
+    new Date("2026-08-31T23:59:59");
 
-    summer: new Date(
-        "2026-08-31T23:59:59"
-    ),
 
-    halloween: new Date(
-        "2026-10-31T00:00:00"
-    ),
+/*
+   Halloween:
+   31.10.2026, godz. 00:00
+*/
+const HALLOWEEN =
+    new Date("2026-10-31T00:00:00");
 
-    christmas: new Date(
-        "2026-12-24T00:00:00"
-    ),
 
-    newYear: new Date(
-        "2026-12-31T23:59:59"
-    ),
+/*
+   Wigilia:
+   24.12.2026, godz. 00:00
+*/
+const CHRISTMAS =
+    new Date("2026-12-24T00:00:00");
 
-    easter: new Date(
-        "2027-03-28T00:00:00"
-    )
 
-};
+/*
+   Koniec roku:
+   31.12.2026, godz. 23:59:59
+*/
+const YEAR_END =
+    new Date("2026-12-31T23:59:59");
+
+
+/*
+   Wielkanoc:
+   28.03.2027, godz. 00:00
+*/
+const EASTER =
+    new Date("2027-03-28T00:00:00");
 
 
 /* =====================================================
@@ -66,8 +88,8 @@ const colonyUptime =
 const websiteUptime =
     document.getElementById("websiteUptime");
 
-const summerCountdown =
-    document.getElementById("summerCountdown");
+const vacationCountdown =
+    document.getElementById("vacationCountdown");
 
 const halloweenCountdown =
     document.getElementById("halloweenCountdown");
@@ -75,14 +97,14 @@ const halloweenCountdown =
 const christmasCountdown =
     document.getElementById("christmasCountdown");
 
-const newYearCountdown =
-    document.getElementById("newYearCountdown");
+const yearEndCountdown =
+    document.getElementById("yearEndCountdown");
 
 const easterCountdown =
     document.getElementById("easterCountdown");
 
-const currentTime =
-    document.getElementById("currentTime");
+const lastUpdate =
+    document.getElementById("lastUpdate");
 
 
 /* =====================================================
@@ -92,7 +114,7 @@ const currentTime =
 if (usersCount) {
 
     usersCount.textContent =
-        USERS_COUNT;
+        USERS_COUNT.toLocaleString("pl-PL");
 
 }
 
@@ -151,21 +173,23 @@ function formatDuration(milliseconds) {
 
 
 /* =====================================================
-   ODLICZANIE
+   ODLICZANIE DO DATY
 ===================================================== */
 
-function countdownTo(date) {
+function countdownTo(targetDate) {
 
     const now =
         new Date();
 
+
     const difference =
-        date - now;
+        targetDate.getTime() -
+        now.getTime();
 
 
     if (difference <= 0) {
 
-        return "Wydarzenie już się odbyło";
+        return "0 dni, 0 godz. 0 min. 0 sek.";
 
     }
 
@@ -178,65 +202,91 @@ function countdownTo(date) {
 
 
 /* =====================================================
-   CZAS OD STARTU
+   CZAS DZIAŁANIA KOLONII I STRONY
 ===================================================== */
 
-function timeSince(date) {
+function updateUptime() {
 
     const now =
         new Date();
 
-    const difference =
-        now - date;
 
-
-    if (difference <= 0) {
-
-        return "Jeszcze się nie rozpoczęło";
-
-    }
-
-
-    return formatDuration(
-        difference
-    );
-
-}
-
-
-/* =====================================================
-   AKTUALIZACJA LICZNIKÓW
-===================================================== */
-
-function updateCounters() {
-
-
-    /* KOLONIA */
+    /* -------------------------------------------------
+       KOLONIA PASJONATÓW
+    ------------------------------------------------- */
 
     if (colonyUptime) {
 
-        colonyUptime.textContent =
-            timeSince(colonyStart);
+        const difference =
+            now.getTime() -
+            COLONY_START.getTime();
+
+
+        if (difference >= 0) {
+
+            colonyUptime.textContent =
+                formatDuration(
+                    difference
+                );
+
+        }
+
+        else {
+
+            colonyUptime.textContent =
+                "Kolonia jeszcze nie wystartowała.";
+
+        }
 
     }
 
 
-    /* STRONA */
+    /* -------------------------------------------------
+       STRONA INTERNETOWA
+    ------------------------------------------------- */
 
     if (websiteUptime) {
 
-        websiteUptime.textContent =
-            timeSince(websiteStart);
+        const difference =
+            now.getTime() -
+            WEBSITE_START.getTime();
+
+
+        if (difference >= 0) {
+
+            websiteUptime.textContent =
+                formatDuration(
+                    difference
+                );
+
+        }
+
+        else {
+
+            websiteUptime.textContent =
+                "Strona jeszcze nie wystartowała.";
+
+        }
 
     }
 
+}
+
+
+/* =====================================================
+   ODLICZANIE
+===================================================== */
+
+function updateCountdowns() {
 
     /* KONIEC WAKACJI */
 
-    if (summerCountdown) {
+    if (vacationCountdown) {
 
-        summerCountdown.textContent =
-            countdownTo(events.summer);
+        vacationCountdown.textContent =
+            countdownTo(
+                VACATION_END
+            );
 
     }
 
@@ -246,7 +296,9 @@ function updateCounters() {
     if (halloweenCountdown) {
 
         halloweenCountdown.textContent =
-            countdownTo(events.halloween);
+            countdownTo(
+                HALLOWEEN
+            );
 
     }
 
@@ -256,17 +308,21 @@ function updateCounters() {
     if (christmasCountdown) {
 
         christmasCountdown.textContent =
-            countdownTo(events.christmas);
+            countdownTo(
+                CHRISTMAS
+            );
 
     }
 
 
     /* KONIEC ROKU */
 
-    if (newYearCountdown) {
+    if (yearEndCountdown) {
 
-        newYearCountdown.textContent =
-            countdownTo(events.newYear);
+        yearEndCountdown.textContent =
+            countdownTo(
+                YEAR_END
+            );
 
     }
 
@@ -276,25 +332,8 @@ function updateCounters() {
     if (easterCountdown) {
 
         easterCountdown.textContent =
-            countdownTo(events.easter);
-
-    }
-
-
-    /* AKTUALNY CZAS */
-
-    if (currentTime) {
-
-        const now =
-            new Date();
-
-        currentTime.textContent =
-            now.toLocaleString(
-                "pl-PL",
-                {
-                    dateStyle: "full",
-                    timeStyle: "medium"
-                }
+            countdownTo(
+                EASTER
             );
 
     }
@@ -303,15 +342,65 @@ function updateCounters() {
 
 
 /* =====================================================
-   START
+   OSTATNIA AKTUALIZACJA
 ===================================================== */
 
-updateCounters();
+function updateLastUpdate() {
+
+    if (!lastUpdate) {
+
+        return;
+
+    }
 
 
-/* Aktualizacja co sekundę */
+    const now =
+        new Date();
 
+
+    lastUpdate.textContent =
+        now.toLocaleString(
+            "pl-PL",
+            {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit"
+            }
+        );
+
+}
+
+
+/* =====================================================
+   GŁÓWNA FUNKCJA
+===================================================== */
+
+function updateAll() {
+
+    updateUptime();
+
+    updateCountdowns();
+
+    updateLastUpdate();
+
+}
+
+
+/* =====================================================
+   URUCHOMIENIE
+===================================================== */
+
+updateAll();
+
+
+/*
+   Automatyczna aktualizacja
+   co 1 sekundę.
+*/
 setInterval(
-    updateCounters,
+    updateAll,
     1000
 );
