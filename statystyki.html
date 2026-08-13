@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Licznik | Kolonia Pasjonatów</title>
+    <title>Statystyki | Kolonia Pasjonatów</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -68,107 +68,104 @@
     <section class="hero">
 
         <h1>
-            ⏱️ Kolonia w liczbach
+            📊 Statystyki
         </h1>
 
         <p>
-            Sprawdź najważniejsze liczniki oraz czas
-            działalności Kolonii Pasjonatów i naszej strony.
+            Najważniejsze statystyki oraz liczniki
+            Kolonii Pasjonatów.
         </p>
 
     </section>
 
 
     <!-- =====================================================
-         UŻYTKOWNICY
+         KOLONIA PASJONATÓW
     ====================================================== -->
 
     <section class="section">
 
         <h2 class="section-title">
-            👥 Kolonia Pasjonatów
+            🌟 Kolonia Pasjonatów
         </h2>
 
         <div class="info-grid">
 
-            <article class="info-card stat-card">
+
+            <!-- LICZBA CZŁONKÓW -->
+
+            <article class="info-card">
 
                 <h2>
-                    👥 Użytkownicy Kolonii
+                    👥 Członkowie
                 </h2>
 
-                <span
-                    id="usersCount"
-                    class="stat-number">
-
-                    0
-
-                </span>
-
                 <p>
-                    Liczba wszystkich członków Kolonii Pasjonatów,
-                    bez botów.
-                </p>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         CZAS OD STARTU
-    ====================================================== -->
-
-    <section class="section">
-
-        <h2 class="section-title">
-            ⏱️ Czas działania
-        </h2>
-
-        <div class="info-grid">
-
-            <article class="info-card stat-card">
-
-                <h2>
-                    🌟 Kolonia Pasjonatów
-                </h2>
-
-                <span
-                    id="colonyUptime"
-                    class="stat-number">
-
-                    Obliczanie...
-
-                </span>
-
-                <p>
-                    Od 11.06.2026 — dnia otwarcia
+                    Aktualna liczba członków
                     Kolonii Pasjonatów.
                 </p>
 
+                <div
+                    class="stat-number"
+                    id="usersCount">
+
+                    17
+
+                </div>
+
             </article>
 
 
-            <article class="info-card stat-card">
+            <!-- CZAS KOLONII -->
+
+            <article class="info-card">
 
                 <h2>
-                    🌐 Strona internetowa
+                    ⏱️ Czas działania Kolonii
                 </h2>
 
-                <span
-                    id="websiteUptime"
-                    class="stat-number">
+                <p>
+                    Kolonia Pasjonatów działa już:
+                </p>
 
-                    Obliczanie...
+                <div
+                    class="stat-number"
+                    id="colonyUptime">
 
-                </span>
+                    Ładowanie...
+
+                </div>
+
+                <small>
+                    Start: 11.06.2026
+                </small>
+
+            </article>
+
+
+            <!-- CZAS STRONY -->
+
+            <article class="info-card">
+
+                <h2>
+                    🌐 Czas działania strony
+                </h2>
 
                 <p>
-                    Od 13.08.2026, godz. 20:10 —
-                    oficjalnego startu strony internetowej.
+                    Oficjalna strona działa już:
                 </p>
+
+                <div
+                    class="stat-number"
+                    id="websiteUptime">
+
+                    Ładowanie...
+
+                </div>
+
+                <small>
+                    Start: 13.08.2026, 20:10
+                </small>
 
             </article>
 
@@ -178,129 +175,153 @@
 
 
     <!-- =====================================================
-         ODLICZANIE
+         ODLICZANIA
     ====================================================== -->
 
     <section class="section">
 
         <h2 class="section-title">
-            📅 Odliczanie do najważniejszych wydarzeń
+            ⏳ Odliczanie do wydarzeń
         </h2>
 
         <div class="info-grid">
 
 
-            <!-- KONIEC WAKACJI -->
+            <!-- WAKACJE -->
 
-            <article class="info-card stat-card">
+            <article class="info-card">
 
                 <h2>
-                    🏖️ Koniec wakacji
+                    🏖️ Wakacje
                 </h2>
 
-                <span
-                    id="summerCountdown"
-                    class="stat-number">
-
-                    Obliczanie...
-
-                </span>
-
                 <p>
-                    Do 31.08.2026.
+                    Czas pozostały do końca wakacji
+                    lub rozpoczęcia kolejnych.
                 </p>
+
+                <div
+                    class="countdown-number"
+                    id="daysToSummerEnd">
+
+                    Ładowanie...
+
+                </div>
 
             </article>
 
 
             <!-- HALLOWEEN -->
 
-            <article class="info-card stat-card">
+            <article class="info-card">
 
                 <h2>
                     🎃 Halloween
                 </h2>
 
-                <span
-                    id="halloweenCountdown"
-                    class="stat-number">
-
-                    Obliczanie...
-
-                </span>
-
                 <p>
-                    Do 31.10.2026.
+                    Czas pozostały do Halloween.
                 </p>
+
+                <div
+                    class="countdown-number"
+                    id="daysToHalloween">
+
+                    Ładowanie...
+
+                </div>
 
             </article>
 
 
             <!-- WIGILIA -->
 
-            <article class="info-card stat-card">
+            <article class="info-card">
 
                 <h2>
                     🎄 Wigilia
                 </h2>
 
-                <span
-                    id="christmasCountdown"
-                    class="stat-number">
+                <p>
+                    Czas pozostały do Wigilii.
+                </p>
 
-                    Obliczanie...
+                <div
+                    class="countdown-number"
+                    id="daysToChristmas">
 
-                </span>
+                    Ładowanie...
+
+                </div>
+
+            </article>
+
+
+            <!-- NOWY ROK -->
+
+            <article class="info-card">
+
+                <h2>
+                    🎆 Nowy Rok
+                </h2>
 
                 <p>
-                    Do 24.12.2026.
+                    Czas pozostały do Nowego Roku.
                 </p>
+
+                <div
+                    class="countdown-number"
+                    id="daysToNewYear">
+
+                    Ładowanie...
+
+                </div>
 
             </article>
 
 
             <!-- KONIEC ROKU -->
 
-            <article class="info-card stat-card">
+            <article class="info-card">
 
                 <h2>
-                    🎆 Koniec roku
+                    📅 Koniec roku
                 </h2>
 
-                <span
-                    id="newYearCountdown"
-                    class="stat-number">
-
-                    Obliczanie...
-
-                </span>
-
                 <p>
-                    Do 31.12.2026.
+                    Czas pozostały do końca roku.
                 </p>
+
+                <div
+                    class="countdown-number"
+                    id="daysToYearEnd">
+
+                    Ładowanie...
+
+                </div>
 
             </article>
 
 
             <!-- WIELKANOC -->
 
-            <article class="info-card stat-card">
+            <article class="info-card">
 
                 <h2>
                     🐣 Wielkanoc
                 </h2>
 
-                <span
-                    id="easterCountdown"
-                    class="stat-number">
-
-                    Obliczanie...
-
-                </span>
-
                 <p>
-                    Do 28.03.2027.
+                    Czas pozostały do najbliższej Wielkanocy.
                 </p>
+
+                <div
+                    class="countdown-number"
+                    id="daysToEaster">
+
+                    Ładowanie...
+
+                </div>
 
             </article>
 
@@ -310,7 +331,64 @@
 
 
     <!-- =====================================================
-         AKTUALNY CZAS
+         SZCZEGÓŁOWE STATYSTYKI
+    ====================================================== -->
+
+    <section class="section">
+
+        <h2 class="section-title">
+            📈 Szczegółowe statystyki
+        </h2>
+
+        <div class="info-grid">
+
+
+            <!-- KOLONIA -->
+
+            <article class="info-card">
+
+                <h2>
+                    🌟 Kolonia Pasjonatów
+                </h2>
+
+                <p>
+                    Dokładny czas od rozpoczęcia
+                    działalności społeczności:
+                </p>
+
+                <strong id="detailedUptime">
+                    Ładowanie...
+                </strong>
+
+            </article>
+
+
+            <!-- STRONA -->
+
+            <article class="info-card">
+
+                <h2>
+                    🌐 Strona internetowa
+                </h2>
+
+                <p>
+                    Dokładny czas od oficjalnego
+                    uruchomienia strony:
+                </p>
+
+                <strong id="websiteDetailedUptime">
+                    Ładowanie...
+                </strong>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         OSTATNIA AKTUALIZACJA
     ====================================================== -->
 
     <section class="section">
@@ -318,26 +396,16 @@
         <div class="info-card">
 
             <h2>
-                🕐 Aktualny czas
+                🔄 Ostatnia aktualizacja
             </h2>
 
-            <p>
-                Liczniki są aktualizowane automatycznie
-                co sekundę na podstawie czasu urządzenia.
+            <p id="lastUpdate">
+                Ładowanie...
             </p>
-
-            <div
-                id="currentTime"
-                class="status">
-
-                Obliczanie...
-
-            </div>
 
         </div>
 
     </section>
-
 
 </main>
 
@@ -359,8 +427,12 @@
 </footer>
 
 
+<!-- =====================================================
+     SKRYPTY
+====================================================== -->
+
+<script src="statystyki.js"></script>
 <script src="script.js"></script>
-<script src="licznik.js"></script>
 
 </body>
 
