@@ -32,7 +32,7 @@
             ⏱️ Licznik
         </a>
 
-        <a href="ogloszenia.html" class="active">
+        <a href="ogloszenia.html">
             📢 Ogłoszenia
         </a>
 
@@ -52,7 +52,7 @@
         type="button"
         aria-label="Zmień motyw">
 
-        🌙
+        ☀️
 
     </button>
 
@@ -60,6 +60,7 @@
 
 
 <main>
+
 
     <!-- =====================================================
          HERO
@@ -72,15 +73,15 @@
         </h1>
 
         <p>
-            Najważniejsze komunikaty, informacje
-            oraz ogłoszenia dotyczące naszej społeczności.
+            Najważniejsze informacje, komunikaty
+            oraz aktualności dotyczące naszej społeczności.
         </p>
 
     </section>
 
 
     <!-- =====================================================
-         NAJNOWSZE OGŁOSZENIA
+         OGŁOSZENIA
     ====================================================== -->
 
     <section class="section">
@@ -89,9 +90,12 @@
             📌 Najnowsze ogłoszenia
         </h2>
 
-        <div
-            id="announcements"
-            class="info-grid">
+        <div class="info-grid" id="announcements">
+
+            <!--
+                Ogłoszenia zostaną tutaj
+                automatycznie wyświetlone.
+            -->
 
         </div>
 
@@ -99,116 +103,34 @@
 
 
     <!-- =====================================================
-         WAŻNE INFORMACJE
+         INFORMACJA
     ====================================================== -->
 
     <section class="section">
 
-        <h2 class="section-title">
-            ℹ️ Ważne informacje
-        </h2>
+        <div class="info-card">
 
-        <div class="info-grid">
+            <h2>
+                ℹ️ Informacja
+            </h2>
 
-            <article class="info-card">
-
-                <h2>
-                    📅 Kalendarz
-                </h2>
-
-                <p>
-                    Najważniejsze wydarzenia, konkursy
-                    oraz terminy znajdziesz w kalendarzu.
-                </p>
-
-                <a
-                    href="kalendarz.html"
-                    class="button">
-
-                    📅 Otwórz kalendarz
-
-                </a>
-
-            </article>
-
-
-            <article class="info-card">
-
-                <h2>
-                    🏆 Ranking
-                </h2>
-
-                <p>
-                    Aktualne wyniki typerów oraz
-                    klasyfikacje wszystkich lig.
-                </p>
-
-                <a
-                    href="ranking.html"
-                    class="button">
-
-                    🏆 Zobacz ranking
-
-                </a>
-
-            </article>
-
-
-            <article class="info-card">
-
-                <h2>
-                    📊 Statystyki
-                </h2>
-
-                <p>
-                    Sprawdź najważniejsze statystyki
-                    dotyczące Kolonii Pasjonatów.
-                </p>
-
-                <a
-                    href="statystyki.html"
-                    class="button">
-
-                    📊 Zobacz statystyki
-
-                </a>
-
-            </article>
-
-
-            <article class="info-card">
-
-                <h2>
-                    💬 Discord
-                </h2>
-
-                <p>
-                    Oficjalne centrum naszej społeczności.
-                    Dołącz do Kolonii Pasjonatów!
-                </p>
-
-                <a
-                    href="https://discord.gg/886u97g22Q"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="button">
-
-                    💬 Dołącz na Discord
-
-                </a>
-
-            </article>
+            <p>
+                Wszystkie najważniejsze komunikaty
+                dotyczące Kolonii Pasjonatów
+                będą publikowane właśnie tutaj.
+            </p>
 
         </div>
 
     </section>
+
 
 </main>
 
 
 <!-- =====================================================
      STOPKA
-===================================================== -->
+====================================================== -->
 
 <footer>
 
@@ -224,15 +146,15 @@
 
 
 <!-- =====================================================
-     DANE
-===================================================== -->
+     DANE OGŁOSZEŃ
+====================================================== -->
 
 <script src="dane.js"></script>
 
 
 <!-- =====================================================
-     OBSŁUGA OGŁOSZEŃ
-===================================================== -->
+     WYŚWIETLANIE OGŁOSZEŃ
+====================================================== -->
 
 <script>
 
@@ -240,49 +162,9 @@ const announcementsContainer =
     document.getElementById("announcements");
 
 
-/*
-    Pobranie dzisiejszej daty
-    bezpośrednio z urządzenia użytkownika.
-*/
-
-function getTodayDate() {
-
-    const now = new Date();
-
-    const day =
-        String(now.getDate()).padStart(2, "0");
-
-    const month =
-        String(now.getMonth() + 1).padStart(2, "0");
-
-    const year =
-        now.getFullYear();
-
-    return `${day}.${month}.${year}`;
-
-}
-
-
-/*
-    Sprawdzenie, czy ogłoszenie
-    zostało dodane dzisiaj.
-*/
-
-function isNew(date) {
-
-    return date === getTodayDate();
-
-}
-
-
-/*
-    Wyświetlanie ogłoszeń.
-*/
-
 if (
     typeof announcements !== "undefined" &&
-    Array.isArray(announcements) &&
-    announcements.length > 0
+    Array.isArray(announcements)
 ) {
 
     announcementsContainer.innerHTML = "";
@@ -300,23 +182,18 @@ if (
 
             /* NOWE */
 
-            if (
-                announcement.date &&
-                isNew(announcement.date)
-            ) {
+            if (announcement.isNew) {
 
-                const newBadge =
+                const status =
                     document.createElement("span");
 
-                newBadge.className =
+                status.className =
                     "status";
 
-                newBadge.textContent =
+                status.textContent =
                     "🆕 NOWE";
 
-                card.appendChild(
-                    newBadge
-                );
+                card.appendChild(status);
 
             }
 
@@ -329,125 +206,38 @@ if (
             title.textContent =
                 announcement.title;
 
-            card.appendChild(
-                title
-            );
+            card.appendChild(title);
+
+
+            /* OPIS */
+
+            const description =
+                document.createElement("p");
+
+            description.textContent =
+                announcement.description;
+
+            card.appendChild(description);
 
 
             /* DATA */
 
-            if (
-                announcement.date
-            ) {
+            if (announcement.date) {
 
                 const date =
                     document.createElement("p");
 
                 date.textContent =
-                    "📅 " +
-                    announcement.date;
+                    "📅 " + announcement.date;
 
-                card.appendChild(
-                    date
-                );
+                card.appendChild(date);
 
             }
 
 
-            /*
-                OPIS NIE JEST POKAZYWANY
-                OD RAZU.
-            */
+            /* PRZYCISK */
 
-            if (
-                announcement.description
-            ) {
-
-                const details =
-                    document.createElement("div");
-
-                details.style.display =
-                    "none";
-
-                details.style.marginTop =
-                    "15px";
-
-                const description =
-                    document.createElement("p");
-
-                description.textContent =
-                    announcement.description;
-
-                details.appendChild(
-                    description
-                );
-
-
-                /*
-                    Przycisk pokazujący
-                    szczegóły ogłoszenia.
-                */
-
-                const button =
-                    document.createElement("button");
-
-                button.className =
-                    "button";
-
-                button.type =
-                    "button";
-
-                button.textContent =
-                    "📖 Pokaż szczegóły";
-
-
-                button.addEventListener(
-                    "click",
-                    () => {
-
-                        if (
-                            details.style.display ===
-                            "none"
-                        ) {
-
-                            details.style.display =
-                                "block";
-
-                            button.textContent =
-                                "🔽 Ukryj szczegóły";
-
-                        }
-
-                        else {
-
-                            details.style.display =
-                                "none";
-
-                            button.textContent =
-                                "📖 Pokaż szczegóły";
-
-                        }
-
-                    }
-                );
-
-
-                card.appendChild(
-                    button
-                );
-
-                card.appendChild(
-                    details
-                );
-
-            }
-
-
-            /* LINK */
-
-            if (
-                announcement.link
-            ) {
+            if (announcement.link) {
 
                 const link =
                     document.createElement("a");
@@ -461,10 +251,7 @@ if (
                 link.textContent =
                     "🔗 Zobacz więcej";
 
-
-                if (
-                    announcement.external
-                ) {
+                if (announcement.external) {
 
                     link.target =
                         "_blank";
@@ -474,10 +261,7 @@ if (
 
                 }
 
-
-                card.appendChild(
-                    link
-                );
+                card.appendChild(link);
 
             }
 
@@ -521,115 +305,10 @@ else {
 
 
 <!-- =====================================================
-     TRYB CIEMNY / JASNY / RETRO
+     MOTYW
 ===================================================== -->
 
-<script>
-
-const themeToggle =
-    document.getElementById("themeToggle");
-
-
-const savedTheme =
-    localStorage.getItem("theme") || "dark";
-
-
-function applyTheme(theme) {
-
-    document.body.classList.remove(
-        "light",
-        "retro"
-    );
-
-
-    if (
-        theme === "light"
-    ) {
-
-        document.body.classList.add(
-            "light"
-        );
-
-        themeToggle.textContent =
-            "☀️";
-
-    }
-
-    else if (
-        theme === "retro"
-    ) {
-
-        document.body.classList.add(
-            "retro"
-        );
-
-        themeToggle.textContent =
-            "💾";
-
-    }
-
-    else {
-
-        themeToggle.textContent =
-            "🌙";
-
-    }
-
-
-    localStorage.setItem(
-        "theme",
-        theme
-    );
-
-}
-
-
-applyTheme(
-    savedTheme
-);
-
-
-themeToggle.addEventListener(
-    "click",
-    () => {
-
-        const current =
-            localStorage.getItem("theme")
-            || "dark";
-
-
-        if (
-            current === "dark"
-        ) {
-
-            applyTheme(
-                "light"
-            );
-
-        }
-
-        else if (
-            current === "light"
-        ) {
-
-            applyTheme(
-                "retro"
-            );
-
-        }
-
-        else {
-
-            applyTheme(
-                "dark"
-            );
-
-        }
-
-    }
-);
-
-</script>
+<script src="script.js"></script>
 
 
 </body>
