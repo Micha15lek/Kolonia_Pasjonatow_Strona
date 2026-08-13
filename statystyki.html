@@ -1,304 +1,367 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Licznik — Kolonia Pasjonatów</title>
+    <title>Licznik | Kolonia Pasjonatów</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<header>
+
+    <div class="logo">
+        🌟 Kolonia Pasjonatów
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+            🏠 Strona główna
+        </a>
+
+        <a href="ranking.html">
+            🏆 Ranking
+        </a>
+
+        <a href="statystyki.html">
+            ⏱️ Licznik
+        </a>
+
+        <a href="ogloszenia.html">
+            📢 Ogłoszenia
+        </a>
+
+        <a href="linki.html">
+            🔗 Linki
+        </a>
+
+        <a href="kontakt.html">
+            📧 Kontakt
+        </a>
+
+    </nav>
+
+    <button
+        id="themeToggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Zmień motyw">
+
+        ☀️
+
+    </button>
+
+</header>
+
+
+<main>
+
     <!-- =====================================================
-         HEADER
+         HERO
     ====================================================== -->
 
-    <header>
+    <section class="hero">
 
-        <div class="logo">
-            🚂 Kolonia Pasjonatów
-        </div>
+        <h1>
+            ⏱️ Kolonia w liczbach
+        </h1>
 
-        <nav>
-            <a href="index.html">🏠 Strona główna</a>
-            <a href="ranking.html">🏆 Ranking</a>
-            <a href="statystyki.html" class="active">⏱️ Licznik</a>
-            <a href="ogloszenia.html">📢 Ogłoszenia</a>
-            <a href="linki.html">🔗 Linki</a>
-            <a href="kontakt.html">📧 Kontakt</a>
-        </nav>
+        <p>
+            Sprawdź najważniejsze liczniki oraz czas
+            działalności Kolonii Pasjonatów i naszej strony.
+        </p>
 
-        <button
-            id="themeToggle"
-            class="theme-toggle"
-            type="button"
-            aria-label="Zmień tryb">
-
-            🌓
-
-        </button>
-
-    </header>
+    </section>
 
 
     <!-- =====================================================
-         MAIN
+         UŻYTKOWNICY
     ====================================================== -->
 
-    <main>
+    <section class="section">
 
-        <!-- =================================================
-             HERO
-        ================================================== -->
+        <h2 class="section-title">
+            👥 Kolonia Pasjonatów
+        </h2>
 
-        <section class="hero">
+        <div class="info-grid">
 
-            <h1>📊 Kolonia w liczbach</h1>
+            <article class="info-card stat-card">
 
-            <p>
-                Automatycznie aktualizowane informacje dotyczące
-                Kolonii Pasjonatów.
-            </p>
+                <h2>
+                    👥 Użytkownicy Kolonii
+                </h2>
 
-        </section>
+                <span
+                    id="usersCount"
+                    class="stat-number">
 
+                    0
 
-        <!-- =================================================
-             LICZNIKI
-        ================================================== -->
-
-        <section class="section">
-
-            <h2 class="section-title">
-                📈 Liczniki Kolonii
-            </h2>
-
-
-            <div class="info-grid">
-
-
-                <!-- UŻYTKOWNICY -->
-
-                <div class="info-card stat-card">
-
-                    <h2>👥 Użytkownicy</h2>
-
-                    <span
-                        id="usersCount"
-                        class="stat-number">
-
-                        0
-
-                    </span>
-
-                    <p>
-                        Aktualna liczba użytkowników Kolonii.
-                    </p>
-
-                </div>
-
-
-                <!-- DNI OD STARTU -->
-
-                <div class="info-card stat-card">
-
-                    <h2>📅 Dni od startu</h2>
-
-                    <span
-                        id="daysSinceStart"
-                        class="stat-number">
-
-                        0
-
-                    </span>
-
-                    <p>
-                        Liczba dni od rozpoczęcia działalności
-                        Kolonii Pasjonatów.
-                    </p>
-
-                </div>
-
-
-                <!-- CZAS DZIAŁANIA -->
-
-                <div class="info-card stat-card">
-
-                    <h2>⏱️ Czas działania</h2>
-
-                    <span
-                        id="uptime"
-                        class="stat-number">
-
-                        0 dni
-
-                    </span>
-
-                    <p>
-                        Dokładny czas od rozpoczęcia działalności.
-                    </p>
-
-                </div>
-
-
-                <!-- DNI DO ŚWIĄT -->
-
-                <div class="info-card stat-card">
-
-                    <h2>🎄 Do Świąt</h2>
-
-                    <span
-                        id="daysToChristmas"
-                        class="stat-number">
-
-                        0
-
-                    </span>
-
-                    <p>
-                        Dni pozostałych do najbliższego Bożego Narodzenia.
-                    </p>
-
-                </div>
-
-
-                <!-- DNI DO NOWEGO ROKU -->
-
-                <div class="info-card stat-card">
-
-                    <h2>🎆 Do Nowego Roku</h2>
-
-                    <span
-                        id="daysToNewYear"
-                        class="stat-number">
-
-                        0
-
-                    </span>
-
-                    <p>
-                        Dni pozostałych do Nowego Roku.
-                    </p>
-
-                </div>
-
-
-                <!-- DNI DO KOŃCA ROKU -->
-
-                <div class="info-card stat-card">
-
-                    <h2>📆 Do końca roku</h2>
-
-                    <span
-                        id="daysToYearEnd"
-                        class="stat-number">
-
-                        0
-
-                    </span>
-
-                    <p>
-                        Ile dni pozostało do końca bieżącego roku.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             DOKŁADNY CZAS
-        ================================================== -->
-
-        <section class="section">
-
-            <h2 class="section-title">
-                🕐 Aktualny czas działania Kolonii
-            </h2>
-
-            <div class="info-card">
+                </span>
 
                 <p>
-                    Kolonia Pasjonatów działa już:
+                    Liczba wszystkich członków Kolonii Pasjonatów,
+                    bez botów.
                 </p>
 
-                <div
-                    id="detailedUptime"
-                    class="status">
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CZAS OD STARTU
+    ====================================================== -->
+
+    <section class="section">
+
+        <h2 class="section-title">
+            ⏱️ Czas działania
+        </h2>
+
+        <div class="info-grid">
+
+            <article class="info-card stat-card">
+
+                <h2>
+                    🌟 Kolonia Pasjonatów
+                </h2>
+
+                <span
+                    id="colonyUptime"
+                    class="stat-number">
 
                     Obliczanie...
 
-                </div>
-
-                <p class="contact-note">
-
-                    Licznik aktualizuje się automatycznie
-                    co sekundę.
-
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             OSTATNIA AKTUALIZACJA
-        ================================================== -->
-
-        <section class="section">
-
-            <div class="info-card">
-
-                <h2>
-                    🔄 Aktualizacja
-                </h2>
+                </span>
 
                 <p>
-                    Ostatnia aktualizacja licznika:
+                    Od 11.06.2026 — dnia otwarcia
+                    Kolonii Pasjonatów.
                 </p>
 
-                <div
-                    id="lastUpdate"
-                    class="status">
+            </article>
 
-                    —
 
-                </div>
+            <article class="info-card stat-card">
+
+                <h2>
+                    🌐 Strona internetowa
+                </h2>
+
+                <span
+                    id="websiteUptime"
+                    class="stat-number">
+
+                    Obliczanie...
+
+                </span>
+
+                <p>
+                    Od 13.08.2026, godz. 19:00 —
+                    oficjalnego startu strony internetowej.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ODLICZANIE
+    ====================================================== -->
+
+    <section class="section">
+
+        <h2 class="section-title">
+            📅 Odliczanie do najważniejszych wydarzeń
+        </h2>
+
+        <div class="info-grid">
+
+
+            <!-- KONIEC WAKACJI -->
+
+            <article class="info-card stat-card">
+
+                <h2>
+                    🏖️ Koniec wakacji
+                </h2>
+
+                <span
+                    id="summerCountdown"
+                    class="stat-number">
+
+                    Obliczanie...
+
+                </span>
+
+                <p>
+                    Do 31.08.2026.
+                </p>
+
+            </article>
+
+
+            <!-- HALLOWEEN -->
+
+            <article class="info-card stat-card">
+
+                <h2>
+                    🎃 Halloween
+                </h2>
+
+                <span
+                    id="halloweenCountdown"
+                    class="stat-number">
+
+                    Obliczanie...
+
+                </span>
+
+                <p>
+                    Do 31.10.2026.
+                </p>
+
+            </article>
+
+
+            <!-- WIGILIA -->
+
+            <article class="info-card stat-card">
+
+                <h2>
+                    🎄 Wigilia
+                </h2>
+
+                <span
+                    id="christmasCountdown"
+                    class="stat-number">
+
+                    Obliczanie...
+
+                </span>
+
+                <p>
+                    Do 24.12.2026.
+                </p>
+
+            </article>
+
+
+            <!-- KONIEC ROKU -->
+
+            <article class="info-card stat-card">
+
+                <h2>
+                    🎆 Koniec roku
+                </h2>
+
+                <span
+                    id="newYearCountdown"
+                    class="stat-number">
+
+                    Obliczanie...
+
+                </span>
+
+                <p>
+                    Do 31.12.2026.
+                </p>
+
+            </article>
+
+
+            <!-- WIELKANOC -->
+
+            <article class="info-card stat-card">
+
+                <h2>
+                    🐣 Wielkanoc
+                </h2>
+
+                <span
+                    id="easterCountdown"
+                    class="stat-number">
+
+                    Obliczanie...
+
+                </span>
+
+                <p>
+                    Do 28.03.2027.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         AKTUALNY CZAS
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="info-card">
+
+            <h2>
+                🕐 Aktualny czas
+            </h2>
+
+            <p>
+                Liczniki są aktualizowane automatycznie
+                co sekundę na podstawie czasu urządzenia.
+            </p>
+
+            <div
+                id="currentTime"
+                class="status">
+
+                Obliczanie...
 
             </div>
 
-        </section>
+        </div>
 
-    </main>
-
-
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
-
-    <footer>
-
-        <p>
-            © Kolonia Pasjonatów
-        </p>
-
-        <p>
-            Statystyki i liczniki aktualizowane automatycznie
-        </p>
-
-    </footer>
+    </section>
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-    ====================================================== -->
+</main>
 
-    <script src="licznik.js"></script>
+
+<!-- =====================================================
+     STOPKA
+====================================================== -->
+
+<footer>
+
+    <p>
+        © 2026 Kolonia Pasjonatów
+    </p>
+
+    <p>
+        🌟 Oficjalna strona społeczności
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+<script src="licznik.js"></script>
 
 </body>
+
 </html>
