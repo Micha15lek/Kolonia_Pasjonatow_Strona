@@ -2262,5 +2262,696 @@ footer p {
 
 
 /* =========================================================
+   36. DODATKOWY STYL KALENDARZA
+   ========================================================= */
+
+/* Nagłówek miesiąca */
+
+.calendar-header {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,193,7,.10),
+            rgba(255,255,255,.035)
+        );
+
+    border-color:
+        rgba(255,193,7,.18);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.15);
+}
+
+body.light .calendar-header {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,193,7,.10),
+            #fff
+        );
+
+    border-color:
+        rgba(255,193,7,.25);
+}
+
+
+/* Nazwa miesiąca */
+
+.month-title {
+    text-align: center;
+
+    color: #ffc107;
+
+    font-size: 24px;
+
+    letter-spacing: .2px;
+
+    text-shadow:
+        0 0 15px rgba(255,193,7,.15);
+}
+
+
+/* Przyciski zmiany miesiąca */
+
+.calendar-header .button {
+    margin-top: 0;
+
+    min-width: 120px;
+}
+
+.calendar-header .button:first-child {
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid rgba(255,193,7,.25);
+
+    color: inherit;
+
+    box-shadow: none;
+}
+
+.calendar-header .button:first-child:hover {
+    background:
+        rgba(255,193,7,.12);
+}
+
+
+/* Przycisk "Dzisiaj" */
+
+.today-button {
+    min-width: 150px;
+
+    margin:
+        18px auto 20px;
+}
+
+
+/* Kalendarz */
+
+.calendar {
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.025)
+        );
+
+    border-color:
+        rgba(255,193,7,.12);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.20);
+}
+
+body.light .calendar {
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f8f8f8
+        );
+
+    border-color:
+        rgba(255,193,7,.20);
+}
+
+
+/* Dni tygodnia */
+
+.weekday {
+    color: #ffc107;
+
+    border:
+        1px solid rgba(255,193,7,.15);
+
+    box-shadow:
+        inset 0 0 15px rgba(255,193,7,.035);
+}
+
+body.light .weekday {
+    color: #8a6500;
+
+    background:
+        rgba(255,193,7,.10);
+
+    border-color:
+        rgba(255,193,7,.20);
+}
+
+
+/* Pojedynczy dzień */
+
+.day {
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 92px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.018)
+        );
+
+    border-color:
+        rgba(255,255,255,.075);
+}
+
+.day::after {
+    content: "";
+
+    position: absolute;
+
+    width: 45px;
+    height: 45px;
+
+    right: -22px;
+    bottom: -22px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,193,7,.035);
+
+    pointer-events: none;
+}
+
+.day:hover {
+    transform:
+        translateY(-3px)
+        scale(1.01);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,193,7,.12),
+            rgba(255,255,255,.035)
+        );
+
+    border-color:
+        rgba(255,193,7,.35);
+
+    box-shadow:
+        0 8px 20px rgba(255,193,7,.10);
+}
+
+body.light .day {
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f7f7f7
+        );
+
+    border-color:
+        #e1e1e1;
+}
+
+body.light .day:hover {
+    background:
+        rgba(255,193,7,.09);
+
+    border-color:
+        rgba(255,193,7,.35);
+}
+
+
+/* Numer dnia */
+
+.day-number {
+    position: relative;
+
+    z-index: 2;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 9px;
+
+    background:
+        rgba(255,255,255,.055);
+
+    font-size: 14px;
+}
+
+body.light .day-number {
+    background:
+        rgba(0,0,0,.045);
+}
+
+
+/* DZISIAJ */
+
+.today-day {
+    position: relative;
+
+    border:
+        2px solid #ffc107 !important;
+
+    box-shadow:
+        0 0 22px rgba(255,193,7,.18),
+        inset 0 0 20px rgba(255,193,7,.06);
+}
+
+.today-day .day-number {
+    background:
+        linear-gradient(
+            135deg,
+            #ffc107,
+            #ff9800
+        );
+
+    color: #171717;
+
+    box-shadow:
+        0 4px 12px rgba(255,193,7,.25);
+}
+
+.today-label {
+    position: relative;
+
+    z-index: 2;
+
+    display: inline-block;
+
+    padding:
+        3px 6px;
+
+    border-radius: 6px;
+
+    background:
+        rgba(255,193,7,.18);
+
+    color: #ffc107;
+
+    letter-spacing: .5px;
+}
+
+
+/* ŚWIĘTA */
+
+.holiday-day {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,59,59,.15),
+            rgba(255,255,255,.025)
+        ) !important;
+
+    border-color:
+        rgba(255,59,59,.25);
+}
+
+.holiday-day:hover {
+    border-color:
+        rgba(255,59,59,.50);
+
+    box-shadow:
+        0 8px 20px rgba(255,59,59,.10);
+}
+
+
+/* WYDARZENIA */
+
+.event-day {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,193,7,.13),
+            rgba(255,255,255,.025)
+        ) !important;
+
+    border-color:
+        rgba(255,193,7,.28);
+}
+
+
+/* URODZINY */
+
+.birthday-day {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,105,180,.14),
+            rgba(255,255,255,.025)
+        ) !important;
+
+    border-color:
+        rgba(255,105,180,.25);
+}
+
+
+/* DNI SPECJALNE */
+
+.special-day {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(168,85,247,.14),
+            rgba(255,255,255,.025)
+        ) !important;
+
+    border-color:
+        rgba(168,85,247,.25);
+}
+
+
+/* KROPKI */
+
+.event-dot,
+.holiday-dot,
+.birthday-dot,
+.special-dot {
+    position: relative;
+
+    z-index: 3;
+
+    box-shadow:
+        0 0 8px currentColor;
+}
+
+.event-dot {
+    background: #ffc107;
+
+    color: #ffc107;
+}
+
+.holiday-dot {
+    background: #ff3b3b;
+
+    color: #ff3b3b;
+}
+
+.birthday-dot {
+    background: #ff69b4;
+
+    color: #ff69b4;
+}
+
+.special-dot {
+    background: #a855f7;
+
+    color: #a855f7;
+}
+
+
+/* INFORMACJA O WYDARZENIU */
+
+.event-info {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,193,7,.08),
+            rgba(255,255,255,.035)
+        );
+
+    border-color:
+        rgba(255,193,7,.18);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.15);
+}
+
+.event-info::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 4px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #ffc107,
+            #ff9800
+        );
+}
+
+.event-info h3 {
+    margin:
+        12px 0 5px;
+
+    font-size: 21px;
+}
+
+.event-info p {
+    line-height: 1.6;
+
+    opacity: .72;
+}
+
+
+/* TYP WYDARZENIA */
+
+.event-type {
+    color: #ffc107;
+
+    box-shadow:
+        0 4px 15px rgba(255,193,7,.06);
+}
+
+
+/* DATA WYDARZENIA */
+
+.event-date {
+    color: inherit;
+
+    opacity: .72;
+}
+
+
+/* LEGENDA */
+
+.legend {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.025)
+        );
+
+    border-color:
+        rgba(255,193,7,.14);
+}
+
+.legend h3 {
+    margin-top: 0;
+
+    margin-bottom: 15px;
+
+    color: #ffc107;
+}
+
+.legend-items {
+    justify-content: center;
+}
+
+.legend-item {
+    padding:
+        8px 11px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid rgba(255,255,255,.06);
+
+    font-size: 13px;
+}
+
+body.light .legend {
+    background:
+        #fff;
+
+    border-color:
+        #ddd;
+}
+
+body.light .legend-item {
+    background:
+        #fafafa;
+
+    border-color:
+        #e5e5e5;
+}
+
+
+/* KOLORY LEGENDY */
+
+.legend-color {
+    width: 13px;
+    height: 13px;
+
+    box-shadow:
+        0 0 8px currentColor;
+}
+
+.legend-event {
+    background: #ffc107;
+
+    color: #ffc107;
+}
+
+.legend-holiday {
+    background: #ff3b3b;
+
+    color: #ff3b3b;
+}
+
+.legend-birthday {
+    background: #ff69b4;
+
+    color: #ff69b4;
+}
+
+.legend-special {
+    background: #a855f7;
+
+    color: #a855f7;
+}
+
+.legend-today {
+    background: #ffc107;
+
+    color: #ffc107;
+}
+
+
+/* =========================================================
+   37. KALENDARZ — TELEFONY
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .calendar-header {
+        flex-direction: column;
+
+        padding: 15px;
+    }
+
+    .month-title {
+        order: -1;
+
+        font-size: 22px;
+    }
+
+    .calendar-header .button {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+    .today-button {
+        width: 100%;
+
+        max-width: 300px;
+    }
+
+    .day {
+        min-height: 65px;
+
+        border-radius: 10px;
+    }
+
+    .day-number {
+        width: 26px;
+        height: 26px;
+
+        font-size: 12px;
+
+        border-radius: 7px;
+    }
+
+    .event-dot,
+    .holiday-dot,
+    .birthday-dot,
+    .special-dot {
+        width: 7px;
+        height: 7px;
+    }
+
+    .legend-items {
+        flex-direction: column;
+    }
+
+    .legend-item {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   38. KALENDARZ — BARDZO MAŁE TELEFONY
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .calendar-header {
+        gap: 8px;
+    }
+
+    .month-title {
+        font-size: 19px;
+    }
+
+    .calendar-header .button {
+        min-height: 40px;
+
+        padding:
+            9px 12px;
+
+        font-size: 12px;
+    }
+
+    .day {
+        min-height: 52px;
+
+        padding: 4px;
+
+        border-radius: 8px;
+    }
+
+    .day-number {
+        width: 23px;
+        height: 23px;
+
+        font-size: 10px;
+    }
+
+    .event-dot,
+    .holiday-dot,
+    .birthday-dot,
+    .special-dot {
+        width: 6px;
+        height: 6px;
+
+        margin-top: 5px;
+    }
+
+       }
+
+
+/* =========================================================
    KONIEC NOWEGO STYLE.CSS
    ========================================================= */
