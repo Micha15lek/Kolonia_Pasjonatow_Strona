@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,79 +10,114 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+
         /* =====================================================
-           KALENDARZ
-           ===================================================== */
+           KALENDARZ – KLASYCZNY WYGLĄD
+        ===================================================== */
 
         .calendar-page {
-            width: min(1100px, calc(100% - 30px));
+            max-width: 1100px;
             margin: auto;
-            padding: 20px 0 40px;
+            padding: 25px 20px 45px;
         }
 
-        /* TYLKO POWRÓT DO STRONY GŁÓWNEJ */
+
+        /* =====================================================
+           POWRÓT
+        ===================================================== */
 
         .calendar-back {
             display: inline-flex;
             align-items: center;
             justify-content: center;
 
-            min-height: 43px;
-            padding: 10px 17px;
+            padding: 10px 16px;
+            margin-bottom: 22px;
 
-            margin-bottom: 20px;
+            border-radius: 13px;
 
-            border-radius: 12px;
-
-            background: rgba(255,255,255,.05);
-            border: 1px solid rgba(255,255,255,.10);
+            background: rgba(255,255,255,.055);
+            border: 1px solid rgba(255,255,255,.08);
 
             font-weight: 800;
 
-            transition:
-                transform .2s ease,
-                background .2s ease,
-                border-color .2s ease,
-                box-shadow .2s ease;
+            transition: .2s ease;
         }
 
         .calendar-back:hover {
             transform: translateY(-2px);
 
-            background: rgba(255,193,7,.11);
-            border-color: rgba(255,193,7,.38);
+            background: rgba(255,193,7,.12);
 
-            box-shadow:
-                0 5px 18px rgba(255,193,7,.12);
+            border-color: rgba(255,193,7,.3);
         }
 
         body.light .calendar-back {
             background: #fff;
-            border-color: #dcdcdc;
+            border-color: #ddd;
         }
 
 
         /* =====================================================
-           NAGŁÓWEK KALENDARZA
-           ===================================================== */
+           NAGŁÓWEK
+        ===================================================== */
+
+        .calendar-hero {
+            margin-bottom: 25px;
+            padding: 30px 20px;
+
+            text-align: center;
+
+            border-radius: 24px;
+
+            background: rgba(255,255,255,.045);
+            border: 1px solid rgba(255,255,255,.08);
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,.18);
+        }
+
+        body.light .calendar-hero {
+            background: #fff;
+            border-color: #ddd;
+            box-shadow:
+                0 10px 30px rgba(0,0,0,.07);
+        }
+
+        .calendar-hero h1 {
+            margin: 0 0 10px;
+
+            font-size:
+                clamp(28px, 5vw, 42px);
+        }
+
+        .calendar-hero p {
+            margin: 0;
+
+            opacity: .7;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           NAGŁÓWEK MIESIĄCA
+        ===================================================== */
 
         .calendar-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
 
-            gap: 12px;
+            gap: 15px;
 
-            margin-bottom: 15px;
-            padding: 15px;
+            margin-bottom: 12px;
+            padding: 13px 16px;
 
-            border-radius: 18px;
+            border-radius: 17px;
 
-            background: rgba(255,255,255,.045);
+            background: rgba(255,255,255,.055);
             border: 1px solid rgba(255,255,255,.08);
-
-            box-shadow:
-                0 8px 25px rgba(0,0,0,.15);
         }
 
         body.light .calendar-header {
@@ -102,14 +138,15 @@
             width: 44px;
             height: 44px;
 
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
 
             border-radius: 12px;
 
+            border: 1px solid rgba(255,255,255,.1);
+
             background: rgba(255,255,255,.06);
-            border: 1px solid rgba(255,255,255,.10);
 
             color: inherit;
 
@@ -118,17 +155,15 @@
 
             cursor: pointer;
 
-            transition:
-                transform .2s ease,
-                background .2s ease,
-                border-color .2s ease;
+            transition: .2s ease;
         }
 
         .month-button:hover {
             transform: translateY(-2px);
 
             background: rgba(255,193,7,.12);
-            border-color: rgba(255,193,7,.40);
+
+            border-color: rgba(255,193,7,.3);
 
             color: #ffc107;
         }
@@ -141,18 +176,18 @@
 
         /* =====================================================
            DZISIAJ
-           ===================================================== */
+        ===================================================== */
 
         .today-button {
             display: block;
 
-            margin: 10px auto 18px;
+            margin: 12px auto 18px;
 
-            padding: 9px 15px;
+            padding: 10px 16px;
 
-            border-radius: 11px;
+            border-radius: 12px;
 
-            background: rgba(255,193,7,.10);
+            background: rgba(255,193,7,.1);
 
             border: 1px solid rgba(255,193,7,.25);
 
@@ -161,19 +196,27 @@
             font-weight: 900;
 
             cursor: pointer;
+
+            transition: .2s ease;
+        }
+
+        .today-button:hover {
+            transform: translateY(-2px);
+
+            background: rgba(255,193,7,.16);
         }
 
 
         /* =====================================================
-           KALENDARZ
-           ===================================================== */
+           GŁÓWNY KALENDARZ
+        ===================================================== */
 
         .calendar {
             padding: 10px;
 
             border-radius: 20px;
 
-            background: rgba(255,255,255,.04);
+            background: rgba(255,255,255,.045);
 
             border: 1px solid rgba(255,255,255,.08);
 
@@ -203,10 +246,15 @@
 
             border-radius: 10px;
 
-            background: rgba(255,193,7,.11);
+            background: rgba(255,193,7,.1);
 
             font-weight: 900;
         }
+
+
+        /* =====================================================
+           DNI
+        ===================================================== */
 
         .day {
             position: relative;
@@ -226,17 +274,16 @@
             transition:
                 transform .2s ease,
                 background .2s ease,
-                border-color .2s ease,
-                box-shadow .2s ease;
+                border .2s ease;
         }
 
         .day:hover {
             transform: translateY(-2px);
 
-            background: rgba(255,193,7,.09);
+            background: rgba(255,193,7,.08);
 
             border-color:
-                rgba(255,193,7,.28);
+                rgba(255,193,7,.25);
         }
 
         body.light .day {
@@ -251,34 +298,35 @@
 
         .day.empty:hover {
             transform: none;
+            background: inherit;
         }
 
 
         /* =====================================================
-           NUMER DNIA
-           ===================================================== */
+           NUMERY DNI
+        ===================================================== */
 
         .day-number {
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             width: 30px;
             height: 30px;
 
+            margin-bottom: 5px;
+
             border-radius: 50%;
 
             font-weight: 900;
-
-            margin-bottom: 4px;
         }
 
 
         /* =====================================================
-           OKRĘGI KATEGORII
-           ===================================================== */
+           KOLORY KATEGORII
+        ===================================================== */
 
-        /* WYDARZENIE */
         .event-day .day-number {
             border: 2px solid #ffc107;
 
@@ -287,16 +335,14 @@
             color: #ffc107;
         }
 
-        /* ŚWIĘTO */
         .holiday-day .day-number {
             border: 2px solid #ff3b3b;
 
             background: rgba(255,59,59,.08);
 
-            color: #ff5b5b;
+            color: #ff5555;
         }
 
-        /* URODZINY */
         .birthday-day .day-number {
             border: 2px solid #ff69b4;
 
@@ -305,7 +351,6 @@
             color: #ff69b4;
         }
 
-        /* SPECJALNE */
         .special-day .day-number {
             border: 2px solid #a855f7;
 
@@ -314,27 +359,31 @@
             color: #b56cff;
         }
 
-        /* DZISIAJ */
         .today-day .day-number {
-            border: 2px solid #ffc107;
-
             box-shadow:
-                0 0 14px rgba(255,193,7,.22);
-        }
-
-        .today-label {
-            margin-top: 4px;
-
-            font-size: 10px;
-            font-weight: 900;
-
-            color: #ffc107;
+                0 0 0 2px rgba(255,193,7,.25),
+                0 0 14px rgba(255,193,7,.15);
         }
 
 
         /* =====================================================
-           OPISY WYDARZEŃ W DNIACH
-           ===================================================== */
+           NAPIS DZISIAJ
+        ===================================================== */
+
+        .today-label {
+            margin-bottom: 4px;
+
+            color: #ffc107;
+
+            font-size: 9px;
+
+            font-weight: 900;
+        }
+
+
+        /* =====================================================
+           WYDARZENIA W DNIU
+        ===================================================== */
 
         .day-events {
             display: flex;
@@ -350,12 +399,12 @@
             overflow: hidden;
 
             font-size: 10px;
-            line-height: 1.2;
+
+            line-height: 1.25;
 
             white-space: nowrap;
-            text-overflow: ellipsis;
 
-            opacity: .82;
+            text-overflow: ellipsis;
         }
 
         .day-event.event {
@@ -376,27 +425,29 @@
 
 
         /* =====================================================
-           INFORMACJA O DNIU
-           ===================================================== */
+           INFORMACJE
+        ===================================================== */
 
         .event-info {
-            margin-top: 18px;
+            margin-top: 20px;
 
-            padding: 20px;
+            padding: 22px;
 
-            border-radius: 18px;
+            border-radius: 20px;
 
-            background: rgba(255,255,255,.045);
+            background: rgba(255,255,255,.055);
 
-            border: 1px solid rgba(255,255,255,.085);
+            border: 1px solid rgba(255,255,255,.08);
 
             box-shadow:
-                0 9px 30px rgba(0,0,0,.17);
+                0 8px 28px rgba(0,0,0,.18);
         }
 
         body.light .event-info {
             background: #fff;
             border-color: #ddd;
+            box-shadow:
+                0 8px 28px rgba(0,0,0,.07);
         }
 
         .event-info h2 {
@@ -412,9 +463,9 @@
         }
 
         .event-list-item {
-            padding: 12px 14px;
+            padding: 13px 15px;
 
-            border-radius: 12px;
+            border-radius: 13px;
 
             background: rgba(255,255,255,.04);
 
@@ -425,12 +476,12 @@
             background: #fafafa;
         }
 
-        .event-list-item.birthday {
-            border-left-color: #ff69b4;
-        }
-
         .event-list-item.holiday {
             border-left-color: #ff3b3b;
+        }
+
+        .event-list-item.birthday {
+            border-left-color: #ff69b4;
         }
 
         .event-list-item.special {
@@ -438,12 +489,13 @@
         }
 
         .event-list-date {
+            margin-bottom: 4px;
+
             font-size: 13px;
+
             font-weight: 900;
 
             opacity: .65;
-
-            margin-bottom: 3px;
         }
 
         .event-list-title {
@@ -453,23 +505,27 @@
 
         /* =====================================================
            LEGENDA
-           ===================================================== */
+        ===================================================== */
 
         .legend {
-            margin-top: 15px;
+            margin-top: 18px;
 
-            padding: 18px;
+            padding: 20px;
 
-            border-radius: 18px;
+            border-radius: 20px;
 
-            background: rgba(255,255,255,.045);
+            background: rgba(255,255,255,.055);
 
-            border: 1px solid rgba(255,255,255,.085);
+            border: 1px solid rgba(255,255,255,.08);
         }
 
         body.light .legend {
             background: #fff;
             border-color: #ddd;
+        }
+
+        .legend h3 {
+            margin-top: 0;
         }
 
         .legend-items {
@@ -489,8 +545,10 @@
         }
 
         .legend-color {
-            width: 14px;
-            height: 14px;
+            width: 13px;
+            height: 13px;
+
+            flex-shrink: 0;
 
             border-radius: 50%;
         }
@@ -520,12 +578,19 @@
 
         /* =====================================================
            TELEFONY
-           ===================================================== */
+        ===================================================== */
 
         @media (max-width: 600px) {
 
             .calendar-page {
-                width: calc(100% - 24px);
+                width: calc(100% - 20px);
+
+                padding:
+                    15px 0 30px;
+            }
+
+            .calendar-hero {
+                padding: 25px 15px;
             }
 
             .calendar {
@@ -539,12 +604,15 @@
 
             .weekday {
                 padding: 8px 2px;
-                font-size: 11px;
+
+                font-size: 10px;
             }
 
             .day {
-                min-height: 68px;
+                min-height: 65px;
+
                 padding: 5px;
+
                 font-size: 11px;
             }
 
@@ -565,13 +633,22 @@
                 width: 40px;
                 height: 40px;
             }
+
+            .legend-items {
+                flex-direction: column;
+
+                gap: 10px;
+            }
         }
+
 
         @media (max-width: 400px) {
 
             .day {
-                min-height: 56px;
+                min-height: 55px;
+
                 padding: 4px;
+
                 font-size: 10px;
             }
 
@@ -587,6 +664,7 @@
             .weekday {
                 font-size: 9px;
             }
+
         }
 
     </style>
@@ -598,12 +676,13 @@
 <header>
 
     <div class="logo">
-        Kolonia Pasjonatów
+        🌟 Kolonia Pasjonatów
     </div>
 
     <button
         class="theme-toggle"
         id="themeToggle"
+        type="button"
         aria-label="Zmień motyw">
         🌙
     </button>
@@ -615,20 +694,44 @@
 
     <div class="calendar-page">
 
-        <!-- JEDYNY PRZYCISK POWROTU -->
-        <a href="index.html" class="calendar-back">
+        <!-- POWRÓT TYLKO DO STRONY GŁÓWNEJ -->
+
+        <a
+            href="index.html"
+            class="calendar-back">
+
             ← Powrót do strony głównej
+
         </a>
 
 
-        <!-- PRZEŁĄCZNIK MIESIĘCY -->
+        <!-- NAGŁÓWEK -->
+
+        <section class="calendar-hero">
+
+            <h1>
+                📅 Kalendarz Kolonii Pasjonatów
+            </h1>
+
+            <p>
+                Święta, urodziny, wydarzenia specjalne
+                oraz wydarzenia Kolonii Pasjonatów.
+            </p>
+
+        </section>
+
+
+        <!-- MIESIĄC -->
 
         <div class="calendar-header">
 
             <button
                 class="month-button"
-                id="prevMonth">
-                ‹
+                id="prevMonth"
+                type="button">
+
+                ◀
+
             </button>
 
             <div
@@ -638,8 +741,11 @@
 
             <button
                 class="month-button"
-                id="nextMonth">
-                ›
+                id="nextMonth"
+                type="button">
+
+                ▶
+
             </button>
 
         </div>
@@ -649,8 +755,11 @@
 
         <button
             class="today-button"
-            id="todayButton">
-            📅 Dzisiaj
+            id="todayButton"
+            type="button">
+
+            📍 Przejdź do dzisiaj
+
         </button>
 
 
@@ -660,12 +769,12 @@
 
             <div class="weekdays">
 
-                <div class="weekday">Pon</div>
+                <div class="weekday">Pn</div>
                 <div class="weekday">Wt</div>
                 <div class="weekday">Śr</div>
-                <div class="weekday">Czw</div>
+                <div class="weekday">Cz</div>
                 <div class="weekday">Pt</div>
-                <div class="weekday">Sob</div>
+                <div class="weekday">Sb</div>
                 <div class="weekday">Nd</div>
 
             </div>
@@ -684,11 +793,13 @@
             class="event-info"
             id="eventInfo">
 
-            <h2>📅 Wydarzenia</h2>
+            <h2>
+                📅 Wydarzenia
+            </h2>
 
             <p>
-                Kliknij wybrany dzień, aby zobaczyć
-                wydarzenia.
+                Kliknij wybrany dzień,
+                aby zobaczyć zapisane wydarzenia.
             </p>
 
         </div>
@@ -698,33 +809,35 @@
 
         <div class="legend">
 
-            <h3>Legenda</h3>
+            <h3>
+                📌 Legenda
+            </h3>
 
             <div class="legend-items">
 
                 <div class="legend-item">
                     <span class="legend-color legend-event"></span>
-                    Wydarzenie Kolonii
+                    🎉 Wydarzenie Kolonii
                 </div>
 
                 <div class="legend-item">
                     <span class="legend-color legend-holiday"></span>
-                    Święto
+                    🇵🇱 Święto państwowe / religijne
                 </div>
 
                 <div class="legend-item">
                     <span class="legend-color legend-birthday"></span>
-                    Urodziny
+                    🎂 Urodziny
                 </div>
 
                 <div class="legend-item">
                     <span class="legend-color legend-special"></span>
-                    Wydarzenie specjalne
+                    🎆 Wydarzenie specjalne
                 </div>
 
                 <div class="legend-item">
                     <span class="legend-color legend-today"></span>
-                    Dzisiaj
+                    📍 Dzisiaj
                 </div>
 
             </div>
@@ -743,7 +856,7 @@
     </p>
 
     <p>
-        Kalendarz wydarzeń społeczności
+        📅 Kalendarz wydarzeń społeczności
     </p>
 
 </footer>
@@ -751,756 +864,944 @@
 
 <script>
 
-    /* =====================================================
-       MOTYW
-       ===================================================== */
+/* =====================================================
+   MOTYW – TYLKO JASNY / CIEMNY
+===================================================== */
 
-    const themeToggle =
-        document.getElementById("themeToggle");
+const themeToggle =
+    document.getElementById("themeToggle");
 
-    const savedTheme =
-        localStorage.getItem("kolonia-theme");
+const savedTheme =
+    localStorage.getItem("kolonia-theme") || "dark";
 
-    if (savedTheme === "light") {
+if (savedTheme === "light") {
 
-        document.body.classList.add("light");
+    document.body.classList.add("light");
 
-        themeToggle.textContent = "☀️";
+    themeToggle.textContent = "☀️";
 
+}
+
+themeToggle.addEventListener("click", () => {
+
+    document.body.classList.toggle("light");
+
+    const isLight =
+        document.body.classList.contains("light");
+
+    localStorage.setItem(
+        "kolonia-theme",
+        isLight ? "light" : "dark"
+    );
+
+    themeToggle.textContent =
+        isLight ? "☀️" : "🌙";
+
+});
+
+
+/* =====================================================
+   DATA Z URZĄDZENIA
+===================================================== */
+
+const deviceToday = new Date();
+
+let currentMonth =
+    deviceToday.getMonth();
+
+let currentYear =
+    deviceToday.getFullYear();
+
+
+/* =====================================================
+   MIESIĄCE
+===================================================== */
+
+const months = [
+    "Styczeń",
+    "Luty",
+    "Marzec",
+    "Kwiecień",
+    "Maj",
+    "Czerwiec",
+    "Lipiec",
+    "Sierpień",
+    "Wrzesień",
+    "Październik",
+    "Listopad",
+    "Grudzień"
+];
+
+
+/* =====================================================
+   WYDARZENIA KOLONII – TYLKO 2026
+===================================================== */
+
+const events = [
+
+    {
+        date: "2026-08-10",
+        title: "🏆 Start strefy STS Pucharu Polski",
+        type: "event"
+    },
+
+    {
+        date: "2026-08-12",
+        title: "🛠️ Naprawa automoderacji",
+        type: "event"
+    },
+
+    {
+        date: "2026-08-13",
+        title: "🌐 Start strony internetowej Kolonii Pasjonatów",
+        type: "event"
+    },
+
+    {
+        date: "2026-08-14",
+        title: "🛠️ Naprawa automoderacji",
+        type: "event"
+    },
+
+    {
+        date: "2026-08-31",
+        title: "☀️ Koniec strefy wakacyjnej – 23:45",
+        type: "event"
+    },
+
+    {
+        date: "2026-09-23",
+        title: "🍂 Kolej w jesiennym krajobrazie – start",
+        type: "special"
+    },
+
+    {
+        date: "2026-10-09",
+        title: "🍂 Kolej w jesiennym krajobrazie – koniec",
+        type: "special"
+    },
+
+    {
+        date: "2026-10-10",
+        title: "🍁 Jesienny Spotter – start konkursu",
+        type: "special"
+    },
+
+    {
+        date: "2026-10-18",
+        title: "🍁 Jesienny Spotter – koniec konkursu",
+        type: "special"
     }
 
-    themeToggle.addEventListener("click", () => {
+];
 
-        document.body.classList.toggle("light");
 
-        const isLight =
-            document.body.classList.contains("light");
+/* =====================================================
+   URODZINY – CO ROKU
+===================================================== */
 
-        localStorage.setItem(
-            "kolonia-theme",
-            isLight ? "light" : "dark"
+const birthdays = [
+
+    {
+        month: 2,
+        day: 4,
+        title: "🎂 Urodziny – KEBABKRAFTOWY"
+    },
+
+    {
+        month: 6,
+        day: 2,
+        title: "🎂 Urodziny – Kubixtranspotter"
+    },
+
+    {
+        month: 6,
+        day: 25,
+        title: "🎂 Urodziny – Noworudzki_mk2"
+    },
+
+    {
+        month: 8,
+        day: 4,
+        title: "🎂 Urodziny – Michał"
+    },
+
+    {
+        month: 12,
+        day: 23,
+        title: "🎂 Urodziny – Mikol Yoriichi"
+    }
+
+];
+
+
+/* =====================================================
+   ŚWIĘTA STAŁE – CO ROKU
+===================================================== */
+
+const fixedHolidays = [
+
+    {
+        month: 1,
+        day: 1,
+        title: "🎆 Nowy Rok"
+    },
+
+    {
+        month: 1,
+        day: 6,
+        title: "✝️ Święto Trzech Króli"
+    },
+
+    {
+        month: 5,
+        day: 1,
+        title: "🇵🇱 Święto Pracy"
+    },
+
+    {
+        month: 5,
+        day: 3,
+        title: "🇵🇱 Święto Konstytucji 3 Maja"
+    },
+
+    {
+        month: 8,
+        day: 15,
+        title: "✝️ Wniebowzięcie NMP / Święto Wojska Polskiego"
+    },
+
+    {
+        month: 11,
+        day: 1,
+        title: "🕯️ Wszystkich Świętych"
+    },
+
+    {
+        month: 11,
+        day: 11,
+        title: "🇵🇱 Narodowe Święto Niepodległości"
+    },
+
+    {
+        month: 12,
+        day: 24,
+        title: "🎄 Wigilia Bożego Narodzenia"
+    },
+
+    {
+        month: 12,
+        day: 25,
+        title: "🎄 Boże Narodzenie – pierwszy dzień"
+    },
+
+    {
+        month: 12,
+        day: 26,
+        title: "🎄 Boże Narodzenie – drugi dzień"
+    }
+
+];
+
+
+/* =====================================================
+   ŚWIĘTA RUCHOME
+===================================================== */
+
+function getEaster(year) {
+
+    const a = year % 19;
+    const b = Math.floor(year / 100);
+    const c = year % 100;
+    const d = Math.floor(b / 4);
+    const e = b % 4;
+    const f = Math.floor((b + 8) / 25);
+    const g = Math.floor((b - f + 1) / 3);
+
+    const h =
+        (
+            19 * a +
+            b -
+            d -
+            g +
+            15
+        ) % 30;
+
+    const i = Math.floor(c / 4);
+    const k = c % 4;
+
+    const l =
+        (
+            32 +
+            2 * e +
+            2 * i -
+            h -
+            k
+        ) % 7;
+
+    const m =
+        Math.floor(
+            (
+                a +
+                11 * h +
+                22 * l
+            ) / 451
         );
 
-        themeToggle.textContent =
-            isLight ? "☀️" : "🌙";
+    const month =
+        Math.floor(
+            (
+                h +
+                l -
+                7 * m +
+                114
+            ) / 31
+        );
+
+    const day =
+        (
+            (
+                h +
+                l -
+                7 * m +
+                114
+            ) % 31
+        ) + 1;
+
+    return new Date(
+        year,
+        month - 1,
+        day
+    );
+}
+
+
+function getHolidays(year) {
+
+    const result = [];
+
+
+    fixedHolidays.forEach(holiday => {
+
+        result.push({
+
+            date:
+                `${year}-${String(holiday.month).padStart(2,"0")}-${String(holiday.day).padStart(2,"0")}`,
+
+            title:
+                holiday.title,
+
+            type:
+                "holiday"
+
+        });
 
     });
 
 
-    /* =====================================================
-       DATA Z URZĄDZENIA
-       ===================================================== */
-
-    const deviceToday = new Date();
-
-    let currentMonth =
-        deviceToday.getMonth();
-
-    let currentYear =
-        deviceToday.getFullYear();
+    const easter =
+        getEaster(year);
 
 
-    /* =====================================================
-       MIESIĄCE
-       ===================================================== */
+    function addRelative(days, title) {
 
-    const months = [
-        "Styczeń",
-        "Luty",
-        "Marzec",
-        "Kwiecień",
-        "Maj",
-        "Czerwiec",
-        "Lipiec",
-        "Sierpień",
-        "Wrzesień",
-        "Październik",
-        "Listopad",
-        "Grudzień"
-    ];
+        const date =
+            new Date(easter);
 
-
-    /* =====================================================
-       WYDARZENIA KOLONII
-       ===================================================== */
-
-    const events = [
-
-        {
-            date: "2026-08-10",
-            title: "Start strefy STS Pucharu Polski",
-            type: "event"
-        },
-
-        {
-            date: "2026-08-12",
-            title: "Naprawa automoderacji",
-            type: "event"
-        },
-
-        {
-            date: "2026-08-13",
-            title: "Start strony internetowej Kolonia Pasjonatów",
-            type: "event"
-        },
-
-        {
-            date: "2026-08-14",
-            title: "Naprawa automoderacji",
-            type: "event"
-        },
-
-        {
-            date: "2026-08-31",
-            title: "Koniec strefy wakacyjnej – 23:45",
-            type: "event"
-        },
-
-        {
-            date: "2026-09-23",
-            title: "Kolej w jesiennym krajobrazie – start",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-09",
-            title: "Kolej w jesiennym krajobrazie – koniec",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-10",
-            title: "Jesienny Spotter – start konkursu",
-            type: "special"
-        },
-
-        {
-            date: "2026-10-18",
-            title: "Jesienny Spotter – koniec konkursu",
-            type: "special"
-        }
-
-    ];
-
-
-    /* =====================================================
-       URODZINY
-       ===================================================== */
-
-    const birthdays = [
-
-        {
-            date: "2026-02-04",
-            title: "Urodziny – KEBABKRAFTOWY",
-            type: "birthday"
-        },
-
-        {
-            date: "2026-06-02",
-            title: "Urodziny – Kubixtranspotter",
-            type: "birthday"
-        },
-
-        {
-            date: "2026-06-25",
-            title: "Urodziny – Noworudzki_mk2",
-            type: "birthday"
-        },
-
-        {
-            date: "2026-08-04",
-            title: "Urodziny – Michał",
-            type: "birthday"
-        },
-
-        {
-            date: "2026-12-23",
-            title: "Urodziny – Mikol Yoriichi",
-            type: "birthday"
-        }
-
-    ];
-
-
-    /* =====================================================
-       ŚWIĘTA
-       ===================================================== */
-
-    const holidays = [
-
-        {
-            date: "2026-01-01",
-            title: "Nowy Rok",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-01-06",
-            title: "Święto Trzech Króli",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-04-05",
-            title: "Wielkanoc",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-04-06",
-            title: "Poniedziałek Wielkanocny",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-05-01",
-            title: "Święto Pracy",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-05-03",
-            title: "Święto Konstytucji 3 Maja",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-05-24",
-            title: "Zielone Świątki",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-06-04",
-            title: "Boże Ciało",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-08-15",
-            title: "Wniebowzięcie Najświętszej Maryi Panny / Święto Wojska Polskiego",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-11-01",
-            title: "Wszystkich Świętych",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-11-11",
-            title: "Narodowe Święto Niepodległości",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-12-24",
-            title: "Wigilia Bożego Narodzenia",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-12-25",
-            title: "Boże Narodzenie – pierwszy dzień",
-            type: "holiday"
-        },
-
-        {
-            date: "2026-12-26",
-            title: "Boże Narodzenie – drugi dzień",
-            type: "holiday"
-        }
-
-    ];
-
-
-    /* =====================================================
-       WSZYSTKIE WYDARZENIA
-       ===================================================== */
-
-    const allEvents = [
-        ...events,
-        ...birthdays,
-        ...holidays
-    ];
-
-
-    /* =====================================================
-       ELEMENTY
-       ===================================================== */
-
-    const monthTitle =
-        document.getElementById("monthTitle");
-
-    const calendarDays =
-        document.getElementById("calendarDays");
-
-    const eventInfo =
-        document.getElementById("eventInfo");
-
-
-    /* =====================================================
-       KLUCZ DATY
-       ===================================================== */
-
-    function dateKey(year, month, day) {
-
-        return (
-            year +
-            "-" +
-            String(month + 1).padStart(2, "0") +
-            "-" +
-            String(day).padStart(2, "0")
+        date.setDate(
+            date.getDate() + days
         );
 
-    }
+        result.push({
 
+            date:
+                `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,"0")}-${String(date.getDate()).padStart(2,"0")}`,
 
-    /* =====================================================
-       WYDARZENIA DLA DATY
-       ===================================================== */
+            title,
 
-    function getEventsForDate(key) {
-
-        return allEvents.filter(
-            event => event.date === key
-        );
-
-    }
-
-
-    /* =====================================================
-       RYSOWANIE
-       ===================================================== */
-
-    function renderCalendar() {
-
-        monthTitle.textContent =
-            months[currentMonth] +
-            " " +
-            currentYear;
-
-        calendarDays.innerHTML = "";
-
-
-        const firstDay =
-            new Date(
-                currentYear,
-                currentMonth,
-                1
-            );
-
-        const daysInMonth =
-            new Date(
-                currentYear,
-                currentMonth + 1,
-                0
-            ).getDate();
-
-
-        let startDay =
-            firstDay.getDay() - 1;
-
-        if (startDay < 0) {
-            startDay = 6;
-        }
-
-
-        /* PUSTE POLA */
-
-        for (
-            let i = 0;
-            i < startDay;
-            i++
-        ) {
-
-            const empty =
-                document.createElement("div");
-
-            empty.className =
-                "day empty";
-
-            calendarDays.appendChild(empty);
-
-        }
-
-
-        /* DNI */
-
-        for (
-            let day = 1;
-            day <= daysInMonth;
-            day++
-        ) {
-
-            const key =
-                dateKey(
-                    currentYear,
-                    currentMonth,
-                    day
-                );
-
-            const dayEvents =
-                getEventsForDate(key);
-
-
-            const dayElement =
-                document.createElement("div");
-
-            dayElement.className =
-                "day";
-
-
-            /* DZISIAJ */
-
-            if (
-                currentYear === deviceToday.getFullYear() &&
-                currentMonth === deviceToday.getMonth() &&
-                day === deviceToday.getDate()
-            ) {
-
-                dayElement.classList.add(
-                    "today-day"
-                );
-
-            }
-
-
-            /* KATEGORIE */
-
-            if (
-                dayEvents.some(
-                    e => e.type === "event"
-                )
-            ) {
-
-                dayElement.classList.add(
-                    "event-day"
-                );
-
-            }
-
-            if (
-                dayEvents.some(
-                    e => e.type === "holiday"
-                )
-            ) {
-
-                dayElement.classList.add(
-                    "holiday-day"
-                );
-
-            }
-
-            if (
-                dayEvents.some(
-                    e => e.type === "birthday"
-                )
-            ) {
-
-                dayElement.classList.add(
-                    "birthday-day"
-                );
-
-            }
-
-            if (
-                dayEvents.some(
-                    e => e.type === "special"
-                )
-            ) {
-
-                dayElement.classList.add(
-                    "special-day"
-                );
-
-            }
-
-
-            /* NUMER */
-
-            const number =
-                document.createElement("div");
-
-            number.className =
-                "day-number";
-
-            number.textContent =
-                day;
-
-            dayElement.appendChild(number);
-
-
-            /* DZISIAJ */
-
-            if (
-                currentYear === deviceToday.getFullYear() &&
-                currentMonth === deviceToday.getMonth() &&
-                day === deviceToday.getDate()
-            ) {
-
-                const todayLabel =
-                    document.createElement("div");
-
-                todayLabel.className =
-                    "today-label";
-
-                todayLabel.textContent =
-                    "DZISIAJ";
-
-                dayElement.appendChild(
-                    todayLabel
-                );
-
-            }
-
-
-            /* WYDARZENIA */
-
-            if (dayEvents.length > 0) {
-
-                const eventsContainer =
-                    document.createElement("div");
-
-                eventsContainer.className =
-                    "day-events";
-
-
-                dayEvents.forEach(event => {
-
-                    const eventElement =
-                        document.createElement("div");
-
-                    eventElement.className =
-                        "day-event " +
-                        event.type;
-
-                    eventElement.textContent =
-                        event.title;
-
-                    eventsContainer.appendChild(
-                        eventElement
-                    );
-
-                });
-
-
-                dayElement.appendChild(
-                    eventsContainer
-                );
-
-            }
-
-
-            /* KLIKNIĘCIE */
-
-            dayElement.addEventListener(
-                "click",
-                () => {
-
-                    showEvents(
-                        key,
-                        dayEvents
-                    );
-
-                }
-            );
-
-
-            calendarDays.appendChild(
-                dayElement
-            );
-
-        }
-
-    }
-
-
-    /* =====================================================
-       INFORMACJE O DNIU
-       ===================================================== */
-
-    function showEvents(
-        key,
-        dayEvents
-    ) {
-
-        const parts =
-            key.split("-");
-
-        const year =
-            parts[0];
-
-        const month =
-            parts[1];
-
-        const day =
-            parts[2];
-
-
-        if (dayEvents.length === 0) {
-
-            eventInfo.innerHTML = `
-
-                <h2>📅 ${day}.${month}.${year}</h2>
-
-                <p>
-                    Tego dnia nie ma zapisanych wydarzeń.
-                </p>
-
-            `;
-
-            return;
-
-        }
-
-
-        let html = `
-
-            <h2>📅 ${day}.${month}.${year}</h2>
-
-            <div class="event-list">
-
-        `;
-
-
-        dayEvents.forEach(event => {
-
-            let category =
-                "🟡 Wydarzenie Kolonii";
-
-            if (event.type === "birthday") {
-                category = "🎂 Urodziny";
-            }
-
-            if (event.type === "holiday") {
-                category = "🔴 Święto";
-            }
-
-            if (event.type === "special") {
-                category = "🟣 Wydarzenie specjalne";
-            }
-
-
-            html += `
-
-                <div class="event-list-item ${event.type}">
-
-                    <div class="event-list-date">
-                        ${category}
-                    </div>
-
-                    <div class="event-list-title">
-                        ${event.title}
-                    </div>
-
-                </div>
-
-            `;
+            type: "holiday"
 
         });
 
+    }
 
-        html += `
-            </div>
-        `;
 
-        eventInfo.innerHTML =
-            html;
+    addRelative(
+        0,
+        "🐣 Wielkanoc"
+    );
+
+    addRelative(
+        1,
+        "🐣 Poniedziałek Wielkanocny"
+    );
+
+    addRelative(
+        49,
+        "✝️ Zielone Świątki"
+    );
+
+    addRelative(
+        60,
+        "✝️ Boże Ciało"
+    );
+
+
+    return result;
+}
+
+
+/* =====================================================
+   WSZYSTKIE WYDARZENIA
+===================================================== */
+
+function getAllEvents(year) {
+
+    const result = [];
+
+
+    /* ŚWIĘTA */
+
+    result.push(
+        ...getHolidays(year)
+    );
+
+
+    /* URODZINY */
+
+    birthdays.forEach(birthday => {
+
+        result.push({
+
+            date:
+                `${year}-${String(birthday.month).padStart(2,"0")}-${String(birthday.day).padStart(2,"0")}`,
+
+            title:
+                birthday.title,
+
+            type:
+                "birthday"
+
+        });
+
+    });
+
+
+    /* WYDARZENIA KOLONII TYLKO 2026 */
+
+    if (year === 2026) {
+
+        result.push(
+            ...events
+        );
 
     }
 
 
-    /* =====================================================
-       POPRZEDNI MIESIĄC
-       ===================================================== */
+    return result;
+}
 
-    document
-        .getElementById("prevMonth")
-        .addEventListener(
-            "click",
-            () => {
 
-                currentMonth--;
+/* =====================================================
+   ELEMENTY
+===================================================== */
 
-                if (currentMonth < 0) {
+const monthTitle =
+    document.getElementById("monthTitle");
 
-                    currentMonth = 11;
-                    currentYear--;
+const calendarDays =
+    document.getElementById("calendarDays");
 
-                }
+const eventInfo =
+    document.getElementById("eventInfo");
 
-                renderCalendar();
 
-            }
+/* =====================================================
+   KLUCZ DATY
+===================================================== */
+
+function dateKey(year, month, day) {
+
+    return (
+        year +
+        "-" +
+        String(month + 1).padStart(2, "0") +
+        "-" +
+        String(day).padStart(2, "0")
+    );
+
+}
+
+
+/* =====================================================
+   WYDARZENIA DLA DATY
+===================================================== */
+
+function getEventsForDate(key) {
+
+    return getAllEvents(currentYear)
+        .filter(event => event.date === key);
+
+}
+
+
+/* =====================================================
+   RYSOWANIE
+===================================================== */
+
+function renderCalendar() {
+
+    monthTitle.textContent =
+        `${months[currentMonth]} ${currentYear}`;
+
+    calendarDays.innerHTML = "";
+
+
+    const firstDay =
+        new Date(
+            currentYear,
+            currentMonth,
+            1
         );
 
 
-    /* =====================================================
-       NASTĘPNY MIESIĄC
-       ===================================================== */
+    const daysInMonth =
+        new Date(
+            currentYear,
+            currentMonth + 1,
+            0
+        ).getDate();
 
-    document
-        .getElementById("nextMonth")
-        .addEventListener(
-            "click",
-            () => {
 
-                currentMonth++;
+    let startDay =
+        firstDay.getDay() - 1;
 
-                if (currentMonth > 11) {
 
-                    currentMonth = 0;
-                    currentYear++;
+    if (startDay < 0) {
+        startDay = 6;
+    }
 
-                }
 
-                renderCalendar();
+    /* PUSTE POLA */
 
-            }
+    for (
+        let i = 0;
+        i < startDay;
+        i++
+    ) {
+
+        const empty =
+            document.createElement("div");
+
+        empty.className =
+            "day empty";
+
+        calendarDays.appendChild(
+            empty
+        );
+
+    }
+
+
+    /* DNI */
+
+    for (
+        let day = 1;
+        day <= daysInMonth;
+        day++
+    ) {
+
+        const key =
+            dateKey(
+                currentYear,
+                currentMonth,
+                day
+            );
+
+
+        const dayEvents =
+            getEventsForDate(key);
+
+
+        const dayElement =
+            document.createElement("div");
+
+        dayElement.className =
+            "day";
+
+
+        /* DZISIAJ */
+
+        if (
+            currentYear === deviceToday.getFullYear() &&
+            currentMonth === deviceToday.getMonth() &&
+            day === deviceToday.getDate()
+        ) {
+
+            dayElement.classList.add(
+                "today-day"
+            );
+
+        }
+
+
+        /* KATEGORIE */
+
+        if (
+            dayEvents.some(
+                e => e.type === "event"
+            )
+        ) {
+
+            dayElement.classList.add(
+                "event-day"
+            );
+
+        }
+
+        if (
+            dayEvents.some(
+                e => e.type === "holiday"
+            )
+        ) {
+
+            dayElement.classList.add(
+                "holiday-day"
+            );
+
+        }
+
+        if (
+            dayEvents.some(
+                e => e.type === "birthday"
+            )
+        ) {
+
+            dayElement.classList.add(
+                "birthday-day"
+            );
+
+        }
+
+        if (
+            dayEvents.some(
+                e => e.type === "special"
+            )
+        ) {
+
+            dayElement.classList.add(
+                "special-day"
+            );
+
+        }
+
+
+        /* NUMER */
+
+        const number =
+            document.createElement("div");
+
+        number.className =
+            "day-number";
+
+        number.textContent =
+            day;
+
+        dayElement.appendChild(
+            number
         );
 
 
-    /* =====================================================
-       DZISIAJ
-       ===================================================== */
+        /* DZISIAJ */
 
-    document
-        .getElementById("todayButton")
-        .addEventListener(
+        if (
+            currentYear === deviceToday.getFullYear() &&
+            currentMonth === deviceToday.getMonth() &&
+            day === deviceToday.getDate()
+        ) {
+
+            const todayLabel =
+                document.createElement("div");
+
+            todayLabel.className =
+                "today-label";
+
+            todayLabel.textContent =
+                "DZISIAJ";
+
+            dayElement.appendChild(
+                todayLabel
+            );
+
+        }
+
+
+        /* WYDARZENIA */
+
+        if (dayEvents.length > 0) {
+
+            const eventsContainer =
+                document.createElement("div");
+
+            eventsContainer.className =
+                "day-events";
+
+
+            dayEvents.forEach(event => {
+
+                const eventElement =
+                    document.createElement("div");
+
+                eventElement.className =
+                    `day-event ${event.type}`;
+
+                eventElement.textContent =
+                    event.title;
+
+                eventsContainer.appendChild(
+                    eventElement
+                );
+
+            });
+
+
+            dayElement.appendChild(
+                eventsContainer
+            );
+
+        }
+
+
+        /* KLIKNIĘCIE */
+
+        dayElement.addEventListener(
             "click",
             () => {
-
-                currentMonth =
-                    deviceToday.getMonth();
-
-                currentYear =
-                    deviceToday.getFullYear();
-
-                renderCalendar();
-
-                const todayKey =
-                    dateKey(
-                        deviceToday.getFullYear(),
-                        deviceToday.getMonth(),
-                        deviceToday.getDate()
-                    );
 
                 showEvents(
-                    todayKey,
-                    getEventsForDate(todayKey)
+                    key,
+                    dayEvents
                 );
 
             }
         );
 
 
-    /* =====================================================
-       START
-       ===================================================== */
+        calendarDays.appendChild(
+            dayElement
+        );
 
-    renderCalendar();
+    }
+
+}
+
+
+/* =====================================================
+   INFORMACJE O WYDARZENIACH
+===================================================== */
+
+function showEvents(
+    key,
+    dayEvents
+) {
+
+    const parts =
+        key.split("-");
+
+    const year =
+        parts[0];
+
+    const month =
+        parts[1];
+
+    const day =
+        parts[2];
+
+
+    if (dayEvents.length === 0) {
+
+        eventInfo.innerHTML = `
+
+            <h2>
+                📅 ${day}.${month}.${year}
+            </h2>
+
+            <p>
+                Tego dnia nie ma zapisanych wydarzeń.
+            </p>
+
+        `;
+
+        return;
+    }
+
+
+    let html = `
+
+        <h2>
+            📅 ${day}.${month}.${year}
+        </h2>
+
+        <div class="event-list">
+
+    `;
+
+
+    dayEvents.forEach(event => {
+
+        let category =
+            "🎉 Wydarzenie Kolonii";
+
+
+        if (event.type === "holiday") {
+
+            category =
+                "🇵🇱 Święto państwowe / religijne";
+
+        }
+
+
+        if (event.type === "birthday") {
+
+            category =
+                "🎂 Urodziny";
+
+        }
+
+
+        if (event.type === "special") {
+
+            category =
+                "🎆 Wydarzenie specjalne";
+
+        }
+
+
+        html += `
+
+            <div
+                class="event-list-item ${event.type}">
+
+                <div class="event-list-date">
+                    ${category}
+                </div>
+
+                <div class="event-list-title">
+                    ${event.title}
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    html += `
+        </div>
+    `;
+
+
+    eventInfo.innerHTML =
+        html;
+
+}
+
+
+/* =====================================================
+   POPRZEDNI MIESIĄC
+===================================================== */
+
+document
+    .getElementById("prevMonth")
+    .addEventListener(
+        "click",
+        () => {
+
+            currentMonth--;
+
+            if (currentMonth < 0) {
+
+                currentMonth = 11;
+
+                currentYear--;
+
+            }
+
+            renderCalendar();
+
+        }
+    );
+
+
+/* =====================================================
+   NASTĘPNY MIESIĄC
+===================================================== */
+
+document
+    .getElementById("nextMonth")
+    .addEventListener(
+        "click",
+        () => {
+
+            currentMonth++;
+
+            if (currentMonth > 11) {
+
+                currentMonth = 0;
+
+                currentYear++;
+
+            }
+
+            renderCalendar();
+
+        }
+    );
+
+
+/* =====================================================
+   DZISIAJ
+===================================================== */
+
+document
+    .getElementById("todayButton")
+    .addEventListener(
+        "click",
+        () => {
+
+            currentMonth =
+                deviceToday.getMonth();
+
+            currentYear =
+                deviceToday.getFullYear();
+
+
+            renderCalendar();
+
+
+            const todayKey =
+                dateKey(
+                    deviceToday.getFullYear(),
+                    deviceToday.getMonth(),
+                    deviceToday.getDate()
+                );
+
+
+            showEvents(
+                todayKey,
+                getEventsForDate(todayKey)
+            );
+
+        }
+    );
+
+
+/* =====================================================
+   START
+===================================================== */
+
+renderCalendar();
 
 </script>
 
