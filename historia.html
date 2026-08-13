@@ -199,76 +199,6 @@
 
 
         /* =====================================================
-           RETRO
-        ===================================================== */
-
-        body.retro .timeline::before {
-            width: 3px;
-
-            background:
-                #000080;
-        }
-
-        body.retro .history-dot {
-            width: 27px;
-            height: 27px;
-
-            background:
-                #000080;
-
-            border:
-                2px outset #ffffff;
-
-            border-radius: 0;
-
-            box-shadow:
-                2px 2px 0 #000000;
-
-            animation: none;
-        }
-
-        body.retro .history-card {
-            padding: 17px;
-
-            background:
-                #c0c0c0;
-
-            color:
-                #000000;
-
-            border:
-                2px outset #ffffff;
-
-            border-radius: 0;
-
-            box-shadow:
-                3px 3px 0 #000000;
-        }
-
-        body.retro .history-card:hover {
-            transform: none;
-
-            box-shadow:
-                3px 3px 0 #000000;
-        }
-
-        body.retro .history-date {
-            color:
-                #000080;
-
-            opacity: 1;
-        }
-
-        body.retro .history-card h2 {
-            color:
-                #000080;
-
-            text-decoration:
-                underline;
-        }
-
-
-        /* =====================================================
            TELEFONY
         ===================================================== */
 
@@ -321,8 +251,6 @@
 
     <!-- =====================================================
          GÓRNY PASEK
-
-         Z HISTORII MOŻNA WYJŚĆ TYLKO DO STRONY GŁÓWNEJ
     ====================================================== -->
 
     <div class="top-bar">
@@ -499,116 +427,125 @@
         </div>
 
 
+        <!-- =================================================
+             13.08.2026
+        ================================================== -->
+
+        <div class="history-item">
+
+            <div class="history-dot"></div>
+
+            <div class="history-card">
+
+                <div class="history-date">
+                    📅 13.08.2026
+                </div>
+
+                <h2>
+                    🌐 Oficjalny start strony
+                </h2>
+
+                <p>
+                    Oficjalnie wystartowała strona internetowa
+                    <strong>Kolonii Pasjonatów</strong>.
+                </p>
+
+                <p>
+                    Od teraz najważniejsze informacje,
+                    wydarzenia, projekty oraz historia
+                    społeczności są dostępne w jednym miejscu.
+                </p>
+
+            </div>
+
+        </div>
+
+
     </section>
 
 
 </main>
 
 
-<!-- =====================================================
-     SYSTEM MOTYWÓW
-
-     🌙 CIEMNY
-     ↓
-     ☀️ JASNY
-     ↓
-     💾 RETRO
-     ↓
-     🌙 CIEMNY
-====================================================== -->
-
 <script>
 
-const themeButton =
-    document.getElementById("themeButton");
+    /* =====================================================
+       MOTYW — TYLKO JASNY / CIEMNY
+    ===================================================== */
+
+    const themeButton =
+        document.getElementById("themeButton");
 
 
-const savedTheme =
-    localStorage.getItem("theme") || "dark";
+    const savedTheme =
+        localStorage.getItem("theme") || "dark";
 
 
-function applyTheme(theme) {
+    function applyTheme(theme) {
 
-    document.body.classList.remove(
-        "light",
-        "retro"
-    );
+        document.body.classList.remove("light");
 
 
-    if (theme === "light") {
+        if (theme === "light") {
 
-        document.body.classList.add("light");
+            document.body.classList.add("light");
 
-        themeButton.textContent = "☀️";
-
-    }
-
-    else if (theme === "retro") {
-
-        document.body.classList.add("retro");
-
-        themeButton.textContent = "💾";
-
-    }
-
-    else {
-
-        themeButton.textContent = "🌙";
-
-    }
-
-
-    localStorage.setItem(
-        "theme",
-        theme
-    );
-
-}
-
-
-/* =====================================================
-   ZASTOSOWANIE ZAPISANEGO MOTYWU
-===================================================== */
-
-applyTheme(savedTheme);
-
-
-/* =====================================================
-   ZMIANA MOTYWU
-===================================================== */
-
-themeButton.addEventListener(
-    "click",
-    () => {
-
-        const current =
-            localStorage.getItem("theme") || "dark";
-
-
-        if (current === "dark") {
-
-            applyTheme("light");
-
-        }
-
-        else if (current === "light") {
-
-            applyTheme("retro");
+            themeButton.textContent = "☀️";
 
         }
 
         else {
 
-            applyTheme("dark");
+            themeButton.textContent = "🌙";
 
         }
 
+
+        localStorage.setItem(
+            "theme",
+            theme
+        );
+
     }
-);
+
+
+    /* =====================================================
+       ZASTOSOWANIE ZAPISANEGO MOTYWU
+    ===================================================== */
+
+    applyTheme(savedTheme);
+
+
+    /* =====================================================
+       ZMIANA MOTYWU
+    ===================================================== */
+
+    themeButton.addEventListener(
+        "click",
+        () => {
+
+            const current =
+                localStorage.getItem("theme") || "dark";
+
+
+            if (current === "dark") {
+
+                applyTheme("light");
+
+            }
+
+            else {
+
+                applyTheme("dark");
+
+            }
+
+        }
+    );
 
 </script>
 
 
 </body>
 
-</html>
+    </html>
