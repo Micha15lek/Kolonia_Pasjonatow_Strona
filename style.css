@@ -1871,4 +1871,396 @@ body.light .error-card {
 .browser-toolbar {
     display: flex;
 
-   
+    gap: 8px;
+
+    padding: 10px;
+
+    background:
+        rgba(0,0,0,.15);
+}
+
+.browser-address {
+    flex: 1;
+
+    padding:
+        9px 12px;
+
+    border-radius: 9px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid rgba(255,255,255,.10);
+}
+
+.browser-content {
+    min-height: 300px;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,.10);
+}
+
+body.light .browser-content {
+    background: #fafafa;
+}
+
+
+/* =========================================================
+   30. FORMULARZE
+   ========================================================= */
+
+input,
+textarea,
+select {
+    width: 100%;
+
+    padding:
+        11px 12px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    color: inherit;
+
+    outline: none;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color:
+        #ffc107;
+
+    box-shadow:
+        0 0 0 3px rgba(255,193,7,.10);
+
+    background:
+        rgba(255,255,255,.09);
+}
+
+body.light input,
+body.light textarea,
+body.light select {
+    background: #fff;
+
+    color: #222;
+
+    border-color: #d7d7d7;
+}
+
+textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+
+/* =========================================================
+   31. STOPKA
+   ========================================================= */
+
+footer {
+    margin-top: 60px;
+
+    padding:
+        30px 20px;
+
+    text-align: center;
+
+    border-top:
+        1px solid rgba(255,255,255,.08);
+
+    background:
+        rgba(0,0,0,.20);
+
+    opacity: .88;
+}
+
+body.light footer {
+    background:
+        rgba(255,255,255,.70);
+
+    border-top-color: #ddd;
+}
+
+footer p {
+    margin:
+        6px 0;
+}
+
+
+/* =========================================================
+   32. ANIMACJE
+   ========================================================= */
+
+@keyframes goldenGlow {
+    0%,
+    100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.08);
+    }
+}
+
+.event-day {
+    animation:
+        goldenGlow 2.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   33. TABLETY
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    header {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .logo {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .info-grid,
+    .links-grid,
+    .koloniarz-grid {
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    .admin-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   34. TELEFONY
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    header {
+        position: relative;
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        padding:
+            15px 12px;
+    }
+
+    .logo {
+        width: auto;
+
+        padding-right: 50px;
+    }
+
+    nav {
+        gap: 6px;
+    }
+
+    nav a {
+        flex:
+            1 1 auto;
+
+        min-width: 110px;
+
+        font-size: 13px;
+
+        padding:
+            9px 10px;
+    }
+
+    .theme-toggle,
+    .theme-button {
+        position: absolute;
+
+        top: 14px;
+        right: 13px;
+    }
+
+    .hero {
+        margin:
+            25px auto;
+
+        padding:
+            30px 18px;
+    }
+
+    .section {
+        width:
+            calc(100% - 20px);
+
+        margin:
+            25px auto;
+
+        padding: 5px;
+    }
+
+    .info-grid,
+    .links-grid,
+    .koloniarz-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-card {
+        min-height: auto;
+    }
+
+    .top-bar {
+        width:
+            calc(100% - 24px);
+    }
+
+    .league-ranking,
+    .contact-page,
+    .calendar-page,
+    .history-page,
+    .admin-panel,
+    .info-panel,
+    .browser-window,
+    .koloniarz-page {
+        width:
+            calc(100% - 24px);
+    }
+
+    .contact-button {
+        width: 100%;
+    }
+
+    .calendar {
+        padding: 7px;
+    }
+
+    .day {
+        min-height: 60px;
+
+        padding: 6px;
+
+        font-size: 12px;
+    }
+
+    .weekday {
+        padding: 8px 4px;
+
+        font-size: 11px;
+    }
+
+    .history-page {
+        padding: 5px 0;
+    }
+
+    .timeline {
+        margin:
+            30px 0;
+    }
+
+    .timeline::before {
+        left: 13px;
+    }
+
+    .history-item {
+        padding-left: 43px;
+    }
+
+    .history-dot {
+        left: 1px;
+
+        width: 25px;
+        height: 25px;
+    }
+
+    .history-card {
+        padding: 17px;
+    }
+
+    .error-page {
+        margin:
+            45px auto;
+    }
+
+    .error-card {
+        padding:
+            30px 20px;
+    }
+}
+
+
+/* =========================================================
+   35. MAŁE TELEFONY
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    nav {
+        gap: 4px;
+    }
+
+    nav a {
+        min-width: 0;
+
+        padding:
+            8px 7px;
+
+        font-size: 12px;
+    }
+
+    .day {
+        min-height: 50px;
+
+        padding: 4px;
+
+        font-size: 10px;
+    }
+
+    .weekday {
+        padding:
+            6px 2px;
+
+        font-size: 9px;
+    }
+
+    .today-label {
+        font-size: 7px;
+    }
+
+    .history-card h2 {
+        font-size: 19px;
+    }
+
+    .koloniarz-hero {
+        padding:
+            30px 18px;
+    }
+}
+
+
+/* =========================================================
+   KONIEC NOWEGO STYLE.CSS
+   ========================================================= */
