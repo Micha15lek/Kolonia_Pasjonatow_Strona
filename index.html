@@ -52,7 +52,7 @@
         type="button"
         aria-label="Zmień motyw">
 
-        ☀️ Jasny
+        ☀️
 
     </button>
 
@@ -62,7 +62,9 @@
 <main>
 
 
-    <!-- HERO -->
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
 
     <section class="hero">
 
@@ -79,7 +81,9 @@
     </section>
 
 
-    <!-- NASZE PROJEKTY -->
+    <!-- =====================================================
+         NASZE PROJEKTY
+    ====================================================== -->
 
     <section class="section">
 
@@ -165,7 +169,9 @@
     </section>
 
 
-    <!-- POZOSTAŁE -->
+    <!-- =====================================================
+         POZOSTAŁE
+    ====================================================== -->
 
     <section class="section">
 
@@ -256,6 +262,10 @@
 </main>
 
 
+<!-- =====================================================
+     STOPKA
+====================================================== -->
+
 <footer>
 
     <p>
@@ -269,67 +279,9 @@
 </footer>
 
 
-<!-- =====================================================
-     TRYB CIEMNY / JASNY
-===================================================== -->
+<!-- GŁÓWNY SKRYPT -->
 
-<script>
-
-const themeToggle =
-    document.getElementById("themeToggle");
-
-
-const savedTheme =
-    localStorage.getItem("theme") || "dark";
-
-
-function applyTheme(theme) {
-
-    document.body.classList.remove("light");
-
-    if (theme === "light") {
-
-        document.body.classList.add("light");
-
-        themeToggle.textContent = "🌙 Ciemny";
-
-    } else {
-
-        themeToggle.textContent = "☀️ Jasny";
-
-    }
-
-    localStorage.setItem(
-        "theme",
-        theme
-    );
-
-}
-
-
-applyTheme(savedTheme);
-
-
-themeToggle.addEventListener("click", () => {
-
-    const current =
-        localStorage.getItem("theme") || "dark";
-
-
-    if (current === "dark") {
-
-        applyTheme("light");
-
-    } else {
-
-        applyTheme("dark");
-
-    }
-
-});
-
-</script>
-
+<script src="script.js"></script>
 
 </body>
 
