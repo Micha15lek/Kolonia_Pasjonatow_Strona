@@ -2,65 +2,105 @@
 <html lang="pl">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Administrator | Kolonia Pasjonatów</title>
+    <title>Administracja | Kolonia Pasjonatów</title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-<main>
+<header>
 
-    <div class="admin-page">
-
-        <!-- TYLKO POWRÓT DO STRONY GŁÓWNEJ -->
-
-        <a href="index.html" class="admin-back">
-            ← Powrót do strony głównej
-        </a>
-
-
-        <!-- STRONA W TWORZENIU -->
-
-        <section class="admin-card">
-
-            <div class="admin-icon">
-                🚧
-            </div>
-
-            <h1>
-                Strona obecnie w tworzeniu
-            </h1>
-
-            <h2>
-                Administrator
-            </h2>
-
-            <p>
-                Podstrona administratora Kolonii Pasjonatów
-                jest obecnie tworzona.
-            </p>
-
-            <p>
-                Pracujemy nad jej zawartością oraz funkcjami.
-                Zostanie udostępniona po zakończeniu prac.
-            </p>
-
-            <div class="admin-status">
-                🟡 Status: trwają prace
-            </div>
-
-        </section>
-
+    <div class="logo">
+        🌟 Kolonia Pasjonatów
     </div>
 
+    <nav>
+
+        <a href="index.html">
+            🏠 Strona główna
+        </a>
+
+    </nav>
+
+    <button
+        id="themeToggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Zmień motyw">
+
+        ☀️
+
+    </button>
+
+</header>
+
+
+<main>
+
+    <section class="hero">
+
+        <h1>
+            👥 Administracja
+        </h1>
+
+        <p>
+            Informacje dotyczące administracji
+            Kolonii Pasjonatów.
+        </p>
+
+    </section>
+
+
+    <section class="admin-page">
+
+        <div class="admin-panel">
+
+            <div class="admin-warning">
+
+                🚧 Trwa tworzenie strony administracji.
+
+            </div>
+
+            <p>
+                Obecnie trwa tworzenie strony oraz
+                zbieranie potrzebnych danych do jej stworzenia.
+            </p>
+
+            <p>
+                Po zakończeniu prac zostanie tutaj
+                przedstawiona lista administracji wraz
+                z pełnionymi funkcjami.
+            </p>
+
+            <span class="status">
+                🚧 W trakcie tworzenia
+            </span>
+
+        </div>
+
+    </section>
+
 </main>
+
+
+<footer>
+
+    <p>
+        © 2026 Kolonia Pasjonatów
+    </p>
+
+    <p>
+        🌟 Oficjalna strona społeczności
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
 
