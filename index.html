@@ -28,14 +28,14 @@
             🏆 Ranking
         </a>
 
-<a href="statystyki.html">
+        <a href="statystyki.html">
             ⏱️ Licznik
         </a>
 
         <a href="ogloszenia.html">
             📢 Ogłoszenia
         </a>
-        
+
         <a href="linki.html">
             🔗 Linki
         </a>
@@ -49,9 +49,10 @@
     <button
         id="themeToggle"
         class="theme-toggle"
-        type="button">
+        type="button"
+        aria-label="Zmień motyw">
 
-        🌙
+        ☀️ Jasny
 
     </button>
 
@@ -269,7 +270,7 @@
 
 
 <!-- =====================================================
-     TRYB CIEMNY / JASNY / RETRO
+     TRYB CIEMNY / JASNY
 ===================================================== -->
 
 <script>
@@ -284,34 +285,19 @@ const savedTheme =
 
 function applyTheme(theme) {
 
-    document.body.classList.remove(
-        "light",
-        "retro"
-    );
-
+    document.body.classList.remove("light");
 
     if (theme === "light") {
 
         document.body.classList.add("light");
 
-        themeToggle.textContent = "☀️";
+        themeToggle.textContent = "🌙 Ciemny";
+
+    } else {
+
+        themeToggle.textContent = "☀️ Jasny";
 
     }
-
-    else if (theme === "retro") {
-
-        document.body.classList.add("retro");
-
-        themeToggle.textContent = "💾";
-
-    }
-
-    else {
-
-        themeToggle.textContent = "🌙";
-
-    }
-
 
     localStorage.setItem(
         "theme",
@@ -334,15 +320,7 @@ themeToggle.addEventListener("click", () => {
 
         applyTheme("light");
 
-    }
-
-    else if (current === "light") {
-
-        applyTheme("retro");
-
-    }
-
-    else {
+    } else {
 
         applyTheme("dark");
 
