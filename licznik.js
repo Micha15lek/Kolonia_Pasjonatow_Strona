@@ -1,530 +1,317 @@
-/* =========================================================
-   KOLONIA PASJONATÓW
-   LICZNIK.JS
-========================================================= */
+/* =====================================================
+   LICZNIK — KOLONIA PASJONATÓW
+===================================================== */
 
 
-/* =========================================================
-   KONFIGURACJA
-========================================================= */
+/* =====================================================
+   UŻYTKOWNICY
 
-/*
-   DATA STARTU KOLONII
+   Wpisz tutaj aktualną liczbę członków Kolonii
+   BEZ BOTÓW.
+===================================================== */
 
-   ZMIEŃ TYLKO TĘ DATĘ, jeśli data startu jest inna.
-
-   Format:
-   ROK, MIESIĄC - 1, DZIEŃ, GODZINA, MINUTA, SEKUNDA
-*/
-
-const KOLONIA_START = new Date(
-    2026,
-    2,
-    21,
-    0,
-    0,
-    0
-);
+const USERS_COUNT = 0;
 
 
-/*
-   AKTUALNA LICZBA UŻYTKOWNIKÓW
+/* =====================================================
+   DATY STARTOWE
+===================================================== */
 
-   Na razie liczba jest ustawiana tutaj.
+const colonyStart =
+    new Date("2026-06-11T00:00:00");
 
-   Później możemy podłączyć prawdziwe API,
-   Discorda albo inną bazę danych.
-*/
-
-let USERS_COUNT = 0;
+const websiteStart =
+    new Date("2026-08-13T19:00:00");
 
 
-/* =========================================================
+/* =====================================================
+   DATY WYDARZEŃ
+===================================================== */
+
+const events = {
+
+    summer: new Date(
+        "2026-08-31T23:59:59"
+    ),
+
+    halloween: new Date(
+        "2026-10-31T00:00:00"
+    ),
+
+    christmas: new Date(
+        "2026-12-24T00:00:00"
+    ),
+
+    newYear: new Date(
+        "2026-12-31T23:59:59"
+    ),
+
+    easter: new Date(
+        "2027-03-28T00:00:00"
+    )
+
+};
+
+
+/* =====================================================
    ELEMENTY HTML
-========================================================= */
+===================================================== */
 
 const usersCount =
     document.getElementById("usersCount");
 
-const daysSinceStart =
-    document.getElementById("daysSinceStart");
+const colonyUptime =
+    document.getElementById("colonyUptime");
 
-const uptime =
-    document.getElementById("uptime");
+const websiteUptime =
+    document.getElementById("websiteUptime");
 
-const detailedUptime =
-    document.getElementById("detailedUptime");
+const summerCountdown =
+    document.getElementById("summerCountdown");
 
-const daysToChristmas =
-    document.getElementById("daysToChristmas");
+const halloweenCountdown =
+    document.getElementById("halloweenCountdown");
 
-const daysToNewYear =
-    document.getElementById("daysToNewYear");
+const christmasCountdown =
+    document.getElementById("christmasCountdown");
 
-const daysToYearEnd =
-    document.getElementById("daysToYearEnd");
+const newYearCountdown =
+    document.getElementById("newYearCountdown");
 
-const lastUpdate =
-    document.getElementById("lastUpdate");
+const easterCountdown =
+    document.getElementById("easterCountdown");
 
-
-/* =========================================================
-   FORMATOWANIE LICZB
-========================================================= */
-
-function formatNumber(number) {
-
-    return new Intl.NumberFormat(
-        "pl-PL"
-    ).format(number);
-
-}
+const currentTime =
+    document.getElementById("currentTime");
 
 
-/* =========================================================
+/* =====================================================
    LICZBA UŻYTKOWNIKÓW
-========================================================= */
+===================================================== */
 
-function updateUsers() {
-
-    if (!usersCount) {
-        return;
-    }
+if (usersCount) {
 
     usersCount.textContent =
-        formatNumber(USERS_COUNT);
+        USERS_COUNT;
 
 }
 
 
-/* =========================================================
-   DNI OD STARTU KOLONII
-========================================================= */
+/* =====================================================
+   FORMATOWANIE CZASU
+===================================================== */
 
-function updateDaysSinceStart(now) {
+function formatDuration(milliseconds) {
 
-    const difference =
-        now.getTime() -
-        KOLONIA_START.getTime();
+    if (milliseconds <= 0) {
 
+        return "0 dni, 0 godz. 0 min. 0 sek.";
 
-    if (difference < 0) {
-
-        daysSinceStart.textContent = "0";
-
-        return;
     }
+
+
+    const totalSeconds =
+        Math.floor(milliseconds / 1000);
 
 
     const days =
         Math.floor(
-            difference /
-            (1000 * 60 * 60 * 24)
-        );
-
-
-    daysSinceStart.textContent =
-        formatNumber(days);
-
-}
-
-
-/* =========================================================
-   DOKŁADNY CZAS DZIAŁANIA
-========================================================= */
-
-function updateUptime(now) {
-
-    let difference =
-        now.getTime() -
-        KOLONIA_START.getTime();
-
-
-    if (difference < 0) {
-
-        uptime.textContent =
-            "Jeszcze nie wystartowała";
-
-        detailedUptime.textContent =
-            "Kolonia jeszcze nie wystartowała.";
-
-        return;
-    }
-
-
-    const seconds =
-        Math.floor(
-            difference / 1000
-        );
-
-
-    const days =
-        Math.floor(
-            seconds / 86400
+            totalSeconds / 86400
         );
 
 
     const hours =
         Math.floor(
-            (seconds % 86400) / 3600
+            (totalSeconds % 86400) / 3600
         );
 
 
     const minutes =
         Math.floor(
-            (seconds % 3600) / 60
+            (totalSeconds % 3600) / 60
         );
 
 
-    const secs =
-        seconds % 60;
+    const seconds =
+        totalSeconds % 60;
 
 
-    uptime.textContent =
-        `${days} dni`;
-
-
-    detailedUptime.textContent =
-        `${days} dni, ` +
-        `${hours} godz., ` +
-        `${minutes} min, ` +
-        `${secs} sek.`;
+    return (
+        days +
+        " dni, " +
+        hours +
+        " godz. " +
+        minutes +
+        " min. " +
+        seconds +
+        " sek."
+    );
 
 }
 
 
-/* =========================================================
-   NAJBLIŻSZE ŚWIĘTA
-========================================================= */
+/* =====================================================
+   ODLICZANIE
+===================================================== */
 
-function updateChristmas(now) {
-
-    let year =
-        now.getFullYear();
-
-
-    let christmas =
-        new Date(
-            year,
-            11,
-            25,
-            0,
-            0,
-            0
-        );
-
-
-    /*
-       Jeżeli tegoroczne Święta już minęły,
-       ustawiamy następny rok.
-    */
-
-    if (now >= christmas) {
-
-        christmas =
-            new Date(
-                year + 1,
-                11,
-                25,
-                0,
-                0,
-                0
-            );
-
-    }
-
-
-    const difference =
-        christmas.getTime() -
-        now.getTime();
-
-
-    const days =
-        Math.ceil(
-            difference /
-            (1000 * 60 * 60 * 24)
-        );
-
-
-    daysToChristmas.textContent =
-        formatNumber(days);
-
-}
-
-
-/* =========================================================
-   NOWY ROK
-========================================================= */
-
-function updateNewYear(now) {
-
-    let year =
-        now.getFullYear();
-
-
-    let newYear =
-        new Date(
-            year + 1,
-            0,
-            1,
-            0,
-            0,
-            0
-        );
-
-
-    const difference =
-        newYear.getTime() -
-        now.getTime();
-
-
-    const days =
-        Math.ceil(
-            difference /
-            (1000 * 60 * 60 * 24)
-        );
-
-
-    daysToNewYear.textContent =
-        formatNumber(days);
-
-}
-
-
-/* =========================================================
-   KONIEC ROKU
-========================================================= */
-
-function updateYearEnd(now) {
-
-    const year =
-        now.getFullYear();
-
-
-    const endOfYear =
-        new Date(
-            year + 1,
-            0,
-            1,
-            0,
-            0,
-            0
-        );
-
-
-    const difference =
-        endOfYear.getTime() -
-        now.getTime();
-
-
-    const days =
-        Math.ceil(
-            difference /
-            (1000 * 60 * 60 * 24)
-        );
-
-
-    daysToYearEnd.textContent =
-        formatNumber(days);
-
-}
-
-
-/* =========================================================
-   OSTATNIA AKTUALIZACJA
-========================================================= */
-
-function updateLastUpdate(now) {
-
-    const time =
-        now.toLocaleTimeString(
-            "pl-PL",
-            {
-                hour: "2-digit",
-                minute: "2-digit",
-                second: "2-digit"
-            }
-        );
-
-
-    lastUpdate.textContent =
-        time;
-
-}
-
-
-/* =========================================================
-   GŁÓWNA FUNKCJA
-========================================================= */
-
-function updateAllCounters() {
+function countdownTo(date) {
 
     const now =
         new Date();
 
+    const difference =
+        date - now;
 
-    updateUsers();
 
-    updateDaysSinceStart(now);
+    if (difference <= 0) {
 
-    updateUptime(now);
+        return "Wydarzenie już się odbyło";
 
-    updateChristmas(now);
+    }
 
-    updateNewYear(now);
 
-    updateYearEnd(now);
-
-    updateLastUpdate(now);
+    return formatDuration(
+        difference
+    );
 
 }
 
 
-/* =========================================================
+/* =====================================================
+   CZAS OD STARTU
+===================================================== */
+
+function timeSince(date) {
+
+    const now =
+        new Date();
+
+    const difference =
+        now - date;
+
+
+    if (difference <= 0) {
+
+        return "Jeszcze się nie rozpoczęło";
+
+    }
+
+
+    return formatDuration(
+        difference
+    );
+
+}
+
+
+/* =====================================================
+   AKTUALIZACJA LICZNIKÓW
+===================================================== */
+
+function updateCounters() {
+
+
+    /* KOLONIA */
+
+    if (colonyUptime) {
+
+        colonyUptime.textContent =
+            timeSince(colonyStart);
+
+    }
+
+
+    /* STRONA */
+
+    if (websiteUptime) {
+
+        websiteUptime.textContent =
+            timeSince(websiteStart);
+
+    }
+
+
+    /* KONIEC WAKACJI */
+
+    if (summerCountdown) {
+
+        summerCountdown.textContent =
+            countdownTo(events.summer);
+
+    }
+
+
+    /* HALLOWEEN */
+
+    if (halloweenCountdown) {
+
+        halloweenCountdown.textContent =
+            countdownTo(events.halloween);
+
+    }
+
+
+    /* WIGILIA */
+
+    if (christmasCountdown) {
+
+        christmasCountdown.textContent =
+            countdownTo(events.christmas);
+
+    }
+
+
+    /* KONIEC ROKU */
+
+    if (newYearCountdown) {
+
+        newYearCountdown.textContent =
+            countdownTo(events.newYear);
+
+    }
+
+
+    /* WIELKANOC */
+
+    if (easterCountdown) {
+
+        easterCountdown.textContent =
+            countdownTo(events.easter);
+
+    }
+
+
+    /* AKTUALNY CZAS */
+
+    if (currentTime) {
+
+        const now =
+            new Date();
+
+        currentTime.textContent =
+            now.toLocaleString(
+                "pl-PL",
+                {
+                    dateStyle: "full",
+                    timeStyle: "medium"
+                }
+            );
+
+    }
+
+}
+
+
+/* =====================================================
    START
-========================================================= */
+===================================================== */
 
-updateAllCounters();
+updateCounters();
 
 
-/*
-   Aktualizacja co sekundę.
-*/
+/* Aktualizacja co sekundę */
 
 setInterval(
-    updateAllCounters,
+    updateCounters,
     1000
 );
-
-
-/* =========================================================
-   TRYB JASNY / CIEMNY / RETRO
-========================================================= */
-
-/*
-   Ten fragment współpracuje z Twoim
-   wspólnym style.css.
-
-   Zapamiętuje wybrany tryb.
-*/
-
-const themeToggle =
-    document.getElementById(
-        "themeToggle"
-    );
-
-
-function applySavedTheme() {
-
-    const savedTheme =
-        localStorage.getItem(
-            "koloniaTheme"
-        );
-
-
-    if (savedTheme === "light") {
-
-        document.body.classList.add(
-            "light"
-        );
-
-        document.body.classList.remove(
-            "retro"
-        );
-
-    }
-
-
-    else if (savedTheme === "retro") {
-
-        document.body.classList.add(
-            "retro"
-        );
-
-        document.body.classList.remove(
-            "light"
-        );
-
-    }
-
-
-    else {
-
-        document.body.classList.remove(
-            "light",
-            "retro"
-        );
-
-    }
-
-}
-
-
-applySavedTheme();
-
-
-/* =========================================================
-   PRZEŁĄCZANIE TRYBU
-========================================================= */
-
-if (themeToggle) {
-
-    themeToggle.addEventListener(
-        "click",
-        function () {
-
-            if (
-                document.body.classList.contains(
-                    "retro"
-                )
-            ) {
-
-                document.body.classList.remove(
-                    "retro"
-                );
-
-                document.body.classList.add(
-                    "light"
-                );
-
-                localStorage.setItem(
-                    "koloniaTheme",
-                    "light"
-                );
-
-                return;
-            }
-
-
-            if (
-                document.body.classList.contains(
-                    "light"
-                )
-            ) {
-
-                document.body.classList.remove(
-                    "light"
-                );
-
-                localStorage.setItem(
-                    "koloniaTheme",
-                    "dark"
-                );
-
-                return;
-            }
-
-
-            document.body.classList.add(
-                "retro"
-            );
-
-            localStorage.setItem(
-                "koloniaTheme",
-                "retro"
-            );
-
-        }
-    );
-
-              }
