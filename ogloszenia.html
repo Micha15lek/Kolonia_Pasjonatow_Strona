@@ -32,7 +32,7 @@
             ⏱️ Licznik
         </a>
 
-        <a href="ogloszenia.html">
+        <a href="ogloszenia.html" class="active">
             📢 Ogłoszenia
         </a>
 
@@ -49,7 +49,8 @@
     <button
         id="themeToggle"
         class="theme-toggle"
-        type="button">
+        type="button"
+        aria-label="Zmień motyw">
 
         🌙
 
@@ -92,11 +93,6 @@
             id="announcements"
             class="info-grid">
 
-            <!--
-                Ogłoszenia zostaną automatycznie
-                wczytane z pliku dane.js.
-            -->
-
         </div>
 
     </section>
@@ -113,9 +109,6 @@
         </h2>
 
         <div class="info-grid">
-
-
-            <!-- KALENDARZ -->
 
             <article class="info-card">
 
@@ -139,8 +132,6 @@
             </article>
 
 
-            <!-- RANKING -->
-
             <article class="info-card">
 
                 <h2>
@@ -162,8 +153,6 @@
 
             </article>
 
-
-            <!-- STATYSTYKI -->
 
             <article class="info-card">
 
@@ -187,8 +176,6 @@
             </article>
 
 
-            <!-- DISCORD -->
-
             <article class="info-card">
 
                 <h2>
@@ -211,7 +198,6 @@
                 </a>
 
             </article>
-
 
         </div>
 
@@ -245,7 +231,7 @@
 
 
 <!-- =====================================================
-     WYŚWIETLANIE OGŁOSZEŃ
+     OBSŁUGA OGŁOSZEŃ
 ===================================================== -->
 
 <script>
@@ -255,13 +241,48 @@ const announcementsContainer =
 
 
 /*
-    Sprawdzenie, czy dane.js
-    zawiera tablicę announcements.
+    Pobranie dzisiejszej daty
+    bezpośrednio z urządzenia użytkownika.
+*/
+
+function getTodayDate() {
+
+    const now = new Date();
+
+    const day =
+        String(now.getDate()).padStart(2, "0");
+
+    const month =
+        String(now.getMonth() + 1).padStart(2, "0");
+
+    const year =
+        now.getFullYear();
+
+    return `${day}.${month}.${year}`;
+
+}
+
+
+/*
+    Sprawdzenie, czy ogłoszenie
+    zostało dodane dzisiaj.
+*/
+
+function isNew(date) {
+
+    return date === getTodayDate();
+
+}
+
+
+/*
+    Wyświetlanie ogłoszeń.
 */
 
 if (
     typeof announcements !== "undefined" &&
-    Array.isArray(announcements)
+    Array.isArray(announcements) &&
+    announcements.length > 0
 ) {
 
     announcementsContainer.innerHTML = "";
@@ -277,20 +298,25 @@ if (
                 "info-card";
 
 
-            /* STATUS */
+            /* NOWE */
 
-            if (announcement.status) {
+            if (
+                announcement.date &&
+                isNew(announcement.date)
+            ) {
 
-                const status =
+                const newBadge =
                     document.createElement("span");
 
-                status.className =
+                newBadge.className =
                     "status";
 
-                status.textContent =
-                    announcement.status;
+                newBadge.textContent =
+                    "🆕 NOWE";
 
-                card.appendChild(status);
+                card.appendChild(
+                    newBadge
+                );
 
             }
 
@@ -303,38 +329,125 @@ if (
             title.textContent =
                 announcement.title;
 
-            card.appendChild(title);
-
-
-            /* OPIS */
-
-            const description =
-                document.createElement("p");
-
-            description.textContent =
-                announcement.description;
-
-            card.appendChild(description);
+            card.appendChild(
+                title
+            );
 
 
             /* DATA */
 
-            if (announcement.date) {
+            if (
+                announcement.date
+            ) {
 
                 const date =
                     document.createElement("p");
 
                 date.textContent =
-                    "📅 " + announcement.date;
+                    "📅 " +
+                    announcement.date;
 
-                card.appendChild(date);
+                card.appendChild(
+                    date
+                );
+
+            }
+
+
+            /*
+                OPIS NIE JEST POKAZYWANY
+                OD RAZU.
+            */
+
+            if (
+                announcement.description
+            ) {
+
+                const details =
+                    document.createElement("div");
+
+                details.style.display =
+                    "none";
+
+                details.style.marginTop =
+                    "15px";
+
+                const description =
+                    document.createElement("p");
+
+                description.textContent =
+                    announcement.description;
+
+                details.appendChild(
+                    description
+                );
+
+
+                /*
+                    Przycisk pokazujący
+                    szczegóły ogłoszenia.
+                */
+
+                const button =
+                    document.createElement("button");
+
+                button.className =
+                    "button";
+
+                button.type =
+                    "button";
+
+                button.textContent =
+                    "📖 Pokaż szczegóły";
+
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        if (
+                            details.style.display ===
+                            "none"
+                        ) {
+
+                            details.style.display =
+                                "block";
+
+                            button.textContent =
+                                "🔽 Ukryj szczegóły";
+
+                        }
+
+                        else {
+
+                            details.style.display =
+                                "none";
+
+                            button.textContent =
+                                "📖 Pokaż szczegóły";
+
+                        }
+
+                    }
+                );
+
+
+                card.appendChild(
+                    button
+                );
+
+                card.appendChild(
+                    details
+                );
 
             }
 
 
             /* LINK */
 
-            if (announcement.link) {
+            if (
+                announcement.link
+            ) {
 
                 const link =
                     document.createElement("a");
@@ -349,7 +462,9 @@ if (
                     "🔗 Zobacz więcej";
 
 
-                if (announcement.external) {
+                if (
+                    announcement.external
+                ) {
 
                     link.target =
                         "_blank";
@@ -360,7 +475,9 @@ if (
                 }
 
 
-                card.appendChild(link);
+                card.appendChild(
+                    link
+                );
 
             }
 
@@ -425,7 +542,9 @@ function applyTheme(theme) {
     );
 
 
-    if (theme === "light") {
+    if (
+        theme === "light"
+    ) {
 
         document.body.classList.add(
             "light"
@@ -436,7 +555,9 @@ function applyTheme(theme) {
 
     }
 
-    else if (theme === "retro") {
+    else if (
+        theme === "retro"
+    ) {
 
         document.body.classList.add(
             "retro"
