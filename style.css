@@ -1,13 +1,13 @@
 /* =========================================================
    KOLONIA PASJONATÓW
-   NOWY STYLE.CSS
+   STYLE.CSS
    MODERN • DARK / LIGHT
    ========================================================= */
 
 
 /* =========================================================
    1. RESET
-   ========================================================= */
+========================================================= */
 
 * {
     box-sizing: border-box;
@@ -21,10 +21,7 @@ body {
     margin: 0;
     min-height: 100vh;
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 
     color: #f4f4f4;
 
@@ -39,6 +36,18 @@ body {
     transition:
         background .3s ease,
         color .3s ease;
+}
+
+body.light {
+    color: #222;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #ffffff 0%,
+            #f5f5f5 55%,
+            #e9e9e9 100%
+        );
 }
 
 ::selection {
@@ -60,25 +69,8 @@ select {
 
 
 /* =========================================================
-   2. JASNY TRYB
-   ========================================================= */
-
-body.light {
-    color: #222;
-
-    background:
-        radial-gradient(
-            circle at top,
-            #ffffff 0%,
-            #f5f5f5 50%,
-            #e9e9e9 100%
-        );
-}
-
-
-/* =========================================================
-   3. GÓRNA NAWIGACJA
-   ========================================================= */
+   2. NAGŁÓWEK
+========================================================= */
 
 header {
     position: sticky;
@@ -87,36 +79,26 @@ header {
 
     display: flex;
     align-items: center;
-
     gap: 24px;
 
     min-height: 76px;
-
     padding: 14px 28px;
 
-    background:
-        rgba(9, 9, 9, .86);
+    background: rgba(9, 9, 9, .88);
 
-    border-bottom:
-        1px solid rgba(255,255,255,.09);
+    border-bottom: 1px solid rgba(255,255,255,.09);
 
     backdrop-filter: blur(18px);
 
     box-shadow:
         0 8px 30px rgba(0,0,0,.28);
 
-    transition:
-        background .3s ease,
-        border-color .3s ease,
-        box-shadow .3s ease;
+    transition: .3s ease;
 }
 
 body.light header {
-    background:
-        rgba(255,255,255,.90);
-
-    border-bottom-color:
-        rgba(0,0,0,.10);
+    background: rgba(255,255,255,.92);
+    border-bottom-color: rgba(0,0,0,.10);
 
     box-shadow:
         0 8px 30px rgba(0,0,0,.08);
@@ -124,8 +106,8 @@ body.light header {
 
 
 /* =========================================================
-   4. LOGO
-   ========================================================= */
+   3. LOGO
+========================================================= */
 
 .logo {
     flex-shrink: 0;
@@ -134,10 +116,7 @@ body.light header {
     font-weight: 900;
 
     letter-spacing: -.3px;
-
     white-space: nowrap;
-
-    color: inherit;
 
     text-shadow:
         0 0 20px rgba(255,193,7,.16);
@@ -145,63 +124,44 @@ body.light header {
 
 
 /* =========================================================
-   5. NAWIGACJA
-   ========================================================= */
+   4. NAWIGACJA
+========================================================= */
 
 nav {
     display: flex;
     align-items: center;
-
     justify-content: center;
 
-    gap: 7px;
-
     flex: 1;
-
     flex-wrap: wrap;
+
+    gap: 7px;
 }
 
 nav a {
-    position: relative;
-
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
     min-height: 42px;
-
     padding: 9px 15px;
 
     border-radius: 12px;
 
-    background:
-        rgba(255,255,255,.045);
-
-    border:
-        1px solid rgba(255,255,255,.10);
-
-    color: inherit;
+    background: rgba(255,255,255,.045);
+    border: 1px solid rgba(255,255,255,.10);
 
     font-size: 14px;
     font-weight: 800;
 
-    transition:
-        transform .2s ease,
-        background .2s ease,
-        border-color .2s ease,
-        box-shadow .2s ease,
-        color .2s ease;
+    transition: .2s ease;
 }
 
 nav a:hover {
     transform: translateY(-2px);
 
-    background:
-        rgba(255,193,7,.11);
-
-    border-color:
-        rgba(255,193,7,.38);
+    background: rgba(255,193,7,.11);
+    border-color: rgba(255,193,7,.38);
 
     color: #ffc107;
 
@@ -217,20 +177,13 @@ nav a.active {
             rgba(255,152,0,.09)
         );
 
-    border-color:
-        rgba(255,193,7,.45);
-
+    border-color: rgba(255,193,7,.45);
     color: #ffc107;
-
-    box-shadow:
-        0 0 18px rgba(255,193,7,.10);
 }
 
 body.light nav a {
-    background: #ffffff;
-
+    background: #fff;
     border-color: #dcdcdc;
-
     color: #222;
 
     box-shadow:
@@ -238,32 +191,21 @@ body.light nav a {
 }
 
 body.light nav a:hover {
-    background:
-        rgba(255,193,7,.08);
-
-    border-color:
-        rgba(255,193,7,.45);
-
-    color: #9a7100;
-
-    box-shadow:
-        0 5px 18px rgba(255,193,7,.13);
+    background: rgba(255,193,7,.08);
+    border-color: rgba(255,193,7,.45);
+    color: #8a6500;
 }
 
 body.light nav a.active {
-    background:
-        rgba(255,193,7,.13);
-
-    border-color:
-        rgba(255,193,7,.50);
-
+    background: rgba(255,193,7,.13);
+    border-color: rgba(255,193,7,.50);
     color: #8a6500;
 }
 
 
 /* =========================================================
-   6. PRZEŁĄCZNIK TRYBU
-   ========================================================= */
+   5. PRZEŁĄCZNIK TRYBU
+========================================================= */
 
 .theme-toggle,
 .theme-button {
@@ -273,17 +215,13 @@ body.light nav a.active {
     height: 44px;
 
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
-    border:
-        1px solid rgba(255,193,7,.30);
-
     border-radius: 50%;
+    border: 1px solid rgba(255,193,7,.30);
 
-    background:
-        rgba(255,255,255,.06);
+    background: rgba(255,255,255,.06);
 
     color: inherit;
 
@@ -291,24 +229,15 @@ body.light nav a.active {
 
     cursor: pointer;
 
-    transition:
-        transform .25s ease,
-        background .25s ease,
-        border-color .25s ease,
-        box-shadow .25s ease;
+    transition: .25s ease;
 }
 
 .theme-toggle:hover,
 .theme-button:hover {
-    transform:
-        scale(1.07)
-        rotate(8deg);
+    transform: scale(1.07) rotate(8deg);
 
-    background:
-        rgba(255,193,7,.13);
-
-    border-color:
-        rgba(255,193,7,.55);
+    background: rgba(255,193,7,.13);
+    border-color: rgba(255,193,7,.55);
 
     box-shadow:
         0 0 24px rgba(255,193,7,.22);
@@ -317,7 +246,6 @@ body.light nav a.active {
 body.light .theme-toggle,
 body.light .theme-button {
     background: #fff;
-
     border-color: #d8d8d8;
 
     box-shadow:
@@ -326,8 +254,8 @@ body.light .theme-button {
 
 
 /* =========================================================
-   7. GŁÓWNY KONTENER
-   ========================================================= */
+   6. KONTENERY
+========================================================= */
 
 main {
     width: 100%;
@@ -335,67 +263,44 @@ main {
 
 .page-container {
     width: min(1100px, calc(100% - 30px));
-
     margin: 0 auto;
 }
 
-
-/* =========================================================
-   8. GÓRNY PASEK PODSTRON
-   ========================================================= */
-
 .top-bar {
     display: flex;
-
     align-items: center;
     justify-content: space-between;
 
     gap: 12px;
 
-    margin:
-        25px auto 20px;
+    width: min(1100px, calc(100% - 30px));
 
-    width:
-        min(1100px, calc(100% - 30px));
+    margin: 25px auto 20px;
 }
 
 .home-button {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
     min-height: 43px;
-
-    padding:
-        10px 17px;
+    padding: 10px 17px;
 
     border-radius: 12px;
 
-    background:
-        rgba(255,255,255,.05);
-
-    border:
-        1px solid rgba(255,255,255,.10);
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.10);
 
     font-weight: 800;
 
-    transition:
-        transform .2s ease,
-        background .2s ease,
-        border-color .2s ease,
-        box-shadow .2s ease;
+    transition: .2s ease;
 }
 
 .home-button:hover {
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 
-    background:
-        rgba(255,193,7,.11);
-
-    border-color:
-        rgba(255,193,7,.38);
+    background: rgba(255,193,7,.11);
+    border-color: rgba(255,193,7,.38);
 
     box-shadow:
         0 5px 18px rgba(255,193,7,.12);
@@ -403,74 +308,46 @@ main {
 
 body.light .home-button {
     background: #fff;
-
     border-color: #dcdcdc;
-
-    box-shadow:
-        0 2px 8px rgba(0,0,0,.04);
-}
-
-body.light .home-button:hover {
-    background:
-        rgba(255,193,7,.08);
-
-    border-color:
-        rgba(255,193,7,.45);
 }
 
 
 /* =========================================================
-   9. HERO
-   ========================================================= */
+   7. HERO
+========================================================= */
 
 .hero {
-    width:
-        min(1000px, calc(100% - 30px));
+    width: min(1000px, calc(100% - 30px));
 
-    margin:
-        42px auto 30px;
-
-    padding:
-        45px 28px;
+    margin: 42px auto 30px;
+    padding: 45px 28px;
 
     text-align: center;
 
     border-radius: 26px;
 
-    background:
-        rgba(255,255,255,.045);
-
-    border:
-        1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.045);
+    border: 1px solid rgba(255,255,255,.08);
 
     box-shadow:
         0 15px 45px rgba(0,0,0,.22);
 }
 
 body.light .hero {
-    background:
-        rgba(255,255,255,.92);
-
-    border-color:
-        #dddddd;
+    background: rgba(255,255,255,.92);
+    border-color: #ddd;
 
     box-shadow:
         0 15px 40px rgba(0,0,0,.07);
 }
 
 .hero h1 {
-    margin:
-        0 0 14px;
+    margin: 0 0 14px;
 
-    font-size:
-        clamp(30px, 6vw, 52px);
-
+    font-size: clamp(30px, 6vw, 52px);
     line-height: 1.12;
 
     font-weight: 900;
-
-    text-shadow:
-        0 0 25px rgba(255,193,7,.14);
 }
 
 .hero p {
@@ -485,57 +362,45 @@ body.light .hero {
 
 
 /* =========================================================
-   10. SEKCJE
-   ========================================================= */
+   8. SEKCJE
+========================================================= */
 
 .section {
-    width:
-        min(1100px, calc(100% - 30px));
+    width: min(1100px, calc(100% - 30px));
 
-    margin:
-        35px auto;
-
+    margin: 35px auto;
     padding: 10px;
 }
 
 .section-title {
-    margin:
-        0 0 25px;
+    margin: 0 0 25px;
 
     text-align: center;
 
     font-size: 27px;
-
     font-weight: 900;
 }
 
 
 /* =========================================================
-   11. SIATKI
-   ========================================================= */
+   9. SIATKI
+========================================================= */
 
-.info-grid {
+.info-grid,
+.links-grid,
+.koloniarz-grid {
     display: grid;
 
     grid-template-columns:
-        repeat(3, minmax(0,1fr));
+        repeat(3, minmax(0, 1fr));
 
     gap: 20px;
 }
 
-.links-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0,1fr));
-
-    gap: 18px;
-}
-
 
 /* =========================================================
-   12. KARTY INFORMACYJNE
-   ========================================================= */
+   10. WSPÓLNY STYL KART
+========================================================= */
 
 .info-card,
 .contact-card,
@@ -546,47 +411,15 @@ body.light .hero {
 .event-info,
 .legend,
 .league-ranking,
-.browser-window {
-    background:
-        rgba(255,255,255,.045);
+.browser-window,
+.history-item,
+.koloniarz-card {
+    background: rgba(255,255,255,.045);
 
-    border:
-        1px solid rgba(255,255,255,.085);
+    border: 1px solid rgba(255,255,255,.085);
 
     box-shadow:
         0 9px 30px rgba(0,0,0,.17);
-}
-
-.info-card {
-    display: flex;
-
-    flex-direction: column;
-
-    min-height: 220px;
-
-    padding: 25px;
-
-    border-radius: 22px;
-
-    transition:
-        transform .25s ease,
-        border-color .25s ease,
-        background .25s ease,
-        box-shadow .25s ease;
-}
-
-.info-card:hover {
-    transform:
-        translateY(-5px);
-
-    border-color:
-        rgba(255,193,7,.25);
-
-    background:
-        rgba(255,255,255,.06);
-
-    box-shadow:
-        0 16px 38px rgba(255,193,7,.10);
 }
 
 body.light .info-card,
@@ -598,19 +431,46 @@ body.light .admin-panel,
 body.light .event-info,
 body.light .legend,
 body.light .league-ranking,
-body.light .browser-window {
+body.light .browser-window,
+body.light .history-item,
+body.light .koloniarz-card {
     background: #fff;
 
-    border-color: #dddddd;
+    border-color: #ddd;
 
     box-shadow:
         0 9px 30px rgba(0,0,0,.065);
 }
 
-.info-card h2 {
-    margin:
-        0 0 10px;
 
+/* =========================================================
+   11. KARTY INFORMACYJNE
+========================================================= */
+
+.info-card {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 220px;
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    transition: .25s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(255,193,7,.25);
+
+    box-shadow:
+        0 16px 38px rgba(255,193,7,.10);
+}
+
+.info-card h2 {
+    margin: 0 0 10px;
     font-size: 21px;
 }
 
@@ -618,7 +478,6 @@ body.light .browser-window {
     margin-top: 0;
 
     line-height: 1.65;
-
     opacity: .70;
 
     flex: 1;
@@ -626,12 +485,11 @@ body.light .browser-window {
 
 
 /* =========================================================
-   13. PRZYCISKI
-   ========================================================= */
+   12. PRZYCISKI
+========================================================= */
 
 .button {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
@@ -639,13 +497,10 @@ body.light .browser-window {
 
     min-height: 44px;
 
-    padding:
-        11px 18px;
-
+    padding: 11px 18px;
     margin-top: 12px;
 
-    border: none;
-
+    border: 0;
     border-radius: 13px;
 
     background:
@@ -664,18 +519,12 @@ body.light .browser-window {
     box-shadow:
         0 6px 20px rgba(255,193,7,.18);
 
-    transition:
-        transform .2s ease,
-        filter .2s ease,
-        box-shadow .2s ease;
+    transition: .2s ease;
 }
 
 .button:hover {
-    transform:
-        translateY(-3px);
-
-    filter:
-        brightness(1.06);
+    transform: translateY(-3px);
+    filter: brightness(1.06);
 
     box-shadow:
         0 10px 28px rgba(255,193,7,.28);
@@ -683,30 +532,24 @@ body.light .browser-window {
 
 
 /* =========================================================
-   14. STATUS
-   ========================================================= */
+   13. STATUS
+========================================================= */
 
 .status {
     display: inline-flex;
-
     align-items: center;
 
     gap: 7px;
 
     width: fit-content;
 
-    padding:
-        8px 12px;
-
+    padding: 8px 12px;
     margin-top: 12px;
 
     border-radius: 11px;
 
-    background:
-        rgba(255,193,7,.10);
-
-    border:
-        1px solid rgba(255,193,7,.25);
+    background: rgba(255,193,7,.10);
+    border: 1px solid rgba(255,193,7,.25);
 
     color: #ffc107;
 
@@ -715,24 +558,20 @@ body.light .browser-window {
 
 
 /* =========================================================
-   15. RANKING
-   ========================================================= */
+   14. RANKING
+========================================================= */
 
 .league-ranking {
-    width:
-        min(1000px, calc(100% - 30px));
+    width: min(1000px, calc(100% - 30px));
 
-    margin:
-        30px auto;
-
+    margin: 30px auto;
     padding: 25px;
 
     border-radius: 23px;
 }
 
 .league-ranking h2 {
-    margin:
-        0 0 20px;
+    margin: 0 0 20px;
 
     text-align: center;
 
@@ -741,7 +580,6 @@ body.light .browser-window {
 
 .ranking-container {
     width: 100%;
-
     overflow-x: auto;
 
     border-radius: 15px;
@@ -749,18 +587,18 @@ body.light .browser-window {
 
 .ranking-container table {
     width: 100%;
-
     border-collapse: collapse;
 }
 
-.ranking-container th {
-    padding:
-        14px 12px;
+.ranking-container th,
+.ranking-container td {
+    padding: 14px 12px;
+}
 
+.ranking-container th {
     text-align: left;
 
-    background:
-        rgba(255,193,7,.12);
+    background: rgba(255,193,7,.12);
 
     border-bottom:
         1px solid rgba(255,255,255,.10);
@@ -769,19 +607,29 @@ body.light .browser-window {
 }
 
 .ranking-container td {
-    padding:
-        14px 12px;
+    background: rgba(255,255,255,.025);
 
     border-bottom:
         1px solid rgba(255,255,255,.06);
-
-    background:
-        rgba(255,255,255,.025);
 }
 
 .ranking-container tbody tr:hover td {
-    background:
-        rgba(255,193,7,.07);
+    background: rgba(255,193,7,.07);
+}
+
+.ranking-container tbody tr:nth-child(1) td:first-child {
+    color: #d9a900;
+    font-weight: 900;
+}
+
+.ranking-container tbody tr:nth-child(2) td:first-child {
+    color: #8b8b8b;
+    font-weight: 900;
+}
+
+.ranking-container tbody tr:nth-child(3) td:first-child {
+    color: #b46f28;
+    font-weight: 900;
 }
 
 body.light .ranking-container th {
@@ -790,64 +638,34 @@ body.light .ranking-container th {
 
 body.light .ranking-container td {
     background: #fafafa;
-
     border-bottom-color: #e8e8e8;
-}
-
-body.light .ranking-container tbody tr:hover td {
-    background:
-        rgba(255,193,7,.08);
-}
-
-.ranking-container tbody tr:nth-child(1) td:first-child {
-    color: #d9a900;
-
-    font-weight: 900;
-}
-
-.ranking-container tbody tr:nth-child(2) td:first-child {
-    color: #8b8b8b;
-
-    font-weight: 900;
-}
-
-.ranking-container tbody tr:nth-child(3) td:first-child {
-    color: #b46f28;
-
-    font-weight: 900;
 }
 
 
 /* =========================================================
-   16. KONTAKT
-   ========================================================= */
+   15. KONTAKT
+========================================================= */
 
 .contact-page {
-    width:
-        min(1000px, calc(100% - 30px));
+    width: min(1000px, calc(100% - 30px));
 
     margin: auto;
-
     padding: 20px 0;
 }
 
 .contact-list {
     display: flex;
-
     flex-direction: column;
-
     gap: 20px;
 }
 
 .contact-card {
     padding: 25px;
-
     border-radius: 22px;
 }
 
 .contact-button {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
@@ -855,28 +673,22 @@ body.light .ranking-container tbody tr:hover td {
 
     min-height: 44px;
 
-    padding:
-        12px 20px;
-
+    padding: 12px 20px;
     margin-top: 8px;
 
     border-radius: 13px;
 
     font-weight: 800;
 
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease;
+    transition: .2s ease;
 }
 
 .contact-button:hover {
-    transform:
-        translateY(-3px);
+    transform: translateY(-3px);
 }
 
 .discord-button {
     background: #5865F2;
-
     color: #fff;
 
     box-shadow:
@@ -889,20 +701,16 @@ body.light .ranking-container tbody tr:hover td {
 }
 
 .email-button {
-    background:
-        rgba(255,193,7,.13);
+    background: rgba(255,193,7,.13);
 
-    border:
-        1px solid rgba(255,193,7,.35);
+    border: 1px solid rgba(255,193,7,.35);
 }
 
 .disabled-button {
     opacity: .45;
-
     cursor: not-allowed;
 
     background: #555;
-
     color: #fff;
 }
 
@@ -910,1364 +718,39 @@ body.light .ranking-container tbody tr:hover td {
     margin-top: 10px;
 
     font-size: 14px;
-
     opacity: .58;
 }
 
 
 /* =========================================================
-   17. KALENDARZ
-   ========================================================= */
+   16. KALENDARZ — GŁÓWNY
+========================================================= */
 
 .calendar-page {
-    width:
-        min(1100px, calc(100% - 30px));
+    width: min(1100px, calc(100% - 30px));
 
     margin: auto;
-
-    padding: 20px 0;
+    padding: 20px 0 30px;
 }
+
+
+/* Nagłówek kalendarza */
 
 .calendar-header {
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 10px;
-
-    margin:
-        12px 0;
-
-    padding: 13px;
-
-    border-radius: 16px;
-
-    background:
-        rgba(255,255,255,.045);
-
-    border:
-        1px solid rgba(255,255,255,.08);
-}
-
-body.light .calendar-header {
-    background: #fff;
-
-    border-color: #ddd;
-}
-
-.month-title {
-    font-size: 20px;
-
-    font-weight: 900;
-}
-
-.today-button {
-    display: block;
-
-    margin:
-        10px auto;
-}
-
-.calendar {
-    padding: 10px;
-
-    border-radius: 20px;
-
-    background:
-        rgba(255,255,255,.04);
-
-    border:
-        1px solid rgba(255,255,255,.08);
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.18);
-}
-
-body.light .calendar {
-    background: #fff;
-
-    border-color: #ddd;
-}
-
-.weekdays,
-.days {
     display: grid;
 
-    grid-template-columns:
-        repeat(7,1fr);
-
-    gap: 6px;
-}
-
-.weekday {
-    padding: 10px;
-
-    text-align: center;
-
-    border-radius: 10px;
-
-    background:
-        rgba(255,193,7,.11);
-
-    font-weight: 900;
-}
-
-.day {
-    min-height: 85px;
-
-    padding: 8px;
-
-    border-radius: 12px;
-
-    background:
-        rgba(255,255,255,.035);
-
-    border:
-        1px solid rgba(255,255,255,.07);
-
-    cursor: pointer;
-
-    transition:
-        transform .2s ease,
-        background .2s ease,
-        border-color .2s ease;
-}
-
-.day:hover {
-    transform:
-        translateY(-2px);
-
-    background:
-        rgba(255,193,7,.09);
-
-    border-color:
-        rgba(255,193,7,.25);
-}
-
-body.light .day {
-    background: #fafafa;
-
-    border-color: #e5e5e5;
-}
-
-.day.empty {
-    opacity: .25;
-
-    cursor: default;
-}
-
-.day.empty:hover {
-    transform: none;
-}
-
-.day-number {
-    font-weight: 900;
-}
-
-.today-day {
-    outline:
-        2px solid #ffc107;
-
-    background:
-        rgba(255,193,7,.13) !important;
-}
-
-.today-label {
-    margin-top: 5px;
-
-    font-size: 10px;
-
-    font-weight: 900;
-}
-
-
-/* =========================================================
-   18. WYDARZENIA
-   ========================================================= */
-
-.event-day {
-    background:
-        rgba(255,193,7,.12);
-}
-
-.holiday-day {
-    background:
-        rgba(255,70,70,.11);
-}
-
-.birthday-day {
-    background:
-        rgba(255,105,180,.11);
-}
-
-.special-day {
-    background:
-        rgba(168,85,247,.11);
-}
-
-.event-dot,
-.holiday-dot,
-.birthday-dot,
-.special-dot {
-    width: 8px;
-    height: 8px;
-
-    margin-top: 7px;
-
-    border-radius: 50%;
-}
-
-.event-dot {
-    background: #ffc107;
-}
-
-.holiday-dot {
-    background: #ff3b3b;
-}
-
-.birthday-dot {
-    background: #ff69b4;
-}
-
-.special-dot {
-    background: #a855f7;
-}
-
-
-/* =========================================================
-   19. INFORMACJA O WYDARZENIU
-   ========================================================= */
-
-.event-info {
-    margin-top: 15px;
-
-    padding: 20px;
-
-    border-radius: 18px;
-}
-
-.event-type {
-    display: inline-block;
-
-    padding:
-        5px 9px;
-
-    border-radius: 8px;
-
-    background:
-        rgba(255,193,7,.12);
-
-    border:
-        1px solid rgba(255,193,7,.25);
-
-    font-weight: 900;
-}
-
-.event-date {
-    margin:
-        10px 0;
-
-    font-weight: 900;
-}
-
-
-/* =========================================================
-   20. LEGENDA
-   ========================================================= */
-
-.legend {
-    margin-top: 15px;
-
-    padding: 18px;
-
-    border-radius: 18px;
-}
-
-.legend-items {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 15px;
-}
-
-.legend-item {
-    display: flex;
+    grid-template-columns: 1fr auto 1fr;
 
     align-items: center;
 
-    gap: 7px;
-}
+    gap: 12px;
 
-.legend-color {
-    width: 12px;
-    height: 12px;
-
-    border-radius: 4px;
-}
-
-.legend-event {
-    background: #ffc107;
-}
-
-.legend-holiday {
-    background: #ff0000;
-}
-
-.legend-birthday {
-    background: #ff69b4;
-}
-
-.legend-special {
-    background: #800080;
-}
-
-.legend-today {
-    background: #000080;
-}
-
-
-/* =========================================================
-   21. STATYSTYKI
-   ========================================================= */
-
-.stat-card {
-    text-align: center;
-}
-
-.stat-number {
-    display: block;
-
-    margin:
-        15px 0;
-
-    font-size:
-        clamp(32px,6vw,48px);
-
-    font-weight: 900;
-
-    color: #ffc107;
-
-    text-shadow:
-        0 0 18px rgba(255,193,7,.22);
-}
-
-.counter-card {
-    position: relative;
-
-    overflow: hidden;
-}
-
-.counter-card::after {
-    content: "";
-
-    position: absolute;
-
-    width: 110px;
-    height: 110px;
-
-    right: -40px;
-    top: -40px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255,193,7,.055);
-
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   22. ADMINISTRACJA
-   ========================================================= */
-
-.admin-panel {
-    width:
-        min(1000px, calc(100% - 30px));
-
-    margin:
-        20px auto;
-
-    padding: 22px;
-
-    border-radius: 20px;
-}
-
-.admin-warning {
-    margin:
-        12px 0;
+    margin: 15px 0;
 
     padding: 15px;
 
-    border-radius: 13px;
-
-    background:
-        rgba(255,193,7,.13);
-
-    border:
-        1px solid rgba(255,193,7,.32);
-
-    font-weight: 800;
-}
-
-.admin-list {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
-    gap: 15px;
-}
-
-.admin-card {
-    padding: 20px;
-
     border-radius: 18px;
 
-    background:
-        rgba(255,255,255,.04);
-
-    border:
-        1px solid rgba(255,255,255,.08);
-
-    cursor: pointer;
-
-    transition:
-        transform .22s ease,
-        background .22s ease,
-        border-color .22s ease,
-        box-shadow .22s ease;
-}
-
-.admin-card:hover {
-    transform:
-        translateY(-3px);
-
-    background:
-        rgba(255,193,7,.07);
-
-    border-color:
-        rgba(255,193,7,.25);
-
-    box-shadow:
-        0 10px 25px rgba(255,193,7,.10);
-}
-
-body.light .admin-card {
-    background: #fafafa;
-
-    border-color: #ddd;
-}
-
-.admin-role {
-    color: #ffc107;
-
-    font-weight: 900;
-}
-
-.admin-profile {
-    margin-top: 20px;
-
-    padding: 22px;
-
-    border-radius: 20px;
-
-    background:
-        rgba(255,255,255,.055);
-
-    border:
-        1px solid rgba(255,193,7,.20);
-
-    animation:
-        profileAppear .25s ease;
-}
-
-body.light .admin-profile {
-    background: #fff;
-
-    border-color: #ddd;
-}
-
-@keyframes profileAppear {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* =========================================================
-   23. HISTORIA
-   ========================================================= */
-
-.history-page {
-    width:
-        min(1000px, calc(100% - 30px));
-
-    margin: auto;
-
-    padding: 20px 0;
-}
-
-.timeline {
-    position: relative;
-
-    margin:
-        45px 0;
-}
-
-.timeline::before {
-    content: "";
-
-    position: absolute;
-
-    left: 19px;
-
-    top: 0;
-    bottom: 0;
-
-    width: 3px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(255,193,7,.75),
-            rgba(255,193,7,.15)
-        );
-}
-
-.history-item {
-    position: relative;
-
-    margin-bottom: 30px;
-
-    padding-left: 60px;
-}
-
-.history-dot {
-    position: absolute;
-
-    left: 7px;
-    top: 5px;
-
-    width: 27px;
-    height: 27px;
-
-    border-radius: 50%;
-
-    background: #ffc107;
-
-    box-shadow:
-        0 0 20px rgba(255,193,7,.35);
-}
-
-.history-card {
-    padding: 23px;
-
-    border-radius: 20px;
-
-    background:
-        rgba(255,255,255,.045);
-
-    border:
-        1px solid rgba(255,255,255,.08);
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.18);
-
-    transition:
-        transform .22s ease,
-        border-color .22s ease,
-        box-shadow .22s ease;
-}
-
-.history-card:hover {
-    transform:
-        translateY(-3px);
-
-    border-color:
-        rgba(255,193,7,.25);
-
-    box-shadow:
-        0 12px 32px rgba(255,193,7,.10);
-}
-
-body.light .history-card {
-    background: #fff;
-
-    border-color: #ddd;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.07);
-}
-
-.history-date {
-    margin-bottom: 8px;
-
-    color: #ffc107;
-
-    font-size: 16px;
-
-    font-weight: 900;
-}
-
-.history-card h2 {
-    margin:
-        5px 0 10px;
-}
-
-.history-card p {
-    line-height: 1.65;
-}
-
-
-/* =========================================================
-   24. OGŁOSZENIA
-   ========================================================= */
-
-.announcement-list {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 18px;
-}
-
-.announcement-card {
-    padding: 22px;
-
-    border-radius: 20px;
-
-    transition:
-        transform .22s ease,
-        border-color .22s ease,
-        box-shadow .22s ease;
-}
-
-.announcement-card:hover {
-    transform:
-        translateY(-3px);
-
-    border-color:
-        rgba(255,193,7,.24);
-
-    box-shadow:
-        0 12px 30px rgba(255,193,7,.10);
-}
-
-.announcement-date {
-    color: #ffc107;
-
-    font-size: 14px;
-
-    font-weight: 900;
-}
-
-.announcement-title {
-    margin:
-        8px 0;
-
-    font-size: 22px;
-}
-
-
-/* =========================================================
-   25. WAŻNE LINKI
-   ========================================================= */
-
-.link-card {
-    display: block;
-
-    padding: 22px;
-
-    border-radius: 20px;
-
-    transition:
-        transform .22s ease,
-        background .22s ease,
-        border-color .22s ease,
-        box-shadow .22s ease;
-}
-
-.link-card:hover {
-    transform:
-        translateY(-4px);
-
-    background:
-        rgba(255,193,7,.07);
-
-    border-color:
-        rgba(255,193,7,.25);
-
-    box-shadow:
-        0 12px 30px rgba(255,193,7,.11);
-}
-
-
-/* =========================================================
-   26. INFORMACJE O STRONIE
-   ========================================================= */
-
-.info-panel {
-    width:
-        min(950px, calc(100% - 30px));
-
-    margin:
-        25px auto;
-
-    padding: 25px;
-
-    border-radius: 20px;
-}
-
-.version {
-    display: inline-flex;
-
-    padding:
-        8px 12px;
-
-    border-radius: 10px;
-
-    background:
-        rgba(255,193,7,.12);
-
-    border:
-        1px solid rgba(255,193,7,.25);
-
-    color: #ffc107;
-
-    font-weight: 900;
-}
-
-
-/* =========================================================
-   27. KOLONIARZ — BOT
-   ========================================================= */
-
-.koloniarz-page {
-    width:
-        min(1100px, calc(100% - 30px));
-
-    margin:
-        30px auto;
-
-    padding-bottom: 20px;
-}
-
-.koloniarz-hero {
-    padding:
-        42px 28px;
-
-    text-align: center;
-
-    border-radius: 26px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,193,7,.13),
-            rgba(255,255,255,.045)
-        );
-
-    border:
-        1px solid rgba(255,193,7,.20);
-
-    box-shadow:
-        0 15px 45px rgba(0,0,0,.20);
-}
-
-body.light .koloniarz-hero {
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,193,7,.13),
-            #fff
-        );
-
-    border-color:
-        rgba(255,193,7,.28);
-}
-
-.koloniarz-hero h1 {
-    margin:
-        0 0 12px;
-
-    font-size:
-        clamp(30px,6vw,48px);
-}
-
-.koloniarz-hero p {
-    max-width: 700px;
-
-    margin:
-        0 auto;
-
-    line-height: 1.7;
-
-    opacity: .72;
-}
-
-.koloniarz-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3,minmax(0,1fr));
-
-    gap: 20px;
-
-    margin-top: 25px;
-}
-
-.koloniarz-card {
-    padding: 24px;
-
-    border-radius: 21px;
-
-    background:
-        rgba(255,255,255,.045);
-
-    border:
-        1px solid rgba(255,255,255,.08);
-
-    box-shadow:
-        0 8px 28px rgba(0,0,0,.16);
-
-    transition:
-        transform .22s ease,
-        border-color .22s ease,
-        box-shadow .22s ease;
-}
-
-.koloniarz-card:hover {
-    transform:
-        translateY(-4px);
-
-    border-color:
-        rgba(255,193,7,.28);
-
-    box-shadow:
-        0 13px 32px rgba(255,193,7,.10);
-}
-
-body.light .koloniarz-card {
-    background: #fff;
-
-    border-color: #ddd;
-}
-
-.koloniarz-icon {
-    font-size: 35px;
-
-    margin-bottom: 10px;
-}
-
-.koloniarz-card h2 {
-    margin:
-        0 0 9px;
-}
-
-.koloniarz-card p {
-    line-height: 1.65;
-
-    opacity: .70;
-}
-
-
-/* =========================================================
-   28. KOMUNIKAT AWARII / PRZEBUDOWY
-   ========================================================= */
-
-.error-page {
-    width:
-        min(850px, calc(100% - 30px));
-
-    margin:
-        80px auto;
-
-    padding: 20px;
-}
-
-.error-card {
-    padding:
-        42px 30px;
-
-    text-align: center;
-
-    border-radius: 25px;
-
-    background:
-        rgba(255,255,255,.045);
-
-    border:
-        1px solid rgba(255,193,7,.20);
-
-    box-shadow:
-        0 15px 45px rgba(0,0,0,.25);
-}
-
-body.light .error-card {
-    background: #fff;
-
-    border-color: #ddd;
-
-    box-shadow:
-        0 15px 45px rgba(0,0,0,.08);
-}
-
-.error-icon {
-    margin-bottom: 15px;
-
-    font-size: 65px;
-}
-
-.error-card h1 {
-    margin:
-        0 0 15px;
-
-    font-size:
-        clamp(28px,6vw,45px);
-}
-
-.error-card p {
-    line-height: 1.7;
-
-    opacity: .70;
-}
-
-
-/* =========================================================
-   29. PRZEGLĄDARKA
-   ========================================================= */
-
-.browser-window {
-    width:
-        min(1100px, calc(100% - 30px));
-
-    margin:
-        20px auto;
-
-    overflow: hidden;
-
-    border-radius: 20px;
-}
-
-.browser-title {
-    padding:
-        12px 15px;
-
-    background:
-        rgba(255,255,255,.07);
-
-    font-weight: 900;
-}
-
-.browser-toolbar {
-    display: flex;
-
-    gap: 8px;
-
-    padding: 10px;
-
-    background:
-        rgba(0,0,0,.15);
-}
-
-.browser-address {
-    flex: 1;
-
-    padding:
-        9px 12px;
-
-    border-radius: 9px;
-
-    background:
-        rgba(255,255,255,.07);
-
-    border:
-        1px solid rgba(255,255,255,.10);
-}
-
-.browser-content {
-    min-height: 300px;
-
-    padding: 20px;
-
-    background:
-        rgba(0,0,0,.10);
-}
-
-body.light .browser-content {
-    background: #fafafa;
-}
-
-
-/* =========================================================
-   30. FORMULARZE
-   ========================================================= */
-
-input,
-textarea,
-select {
-    width: 100%;
-
-    padding:
-        11px 12px;
-
-    border-radius: 11px;
-
-    background:
-        rgba(255,255,255,.06);
-
-    border:
-        1px solid rgba(255,255,255,.12);
-
-    color: inherit;
-
-    outline: none;
-
-    transition:
-        border-color .2s ease,
-        box-shadow .2s ease,
-        background .2s ease;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-    border-color:
-        #ffc107;
-
-    box-shadow:
-        0 0 0 3px rgba(255,193,7,.10);
-
-    background:
-        rgba(255,255,255,.09);
-}
-
-body.light input,
-body.light textarea,
-body.light select {
-    background: #fff;
-
-    color: #222;
-
-    border-color: #d7d7d7;
-}
-
-textarea {
-    min-height: 120px;
-
-    resize: vertical;
-}
-
-
-/* =========================================================
-   31. STOPKA
-   ========================================================= */
-
-footer {
-    margin-top: 60px;
-
-    padding:
-        30px 20px;
-
-    text-align: center;
-
-    border-top:
-        1px solid rgba(255,255,255,.08);
-
-    background:
-        rgba(0,0,0,.20);
-
-    opacity: .88;
-}
-
-body.light footer {
-    background:
-        rgba(255,255,255,.70);
-
-    border-top-color: #ddd;
-}
-
-footer p {
-    margin:
-        6px 0;
-}
-
-
-/* =========================================================
-   32. ANIMACJE
-   ========================================================= */
-
-@keyframes goldenGlow {
-    0%,
-    100% {
-        filter: brightness(1);
-    }
-
-    50% {
-        filter: brightness(1.08);
-    }
-}
-
-.event-day {
-    animation:
-        goldenGlow 2.5s ease-in-out infinite;
-}
-
-
-/* =========================================================
-   33. TABLETY
-   ========================================================= */
-
-@media (max-width: 900px) {
-
-    header {
-        flex-wrap: wrap;
-
-        justify-content: center;
-    }
-
-    .logo {
-        width: 100%;
-
-        text-align: center;
-    }
-
-    nav {
-        width: 100%;
-    }
-
-    .info-grid,
-    .links-grid,
-    .koloniarz-grid {
-        grid-template-columns:
-            repeat(2,minmax(0,1fr));
-    }
-
-    .admin-list {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-/* =========================================================
-   34. TELEFONY
-   ========================================================= */
-
-@media (max-width: 600px) {
-
-    header {
-        position: relative;
-
-        flex-direction: column;
-
-        gap: 12px;
-
-        padding:
-            15px 12px;
-    }
-
-    .logo {
-        width: auto;
-
-        padding-right: 50px;
-    }
-
-    nav {
-        gap: 6px;
-    }
-
-    nav a {
-        flex:
-            1 1 auto;
-
-        min-width: 110px;
-
-        font-size: 13px;
-
-        padding:
-            9px 10px;
-    }
-
-    .theme-toggle,
-    .theme-button {
-        position: absolute;
-
-        top: 14px;
-        right: 13px;
-    }
-
-    .hero {
-        margin:
-            25px auto;
-
-        padding:
-            30px 18px;
-    }
-
-    .section {
-        width:
-            calc(100% - 20px);
-
-        margin:
-            25px auto;
-
-        padding: 5px;
-    }
-
-    .info-grid,
-    .links-grid,
-    .koloniarz-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .info-card {
-        min-height: auto;
-    }
-
-    .top-bar {
-        width:
-            calc(100% - 24px);
-    }
-
-    .league-ranking,
-    .contact-page,
-    .calendar-page,
-    .history-page,
-    .admin-panel,
-    .info-panel,
-    .browser-window,
-    .koloniarz-page {
-        width:
-            calc(100% - 24px);
-    }
-
-    .contact-button {
-        width: 100%;
-    }
-
-    .calendar {
-        padding: 7px;
-    }
-
-    .day {
-        min-height: 60px;
-
-        padding: 6px;
-
-        font-size: 12px;
-    }
-
-    .weekday {
-        padding: 8px 4px;
-
-        font-size: 11px;
-    }
-
-    .history-page {
-        padding: 5px 0;
-    }
-
-    .timeline {
-        margin:
-            30px 0;
-    }
-
-    .timeline::before {
-        left: 13px;
-    }
-
-    .history-item {
-        padding-left: 43px;
-    }
-
-    .history-dot {
-        left: 1px;
-
-        width: 25px;
-        height: 25px;
-    }
-
-    .history-card {
-        padding: 17px;
-    }
-
-    .error-page {
-        margin:
-            45px auto;
-    }
-
-    .error-card {
-        padding:
-            30px 20px;
-    }
-}
-
-
-/* =========================================================
-   35. MAŁE TELEFONY
-   ========================================================= */
-
-@media (max-width: 400px) {
-
-    nav {
-        gap: 4px;
-    }
-
-    nav a {
-        min-width: 0;
-
-        padding:
-            8px 7px;
-
-        font-size: 12px;
-    }
-
-    .day {
-        min-height: 50px;
-
-        padding: 4px;
-
-        font-size: 10px;
-    }
-
-    .weekday {
-        padding:
-            6px 2px;
-
-        font-size: 9px;
-    }
-
-    .today-label {
-        font-size: 7px;
-    }
-
-    .history-card h2 {
-        font-size: 19px;
-    }
-
-    .koloniarz-hero {
-        padding:
-            30px 18px;
-    }
-}
-
-
-/* =========================================================
-   36. DODATKOWY STYL KALENDARZA
-   ========================================================= */
-
-/* Nagłówek miesiąca */
-
-.calendar-header {
     background:
         linear-gradient(
             135deg,
@@ -2275,8 +758,7 @@ footer p {
             rgba(255,255,255,.035)
         );
 
-    border-color:
-        rgba(255,193,7,.18);
+    border: 1px solid rgba(255,193,7,.18);
 
     box-shadow:
         0 8px 25px rgba(0,0,0,.15);
@@ -2295,33 +777,18 @@ body.light .calendar-header {
 }
 
 
-/* Nazwa miesiąca */
-
-.month-title {
-    text-align: center;
-
-    color: #ffc107;
-
-    font-size: 24px;
-
-    letter-spacing: .2px;
-
-    text-shadow:
-        0 0 15px rgba(255,193,7,.15);
-}
-
-
-/* Przyciski zmiany miesiąca */
+/* Przyciski poprzedni/następny */
 
 .calendar-header .button {
-    margin-top: 0;
+    margin: 0;
 
-    min-width: 120px;
+    min-width: 125px;
 }
 
 .calendar-header .button:first-child {
-    background:
-        rgba(255,255,255,.07);
+    justify-self: start;
+
+    background: rgba(255,255,255,.07);
 
     border:
         1px solid rgba(255,193,7,.25);
@@ -2336,21 +803,53 @@ body.light .calendar-header {
         rgba(255,193,7,.12);
 }
 
-
-/* Przycisk "Dzisiaj" */
-
-.today-button {
-    min-width: 150px;
-
-    margin:
-        18px auto 20px;
+.calendar-header .button:last-child {
+    justify-self: end;
 }
 
 
-/* Kalendarz */
+/* Nazwa miesiąca */
+
+.month-title {
+    margin: 0;
+
+    text-align: center;
+
+    color: #ffc107;
+
+    font-size: 24px;
+    font-weight: 900;
+
+    letter-spacing: .2px;
+
+    text-shadow:
+        0 0 15px rgba(255,193,7,.15);
+}
+
+
+/* Przycisk dzisiaj */
+
+.today-button {
+    display: block;
+
+    min-width: 150px;
+
+    margin: 18px auto 20px;
+}
+
+
+/* =========================================================
+   17. KALENDARZ — SIATKA
+========================================================= */
 
 .calendar {
+    width: 100%;
+
     overflow: hidden;
+
+    padding: 10px;
+
+    border-radius: 20px;
 
     background:
         linear-gradient(
@@ -2359,8 +858,7 @@ body.light .calendar-header {
             rgba(255,255,255,.025)
         );
 
-    border-color:
-        rgba(255,193,7,.12);
+    border: 1px solid rgba(255,193,7,.12);
 
     box-shadow:
         0 15px 40px rgba(0,0,0,.20);
@@ -2370,7 +868,7 @@ body.light .calendar {
     background:
         linear-gradient(
             145deg,
-            #ffffff,
+            #fff,
             #f8f8f8
         );
 
@@ -2378,14 +876,32 @@ body.light .calendar {
         rgba(255,193,7,.20);
 }
 
+.weekdays,
+.days {
+    display: grid;
 
-/* Dni tygodnia */
+    grid-template-columns:
+        repeat(7, minmax(0, 1fr));
+
+    gap: 6px;
+}
 
 .weekday {
-    color: #ffc107;
+    padding: 11px 6px;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,193,7,.11);
 
     border:
         1px solid rgba(255,193,7,.15);
+
+    color: #ffc107;
+
+    font-weight: 900;
 
     box-shadow:
         inset 0 0 15px rgba(255,193,7,.035);
@@ -2396,20 +912,23 @@ body.light .weekday {
 
     background:
         rgba(255,193,7,.10);
-
-    border-color:
-        rgba(255,193,7,.20);
 }
 
 
-/* Pojedynczy dzień */
+/* =========================================================
+   18. POJEDYNCZY DZIEŃ
+========================================================= */
 
 .day {
     position: relative;
 
+    min-height: 92px;
+
+    padding: 8px;
+
     overflow: hidden;
 
-    min-height: 92px;
+    border-radius: 12px;
 
     background:
         linear-gradient(
@@ -2418,8 +937,16 @@ body.light .weekday {
             rgba(255,255,255,.018)
         );
 
-    border-color:
-        rgba(255,255,255,.075);
+    border:
+        1px solid rgba(255,255,255,.075);
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
 }
 
 .day::after {
@@ -2460,16 +987,25 @@ body.light .weekday {
         0 8px 20px rgba(255,193,7,.10);
 }
 
+.day.empty {
+    opacity: .22;
+    cursor: default;
+}
+
+.day.empty:hover {
+    transform: none;
+    box-shadow: none;
+}
+
 body.light .day {
     background:
         linear-gradient(
             145deg,
-            #ffffff,
+            #fff,
             #f7f7f7
         );
 
-    border-color:
-        #e1e1e1;
+    border-color: #e1e1e1;
 }
 
 body.light .day:hover {
@@ -2481,11 +1017,12 @@ body.light .day:hover {
 }
 
 
-/* Numer dnia */
+/* =========================================================
+   19. NUMER DNIA
+========================================================= */
 
 .day-number {
     position: relative;
-
     z-index: 2;
 
     display: inline-flex;
@@ -2502,6 +1039,7 @@ body.light .day:hover {
         rgba(255,255,255,.055);
 
     font-size: 14px;
+    font-weight: 900;
 }
 
 body.light .day-number {
@@ -2510,13 +1048,18 @@ body.light .day-number {
 }
 
 
-/* DZISIAJ */
+/* =========================================================
+   20. DZISIAJ
+========================================================= */
 
 .today-day {
     position: relative;
 
     border:
         2px solid #ffc107 !important;
+
+    background:
+        rgba(255,193,7,.13) !important;
 
     box-shadow:
         0 0 22px rgba(255,193,7,.18),
@@ -2539,13 +1082,13 @@ body.light .day-number {
 
 .today-label {
     position: relative;
-
     z-index: 2;
 
     display: inline-block;
 
-    padding:
-        3px 6px;
+    margin-top: 5px;
+
+    padding: 3px 6px;
 
     border-radius: 6px;
 
@@ -2554,11 +1097,31 @@ body.light .day-number {
 
     color: #ffc107;
 
+    font-size: 10px;
+    font-weight: 900;
+
     letter-spacing: .5px;
 }
 
 
-/* ŚWIĘTA */
+/* =========================================================
+   21. RODZAJE DNI
+========================================================= */
+
+.event-day {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,193,7,.13),
+            rgba(255,255,255,.025)
+        ) !important;
+
+    border-color:
+        rgba(255,193,7,.28);
+
+    animation:
+        goldenGlow 2.5s ease-in-out infinite;
+}
 
 .holiday-day {
     background:
@@ -2572,32 +1135,6 @@ body.light .day-number {
         rgba(255,59,59,.25);
 }
 
-.holiday-day:hover {
-    border-color:
-        rgba(255,59,59,.50);
-
-    box-shadow:
-        0 8px 20px rgba(255,59,59,.10);
-}
-
-
-/* WYDARZENIA */
-
-.event-day {
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,193,7,.13),
-            rgba(255,255,255,.025)
-        ) !important;
-
-    border-color:
-        rgba(255,193,7,.28);
-}
-
-
-/* URODZINY */
-
 .birthday-day {
     background:
         linear-gradient(
@@ -2609,9 +1146,6 @@ body.light .day-number {
     border-color:
         rgba(255,105,180,.25);
 }
-
-
-/* DNI SPECJALNE */
 
 .special-day {
     background:
@@ -2626,15 +1160,23 @@ body.light .day-number {
 }
 
 
-/* KROPKI */
+/* =========================================================
+   22. KROPKI WYDARZEŃ
+========================================================= */
 
 .event-dot,
 .holiday-dot,
 .birthday-dot,
 .special-dot {
     position: relative;
-
     z-index: 3;
+
+    width: 8px;
+    height: 8px;
+
+    margin-top: 7px;
+
+    border-radius: 50%;
 
     box-shadow:
         0 0 8px currentColor;
@@ -2642,35 +1184,37 @@ body.light .day-number {
 
 .event-dot {
     background: #ffc107;
-
     color: #ffc107;
 }
 
 .holiday-dot {
     background: #ff3b3b;
-
     color: #ff3b3b;
 }
 
 .birthday-dot {
     background: #ff69b4;
-
     color: #ff69b4;
 }
 
 .special-dot {
     background: #a855f7;
-
     color: #a855f7;
 }
 
 
-/* INFORMACJA O WYDARZENIU */
+/* =========================================================
+   23. INFORMACJA O WYDARZENIU
+========================================================= */
 
 .event-info {
     position: relative;
-
     overflow: hidden;
+
+    margin-top: 15px;
+    padding: 20px;
+
+    border-radius: 18px;
 
     background:
         linear-gradient(
@@ -2681,9 +1225,6 @@ body.light .day-number {
 
     border-color:
         rgba(255,193,7,.18);
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.15);
 }
 
 .event-info::before {
@@ -2706,67 +1247,77 @@ body.light .day-number {
 }
 
 .event-info h3 {
-    margin:
-        12px 0 5px;
-
+    margin: 12px 0 5px;
     font-size: 21px;
 }
 
 .event-info p {
     line-height: 1.6;
-
     opacity: .72;
 }
-
-
-/* TYP WYDARZENIA */
 
 .event-type {
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    border-radius: 8px;
+
+    background:
+        rgba(255,193,7,.12);
+
+    border:
+        1px solid rgba(255,193,7,.25);
+
     color: #ffc107;
 
-    box-shadow:
-        0 4px 15px rgba(255,193,7,.06);
+    font-weight: 900;
 }
 
-
-/* DATA WYDARZENIA */
-
 .event-date {
-    color: inherit;
+    margin: 10px 0;
 
+    font-weight: 900;
     opacity: .72;
 }
 
 
-/* LEGENDA */
+/* =========================================================
+   24. LEGENDA
+========================================================= */
 
 .legend {
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.045),
-            rgba(255,255,255,.025)
-        );
+    margin-top: 15px;
+    padding: 18px;
 
-    border-color:
-        rgba(255,193,7,.14);
+    border-radius: 18px;
 }
 
 .legend h3 {
     margin-top: 0;
-
     margin-bottom: 15px;
 
     color: #ffc107;
 }
 
 .legend-items {
+    display: flex;
+
+    align-items: center;
     justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
 }
 
 .legend-item {
-    padding:
-        8px 11px;
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 8px 11px;
 
     border-radius: 10px;
 
@@ -2779,28 +1330,16 @@ body.light .day-number {
     font-size: 13px;
 }
 
-body.light .legend {
-    background:
-        #fff;
-
-    border-color:
-        #ddd;
-}
-
 body.light .legend-item {
-    background:
-        #fafafa;
-
-    border-color:
-        #e5e5e5;
+    background: #fafafa;
+    border-color: #e5e5e5;
 }
-
-
-/* KOLORY LEGENDY */
 
 .legend-color {
     width: 13px;
     height: 13px;
+
+    border-radius: 4px;
 
     box-shadow:
         0 0 8px currentColor;
@@ -2808,195 +1347,140 @@ body.light .legend-item {
 
 .legend-event {
     background: #ffc107;
-
     color: #ffc107;
 }
 
 .legend-holiday {
     background: #ff3b3b;
-
     color: #ff3b3b;
 }
 
 .legend-birthday {
     background: #ff69b4;
-
     color: #ff69b4;
 }
 
 .legend-special {
     background: #a855f7;
-
     color: #a855f7;
 }
 
 .legend-today {
     background: #ffc107;
-
     color: #ffc107;
 }
 
 
 /* =========================================================
-   37. KALENDARZ — TELEFONY
-   ========================================================= */
+   25. STATYSTYKI
+========================================================= */
 
-@media (max-width: 600px) {
+.stat-card {
+    text-align: center;
+}
 
-    .calendar-header {
-        flex-direction: column;
+.stat-number {
+    display: block;
 
-        padding: 15px;
-    }
+    margin: 15px 0;
 
-    .month-title {
-        order: -1;
+    font-size: clamp(32px, 6vw, 48px);
+    font-weight: 900;
 
-        font-size: 22px;
-    }
+    color: #ffc107;
 
-    .calendar-header .button {
-        width: 100%;
+    text-shadow:
+        0 0 18px rgba(255,193,7,.22);
+}
 
-        min-width: 0;
-    }
+.counter-card {
+    position: relative;
+    overflow: hidden;
+}
 
-    .today-button {
-        width: 100%;
+.counter-card::after {
+    content: "";
 
-        max-width: 300px;
-    }
+    position: absolute;
 
-    .day {
-        min-height: 65px;
+    width: 110px;
+    height: 110px;
 
-        border-radius: 10px;
-    }
+    right: -40px;
+    top: -40px;
 
-    .day-number {
-        width: 26px;
-        height: 26px;
+    border-radius: 50%;
 
-        font-size: 12px;
+    background:
+        rgba(255,193,7,.055);
 
-        border-radius: 7px;
-    }
-
-    .event-dot,
-    .holiday-dot,
-    .birthday-dot,
-    .special-dot {
-        width: 7px;
-        height: 7px;
-    }
-
-    .legend-items {
-        flex-direction: column;
-    }
-
-    .legend-item {
-        width: 100%;
-    }
-
+    pointer-events: none;
 }
 
 
 /* =========================================================
-   38. KALENDARZ — BARDZO MAŁE TELEFONY
-   ========================================================= */
-
-@media (max-width: 400px) {
-
-    .calendar-header {
-        gap: 8px;
-    }
-
-    .month-title {
-        font-size: 19px;
-    }
-
-    .calendar-header .button {
-        min-height: 40px;
-
-        padding:
-            9px 12px;
-
-        font-size: 12px;
-    }
-
-    .day {
-        min-height: 52px;
-
-        padding: 4px;
-
-        border-radius: 8px;
-    }
-
-    .day-number {
-        width: 23px;
-        height: 23px;
-
-        font-size: 10px;
-    }
-
-    .event-dot,
-    .holiday-dot,
-    .birthday-dot,
-    .special-dot {
-        width: 6px;
-        height: 6px;
-
-        margin-top: 5px;
-    }
-
-       }
-
-
-/* =====================================================
-   ADMINISTRATORZY — KOLONIA PASJONATÓW
-===================================================== */
+   26. ADMINISTRACJA
+========================================================= */
 
 .admin-page {
-    max-width: 950px;
+    width: min(950px, calc(100% - 30px));
+
     margin: auto;
     padding: 20px;
 }
 
+.admin-panel {
+    width: min(1000px, calc(100% - 30px));
 
-/* =====================================================
-   LISTA RANG
-===================================================== */
+    margin: 20px auto;
+    padding: 22px;
+
+    border-radius: 20px;
+}
+
+.admin-warning {
+    margin: 12px 0;
+    padding: 15px;
+
+    border-radius: 13px;
+
+    background:
+        rgba(255,193,7,.13);
+
+    border:
+        1px solid rgba(255,193,7,.32);
+
+    font-weight: 800;
+}
 
 .admin-list {
     display: flex;
     flex-direction: column;
+
     gap: 15px;
 }
-
-
-/* =====================================================
-   KARTA RANGI
-===================================================== */
 
 .admin-role {
     display: flex;
     align-items: center;
+
     gap: 18px;
 
     padding: 20px;
 
     border-radius: 20px;
 
-    background: rgba(255,255,255,.07);
+    background:
+        rgba(255,255,255,.07);
 
-    border: 1px solid rgba(255,255,255,.08);
+    border:
+        1px solid rgba(255,255,255,.08);
 
     box-shadow:
         0 8px 25px rgba(0,0,0,.18);
 
-    transition: .25s;
+    transition: .25s ease;
 }
-
 
 .admin-role:hover {
     transform: translateY(-2px);
@@ -3005,45 +1489,34 @@ body.light .legend-item {
         0 10px 28px rgba(0,0,0,.25);
 }
 
-
-/* =====================================================
-   IKONA RANGI
-===================================================== */
-
 .admin-role-icon {
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    min-width: 55px;
+    flex-shrink: 0;
+
+    width: 55px;
     height: 55px;
 
     border-radius: 16px;
 
-    background: rgba(255,193,7,.12);
+    background:
+        rgba(255,193,7,.12);
 
     font-size: 28px;
 }
-
-
-/* =====================================================
-   INFORMACJE O RANDZE
-===================================================== */
 
 .admin-role-info {
     flex: 1;
 }
 
-
 .admin-role-name {
     margin: 0 0 5px;
 
     font-size: 20px;
-
     font-weight: 900;
 }
-
 
 .admin-role-description {
     margin: 0;
@@ -3052,11 +1525,6 @@ body.light .legend-item {
 
     opacity: .7;
 }
-
-
-/* =====================================================
-   RANGI
-===================================================== */
 
 .admin-role.owner .admin-role-icon {
     background: rgba(255,193,7,.15);
@@ -3086,23 +1554,16 @@ body.light .legend-item {
     background: rgba(255,100,180,.15);
 }
 
-
-/* =====================================================
-   STATUS
-===================================================== */
-
 .admin-role-status {
     padding: 7px 12px;
 
     border-radius: 10px;
 
     font-size: 12px;
-
     font-weight: 800;
 
     white-space: nowrap;
 }
-
 
 .admin-role-status.active {
     color: #35d07f;
@@ -3114,7 +1575,6 @@ body.light .legend-item {
         1px solid rgba(53,208,127,.25);
 }
 
-
 .admin-role-status.empty {
     color: #ffc107;
 
@@ -3125,14 +1585,8 @@ body.light .legend-item {
         1px solid rgba(255,193,7,.25);
 }
 
-
-/* =====================================================
-   JASNY MOTYW
-===================================================== */
-
 body.light .admin-role {
-    background: #ffffff;
-
+    background: #fff;
     border-color: #dedede;
 
     box-shadow:
@@ -3140,61 +1594,16 @@ body.light .admin-role {
 }
 
 
-/* =====================================================
-   TELEFONY
-===================================================== */
-
-@media (max-width: 600px) {
-
-    .admin-page {
-        padding: 12px;
-    }
-
-    .admin-role {
-        padding: 15px;
-
-        gap: 12px;
-    }
-
-    .admin-role-icon {
-        min-width: 45px;
-        height: 45px;
-
-        border-radius: 13px;
-
-        font-size: 23px;
-    }
-
-    .admin-role-name {
-        font-size: 17px;
-    }
-
-    .admin-role-description {
-        font-size: 13px;
-    }
-
-    .admin-role-status {
-        padding: 6px 8px;
-        font-size: 10px;
-    }
-
-}
-
-
-/* =====================================================
-   HISTORIA — OŚ CZASU KOLONII PASJONATÓW
-===================================================== */
+/* =========================================================
+   27. HISTORIA
+========================================================= */
 
 .history-page {
-    max-width: 950px;
+    width: min(950px, calc(100% - 30px));
+
     margin: auto;
     padding: 20px;
 }
-
-
-/* =====================================================
-   OŚ CZASU
-===================================================== */
 
 .history-list {
     position: relative;
@@ -3206,11 +1615,6 @@ body.light .admin-role {
 
     padding: 10px 0 10px 35px;
 }
-
-
-/* =====================================================
-   GŁÓWNA LINIA
-===================================================== */
 
 .history-list::before {
     content: "";
@@ -3230,11 +1634,6 @@ body.light .admin-role {
     opacity: .7;
 }
 
-
-/* =====================================================
-   ELEMENT OSI
-===================================================== */
-
 .history-item {
     position: relative;
 
@@ -3242,16 +1641,8 @@ body.light .admin-role {
 
     border-radius: 20px;
 
-    background: rgba(255,255,255,.07);
-
-    border: 1px solid rgba(255,255,255,.08);
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.18);
-
-    transition: .25s;
+    transition: .25s ease;
 }
-
 
 .history-item:hover {
     transform: translateX(4px);
@@ -3259,11 +1650,6 @@ body.light .admin-role {
     box-shadow:
         0 10px 28px rgba(0,0,0,.25);
 }
-
-
-/* =====================================================
-   PUNKT NA OSI
-===================================================== */
 
 .history-item::before {
     content: "";
@@ -3286,11 +1672,6 @@ body.light .admin-role {
         0 0 0 3px rgba(255,193,7,.2);
 }
 
-
-/* =====================================================
-   DATA
-===================================================== */
-
 .history-date {
     display: inline-block;
 
@@ -3309,27 +1690,15 @@ body.light .admin-role {
     color: #ffc107;
 
     font-size: 13px;
-
     font-weight: 900;
 }
-
-
-/* =====================================================
-   TYTUŁ
-===================================================== */
 
 .history-title {
     margin: 5px 0 8px;
 
     font-size: 21px;
-
     font-weight: 900;
 }
-
-
-/* =====================================================
-   OPIS
-===================================================== */
 
 .history-description {
     margin: 0;
@@ -3338,11 +1707,6 @@ body.light .admin-role {
 
     opacity: .75;
 }
-
-
-/* =====================================================
-   KATEGORIA
-===================================================== */
 
 .history-category {
     display: inline-block;
@@ -3353,18 +1717,12 @@ body.light .admin-role {
 
     border-radius: 9px;
 
-    font-size: 12px;
-
-    font-weight: 800;
-
     background:
         rgba(255,255,255,.06);
+
+    font-size: 12px;
+    font-weight: 800;
 }
-
-
-/* =====================================================
-   TYPY WYDARZEŃ
-===================================================== */
 
 .history-item.creation {
     border-left: 4px solid #35d07f;
@@ -3382,53 +1740,653 @@ body.light .admin-role {
     border-left: 4px solid #ff5555;
 }
 
+body.light .history-item::before {
+    border-color: #fff;
+}
 
-/* =====================================================
-   JASNY MOTYW
-===================================================== */
 
-body.light .history-item {
-    background: #ffffff;
+/* =========================================================
+   28. OGŁOSZENIA
+========================================================= */
 
-    border-color: #dedede;
+.announcement-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.announcement-card {
+    padding: 22px;
+
+    border-radius: 20px;
+
+    transition: .22s ease;
+}
+
+.announcement-card:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(255,193,7,.24);
 
     box-shadow:
-        0 8px 25px rgba(0,0,0,.07);
+        0 12px 30px rgba(255,193,7,.10);
+}
+
+.announcement-date {
+    color: #ffc107;
+
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.announcement-title {
+    margin: 8px 0;
+
+    font-size: 22px;
 }
 
 
-body.light .history-item::before {
-    border-color: #ffffff;
+/* =========================================================
+   29. WAŻNE LINKI
+========================================================= */
+
+.link-card {
+    display: block;
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    transition: .22s ease;
+}
+
+.link-card:hover {
+    transform: translateY(-4px);
+
+    background:
+        rgba(255,193,7,.07);
+
+    border-color:
+        rgba(255,193,7,.25);
+
+    box-shadow:
+        0 12px 30px rgba(255,193,7,.11);
 }
 
 
-/* =====================================================
-   TELEFONY
-===================================================== */
+/* =========================================================
+   30. INFORMACJE O STRONIE
+========================================================= */
+
+.info-panel {
+    width: min(950px, calc(100% - 30px));
+
+    margin: 25px auto;
+    padding: 25px;
+
+    border-radius: 20px;
+}
+
+.version {
+    display: inline-flex;
+
+    padding: 8px 12px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,193,7,.12);
+
+    border:
+        1px solid rgba(255,193,7,.25);
+
+    color: #ffc107;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   31. KOLONIARZ
+========================================================= */
+
+.koloniarz-page {
+    width: min(1100px, calc(100% - 30px));
+
+    margin: 30px auto;
+    padding-bottom: 20px;
+}
+
+.koloniarz-hero {
+    padding: 42px 28px;
+
+    text-align: center;
+
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,193,7,.13),
+            rgba(255,255,255,.045)
+        );
+
+    border:
+        1px solid rgba(255,193,7,.20);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.20);
+}
+
+body.light .koloniarz-hero {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,193,7,.13),
+            #fff
+        );
+}
+
+.koloniarz-hero h1 {
+    margin: 0 0 12px;
+
+    font-size: clamp(30px, 6vw, 48px);
+}
+
+.koloniarz-hero p {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    line-height: 1.7;
+    opacity: .72;
+}
+
+.koloniarz-card {
+    padding: 24px;
+
+    border-radius: 21px;
+
+    transition: .22s ease;
+}
+
+.koloniarz-card:hover {
+    transform: translateY(-4px);
+
+    border-color:
+        rgba(255,193,7,.28);
+
+    box-shadow:
+        0 13px 32px rgba(255,193,7,.10);
+}
+
+.koloniarz-icon {
+    margin-bottom: 10px;
+
+    font-size: 35px;
+}
+
+.koloniarz-card h2 {
+    margin: 0 0 9px;
+}
+
+.koloniarz-card p {
+    line-height: 1.65;
+    opacity: .70;
+}
+
+
+/* =========================================================
+   32. STRONA BŁĘDU
+========================================================= */
+
+.error-page {
+    width: min(850px, calc(100% - 30px));
+
+    margin: 80px auto;
+    padding: 20px;
+}
+
+.error-card {
+    padding: 42px 30px;
+
+    text-align: center;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid rgba(255,193,7,.20);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.25);
+}
+
+body.light .error-card {
+    background: #fff;
+    border-color: #ddd;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.08);
+}
+
+.error-icon {
+    margin-bottom: 15px;
+
+    font-size: 65px;
+}
+
+.error-card h1 {
+    margin: 0 0 15px;
+
+    font-size: clamp(28px, 6vw, 45px);
+}
+
+.error-card p {
+    line-height: 1.7;
+    opacity: .70;
+}
+
+
+/* =========================================================
+   33. PRZEGLĄDARKA
+========================================================= */
+
+.browser-window {
+    width: min(1100px, calc(100% - 30px));
+
+    margin: 20px auto;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+}
+
+.browser-title {
+    padding: 12px 15px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    font-weight: 900;
+}
+
+.browser-toolbar {
+    display: flex;
+
+    gap: 8px;
+
+    padding: 10px;
+
+    background:
+        rgba(0,0,0,.15);
+}
+
+.browser-address {
+    flex: 1;
+
+    padding: 9px 12px;
+
+    border-radius: 9px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid rgba(255,255,255,.10);
+}
+
+.browser-content {
+    min-height: 300px;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,.10);
+}
+
+body.light .browser-content {
+    background: #fafafa;
+}
+
+
+/* =========================================================
+   34. FORMULARZE
+========================================================= */
+
+input,
+textarea,
+select {
+    width: 100%;
+
+    padding: 11px 12px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    color: inherit;
+
+    outline: none;
+
+    transition: .2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #ffc107;
+
+    box-shadow:
+        0 0 0 3px rgba(255,193,7,.10);
+}
+
+body.light input,
+body.light textarea,
+body.light select {
+    background: #fff;
+    color: #222;
+
+    border-color: #d7d7d7;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+
+/* =========================================================
+   35. STOPKA
+========================================================= */
+
+footer {
+    margin-top: 60px;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    border-top:
+        1px solid rgba(255,255,255,.08);
+
+    background:
+        rgba(0,0,0,.20);
+
+    opacity: .88;
+}
+
+body.light footer {
+    background:
+        rgba(255,255,255,.70);
+
+    border-top-color: #ddd;
+}
+
+footer p {
+    margin: 6px 0;
+}
+
+
+/* =========================================================
+   36. ANIMACJE
+========================================================= */
+
+@keyframes goldenGlow {
+    0%,
+    100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.08);
+    }
+}
+
+
+/* =========================================================
+   37. TABLETY
+========================================================= */
+
+@media (max-width: 900px) {
+
+    header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logo {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .info-grid,
+    .links-grid,
+    .koloniarz-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   38. TELEFONY
+========================================================= */
 
 @media (max-width: 600px) {
+
+    header {
+        position: relative;
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        padding: 15px 12px;
+    }
+
+    .logo {
+        width: auto;
+        padding-right: 50px;
+    }
+
+    nav {
+        gap: 6px;
+    }
+
+    nav a {
+        flex: 1 1 auto;
+
+        min-width: 110px;
+
+        padding: 9px 10px;
+
+        font-size: 13px;
+    }
+
+    .theme-toggle,
+    .theme-button {
+        position: absolute;
+
+        top: 14px;
+        right: 13px;
+    }
+
+    .hero {
+        margin: 25px auto;
+        padding: 30px 18px;
+    }
+
+    .section {
+        width: calc(100% - 20px);
+
+        margin: 25px auto;
+        padding: 5px;
+    }
+
+    .info-grid,
+    .links-grid,
+    .koloniarz-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-card {
+        min-height: auto;
+    }
+
+    .top-bar {
+        width: calc(100% - 24px);
+    }
+
+    .league-ranking,
+    .contact-page,
+    .calendar-page,
+    .history-page,
+    .admin-panel,
+    .info-panel,
+    .browser-window,
+    .koloniarz-page {
+        width: calc(100% - 24px);
+    }
+
+    .contact-button {
+        width: 100%;
+    }
+
+
+    /* =========================
+       KALENDARZ TELEFON
+    ========================= */
+
+    .calendar-page {
+        padding-top: 10px;
+    }
+
+    .calendar-header {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 9px;
+
+        padding: 15px;
+    }
+
+    .month-title {
+        order: -1;
+
+        width: 100%;
+
+        font-size: 22px;
+    }
+
+    .calendar-header .button {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+    .calendar-header .button:first-child,
+    .calendar-header .button:last-child {
+        justify-self: auto;
+    }
+
+    .today-button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .calendar {
+        padding: 6px;
+
+        border-radius: 16px;
+    }
+
+    .weekdays,
+    .days {
+        gap: 4px;
+    }
+
+    .weekday {
+        padding: 8px 3px;
+
+        font-size: 11px;
+
+        border-radius: 8px;
+    }
+
+    .day {
+        min-height: 65px;
+
+        padding: 6px;
+
+        border-radius: 9px;
+    }
+
+    .day-number {
+        width: 26px;
+        height: 26px;
+
+        font-size: 12px;
+
+        border-radius: 7px;
+    }
+
+    .event-dot,
+    .holiday-dot,
+    .birthday-dot,
+    .special-dot {
+        width: 7px;
+        height: 7px;
+
+        margin-top: 5px;
+    }
+
+    .today-label {
+        font-size: 8px;
+    }
+
+    .legend-items {
+        flex-direction: column;
+    }
+
+    .legend-item {
+        width: 100%;
+    }
+
+
+    /* =========================
+       HISTORIA
+    ========================= */
 
     .history-page {
         padding: 12px;
     }
 
-
     .history-list {
         padding-left: 30px;
-
         gap: 18px;
     }
-
 
     .history-list::before {
         left: 10px;
     }
 
-
     .history-item {
         padding: 17px;
     }
-
 
     .history-item::before {
         left: -29px;
@@ -3439,24 +2397,163 @@ body.light .history-item::before {
         border-width: 3px;
     }
 
-
     .history-title {
         font-size: 18px;
     }
-
 
     .history-description {
         font-size: 14px;
     }
 
-
     .history-date {
         font-size: 12px;
     }
 
+
+    /* =========================
+       ADMIN
+    ========================= */
+
+    .admin-page {
+        padding: 12px;
+    }
+
+    .admin-role {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .admin-role-icon {
+        width: 45px;
+        height: 45px;
+
+        border-radius: 13px;
+
+        font-size: 23px;
+    }
+
+    .admin-role-name {
+        font-size: 17px;
+    }
+
+    .admin-role-description {
+        font-size: 13px;
+    }
+
+    .admin-role-status {
+        padding: 6px 8px;
+
+        font-size: 10px;
+    }
+
+
+    .error-page {
+        margin: 45px auto;
+    }
+
+    .error-card {
+        padding: 30px 20px;
+    }
 }
 
 
 /* =========================================================
-   KONIEC NOWEGO STYLE.CSS
-   ========================================================= */
+   39. BARDZO MAŁE TELEFONY
+========================================================= */
+
+@media (max-width: 400px) {
+
+    nav {
+        gap: 4px;
+    }
+
+    nav a {
+        min-width: 0;
+
+        padding: 8px 7px;
+
+        font-size: 12px;
+    }
+
+
+    /* KALENDARZ */
+
+    .calendar-header {
+        gap: 7px;
+    }
+
+    .month-title {
+        font-size: 19px;
+    }
+
+    .calendar-header .button {
+        min-height: 40px;
+
+        padding: 9px 12px;
+
+        font-size: 12px;
+    }
+
+    .calendar {
+        padding: 4px;
+    }
+
+    .weekdays,
+    .days {
+        gap: 3px;
+    }
+
+    .weekday {
+        padding: 6px 2px;
+
+        font-size: 9px;
+    }
+
+    .day {
+        min-height: 52px;
+
+        padding: 4px;
+
+        border-radius: 7px;
+    }
+
+    .day-number {
+        width: 23px;
+        height: 23px;
+
+        font-size: 10px;
+    }
+
+    .event-dot,
+    .holiday-dot,
+    .birthday-dot,
+    .special-dot {
+        width: 6px;
+        height: 6px;
+
+        margin-top: 4px;
+    }
+
+    .today-label {
+        padding: 2px 4px;
+
+        font-size: 7px;
+    }
+
+
+    /* HISTORIA */
+
+    .history-card h2,
+    .history-title {
+        font-size: 17px;
+    }
+
+    .koloniarz-hero {
+        padding: 30px 18px;
+    }
+}
+
+
+/* =========================================================
+   KONIEC STYLE.CSS
+========================================================= */
