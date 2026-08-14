@@ -5,21 +5,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>404 - Nie znaleziono strony</title>
+    <title>Kolonia Pasjonatów — Błąd</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        .error {
+            width: 90%;
+            max-width: 650px;
+            text-align: center;
+            padding: 45px 25px;
+        }
+
+        .icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .code {
+            font-size: 90px;
+            font-weight: bold;
+            margin: 0;
+            color: #d32f2f;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin: 15px 0;
+        }
+
+        p {
+            color: #666;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .details {
+            margin-top: 25px;
+            padding: 15px;
+            background: #eeeeee;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .brand {
+            margin-top: 30px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
 
-<script>
-document.body.innerHTML = `
-    <div style="text-align:center; margin-top:100px;">
-        <h1>404</h1>
-        <p>Nie znaleziono strony.</p>
+    <div class="error">
+
+        <div class="icon">⚠️</div>
+
+        <div class="code">500</div>
+
+        <h1>Wystąpił nieoczekiwany błąd</h1>
+
+        <p>
+            Strona Kolonii Pasjonatów napotkała problem
+            i nie może zostać poprawnie wyświetlona.
+        </p>
+
+        <div class="details">
+            Kod błędu: KP-500<br>
+            Status: INTERNAL SERVER ERROR
+        </div>
+
+        <p>
+            Spróbuj odświeżyć stronę później.
+        </p>
+
+        <div class="brand">
+            🌟 Kolonia Pasjonatów
+        </div>
+
     </div>
-`;
-</script>
 
 </body>
 
