@@ -2555,7 +2555,7 @@ footer p {
 
 
 /* =========================================================
-   40. PRZESUWANY KOMUNIKAT — KONIEC KOLONII PASJONATÓW
+   40. PRZESUWANY KOMUNIKAT
 ========================================================= */
 
 body {
@@ -2563,15 +2563,15 @@ body {
 }
 
 body::after {
-    content: "Koniec Kolonii Pasjonatów?     •     Koniec Kolonii Pasjonatów?     •     ";
+    content: "Koniec Kolonii Pasjonatów?     •     Koniec Kolonii Pasjonatów?     •     Koniec Kolonii Pasjonatów?     •     ";
 
     display: block;
-    width: 100%;
+
+    width: max-content;
+    min-width: 100%;
 
     margin-top: 50px;
     padding: 14px 0;
-
-    overflow: hidden;
 
     background:
         linear-gradient(
@@ -2595,7 +2595,7 @@ body::after {
     text-shadow:
         0 0 12px rgba(255,193,7,.25);
 
-    animation: koniecKolonii 12s linear infinite;
+    animation: koniecKolonii 18s linear infinite;
 }
 
 body.light::after {
@@ -2609,19 +2609,22 @@ body.light::after {
 
     color: #8a6500;
 
-    border-color: rgba(255,193,7,.25);
+    border-color:
+        rgba(255,193,7,.25);
 
     text-shadow: none;
 }
 
 @keyframes koniecKolonii {
-    from {
+
+    0% {
         transform: translateX(100%);
     }
 
-    to {
+    100% {
         transform: translateX(-100%);
     }
+
 }
 
 
