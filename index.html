@@ -5,100 +5,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Kolonia Pasjonatów — Błąd</title>
+    <title>500 Internal Server Error</title>
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
+            margin: 40px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: white;
             color: #222;
         }
 
-        .error {
-            width: 90%;
-            max-width: 650px;
-            text-align: center;
-            padding: 45px 25px;
-        }
-
-        .icon {
-            font-size: 60px;
-            margin-bottom: 15px;
-        }
-
-        .code {
-            font-size: 90px;
-            font-weight: bold;
-            margin: 0;
-            color: #d32f2f;
-        }
-
         h1 {
-            font-size: 30px;
-            margin: 15px 0;
+            font-size: 28px;
+            font-weight: normal;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #ccc;
         }
 
         p {
-            color: #666;
-            font-size: 17px;
-            line-height: 1.6;
+            font-size: 15px;
         }
 
-        .details {
-            margin-top: 25px;
-            padding: 15px;
-            background: #eeeeee;
-            border-radius: 8px;
-            font-family: monospace;
-            font-size: 14px;
-            color: #555;
-        }
-
-        .brand {
-            margin-top: 30px;
-            font-weight: bold;
+        .footer {
+            color: #777;
+            font-size: 13px;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="error">
+    <h1>500 Internal Server Error</h1>
 
-        <div class="icon">⚠️</div>
+    <hr>
 
-        <div class="code">500</div>
+    <p>
+        The server encountered an internal error or misconfiguration
+        and was unable to complete your request.
+    </p>
 
-        <h1>Wystąpił nieoczekiwany błąd</h1>
+    <p>
+        Please try again later.
+    </p>
 
-        <p>
-            Strona Kolonii Pasjonatów napotkała problem
-            i nie może zostać poprawnie wyświetlona.
-        </p>
+    <hr>
 
-        <div class="details">
-            Kod błędu: KP-500<br>
-            Status: INTERNAL SERVER ERROR
-        </div>
-
-        <p>
-            Spróbuj odświeżyć stronę później.
-        </p>
-
-        <div class="brand">
-            🌟 Kolonia Pasjonatów
-        </div>
-
-    </div>
+    <p class="footer">
+        Kolonia Pasjonatów
+    </p>
 
 </body>
 
