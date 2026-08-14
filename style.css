@@ -2555,5 +2555,76 @@ footer p {
 
 
 /* =========================================================
+   40. PRZESUWANY KOMUNIKAT — KONIEC KOLONII PASJONATÓW
+========================================================= */
+
+body {
+    overflow-x: hidden;
+}
+
+body::after {
+    content: "Koniec Kolonii Pasjonatów?     •     Koniec Kolonii Pasjonatów?     •     ";
+
+    display: block;
+    width: 100%;
+
+    margin-top: 50px;
+    padding: 14px 0;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,193,7,.06),
+            rgba(255,193,7,.16),
+            rgba(255,193,7,.06)
+        );
+
+    border-top: 1px solid rgba(255,193,7,.25);
+    border-bottom: 1px solid rgba(255,193,7,.25);
+
+    color: #ffc107;
+
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 0 12px rgba(255,193,7,.25);
+
+    animation: koniecKolonii 12s linear infinite;
+}
+
+body.light::after {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,193,7,.05),
+            rgba(255,193,7,.13),
+            rgba(255,193,7,.05)
+        );
+
+    color: #8a6500;
+
+    border-color: rgba(255,193,7,.25);
+
+    text-shadow: none;
+}
+
+@keyframes koniecKolonii {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+
+/* =========================================================
    KONIEC STYLE.CSS
 ========================================================= */
