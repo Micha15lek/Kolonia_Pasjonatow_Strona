@@ -3023,3 +3023,616 @@ body.light-theme .calendar-day.today {
             0.01ms !important;
     }
 }
+
+
+/* =========================================================
+   51. HISTORIA — NOWA OŚ CZASU
+   Kolonia Pasjonatów
+   ========================================================= */
+
+.history-page {
+
+    width:
+        min(
+            calc(100% - 60px),
+            1000px
+        );
+
+    margin:
+        0 auto;
+
+    padding:
+        80px 0;
+}
+
+
+/* =========================================================
+   LISTA HISTORII
+   ========================================================= */
+
+.history-list {
+
+    position:
+        relative;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        25px;
+
+    padding-left:
+        35px;
+}
+
+
+/* =========================================================
+   LINIA OSI CZASU
+   ========================================================= */
+
+.history-list::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    bottom:
+        0;
+
+    left:
+        11px;
+
+    width:
+        3px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            var(--accent),
+            rgba(229, 85, 108, 0.15)
+        );
+
+    border-radius:
+        999px;
+}
+
+
+/* =========================================================
+   POJEDYNCZY ELEMENT HISTORII
+   ========================================================= */
+
+.history-item {
+
+    position:
+        relative;
+
+    padding:
+        28px 30px;
+
+    background:
+        var(--bg-card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    box-shadow:
+        var(--shadow-small);
+
+    overflow:
+        visible;
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition),
+        box-shadow var(--transition);
+}
+
+
+/* =========================================================
+   KROPKA NA OSI
+   ========================================================= */
+
+.history-item::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        -35px;
+
+    top:
+        34px;
+
+    width:
+        17px;
+
+    height:
+        17px;
+
+    background:
+        var(--bg-card);
+
+    border:
+        4px solid var(--accent);
+
+    border-radius:
+        50%;
+
+    box-shadow:
+        0 0 0 5px
+        rgba(229, 85, 108, 0.10);
+
+    z-index:
+        2;
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.history-item:hover {
+
+    transform:
+        translateX(6px);
+
+    border-color:
+        rgba(229, 85, 108, 0.35);
+
+    background:
+        var(--bg-card-hover);
+
+    box-shadow:
+        var(--shadow);
+}
+
+.history-item:hover::before {
+
+    transform:
+        scale(1.15);
+
+    box-shadow:
+        0 0 0 7px
+        rgba(229, 85, 108, 0.12);
+}
+
+
+/* =========================================================
+   DATA
+   ========================================================= */
+
+.history-date {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    min-height:
+        32px;
+
+    margin-bottom:
+        12px;
+
+    padding:
+        6px 12px;
+
+    border:
+        1px solid
+        rgba(229, 85, 108, 0.25);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(229, 85, 108, 0.09);
+
+    color:
+        var(--accent);
+
+    font-size:
+        0.8rem;
+
+    font-weight:
+        850;
+
+    letter-spacing:
+        0.3px;
+}
+
+
+/* =========================================================
+   TYTUŁ
+   ========================================================= */
+
+.history-title {
+
+    margin:
+        0 0 12px;
+
+    color:
+        var(--text-main);
+
+    font-size:
+        1.45rem;
+
+    line-height:
+        1.25;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        -0.5px;
+}
+
+
+/* =========================================================
+   OPIS
+   ========================================================= */
+
+.history-description {
+
+    max-width:
+        850px;
+
+    margin:
+        0 0 18px;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        0.96rem;
+
+    line-height:
+        1.75;
+}
+
+.history-description strong {
+
+    color:
+        var(--text-main);
+
+    font-weight:
+        850;
+}
+
+
+/* =========================================================
+   KATEGORIA
+   ========================================================= */
+
+.history-category {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    min-height:
+        30px;
+
+    padding:
+        5px 11px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.76rem;
+
+    font-weight:
+        800;
+}
+
+
+/* =========================================================
+   RÓŻNE TYPY WYDARZEŃ
+   ========================================================= */
+
+.history-item.creation::before {
+
+    border-color:
+        #4fd58a;
+}
+
+.history-item.event::before {
+
+    border-color:
+        var(--accent);
+}
+
+.history-item.update::before {
+
+    border-color:
+        var(--info);
+}
+
+.history-item.important::before {
+
+    border-color:
+        var(--warning);
+}
+
+
+/* =========================================================
+   KOLOR DATY DLA TYPÓW
+   ========================================================= */
+
+.history-item.creation .history-date {
+
+    color:
+        var(--success);
+
+    border-color:
+        rgba(79, 213, 138, 0.25);
+
+    background:
+        rgba(79, 213, 138, 0.08);
+}
+
+.history-item.update .history-date {
+
+    color:
+        var(--info);
+
+    border-color:
+        rgba(93, 169, 255, 0.25);
+
+    background:
+        rgba(93, 169, 255, 0.08);
+}
+
+.history-item.important .history-date {
+
+    color:
+        var(--warning);
+
+    border-color:
+        rgba(240, 185, 90, 0.25);
+
+    background:
+        rgba(240, 185, 90, 0.08);
+}
+
+
+/* =========================================================
+   TELEFON — 760 PX
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .history-page {
+
+        width:
+            calc(100% - 36px);
+
+        padding:
+            60px 0;
+    }
+
+    .history-list {
+
+        gap:
+            18px;
+
+        padding-left:
+            28px;
+    }
+
+    .history-list::before {
+
+        left:
+            8px;
+
+        width:
+            2px;
+    }
+
+    .history-item {
+
+        padding:
+            22px;
+
+        border-radius:
+            16px;
+    }
+
+    .history-item::before {
+
+        left:
+            -28px;
+
+        top:
+            27px;
+
+        width:
+            14px;
+
+        height:
+            14px;
+
+        border-width:
+            3px;
+    }
+
+    .history-date {
+
+        font-size:
+            0.74rem;
+
+        padding:
+            5px 10px;
+    }
+
+    .history-title {
+
+        font-size:
+            1.2rem;
+
+        line-height:
+            1.3;
+    }
+
+    .history-description {
+
+        font-size:
+            0.9rem;
+
+        line-height:
+            1.65;
+    }
+
+    .history-category {
+
+        font-size:
+            0.7rem;
+    }
+}
+
+
+/* =========================================================
+   MAŁY TELEFON — 420 PX
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .history-page {
+
+        width:
+            calc(100% - 24px);
+
+        padding:
+            45px 0;
+    }
+
+    .history-list {
+
+        padding-left:
+            23px;
+
+        gap:
+            15px;
+    }
+
+    .history-list::before {
+
+        left:
+            6px;
+    }
+
+    .history-item {
+
+        padding:
+            19px;
+
+        border-radius:
+            14px;
+    }
+
+    .history-item::before {
+
+        left:
+            -23px;
+
+        top:
+            24px;
+
+        width:
+            12px;
+
+        height:
+            12px;
+    }
+
+    .history-title {
+
+        font-size:
+            1.08rem;
+
+        letter-spacing:
+            -0.2px;
+    }
+
+    .history-description {
+
+        font-size:
+            0.86rem;
+    }
+
+    .history-date {
+
+        font-size:
+            0.7rem;
+    }
+
+    .history-category {
+
+        font-size:
+            0.67rem;
+    }
+}
+
+
+/* =========================================================
+   TRYB JASNY — HISTORIA
+   ========================================================= */
+
+body.light-theme .history-item {
+
+    background:
+        var(--bg-card);
+
+    border-color:
+        var(--border);
+}
+
+body.light-theme .history-item:hover {
+
+    background:
+        var(--bg-card-hover);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.08);
+}
+
+body.light-theme .history-category {
+
+    background:
+        rgba(0, 0, 0, 0.035);
+
+    color:
+        var(--text-muted);
+}
