@@ -1,7 +1,8 @@
 /* =========================================================
    KOLONIA PASJONATÓW
-   STYLE.CSS — WERSJA 1.0
+   STYLE.CSS — WERSJA 1.1
    Wspólny styl całej strony
+   + RESPONSYWNY KALENDARZ / HISTORIA / ADMINISTRACJA
    ========================================================= */
 
 
@@ -1310,6 +1311,9 @@ nav a.active {
 
     box-shadow:
         var(--shadow-small);
+
+    -webkit-overflow-scrolling:
+        touch;
 }
 
 table {
@@ -1931,7 +1935,317 @@ footer {
 
 
 /* =========================================================
-   39. TABLET
+   39. KALENDARZ / HISTORIA / ADMINISTRACJA
+   WSPÓLNE USTAWIENIA
+   ========================================================= */
+
+.info-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card:hover {
+    transform: translateY(-6px);
+}
+
+.card-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+
+    border-radius: 16px;
+
+    margin-bottom: 18px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.info-card:hover .card-icon {
+    transform: scale(1.08);
+}
+
+.info-card h2 {
+    margin-bottom: 12px;
+}
+
+.info-card p {
+    line-height: 1.7;
+}
+
+.info-card .button {
+    margin-top: 10px;
+}
+
+
+/* =========================================================
+   40. KALENDARZ
+   ========================================================= */
+
+.calendar-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.calendar-card {
+    width: 100%;
+
+    background: var(--bg-card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    padding:
+        30px;
+
+    box-shadow:
+        var(--shadow);
+
+    overflow: hidden;
+}
+
+.calendar-header {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
+    margin-bottom:
+        25px;
+}
+
+.calendar-header h2 {
+
+    color:
+        var(--text-main);
+
+    font-size:
+        26px;
+
+    line-height:
+        1.2;
+}
+
+.calendar-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(7, minmax(0, 1fr));
+
+    gap:
+        8px;
+
+    width:
+        100%;
+}
+
+.calendar-weekday {
+
+    min-width:
+        0;
+
+    padding:
+        10px 5px;
+
+    text-align:
+        center;
+
+    color:
+        var(--accent);
+
+    font-size:
+        0.85rem;
+
+    font-weight:
+        800;
+}
+
+.calendar-day {
+
+    min-width:
+        0;
+
+    min-height:
+        90px;
+
+    padding:
+        10px;
+
+    background:
+        var(--bg-secondary);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        10px;
+
+    color:
+        var(--text-secondary);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition);
+}
+
+.calendar-day:hover {
+
+    border-color:
+        rgba(229, 85, 108, 0.45);
+
+    transform:
+        translateY(-2px);
+}
+
+.calendar-day.today {
+
+    background:
+        var(--accent);
+
+    color:
+        #fff;
+
+    border-color:
+        var(--accent);
+
+    box-shadow:
+        0 8px 25px
+        rgba(229, 85, 108, 0.22);
+}
+
+.calendar-event {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    margin-top:
+        8px;
+
+    padding:
+        5px 7px;
+
+    border-radius:
+        6px;
+
+    background:
+        rgba(229, 85, 108, 0.15);
+
+    color:
+        var(--text-main);
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.35;
+
+    overflow-wrap:
+        anywhere;
+}
+
+.calendar-day.today .calendar-event {
+
+    background:
+        rgba(255, 255, 255, 0.18);
+
+    color:
+        #fff;
+}
+
+
+/* =========================================================
+   41. HISTORIA
+   ========================================================= */
+
+.history-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        22px;
+}
+
+.history-card {
+
+    min-width:
+        0;
+}
+
+.history-card .button {
+    margin-top:
+        auto;
+}
+
+
+/* =========================================================
+   42. ADMINISTRACJA
+   ========================================================= */
+
+.admin-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap:
+        22px;
+}
+
+.admin-card {
+
+    min-width:
+        0;
+}
+
+.admin-card .button {
+    margin-top:
+        auto;
+}
+
+.admin-card .status {
+    margin-top:
+        18px;
+}
+
+
+/* =========================================================
+   43. TABLET — 1100 PX
    ========================================================= */
 
 @media (max-width: 1100px) {
@@ -1979,11 +2293,87 @@ footer {
         grid-template-columns:
             1.5fr 1fr 1fr;
     }
+
+
+    /* -----------------------------------------
+       KALENDARZ — TABLET
+       ----------------------------------------- */
+
+    .calendar-container {
+        width:
+            100%;
+    }
+
+    .calendar-card {
+        padding:
+            24px;
+    }
+
+    .calendar-grid {
+        gap:
+            6px;
+    }
+
+    .calendar-day {
+        min-height:
+            82px;
+
+        padding:
+            8px;
+    }
+
+    .calendar-weekday {
+        padding:
+            8px 4px;
+
+        font-size:
+            0.78rem;
+    }
+
+    .calendar-event {
+        font-size:
+            11px;
+
+        padding:
+            5px;
+    }
+
+
+    /* -----------------------------------------
+       HISTORIA — TABLET
+       ----------------------------------------- */
+
+    .history-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap:
+            18px;
+    }
+
+
+    /* -----------------------------------------
+       ADMINISTRACJA — TABLET
+       ----------------------------------------- */
+
+    .admin-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap:
+            18px;
+    }
+
+    .admin-card,
+    .history-card {
+        padding:
+            25px;
+    }
 }
 
 
 /* =========================================================
-   40. TELEFON
+   44. TELEFON — 760 PX
    ========================================================= */
 
 @media (max-width: 760px) {
@@ -2175,11 +2565,155 @@ footer {
         padding:
             55px 20px 22px;
     }
+
+
+    /* =====================================================
+       KALENDARZ — TELEFON
+       ===================================================== */
+
+    .calendar-container {
+        width:
+            100%;
+    }
+
+    .calendar-card {
+
+        padding:
+            18px;
+
+        border-radius:
+            16px;
+    }
+
+    .calendar-header {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap:
+            10px;
+
+        margin-bottom:
+            18px;
+    }
+
+    .calendar-header h2 {
+
+        font-size:
+            22px;
+    }
+
+    .calendar-grid {
+
+        gap:
+            4px;
+    }
+
+    .calendar-weekday {
+
+        padding:
+            7px 2px;
+
+        font-size:
+            0.68rem;
+    }
+
+    .calendar-day {
+
+        min-height:
+            72px;
+
+        padding:
+            6px;
+
+        border-radius:
+            8px;
+
+        font-size:
+            0.78rem;
+    }
+
+    .calendar-event {
+
+        margin-top:
+            5px;
+
+        padding:
+            4px 5px;
+
+        border-radius:
+            5px;
+
+        font-size:
+            9px;
+
+        line-height:
+            1.25;
+    }
+
+
+    /* =====================================================
+       HISTORIA — TELEFON
+       ===================================================== */
+
+    .history-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            16px;
+    }
+
+    .history-card {
+
+        width:
+            100%;
+
+        padding:
+            23px;
+    }
+
+
+    /* =====================================================
+       ADMINISTRACJA — TELEFON
+       ===================================================== */
+
+    .admin-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            16px;
+    }
+
+    .admin-card {
+
+        width:
+            100%;
+
+        padding:
+            23px;
+    }
+
+    .history-card .button,
+    .admin-card .button {
+
+        width:
+            100%;
+
+        margin-top:
+            14px;
+    }
 }
 
 
 /* =========================================================
-   41. MAŁY TELEFON
+   45. MAŁY TELEFON — 420 PX
    ========================================================= */
 
 @media (max-width: 420px) {
@@ -2248,11 +2782,224 @@ footer {
         white-space:
             normal;
     }
+
+
+    /* =====================================================
+       KALENDARZ — MAŁY TELEFON
+       ===================================================== */
+
+    .calendar-card {
+        padding:
+            12px;
+    }
+
+    .calendar-header h2 {
+        font-size:
+            20px;
+    }
+
+    .calendar-grid {
+        gap:
+            3px;
+    }
+
+    .calendar-weekday {
+
+        padding:
+            6px 1px;
+
+        font-size:
+            0.6rem;
+    }
+
+    .calendar-day {
+
+        min-height:
+            60px;
+
+        padding:
+            5px;
+
+        border-radius:
+            7px;
+
+        font-size:
+            0.7rem;
+    }
+
+    .calendar-event {
+
+        font-size:
+            8px;
+
+        padding:
+            3px 4px;
+
+        margin-top:
+            4px;
+    }
+
+
+    /* =====================================================
+       HISTORIA — MAŁY TELEFON
+       ===================================================== */
+
+    .history-card {
+
+        padding:
+            20px;
+    }
+
+
+    /* =====================================================
+       ADMINISTRACJA — MAŁY TELEFON
+       ===================================================== */
+
+    .admin-card {
+
+        padding:
+            20px;
+    }
 }
 
 
 /* =========================================================
-   42. REDUCED MOTION
+   46. TRYB JASNY — KAFELKI
+   ========================================================= */
+
+body.light-theme .card-icon {
+
+    background:
+        rgba(0, 0, 0, 0.05);
+
+    border-color:
+        rgba(0, 0, 0, 0.08);
+}
+
+body.light-theme .info-card:hover {
+
+    box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   47. TRYB JASNY — KALENDARZ
+   ========================================================= */
+
+body.light-theme .calendar-day {
+
+    background:
+        var(--bg-secondary);
+
+    color:
+        var(--text-secondary);
+}
+
+body.light-theme .calendar-event {
+
+    background:
+        rgba(229, 85, 108, 0.10);
+
+    color:
+        var(--text-main);
+}
+
+body.light-theme .calendar-day.today {
+
+    background:
+        var(--accent);
+
+    color:
+        #fff;
+}
+
+
+/* =========================================================
+   48. RESPONSYWNOŚĆ KAFELKÓW
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .info-card {
+
+        padding:
+            24px;
+    }
+
+    .card-icon {
+
+        width:
+            52px;
+
+        height:
+            52px;
+
+        font-size:
+            25px;
+    }
+
+    .info-card h2 {
+
+        font-size:
+            21px;
+    }
+
+    .info-card p {
+
+        font-size:
+            15px;
+    }
+}
+
+
+/* =========================================================
+   49. KALENDARZ — BARDZO MAŁE EKRANY
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .calendar-card {
+        padding:
+            9px;
+    }
+
+    .calendar-grid {
+        gap:
+            2px;
+    }
+
+    .calendar-weekday {
+        font-size:
+            0.54rem;
+    }
+
+    .calendar-day {
+
+        min-height:
+            54px;
+
+        padding:
+            4px;
+
+        font-size:
+            0.64rem;
+    }
+
+    .calendar-event {
+
+        font-size:
+            7px;
+
+        padding:
+            3px;
+    }
+}
+
+
+/* =========================================================
+   50. REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -2275,215 +3022,4 @@ footer {
         transition-duration:
             0.01ms !important;
     }
-}
-
-
-/* =========================================================
-   KALENDARZ / HISTORIA / ADMINISTRACJA
-========================================================= */
-
-/* Kafelki tych sekcji */
-
-.info-card {
-    position: relative;
-    overflow: hidden;
-}
-
-/* Delikatny efekt po najechaniu */
-
-.info-card:hover {
-    transform: translateY(-6px);
-}
-
-
-/* =========================================================
-   KALENDARZ
-========================================================= */
-
-.info-card:has(.card-icon:first-child) {
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
-}
-
-
-/* =========================================================
-   IKONY KAFELKÓW
-========================================================= */
-
-.card-icon {
-    width: 58px;
-    height: 58px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 28px;
-
-    border-radius: 16px;
-
-    margin-bottom: 18px;
-
-    background: rgba(255, 255, 255, 0.08);
-
-    border: 1px solid rgba(255, 255, 255, 0.08);
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease;
-}
-
-.info-card:hover .card-icon {
-    transform: scale(1.08);
-}
-
-
-/* =========================================================
-   KALENDARZ
-========================================================= */
-
-.info-card h2 {
-    margin-bottom: 12px;
-}
-
-.info-card p {
-    line-height: 1.7;
-}
-
-
-/* =========================================================
-   HISTORIA
-========================================================= */
-
-.info-card .button {
-    margin-top: 10px;
-}
-
-
-/* =========================================================
-   ADMINISTRACJA
-========================================================= */
-
-.info-card:last-child {
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-
-/* =========================================================
-   TRYB JASNY
-========================================================= */
-
-body.light .card-icon {
-    background: rgba(0, 0, 0, 0.05);
-
-    border-color: rgba(0, 0, 0, 0.08);
-}
-
-body.light .info-card:hover {
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.10);
-}
-
-
-/* =========================================================
-   TELEFON
-========================================================= */
-
-@media (max-width: 700px) {
-
-    .info-card {
-        padding: 24px;
-    }
-
-    .card-icon {
-        width: 52px;
-        height: 52px;
-        font-size: 25px;
-    }
-
-    .info-card h2 {
-        font-size: 21px;
-    }
-
-    .info-card p {
-        font-size: 15px;
-    }
-
-}
-
-
-/* =========================================================
-   KALENDARZ
-========================================================= */
-
-.calendar-container {
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.calendar-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 30px;
-    box-shadow: var(--shadow);
-}
-
-.calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-}
-
-.calendar-header h2 {
-    font-size: 26px;
-}
-
-.calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 8px;
-}
-
-.calendar-weekday {
-    text-align: center;
-    font-weight: 700;
-    color: var(--primary);
-    padding: 10px;
-}
-
-.calendar-day {
-    min-height: 90px;
-    padding: 10px;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    color: var(--text-secondary);
-    transition: 0.25s ease;
-}
-
-.calendar-day:hover {
-    border-color: var(--primary);
-    transform: translateY(-2px);
-}
-
-.calendar-day.today {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
-}
-
-.calendar-event {
-    display: block;
-    margin-top: 8px;
-    padding: 5px 7px;
-    border-radius: 6px;
-    background: rgba(124, 92, 255, 0.15);
-    color: var(--text);
-    font-size: 12px;
-    font-weight: 600;
 }
