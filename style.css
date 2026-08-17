@@ -2413,3 +2413,77 @@ body.light .info-card:hover {
     }
 
 }
+
+
+/* =========================================================
+   KALENDARZ
+========================================================= */
+
+.calendar-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.calendar-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.calendar-header h2 {
+    font-size: 26px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.calendar-weekday {
+    text-align: center;
+    font-weight: 700;
+    color: var(--primary);
+    padding: 10px;
+}
+
+.calendar-day {
+    min-height: 90px;
+    padding: 10px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text-secondary);
+    transition: 0.25s ease;
+}
+
+.calendar-day:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.calendar-day.today {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.calendar-event {
+    display: block;
+    margin-top: 8px;
+    padding: 5px 7px;
+    border-radius: 6px;
+    background: rgba(124, 92, 255, 0.15);
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 600;
+}
