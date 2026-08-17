@@ -1,20 +1,21 @@
 /* =========================================================
    KOLONIA PASJONATÓW
-   SCRIPT.JS
+   SCRIPT.JS — WERSJA 1.0
    TRYB JASNY / CIEMNY
    ========================================================= */
 
 
 /* =========================================================
    1. PRZEŁĄCZNIK MOTYWU
-========================================================= */
+   ========================================================= */
 
-const themeToggle = document.getElementById("themeToggle");
+const themeToggle =
+    document.getElementById("themeToggle");
 
 
 /* =========================================================
    2. ODCZYT ZAPISANEGO MOTYWU
-========================================================= */
+   ========================================================= */
 
 const savedTheme =
     localStorage.getItem("theme") || "dark";
@@ -22,22 +23,28 @@ const savedTheme =
 
 /* =========================================================
    3. ZMIANA MOTYWU
-========================================================= */
+   ========================================================= */
 
 function applyTheme(theme) {
 
     if (theme === "light") {
 
-        document.body.classList.add("light");
+        document.body.classList.add(
+            "light-theme"
+        );
 
     } else {
 
-        document.body.classList.remove("light");
+        document.body.classList.remove(
+            "light-theme"
+        );
 
     }
 
 
-    /* Zmiana samej ikonki */
+    /* =====================================================
+       ZMIANA IKONY
+       ===================================================== */
 
     if (themeToggle) {
 
@@ -46,10 +53,20 @@ function applyTheme(theme) {
                 ? "🌙"
                 : "☀️";
 
+
+        themeToggle.setAttribute(
+            "aria-label",
+            theme === "light"
+                ? "Włącz tryb ciemny"
+                : "Włącz tryb jasny"
+        );
+
     }
 
 
-    /* Zapamiętanie wyboru */
+    /* =====================================================
+       ZAPISANIE MOTYWU
+       ===================================================== */
 
     localStorage.setItem(
         "theme",
@@ -60,15 +77,15 @@ function applyTheme(theme) {
 
 
 /* =========================================================
-   4. URUCHOMIENIE MOTYWU
-========================================================= */
+   4. URUCHOMIENIE ZAPISANEGO MOTYWU
+   ========================================================= */
 
 applyTheme(savedTheme);
 
 
 /* =========================================================
    5. PRZYCISK JASNY / CIEMNY
-========================================================= */
+   ========================================================= */
 
 if (themeToggle) {
 
@@ -77,7 +94,8 @@ if (themeToggle) {
         () => {
 
             const currentTheme =
-                localStorage.getItem("theme") || "dark";
+                localStorage.getItem("theme")
+                || "dark";
 
 
             if (currentTheme === "dark") {
@@ -90,6 +108,37 @@ if (themeToggle) {
 
             }
 
+
+            /* =================================================
+               ANIMACJA PRZYCISKU
+               ================================================= */
+
+            themeToggle.animate(
+
+                [
+                    {
+                        transform:
+                            "rotate(0deg) scale(1)"
+                    },
+
+                    {
+                        transform:
+                            "rotate(180deg) scale(1.12)"
+                    },
+
+                    {
+                        transform:
+                            "rotate(360deg) scale(1)"
+                    }
+                ],
+
+                {
+                    duration: 450,
+                    easing: "ease"
+                }
+
+            );
+
         }
     );
 
@@ -98,7 +147,7 @@ if (themeToggle) {
 
 /* =========================================================
    6. ANIMACJA PO ZAŁADOWANIU STRONY
-========================================================= */
+   ========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
@@ -114,22 +163,24 @@ document.addEventListener(
 
 /* =========================================================
    7. OBSŁUGA LINKÓW ZEWNĘTRZNYCH
-========================================================= */
+   ========================================================= */
 
-document.querySelectorAll(
-    'a[target="_blank"]'
-).forEach(
-    link => {
+document
+    .querySelectorAll(
+        'a[target="_blank"]'
+    )
+    .forEach(
+        link => {
 
-        link.setAttribute(
-            "rel",
-            "noopener noreferrer"
-        );
+            link.setAttribute(
+                "rel",
+                "noopener noreferrer"
+            );
 
-    }
-);
+        }
+    );
 
 
 /* =========================================================
    8. KONIEC SCRIPT.JS
-========================================================= */
+   ========================================================= */
