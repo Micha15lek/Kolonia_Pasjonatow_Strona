@@ -2276,3 +2276,140 @@ footer {
             0.01ms !important;
     }
 }
+
+
+/* =========================================================
+   KALENDARZ / HISTORIA / ADMINISTRACJA
+========================================================= */
+
+/* Kafelki tych sekcji */
+
+.info-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Delikatny efekt po najechaniu */
+
+.info-card:hover {
+    transform: translateY(-6px);
+}
+
+
+/* =========================================================
+   KALENDARZ
+========================================================= */
+
+.info-card:has(.card-icon:first-child) {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+/* =========================================================
+   IKONY KAFELKÓW
+========================================================= */
+
+.card-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+
+    border-radius: 16px;
+
+    margin-bottom: 18px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.info-card:hover .card-icon {
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   KALENDARZ
+========================================================= */
+
+.info-card h2 {
+    margin-bottom: 12px;
+}
+
+.info-card p {
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   HISTORIA
+========================================================= */
+
+.info-card .button {
+    margin-top: 10px;
+}
+
+
+/* =========================================================
+   ADMINISTRACJA
+========================================================= */
+
+.info-card:last-child {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   TRYB JASNY
+========================================================= */
+
+body.light .card-icon {
+    background: rgba(0, 0, 0, 0.05);
+
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+body.light .info-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   TELEFON
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .info-card {
+        padding: 24px;
+    }
+
+    .card-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 25px;
+    }
+
+    .info-card h2 {
+        font-size: 21px;
+    }
+
+    .info-card p {
+        font-size: 15px;
+    }
+
+}
