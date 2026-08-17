@@ -28,7 +28,7 @@
             🏆 Ranking
         </a>
 
-        <a href="statystyki.html">
+        <a href="statystyki.html" class="active">
             ⏱️ Licznik
         </a>
 
@@ -61,98 +61,368 @@
 
 <main>
 
+
     <!-- =====================================================
          HERO
     ====================================================== -->
 
     <section class="hero">
 
-        <h1>
-            ⏱️ Licznik
-        </h1>
+        <div class="hero-content">
 
-        <p>
-            Sprawdź, jak długo działa Kolonia Pasjonatów
-            oraz jej oficjalna strona i ile czasu pozostało
-            do najważniejszych wydarzeń.
-        </p>
+            <span class="section-label">
+                ⏱️ KOLONIA PASJONATÓW
+            </span>
+
+            <h1>
+                Licznik<br>
+                <span>czasu</span>
+            </h1>
+
+            <p>
+                Sprawdź, jak długo działa Kolonia Pasjonatów,
+                jej oficjalna strona oraz ile czasu pozostało
+                do najważniejszych wydarzeń.
+            </p>
+
+        </div>
 
     </section>
 
 
     <!-- =====================================================
-         CZAS DZIAŁANIA
+         WAŻNE ODLICZANIA
     ====================================================== -->
 
-    <section class="section">
+    <section class="section important-countdowns">
 
-        <h2 class="section-title">
-            ⏱️ Czas działania
-        </h2>
+        <div class="section-header">
 
-        <div class="info-grid">
+            <span class="section-label">
+                🌟 NAJWAŻNIEJSZE
+            </span>
+
+            <h2 class="section-title">
+                Ważne odliczania
+            </h2>
+
+            <p class="section-description">
+                Sprawdź, jak długo działa Kolonia Pasjonatów
+                oraz jej oficjalna strona internetowa.
+            </p>
+
+        </div>
+
+
+        <div class="important-countdown-grid">
 
 
             <!-- KOLONIA -->
 
-            <article class="info-card">
+            <article class="important-countdown-card">
 
-                <h2>
-                    🌟 Kolonia Pasjonatów
-                </h2>
-
-                <p>
-                    Kolonia Pasjonatów działa już:
-                </p>
-
-                <div
-                    class="stat-number"
-                    id="colonyUptime">
-
-                    Ładowanie...
-
+                <div class="important-countdown-icon">
+                    🌟
                 </div>
 
-                <small>
-                    Start: 11.06.2026
-                </small>
+                <div class="important-countdown-content">
+
+                    <span class="important-countdown-label">
+                        START SPOŁECZNOŚCI
+                    </span>
+
+                    <h2>
+                        Kolonia Pasjonatów
+                    </h2>
+
+                    <p>
+                        Nasza społeczność działa już:
+                    </p>
+
+                    <div
+                        class="important-countdown-number"
+                        id="colonyUptime">
+
+                        Ładowanie...
+
+                    </div>
+
+                    <span class="important-countdown-date">
+                        📅 Start: 11.06.2026
+                    </span>
+
+                </div>
 
             </article>
 
 
             <!-- STRONA -->
 
-            <article class="info-card">
+            <article class="important-countdown-card">
+
+                <div class="important-countdown-icon">
+                    🌐
+                </div>
+
+                <div class="important-countdown-content">
+
+                    <span class="important-countdown-label">
+                        START STRONY
+                    </span>
+
+                    <h2>
+                        Oficjalna strona
+                    </h2>
+
+                    <p>
+                        Oficjalna strona działa już:
+                    </p>
+
+                    <div
+                        class="important-countdown-number"
+                        id="websiteUptime">
+
+                        Ładowanie...
+
+                    </div>
+
+                    <span class="important-countdown-date">
+                        📅 Start: 13.08.2026, 20:10
+                    </span>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         POZOSTAŁE ODLICZANIA
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                ⏳ NADCHODZĄCE DATY
+            </span>
+
+            <h2 class="section-title">
+                Pozostałe odliczania
+            </h2>
+
+            <p class="section-description">
+                Czas pozostały do najważniejszych świąt,
+                wydarzeń i końca roku.
+            </p>
+
+        </div>
+
+
+        <div class="info-grid">
+
+
+            <!-- WAKACJE -->
+
+            <article class="info-card countdown-card">
+
+                <div class="card-icon">
+                    🏖️
+                </div>
 
                 <h2>
-                    🌐 Strona internetowa
+                    Wakacje
                 </h2>
 
                 <p>
-                    Oficjalna strona działa już:
+                    Czas pozostały do końca wakacji
+                    lub rozpoczęcia kolejnych.
                 </p>
 
                 <div
-                    class="stat-number"
-                    id="websiteUptime">
+                    class="countdown-number"
+                    id="daysToSummerEnd">
 
                     Ładowanie...
 
                 </div>
 
-                <small>
-                    Start: 13.08.2026, 20:10
-                </small>
+            </article>
+
+
+            <!-- HALLOWEEN -->
+
+            <article class="info-card countdown-card">
+
+                <div class="card-icon">
+                    🎃
+                </div>
+
+                <h2>
+                    Halloween
+                </h2>
+
+                <p>
+                    Czas pozostały do najbliższego Halloween.
+                </p>
+
+                <div
+                    class="countdown-number"
+                    id="daysToHalloween">
+
+                    Ładowanie...
+
+                </div>
 
             </article>
 
 
-            <!-- CZŁONKOWIE -->
+            <!-- WIGILIA -->
+
+            <article class="info-card countdown-card">
+
+                <div class="card-icon">
+                    🎄
+                </div>
+
+                <h2>
+                    Wigilia
+                </h2>
+
+                <p>
+                    Czas pozostały do najbliższej Wigilii.
+                </p>
+
+                <div
+                    class="countdown-number"
+                    id="daysToChristmas">
+
+                    Ładowanie...
+
+                </div>
+
+            </article>
+
+
+            <!-- NOWY ROK -->
+
+            <article class="info-card countdown-card">
+
+                <div class="card-icon">
+                    🎆
+                </div>
+
+                <h2>
+                    Nowy Rok
+                </h2>
+
+                <p>
+                    Czas pozostały do najbliższego Nowego Roku.
+                </p>
+
+                <div
+                    class="countdown-number"
+                    id="daysToNewYear">
+
+                    Ładowanie...
+
+                </div>
+
+            </article>
+
+
+            <!-- KONIEC ROKU -->
+
+            <article class="info-card countdown-card">
+
+                <div class="card-icon">
+                    📅
+                </div>
+
+                <h2>
+                    Koniec roku
+                </h2>
+
+                <p>
+                    Czas pozostały do końca bieżącego roku.
+                </p>
+
+                <div
+                    class="countdown-number"
+                    id="daysToYearEnd">
+
+                    Ładowanie...
+
+                </div>
+
+            </article>
+
+
+            <!-- WIELKANOC -->
+
+            <article class="info-card countdown-card">
+
+                <div class="card-icon">
+                    🐣
+                </div>
+
+                <h2>
+                    Wielkanoc
+                </h2>
+
+                <p>
+                    Czas pozostały do najbliższej Wielkanocy.
+                </p>
+
+                <div
+                    class="countdown-number"
+                    id="daysToEaster">
+
+                    Ładowanie...
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CZŁONKOWIE
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                👥 SPOŁECZNOŚĆ
+            </span>
+
+            <h2 class="section-title">
+                Członkowie
+            </h2>
+
+        </div>
+
+
+        <div class="info-grid">
 
             <article class="info-card">
 
+                <div class="card-icon">
+                    👥
+                </div>
+
                 <h2>
-                    👥 Członkowie
+                    Liczba członków
                 </h2>
 
                 <p>
@@ -176,170 +446,23 @@
 
 
     <!-- =====================================================
-         ODLICZANIE
-    ====================================================== -->
-
-    <section class="section">
-
-        <h2 class="section-title">
-            ⏳ Odliczanie
-        </h2>
-
-        <div class="info-grid">
-
-
-            <!-- WAKACJE -->
-
-            <article class="info-card">
-
-                <h2>
-                    🏖️ Wakacje
-                </h2>
-
-                <p>
-                    Czas pozostały do końca wakacji
-                    lub rozpoczęcia kolejnych.
-                </p>
-
-                <div
-                    class="countdown-number"
-                    id="daysToSummerEnd">
-
-                    Ładowanie...
-
-                </div>
-
-            </article>
-
-
-            <!-- HALLOWEEN -->
-
-            <article class="info-card">
-
-                <h2>
-                    🎃 Halloween
-                </h2>
-
-                <p>
-                    Czas pozostały do najbliższego Halloween.
-                </p>
-
-                <div
-                    class="countdown-number"
-                    id="daysToHalloween">
-
-                    Ładowanie...
-
-                </div>
-
-            </article>
-
-
-            <!-- WIGILIA -->
-
-            <article class="info-card">
-
-                <h2>
-                    🎄 Wigilia
-                </h2>
-
-                <p>
-                    Czas pozostały do najbliższej Wigilii.
-                </p>
-
-                <div
-                    class="countdown-number"
-                    id="daysToChristmas">
-
-                    Ładowanie...
-
-                </div>
-
-            </article>
-
-
-            <!-- NOWY ROK -->
-
-            <article class="info-card">
-
-                <h2>
-                    🎆 Nowy Rok
-                </h2>
-
-                <p>
-                    Czas pozostały do najbliższego Nowego Roku.
-                </p>
-
-                <div
-                    class="countdown-number"
-                    id="daysToNewYear">
-
-                    Ładowanie...
-
-                </div>
-
-            </article>
-
-
-            <!-- KONIEC ROKU -->
-
-            <article class="info-card">
-
-                <h2>
-                    📅 Koniec roku
-                </h2>
-
-                <p>
-                    Czas pozostały do końca bieżącego roku.
-                </p>
-
-                <div
-                    class="countdown-number"
-                    id="daysToYearEnd">
-
-                    Ładowanie...
-
-                </div>
-
-            </article>
-
-
-            <!-- WIELKANOC -->
-
-            <article class="info-card">
-
-                <h2>
-                    🐣 Wielkanoc
-                </h2>
-
-                <p>
-                    Czas pozostały do najbliższej Wielkanocy.
-                </p>
-
-                <div
-                    class="countdown-number"
-                    id="daysToEaster">
-
-                    Ładowanie...
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
          SZCZEGÓŁOWE CZASY
     ====================================================== -->
 
     <section class="section">
 
-        <h2 class="section-title">
-            📊 Szczegółowe czasy
-        </h2>
+        <div class="section-header">
+
+            <span class="section-label">
+                📊 DOKŁADNE DANE
+            </span>
+
+            <h2 class="section-title">
+                Szczegółowe czasy
+            </h2>
+
+        </div>
+
 
         <div class="info-grid">
 
@@ -348,8 +471,12 @@
 
             <article class="info-card">
 
+                <div class="card-icon">
+                    🌟
+                </div>
+
                 <h2>
-                    🌟 Kolonia Pasjonatów
+                    Kolonia Pasjonatów
                 </h2>
 
                 <p>
@@ -357,8 +484,12 @@
                     działalności społeczności:
                 </p>
 
-                <strong id="detailedUptime">
+                <strong
+                    class="detailed-time"
+                    id="detailedUptime">
+
                     Ładowanie...
+
                 </strong>
 
             </article>
@@ -368,8 +499,12 @@
 
             <article class="info-card">
 
+                <div class="card-icon">
+                    🌐
+                </div>
+
                 <h2>
-                    🌐 Strona internetowa
+                    Strona internetowa
                 </h2>
 
                 <p>
@@ -377,11 +512,16 @@
                     uruchomienia strony:
                 </p>
 
-                <strong id="websiteDetailedUptime">
+                <strong
+                    class="detailed-time"
+                    id="websiteDetailedUptime">
+
                     Ładowanie...
+
                 </strong>
 
             </article>
+
 
         </div>
 
@@ -394,10 +534,14 @@
 
     <section class="section">
 
-        <div class="info-card">
+        <div class="info-card last-update-card">
+
+            <div class="card-icon">
+                🔄
+            </div>
 
             <h2>
-                🔄 Ostatnia aktualizacja licznika
+                Ostatnia aktualizacja licznika
             </h2>
 
             <p id="lastUpdate">
@@ -408,22 +552,42 @@
 
     </section>
 
+
 </main>
 
 
-<!-- =====================================================
+<!-- =========================================================
      STOPKA
-====================================================== -->
+========================================================= -->
 
 <footer>
 
-    <p>
-        © 2026 Kolonia Pasjonatów
-    </p>
+    <div class="footer-content">
 
-    <p>
+        <div>
+
+            <div class="logo">
+                🌟 Kolonia Pasjonatów
+            </div>
+
+            <p>
+                Oficjalna strona naszej społeczności.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 Kolonia Pasjonatów
+
+        <br>
+
         🌟 Oficjalna strona społeczności
-    </p>
+
+    </div>
 
 </footer>
 
