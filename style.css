@@ -3747,3 +3747,323 @@ body.light-theme .history-category {
     }
 
 }
+
+
+/* =========================================================
+   LICZNIK — WAŻNE ODLICZANIA
+========================================================= */
+
+.important-countdowns {
+    position: relative;
+}
+
+.important-countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.important-countdown-card {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 22px;
+
+    min-width: 0;
+
+    padding: 30px;
+
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow-small);
+
+    overflow: hidden;
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition),
+        box-shadow var(--transition);
+}
+
+.important-countdown-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--accent),
+            transparent
+        );
+
+    opacity: 0.7;
+}
+
+.important-countdown-card:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(229, 85, 108, 0.35);
+
+    background: var(--bg-card-hover);
+
+    box-shadow: var(--shadow);
+}
+
+.important-countdown-icon {
+    flex-shrink: 0;
+
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background:
+        rgba(229, 85, 108, 0.09);
+
+    border:
+        1px solid
+        rgba(229, 85, 108, 0.18);
+
+    font-size: 1.7rem;
+}
+
+.important-countdown-content {
+    min-width: 0;
+}
+
+.important-countdown-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--accent);
+
+    font-size: 0.7rem;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+}
+
+.important-countdown-content h2 {
+    margin-bottom: 7px;
+
+    color: var(--text-main);
+
+    font-size: 1.45rem;
+
+    line-height: 1.2;
+}
+
+.important-countdown-content p {
+    margin-bottom: 13px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+}
+
+.important-countdown-number {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--text-main);
+
+    font-size: clamp(1.1rem, 2vw, 1.55rem);
+
+    line-height: 1.35;
+
+    font-weight: 850;
+
+    letter-spacing: -0.4px;
+
+    overflow-wrap: anywhere;
+}
+
+.important-countdown-date {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 6px 10px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(229, 85, 108, 0.07);
+
+    color: var(--text-muted);
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   LICZNIK — POZOSTAŁE ODLICZANIA
+========================================================= */
+
+.countdown-card {
+    min-width: 0;
+}
+
+.countdown-number {
+    display: block;
+
+    margin-top: 16px;
+
+    padding: 12px 14px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(229, 85, 108, 0.06);
+
+    border:
+        1px solid
+        rgba(229, 85, 108, 0.10);
+
+    color: var(--text-main);
+
+    font-size: 0.92rem;
+
+    line-height: 1.5;
+
+    font-weight: 750;
+
+    overflow-wrap: anywhere;
+}
+
+.detailed-time {
+    display: block;
+
+    margin-top: 15px;
+
+    padding: 12px 14px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(229, 85, 108, 0.06);
+
+    color: var(--text-main);
+
+    font-size: 0.95rem;
+
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+}
+
+.last-update-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.last-update-card .card-icon {
+    flex-shrink: 0;
+
+    margin-bottom: 0;
+}
+
+.last-update-card p {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   LICZNIK — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .important-countdown-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   LICZNIK — TELEFON
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .important-countdown-card {
+        padding: 24px;
+
+        gap: 16px;
+    }
+
+    .important-countdown-icon {
+        width: 54px;
+        height: 54px;
+
+        font-size: 1.45rem;
+    }
+
+    .important-countdown-content h2 {
+        font-size: 1.25rem;
+    }
+
+    .important-countdown-number {
+        font-size: 1rem;
+    }
+
+    .last-update-card {
+        align-items: flex-start;
+    }
+
+}
+
+
+/* =========================================================
+   LICZNIK — MAŁY TELEFON
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .important-countdown-card {
+        flex-direction: column;
+
+        padding: 21px;
+    }
+
+    .important-countdown-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .important-countdown-number {
+        font-size: 0.9rem;
+    }
+
+    .countdown-number,
+    .detailed-time {
+        font-size: 0.85rem;
+    }
+
+}
