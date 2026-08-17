@@ -7,6 +7,7 @@
 
     <title>Historia | Kolonia Pasjonatów</title>
 
+    <!-- WSPÓLNY CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,26 +19,18 @@
         🌟 Kolonia Pasjonatów
     </div>
 
-    <!-- TYLKO POWRÓT DO STRONY GŁÓWNEJ -->
-
     <nav>
-
         <a href="index.html">
             🏠 Strona główna
         </a>
-
     </nav>
-
-    <!-- TRYB JASNY / CIEMNY -->
 
     <button
         id="themeToggle"
         class="theme-toggle"
         type="button"
         aria-label="Zmień motyw">
-
         ☀️
-
     </button>
 
 </header>
@@ -45,21 +38,30 @@
 
 <main>
 
-
     <!-- =====================================================
          HERO
     ====================================================== -->
 
     <section class="hero">
 
-        <h1>
-            📜 Historia Kolonii Pasjonatów
-        </h1>
+        <div class="hero-content">
 
-        <p>
-            Poznaj najważniejsze wydarzenia w historii
-            naszej społeczności.
-        </p>
+            <span class="section-label">
+                📜 NASZA HISTORIA
+            </span>
+
+            <h1>
+                Historia
+                <span>Kolonii Pasjonatów</span>
+            </h1>
+
+            <p>
+                Poznaj najważniejsze wydarzenia, które
+                doprowadziły do powstania i rozwoju
+                naszej społeczności.
+            </p>
+
+        </div>
 
     </section>
 
@@ -68,12 +70,32 @@
          OŚ CZASU
     ====================================================== -->
 
-    <section class="history-page">
+    <section class="section history-page">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                🕐 OŚ CZASU
+            </span>
+
+            <h2 class="section-title">
+                Najważniejsze momenty
+            </h2>
+
+            <p class="section-description">
+                Od rozpoczęcia tworzenia serwera aż po
+                powstanie obecnej strony internetowej.
+            </p>
+
+        </div>
+
 
         <div class="history-list">
 
 
-            <!-- 05.04.2026 -->
+            <!-- =================================================
+                 05.04.2026
+            ================================================== -->
 
             <article class="history-item creation">
 
@@ -99,7 +121,9 @@
             </article>
 
 
-            <!-- 11.06.2026 -->
+            <!-- =================================================
+                 11.06.2026
+            ================================================== -->
 
             <article class="history-item event">
 
@@ -108,13 +132,13 @@
                 </div>
 
                 <h2 class="history-title">
-                    🎉 Otwarcie serwera
+                    🎉 Oficjalny start społeczności
                 </h2>
 
                 <p class="history-description">
-                    Serwer
-                    <strong>Widzowie Kolejowy_Michał</strong>
-                    został oficjalnie otwarty dla społeczności.
+                    Oficjalnie wystartowała nasza społeczność
+                    pod nazwą
+                    <strong>Widzowie Kolejowy_Michał</strong>.
                 </p>
 
                 <span class="history-category">
@@ -124,7 +148,38 @@
             </article>
 
 
-            <!-- 16.06.2026 -->
+            <!-- =================================================
+                 11.06–20.06.2026
+            ================================================== -->
+
+            <article class="history-item special">
+
+                <div class="history-date">
+                    11.06–20.06.2026
+                </div>
+
+                <h2 class="history-title">
+                    ⚽ Strefa Kibica MŚ 2026
+                </h2>
+
+                <p class="history-description">
+                    Odbyła się pierwsza większa strefa na
+                    naszym serwerze pod tytułem
+                    <strong>„Strefa Kibica MŚ 2026”</strong>.
+                    Było to pierwsze większe wydarzenie
+                    zorganizowane dla naszej społeczności.
+                </p>
+
+                <span class="history-category">
+                    Wydarzenie specjalne
+                </span>
+
+            </article>
+
+
+            <!-- =================================================
+                 16.06.2026
+            ================================================== -->
 
             <article class="history-item update">
 
@@ -150,21 +205,27 @@
             </article>
 
 
-            <!-- OBECNIE -->
+            <!-- =================================================
+                 28.06.2026
+            ================================================== -->
 
-            <article class="history-item important">
+            <article class="history-item update">
 
                 <div class="history-date">
-                    Obecnie
+                    28.06.2026
                 </div>
 
                 <h2 class="history-title">
-                    🌟 Kolonia Pasjonatów
+                    🌟 Zmiana nazwy na Kolonia Pasjonatów
                 </h2>
 
                 <p class="history-description">
-                    Obecną nazwą społeczności jest
+                    Społeczność zmieniła nazwę z
+                    <strong>Miłośnicy Kolei Polska</strong>
+                    na
                     <strong>Kolonia Pasjonatów</strong>.
+                    Jest to nazwa, którą społeczność nosi
+                    obecnie.
                 </p>
 
                 <span class="history-category">
@@ -174,10 +235,39 @@
             </article>
 
 
+            <!-- =================================================
+                 13.08.2026
+            ================================================== -->
+
+            <article class="history-item important">
+
+                <div class="history-date">
+                    13.08.2026
+                </div>
+
+                <h2 class="history-title">
+                    🌐 Start strony serwerowej
+                </h2>
+
+                <p class="history-description">
+                    Uruchomiona została oficjalna strona
+                    serwerowa
+                    <strong>Kolonii Pasjonatów</strong>.
+                    Strona stała się miejscem, w którym można
+                    znaleźć najważniejsze informacje dotyczące
+                    naszej społeczności.
+                </p>
+
+                <span class="history-category">
+                    Ważne wydarzenie
+                </span>
+
+            </article>
+
+
         </div>
 
     </section>
-
 
 </main>
 
@@ -188,18 +278,64 @@
 
 <footer>
 
-    <p>
-        © 2026 Kolonia Pasjonatów
-    </p>
+    <div class="footer-content">
 
-    <p>
+        <div>
+
+            <div class="logo">
+                🌟 Kolonia Pasjonatów
+            </div>
+
+            <p>
+                Oficjalna strona naszej społeczności.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h3>
+                Nawigacja
+            </h3>
+
+            <a href="index.html">
+                🏠 Strona główna
+            </a>
+
+        </div>
+
+        <div>
+
+            <h3>
+                Informacje
+            </h3>
+
+            <span>
+                📜 Historia społeczności
+            </span>
+
+            <span>
+                📅 Kalendarz wydarzeń
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 Kolonia Pasjonatów<br>
         🌟 Oficjalna strona społeczności
-    </p>
+
+    </div>
 
 </footer>
 
 
-<!-- WSPÓLNY SKRYPT -->
+<!-- =====================================================
+     WSPÓLNY SKRYPT
+====================================================== -->
 
 <script src="script.js"></script>
 
