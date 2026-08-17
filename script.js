@@ -9,50 +9,39 @@
    1. PRZEŁĄCZNIK MOTYWU
    ========================================================= */
 
-const themeToggle =
-    document.getElementById("themeToggle");
+const themeToggle = document.getElementById("themeToggle");
 
 
 /* =========================================================
    2. ODCZYT ZAPISANEGO MOTYWU
    ========================================================= */
 
-const savedTheme =
-    localStorage.getItem("theme") || "dark";
+const savedTheme = localStorage.getItem("theme") || "dark";
 
 
 /* =========================================================
-   3. ZMIANA MOTYWU
+   3. USTAWIENIE MOTYWU
    ========================================================= */
 
 function applyTheme(theme) {
 
     if (theme === "light") {
 
-        document.body.classList.add(
-            "light-theme"
-        );
+        document.body.classList.add("light-theme");
 
     } else {
 
-        document.body.classList.remove(
-            "light-theme"
-        );
+        document.body.classList.remove("light-theme");
 
     }
 
 
-    /* =====================================================
-       ZMIANA IKONY
-       ===================================================== */
+    /* Zmiana ikonki */
 
     if (themeToggle) {
 
         themeToggle.textContent =
-            theme === "light"
-                ? "🌙"
-                : "☀️";
-
+            theme === "light" ? "🌙" : "☀️";
 
         themeToggle.setAttribute(
             "aria-label",
@@ -64,14 +53,9 @@ function applyTheme(theme) {
     }
 
 
-    /* =====================================================
-       ZAPISANIE MOTYWU
-       ===================================================== */
+    /* Zapamiętanie wyboru */
 
-    localStorage.setItem(
-        "theme",
-        theme
-    );
+    localStorage.setItem("theme", theme);
 
 }
 
@@ -84,103 +68,75 @@ applyTheme(savedTheme);
 
 
 /* =========================================================
-   5. PRZYCISK JASNY / CIEMNY
+   5. PRZYCISK ZMIANY MOTYWU
    ========================================================= */
 
 if (themeToggle) {
 
-    themeToggle.addEventListener(
-        "click",
-        () => {
+    themeToggle.addEventListener("click", () => {
 
-            const currentTheme =
-                localStorage.getItem("theme")
-                || "dark";
+        const currentTheme =
+            localStorage.getItem("theme") || "dark";
 
 
-            if (currentTheme === "dark") {
+        if (currentTheme === "dark") {
 
-                applyTheme("light");
+            applyTheme("light");
 
-            } else {
+        } else {
 
-                applyTheme("dark");
-
-            }
-
-
-            /* =================================================
-               ANIMACJA PRZYCISKU
-               ================================================= */
-
-            themeToggle.animate(
-
-                [
-                    {
-                        transform:
-                            "rotate(0deg) scale(1)"
-                    },
-
-                    {
-                        transform:
-                            "rotate(180deg) scale(1.12)"
-                    },
-
-                    {
-                        transform:
-                            "rotate(360deg) scale(1)"
-                    }
-                ],
-
-                {
-                    duration: 450,
-                    easing: "ease"
-                }
-
-            );
+            applyTheme("dark");
 
         }
-    );
+
+
+        /* Animacja przycisku */
+
+        themeToggle.animate(
+            [
+                {
+                    transform: "rotate(0deg) scale(1)"
+                },
+                {
+                    transform: "rotate(180deg) scale(1.12)"
+                },
+                {
+                    transform: "rotate(360deg) scale(1)"
+                }
+            ],
+            {
+                duration: 450,
+                easing: "ease"
+            }
+        );
+
+    });
 
 }
 
 
 /* =========================================================
-   6. ANIMACJA PO ZAŁADOWANIU STRONY
+   6. ANIMACJA STRONY
    ========================================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-        document.body.classList.add(
-            "page-loaded"
-        );
+    document.body.classList.add("page-loaded");
 
-    }
-);
+});
 
 
 /* =========================================================
-   7. OBSŁUGA LINKÓW ZEWNĘTRZNYCH
+   7. LINKI ZEWNĘTRZNE
    ========================================================= */
 
 document
-    .querySelectorAll(
-        'a[target="_blank"]'
-    )
-    .forEach(
-        link => {
+    .querySelectorAll('a[target="_blank"]')
+    .forEach(link => {
 
-            link.setAttribute(
-                "rel",
-                "noopener noreferrer"
-            );
+        link.setAttribute(
+            "rel",
+            "noopener noreferrer"
+        );
 
-        }
-    );
-
-
-/* =========================================================
-   8. KONIEC SCRIPT.JS
-   ========================================================= */
+    });
