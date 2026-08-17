@@ -3636,3 +3636,114 @@ body.light-theme .history-category {
     color:
         var(--text-muted);
 }
+
+
+/* =========================================================
+   ADMINISTRACJA — OSOBY
+   ========================================================= */
+
+.admin-members {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.admin-member {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    padding: 13px 15px;
+
+    background:
+        rgba(229, 85, 108, 0.06);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        12px;
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition);
+}
+
+.admin-member:hover {
+    transform: translateX(5px);
+
+    background:
+        rgba(229, 85, 108, 0.10);
+
+    border-color:
+        rgba(229, 85, 108, 0.30);
+}
+
+.admin-member strong {
+    color: var(--text-main);
+
+    font-size: 0.95rem;
+
+    font-weight: 850;
+}
+
+.admin-member span {
+    color: var(--text-secondary);
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   WŁAŚCICIEL
+   ========================================================= */
+
+.admin-member.owner {
+    border-color:
+        rgba(240, 185, 90, 0.30);
+
+    background:
+        rgba(240, 185, 90, 0.08);
+}
+
+.admin-member.owner span {
+    color: var(--warning);
+}
+
+
+/* =========================================================
+   ADMINISTRACJA — TELEFON
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .admin-member {
+        padding: 12px 13px;
+    }
+
+    .admin-member strong {
+        font-size: 0.9rem;
+    }
+
+    .admin-member span {
+        font-size: 0.75rem;
+    }
+
+}
+
+
+/* =========================================================
+   ADMINISTRACJA — MAŁY TELEFON
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .admin-member {
+        padding: 11px 12px;
+    }
+
+}
