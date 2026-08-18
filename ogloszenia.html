@@ -32,7 +32,7 @@
             ⏱️ Licznik
         </a>
 
-        <a href="ogloszenia.html">
+        <a href="ogloszenia.html" class="active">
             📢 Ogłoszenia
         </a>
 
@@ -61,72 +61,119 @@
 
 <main>
 
-    <!-- HERO -->
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
 
     <section class="hero">
 
-        <h1>
-            📢 Ogłoszenia Kolonii Pasjonatów
-        </h1>
+        <div class="hero-content">
 
-        <p>
-            Najważniejsze informacje, komunikaty
-            oraz aktualności dotyczące naszej społeczności.
-        </p>
+            <span class="section-label">
+                📢 CENTRUM INFORMACJI
+            </span>
 
-    </section>
+            <h1>
+                Ogłoszenia<br>
+                <span>Kolonii Pasjonatów</span>
+            </h1>
 
-
-    <!-- OGŁOSZENIA -->
-
-    <section class="section">
-
-        <h2 class="section-title">
-            📌 Najnowsze ogłoszenia
-        </h2>
-
-        <div class="info-grid">
-
-            <article class="info-card">
-
-                <span class="status">
-                    🟢 DZIAŁA
-                </span>
-
-                <h2>
-                    🌐 Status naszej strony internetowej
-                </h2>
-
-                <p>
-                    Oficjalna strona internetowa
-                    <strong>Kolonii Pasjonatów</strong>
-                    została uruchomiona! 🎉
-                </p>
-
-                <p>
-                    🚀 To dopiero początek! W najbliższym czasie
-                    pojawi się więcej funkcji, informacji oraz
-                    nowych elementów na stronie.
-                </p>
-
-                <p>
-                    📧 Jeżeli znajdziesz błąd, niedziałającą funkcję
-                    lub inną usterkę, skontaktuj się z nami przez
-                    e-mail.
-                </p>
-
-                <small>
-                    📅 Data uruchomienia: 13.08.2026
-                </small>
-
-            </article>
+            <p>
+                Najważniejsze informacje, aktualności
+                oraz komunikaty dotyczące naszej społeczności.
+            </p>
 
         </div>
 
     </section>
 
 
-    <!-- INFORMACJA -->
+    <!-- =====================================================
+         OGŁOSZENIA
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                📌 NAJNOWSZE INFORMACJE
+            </span>
+
+            <h2 class="section-title">
+                Najnowsze ogłoszenia
+            </h2>
+
+            <p class="section-description">
+                Tutaj znajdziesz najważniejsze informacje
+                dotyczące Kolonii Pasjonatów.
+            </p>
+
+        </div>
+
+
+        <div class="announcements-grid">
+
+
+            <!-- =================================================
+                 OGŁOSZENIE 1
+            ================================================== -->
+
+            <article class="announcement-card">
+
+                <div class="announcement-top">
+
+                    <span class="announcement-date">
+                        📅 13.08.2026
+                    </span>
+
+                    <span class="announcement-status">
+                        🟢 AKTUALNE
+                    </span>
+
+                </div>
+
+
+                <div class="announcement-icon">
+                    🌐
+                </div>
+
+
+                <h2>
+                    Oficjalnie ruszyła strona serwerowa!
+                </h2>
+
+
+                <p class="announcement-short">
+
+                    Oficjalna strona internetowa
+                    Kolonii Pasjonatów została uruchomiona! 🎉
+                    To kolejny krok w rozwoju naszej społeczności.
+
+                </p>
+
+
+                <button
+                    type="button"
+                    class="button button-primary read-more"
+                    data-modal="announcement1">
+
+                    Czytaj więcej →
+
+                </button>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INFORMACJA
+    ====================================================== -->
 
     <section class="section">
 
@@ -137,37 +184,276 @@
             </h2>
 
             <p>
-                Ogłoszenia będą na bieżąco aktualizowane.
-                W tym miejscu znajdziesz najważniejsze informacje
-                dotyczące strony oraz Kolonii Pasjonatów.
+                Ogłoszenia będą regularnie aktualizowane.
+                Wszystkie najważniejsze komunikaty znajdziesz
+                właśnie tutaj.
             </p>
 
         </div>
 
     </section>
 
+
 </main>
 
 
-<!-- STOPKA -->
+<!-- =====================================================
+     OKNO OGŁOSZENIA
+====================================================== -->
+
+<div
+    class="announcement-modal"
+    id="announcement1"
+    aria-hidden="true">
+
+    <div
+        class="announcement-modal-content"
+        role="dialog"
+        aria-modal="true">
+
+
+        <button
+            type="button"
+            class="modal-close"
+            aria-label="Zamknij">
+
+            ✕
+
+        </button>
+
+
+        <span class="section-label">
+            📢 OGŁOSZENIE
+        </span>
+
+
+        <p class="modal-date">
+            📅 13.08.2026
+        </p>
+
+
+        <h2>
+            🌐 Oficjalnie ruszyła strona serwerowa!
+        </h2>
+
+
+        <div class="modal-text">
+
+            <p>
+                🎉 Z przyjemnością informujemy, że
+                <strong>oficjalna strona internetowa
+                Kolonii Pasjonatów</strong> została uruchomiona!
+            </p>
+
+            <p>
+                Jest to kolejny ważny krok w rozwoju naszej
+                społeczności. Na stronie znajdziecie najważniejsze
+                informacje dotyczące Kolonii Pasjonatów.
+            </p>
+
+            <p>
+                🌟 Obecnie dostępne są między innymi:
+                ranking typerów, licznik, ogłoszenia oraz
+                kolejne przygotowywane podstrony.
+            </p>
+
+            <p>
+                🚀 To dopiero początek! Strona będzie
+                systematycznie rozwijana i w przyszłości
+                pojawią się kolejne funkcje.
+            </p>
+
+            <p>
+                ❤️ Dziękujemy wszystkim za wsparcie
+                i zapraszamy do dalszego rozwijania
+                Kolonii Pasjonatów razem z nami!
+            </p>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="button button-secondary modal-close">
+
+            Zamknij
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     STOPKA
+====================================================== -->
 
 <footer>
 
-    <p>
-        © 2026 Kolonia Pasjonatów
-    </p>
+    <div class="footer-content">
 
-    <p>
+        <div>
+
+            <div class="logo">
+                🌟 Kolonia Pasjonatów
+            </div>
+
+            <p>
+                Oficjalna strona naszej społeczności.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 Kolonia Pasjonatów
+
+        <br>
+
         🌟 Oficjalna strona społeczności
-    </p>
+
+    </div>
 
 </footer>
 
 
-<!-- GŁÓWNY SKRYPT -->
-
 <script src="script.js"></script>
+
+
+<!-- =====================================================
+     OBSŁUGA OKNA OGŁOSZENIA
+====================================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const openButtons =
+        document.querySelectorAll(".read-more");
+
+    const closeButtons =
+        document.querySelectorAll(".modal-close");
+
+
+    /* Otwieranie */
+
+    openButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const modalId =
+                button.getAttribute("data-modal");
+
+            const modal =
+                document.getElementById(modalId);
+
+            if (!modal) return;
+
+            modal.classList.add("show");
+
+            modal.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+            document.body.classList.add(
+                "modal-open"
+            );
+
+        });
+
+    });
+
+
+    /* Zamykanie */
+
+    closeButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const modal =
+                button.closest(".announcement-modal");
+
+            if (!modal) return;
+
+            modal.classList.remove("show");
+
+            modal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+        });
+
+    });
+
+
+    /* Kliknięcie poza oknem */
+
+    document.querySelectorAll(
+        ".announcement-modal"
+    ).forEach(function (modal) {
+
+        modal.addEventListener("click", function (event) {
+
+            if (event.target === modal) {
+
+                modal.classList.remove("show");
+
+                modal.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+
+                document.body.classList.remove(
+                    "modal-open"
+                );
+
+            }
+
+        });
+
+    });
+
+
+    /* ESC */
+
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key !== "Escape") return;
+
+        document.querySelectorAll(
+            ".announcement-modal.show"
+        ).forEach(function (modal) {
+
+            modal.classList.remove("show");
+
+            modal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+        });
+
+        document.body.classList.remove(
+            "modal-open"
+        );
+
+    });
+
+});
+
+</script>
+
 
 </body>
 
-            </html>
+</html>
