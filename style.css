@@ -4237,3 +4237,113 @@ body.light-theme .announcement-card:hover {
     border-color:
         rgba(229, 85, 108, 0.35);
 }
+
+
+/* =====================================================
+   ZAPRZYJAŹNIONE KANAŁY
+===================================================== */
+
+.channel-card {
+    min-width: 0;
+}
+
+.channel-avatar {
+    width: 90px;
+    height: 90px;
+
+    object-fit: cover;
+
+    margin-bottom: 18px;
+
+    border-radius: 50%;
+
+    border: 3px solid var(--accent);
+
+    box-shadow:
+        0 8px 25px rgba(229, 85, 108, 0.20);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+.channel-card:hover .channel-avatar {
+    transform: scale(1.06);
+
+    box-shadow:
+        0 12px 35px rgba(229, 85, 108, 0.30);
+}
+
+.channel-card .status {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.channel-card h2 {
+    margin-bottom: 10px;
+}
+
+.channel-card p {
+    margin-bottom: 18px;
+}
+
+.channel-achievement {
+    width: 100%;
+
+    margin-bottom: 20px;
+    padding: 11px 13px;
+
+    background:
+        rgba(229, 85, 108, 0.07);
+
+    border:
+        1px solid rgba(229, 85, 108, 0.15);
+
+    border-radius: 11px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.84rem;
+    line-height: 1.5;
+}
+
+.channel-achievement strong {
+    color: var(--accent);
+}
+
+.channel-card .button {
+    margin-top: auto;
+}
+
+
+/* TELEFON */
+
+@media (max-width: 760px) {
+
+    .channel-avatar {
+        width: 78px;
+        height: 78px;
+    }
+
+    .channel-card {
+        padding: 24px;
+    }
+
+}
+
+
+/* MAŁY TELEFON */
+
+@media (max-width: 420px) {
+
+    .channel-avatar {
+        width: 72px;
+        height: 72px;
+    }
+
+    .channel-card {
+        padding: 21px;
+    }
+
+}
