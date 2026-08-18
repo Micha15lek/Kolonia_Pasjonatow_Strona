@@ -116,7 +116,7 @@
 
 
             <!-- =================================================
-                 OGŁOSZENIE 13.08.2026
+                 OGŁOSZENIE
             ================================================== -->
 
             <article class="info-card">
@@ -134,8 +134,8 @@
                 </h2>
 
                 <p>
-                    Z radością informujemy, że oficjalna strona
-                    internetowa Kolonii Pasjonatów została uruchomiona! 🎉
+                    Oficjalna strona internetowa Kolonii Pasjonatów
+                    została uruchomiona! 🎉
                 </p>
 
                 <p>
@@ -143,9 +143,6 @@
                     W przyszłości pojawią się kolejne funkcje,
                     informacje oraz nowe elementy.
                 </p>
-
-
-                <!-- PRZYCISK -->
 
                 <button
                     type="button"
@@ -191,22 +188,24 @@
 
 
 <!-- =========================================================
-     OKNO Z PEŁNYM OGŁOSZENIEM
+     OKNO PEŁNEGO OGŁOSZENIA
 ========================================================= -->
 
 <div
     id="announcement-1"
-    class="announcement-modal"
-    style="display: none;">
+    class="announcement-modal">
 
-    <div class="info-card">
+    <div class="announcement-window">
+
+
+        <!-- ZAMKNIĘCIE -->
 
         <button
             type="button"
-            onclick="closeAnnouncement('announcement-1')"
-            aria-label="Zamknij">
+            class="button button-secondary announcement-close"
+            onclick="closeAnnouncement('announcement-1')">
 
-            ✕
+            ✕ Zamknij
 
         </button>
 
@@ -219,9 +218,11 @@
             📅 13.08.2026
         </small>
 
+
         <h2>
             🌐 Oficjalnie ruszyła strona Kolonii Pasjonatów!
         </h2>
+
 
         <p>
             Mamy przyjemność poinformować, że dnia
@@ -230,37 +231,51 @@
             Kolonii Pasjonatów! 🎉
         </p>
 
-        <p>
-            Od teraz wszystkie najważniejsze informacje,
-            aktualności, projekty oraz wydarzenia naszej
-            społeczności będą mogły znaleźć się w jednym miejscu.
-        </p>
 
         <p>
-            🚀 To jednak dopiero początek!
-            Strona będzie stopniowo rozwijana i w najbliższym
-            czasie mogą pojawić się nowe funkcje oraz podstrony.
+            Od teraz najważniejsze informacje, aktualności,
+            projekty oraz wydarzenia naszej społeczności
+            będą mogły znaleźć się w jednym miejscu.
         </p>
+
+
+        <p>
+            🚀 To dopiero początek!
+            Strona będzie stopniowo rozwijana i w przyszłości
+            pojawią się kolejne funkcje oraz nowe podstrony.
+        </p>
+
 
         <p>
             📢 Będziemy również regularnie publikować tutaj
             najważniejsze ogłoszenia dotyczące Kolonii Pasjonatów.
         </p>
 
+
         <p>
-            📧 Jeżeli zauważysz błąd, niedziałającą funkcję
+            📧 Jeżeli znajdziesz błąd, niedziałającą funkcję
             lub inną usterkę, poinformuj nas o tym poprzez
             kontakt dostępny na stronie.
         </p>
 
+
+        <p>
+            Dziękujemy wszystkim osobom, które są częścią
+            naszej społeczności i pomagają nam ją rozwijać! ❤️
+        </p>
+
+
         <br>
+
+
+        <!-- ZAMKNIĘCIE NA DOLE -->
 
         <button
             type="button"
             class="button button-secondary"
             onclick="closeAnnouncement('announcement-1')">
 
-            Zamknij
+            ✕ Zamknij ogłoszenie
 
         </button>
 
@@ -321,6 +336,8 @@ function openAnnouncement(id) {
 
     modal.style.display = "flex";
 
+    document.body.style.overflow = "hidden";
+
 }
 
 
@@ -332,17 +349,17 @@ function closeAnnouncement(id) {
 
     modal.style.display = "none";
 
+    document.body.style.overflow = "";
+
 }
 
 
-/*
-    Kliknięcie poza oknem
-    również zamyka ogłoszenie.
-*/
+/* Kliknięcie poza oknem */
 
 document.addEventListener("click", function(event) {
 
-    const modal = document.getElementById("announcement-1");
+    const modal =
+        document.getElementById("announcement-1");
 
     if (!modal) return;
 
@@ -358,15 +375,14 @@ document.addEventListener("click", function(event) {
 });
 
 
-/*
-    Klawisz ESC zamyka ogłoszenie.
-*/
+/* ESC na komputerze */
 
 document.addEventListener("keydown", function(event) {
 
     if (event.key !== "Escape") return;
 
-    const modal = document.getElementById("announcement-1");
+    const modal =
+        document.getElementById("announcement-1");
 
     if (!modal) return;
 
