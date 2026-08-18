@@ -4347,3 +4347,281 @@ body.light-theme .announcement-card:hover {
     }
 
 }
+
+
+/* =====================================================
+   OSIĄGNIĘCIA — KONKURSY
+===================================================== */
+
+.achievements-section {
+    margin-top: 40px;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(280px, 1fr)
+    );
+    gap: 22px;
+}
+
+
+/* KARTA KONKURSU */
+
+.achievement-card {
+    overflow: hidden;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+
+    background: var(--card-hover);
+
+    border-color:
+        rgba(124, 92, 255, 0.35);
+}
+
+
+/* NAGŁÓWEK */
+
+.achievement-header {
+    padding: 22px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.achievement-header h2 {
+    margin-bottom: 6px;
+
+    font-size: 1.35rem;
+}
+
+.achievement-header p {
+    color: var(--text-secondary);
+
+    font-size: 0.95rem;
+}
+
+
+/* TREŚĆ */
+
+.achievement-content {
+    padding: 22px;
+}
+
+
+/* EDYCJA */
+
+.achievement-edition {
+    padding: 15px;
+
+    margin-bottom: 12px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+}
+
+body.light .achievement-edition {
+    background: rgba(0, 0, 0, 0.025);
+}
+
+.achievement-edition:last-child {
+    margin-bottom: 0;
+}
+
+.achievement-edition h3 {
+    margin-bottom: 5px;
+
+    font-size: 1rem;
+}
+
+.achievement-edition p {
+    color: var(--text-secondary);
+
+    margin: 0;
+}
+
+
+/* ZWYCIĘZCA */
+
+.achievement-winner {
+    display: inline-flex;
+
+    align-items: center;
+
+    margin-top: 8px;
+
+    padding: 6px 10px;
+
+    border-radius: 9px;
+
+    background:
+        rgba(124, 92, 255, 0.12);
+
+    color: var(--text);
+
+    font-weight: 700;
+}
+
+
+/* NAJWIĘCEJ ZWYCIĘSTW */
+
+.most-wins {
+    margin-top: 18px;
+
+    padding: 14px 16px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124, 92, 255, 0.16),
+            rgba(124, 92, 255, 0.05)
+        );
+
+    border: 1px solid
+        rgba(124, 92, 255, 0.2);
+
+    font-weight: 700;
+}
+
+
+/* TRWAJĄCY KONKURS */
+
+.achievement-active {
+    border-color:
+        rgba(255, 184, 77, 0.35);
+}
+
+.achievement-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 6px 10px;
+
+    margin-top: 8px;
+
+    border-radius: 9px;
+
+    background:
+        rgba(255, 184, 77, 0.12);
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+}
+
+
+/* ZDJĘCIA */
+
+.achievement-photo {
+    width: 100%;
+
+    height: 210px;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    margin-top: 12px;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.achievement-photo:hover {
+    transform: scale(1.02);
+
+    opacity: 0.92;
+}
+
+
+/* ZDJĘCIE ZWYCIĘZCY */
+
+.winner-photo {
+    margin-top: 12px;
+
+    padding: 3px;
+
+    border-radius: 14px;
+
+    background: var(--accent);
+}
+
+
+/* BRAK ZWYCIĘZCY */
+
+.no-winner {
+    color: var(--text-secondary);
+
+    font-style: italic;
+}
+
+
+/* DATA KONKURSU */
+
+.contest-date {
+    margin-top: 10px;
+
+    padding: 10px 12px;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid var(--border);
+
+    color: var(--text-secondary);
+
+    font-size: 0.92rem;
+}
+
+body.light .contest-date {
+    background: rgba(0, 0, 0, 0.025);
+}
+
+
+/* =====================================================
+   TELEFON
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .achievement-header {
+        padding: 18px;
+    }
+
+    .achievement-content {
+        padding: 18px;
+    }
+
+    .achievement-photo {
+        height: 190px;
+    }
+}
