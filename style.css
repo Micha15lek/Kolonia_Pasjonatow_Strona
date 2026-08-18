@@ -4625,3 +4625,14 @@ body.light .contest-date {
         height: 190px;
     }
 }
+
+
+.hero h1 {
+    line-height: 1.15;
+}
+
+.hero h1 span {
+    display: inline-block;
+    margin-top: 8px;
+    line-height: 1.15;
+}
