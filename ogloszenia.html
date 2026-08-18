@@ -71,17 +71,16 @@
         <div class="hero-content">
 
             <span class="section-label">
-                📢 CENTRUM INFORMACJI
+                📢 OFICJALNE INFORMACJE
             </span>
 
             <h1>
-                Ogłoszenia<br>
-                <span>Kolonii Pasjonatów</span>
+                Ogłoszenia
             </h1>
 
             <p>
-                Najważniejsze informacje, aktualności
-                oraz komunikaty dotyczące naszej społeczności.
+                Najważniejsze informacje, komunikaty
+                oraz aktualności dotyczące Kolonii Pasjonatów.
             </p>
 
         </div>
@@ -90,7 +89,7 @@
 
 
     <!-- =====================================================
-         OGŁOSZENIA
+         NAJNOWSZE OGŁOSZENIA
     ====================================================== -->
 
     <section class="section">
@@ -98,7 +97,7 @@
         <div class="section-header">
 
             <span class="section-label">
-                📌 NAJNOWSZE INFORMACJE
+                📌 KOLONIA PASJONATÓW
             </span>
 
             <h2 class="section-title">
@@ -107,57 +106,51 @@
 
             <p class="section-description">
                 Tutaj znajdziesz najważniejsze informacje
-                dotyczące Kolonii Pasjonatów.
+                dotyczące naszej społeczności i strony.
             </p>
 
         </div>
 
 
-        <div class="announcements-grid">
+        <div class="info-grid">
 
 
             <!-- =================================================
-                 OGŁOSZENIE 1
+                 OGŁOSZENIE 13.08.2026
             ================================================== -->
 
-            <article class="announcement-card">
+            <article class="info-card">
 
-                <div class="announcement-top">
+                <span class="status">
+                    🟢 OFICJALNE
+                </span>
 
-                    <span class="announcement-date">
-                        📅 13.08.2026
-                    </span>
-
-                    <span class="announcement-status">
-                        🟢 AKTUALNE
-                    </span>
-
-                </div>
-
-
-                <div class="announcement-icon">
-                    🌐
-                </div>
-
+                <small>
+                    📅 13.08.2026
+                </small>
 
                 <h2>
-                    Oficjalnie ruszyła strona serwerowa!
+                    🌐 Oficjalnie ruszyła strona Kolonii Pasjonatów!
                 </h2>
 
+                <p>
+                    Z radością informujemy, że oficjalna strona
+                    internetowa Kolonii Pasjonatów została uruchomiona! 🎉
+                </p>
 
-                <p class="announcement-short">
-
-                    Oficjalna strona internetowa
-                    Kolonii Pasjonatów została uruchomiona! 🎉
-                    To kolejny krok w rozwoju naszej społeczności.
-
+                <p>
+                    To dopiero początek rozwoju naszej strony.
+                    W przyszłości pojawią się kolejne funkcje,
+                    informacje oraz nowe elementy.
                 </p>
 
 
+                <!-- PRZYCISK -->
+
                 <button
                     type="button"
-                    class="button button-primary read-more"
-                    data-modal="announcement1">
+                    class="button button-primary"
+                    onclick="openAnnouncement('announcement-1')">
 
                     Czytaj więcej →
 
@@ -185,8 +178,8 @@
 
             <p>
                 Ogłoszenia będą regularnie aktualizowane.
-                Wszystkie najważniejsze komunikaty znajdziesz
-                właśnie tutaj.
+                Zaglądaj tutaj, aby nie przegapić najważniejszych
+                informacji dotyczących Kolonii Pasjonatów.
             </p>
 
         </div>
@@ -197,24 +190,20 @@
 </main>
 
 
-<!-- =====================================================
-     OKNO OGŁOSZENIA
-====================================================== -->
+<!-- =========================================================
+     OKNO Z PEŁNYM OGŁOSZENIEM
+========================================================= -->
 
 <div
+    id="announcement-1"
     class="announcement-modal"
-    id="announcement1"
-    aria-hidden="true">
+    style="display: none;">
 
-    <div
-        class="announcement-modal-content"
-        role="dialog"
-        aria-modal="true">
-
+    <div class="info-card">
 
         <button
             type="button"
-            class="modal-close"
+            onclick="closeAnnouncement('announcement-1')"
             aria-label="Zamknij">
 
             ✕
@@ -226,55 +215,50 @@
             📢 OGŁOSZENIE
         </span>
 
-
-        <p class="modal-date">
+        <small>
             📅 13.08.2026
-        </p>
-
+        </small>
 
         <h2>
-            🌐 Oficjalnie ruszyła strona serwerowa!
+            🌐 Oficjalnie ruszyła strona Kolonii Pasjonatów!
         </h2>
 
+        <p>
+            Mamy przyjemność poinformować, że dnia
+            <strong>13 sierpnia 2026 roku</strong>
+            oficjalnie uruchomiliśmy stronę internetową
+            Kolonii Pasjonatów! 🎉
+        </p>
 
-        <div class="modal-text">
+        <p>
+            Od teraz wszystkie najważniejsze informacje,
+            aktualności, projekty oraz wydarzenia naszej
+            społeczności będą mogły znaleźć się w jednym miejscu.
+        </p>
 
-            <p>
-                🎉 Z przyjemnością informujemy, że
-                <strong>oficjalna strona internetowa
-                Kolonii Pasjonatów</strong> została uruchomiona!
-            </p>
+        <p>
+            🚀 To jednak dopiero początek!
+            Strona będzie stopniowo rozwijana i w najbliższym
+            czasie mogą pojawić się nowe funkcje oraz podstrony.
+        </p>
 
-            <p>
-                Jest to kolejny ważny krok w rozwoju naszej
-                społeczności. Na stronie znajdziecie najważniejsze
-                informacje dotyczące Kolonii Pasjonatów.
-            </p>
+        <p>
+            📢 Będziemy również regularnie publikować tutaj
+            najważniejsze ogłoszenia dotyczące Kolonii Pasjonatów.
+        </p>
 
-            <p>
-                🌟 Obecnie dostępne są między innymi:
-                ranking typerów, licznik, ogłoszenia oraz
-                kolejne przygotowywane podstrony.
-            </p>
+        <p>
+            📧 Jeżeli zauważysz błąd, niedziałającą funkcję
+            lub inną usterkę, poinformuj nas o tym poprzez
+            kontakt dostępny na stronie.
+        </p>
 
-            <p>
-                🚀 To dopiero początek! Strona będzie
-                systematycznie rozwijana i w przyszłości
-                pojawią się kolejne funkcje.
-            </p>
-
-            <p>
-                ❤️ Dziękujemy wszystkim za wsparcie
-                i zapraszamy do dalszego rozwijania
-                Kolonii Pasjonatów razem z nami!
-            </p>
-
-        </div>
-
+        <br>
 
         <button
             type="button"
-            class="button button-secondary modal-close">
+            class="button button-secondary"
+            onclick="closeAnnouncement('announcement-1')">
 
             Zamknij
 
@@ -285,9 +269,9 @@
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
      STOPKA
-====================================================== -->
+========================================================= -->
 
 <footer>
 
@@ -321,138 +305,80 @@
 </footer>
 
 
+<!-- =========================================================
+     SKRYPT
+========================================================= -->
+
 <script src="script.js"></script>
-
-
-<!-- =====================================================
-     OBSŁUGA OKNA OGŁOSZENIA
-====================================================== -->
 
 <script>
 
-document.addEventListener("DOMContentLoaded", function () {
+function openAnnouncement(id) {
 
-    const openButtons =
-        document.querySelectorAll(".read-more");
+    const modal = document.getElementById(id);
 
-    const closeButtons =
-        document.querySelectorAll(".modal-close");
+    if (!modal) return;
 
+    modal.style.display = "flex";
 
-    /* Otwieranie */
-
-    openButtons.forEach(function (button) {
-
-        button.addEventListener("click", function () {
-
-            const modalId =
-                button.getAttribute("data-modal");
-
-            const modal =
-                document.getElementById(modalId);
-
-            if (!modal) return;
-
-            modal.classList.add("show");
-
-            modal.setAttribute(
-                "aria-hidden",
-                "false"
-            );
-
-            document.body.classList.add(
-                "modal-open"
-            );
-
-        });
-
-    });
+}
 
 
-    /* Zamykanie */
+function closeAnnouncement(id) {
 
-    closeButtons.forEach(function (button) {
+    const modal = document.getElementById(id);
 
-        button.addEventListener("click", function () {
+    if (!modal) return;
 
-            const modal =
-                button.closest(".announcement-modal");
+    modal.style.display = "none";
 
-            if (!modal) return;
-
-            modal.classList.remove("show");
-
-            modal.setAttribute(
-                "aria-hidden",
-                "true"
-            );
-
-            document.body.classList.remove(
-                "modal-open"
-            );
-
-        });
-
-    });
+}
 
 
-    /* Kliknięcie poza oknem */
+/*
+    Kliknięcie poza oknem
+    również zamyka ogłoszenie.
+*/
 
-    document.querySelectorAll(
-        ".announcement-modal"
-    ).forEach(function (modal) {
+document.addEventListener("click", function(event) {
 
-        modal.addEventListener("click", function (event) {
+    const modal = document.getElementById("announcement-1");
 
-            if (event.target === modal) {
+    if (!modal) return;
 
-                modal.classList.remove("show");
+    if (
+        modal.style.display === "flex" &&
+        event.target === modal
+    ) {
 
-                modal.setAttribute(
-                    "aria-hidden",
-                    "true"
-                );
+        closeAnnouncement("announcement-1");
 
-                document.body.classList.remove(
-                    "modal-open"
-                );
+    }
 
-            }
-
-        });
-
-    });
+});
 
 
-    /* ESC */
+/*
+    Klawisz ESC zamyka ogłoszenie.
+*/
 
-    document.addEventListener("keydown", function (event) {
+document.addEventListener("keydown", function(event) {
 
-        if (event.key !== "Escape") return;
+    if (event.key !== "Escape") return;
 
-        document.querySelectorAll(
-            ".announcement-modal.show"
-        ).forEach(function (modal) {
+    const modal = document.getElementById("announcement-1");
 
-            modal.classList.remove("show");
+    if (!modal) return;
 
-            modal.setAttribute(
-                "aria-hidden",
-                "true"
-            );
+    if (modal.style.display === "flex") {
 
-        });
+        closeAnnouncement("announcement-1");
 
-        document.body.classList.remove(
-            "modal-open"
-        );
-
-    });
+    }
 
 });
 
 </script>
-
 
 </body>
 
