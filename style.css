@@ -4305,3 +4305,108 @@ body.dark .modal-close:hover {
     }
 
 }
+
+
+/* =====================================================
+   OKNO OGŁOSZENIA
+===================================================== */
+
+.announcement-modal {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    z-index: 9999;
+
+    overflow-y: auto;
+}
+
+
+/* =====================================================
+   RAMKA OGŁOSZENIA
+===================================================== */
+
+.announcement-window {
+    width: 100%;
+    max-width: 750px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    box-sizing: border-box;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+
+    animation: announcementOpen 0.2s ease;
+}
+
+
+/* =====================================================
+   ANIMACJA
+===================================================== */
+
+@keyframes announcementOpen {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   PRZYCISK ZAMKNIĘCIA
+===================================================== */
+
+.announcement-close {
+    margin-bottom: 20px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   TELEFON
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .announcement-modal {
+        padding: 10px;
+        align-items: flex-start;
+    }
+
+
+    .announcement-window {
+
+        max-height: 94vh;
+
+        padding: 20px;
+
+        border-radius: 16px;
+
+    }
+
+}
