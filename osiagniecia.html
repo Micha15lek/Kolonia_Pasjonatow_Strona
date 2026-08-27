@@ -661,16 +661,10 @@
 </footer>
 
 
-<!-- =====================================================
-     TRYB JASNY / CIEMNY
-====================================================== -->
-
+```html
 <script>
 
 const themeToggle = document.getElementById("themeToggle");
-
-const savedTheme = localStorage.getItem("theme") || "dark";
-
 
 function applyTheme(theme) {
 
@@ -678,28 +672,33 @@ function applyTheme(theme) {
 
         document.body.classList.add("light");
 
-        themeToggle.textContent = "☀️";
+        themeToggle.textContent = "🌙";
 
     } else {
 
         document.body.classList.remove("light");
 
-        themeToggle.textContent = "🌙";
+        themeToggle.textContent = "☀️";
 
     }
 
     localStorage.setItem("theme", theme);
-
 }
 
+
+// Odczytaj zapisany motyw
+const savedTheme = localStorage.getItem("theme") || "dark";
 
 applyTheme(savedTheme);
 
 
+// Zmiana motywu
 themeToggle.addEventListener("click", function () {
 
     const currentTheme =
-        localStorage.getItem("theme") || "dark";
+        document.body.classList.contains("light")
+            ? "light"
+            : "dark";
 
     if (currentTheme === "dark") {
 
@@ -714,8 +713,4 @@ themeToggle.addEventListener("click", function () {
 });
 
 </script>
-
-</body>
-
-</html>
 ```
