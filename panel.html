@@ -1,262 +1,316 @@
 <!DOCTYPE html>
+
 <html lang="pl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Panel administratorów | Kolonia Pasjonatów</title>
+```
+<title>Panel administracji | Kolonia Pasjonatów</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
+```
+
 </head>
 
 <body>
 
 <header>
 
-    <div class="logo">
-        🌟 Kolonia Pasjonatów
-    </div>
+```
+<div class="logo">
+    🌟 Kolonia Pasjonatów
+</div>
 
-    <!-- NAWIGACJA PANELU -->
+<!-- POWRÓT DO STRONY KOLONII -->
 
-    <nav>
+<a
+    href="index.html"
+    class="button home-button">
 
-        <a href="panel.html" class="active">
-            🛡️ Panel główny
-        </a>
+    🏠 Powrót do strony Kolonii Pasjonatów
 
-        <a href="panel-osiagniecia.html">
-            🏆 Osiągnięcia
-        </a>
+</a>
 
-        <a href="panel-linki.html">
-            🔗 Linki
-        </a>
+<!-- TRYB JASNY / CIEMNY -->
 
-        <a href="panel-konkursy.html">
-            🎨 Konkursy
-        </a>
+<button
+    id="themeToggle"
+    class="theme-toggle"
+    type="button"
+    aria-label="Zmień motyw">
 
-    </nav>
+    🌙
 
-    <!-- TRYB JASNY / CIEMNY -->
-
-    <button
-        id="themeToggle"
-        class="theme-toggle"
-        type="button"
-        aria-label="Zmień motyw">
-
-        ☀️
-
-    </button>
+</button>
+```
 
 </header>
 
-
 <main>
 
-    <!-- =====================================================
-         HERO – POWITANIE
-    ====================================================== -->
+```
+<!-- =====================================================
+     HERO
+====================================================== -->
 
-    <section class="hero">
+<section class="hero">
 
-        <div class="hero-content">
+    <div class="hero-content">
 
-            <span class="section-label">
-                🛡️ PANEL ADMINISTRACJI
-            </span>
+        <span class="section-label">
+            🛡️ KOLONIA PASJONATÓW
+        </span>
 
-            <h1>
-                Witamy na stronie<br>
-                <span>administratorów!</span>
-            </h1>
+        <h1>
+            Panel<br>
+            <span>administracji</span>
+        </h1>
 
-            <p>
-                To jest panel administracyjny Kolonii Pasjonatów.
-                Wybierz jedną z dostępnych sekcji, aby zarządzać
-                zawartością strony społeczności.
-            </p>
+        <p>
+            Witamy na stronie administratorów Kolonii Pasjonatów.
+            Wybierz odpowiednią sekcję panelu administracyjnego.
+        </p>
 
-        </div>
+    </div>
 
-    </section>
-
-
-    <!-- =====================================================
-         PANEL ADMINISTRACYJNY
-    ====================================================== -->
-
-    <section class="section">
-
-        <div class="section-header">
-
-            <span class="section-label">
-                ⚙️ ZARZĄDZANIE
-            </span>
-
-            <h2 class="section-title">
-                Panel administracyjny
-            </h2>
-
-            <p class="section-description">
-                Wybierz sekcję, którą chcesz otworzyć.
-            </p>
-
-        </div>
+</section>
 
 
-        <div class="info-grid">
+<!-- =====================================================
+     PANEL ADMINISTRACYJNY
+====================================================== -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <span class="section-label">
+            ⚙️ ADMINISTRACJA
+        </span>
+
+        <h2 class="section-title">
+            Panel administracyjny
+        </h2>
+
+        <p class="section-description">
+            Narzędzia oraz informacje przeznaczone dla
+            administracji Kolonii Pasjonatów.
+        </p>
+
+    </div>
 
 
-            <!-- OSIĄGNIĘCIA -->
-
-            <article class="info-card">
-
-                <div class="card-icon">
-                    🏆
-                </div>
-
-                <h2>
-                    Osiągnięcia
-                </h2>
-
-                <p>
-                    Zarządzaj wynikami konkursów, zwycięzcami
-                    oraz osiągnięciami społeczności.
-                </p>
-
-                <a
-                    href="panel-osiagniecia.html"
-                    class="button button-primary">
-
-                    🏆 Otwórz
-
-                </a>
-
-            </article>
+    <div class="info-grid">
 
 
-            <!-- LINKI -->
+        <!-- REGULAMIN -->
 
-            <article class="info-card">
-
-                <div class="card-icon">
-                    🔗
-                </div>
-
-                <h2>
-                    Linki
-                </h2>
-
-                <p>
-                    Zarządzaj zaprzyjaźnionymi kanałami,
-                    polecanymi kanałami oraz serwerami Discord.
-                </p>
-
-                <a
-                    href="panel-linki.html"
-                    class="button button-primary">
-
-                    🔗 Otwórz
-
-                </a>
-
-            </article>
-
-
-            <!-- KONKURSY -->
-
-            <article class="info-card">
-
-                <div class="card-icon">
-                    🎨
-                </div>
-
-                <h2>
-                    Konkursy
-                </h2>
-
-                <p>
-                    Zarządzaj konkursami organizowanymi
-                    dla społeczności Kolonii Pasjonatów.
-                </p>
-
-                <a
-                    href="panel-konkursy.html"
-                    class="button button-primary">
-
-                    🎨 Otwórz
-
-                </a>
-
-            </article>
-
-
-            <!-- INFORMACJE -->
-
-            <article class="info-card">
-
-                <div class="card-icon">
-                    📋
-                </div>
-
-                <h2>
-                    Informacje
-                </h2>
-
-                <p>
-                    Sekcja przeznaczona do zarządzania
-                    najważniejszymi informacjami na stronie.
-                </p>
-
-                <span class="status">
-                    🚧 W przygotowaniu
-                </span>
-
-            </article>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         INFORMACJA DLA ADMINISTRACJI
-    ====================================================== -->
-
-    <section class="section">
-
-        <div class="info-card">
+        <article class="info-card">
 
             <div class="card-icon">
-                👋
+                📜
             </div>
 
             <h2>
-                Witaj w panelu!
+                Regulamin
             </h2>
 
             <p>
-                Panel administracyjny jest miejscem przeznaczonym
-                wyłącznie dla administracji Kolonii Pasjonatów.
+                Regulamin Kolonii Pasjonatów oraz najważniejsze
+                zasady obowiązujące na serwerze.
             </p>
+
+            <a
+                href="regulamin.html"
+                class="button button-primary">
+
+                📜 Regulamin →
+
+            </a>
+
+        </article>
+
+
+        <!-- BANY -->
+
+        <article class="info-card">
+
+            <div class="card-icon">
+                🔨
+            </div>
+
+            <h2>
+                Bany
+            </h2>
 
             <p>
-                Korzystaj z dostępnych funkcji odpowiedzialnie
-                i nie udostępniaj dostępu do panelu osobom
-                nieuprawnionym.
+                Lista banów oraz informacje dotyczące
+                nałożonych blokad na użytkowników.
             </p>
 
+            <a
+                href="bany.html"
+                class="button button-primary">
+
+                🔨 Bany →
+
+            </a>
+
+        </article>
+
+
+        <!-- OSTRZEŻENIA -->
+
+        <article class="info-card">
+
+            <div class="card-icon">
+                ⚠️
+            </div>
+
+            <h2>
+                Ostrzeżenia
+            </h2>
+
+            <p>
+                Informacje o ostrzeżeniach oraz działaniach
+                podjętych przez administrację.
+            </p>
+
+            <a
+                href="ostrzezenia.html"
+                class="button button-primary">
+
+                ⚠️ Ostrzeżenia →
+
+            </a>
+
+        </article>
+
+
+        <!-- ADMINISTRACJA -->
+
+        <article class="info-card">
+
+            <div class="card-icon">
+                👥
+            </div>
+
+            <h2>
+                Administracja
+            </h2>
+
+            <p>
+                Lista członków administracji oraz informacje
+                o pełnionych przez nich funkcjach.
+            </p>
+
+            <a
+                href="administracja.html"
+                class="button button-primary">
+
+                👥 Administracja →
+
+            </a>
+
+        </article>
+
+
+        <!-- MODERACJA -->
+
+        <article class="info-card">
+
+            <div class="card-icon">
+                🛡️
+            </div>
+
+            <h2>
+                Moderacja
+            </h2>
+
+            <p>
+                Informacje i narzędzia związane z moderacją
+                społeczności Kolonii Pasjonatów.
+            </p>
+
+            <a
+                href="moderacja.html"
+                class="button button-primary">
+
+                🛡️ Moderacja →
+
+            </a>
+
+        </article>
+
+
+        <!-- OGŁOSZENIA ADMINISTRACJI -->
+
+        <article class="info-card">
+
+            <div class="card-icon">
+                📢
+            </div>
+
+            <h2>
+                Ogłoszenia administracji
+            </h2>
+
+            <p>
+                Ważne informacje oraz komunikaty przeznaczone
+                dla członków administracji.
+            </p>
+
+            <a
+                href="ogloszenia-admin.html"
+                class="button button-primary">
+
+                📢 Ogłoszenia →
+
+            </a>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     POWITANIE
+====================================================== -->
+
+<section class="section">
+
+    <div class="info-card">
+
+        <div class="card-icon">
+            👋
         </div>
 
-    </section>
+        <h2>
+            Witamy na stronie administratorów!
+        </h2>
+
+        <p>
+            To miejsce jest przeznaczone dla administracji
+            Kolonii Pasjonatów. Znajdziesz tutaj najważniejsze
+            informacje, zasady oraz narzędzia związane
+            z prowadzeniem społeczności.
+        </p>
+
+        <span class="status">
+            🛡️ Panel administracyjny
+        </span>
+
+    </div>
+
+</section>
+```
 
 </main>
-
 
 <!-- =====================================================
      STOPKA
@@ -264,36 +318,37 @@
 
 <footer>
 
-    <div class="footer-content">
+```
+<div class="footer-content">
 
-        <div>
+    <div>
 
-            <div class="logo">
-                🌟 Kolonia Pasjonatów
-            </div>
-
-            <p>
-                Panel administracyjny społeczności.
-            </p>
-
+        <div class="logo">
+            🌟 Kolonia Pasjonatów
         </div>
 
-    </div>
-
-
-    <div class="footer-bottom">
-
-        © 2026 Kolonia Pasjonatów
-        <br>
-        🛡️ Panel administratorów
+        <p>
+            Panel administracji społeczności.
+        </p>
 
     </div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+    © 2026 Kolonia Pasjonatów
+    <br>
+    🛡️ Panel administracji
+
+</div>
+```
 
 </footer>
 
-
 <!-- =====================================================
-     GŁÓWNY SKRYPT
+     TRYB JASNY / CIEMNY
 ====================================================== -->
 
 <script src="script.js"></script>
@@ -301,4 +356,3 @@
 </body>
 
 </html>
-```
