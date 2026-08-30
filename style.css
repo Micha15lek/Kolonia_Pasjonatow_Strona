@@ -4636,3 +4636,53 @@ body.light .contest-date {
     margin-top: 8px;
     line-height: 1.15;
 }
+
+
+```css
+/* =====================================================
+   OSIĄGNIĘCIA – PODSUMOWANIA
+===================================================== */
+
+.achievement-summary {
+    margin-top: 30px;
+    padding: 24px 28px;
+}
+
+.achievement-summary h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.achievement-summary p {
+    font-size: 16px;
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+
+/* Większy odstęp między sekcjami osiągnięć */
+
+.achievement-summary + .section {
+    margin-top: 20px;
+}
+
+
+/* Odstęp między kartami */
+
+.info-grid {
+    gap: 28px;
+}
+
+
+/* Zdjęcia nie przyklejają się do tekstu */
+
+.achievement-image {
+    margin-top: 18px;
+}
+
+
+/* Odstęp między zdjęciami w 1. edycji */
+
+.achievement-images {
+    gap: 18px;
+}
