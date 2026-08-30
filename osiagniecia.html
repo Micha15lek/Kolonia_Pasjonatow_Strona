@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -32,7 +33,7 @@
         type="button"
         aria-label="Zmień motyw">
 
-        🌙
+        ☀️
 
     </button>
 
@@ -40,6 +41,7 @@
 
 
 <main>
+
 
     <!-- =====================================================
          HERO
@@ -260,7 +262,7 @@
             </p>
 
             <p>
-                🥈 Mikol yoriichi — 2 zwycięstwa
+                <strong>Mikol Yoriichi — 1 zwycięstwo</strong>
             </p>
 
         </div>
@@ -501,7 +503,7 @@
             </h2>
 
             <p>
-                <strong>Mikol yoriichi — 5 zwycięstw</strong>
+                <strong>Mikol yoriichi — 4 zwycięstwa</strong>
             </p>
 
             <p>
@@ -660,56 +662,13 @@
 </footer>
 
 
-```html
-<script>
+<!-- =====================================================
+     GŁÓWNY SKRYPT
+====================================================== -->
 
-const themeToggle = document.getElementById("themeToggle");
+<script src="script.js"></script>
 
-function applyTheme(theme) {
+</body>
 
-    if (theme === "light") {
-
-        document.body.classList.add("light");
-
-        themeToggle.textContent = "🌙";
-
-    } else {
-
-        document.body.classList.remove("light");
-
-        themeToggle.textContent = "☀️";
-
-    }
-
-    localStorage.setItem("theme", theme);
-}
-
-
-// Odczytaj zapisany motyw
-const savedTheme = localStorage.getItem("theme") || "dark";
-
-applyTheme(savedTheme);
-
-
-// Zmiana motywu
-themeToggle.addEventListener("click", function () {
-
-    const currentTheme =
-        document.body.classList.contains("light")
-            ? "light"
-            : "dark";
-
-    if (currentTheme === "dark") {
-
-        applyTheme("light");
-
-    } else {
-
-        applyTheme("dark");
-
-    }
-
-});
-
-</script>
+</html>
 ```
