@@ -1,82 +1,136 @@
+```html
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Kolonia Pasjonatów</title>
 
-    <meta name="description" content="Kolonia Pasjonatów – najważniejsze informacje, ogłoszenia, wydarzenia i ranking typerów.">
-    <meta name="theme-color" content="#5865f2">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
-    <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
+
 
 <!-- =====================================================
      HEADER
 ===================================================== -->
+
 <header>
+
     <div class="container">
 
         <div class="logo">
-            🚂 Kolonia Pasjonatów
+            Kolonia Pasjonatów
         </div>
 
-<nav>
-    <a href="index.html" class="active">Strona główna</a>
-    <a href="ranking.html">Ranking</a>
-    <a href="licznik.html">Licznik</a>
-    <a href="ogloszenia.html">Ogłoszenia</a>
-    <a href="linki.html">Linki</a>
-    <a href="kontakt.html">Kontakt</a>
 
-            <button id="themeToggle" class="theme-toggle" type="button">
-                ☀️
-            </button>
+        <nav>
+
+            <a
+                href="index.html"
+                class="active"
+            >
+                Strona główna
+            </a>
+
+            <a href="ranking.html">
+                Ranking
+            </a>
+
+            <a href="licznik.html">
+                Licznik
+            </a>
+
+            <a href="ogloszenia.html">
+                Ogłoszenia
+            </a>
+
+            <a href="linki.html">
+                Linki
+            </a>
+
+            <a href="kontakt.html">
+                Kontakt
+            </a>
+
         </nav>
 
+
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Zmień motyw"
+        >
+            ☀️
+        </button>
+
     </div>
+
 </header>
+
 
 
 <!-- =====================================================
      HERO
 ===================================================== -->
+
 <section class="hero">
 
-    <div class="container">
+    <div class="hero-content">
 
-        <div class="hero-content">
+        <div class="section-label">
+            👋 Witaj w Kolonii Pasjonatów
+        </div>
 
-            <div class="section-label">
-                🚂 Witaj w Kolonii Pasjonatów
-            </div>
 
-            <h1>
+        <h1>
+
+            <span>
                 Kolonia Pasjonatów
-                <span>Razem tworzymy społeczność</span>
-            </h1>
+            </span>
 
-            <p>
-                Najważniejsze informacje, wydarzenia, ogłoszenia
-                i aktywność naszej społeczności w jednym miejscu.
-            </p>
+            <small>
+                Razem tworzymy społeczność
+            </small>
 
-            <div class="hero-buttons">
+        </h1>
 
-                <a href="ogloszenia.html"
-                   class="button button-primary">
-                    📢 Ogłoszenia
-                </a>
 
-                <a href="kalendarz.html"
-                   class="button button-secondary">
-                    📅 Kalendarz
-                </a>
+        <p>
+            Miejsce stworzone dla naszej społeczności,
+            wspólnych wydarzeń, zabawy i aktywności.
+        </p>
 
-            </div>
+
+        <div class="hero-buttons">
+
+            <a
+                href="ogloszenia.html"
+                class="button button-primary"
+            >
+                📢 Ogłoszenia
+            </a>
+
+
+            <a
+                href="kalendarz.html"
+                class="button button-secondary"
+            >
+                📅 Kalendarz
+            </a>
 
         </div>
 
@@ -85,12 +139,15 @@
 </section>
 
 
+
 <!-- =====================================================
-     PROJEKTY KOLONII PASJONATÓW
+     🚀 PROJEKTY KOLONII PASJONATÓW
 ===================================================== -->
+
 <section class="section">
 
     <div class="container">
+
 
         <div class="section-header">
 
@@ -98,67 +155,86 @@
                 🚀 Projekty
             </div>
 
+
             <h2 class="section-title">
                 Projekty Kolonii Pasjonatów
             </h2>
 
+
             <p class="section-description">
-                Miejsca i projekty tworzone dla naszej społeczności.
+                Najważniejsze projekty i miejsca tworzone
+                przez naszą społeczność.
             </p>
 
         </div>
 
 
+
         <div class="info-grid">
 
+
             <!-- DISCORD -->
-            <article class="info-card">
+
+            <div class="info-card">
 
                 <div class="card-icon">
                     💬
                 </div>
 
+
                 <h2>
                     Discord
                 </h2>
 
+
                 <p>
-                    Główne miejsce spotkań Kolonii Pasjonatów.
-                    Rozmawiaj, bierz udział w wydarzeniach,
-                    typowaniach i wspólnych aktywnościach.
+                    Główne miejsce naszej społeczności.
+                    Dołącz do rozmów, wydarzeń i wspólnej zabawy.
                 </p>
 
-                <a href="https://discord.gg/886u97g22Q"
-                   class="button button-primary"
-                   target="_blank"
-                   rel="noopener">
-                    Dołącz na Discorda
+
+                <a
+                    href="https://discord.gg/886u97g22Q"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="button button-primary"
+                >
+                    Dołącz na Discord
                 </a>
 
-            </article>
+            </div>
+
 
 
             <!-- WHATSAPP -->
-            <article class="info-card">
+
+            <div class="info-card">
 
                 <div class="card-icon">
                     📱
                 </div>
 
+
                 <h2>
                     WhatsApp
                 </h2>
 
+
                 <p>
-                    Dodatkowe miejsce kontaktu dla członków
-                    Kolonii Pasjonatów.
+                    Dodatkowe miejsce kontaktu i szybkich
+                    informacji dla naszej społeczności.
                 </p>
 
-                <span class="status">
-                    Wkrótce
-                </span>
 
-            </article>
+                <a
+                    href="#"
+                    class="button button-secondary"
+                >
+                    WhatsApp
+                </a>
+
+            </div>
+
 
         </div>
 
@@ -167,53 +243,68 @@
 </section>
 
 
+
 <!-- =====================================================
-     WAŻNA INFORMACJA
+     📢 WAŻNA INFORMACJA
 ===================================================== -->
+
 <section class="section">
 
     <div class="container">
 
+
         <div class="section-header">
 
             <div class="section-label">
-                📢 Ważne
+                📢 Informacja
             </div>
+
 
             <h2 class="section-title">
                 Ważna informacja
             </h2>
 
+
             <p class="section-description">
-                Najważniejsza aktualna informacja z Kolonii Pasjonatów.
+                Najnowsza ważna informacja z działu ogłoszeń.
             </p>
 
         </div>
 
 
+
         <div class="announcement-grid">
 
-            <article class="announcement-card"
-                     id="importantAnnouncement">
+
+            <div
+                class="announcement-card"
+                id="importantAnnouncement"
+            >
 
                 <div class="announcement-date">
-                    📌 Najnowsze ogłoszenie
+                    Najnowsze ogłoszenie
                 </div>
+
 
                 <h3 id="importantAnnouncementTitle">
                     Ładowanie...
                 </h3>
 
+
                 <p id="importantAnnouncementText">
-                    Pobieranie najważniejszego ogłoszenia...
+                    Trwa pobieranie najnowszej informacji.
                 </p>
 
-                <a href="ogloszenia.html"
-                   class="button button-secondary">
-                    Zobacz wszystkie ogłoszenia
+
+                <a
+                    href="ogloszenia.html"
+                    class="button button-secondary"
+                >
+                    Zobacz ogłoszenia
                 </a>
 
-            </article>
+            </div>
+
 
         </div>
 
@@ -222,12 +313,15 @@
 </section>
 
 
+
 <!-- =====================================================
-     NAJWAŻNIEJSZE STATYSTYKI
+     📊 NAJWAŻNIEJSZE STATYSTYKI
 ===================================================== -->
+
 <section class="section">
 
     <div class="container">
+
 
         <div class="section-header">
 
@@ -235,87 +329,88 @@
                 📊 Statystyki
             </div>
 
+
             <h2 class="section-title">
                 Najważniejsze statystyki
             </h2>
 
+
             <p class="section-description">
-                Najważniejsze informacje o rozwoju Kolonii i strony.
+                Najważniejsze liczby dotyczące Kolonii
+                Pasjonatów i jej strony.
             </p>
 
         </div>
 
 
+
         <div class="info-grid">
 
-            <!-- LICZBA CZŁONKÓW -->
-            <article class="info-card">
+
+            <!-- CZŁONKOWIE -->
+
+            <div class="info-card">
 
                 <div class="card-icon">
                     👥
                 </div>
 
-                <h2>
-                    Członkowie
+
+                <h2 id="membersCount">
+                    0
                 </h2>
 
+
                 <p>
-                    Aktualna liczba członków Kolonii Pasjonatów.
+                    Członków Kolonii Pasjonatów
                 </p>
 
-                <span class="status"
-                      id="membersCount">
-                    —
-                </span>
+            </div>
 
-            </article>
 
 
             <!-- DNI KOLONII -->
-            <article class="info-card">
+
+            <div class="info-card">
 
                 <div class="card-icon">
                     🏠
                 </div>
 
-                <h2>
-                    Dni Kolonii
+
+                <h2 id="colonyDays">
+                    0
                 </h2>
 
+
                 <p>
-                    Liczba dni od rozpoczęcia działalności
-                    Kolonii Pasjonatów.
+                    Dni istnienia Kolonii Pasjonatów
                 </p>
 
-                <span class="status"
-                      id="colonyDays">
-                    —
-                </span>
+            </div>
 
-            </article>
 
 
             <!-- DNI STRONY -->
-            <article class="info-card">
+
+            <div class="info-card">
 
                 <div class="card-icon">
                     🌐
                 </div>
 
-                <h2>
-                    Dni strony
+
+                <h2 id="websiteDays">
+                    0
                 </h2>
 
+
                 <p>
-                    Liczba dni od uruchomienia strony internetowej.
+                    Dni działania strony
                 </p>
 
-                <span class="status"
-                      id="websiteDays">
-                    —
-                </span>
+            </div>
 
-            </article>
 
         </div>
 
@@ -324,12 +419,15 @@
 </section>
 
 
+
 <!-- =====================================================
-     NAJNOWSZE OGŁOSZENIA
+     📰 NAJNOWSZE OGŁOSZENIA
 ===================================================== -->
+
 <section class="section">
 
     <div class="container">
+
 
         <div class="section-header">
 
@@ -337,60 +435,65 @@
                 📰 Ogłoszenia
             </div>
 
+
             <h2 class="section-title">
                 Najnowsze ogłoszenia
             </h2>
 
+
             <p class="section-description">
-                Najnowsze informacje pobierane bezpośrednio
-                z podstrony ogłoszeń.
+                Najnowsze ogłoszenia są automatycznie
+                pobierane z podstrony ogłoszeń.
             </p>
 
         </div>
 
 
-        <div class="announcement-grid"
-             id="latestAnnouncements">
 
-            <article class="announcement-card">
+        <div
+            id="latestAnnouncements"
+            class="announcement-grid"
+        >
 
-                <div class="announcement-date">
-                    📢 Ogłoszenia
-                </div>
-
-                <h3>
-                    Ładowanie...
-                </h3>
-
-                <p>
-                    Pobieranie najnowszych ogłoszeń.
-                </p>
-
-            </article>
+            <p>
+                Ładowanie ogłoszeń...
+            </p>
 
         </div>
 
 
-        <div style="text-align:center; margin-top:30px;">
 
-            <a href="ogloszenia.html"
-               class="button button-primary">
+        <div
+            style="
+                text-align:center;
+                margin-top:30px;
+            "
+        >
+
+            <a
+                href="ogloszenia.html"
+                class="button button-primary"
+            >
                 Zobacz wszystkie ogłoszenia
             </a>
 
         </div>
+
 
     </div>
 
 </section>
 
 
+
 <!-- =====================================================
-     NADCHODZĄCE WYDARZENIA
+     📅 NADCHODZĄCE WYDARZENIA
 ===================================================== -->
+
 <section class="section">
 
     <div class="container">
+
 
         <div class="section-header">
 
@@ -398,53 +501,47 @@
                 📅 Wydarzenia
             </div>
 
+
             <h2 class="section-title">
                 Nadchodzące wydarzenia
             </h2>
 
+
             <p class="section-description">
-                Najbliższe wydarzenia pobierane z kalendarza Kolonii.
+                Najbliższe wydarzenia pobierane
+                automatycznie z kalendarza.
             </p>
 
         </div>
 
 
-        <div class="event-grid"
-             id="upcomingEvents">
 
-            <article class="event-card">
+        <div
+            id="upcomingEvents"
+            class="event-grid"
+        >
 
-                <div class="event-date">
-                    📅
-                </div>
-
-                <div class="event-content">
-
-                    <h3>
-                        Ładowanie...
-                    </h3>
-
-                    <p>
-                        Pobieranie najbliższych wydarzeń.
-                    </p>
-
-                </div>
-
-            </article>
+            <p>
+                Ładowanie wydarzeń...
+            </p>
 
         </div>
+
 
     </div>
 
 </section>
 
 
+
 <!-- =====================================================
-     KALENDARZ – 5 NAJBLIŻSZYCH WYDARZEŃ
+     🗓️ KALENDARZ – 5 NAJBLIŻSZYCH
 ===================================================== -->
+
 <section class="section">
 
     <div class="container">
+
 
         <div class="section-header">
 
@@ -452,139 +549,130 @@
                 🗓️ Kalendarz
             </div>
 
+
             <h2 class="section-title">
                 Kalendarz wydarzeń
             </h2>
 
+
             <p class="section-description">
-                Pięć najbliższych wydarzeń z kalendarza.
+                5 najbliższych wydarzeń z kalendarza.
             </p>
 
         </div>
 
 
-        <div class="calendar">
 
-            <div class="calendar-header">
+        <div
+            id="calendarPreview"
+            class="event-grid"
+        >
 
-                <h2>
-                    Najbliższe 5 wydarzeń
-                </h2>
-
-                <a href="kalendarz.html"
-                   class="button button-secondary">
-                    Pełny kalendarz
-                </a>
-
-            </div>
-
-
-            <div class="calendar-grid"
-                 id="calendarPreview">
-
-                <div class="calendar-day">
-
-                    <div class="calendar-day-number">
-                        —
-                    </div>
-
-                    <div class="calendar-event">
-                        Ładowanie wydarzeń...
-                    </div>
-
-                </div>
-
-            </div>
+            <p>
+                Ładowanie kalendarza...
+            </p>
 
         </div>
+
+
+
+        <div
+            style="
+                text-align:center;
+                margin-top:30px;
+            "
+        >
+
+            <a
+                href="kalendarz.html"
+                class="button button-primary"
+            >
+                Otwórz pełny kalendarz
+            </a>
+
+        </div>
+
 
     </div>
 
 </section>
 
 
+
 <!-- =====================================================
-     RANKING TYPERÓW
+     🏆 RANKING TYPERÓW
 ===================================================== -->
+
 <section class="section">
 
     <div class="container">
 
+
         <div class="section-header">
 
             <div class="section-label">
-                🏆 Typer
+                🏆 Ranking
             </div>
+
 
             <h2 class="section-title">
                 Ranking typerów
             </h2>
 
+
             <p class="section-description">
-                Aktualna klasyfikacja pobierana bezpośrednio
+                Aktualne wyniki rankingu pobierane
                 z podstrony rankingu.
             </p>
 
         </div>
 
 
-        <div class="ranking-table-wrapper">
 
-            <table class="ranking-table">
+        <div
+            id="rankingPreview"
+            class="ranking-table-wrapper"
+        >
 
-                <thead>
-
-                    <tr>
-                        <th>Pozycja</th>
-                        <th>Użytkownik</th>
-                        <th>Punkty</th>
-                    </tr>
-
-                </thead>
-
-                <tbody id="rankingPreview">
-
-                    <tr>
-                        <td class="ranking-position">
-                            —
-                        </td>
-
-                        <td class="ranking-user">
-                            Ładowanie...
-                        </td>
-
-                        <td class="ranking-points">
-                            —
-                        </td>
-                    </tr>
-
-                </tbody>
-
-            </table>
+            <p>
+                Ładowanie rankingu...
+            </p>
 
         </div>
 
 
-        <div style="text-align:center; margin-top:30px;">
 
-            <a href="ranking.html"
-               class="button button-primary">
+        <div
+            style="
+                text-align:center;
+                margin-top:30px;
+            "
+        >
+
+            <a
+                href="ranking.html"
+                class="button button-primary"
+            >
                 Zobacz pełny ranking
             </a>
 
         </div>
+
 
     </div>
 
 </section>
 
 
+
 <!-- =====================================================
-     NAJAKTYWNIEJSI UŻYTKOWNICY
+     🔥 NAJAKTYWNIEJSI UŻYTKOWNICY
 ===================================================== -->
+
 <section class="section">
 
     <div class="container">
+
 
         <div class="section-header">
 
@@ -592,82 +680,47 @@
                 🔥 Aktywność
             </div>
 
+
             <h2 class="section-title">
                 Najaktywniejsi użytkownicy
             </h2>
 
+
             <p class="section-description">
-                Osoby najbardziej aktywne w społeczności.
+                Użytkownicy wyróżniający się aktywnością
+                w naszej społeczności.
             </p>
 
         </div>
 
 
-        <div class="info-grid">
 
-            <article class="info-card">
+        <div
+            id="activeUsers"
+            class="info-grid"
+        >
 
-                <div class="card-icon">
-                    🥇
-                </div>
-
-                <h2>
-                    1. —
-                </h2>
-
-                <p>
-                    Aktywność: —
-                </p>
-
-            </article>
-
-
-            <article class="info-card">
-
-                <div class="card-icon">
-                    🥈
-                </div>
-
-                <h2>
-                    2. —
-                </h2>
-
-                <p>
-                    Aktywność: —
-                </p>
-
-            </article>
-
-
-            <article class="info-card">
-
-                <div class="card-icon">
-                    🥉
-                </div>
-
-                <h2>
-                    3. —
-                </h2>
-
-                <p>
-                    Aktywność: —
-                </p>
-
-            </article>
+            <p>
+                Ładowanie danych...
+            </p>
 
         </div>
+
 
     </div>
 
 </section>
 
 
+
 <!-- =====================================================
-     WAŻNE INFORMACJE
+     ℹ️ WAŻNE INFORMACJE
 ===================================================== -->
+
 <section class="section">
 
     <div class="container">
+
 
         <div class="section-header">
 
@@ -675,85 +728,109 @@
                 ℹ️ Informacje
             </div>
 
+
             <h2 class="section-title">
                 Ważne informacje
             </h2>
 
-            <p class="section-description">
-                Najważniejsze informacje dotyczące korzystania
-                z Kolonii Pasjonatów.
-            </p>
-
         </div>
+
 
 
         <div class="info-grid">
 
-            <article class="info-card">
+
+            <!-- REGULAMIN -->
+
+            <div class="info-card">
 
                 <div class="card-icon">
                     📜
                 </div>
 
+
                 <h2>
                     Regulamin
                 </h2>
+
 
                 <p>
                     Zapoznaj się z zasadami obowiązującymi
                     w Kolonii Pasjonatów.
                 </p>
 
-                <a href="regulamin.html"
-                   class="button button-secondary">
+
+                <a
+                    href="regulamin.html"
+                    class="button button-secondary"
+                >
                     Regulamin
                 </a>
 
-            </article>
+            </div>
 
 
-            <article class="info-card">
+
+            <!-- BANY -->
+
+            <div class="info-card">
 
                 <div class="card-icon">
-                    🔨
+                    🚫
                 </div>
+
 
                 <h2>
                     Bany
                 </h2>
 
+
                 <p>
-                    Informacje dotyczące kar i moderacji społeczności.
+                    Informacje dotyczące blokad
+                    i kar na serwerze.
                 </p>
 
-                <a href="bany.html"
-                   class="button button-secondary">
-                    Informacje
+
+                <a
+                    href="bany.html"
+                    class="button button-secondary"
+                >
+                    Sprawdź bany
                 </a>
 
-            </article>
+            </div>
 
 
-            <article class="info-card">
+
+            <!-- USTAWIENIA -->
+
+            <div class="info-card">
 
                 <div class="card-icon">
                     ⚙️
                 </div>
 
+
                 <h2>
                     Ustawienia
                 </h2>
 
+
                 <p>
-                    Dostosuj wybrane ustawienia strony i jej wygląd.
+                    Informacje dotyczące ustawień
+                    i funkcjonowania społeczności.
                 </p>
 
-                <a href="ustawienia.html"
-                   class="button button-secondary">
+
+                <a
+                    href="ustawienia.html"
+                    class="button button-secondary"
+                >
                     Ustawienia
                 </a>
 
-            </article>
+            </div>
+
 
         </div>
 
@@ -762,12 +839,15 @@
 </section>
 
 
+
 <!-- =====================================================
-     HISTORIA – ODNOSNIK
+     📜 HISTORIA
 ===================================================== -->
+
 <section class="section">
 
     <div class="container">
+
 
         <div class="section-header">
 
@@ -775,575 +855,95 @@
                 📜 Historia
             </div>
 
+
             <h2 class="section-title">
                 Historia Kolonii Pasjonatów
             </h2>
 
+
             <p class="section-description">
-                Chcesz poznać historię naszej społeczności?
-                Wszystkie najważniejsze wydarzenia znajdziesz
-                na osobnej podstronie.
+                Cała historia naszej społeczności znajduje się
+                na osobnej stronie.
             </p>
 
         </div>
 
 
-        <div style="text-align:center;">
 
-            <a href="historia.html"
-               class="button button-primary">
-                📜 Przejdź do historii
+        <div
+            style="
+                text-align:center;
+            "
+        >
+
+            <a
+                href="historia.html"
+                class="button button-primary"
+            >
+                📜 Zobacz historię
             </a>
 
         </div>
+
 
     </div>
 
 </section>
 
 
+
 <!-- =====================================================
      FOOTER
 ===================================================== -->
+
 <footer>
 
     <div class="container">
 
         <div class="footer-content">
 
+
             <div>
 
                 <div class="logo">
-                    🚂 Kolonia Pasjonatów
+                    Kolonia Pasjonatów
                 </div>
 
+
                 <p>
-                    Społeczność stworzona z pasji.
+                    Razem tworzymy społeczność.
                 </p>
 
             </div>
 
-
-            <div>
-
-                <p>
-                    <strong>Informacje</strong>
-                </p>
-
-                <p>
-                    <a href="regulamin.html">
-                        Regulamin
-                    </a>
-                </p>
-
-                <p>
-                    <a href="bany.html">
-                        Bany
-                    </a>
-                </p>
-
-                <p>
-                    <a href="kontakt.html">
-                        Kontakt
-                    </a>
-                </p>
-
-            </div>
-
-
-            <div>
-
-                <p>
-                    <strong>Kolonia</strong>
-                </p>
-
-                <p>
-                    <a href="ranking.html">
-                        Ranking typerów
-                    </a>
-                </p>
-
-                <p>
-                    <a href="kalendarz.html">
-                        Kalendarz
-                    </a>
-                </p>
-
-                <p>
-                    <a href="historia.html">
-                        Historia
-                    </a>
-                </p>
-
-            </div>
 
         </div>
+
 
 
         <div class="footer-bottom">
 
             <p>
-                © 2026 Kolonia Pasjonatów. Wszystkie prawa zastrzeżone.
+                © 2026 Kolonia Pasjonatów
             </p>
 
         </div>
+
 
     </div>
 
 </footer>
 
 
-<!-- =====================================================
-     THEME
-===================================================== -->
-<script>
-    const themeToggle = document.getElementById("themeToggle");
-
-    function updateThemeIcon() {
-        if (document.body.classList.contains("light-theme")) {
-            themeToggle.textContent = "🌙";
-        } else {
-            themeToggle.textContent = "☀️";
-        }
-    }
-
-    const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme === "light") {
-        document.body.classList.add("light-theme");
-    }
-
-    updateThemeIcon();
-
-    themeToggle.addEventListener("click", () => {
-
-        document.body.classList.toggle("light-theme");
-
-        const isLight =
-            document.body.classList.contains("light-theme");
-
-        localStorage.setItem(
-            "theme",
-            isLight ? "light" : "dark"
-        );
-
-        updateThemeIcon();
-    });
-</script>
-
 
 <!-- =====================================================
-     DANE STRONY GŁÓWNEJ
+     JAVASCRIPT
 ===================================================== -->
-<script>
 
-    /*
-     * =====================================================
-     * STATYSTYKI
-     * =====================================================
-     *
-     * Tutaj później ustawimy prawdziwą liczbę członków
-     * oraz daty startu Kolonii i strony.
-     */
+<script src="script.js"></script>
 
-    const MEMBERS_COUNT = null;
-
-    const COLONY_START_DATE = null;
-
-    const WEBSITE_START_DATE = null;
-
-
-    function calculateDays(startDate) {
-
-        if (!startDate) {
-            return "—";
-        }
-
-        const start = new Date(startDate);
-        const today = new Date();
-
-        const difference =
-            today.getTime() - start.getTime();
-
-        return Math.max(
-            0,
-            Math.floor(
-                difference / (1000 * 60 * 60 * 24)
-            )
-        );
-    }
-
-
-    const membersElement =
-        document.getElementById("membersCount");
-
-    const colonyDaysElement =
-        document.getElementById("colonyDays");
-
-    const websiteDaysElement =
-        document.getElementById("websiteDays");
-
-
-    if (MEMBERS_COUNT !== null) {
-        membersElement.textContent =
-            MEMBERS_COUNT;
-    }
-
-
-    colonyDaysElement.textContent =
-        calculateDays(COLONY_START_DATE) === "—"
-            ? "—"
-            : calculateDays(COLONY_START_DATE) + " dni";
-
-
-    websiteDaysElement.textContent =
-        calculateDays(WEBSITE_START_DATE) === "—"
-            ? "—"
-            : calculateDays(WEBSITE_START_DATE) + " dni";
-
-</script>
-
-
-<!-- =====================================================
-     DANE Z PODSTRON
-===================================================== -->
-<script>
-
-    /*
-     * =====================================================
-     * WAŻNE
-     * =====================================================
-     *
-     * Poniższy kod przygotowuje miejsca do automatycznego
-     * pobierania danych z:
-     *
-     * ogloszenia.html
-     * kalendarz.html
-     * ranking.html
-     *
-     * Żeby działało to w pełni automatycznie, podstrony
-     * muszą mieć odpowiednie elementy/identyfikatory.
-     */
-
-
-    async function loadPage(url) {
-
-        try {
-
-            const response =
-                await fetch(url);
-
-            if (!response.ok) {
-                throw new Error(
-                    "Nie udało się pobrać strony."
-                );
-            }
-
-            return await response.text();
-
-        } catch (error) {
-
-            console.error(
-                "Błąd podczas pobierania:",
-                url,
-                error
-            );
-
-            return null;
-        }
-    }
-
-
-    /*
-     * =====================================================
-     * OGŁOSZENIA
-     * =====================================================
-     */
-
-    async function loadAnnouncements() {
-
-        const html =
-            await loadPage("ogloszenia.html");
-
-        if (!html) {
-            return;
-        }
-
-        const parser =
-            new DOMParser();
-
-        const documentData =
-            parser.parseFromString(
-                html,
-                "text/html"
-            );
-
-
-        /*
-         * Ogłoszenia powinny posiadać klasę:
-         *
-         * .announcement-card
-         *
-         * na podstronie ogłoszeń.
-         */
-
-        const announcements =
-            documentData.querySelectorAll(
-                ".announcement-card"
-            );
-
-
-        const container =
-            document.getElementById(
-                "latestAnnouncements"
-            );
-
-
-        if (!announcements.length) {
-            return;
-        }
-
-
-        container.innerHTML = "";
-
-
-        announcements
-            .slice(0, 3)
-            .forEach((announcement) => {
-
-                const clone =
-                    announcement.cloneNode(true);
-
-                container.appendChild(clone);
-
-            });
-
-
-        const firstAnnouncement =
-            announcements[0];
-
-
-        if (firstAnnouncement) {
-
-            const title =
-                firstAnnouncement.querySelector("h3");
-
-            const text =
-                firstAnnouncement.querySelector("p");
-
-
-            document.getElementById(
-                "importantAnnouncementTitle"
-            ).textContent =
-                title
-                    ? title.textContent.trim()
-                    : "Najnowsze ogłoszenie";
-
-
-            document.getElementById(
-                "importantAnnouncementText"
-            ).textContent =
-                text
-                    ? text.textContent.trim()
-                    : "";
-
-        }
-
-    }
-
-
-    /*
-     * =====================================================
-     * KALENDARZ
-     * =====================================================
-     */
-
-    async function loadCalendar() {
-
-        const html =
-            await loadPage("kalendarz.html");
-
-        if (!html) {
-            return;
-        }
-
-
-        const parser =
-            new DOMParser();
-
-        const documentData =
-            parser.parseFromString(
-                html,
-                "text/html"
-            );
-
-
-        const events =
-            documentData.querySelectorAll(
-                ".event-card"
-            );
-
-
-        if (!events.length) {
-            return;
-        }
-
-
-        /*
-         * NADCHODZĄCE WYDARZENIA
-         */
-
-        const upcomingContainer =
-            document.getElementById(
-                "upcomingEvents"
-            );
-
-
-        upcomingContainer.innerHTML = "";
-
-
-        events
-            .slice(0, 3)
-            .forEach((event) => {
-
-                upcomingContainer.appendChild(
-                    event.cloneNode(true)
-                );
-
-            });
-
-
-        /*
-         * 5 NAJBLIŻSZYCH WYDARZEŃ
-         */
-
-        const calendarContainer =
-            document.getElementById(
-                "calendarPreview"
-            );
-
-
-        calendarContainer.innerHTML = "";
-
-
-        events
-            .slice(0, 5)
-            .forEach((event) => {
-
-                const day =
-                    document.createElement("div");
-
-                day.className =
-                    "calendar-day";
-
-
-                const date =
-                    event.querySelector(
-                        ".event-date"
-                    );
-
-
-                const content =
-                    event.querySelector(
-                        ".event-content"
-                    );
-
-
-                day.innerHTML = `
-
-                    <div class="calendar-day-number">
-                        ${date
-                            ? date.textContent.trim()
-                            : "📅"}
-                    </div>
-
-                    <div class="calendar-event">
-                        ${content
-                            ? content.textContent.trim()
-                            : event.textContent.trim()}
-                    </div>
-
-                `;
-
-
-                calendarContainer.appendChild(day);
-
-            });
-
-    }
-
-
-    /*
-     * =====================================================
-     * RANKING TYPERÓW
-     * =====================================================
-     */
-
-    async function loadRanking() {
-
-        const html =
-            await loadPage("ranking.html");
-
-        if (!html) {
-            return;
-        }
-
-
-        const parser =
-            new DOMParser();
-
-        const documentData =
-            parser.parseFromString(
-                html,
-                "text/html"
-            );
-
-
-        const rows =
-            documentData.querySelectorAll(
-                ".ranking-table tbody tr"
-            );
-
-
-        const rankingContainer =
-            document.getElementById(
-                "rankingPreview"
-            );
-
-
-        if (!rows.length) {
-            return;
-        }
-
-
-        rankingContainer.innerHTML = "";
-
-
-        Array
-            .from(rows)
-            .slice(0, 5)
-            .forEach((row) => {
-
-                rankingContainer.appendChild(
-                    row.cloneNode(true)
-                );
-
-            });
-
-    }
-
-
-    /*
-     * =====================================================
-     * START
-     * =====================================================
-     */
-
-    loadAnnouncements();
-    loadCalendar();
-    loadRanking();
-
-</script>
 
 </body>
+
 </html>
+```
