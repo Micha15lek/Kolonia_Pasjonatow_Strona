@@ -1,6 +1,6 @@
 /* =========================================
    KOLONIA PASJONATÓW
-   STYLE 4.4
+   STYLE 4.5
 ========================================= */
 
 /* =========================================
@@ -1387,10 +1387,6 @@ section {
     text-align: center;
 }
 
-/* =========================================
-   LICZNIK — TRYB JASNY
-========================================= */
-
 body.light .countdown-card {
     background: var(--card);
 
@@ -1628,7 +1624,13 @@ body.light .holidays-select {
 }
 
 /* =========================================
-   HISTORIA — OGÓLNY
+   HISTORIA
+   POPRAWIONE POD:
+   .history-timeline
+   .history-item
+   .history-date
+   .history-content
+   .history-icon
 ========================================= */
 
 .history {
@@ -1637,37 +1639,7 @@ body.light .holidays-select {
     gap: 18px;
 }
 
-.history-item {
-    position: relative;
-
-    padding: 22px 24px;
-
-    background: var(--card);
-
-    border: 1px solid var(--border);
-
-    border-radius: var(--radius);
-
-    box-shadow: var(--shadow);
-}
-
-.history-date {
-    margin-bottom: 5px;
-
-    color: var(--accent);
-
-    font-weight: 800;
-}
-
-.history-item p {
-    color: var(--text-secondary);
-}
-
-/* =========================================
-   HISTORIA — OŚ CZASU
-========================================= */
-
-.timeline {
+.history-timeline {
     position: relative;
 
     max-width: 950px;
@@ -1677,7 +1649,9 @@ body.light .holidays-select {
     padding: 10px 0 20px;
 }
 
-.timeline::before {
+/* Linia osi czasu */
+
+.history-timeline::before {
     content: "";
 
     position: absolute;
@@ -1703,31 +1677,45 @@ body.light .holidays-select {
     opacity: 0.45;
 }
 
-.timeline-item {
+/* Element osi czasu */
+
+.history-item {
     position: relative;
 
     width: 50%;
 
     padding: 0 35px 45px;
+
+    background: transparent;
+
+    border: none;
+
+    border-radius: 0;
+
+    box-shadow: none;
 }
 
-.timeline-item:last-child {
+.history-item:last-child {
     padding-bottom: 0;
 }
 
-.timeline-item:nth-child(odd) {
+.history-item:nth-child(odd) {
     left: 0;
 
     text-align: right;
 }
 
-.timeline-item:nth-child(even) {
+.history-item:nth-child(even) {
     left: 50%;
 
     text-align: left;
 }
 
-.timeline-dot {
+/* Kropka osi czasu */
+
+.history-item::before {
+    content: "";
+
     position: absolute;
 
     top: 8px;
@@ -1748,18 +1736,20 @@ body.light .holidays-select {
         0 0 18px
         rgba(88, 101, 242, 0.25);
 
-    z-index: 2;
+    z-index: 3;
 }
 
-.timeline-item:nth-child(odd) .timeline-dot {
+.history-item:nth-child(odd)::before {
     right: -8px;
 }
 
-.timeline-item:nth-child(even) .timeline-dot {
+.history-item:nth-child(even)::before {
     left: -8px;
 }
 
-.timeline-content {
+/* Karta historii */
+
+.history-content {
     position: relative;
 
     padding: 22px 24px;
@@ -1779,7 +1769,7 @@ body.light .holidays-select {
         box-shadow 0.22s ease;
 }
 
-.timeline-content:hover {
+.history-content:hover {
     background: var(--card-hover);
 
     border-color: var(--border-hover);
@@ -1789,7 +1779,9 @@ body.light .holidays-select {
     transform: translateY(-4px);
 }
 
-.timeline-date {
+/* Data */
+
+.history-date {
     display: inline-flex;
 
     align-items: center;
@@ -1814,7 +1806,9 @@ body.light .holidays-select {
     font-weight: 900;
 }
 
-.timeline-icon {
+/* Ikona */
+
+.history-icon {
     margin-bottom: 8px;
 
     font-size: 1.45rem;
@@ -1822,7 +1816,9 @@ body.light .holidays-select {
     line-height: 1;
 }
 
-.timeline-content h3 {
+/* Nagłówki */
+
+.history-content h3 {
     margin-bottom: 7px;
 
     color: var(--text);
@@ -1832,7 +1828,9 @@ body.light .holidays-select {
     line-height: 1.25;
 }
 
-.timeline-content p {
+/* Tekst */
+
+.history-content p {
     color: var(--text-secondary);
 
     font-size: 0.92rem;
@@ -1840,11 +1838,17 @@ body.light .holidays-select {
     line-height: 1.65;
 }
 
-body.light .timeline::before {
+.history-content strong {
+    color: var(--text);
+}
+
+/* Tryb jasny */
+
+body.light .history-timeline::before {
     opacity: 0.30;
 }
 
-body.light .timeline-dot {
+body.light .history-item::before {
     border-color: var(--bg);
 
     box-shadow:
@@ -1854,7 +1858,7 @@ body.light .timeline-dot {
         rgba(88, 101, 242, 0.18);
 }
 
-body.light .timeline-content {
+body.light .history-content {
     background: var(--card);
 
     border-color: var(--border);
@@ -1862,12 +1866,453 @@ body.light .timeline-content {
     box-shadow: var(--shadow);
 }
 
-body.light .timeline-content:hover {
+body.light .history-content:hover {
     background: var(--card-hover);
 
     border-color: var(--border-hover);
 
     box-shadow: var(--shadow-hover);
+}
+
+/* =========================================
+   LINKI
+========================================= */
+
+.links-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(300px, 1fr)
+        );
+
+    gap: 20px;
+}
+
+/* Karta kanału */
+
+.link-card {
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 24px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.22s ease,
+        background 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.link-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: -75px;
+
+    right: -75px;
+
+    width: 190px;
+
+    height: 190px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(88, 101, 242, 0.07);
+
+    pointer-events: none;
+}
+
+.link-card:hover {
+    transform: translateY(-4px);
+
+    background: var(--card-hover);
+
+    border-color: var(--border-hover);
+
+    box-shadow: var(--shadow-hover);
+}
+
+/* Wszystkie elementy karty nad dekoracją */
+
+.link-card > * {
+    position: relative;
+
+    z-index: 1;
+}
+
+/* Nagłówek karty */
+
+.link-card-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 17px;
+}
+
+/* Zdjęcie profilowe */
+
+.link-profile {
+    width: 72px;
+
+    height: 72px;
+
+    flex-shrink: 0;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border:
+        2px solid
+        rgba(88, 101, 242, 0.35);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.22);
+}
+
+/* Informacje obok zdjęcia */
+
+.link-card-meta {
+    min-width: 0;
+
+    flex: 1;
+}
+
+.link-card-meta h3 {
+    margin-bottom: 4px;
+
+    color: var(--text);
+
+    font-size: 1.12rem;
+
+    line-height: 1.25;
+
+    word-break: break-word;
+}
+
+.link-card-meta span {
+    color: var(--muted);
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+}
+
+/* Liczba subów */
+
+.link-subs {
+    display: inline-flex;
+
+    align-items: center;
+
+    width: fit-content;
+
+    margin-bottom: 14px;
+
+    padding: 7px 11px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(88, 101, 242, 0.09);
+
+    border:
+        1px solid
+        rgba(88, 101, 242, 0.16);
+
+    color: var(--accent);
+
+    font-size: 0.82rem;
+
+    font-weight: 900;
+}
+
+/* Data utworzenia */
+
+.link-created {
+    margin-bottom: 12px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.84rem;
+}
+
+.link-created strong {
+    color: var(--text);
+}
+
+/* Opis krótki */
+
+.link-description {
+    margin-bottom: 0;
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+}
+
+/* Pełny opis */
+
+.description-full {
+    display: none;
+
+    margin-top: 14px;
+
+    padding: 14px;
+
+    white-space: pre-line;
+
+    color: var(--text-secondary);
+
+    background:
+        rgba(88, 101, 242, 0.055);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 12px;
+
+    font-size: 0.88rem;
+
+    line-height: 1.65;
+}
+
+.description-full.show {
+    display: block;
+}
+
+/* Wiek kanału */
+
+.channel-age-box {
+    margin-top: 18px;
+}
+
+.channel-age-title {
+    margin-bottom: 10px;
+
+    color: var(--muted);
+
+    font-size: 0.8rem;
+
+    font-weight: 800;
+}
+
+.channel-age {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(0, 1fr)
+        );
+
+    gap: 7px;
+}
+
+.channel-age > div {
+    min-width: 0;
+
+    padding: 9px 5px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(88, 101, 242, 0.07);
+
+    border: 1px solid var(--border);
+
+    text-align: center;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.channel-age > div:hover {
+    background:
+        rgba(88, 101, 242, 0.11);
+
+    border-color: var(--border-hover);
+}
+
+.channel-age strong {
+    display: block;
+
+    color: var(--accent);
+
+    font-size: 1.1rem;
+
+    font-weight: 900;
+
+    line-height: 1.1;
+}
+
+.channel-age span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 0.55rem;
+
+    font-weight: 800;
+}
+
+/* Przyciski */
+
+.link-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+.link-actions .button {
+    flex: 1;
+
+    min-width: 145px;
+}
+
+/* Sekcja Discord */
+
+.discord-links-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(260px, 1fr)
+        );
+
+    gap: 18px;
+}
+
+.discord-link-card {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 24px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.22s ease,
+        background 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.discord-link-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: -70px;
+
+    right: -70px;
+
+    width: 170px;
+
+    height: 170px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(88, 101, 242, 0.07);
+
+    pointer-events: none;
+}
+
+.discord-link-card:hover {
+    transform: translateY(-4px);
+
+    background: var(--card-hover);
+
+    border-color: var(--border-hover);
+
+    box-shadow: var(--shadow-hover);
+}
+
+.discord-link-card > * {
+    position: relative;
+
+    z-index: 1;
+}
+
+.discord-link-icon {
+    width: 52px;
+
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(88, 101, 242, 0.12);
+
+    border:
+        1px solid
+        rgba(88, 101, 242, 0.18);
+
+    font-size: 1.55rem;
+}
+
+.discord-link-card h3 {
+    margin-bottom: 7px;
+
+    font-size: 1.15rem;
+}
+
+.discord-link-card p {
+    margin-bottom: 18px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
 }
 
 /* =========================================
@@ -2634,19 +3079,19 @@ select:focus-visible {
        HISTORIA — MOBILE
     ===================================== */
 
-    .timeline {
+    .history-timeline {
         padding-left: 28px;
     }
 
-    .timeline::before {
+    .history-timeline::before {
         left: 7px;
 
         transform: none;
     }
 
-    .timeline-item,
-    .timeline-item:nth-child(odd),
-    .timeline-item:nth-child(even) {
+    .history-item,
+    .history-item:nth-child(odd),
+    .history-item:nth-child(even) {
         width: 100%;
 
         left: 0;
@@ -2657,13 +3102,13 @@ select:focus-visible {
         text-align: left;
     }
 
-    .timeline-item:last-child {
+    .history-item:last-child {
         padding-bottom: 0;
     }
 
-    .timeline-dot,
-    .timeline-item:nth-child(odd) .timeline-dot,
-    .timeline-item:nth-child(even) .timeline-dot {
+    .history-item::before,
+    .history-item:nth-child(odd)::before,
+    .history-item:nth-child(even)::before {
         left: -1px;
 
         right: auto;
@@ -2673,20 +3118,73 @@ select:focus-visible {
         height: 16px;
     }
 
-    .timeline-content {
+    .history-content {
         padding: 19px;
     }
 
-    .timeline-content h3 {
+    .history-content h3 {
         font-size: 1.05rem;
     }
 
-    .timeline-content p {
+    .history-content p {
         font-size: 0.88rem;
     }
 
-    .timeline-date {
+    .history-date {
         font-size: 0.72rem;
+    }
+
+    /* =====================================
+       LINKI — MOBILE
+    ===================================== */
+
+    .links-grid,
+    .discord-links-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .link-card {
+        padding: 21px;
+    }
+
+    .link-profile {
+        width: 64px;
+
+        height: 64px;
+    }
+
+    .link-card-header {
+        gap: 12px;
+    }
+
+    .link-card-meta h3 {
+        font-size: 1.05rem;
+    }
+
+    .channel-age {
+        gap: 5px;
+    }
+
+    .channel-age > div {
+        padding: 8px 3px;
+    }
+
+    .channel-age strong {
+        font-size: 1rem;
+    }
+
+    .channel-age span {
+        font-size: 0.5rem;
+    }
+
+    .link-actions {
+        flex-direction: column;
+    }
+
+    .link-actions .button {
+        width: 100%;
+
+        min-width: 0;
     }
 
     /* =====================================
@@ -3012,44 +3510,102 @@ select:focus-visible {
        HISTORIA — MAŁE EKRANY
     ===================================== */
 
-    .timeline {
+    .history-timeline {
         padding-left: 24px;
     }
 
-    .timeline::before {
+    .history-timeline::before {
         left: 6px;
     }
 
-    .timeline-item,
-    .timeline-item:nth-child(odd),
-    .timeline-item:nth-child(even) {
+    .history-item,
+    .history-item:nth-child(odd),
+    .history-item:nth-child(even) {
         padding-left: 24px;
     }
 
-    .timeline-dot,
-    .timeline-item:nth-child(odd) .timeline-dot,
-    .timeline-item:nth-child(even) .timeline-dot {
+    .history-item::before,
+    .history-item:nth-child(odd)::before,
+    .history-item:nth-child(even)::before {
         left: -2px;
     }
 
-    .timeline-content {
+    .history-content {
         padding: 17px;
     }
 
-    .timeline-icon {
+    .history-icon {
         font-size: 1.25rem;
     }
 
-    .timeline-content h3 {
+    .history-content h3 {
         font-size: 1rem;
     }
 
-    .timeline-content p {
+    .history-content p {
         font-size: 0.84rem;
     }
 
-    .timeline-date {
+    .history-date {
         font-size: 0.68rem;
+    }
+
+    /* =====================================
+       LINKI — MAŁE EKRANY
+    ===================================== */
+
+    .link-card {
+        padding: 18px;
+    }
+
+    .link-profile {
+        width: 58px;
+
+        height: 58px;
+    }
+
+    .link-card-header {
+        gap: 10px;
+    }
+
+    .link-card-meta h3 {
+        font-size: 0.98rem;
+    }
+
+    .link-card-meta span {
+        font-size: 0.7rem;
+    }
+
+    .link-subs {
+        font-size: 0.76rem;
+    }
+
+    .link-created {
+        font-size: 0.78rem;
+    }
+
+    .link-description {
+        font-size: 0.84rem;
+    }
+
+    .description-full {
+        font-size: 0.82rem;
+    }
+
+    .channel-age {
+        gap: 4px;
+    }
+
+    .channel-age > div {
+        padding: 7px 2px;
+    }
+
+    .channel-age strong {
+        font-size: 0.9rem;
+    }
+
+    .channel-age span {
+        font-size: 0.44rem;
     }
 
     /* =====================================
