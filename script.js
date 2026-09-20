@@ -311,6 +311,146 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================================
+       LICZNIKI ADMINISTRACJI
+    ========================================= */
+
+    function updateAdminCounters() {
+
+        const adminMembers =
+            document.querySelectorAll(
+                ".admin-member[data-join-date]"
+            );
+
+
+        const now =
+            new Date();
+
+
+        adminMembers.forEach(member => {
+
+            const joinDate =
+                new Date(
+                    member.dataset.joinDate
+                );
+
+
+            const difference =
+                Math.max(
+                    0,
+                    now.getTime() -
+                    joinDate.getTime()
+                );
+
+
+            const totalSeconds =
+                Math.floor(
+                    difference / 1000
+                );
+
+
+            const days =
+                Math.floor(
+                    totalSeconds / 86400
+                );
+
+
+            const hours =
+                Math.floor(
+                    (totalSeconds % 86400) / 3600
+                );
+
+
+            const minutes =
+                Math.floor(
+                    (totalSeconds % 3600) / 60
+                );
+
+
+            const seconds =
+                totalSeconds % 60;
+
+
+            const daysElement =
+                member.querySelector(
+                    "[data-days]"
+                );
+
+
+            const hoursElement =
+                member.querySelector(
+                    "[data-hours]"
+                );
+
+
+            const minutesElement =
+                member.querySelector(
+                    "[data-minutes]"
+                );
+
+
+            const secondsElement =
+                member.querySelector(
+                    "[data-seconds]"
+                );
+
+
+            if (daysElement) {
+
+                daysElement.textContent =
+                    days;
+            }
+
+
+            if (hoursElement) {
+
+                hoursElement.textContent =
+                    String(
+                        hours
+                    ).padStart(
+                        2,
+                        "0"
+                    );
+            }
+
+
+            if (minutesElement) {
+
+                minutesElement.textContent =
+                    String(
+                        minutes
+                    ).padStart(
+                        2,
+                        "0"
+                    );
+            }
+
+
+            if (secondsElement) {
+
+                secondsElement.textContent =
+                    String(
+                        seconds
+                    ).padStart(
+                        2,
+                        "0"
+                    );
+            }
+
+        });
+
+    }
+
+
+    updateAdminCounters();
+
+
+    setInterval(
+        updateAdminCounters,
+        1000
+    );
+
+
+    /* =========================================
        KALENDARZ
        DATA POBIERANA Z URZĄDZENIA
     ========================================= */
