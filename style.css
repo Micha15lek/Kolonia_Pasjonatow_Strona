@@ -2630,4 +2630,191 @@ select:focus-visible {
             0.01ms !important;
     }
 }
-```
+
+
+/* =====================================================
+   STAŁY GÓRNY PASEK
+===================================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+
+    width: 100%;
+
+    transition:
+        background-color .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease,
+        backdrop-filter .3s ease;
+}
+
+header.scrolled {
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, .35);
+
+    backdrop-filter:
+        blur(18px);
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+
+/* =====================================================
+   MOTYW JASNY
+===================================================== */
+
+body.light-theme {
+    --bg-main: #f3f6fb;
+    --bg-secondary: #ffffff;
+    --bg-card: rgba(255, 255, 255, .85);
+
+    --text-main: #172033;
+    --text-secondary: #596579;
+
+    --border-color: rgba(20, 35, 60, .12);
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5f8fc,
+            #e9eef7
+        );
+
+    color: var(--text-main);
+}
+
+
+/* =====================================================
+   JASNY MOTYW – HEADER
+===================================================== */
+
+body.light-theme header {
+    background:
+        rgba(255, 255, 255, .88);
+
+    border-bottom:
+        1px solid rgba(20, 35, 60, .10);
+
+    box-shadow:
+        0 8px 30px rgba(20, 35, 60, .08);
+}
+
+
+/* =====================================================
+   JASNY MOTYW – KARTY
+===================================================== */
+
+body.light-theme .info-card,
+body.light-theme .announcement-card,
+body.light-theme .event-card,
+body.light-theme .discord-cta {
+    background:
+        rgba(255, 255, 255, .88);
+
+    border-color:
+        rgba(20, 35, 60, .10);
+
+    color:
+        #172033;
+
+    box-shadow:
+        0 12px 35px rgba(20, 35, 60, .08);
+}
+
+
+/* =====================================================
+   JASNY MOTYW – TEKSTY
+===================================================== */
+
+body.light-theme p {
+    color: #596579;
+}
+
+body.light-theme .section-title {
+    color: #172033;
+}
+
+body.light-theme .section-description {
+    color: #596579;
+}
+
+
+/* =====================================================
+   JASNY MOTYW – NAV
+===================================================== */
+
+body.light-theme header nav a {
+    color: #465268;
+}
+
+body.light-theme header nav a:hover,
+body.light-theme header nav a.active {
+    color: #ffffff;
+    background: #2491ff;
+}
+
+
+/* =====================================================
+   JASNY MOTYW – HERO
+===================================================== */
+
+body.light-theme .hero {
+    background:
+        linear-gradient(
+            135deg,
+            #eef5ff,
+            #f8faff
+        );
+}
+
+
+/* =====================================================
+   JASNY MOTYW – BUTTON
+===================================================== */
+
+body.light-theme .button-secondary {
+    color: #172033;
+
+    background:
+        rgba(255, 255, 255, .8);
+
+    border:
+        1px solid rgba(20, 35, 60, .14);
+}
+
+
+/* =====================================================
+   MOBILE NAV
+===================================================== */
+
+@media (max-width: 850px) {
+
+    header {
+        position: sticky;
+        top: 0;
+    }
+
+    header nav {
+        overflow-x: auto;
+        justify-content: flex-start;
+
+        scrollbar-width: none;
+    }
+
+    header nav::-webkit-scrollbar {
+        display: none;
+    }
+
+}
