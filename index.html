@@ -151,7 +151,7 @@
     </section>
 
 
-    <!-- STATYSTYKI -->
+    <!-- STATYSTYKI I LICZNIK -->
 
     <section class="stats-section">
 
@@ -215,12 +215,12 @@
             </div>
 
 
-            <!-- LICZNIK -->
+            <!-- START SPOŁECZNOŚCI -->
 
             <div class="counter-wrapper">
 
                 <div class="counter-title">
-                    ⏱️ Czas istnienia Kolonii Pasjonatów
+                    🏠 Start społeczności — 11.06.2026
                 </div>
 
                 <div class="stat-counter">
@@ -565,7 +565,7 @@
 <script>
 
 const COLONY_START_DATE = "2026-06-11T00:00:00";
-const WEBSITE_START_DATE = "2026-08-13T21:10:00";
+const WEBSITE_START_DATE = "2026-08-13T20:10:00";
 
 
 function getTimeParts(startDate) {
@@ -583,12 +583,15 @@ function getTimeParts(startDate) {
 
     return {
         days: Math.floor(totalSeconds / 86400),
+
         hours: Math.floor(
             (totalSeconds % 86400) / 3600
         ),
+
         minutes: Math.floor(
             (totalSeconds % 3600) / 60
         ),
+
         seconds: totalSeconds % 60
     };
 }
@@ -602,6 +605,8 @@ function updateCounter() {
     const website =
         getTimeParts(WEBSITE_START_DATE);
 
+
+    /* LICZNIK STARTU SPOŁECZNOŚCI */
 
     const colonyDays =
         document.getElementById("colonyDays");
@@ -632,6 +637,8 @@ function updateCounter() {
             String(colony.seconds).padStart(2, "0");
 
 
+    /* STATYSTYKA DNI */
+
     const colonyDaysValue =
         document.getElementById("colonyDaysValue");
 
@@ -640,10 +647,12 @@ function updateCounter() {
 
 
     if (colonyDaysValue)
-        colonyDaysValue.textContent = colony.days;
+        colonyDaysValue.textContent =
+            colony.days;
 
     if (websiteDaysValue)
-        websiteDaysValue.textContent = website.days;
+        websiteDaysValue.textContent =
+            website.days;
 }
 
 
