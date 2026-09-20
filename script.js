@@ -1,5 +1,5 @@
 /* =====================================================
-   KOLONIA PASJONATÓW 2.0
+   KOLONIA PASJONATÓW 3.0
    GŁÓWNY SKRYPT
 ===================================================== */
 
@@ -8,7 +8,7 @@
    KONFIGURACJA
 ===================================================== */
 
-const COLONY_START_DATE = "2026-06-11";
+const COLONY_START_DATE = "2026-06-11T00:00:00";
 const WEBSITE_START_DATE = "2026-08-13T21:10:00";
 
 const MEMBERS_COUNT = 20;
@@ -29,75 +29,87 @@ const prefersReducedMotion =
 ===================================================== */
 
 function createLocalDate(dateString) {
-    const parts = dateString.split("-").map(Number);
 
-    if (parts.length === 3) {
-        return new Date(
-            parts[0],
-            parts[1] - 1,
-            parts[2],
-            0,
-            0,
-            0
-        );
+    const date = new Date(dateString);
+
+    return isNaN(date.getTime())
+        ? new Date()
+        : date;
+}
+
+
+/* =====================================================
+   FORMATOWANIE CZASU
+===================================================== */
+
+function formatDuration(startDate) {
+
+    const start =
+        createLocalDate(startDate);
+
+    const now =
+        new Date();
+
+    let difference =
+        now.getTime() -
+        start.getTime();
+
+
+    if (difference < 0) {
+        difference = 0;
     }
 
-    return new Date(dateString);
-}
+
+    const second =
+        1000;
+
+    const minute =
+        second * 60;
+
+    const hour =
+        minute * 60;
+
+    const day =
+        hour * 24;
 
 
-/* =====================================================
-   LICZBA DNI OD DATY
-===================================================== */
-
-function getDaysSince(startDate) {
-    const start = createLocalDate(startDate);
-
-    const now = new Date();
-
-    const today = new Date(
-        now.getFullYear(),
-        now.getMonth(),
-        now.getDate(),
-        0,
-        0,
-        0
-    );
-
-    const difference =
-        today.getTime() - start.getTime();
-
-    return Math.max(
-        0,
+    const days =
         Math.floor(
-            difference /
-            (1000 * 60 * 60 * 24)
-        )
-    );
-}
+            difference / day
+        );
 
 
-/* =====================================================
-   DNI OD URUCHOMIENIA STRONY
-===================================================== */
+    difference -=
+        days * day;
 
-function getWebsiteDays() {
-    const websiteStart =
-        new Date(WEBSITE_START_DATE);
 
-    const now = new Date();
-
-    const difference =
-        now.getTime() -
-        websiteStart.getTime();
-
-    return Math.max(
-        0,
+    const hours =
         Math.floor(
-            difference /
-            (1000 * 60 * 60 * 24)
-        )
-    );
+            difference / hour
+        );
+
+
+    difference -=
+        hours * hour;
+
+
+    const minutes =
+        Math.floor(
+            difference / minute
+        );
+
+
+    difference -=
+        minutes * minute;
+
+
+    const seconds =
+        Math.floor(
+            difference / second
+        );
+
+
+    return `${days} dni, ${hours} godz. ${minutes} min. ${seconds} sek.`;
 }
 
 
@@ -123,23 +135,34 @@ function loadStatistics() {
         );
 
 
+    /* LICZBA CZŁONKÓW */
+
     if (membersElement) {
+
         membersElement.textContent =
             MEMBERS_COUNT;
     }
 
 
+    /* CZAS ISTNIENIA KOLONII */
+
     if (colonyDaysElement) {
+
         colonyDaysElement.textContent =
-            getDaysSince(
+            formatDuration(
                 COLONY_START_DATE
             );
     }
 
 
+    /* CZAS DZIAŁANIA STRONY */
+
     if (websiteDaysElement) {
+
         websiteDaysElement.textContent =
-            getWebsiteDays();
+            formatDuration(
+                WEBSITE_START_DATE
+            );
     }
 }
 
@@ -154,6 +177,7 @@ function setupTheme() {
         document.getElementById(
             "themeToggle"
         );
+
 
     if (!button) {
         return;
@@ -272,6 +296,7 @@ function updateThemeButton(
 ===================================================== */
 
 function updatePageCounters() {
+
     loadStatistics();
 }
 
@@ -286,6 +311,7 @@ function setupHeaderScroll() {
         document.querySelector(
             "header"
         );
+
 
     if (!header) {
         return;
@@ -446,10 +472,20 @@ function setupSmoothScroll() {
                     }
 
 
-                    const target =
-                        document.querySelector(
-                            href
-                        );
+                    let target = null;
+
+
+                    try {
+
+                        target =
+                            document.querySelector(
+                                href
+                            );
+
+                    } catch (error) {
+
+                        return;
+                    }
 
 
                     if (!target) {
@@ -969,6 +1005,7 @@ function setupButtonRipple() {
 
 /* =====================================================
    ANIMOWANE LICZNIKI
+   TYLKO DLA .stat-number
 ===================================================== */
 
 function setupAnimatedCounters() {
@@ -1257,45 +1294,63 @@ document.addEventListener(
     "DOMContentLoaded",
     () => {
 
-        /* Obecne funkcje strony */
+        /* Statystyki */
+
         setupTheme();
+
         loadStatistics();
 
 
-        /* Nowe animacje i interakcje */
+        /* Interakcje */
+
         setupHeaderScroll();
+
         setupActiveNavigation();
+
         setupSmoothScroll();
+
         setupScrollReveal();
+
         setupStaggerAnimations();
+
         setupCardTilt();
+
         setupCursorGlow();
+
         setupHeroParallax();
+
         setupButtonRipple();
+
         setupAnimatedCounters();
+
         setupLogoAnimation();
+
         setupPageLoad();
+
         setupEscapeKey();
+
         setupCurrentYear();
 
 
-        /*
-           Aktualizacja liczników
-           bez przeładowywania strony.
-        */
+        /* =================================================
+           LICZNIKI AKTUALIZUJĄ SIĘ CO SEKUNDĘ
+        ================================================= */
 
         setInterval(
             updatePageCounters,
-            60 * 1000
+            1000
         );
 
 
-        /* Informacja w konsoli */
+        /* =================================================
+           INFORMACJA W KONSOLI
+        ================================================= */
 
         console.log(
-            "%c🚆 KOLONIA PASJONATÓW 2.0",
+            "%c🚆 KOLONIA PASJONATÓW 3.0",
             "font-size:18px;font-weight:800;color:#2491ff;"
         );
+
 
         console.log(
             "%cStrona została uruchomiona poprawnie.",
