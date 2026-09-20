@@ -33,6 +33,10 @@
     --radius: 18px;
 }
 
+/* =========================================
+   TRYB JASNY
+========================================= */
+
 body.light {
     --bg: #f3f5f9;
     --bg-secondary: #ffffff;
@@ -151,6 +155,10 @@ header {
         box-shadow 0.25s ease;
 }
 
+/* =========================================
+   NAGŁÓWEK — TRYB JASNY
+========================================= */
+
 body.light header {
     background:
         linear-gradient(
@@ -158,6 +166,11 @@ body.light header {
             rgba(255, 255, 255, 0.94),
             rgba(248, 250, 252, 0.92)
         );
+
+    border-color: var(--border);
+
+    box-shadow:
+        0 10px 40px rgba(20, 30, 50, 0.10);
 }
 
 /* =========================================
@@ -204,7 +217,7 @@ body.light header {
 }
 
 /* =========================================
-   NAVIGACJA
+   NAWIGACJA
 ========================================= */
 
 nav {
@@ -276,6 +289,14 @@ nav a:hover {
     background: rgba(88, 101, 242, 0.16);
     border-color: var(--border-hover);
     transform: translateY(-1px);
+}
+
+body.light .theme-toggle {
+    background: rgba(20, 30, 50, 0.04);
+}
+
+body.light .theme-toggle:hover {
+    background: rgba(88, 101, 242, 0.10);
 }
 
 /* =========================================
@@ -908,6 +929,10 @@ section {
     background: rgba(255, 255, 255, 0.025);
 
     border: 1px solid transparent;
+}
+
+body.light .calendar-day {
+    background: rgba(20, 30, 50, 0.025);
 }
 
 .calendar-day:hover {
