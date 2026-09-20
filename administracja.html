@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +12,6 @@
 <body>
 
 <header>
-
     <div class="header-inner">
 
         <a href="index.html" class="logo">
@@ -21,38 +19,27 @@
         </a>
 
         <nav>
-
-            <a href="index.html">
-                ← Strona główna
-            </a>
-
+            <a href="index.html">← Strona główna</a>
         </nav>
 
         <button
             id="themeToggle"
             class="theme-toggle"
             aria-label="Zmień motyw">
-
             🌙
-
         </button>
 
     </div>
-
 </header>
 
 
-<main>
+<main class="admin-page">
 
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
-
+    <!-- HERO -->
     <section class="hero">
-
         <div class="hero-content">
 
-            <span class="section-label">
+            <span class="hero-label">
                 👥 KOLONIA PASJONATÓW
             </span>
 
@@ -66,27 +53,23 @@
             </p>
 
         </div>
-
     </section>
 
 
-    <!-- =====================================================
-         LISTA ADMINISTRACJI
-    ====================================================== -->
+    <!-- ADMINISTRACJA -->
+    <section class="section">
 
-    <section class="section admin-page">
-
-        <div class="section-header">
+        <div class="section-heading">
 
             <span class="section-label">
                 🛡️ ZESPÓŁ
             </span>
 
-            <h2 class="section-title">
+            <h2>
                 Lista administracji
             </h2>
 
-            <p class="section-description">
+            <p>
                 Poznaj osoby tworzące administrację
                 Kolonii Pasjonatów.
             </p>
@@ -94,356 +77,263 @@
         </div>
 
 
-        <div class="admin-grid">
+        <div class="admin-table-wrapper">
 
+            <table class="admin-table">
 
-            <!-- =================================================
-                 PREZES
-            ================================================== -->
+                <thead>
+                    <tr>
+                        <th>👤 Osoba</th>
+                        <th>🛡️ Rola</th>
+                        <th>📅 Data dołączenia</th>
+                        <th>⏱️ W społeczności</th>
+                    </tr>
+                </thead>
 
-            <article class="info-card admin-card">
+                <tbody>
 
-                <div class="card-icon">
-                    👑
-                </div>
-
-                <h2>
-                    Prezes
-                </h2>
-
-                <div class="admin-members">
-
-                    <div
+                    <!-- MICHAŁ -->
+                    <tr
                         class="admin-member"
                         data-join-date="2026-04-05T00:00:00">
 
-                        <strong>
-                            Michał
-                        </strong>
+                        <td class="admin-person">
+                            <strong>Michał</strong>
+                        </td>
 
-                        <span>
-                            👑 Prezes
-                        </span>
-
-                        <div class="admin-date">
-
-                            📅 <strong>Data dołączenia:</strong>
-                            <span>
-                                05.04.2026
+                        <td>
+                            <span class="admin-role president">
+                                👑 Prezes
                             </span>
+                        </td>
 
-                        </div>
+                        <td class="admin-date">
+                            📅 05.04.2026
+                        </td>
 
-                        <div class="admin-time">
-
-                            <span>
-                                ⏱️ <strong>W społeczności:</strong>
-                            </span>
-
+                        <td>
                             <div class="admin-counter">
 
                                 <div>
                                     <strong data-days>0</strong>
-                                    <span> DNI</span>
+                                    <span>DNI</span>
                                 </div>
 
                                 <div>
                                     <strong data-hours>00</strong>
-                                    <span> GODZ.</span>
+                                    <span>GODZ.</span>
                                 </div>
 
                                 <div>
                                     <strong data-minutes>00</strong>
-                                    <span> MIN.</span>
+                                    <span>MIN.</span>
                                 </div>
 
                                 <div>
                                     <strong data-seconds>00</strong>
-                                    <span> SEK.</span>
+                                    <span>SEK.</span>
                                 </div>
 
                             </div>
+                        </td>
 
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </article>
+                    </tr>
 
 
-            <!-- =================================================
-                 WICEPREZES
-            ================================================== -->
-
-            <article class="info-card admin-card">
-
-                <div class="card-icon">
-                    🤝
-                </div>
-
-                <h2>
-                    Wiceprezes
-                </h2>
-
-                <div class="admin-members">
-
-                    <div
+                    <!-- MIKOL YORIICHI -->
+                    <tr
                         class="admin-member"
                         data-join-date="2026-06-19T00:00:00">
 
-                        <strong>
-                            Mikol Yoriichi
-                        </strong>
+                        <td class="admin-person">
+                            <strong>Mikol Yoriichi</strong>
+                        </td>
 
-                        <span>
-                            🤝 Wiceprezes
-                        </span>
-
-                        <div class="admin-date">
-
-                            📅 <strong>Data dołączenia:</strong>
-                            <span>
-                                19.06.2026
+                        <td>
+                            <span class="admin-role vice-president">
+                                🤝 Wiceprezes
                             </span>
+                        </td>
 
-                        </div>
+                        <td class="admin-date">
+                            📅 19.06.2026
+                        </td>
 
-                        <div class="admin-time">
-
-                            <span>
-                                ⏱️ <strong>W społeczności:</strong>
-                            </span>
-
+                        <td>
                             <div class="admin-counter">
 
                                 <div>
                                     <strong data-days>0</strong>
-                                    <span> DNI</span>
+                                    <span>DNI</span>
                                 </div>
 
                                 <div>
                                     <strong data-hours>00</strong>
-                                    <span> GODZ.</span>
+                                    <span>GODZ.</span>
                                 </div>
 
                                 <div>
                                     <strong data-minutes>00</strong>
-                                    <span> MIN.</span>
+                                    <span>MIN.</span>
                                 </div>
 
                                 <div>
                                     <strong data-seconds>00</strong>
-                                    <span> SEK.</span>
+                                    <span>SEK.</span>
                                 </div>
 
                             </div>
+                        </td>
 
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- =================================================
-                 ADMINISTRATORZY
-            ================================================== -->
-
-            <article class="info-card admin-card">
-
-                <div class="card-icon">
-                    🛡️
-                </div>
-
-                <h2>
-                    Administratorzy
-                </h2>
-
-                <div class="admin-members">
+                    </tr>
 
 
                     <!-- NOWORUDZKI -->
-
-                    <div
+                    <tr
                         class="admin-member"
                         data-join-date="2026-06-10T00:00:00">
 
-                        <strong>
-                            noworudzki_mk2
-                        </strong>
+                        <td class="admin-person">
+                            <strong>noworudzki_mk2</strong>
+                        </td>
 
-                        <span>
-                            🛡️ Administrator
-                        </span>
-
-                        <div class="admin-date">
-
-                            📅 <strong>Data dołączenia:</strong>
-                            <span>
-                                10.06.2026
+                        <td>
+                            <span class="admin-role administrator">
+                                🛡️ Administrator
                             </span>
+                        </td>
 
-                        </div>
+                        <td class="admin-date">
+                            📅 10.06.2026
+                        </td>
 
-                        <div class="admin-time">
-
-                            <span>
-                                ⏱️ <strong>W społeczności:</strong>
-                            </span>
-
+                        <td>
                             <div class="admin-counter">
 
                                 <div>
                                     <strong data-days>0</strong>
-                                    <span> DNI</span>
+                                    <span>DNI</span>
                                 </div>
 
                                 <div>
                                     <strong data-hours>00</strong>
-                                    <span> GODZ.</span>
+                                    <span>GODZ.</span>
                                 </div>
 
                                 <div>
                                     <strong data-minutes>00</strong>
-                                    <span> MIN.</span>
+                                    <span>MIN.</span>
                                 </div>
 
                                 <div>
                                     <strong data-seconds>00</strong>
-                                    <span> SEK.</span>
+                                    <span>SEK.</span>
                                 </div>
 
                             </div>
+                        </td>
 
-                        </div>
-
-                    </div>
+                    </tr>
 
 
                     <!-- KOLEJ FARMING -->
-
-                    <div
+                    <tr
                         class="admin-member"
                         data-join-date="2026-06-29T00:00:00">
 
-                        <strong>
-                            Kolej_farming
-                        </strong>
+                        <td class="admin-person">
+                            <strong>Kolej_farming</strong>
+                        </td>
 
-                        <span>
-                            🛡️ Administrator
-                        </span>
-
-                        <div class="admin-date">
-
-                            📅 <strong>Data dołączenia:</strong>
-                            <span>
-                                29.06.2026
+                        <td>
+                            <span class="admin-role administrator">
+                                🛡️ Administrator
                             </span>
+                        </td>
 
-                        </div>
+                        <td class="admin-date">
+                            📅 29.06.2026
+                        </td>
 
-                        <div class="admin-time">
-
-                            <span>
-                                ⏱️ <strong>W społeczności:</strong>
-                            </span>
-
+                        <td>
                             <div class="admin-counter">
 
                                 <div>
                                     <strong data-days>0</strong>
-                                    <span> DNI</span>
+                                    <span>DNI</span>
                                 </div>
 
                                 <div>
                                     <strong data-hours>00</strong>
-                                    <span> GODZ.</span>
+                                    <span>GODZ.</span>
                                 </div>
 
                                 <div>
                                     <strong data-minutes>00</strong>
-                                    <span> MIN.</span>
+                                    <span>MIN.</span>
                                 </div>
 
                                 <div>
                                     <strong data-seconds>00</strong>
-                                    <span> SEK.</span>
+                                    <span>SEK.</span>
                                 </div>
 
                             </div>
+                        </td>
 
-                        </div>
-
-                    </div>
+                    </tr>
 
 
                     <!-- KEBABKRAFTOWY -->
-
-                    <div
+                    <tr
                         class="admin-member"
                         data-join-date="2026-06-18T00:00:00">
 
-                        <strong>
-                            KEBABKRAFTOWY
-                        </strong>
+                        <td class="admin-person">
+                            <strong>KEBABKRAFTOWY</strong>
+                        </td>
 
-                        <span>
-                            🛡️ Administrator
-                        </span>
-
-                        <div class="admin-date">
-
-                            📅 <strong>Data dołączenia:</strong>
-                            <span>
-                                18.06.2026
+                        <td>
+                            <span class="admin-role administrator">
+                                🛡️ Administrator
                             </span>
+                        </td>
 
-                        </div>
+                        <td class="admin-date">
+                            📅 18.06.2026
+                        </td>
 
-                        <div class="admin-time">
-
-                            <span>
-                                ⏱️ <strong>W społeczności:</strong>
-                            </span>
-
+                        <td>
                             <div class="admin-counter">
 
                                 <div>
                                     <strong data-days>0</strong>
-                                    <span> DNI</span>
+                                    <span>DNI</span>
                                 </div>
 
                                 <div>
                                     <strong data-hours>00</strong>
-                                    <span> GODZ.</span>
+                                    <span>GODZ.</span>
                                 </div>
 
                                 <div>
                                     <strong data-minutes>00</strong>
-                                    <span> MIN.</span>
+                                    <span>MIN.</span>
                                 </div>
 
                                 <div>
                                     <strong data-seconds>00</strong>
-                                    <span> SEK.</span>
+                                    <span>SEK.</span>
                                 </div>
 
                             </div>
+                        </td>
 
-                        </div>
+                    </tr>
 
-                    </div>
+                </tbody>
 
-
-                </div>
-
-            </article>
-
+            </table>
 
         </div>
 
@@ -452,16 +342,11 @@
 </main>
 
 
-<!-- =====================================================
-     STOPKA
-====================================================== -->
-
 <footer>
 
     <div class="footer-content">
 
         <div>
-
             <div class="logo">
                 🌟 Kolonia Pasjonatów
             </div>
@@ -469,7 +354,6 @@
             <p>
                 Oficjalna strona naszej społeczności.
             </p>
-
         </div>
 
     </div>
@@ -489,5 +373,4 @@
 <script src="script.js"></script>
 
 </body>
-
 </html>
