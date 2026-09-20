@@ -335,44 +335,73 @@
 
 <header>
     <div class="header-inner">
-        <a href="index.html" class="logo">🌟 Kolonia Pasjonatów</a>
+
+        <a href="index.html" class="logo">
+            🌟 Kolonia Pasjonatów
+        </a>
 
         <nav>
             <a href="index.html">← Strona główna</a>
         </nav>
 
-        <button id="themeToggle" class="theme-toggle" aria-label="Zmień motyw">
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Zmień motyw">
             🌙
         </button>
+
     </div>
 </header>
+
 
 <main class="calendar-page">
 
     <section class="calendar-hero">
+
         <h1>📅 Kalendarz</h1>
+
         <p>
             Najważniejsze wydarzenia, terminy, święta oraz urodziny
             członków Kolonii Pasjonatów.
         </p>
+
     </section>
+
 
     <section class="calendar-navigation">
-        <button id="previousMonth">← Poprzedni</button>
 
-        <div class="month-title" id="monthTitle"></div>
+        <button id="previousMonth">
+            ← Poprzedni
+        </button>
 
-        <button id="nextMonth">Następny →</button>
+        <div
+            class="month-title"
+            id="monthTitle">
+        </div>
+
+        <button id="nextMonth">
+            Następny →
+        </button>
+
     </section>
 
+
     <div class="today-button-wrapper">
-        <button id="todayButton" class="today-button">
+
+        <button
+            id="todayButton"
+            class="today-button">
             📍 Dzisiaj
         </button>
+
     </div>
 
+
     <section class="calendar">
+
         <div class="weekdays">
+
             <div class="weekday">Pon</div>
             <div class="weekday">Wt</div>
             <div class="weekday">Śr</div>
@@ -380,22 +409,44 @@
             <div class="weekday">Pt</div>
             <div class="weekday">Sob</div>
             <div class="weekday">Nd</div>
+
         </div>
 
-        <div class="days" id="calendarDays"></div>
+        <div
+            class="days"
+            id="calendarDays">
+        </div>
+
     </section>
 
-    <section class="event-info" id="eventInfo">
-        <div class="event-type" id="eventType"></div>
+
+    <section
+        class="event-info"
+        id="eventInfo">
+
+        <div
+            class="event-type"
+            id="eventType">
+        </div>
+
         <h3 id="eventTitle"></h3>
-        <div class="event-date" id="eventDate"></div>
+
+        <div
+            class="event-date"
+            id="eventDate">
+        </div>
+
         <p id="eventDescription"></p>
+
     </section>
+
 
     <section class="legend">
+
         <h3>Legenda</h3>
 
         <div class="legend-items">
+
             <div class="legend-item">
                 <span class="legend-color legend-event"></span>
                 Wydarzenie
@@ -420,24 +471,35 @@
                 <span class="legend-color legend-birthday"></span>
                 🎂 Urodziny
             </div>
+
         </div>
+
     </section>
 
 </main>
 
+
 <footer>
-    <p>© 2026 Kolonia Pasjonatów</p>
-    <p>🌟 Oficjalna strona społeczności</p>
+
+    <p>
+        © <span id="footerYear"></span>
+        Kolonia Pasjonatów
+    </p>
+
+    <p>
+        🌟 Oficjalna strona społeczności
+    </p>
+
 </footer>
 
+
 <script>
+
 /* =========================================================
-   DATA
+   WYDARZENIA JEDNORAZOWE / KOLONIA PASJONATÓW
 ========================================================= */
 
-const events = [
-
-    /* ===== KOLONIA PASJONATÓW ===== */
+const oneTimeEvents = [
 
     {
         start: "2026-08-10",
@@ -480,24 +542,6 @@ const events = [
     },
 
     {
-        start: "2026-10-31",
-        end: "2026-10-31",
-        title: "🎃 Halloween Kolonii Pasjonatów",
-        type: "special",
-        description: "Halloween w Kolonii Pasjonatów. 🎃"
-    },
-
-    {
-        start: "2027-06-11",
-        end: "2027-06-11",
-        title: "🎉 1. rocznica otwarcia naszej społeczności",
-        type: "important",
-        description: "Pierwsza rocznica otwarcia naszej społeczności. 🎉"
-    },
-
-    /* ===== STREFA ZIMOWA ===== */
-
-    {
         start: "2026-11-20",
         end: "2027-01-31",
         title: "❄️🎄 STREFA ZIMOWA 2026/2027",
@@ -529,202 +573,215 @@ const events = [
         description: "Sylwestrowa zabawa, muzyka, wspólne odliczanie do 2027 roku i świętowanie Nowego Roku. Start 30.12.2026 o 17:00, koniec 01.01.2027 o 14:30."
     },
 
-    /* ===== ŚWIĘTA PAŃSTWOWE I NARODOWE ===== */
+    {
+        start: "2027-06-11",
+        end: "2027-06-11",
+        title: "🎉 1. rocznica otwarcia naszej społeczności",
+        type: "important",
+        description: "Pierwsza rocznica otwarcia naszej społeczności. 🎉"
+    }
+
+];
+
+
+/* =========================================================
+   COROCZNE ŚWIĘTA I DATY
+========================================================= */
+
+const yearlyEvents = [
+
+    /* ===== PAŃSTWOWE I NARODOWE ===== */
 
     {
-        start: "2026-01-01",
-        end: "2026-01-01",
+        month: 1,
+        day: 1,
         title: "🇵🇱 Nowy Rok",
         type: "important",
         description: "Pierwszy dzień nowego roku."
     },
 
     {
-        start: "2026-05-01",
-        end: "2026-05-01",
+        month: 5,
+        day: 1,
         title: "🇵🇱 Święto Pracy",
         type: "important",
         description: "Święto państwowe obchodzone 1 maja."
     },
 
     {
-        start: "2026-05-02",
-        end: "2026-05-02",
+        month: 5,
+        day: 2,
         title: "🇵🇱 Dzień Flagi Rzeczypospolitej Polskiej",
         type: "important",
         description: "Święto obchodzone 2 maja."
     },
 
     {
-        start: "2026-05-03",
-        end: "2026-05-03",
+        month: 5,
+        day: 3,
         title: "🇵🇱 Święto Narodowe Trzeciego Maja",
         type: "important",
         description: "Święto Konstytucji 3 Maja."
     },
 
     {
-        start: "2026-11-11",
-        end: "2026-11-11",
+        month: 11,
+        day: 11,
         title: "🇵🇱 Narodowe Święto Niepodległości",
         type: "important",
         description: "Święto upamiętniające odzyskanie przez Polskę niepodległości."
     },
 
-    {
-        start: "2026-10-14",
-        end: "2026-10-14",
-        title: "🎓 Dzień Edukacji Narodowej",
-        type: "event",
-        description: "Dzień Edukacji Narodowej, tradycyjnie nazywany Dniem Nauczyciela."
-    },
 
-    /* ===== ŚWIĘTA RELIGIJNE ===== */
+    /* ===== RELIGIJNE ===== */
 
     {
-        start: "2026-01-06",
-        end: "2026-01-06",
+        month: 1,
+        day: 6,
         title: "👑 Święto Trzech Króli",
         type: "important",
         description: "Uroczystość Objawienia Pańskiego."
     },
 
     {
-        start: "2026-08-15",
-        end: "2026-08-15",
+        month: 8,
+        day: 15,
         title: "✝️ Wniebowzięcie Najświętszej Maryi Panny",
         type: "important",
         description: "Święto religijne obchodzone 15 sierpnia."
     },
 
     {
-        start: "2026-11-01",
-        end: "2026-11-01",
+        month: 11,
+        day: 1,
         title: "🕯️ Wszystkich Świętych",
         type: "important",
         description: "Uroczystość Wszystkich Świętych."
     },
 
     {
-        start: "2026-11-02",
-        end: "2026-11-02",
+        month: 11,
+        day: 2,
         title: "🕯️ Dzień Zaduszny",
         type: "event",
         description: "Wspomnienie Wszystkich Wiernych Zmarłych."
     },
 
     {
-        start: "2026-12-25",
-        end: "2026-12-25",
+        month: 12,
+        day: 25,
         title: "🎄 Boże Narodzenie",
         type: "important",
         description: "Pierwszy dzień Świąt Bożego Narodzenia."
     },
 
     {
-        start: "2026-12-26",
-        end: "2026-12-26",
+        month: 12,
+        day: 26,
         title: "🎄 Drugi dzień Bożego Narodzenia",
         type: "important",
         description: "Drugi dzień Świąt Bożego Narodzenia."
     },
 
-    /* ===== INNE COROCZNE DATY ===== */
+
+    /* ===== INNE COROCZNE ===== */
 
     {
-        start: "2026-03-08",
-        end: "2026-03-08",
+        month: 3,
+        day: 8,
         title: "🌷 Dzień Kobiet",
         type: "event",
         description: "Międzynarodowy Dzień Kobiet."
     },
 
     {
-        start: "2026-04-01",
-        end: "2026-04-01",
+        month: 4,
+        day: 1,
         title: "🤡 Prima Aprilis",
         type: "event",
         description: "Dzień żartów i dowcipów."
     },
 
     {
-        start: "2026-04-22",
-        end: "2026-04-22",
+        month: 4,
+        day: 22,
         title: "🌍 Dzień Ziemi",
         type: "event",
         description: "Światowy Dzień Ziemi."
     },
 
     {
-        start: "2026-05-26",
-        end: "2026-05-26",
+        month: 5,
+        day: 26,
         title: "❤️ Dzień Matki",
         type: "event",
         description: "Dzień Matki."
     },
 
     {
-        start: "2026-06-01",
-        end: "2026-06-01",
+        month: 6,
+        day: 1,
         title: "🧸 Dzień Dziecka",
         type: "event",
         description: "Międzynarodowy Dzień Dziecka."
     },
 
     {
-        start: "2026-06-23",
-        end: "2026-06-23",
+        month: 6,
+        day: 23,
         title: "💙 Dzień Ojca",
         type: "event",
         description: "Dzień Ojca."
     },
 
     {
-        start: "2026-09-30",
-        end: "2026-09-30",
+        month: 9,
+        day: 30,
         title: "🎉 Dzień Chłopaka",
         type: "event",
         description: "Dzień Chłopaka."
     },
 
     {
-        start: "2026-10-31",
-        end: "2026-10-31",
+        month: 10,
+        day: 31,
         title: "🎃 Halloween",
         type: "special",
         description: "Halloween."
     },
 
     {
-        start: "2026-12-06",
-        end: "2026-12-06",
+        month: 12,
+        day: 6,
         title: "🎅 Mikołajki",
         type: "event",
         description: "Mikołajki."
     },
 
     {
-        start: "2026-12-31",
-        end: "2026-12-31",
+        month: 12,
+        day: 31,
         title: "🎆 Sylwester",
         type: "special",
         description: "Ostatni dzień roku."
     },
 
+
     /* ===== KOLEJ ===== */
 
     {
-        start: "2026-11-25",
-        end: "2026-11-25",
+        month: 11,
+        day: 25,
         title: "🚆 Dzień Kolejarza",
         type: "event",
         description: "Dzień Kolejarza."
     }
+
 ];
 
 
 /* =========================================================
-   URODZINY
+   URODZINY — COROCZNE
 ========================================================= */
 
 const birthdays = [
@@ -767,27 +824,61 @@ let currentDate = new Date(
     1
 );
 
-const calendarDays = document.getElementById("calendarDays");
-const monthTitle = document.getElementById("monthTitle");
+const calendarDays =
+    document.getElementById("calendarDays");
 
-const previousMonth = document.getElementById("previousMonth");
-const nextMonth = document.getElementById("nextMonth");
-const todayButton = document.getElementById("todayButton");
+const monthTitle =
+    document.getElementById("monthTitle");
 
-const eventInfo = document.getElementById("eventInfo");
-const eventType = document.getElementById("eventType");
-const eventTitle = document.getElementById("eventTitle");
-const eventDate = document.getElementById("eventDate");
-const eventDescription = document.getElementById("eventDescription");
+const previousMonth =
+    document.getElementById("previousMonth");
+
+const nextMonth =
+    document.getElementById("nextMonth");
+
+const todayButton =
+    document.getElementById("todayButton");
+
+const eventInfo =
+    document.getElementById("eventInfo");
+
+const eventType =
+    document.getElementById("eventType");
+
+const eventTitle =
+    document.getElementById("eventTitle");
+
+const eventDate =
+    document.getElementById("eventDate");
+
+const eventDescription =
+    document.getElementById("eventDescription");
 
 
 function formatDate(date) {
-    return date.toISOString().split("T")[0];
+
+    const year =
+        date.getFullYear();
+
+    const month =
+        String(date.getMonth() + 1).padStart(2, "0");
+
+    const day =
+        String(date.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
 }
 
 
 function parseLocalDate(dateString) {
-    const [year, month, day] = dateString.split("-").map(Number);
+
+    const [
+        year,
+        month,
+        day
+    ] = dateString
+        .split("-")
+        .map(Number);
 
     return new Date(
         year,
@@ -797,19 +888,72 @@ function parseLocalDate(dateString) {
 }
 
 
+/* =========================================================
+   POBIERANIE WYDARZENIA DLA DATY
+========================================================= */
+
 function getEventForDate(date) {
 
-    const dateString = formatDate(date);
+    const dateString =
+        formatDate(date);
 
-    return events.find(event => {
 
-        return (
-            dateString >= event.start &&
-            dateString <= event.end
-        );
-    });
+    /*
+       Najpierw wydarzenia jednorazowe.
+       Dzięki temu wydarzenia Kolonii mają pierwszeństwo
+       przed zwykłymi świętami.
+    */
+
+    const oneTimeEvent =
+        oneTimeEvents.find(event => {
+
+            return (
+                dateString >= event.start &&
+                dateString <= event.end
+            );
+
+        });
+
+
+    if (oneTimeEvent) {
+        return oneTimeEvent;
+    }
+
+
+    /*
+       Następnie wydarzenia coroczne.
+    */
+
+    const yearlyEvent =
+        yearlyEvents.find(event => {
+
+            return (
+                event.month === date.getMonth() + 1 &&
+                event.day === date.getDate()
+            );
+
+        });
+
+
+    if (yearlyEvent) {
+
+        return {
+            ...yearlyEvent,
+
+            start: dateString,
+            end: dateString
+        };
+
+    }
+
+
+    return null;
 }
 
+
+/* =========================================================
+   URODZINY
+========================================================= */
 
 function getBirthdayForDate(date) {
 
@@ -819,13 +963,20 @@ function getBirthdayForDate(date) {
             birthday.month === date.getMonth() + 1 &&
             birthday.day === date.getDate()
         );
+
     });
+
 }
 
+
+/* =========================================================
+   POKAZYWANIE WYDARZENIA
+========================================================= */
 
 function showEvent(event) {
 
     eventInfo.classList.add("active");
+
 
     eventType.textContent =
         event.type === "special"
@@ -836,12 +987,21 @@ function showEvent(event) {
             ? "🔧 Aktualizacja"
             : "📅 Wydarzenie";
 
-    eventTitle.textContent = event.title;
 
-    const start = parseLocalDate(event.start);
-    const end = parseLocalDate(event.end);
+    eventTitle.textContent =
+        event.title;
 
-    if (event.start === event.end) {
+
+    const start =
+        parseLocalDate(event.start);
+
+    const end =
+        parseLocalDate(event.end);
+
+
+    if (
+        event.start === event.end
+    ) {
 
         eventDate.textContent =
             start.toLocaleDateString(
@@ -857,18 +1017,28 @@ function showEvent(event) {
 
         eventDate.textContent =
             `${start.toLocaleDateString("pl-PL")} – ${end.toLocaleDateString("pl-PL")}`;
+
     }
+
 
     eventDescription.textContent =
         event.description;
 }
 
 
-function showBirthday(birthday, date) {
+/* =========================================================
+   POKAZYWANIE URODZIN
+========================================================= */
+
+function showBirthday(
+    birthday,
+    date
+) {
 
     eventInfo.classList.add("active");
 
-    eventType.textContent = "🎂 Urodziny";
+    eventType.textContent =
+        "🎂 Urodziny";
 
     eventTitle.textContent =
         `🎂 Urodziny — ${birthday.name}`;
@@ -888,35 +1058,70 @@ function showBirthday(birthday, date) {
 }
 
 
+/* =========================================================
+   UKRYWANIE INFORMACJI
+========================================================= */
+
 function hideEventInfo() {
 
-    eventInfo.classList.remove("active");
+    eventInfo.classList.remove(
+        "active"
+    );
+
 }
 
+
+/* =========================================================
+   RENDEROWANIE KALENDARZA
+========================================================= */
 
 function renderCalendar() {
 
     calendarDays.innerHTML = "";
 
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth();
+
+    const year =
+        currentDate.getFullYear();
+
+    const month =
+        currentDate.getMonth();
+
 
     monthTitle.textContent =
         `${monthNames[month]} ${year}`;
 
+
     let firstDay =
-        new Date(year, month, 1).getDay();
+        new Date(
+            year,
+            month,
+            1
+        ).getDay();
+
 
     firstDay =
         firstDay === 0
             ? 6
             : firstDay - 1;
 
+
     const daysInMonth =
-        new Date(year, month + 1, 0).getDate();
+        new Date(
+            year,
+            month + 1,
+            0
+        ).getDate();
 
 
-    for (let i = 0; i < firstDay; i++) {
+    /*
+       Puste pola przed pierwszym dniem miesiąca.
+    */
+
+    for (
+        let i = 0;
+        i < firstDay;
+        i++
+    ) {
 
         const emptyDay =
             document.createElement("div");
@@ -924,19 +1129,35 @@ function renderCalendar() {
         emptyDay.className =
             "day empty";
 
-        calendarDays.appendChild(emptyDay);
+        calendarDays.appendChild(
+            emptyDay
+        );
     }
 
 
-    for (let day = 1; day <= daysInMonth; day++) {
+    /*
+       Dni miesiąca.
+    */
+
+    for (
+        let day = 1;
+        day <= daysInMonth;
+        day++
+    ) {
 
         const date =
-            new Date(year, month, day);
+            new Date(
+                year,
+                month,
+                day
+            );
+
 
         const dayElement =
             document.createElement("div");
 
-        dayElement.className = "day";
+        dayElement.className =
+            "day";
 
 
         const dayNumber =
@@ -948,8 +1169,14 @@ function renderCalendar() {
         dayNumber.textContent =
             day;
 
-        dayElement.appendChild(dayNumber);
+        dayElement.appendChild(
+            dayNumber
+        );
 
+
+        /*
+           DZISIAJ
+        */
 
         if (
             year === todayYear &&
@@ -961,6 +1188,7 @@ function renderCalendar() {
                 "today-day"
             );
 
+
             const todayLabel =
                 document.createElement("span");
 
@@ -970,18 +1198,27 @@ function renderCalendar() {
             todayLabel.textContent =
                 "DZISIAJ";
 
-            dayElement.appendChild(todayLabel);
+            dayElement.appendChild(
+                todayLabel
+            );
+
         }
 
 
+        /*
+           URODZINY
+        */
+
         const birthday =
             getBirthdayForDate(date);
+
 
         if (birthday) {
 
             dayElement.classList.add(
                 "birthday-day"
             );
+
 
             const birthdayMarker =
                 document.createElement("div");
@@ -995,11 +1232,17 @@ function renderCalendar() {
             dayElement.appendChild(
                 birthdayMarker
             );
+
         }
 
 
+        /*
+           WYDARZENIE
+        */
+
         const event =
             getEventForDate(date);
+
 
         if (event) {
 
@@ -1012,9 +1255,16 @@ function renderCalendar() {
             marker.textContent =
                 event.title;
 
-            dayElement.appendChild(marker);
+            dayElement.appendChild(
+                marker
+            );
+
         }
 
+
+        /*
+           KLIKNIĘCIE
+        */
 
         dayElement.addEventListener(
             "click",
@@ -1030,14 +1280,19 @@ function renderCalendar() {
                     return;
                 }
 
+
                 if (event) {
 
-                    showEvent(event);
+                    showEvent(
+                        event
+                    );
 
                     return;
                 }
 
+
                 hideEventInfo();
+
             }
         );
 
@@ -1045,7 +1300,9 @@ function renderCalendar() {
         calendarDays.appendChild(
             dayElement
         );
+
     }
+
 }
 
 
@@ -1062,7 +1319,9 @@ previousMonth.addEventListener(
         );
 
         hideEventInfo();
+
         renderCalendar();
+
     }
 );
 
@@ -1076,7 +1335,9 @@ nextMonth.addEventListener(
         );
 
         hideEventInfo();
+
         renderCalendar();
+
     }
 );
 
@@ -1093,7 +1354,9 @@ todayButton.addEventListener(
             );
 
         hideEventInfo();
+
         renderCalendar();
+
     }
 );
 
@@ -1103,6 +1366,7 @@ todayButton.addEventListener(
 ========================================================= */
 
 renderCalendar();
+
 </script>
 
 <script src="script.js"></script>
