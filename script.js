@@ -1,127 +1,401 @@
-// ================================
-// KOLONIA PASJONATÓW — SCRIPT 3.0
-// ================================
+document.addEventListener("DOMContentLoaded", () => {
 
-// ================================
-// USTAWIENIA
-// ================================
+    /* =========================================
+       KONFIGURACJA
+    ========================================= */
 
-const COLONY_START_DATE = "2026-06-11T00:00:00";
-const WEBSITE_START_DATE = "2026-08-13T21:10:00";
-const MEMBERS_COUNT = 20;
+    const COLONY_START_DATE = "2026-06-11T00:00:00";
+    const WEBSITE_START_DATE = "2026-08-13T21:10:00";
+    const MEMBERS_COUNT = 20;
 
 
-// ================================
-// TRYB JASNY / CIEMNY
-// ================================
-
-function setupTheme() {
-    const themeToggle = document.getElementById("themeToggle");
-
-    if (!themeToggle) return;
-
-    const savedTheme = localStorage.getItem("kolonia-theme");
-
-    // Domyślnie tryb ciemny
-    const isLight = savedTheme === "light";
-
-    applyTheme(isLight);
-
-    themeToggle.addEventListener("click", () => {
-        const currentlyLight =
-            document.body.classList.contains("light-theme");
-
-        applyTheme(!currentlyLight);
-    });
-}
-
-
-function applyTheme(isLight) {
-    document.body.classList.toggle("light-theme", isLight);
-    document.documentElement.classList.toggle("light-theme", isLight);
-
-    document.documentElement.setAttribute(
-        "data-theme",
-        isLight ? "light" : "dark"
-    );
+    /* =========================================
+       MOTYW JASNY / CIEMNY
+    ========================================= */
 
     const themeToggle = document.getElementById("themeToggle");
+
+    function applyTheme(isLight) {
+        document.body.classList.toggle("light-theme", isLight);
+        document.documentElement.classList.toggle("light-theme", isLight);
+
+        document.documentElement.dataset.theme =
+            isLight ? "light" : "dark";
+
+        if (themeToggle) {
+            themeToggle.textContent =
+                isLight ? "🌙" : "☀️";
+
+            themeToggle.setAttribute(
+                "aria-label",
+                isLight
+                    ? "Włącz tryb ciemny"
+                    : "Włącz tryb jasny"
+            );
+        }
+    }
+
+    const savedTheme =
+        localStorage.getItem("kolonia-theme");
+
+    applyTheme(savedTheme === "light");
 
     if (themeToggle) {
-        themeToggle.textContent = isLight ? "🌙" : "☀️";
-        themeToggle.setAttribute(
-            "aria-label",
-            isLight ? "Włącz tryb ciemny" : "Włącz tryb jasny"
-        );
-        themeToggle.setAttribute(
-            "title",
-            isLight ? "Tryb ciemny" : "Tryb jasny"
-        );
+        themeToggle.addEventListener("click", () => {
+
+            const isLight =
+                !document.body.classList.contains(
+                    "light-theme"
+                );
+
+            applyTheme(isLight);
+
+            localStorage.setItem(
+                "kolonia-theme",
+                isLight ? "light" : "dark"
+            );
+        });
     }
 
-    localStorage.setItem(
-        "kolonia-theme",
-        isLight ? "light" : "dark"
+
+    /* =========================================
+       DOKŁADNY LICZNIK CZASU
+    ========================================= */
+
+    function getExactTimeDifference(startDate) {
+
+        const start = new Date(startDate);
+        const now = new Date();
+
+        const difference = Math.max(
+            0,
+            now.getTime() - start.getTime()
+        );
+
+        const totalSeconds =
+            Math.floor(difference / 1000);
+
+        const days =
+            Math.floor(totalSeconds / 86400);
+
+        const hours =
+            Math.floor(
+                (totalSeconds % 86400) / 3600
+            );
+
+        const minutes =
+            Math.floor(
+                (totalSeconds % 3600) / 60
+            );
+
+        const seconds =
+            totalSeconds % 60;
+
+        return `${days} dni ${String(hours).padStart(2, "0")} godz. ${String(minutes).padStart(2, "0")} min. ${String(seconds).padStart(2, "0")} sek.`;
+    }
+
+
+    function updateCounters() {
+
+        const membersCount =
+            document.getElementById("membersCount");
+
+        const colonyDays =
+            document.getElementById("colonyDays");
+
+        const websiteDays =
+            document.getElementById("websiteDays");
+
+        if (membersCount) {
+            membersCount.textContent =
+                MEMBERS_COUNT;
+        }
+
+        if (colonyDays) {
+            colonyDays.textContent =
+                getExactTimeDifference(
+                    COLONY_START_DATE
+                );
+        }
+
+        if (websiteDays) {
+            websiteDays.textContent =
+                getExactTimeDifference(
+                    WEBSITE_START_DATE
+                );
+        }
+    }
+
+    updateCounters();
+
+    setInterval(
+        updateCounters,
+        1000
     );
-}
 
 
-// ================================
-// LICZNIKI DNI / CZASU
-// ================================
+    /* =========================================
+       KALENDARZ
+       DATA POBIERANA Z URZĄDZENIA
+    ========================================= */
 
-function formatDuration(startDate) {
-    const start = new Date(startDate);
-    const now = new Date();
+    const calendar =
+        document.getElementById("calendar");
 
-    let difference = now - start;
+    const calendarMonth =
+        document.getElementById("calendarMonth");
 
-    if (difference < 0) {
-        difference = 0;
+    const calendarYear =
+        document.getElementById("calendarYear");
+
+    const previousMonth =
+        document.getElementById("previousMonth");
+
+    const nextMonth =
+        document.getElementById("nextMonth");
+
+    let calendarDate = new Date();
+
+
+    function renderCalendar() {
+
+        if (!calendar) {
+            return;
+        }
+
+        /*
+         * Pobieramy aktualną datę z urządzenia.
+         * Dzięki temu zaznaczony dzień zawsze
+         * odpowiada rzeczywistej dacie użytkownika.
+         */
+
+        const deviceDate = new Date();
+
+        const currentDay =
+            deviceDate.getDate();
+
+        const currentMonth =
+            deviceDate.getMonth();
+
+        const currentYear =
+            deviceDate.getFullYear();
+
+
+        const year =
+            calendarDate.getFullYear();
+
+        const month =
+            calendarDate.getMonth();
+
+
+        /* Nazwa miesiąca */
+
+        const monthName =
+            calendarDate.toLocaleDateString(
+                "pl-PL",
+                {
+                    month: "long"
+                }
+            );
+
+        if (calendarMonth) {
+            calendarMonth.textContent =
+                monthName.charAt(0).toUpperCase() +
+                monthName.slice(1);
+        }
+
+        if (calendarYear) {
+            calendarYear.textContent =
+                year;
+        }
+
+
+        /* Pierwszy dzień miesiąca */
+
+        const firstDay =
+            new Date(
+                year,
+                month,
+                1
+            ).getDay();
+
+
+        /*
+         * Polska wersja kalendarza zaczyna tydzień
+         * od poniedziałku.
+         */
+
+        const startingDay =
+            firstDay === 0
+                ? 6
+                : firstDay - 1;
+
+
+        /* Liczba dni miesiąca */
+
+        const daysInMonth =
+            new Date(
+                year,
+                month + 1,
+                0
+            ).getDate();
+
+
+        calendar.innerHTML = "";
+
+
+        /* Puste pola przed pierwszym dniem */
+
+        for (
+            let i = 0;
+            i < startingDay;
+            i++
+        ) {
+
+            const emptyDay =
+                document.createElement("div");
+
+            emptyDay.className =
+                "calendar-day empty";
+
+            calendar.appendChild(
+                emptyDay
+            );
+        }
+
+
+        /* Dni miesiąca */
+
+        for (
+            let day = 1;
+            day <= daysInMonth;
+            day++
+        ) {
+
+            const dayElement =
+                document.createElement("div");
+
+            dayElement.className =
+                "calendar-day";
+
+            dayElement.textContent =
+                day;
+
+
+            /*
+             * Zaznaczamy DZISIAJ tylko wtedy,
+             * gdy oglądany miesiąc i rok odpowiadają
+             * aktualnej dacie urządzenia.
+             */
+
+            if (
+                day === currentDay &&
+                month === currentMonth &&
+                year === currentYear
+            ) {
+
+                dayElement.classList.add(
+                    "today"
+                );
+            }
+
+
+            calendar.appendChild(
+                dayElement
+            );
+        }
     }
 
-    const seconds = Math.floor(difference / 1000);
 
-    const days = Math.floor(seconds / 86400);
-    const hours = Math.floor((seconds % 86400) / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const secs = seconds % 60;
+    /*
+     * Poprzedni miesiąc
+     */
 
-    return `${days} dni, ${hours} godz. ${minutes} min. ${secs} sek.`;
-}
+    if (previousMonth) {
 
+        previousMonth.addEventListener(
+            "click",
+            () => {
 
-function updatePageCounters() {
-    const colonyDays = document.getElementById("colonyDays");
-    const websiteDays = document.getElementById("websiteDays");
-    const membersCount = document.getElementById("membersCount");
+                calendarDate.setMonth(
+                    calendarDate.getMonth() - 1
+                );
 
-    if (colonyDays) {
-        colonyDays.textContent =
-            formatDuration(COLONY_START_DATE);
+                renderCalendar();
+            }
+        );
     }
 
-    if (websiteDays) {
-        websiteDays.textContent =
-            formatDuration(WEBSITE_START_DATE);
+
+    /*
+     * Następny miesiąc
+     */
+
+    if (nextMonth) {
+
+        nextMonth.addEventListener(
+            "click",
+            () => {
+
+                calendarDate.setMonth(
+                    calendarDate.getMonth() + 1
+                );
+
+                renderCalendar();
+            }
+        );
     }
 
-    if (membersCount) {
-        membersCount.textContent = MEMBERS_COUNT;
-    }
-}
+
+    renderCalendar();
 
 
-// ================================
-// HEADER / GÓRNY PASEK
-// ================================
+    /* =========================================
+       AKTUALIZACJA KALENDARZA O PÓŁNOCY
+    ========================================= */
 
-function setupHeader() {
-    const header = document.querySelector("header");
+    /*
+     * Jeśli strona jest otwarta przez całą noc,
+     * po zmianie dnia kalendarz odświeży się
+     * automatycznie.
+     */
 
-    if (!header) return;
+    setInterval(
+        () => {
 
-    function updateHeader() {
+            const now =
+                new Date();
+
+            if (
+                now.getDate() !==
+                calendarDate.getDate() &&
+                now.getMonth() ===
+                calendarDate.getMonth() &&
+                now.getFullYear() ===
+                calendarDate.getFullYear()
+            ) {
+
+                renderCalendar();
+            }
+
+        },
+        60000
+    );
+
+
+    /* =========================================
+       NAGŁÓWEK — EFEKT PRZY SCROLLU
+    ========================================= */
+
+    const header =
+        document.querySelector("header");
+
+    function handleHeaderScroll() {
+
+        if (!header) {
+            return;
+        }
+
         if (window.scrollY > 20) {
             header.classList.add("scrolled");
         } else {
@@ -129,269 +403,279 @@ function setupHeader() {
         }
     }
 
-    updateHeader();
+    handleHeaderScroll();
 
     window.addEventListener(
         "scroll",
-        updateHeader,
+        handleHeaderScroll,
         { passive: true }
     );
-}
 
 
-// ================================
-// AKTYWNA PODSTRONA W MENU
-// ================================
+    /* =========================================
+       AKTYWNA NAWIGACJA
+    ========================================= */
 
-function setupActiveNavigation() {
     const currentPage =
-        window.location.pathname.split("/").pop() || "index.html";
+        window.location.pathname
+            .split("/")
+            .pop() || "index.html";
 
-    const navLinks =
-        document.querySelectorAll("header nav a");
+    document
+        .querySelectorAll("nav a")
+        .forEach(link => {
 
-    navLinks.forEach(link => {
-        const href =
-            link.getAttribute("href");
-
-        if (!href) return;
-
-        const linkPage =
-            href.split("/").pop();
-
-        if (
-            linkPage === currentPage ||
-            (currentPage === "" && linkPage === "index.html")
-        ) {
-            link.classList.add("active");
-        }
-    });
-}
-
-
-// ================================
-// PŁYNNE PRZEWIJANIE
-// ================================
-
-function setupSmoothScroll() {
-    const links =
-        document.querySelectorAll('a[href^="#"]');
-
-    links.forEach(link => {
-        link.addEventListener("click", event => {
-            const targetId =
+            const href =
                 link.getAttribute("href");
 
-            if (!targetId || targetId === "#") return;
-
-            const target =
-                document.querySelector(targetId);
-
-            if (!target) return;
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        });
-    });
-}
-
-
-// ================================
-// ANIMACJE POJAWIANIA
-// ================================
-
-function setupScrollReveal() {
-    const elements =
-        document.querySelectorAll(
-            ".info-card, .announcement-card, .event-card, .project-card, .ranking-card, .user-card"
-        );
-
-    if (!elements.length) return;
-
-    if (!("IntersectionObserver" in window)) {
-        elements.forEach(element => {
-            element.classList.add("visible");
-        });
-
-        return;
-    }
-
-    const observer =
-        new IntersectionObserver(
-            entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            {
-                threshold: 0.12
+            if (
+                href === currentPage
+            ) {
+                link.classList.add(
+                    "active"
+                );
             }
-        );
-
-    elements.forEach(element => {
-        observer.observe(element);
-    });
-}
-
-
-// ================================
-// EFEKT RIPPLE NA PRZYCISKACH
-// ================================
-
-function setupButtonRipple() {
-    const buttons =
-        document.querySelectorAll(
-            ".button, button"
-        );
-
-    buttons.forEach(button => {
-        button.addEventListener("click", function(event) {
-            const rect =
-                this.getBoundingClientRect();
-
-            const ripple =
-                document.createElement("span");
-
-            ripple.classList.add("ripple");
-
-            ripple.style.left =
-                `${event.clientX - rect.left}px`;
-
-            ripple.style.top =
-                `${event.clientY - rect.top}px`;
-
-            this.appendChild(ripple);
-
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
         });
-    });
-}
 
 
-// ================================
-// ANIMOWANE LICZNIKI
-// ================================
+    /* =========================================
+       PŁYNNE PRZEWIJANIE
+    ========================================= */
 
-function animateNumber(element, target) {
-    if (!element) return;
+    document
+        .querySelectorAll('a[href^="#"]')
+        .forEach(anchor => {
 
-    const duration = 1000;
-    const start = 0;
-    const startTime = performance.now();
+            anchor.addEventListener(
+                "click",
+                event => {
 
-    function update(currentTime) {
-        const progress =
-            Math.min(
-                (currentTime - startTime) / duration,
-                1
+                    const targetId =
+                        anchor.getAttribute(
+                            "href"
+                        );
+
+                    if (
+                        targetId === "#"
+                    ) {
+                        return;
+                    }
+
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
+
+                    if (!target) {
+                        return;
+                    }
+
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }
+            );
+        });
+
+
+    /* =========================================
+       ANIMACJE POJAWIANIA SIĘ
+    ========================================= */
+
+    const revealElements =
+        document.querySelectorAll(
+            ".reveal"
+        );
+
+    if (
+        "IntersectionObserver"
+        in window
+    ) {
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(
+                        entry => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+                            }
+                        }
+                    );
+                },
+                {
+                    threshold: 0.12
+                }
             );
 
-        const value =
-            Math.floor(
-                start + (target - start) * progress
-            );
+        revealElements.forEach(
+            element =>
+                observer.observe(element)
+        );
 
-        element.textContent = value;
+    } else {
 
-        if (progress < 1) {
-            requestAnimationFrame(update);
-        }
+        revealElements.forEach(
+            element =>
+                element.classList.add(
+                    "visible"
+                )
+        );
     }
 
-    requestAnimationFrame(update);
-}
+
+    /* =========================================
+       RIPPLE NA PRZYCISKACH
+    ========================================= */
+
+    document
+        .querySelectorAll(".button")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                function (event) {
+
+                    const ripple =
+                        document.createElement(
+                            "span"
+                        );
+
+                    ripple.className =
+                        "button-ripple";
+
+                    const rect =
+                        this.getBoundingClientRect();
+
+                    const size =
+                        Math.max(
+                            rect.width,
+                            rect.height
+                        );
+
+                    ripple.style.width =
+                        `${size}px`;
+
+                    ripple.style.height =
+                        `${size}px`;
+
+                    ripple.style.left =
+                        `${event.clientX - rect.left - size / 2}px`;
+
+                    ripple.style.top =
+                        `${event.clientY - rect.top - size / 2}px`;
+
+                    this.appendChild(
+                        ripple
+                    );
+
+                    setTimeout(
+                        () => {
+                            ripple.remove();
+                        },
+                        600
+                    );
+                }
+            );
+        });
 
 
-// ================================
-// LOGO
-// ================================
+    /* =========================================
+       LOGO — LEKKI EFEKT
+    ========================================= */
 
-function setupLogo() {
     const logo =
         document.querySelector(".logo");
 
-    if (!logo) return;
+    if (logo) {
 
-    logo.addEventListener("mouseenter", () => {
-        logo.classList.add("logo-active");
-    });
-
-    logo.addEventListener("mouseleave", () => {
-        logo.classList.remove("logo-active");
-    });
-}
-
-
-// ================================
-// KLAWIATURA — ESC
-// ================================
-
-function setupKeyboard() {
-    document.addEventListener("keydown", event => {
-        if (event.key === "Escape") {
-            document.activeElement?.blur();
-        }
-    });
-}
-
-
-// ================================
-// ROK W STOPCE
-// ================================
-
-function updateCurrentYear() {
-    const yearElements =
-        document.querySelectorAll(
-            "[data-current-year]"
+        logo.addEventListener(
+            "mouseenter",
+            () => {
+                logo.classList.add(
+                    "logo-hover"
+                );
+            }
         );
 
-    const year =
-        new Date().getFullYear();
+        logo.addEventListener(
+            "mouseleave",
+            () => {
+                logo.classList.remove(
+                    "logo-hover"
+                );
+            }
+        );
+    }
 
-    yearElements.forEach(element => {
-        element.textContent = year;
+
+    /* =========================================
+       ESC — ZAMYKANIE ELEMENTÓW
+    ========================================= */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                document
+                    .querySelectorAll(
+                        ".open"
+                    )
+                    .forEach(element => {
+
+                        element.classList.remove(
+                            "open"
+                        );
+                    });
+            }
+        }
+    );
+
+
+    /* =========================================
+       ROK W STOPCE
+    ========================================= */
+
+    const currentYearElement =
+        document.getElementById(
+            "currentYear"
+        );
+
+    if (currentYearElement) {
+
+        currentYearElement.textContent =
+            new Date().getFullYear();
+    }
+
+
+    /* =========================================
+       ZAŁADOWANIE STRONY
+    ========================================= */
+
+    requestAnimationFrame(() => {
+
+        document.body.classList.add(
+            "page-loaded"
+        );
+
     });
-}
 
-
-// ================================
-// START
-// ================================
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    setupTheme();
-
-    setupHeader();
-
-    setupActiveNavigation();
-
-    setupSmoothScroll();
-
-    setupScrollReveal();
-
-    setupButtonRipple();
-
-    setupLogo();
-
-    setupKeyboard();
-
-    updateCurrentYear();
-
-    updatePageCounters();
-
-    // Aktualizacja liczników co sekundę
-    setInterval(updatePageCounters, 1000);
-
-    // Efekt ładowania strony
-    document.body.classList.add("page-loaded");
 });
