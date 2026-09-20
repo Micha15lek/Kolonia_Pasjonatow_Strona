@@ -2,28 +2,47 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Kolonia Pasjonatów — Strona główna</title>
+    <meta
+        name="description"
+        content="Oficjalna strona społeczności Kolonia Pasjonatów."
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <title>Kolonia Pasjonatów</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
 
 <body>
 
-    <!-- =========================
-         GÓRNY PASEK
-    ========================== -->
+    <!-- =====================================
+         HEADER
+    ====================================== -->
 
     <header>
+
         <div class="header-inner">
 
-            <a href="index.html" class="logo">
+            <a
+                href="index.html"
+                class="logo"
+            >
                 🌟 Kolonia Pasjonatów
             </a>
 
             <nav>
-                <a href="index.html" class="active">
+
+                <a
+                    href="index.html"
+                    class="active"
+                >
                     Strona główna
                 </a>
 
@@ -46,59 +65,74 @@
                 <a href="kontakt.html">
                     Kontakt
                 </a>
+
             </nav>
 
             <button
                 id="themeToggle"
-                class="theme-toggle"
                 type="button"
                 aria-label="Włącz tryb jasny"
-                title="Włącz tryb jasny">
+            >
                 ☀️
             </button>
 
         </div>
+
     </header>
 
 
     <main>
 
-        <!-- =========================
+        <!-- =================================
              HERO
-        ========================== -->
+        ================================== -->
 
         <section class="hero">
 
-            <div class="hero-content">
+            <div class="container">
 
-                <div class="hero-badge">
-                    🌟 Oficjalna strona społeczności
-                </div>
+                <div class="hero-content">
 
-                <h1>
-                    Kolonia Pasjonatów
-                </h1>
+                    <span class="hero-badge">
+                        🌟 Oficjalna strona społeczności
+                    </span>
 
-                <p>
-                    Miejsce stworzone dla osób, które łączą
-                    swoje pasje, zainteresowania i dobrą zabawę.
-                </p>
+                    <h1>
+                        Kolonia Pasjonatów
+                    </h1>
 
-                <div class="hero-buttons">
+                    <p>
+                        Miejsce stworzone dla osób,
+                        które łączą wspólne zainteresowania,
+                        dobrą zabawę i aktywną społeczność.
+                    </p>
 
-                    <a
-                        href="https://discord.gg/886u97g22Q"
-                        target="_blank"
-                        rel="noopener"
-                        class="button button-primary">
-                        💬 Dołącz do Discorda
-                    </a>
+                    <div
+                        style="
+                            display:flex;
+                            flex-wrap:wrap;
+                            gap:12px;
+                            margin-top:26px;
+                        "
+                    >
 
-                    <a
-                        href="#projekty"
-                        class="button button-secondary">
-                        ↓ Poznaj Kolonię
-                    </a>
+                        <a
+                            href="https://discord.gg/886u97g22Q"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="button button-primary"
+                        >
+                            💬 Dołącz do Discorda
+                        </a>
+
+                        <a
+                            href="#projekty"
+                            class="button button-secondary"
+                        >
+                            Zobacz projekty →
+                        </a>
+
+                    </div>
 
                 </div>
 
@@ -107,254 +141,199 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =================================
              PROJEKTY
-        ========================== -->
+        ================================== -->
 
-        <section
-            id="projekty"
-            class="section">
+        <section id="projekty">
 
-            <div class="section-header">
+            <div class="container">
 
-                <span class="section-icon">
-                    🚀
-                </span>
+                <div class="section-heading">
 
-                <h2 class="section-title">
-                    Projekty Kolonii Pasjonatów
-                </h2>
-
-                <p class="section-description">
-                    Najważniejsze miejsca i inicjatywy tworzone
-                    przez społeczność.
-                </p>
-
-            </div>
-
-
-            <div class="cards-grid">
-
-                <!-- DISCORD -->
-
-                <article class="info-card">
-
-                    <div class="card-icon">
-                        💬
-                    </div>
-
-                    <h3>
-                        Serwer Discord
-                    </h3>
+                    <h2>
+                        Projekty Kolonii Pasjonatów
+                    </h2>
 
                     <p>
-                        Główne miejsce naszej społeczności.
-                        Rozmowy, wydarzenia, kanały tematyczne
-                        i wspólna zabawa.
+                        Miejsca i projekty, które rozwijamy
+                        razem ze społecznością.
                     </p>
-
-                    <a
-                        href="https://discord.gg/886u97g22Q"
-                        target="_blank"
-                        rel="noopener"
-                        class="card-link">
-                        Dołącz do Discorda →
-                    </a>
-
-                </article>
-
-
-                <!-- WHATSAPP -->
-
-                <article class="info-card">
-
-                    <div class="card-icon">
-                        📱
-                    </div>
-
-                    <h3>
-                        WhatsApp
-                    </h3>
-
-                    <p>
-                        Dodatkowe miejsce kontaktu i szybkiej
-                        komunikacji pomiędzy członkami Kolonii.
-                    </p>
-
-                    <span class="project-status">
-                        🔧 W przygotowaniu
-                    </span>
-
-                </article>
-
-
-                <!-- TWORZENIE -->
-
-                <article class="info-card">
-
-                    <div class="card-icon">
-                        🛠️
-                    </div>
-
-                    <h3>
-                        Tworzenie
-                    </h3>
-
-                    <p>
-                        Rozwijamy stronę, projekty i kolejne
-                        elementy Kolonii Pasjonatów.
-                    </p>
-
-                    <span class="project-status">
-                        🚧 W tworzeniu
-                    </span>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             STATYSTYKI
-        ========================== -->
-
-        <section class="section">
-
-            <div class="section-header">
-
-                <span class="section-icon">
-                    📊
-                </span>
-
-                <h2 class="section-title">
-                    Najważniejsze statystyki
-                </h2>
-
-                <p class="section-description">
-                    Kilka liczb pokazujących rozwój
-                    Kolonii Pasjonatów.
-                </p>
-
-            </div>
-
-
-            <div class="stats-grid">
-
-                <!-- CZŁONKOWIE -->
-
-                <div class="stat-card">
-
-                    <span class="stat-icon">
-                        👥
-                    </span>
-
-                    <strong
-                        id="membersCount"
-                        class="stat-number">
-                        20
-                    </strong>
-
-                    <span class="stat-label">
-                        członków
-                    </span>
 
                 </div>
 
 
-                <!-- KOLONIA -->
-
-                <div class="stat-card">
-
-                    <span class="stat-icon">
-                        🏛️
-                    </span>
-
-                    <strong
-                        id="colonyDays"
-                        class="stat-number stat-time">
-                        Ładowanie...
-                    </strong>
-
-                    <span class="stat-label">
-                        działanie Kolonii
-                    </span>
-
-                </div>
+                <div class="grid grid-2">
 
 
-                <!-- STRONA -->
+                    <!-- DISCORD -->
 
-                <div class="stat-card">
+                    <article class="card project-card">
 
-                    <span class="stat-icon">
-                        🌐
-                    </span>
+                        <div class="project-icon">
+                            💬
+                        </div>
 
-                    <strong
-                        id="websiteDays"
-                        class="stat-number stat-time">
-                        Ładowanie...
-                    </strong>
+                        <h3>
+                            Serwer Discord
+                        </h3>
 
-                    <span class="stat-label">
-                        działanie strony
-                    </span>
+                        <p>
+                            Główne miejsce naszej społeczności.
+                            Rozmowy, wydarzenia, kanały tematyczne
+                            oraz wspólna zabawa.
+                        </p>
 
-                </div>
+                        <a
+                            href="https://discord.gg/886u97g22Q"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="card-link"
+                        >
+                            Dołącz do Discorda →
+                        </a>
 
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             NADCHODZĄCE WYDARZENIA
-        ========================== -->
-
-        <section class="section">
-
-            <div class="section-header">
-
-                <span class="section-icon">
-                    📅
-                </span>
-
-                <h2 class="section-title">
-                    Nadchodzące wydarzenia
-                </h2>
-
-                <p class="section-description">
-                    Sprawdź, co już niedługo będzie działo się
-                    w Kolonii Pasjonatów.
-                </p>
-
-            </div>
+                    </article>
 
 
-            <div class="events-grid">
+                    <!-- WHATSAPP -->
 
-                <!-- 23 WRZEŚNIA -->
+                    <article class="card project-card">
 
-                <article class="event-card">
+                        <div class="project-icon">
+                            📱
+                        </div>
 
-                    <div class="event-date">
+                        <h3>
+                            WhatsApp
+                        </h3>
 
-                        <span>
-                            23
+                        <p>
+                            Projekt dodatkowego miejsca kontaktu
+                            dla członków Kolonii Pasjonatów.
+                        </p>
+
+                        <span class="project-status">
+                            🔧 W przygotowaniu
                         </span>
 
-                        <small>
-                            WRZ
-                        </small>
+                    </article>
 
-                    </div>
 
-                    <div class="event-content">
+                </div>
 
-                        <span class="event-status">
-                            NADCHODZI
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             STATYSTYKI
+        ================================== -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <h2>
+                        Najważniejsze statystyki
+                    </h2>
+
+                    <p>
+                        Kilka informacji o naszej społeczności.
+                    </p>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+
+                    <article class="stat-card">
+
+                        <span class="stat-label">
+                            Członkowie
+                        </span>
+
+                        <span
+                            class="stat-value"
+                            id="membersCount"
+                        >
+                            20
+                        </span>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <span class="stat-label">
+                            Kolonia działa od
+                        </span>
+
+                        <span
+                            class="stat-value stat-time"
+                            id="colonyDays"
+                        >
+                            Ładowanie...
+                        </span>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <span class="stat-label">
+                            Strona działa od
+                        </span>
+
+                        <span
+                            class="stat-value stat-time"
+                            id="websiteDays"
+                        >
+                            Ładowanie...
+                        </span>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             NADCHODZĄCE WYDARZENIA
+        ================================== -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <h2>
+                        Nadchodzące wydarzenia
+                    </h2>
+
+                    <p>
+                        Zobacz, co czeka nas w najbliższym czasie.
+                    </p>
+
+                </div>
+
+
+                <div class="grid grid-3">
+
+
+                    <article class="event-card">
+
+                        <span class="event-date">
+                            23.09–09.10.2026
                         </span>
 
                         <h3>
@@ -362,34 +341,17 @@
                         </h3>
 
                         <p>
-                            23.09.2026 – 09.10.2026
+                            Jesienna kolejowa akcja fotograficzna
+                            organizowana przez Kolonię Pasjonatów.
                         </p>
 
-                    </div>
-
-                </article>
+                    </article>
 
 
-                <!-- 10 PAŹDZIERNIKA -->
+                    <article class="event-card">
 
-                <article class="event-card">
-
-                    <div class="event-date">
-
-                        <span>
-                            10
-                        </span>
-
-                        <small>
-                            PAŹ
-                        </small>
-
-                    </div>
-
-                    <div class="event-content">
-
-                        <span class="event-status">
-                            NADCHODZI
+                        <span class="event-date">
+                            10.10–18.10.2026
                         </span>
 
                         <h3>
@@ -397,34 +359,17 @@
                         </h3>
 
                         <p>
-                            10.10.2026 – 18.10.2026
+                            Kolejna okazja do wspólnego
+                            obserwowania i fotografowania kolei.
                         </p>
 
-                    </div>
-
-                </article>
+                    </article>
 
 
-                <!-- HALLOWEEN -->
+                    <article class="event-card">
 
-                <article class="event-card">
-
-                    <div class="event-date">
-
-                        <span>
-                            31
-                        </span>
-
-                        <small>
-                            PAŹ
-                        </small>
-
-                    </div>
-
-                    <div class="event-content">
-
-                        <span class="event-status">
-                            SPECJALNE
+                        <span class="event-date">
+                            31.10.2026
                         </span>
 
                         <h3>
@@ -432,62 +377,37 @@
                         </h3>
 
                         <p>
-                            31.10.2026
+                            Specjalne wydarzenie społecznościowe
+                            z okazji Halloween.
                         </p>
 
-                    </div>
+                    </article>
 
-                </article>
+
+                </div>
 
             </div>
 
         </section>
 
 
-        <!-- =========================
-             ZAPOWIEDZI WYDARZEŃ
-        ========================== -->
+        <!-- =================================
+             ZAPOWIEDŹ
+        ================================== -->
 
-        <section class="section">
+        <section>
 
-            <div class="section-header">
+            <div class="container">
 
-                <span class="section-icon">
-                    🔔
-                </span>
-
-                <h2 class="section-title">
-                    Zapowiedzi wydarzeń
-                </h2>
-
-                <p class="section-description">
-                    Najnowsze informacje o planowanych
-                    wydarzeniach społeczności.
-                </p>
-
-            </div>
-
-
-            <div class="announcement-card">
-
-                <div class="announcement-icon">
-                    🍂
-                </div>
-
-                <div class="announcement-content">
-
-                    <span class="announcement-date">
-                        23.09.2026
-                    </span>
+                <div class="announcement">
 
                     <h3>
                         Jesienna seria wydarzeń
                     </h3>
 
                     <p>
-                        Już we wrześniu rozpoczynamy serię
-                        jesiennych wydarzeń Kolonii Pasjonatów.
-                        Szczegóły będą pojawiać się na bieżąco.
+                        Już od 23 września startuje jesienny
+                        cykl wydarzeń Kolonii Pasjonatów.
                     </p>
 
                 </div>
@@ -497,51 +417,36 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =================================
              HISTORIA
-        ========================== -->
+        ================================== -->
 
-        <section class="section">
+        <section>
 
-            <div class="section-header">
+            <div class="container">
 
-                <span class="section-icon">
-                    🏛️
-                </span>
+                <div class="history-box">
 
-                <h2 class="section-title">
-                    Historia społeczności
-                </h2>
+                    <div>
 
-                <p class="section-description">
-                    Chcesz poznać początki Kolonii Pasjonatów,
-                    jej rozwój oraz najważniejsze momenty?
-                </p>
+                        <h3>
+                            Historia społeczności
+                        </h3>
 
-            </div>
+                        <p>
+                            Poznaj najważniejsze momenty
+                            w historii Kolonii Pasjonatów
+                            i zobacz, jak rozwijała się
+                            nasza społeczność.
+                        </p>
 
-
-            <div class="feature-card">
-
-                <div class="feature-icon">
-                    🏛️
-                </div>
-
-                <div class="feature-content">
-
-                    <h3>
-                        Poznaj historię Kolonii
-                    </h3>
-
-                    <p>
-                        Od początku istnienia społeczności
-                        aż po jej obecny rozwój.
-                    </p>
+                    </div>
 
                     <a
                         href="historia.html"
-                        class="button button-primary">
-                        📖 Zobacz historię
+                        class="button button-secondary"
+                    >
+                        Zobacz historię →
                     </a>
 
                 </div>
@@ -551,71 +456,73 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =================================
              REGULAMIN
-        ========================== -->
+        ================================== -->
 
-        <section class="section">
+        <section>
 
-            <div class="rules-banner">
+            <div class="container">
 
-                <div class="rules-icon">
-                    📜
+                <div class="rules-banner">
+
+                    <div>
+
+                        <h3>
+                            📜 Regulamin
+                        </h3>
+
+                        <p>
+                            Przed dołączeniem zapoznaj się
+                            z zasadami obowiązującymi
+                            w naszej społeczności.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="regulamin.html"
+                        class="button button-secondary"
+                    >
+                        Przejdź do regulaminu →
+                    </a>
+
                 </div>
-
-                <div class="rules-content">
-
-                    <h2>
-                        Regulamin społeczności
-                    </h2>
-
-                    <p>
-                        Przed dołączeniem zapoznaj się
-                        z zasadami obowiązującymi
-                        w Kolonii Pasjonatów.
-                    </p>
-
-                </div>
-
-                <a
-                    href="regulamin.html"
-                    class="button button-secondary">
-                    Przejdź do regulaminu →
-                </a>
 
             </div>
 
         </section>
 
 
-        <!-- =========================
+        <!-- =================================
              DISCORD CTA
-        ========================== -->
+        ================================== -->
 
-        <section class="section">
+        <section>
 
-            <div class="discord-cta">
+            <div class="container">
 
-                <div class="discord-cta-icon">
-                    💬
+                <div class="discord-cta">
+
+                    <h2>
+                        Dołącz do Kolonii Pasjonatów
+                    </h2>
+
+                    <p>
+                        Wpadnij na naszego Discorda
+                        i zostań częścią społeczności.
+                    </p>
+
+                    <a
+                        href="https://discord.gg/886u97g22Q"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="button"
+                    >
+                        💬 Dołącz do Discorda
+                    </a>
+
                 </div>
-
-                <h2>
-                    Dołącz do Kolonii Pasjonatów
-                </h2>
-
-                <p>
-                    Wpadnij na naszego Discorda i zostań
-                    częścią naszej społeczności.
-                </p>
-
-                <a
-                    href="https://discord.gg/886u97g22Q"
-                    target="_blank"
-                    rel="noopener"
-                    class="button button-primary">
-                    🚀 Dołącz na Discord
-                </a>
 
             </div>
 
@@ -624,58 +531,55 @@
     </main>
 
 
-    <!-- =========================
-         STOPKA
-    ========================== -->
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
 
     <footer>
 
-        <div class="footer-content">
+        <div class="container">
 
-            <div class="footer-logo">
-                🌟 Kolonia Pasjonatów
+            <div class="footer-inner">
+
+                <div class="footer-copy">
+
+                    ©
+                    <span id="currentYear"></span>
+                    Kolonia Pasjonatów
+
+                </div>
+
+
+                <div class="footer-links">
+
+                    <a href="regulamin.html">
+                        Regulamin
+                    </a>
+
+                    <a href="historia.html">
+                        Historia
+                    </a>
+
+                    <a href="kontakt.html">
+                        Kontakt
+                    </a>
+
+                    <a
+                        href="https://discord.gg/886u97g22Q"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Discord
+                    </a>
+
+                </div>
+
             </div>
-
-            <p>
-                Społeczność tworzona z pasji.
-            </p>
-
-            <div class="footer-links">
-
-                <a href="regulamin.html">
-                    Regulamin
-                </a>
-
-                <a href="historia.html">
-                    Historia
-                </a>
-
-                <a href="kontakt.html">
-                    Kontakt
-                </a>
-
-                <a
-                    href="https://discord.gg/886u97g22Q"
-                    target="_blank"
-                    rel="noopener">
-                    Discord
-                </a>
-
-            </div>
-
-            <p class="footer-copy">
-                © <span data-current-year></span>
-                Kolonia Pasjonatów
-            </p>
 
         </div>
 
     </footer>
 
-
-    <!-- =========================
-         JAVASCRIPT
-    ========================== -->
 
     <script src="script.js"></script>
 
