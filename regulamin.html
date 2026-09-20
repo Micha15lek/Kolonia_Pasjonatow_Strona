@@ -1,1 +1,772 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Regulamin | Kolonia Pasjonatów</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .regulamin-page {
+            padding: 50px 0 80px;
+        }
+
+        .regulamin-image {
+            width: 100%;
+            max-width: 768px;
+            margin: 0 auto 35px;
+
+            display: block;
+
+            border-radius: 18px;
+            border: 1px solid var(--border);
+
+            box-shadow: var(--shadow);
+        }
+
+        .regulamin-header {
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        .regulamin-header h1 {
+            margin-bottom: 12px;
+
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            line-height: 1.2;
+        }
+
+        .regulamin-header p {
+            color: var(--text-secondary);
+        }
+
+        .regulamin-intro {
+            margin-bottom: 25px;
+        }
+
+        .regulamin-intro p {
+            margin-bottom: 14px;
+        }
+
+        .regulamin-section {
+            margin-bottom: 25px;
+        }
+
+        .regulamin-section h2 {
+            margin-bottom: 18px;
+
+            padding: 16px 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(88, 101, 242, 0.14),
+                    rgba(88, 101, 242, 0.05)
+                );
+
+            border: 1px solid var(--border);
+            border-radius: 14px;
+
+            font-size: 1.35rem;
+        }
+
+        .regulamin-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .regulamin-rule {
+            padding: 16px 18px;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            color: var(--text-secondary);
+
+            transition:
+                border-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .regulamin-rule:hover {
+            border-color: var(--border-hover);
+            transform: translateX(2px);
+        }
+
+        .regulamin-rule strong {
+            color: var(--text);
+        }
+
+        .additional-info {
+            display: grid;
+            gap: 16px;
+        }
+
+        .additional-box {
+            padding: 22px;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow);
+        }
+
+        .additional-box h3 {
+            margin-bottom: 8px;
+        }
+
+        .additional-box p {
+            color: var(--text-secondary);
+        }
+
+        .discord-link-box {
+            margin-top: 30px;
+            padding: 28px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(88, 101, 242, 0.16),
+                    rgba(35, 209, 139, 0.06)
+                );
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+
+        .discord-link-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .discord-link-box p {
+            margin-bottom: 18px;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 760px) {
+            .regulamin-page {
+                padding: 35px 0 60px;
+            }
+
+            .regulamin-section h2 {
+                font-size: 1.15rem;
+            }
+
+            .regulamin-rule {
+                padding: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+
+        <a href="index.html" class="logo">
+            🌟 Kolonia Pasjonatów
+        </a>
+
+        <nav>
+            <a href="index.html">← Strona główna</a>
+        </nav>
+
+        <button id="themeToggle"
+                class="theme-toggle"
+                aria-label="Zmień motyw">
+            🌙
+        </button>
+
+    </div>
+</header>
+
+
+<main>
+
+    <section class="regulamin-page">
+
+        <div class="container">
+
+            <!-- ZDJĘCIE -->
+
+            <img
+                class="regulamin-image"
+                src="https://media.discordapp.net/attachments/1491067016931704872/1540473196938010744/90fc31db-0cc2-4e2b-8c79-ed8643c11a5d.png?ex=6ab0f936&is=6aafa7b6&hm=149d6114eec0e63b2d2b1c14e5b21d96b407cfb0a3d899e7e58e7de7162c7054&=&format=webp&quality=lossless&width=768&height=433"
+                alt="Kolonia Pasjonatów"
+            >
+
+
+            <!-- TYTUŁ -->
+
+            <div class="regulamin-header">
+
+                <h1>
+                    📜 Regulamin Kolonii Pasjonatów
+                </h1>
+
+                <p>
+                    Regulamin serwerowy obowiązujący od dnia
+                    <strong>21.08.2026r.</strong>
+                    (edycja:
+                    <strong>21.08.2026r.</strong>)
+                </p>
+
+            </div>
+
+
+            <!-- WSTĘP -->
+
+            <div class="card regulamin-intro">
+
+                <h2>
+                    WSTĘP
+                </h2>
+
+                <p>
+                    Regulamin serwerowy powstał, aby
+                    <strong>Kolonia Pasjonatów</strong>
+                    była przyjaznym miejscem dla wszystkich
+                    użytkowników, a nie miejscem do kłótni
+                    i konfliktów. Każdy użytkownik zobowiązany
+                    jest do przestrzegania poniższych zasad.
+                </p>
+
+                <p>
+                    Każde złamanie regulaminu może być karane.
+                    Również zachowania niewymienione bezpośrednio
+                    w regulaminie mogą być karalne, jeżeli
+                    negatywnie wpływają na serwer lub jego
+                    użytkowników.
+                </p>
+
+                <p>
+                    Dołączając do serwera, akceptujesz niniejszy
+                    regulamin oraz zobowiązujesz się do jego
+                    przestrzegania.
+                </p>
+
+                <p>
+                    <strong>
+                        Nieznajomość regulaminu nie zwalnia
+                        z jego przestrzegania.
+                    </strong>
+                </p>
+
+            </div>
+
+
+            <!-- DZIAŁ 1 -->
+
+            <div class="regulamin-section">
+
+                <h2>
+                    📌 DZIAŁ 1 - POSTANOWIENIA UNIWERSALNE
+                </h2>
+
+                <div class="regulamin-list">
+
+                    <div class="regulamin-rule">
+                        <strong>1.01.</strong> -
+                        Nieznajomość regulaminu nie zwalnia z jego przestrzegania.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.02.</strong> -
+                        Każdy użytkownik zobowiązany jest do traktowania innych osób z szacunkiem. Zakazane jest obrażanie, nękanie, poniżanie, dyskryminowanie oraz prowokowanie innych użytkowników.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.03.</strong> -
+                        Zakaz podszywania się pod innych użytkowników, członków Administracji oraz inne osoby.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.04.</strong> -
+                        Zakaz działania na szkodę serwera, jego Administracji oraz użytkowników.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.05.</strong> -
+                        Zakaz wykorzystywania błędów, luk oraz botów w celu zaszkodzenia serwerowi.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.06.</strong> -
+                        Zakaz organizowania lub przeprowadzania rajdów, ataków na serwer oraz innych działań mających na celu jego destabilizację.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.07.</strong> -
+                        Zakaz tworzenia oraz używania multikont w celu omijania kar, ograniczeń lub innych zabezpieczeń serwera.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.08.</strong> -
+                        Zakaz omijania nałożonych kar poprzez opuszczenie serwera, zmianę konta lub inne działania.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.09.</strong> -
+                        Zakaz ujawniania danych osobowych innych osób bez ich zgody.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.10.</strong> -
+                        Zakaz żebrania o rangi Administracji, Moderacji oraz inne specjalne uprawnienia.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.11.</strong> -
+                        Zakaz celowego prowokowania kłótni oraz konfliktów mających negatywny wpływ na atmosferę serwera.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.12.</strong> -
+                        Zakaz trollowania oraz celowego wprowadzania innych użytkowników w błąd.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.13.</strong> -
+                        Zakaz ciągłego i bezcelowego oznaczania użytkowników, ról oraz Administracji.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.14.</strong> -
+                        Zakaz reklamowania innych serwerów, stron, kanałów, usług lub produktów bez zgody Administracji.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.15.</strong> -
+                        Zakaz prowadzenia sprzedaży na serwerze bez zgody Administracji.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.16.</strong> -
+                        Zakaz podszywania się pod Administrację lub inne osoby posiadające uprawnienia na serwerze.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.17.</strong> -
+                        Zakaz wykorzystywania serwera do działań niezgodnych z prawem lub regulaminem Discorda.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.18.</strong> -
+                        Zakaz celowego wykorzystywania serwera w sposób, który może doprowadzić do jego uszkodzenia, destabilizacji lub utraty danych.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.19.</strong> -
+                        W przypadku zauważenia złamania regulaminu użytkownik powinien zgłosić sytuację Administracji za pomocą odpowiedniego kanału lub systemu ticketów.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.20.</strong> -
+                        Decyzje Administracji należy respektować. W przypadku niezgody użytkownik może zgłosić swoje zastrzeżenia w kulturalny i spokojny sposób.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.21.</strong> -
+                        Administracja może reagować na zachowania niewymienione bezpośrednio w regulaminie, jeżeli ich charakter negatywnie wpływa na serwer lub jego użytkowników.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.22.</strong> -
+                        Zakaz celowego utrudniania pracy Administracji oraz Moderacji.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.23.</strong> -
+                        Zakaz wykorzystywania cudzych materiałów, zdjęć lub treści jako własnych bez zgody ich autora.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.24.</strong> -
+                        Każdy użytkownik zobowiązany jest do przestrzegania zasad obowiązujących na poszczególnych kanałach serwera.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>1.25.</strong> -
+                        Wszelkie działania mające na celu obejście regulaminu są traktowane tak samo jak bezpośrednie złamanie danego punktu.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DZIAŁ 2 -->
+
+            <div class="regulamin-section">
+
+                <h2>
+                    💬 DZIAŁ 2 - KANAŁY TEKSTOWE
+                </h2>
+
+                <div class="regulamin-list">
+
+                    <div class="regulamin-rule">
+                        <strong>2.01.</strong> -
+                        Zakaz nadmiernego używania przekleństw i wulgaryzmów.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>2.02.</strong> -
+                        Zakaz wysyłania treści 18+ oraz materiałów obraźliwych.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>2.03.</strong> -
+                        Zakaz spamowania i floodowania.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>2.04.</strong> -
+                        Zakaz wysyłania podejrzanych linków i załączników mogących kraść dane lub konta.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>2.05.</strong> -
+                        Zakaz obchodzenia automatycznej moderacji.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>2.06.</strong> -
+                        Zakaz autopromocji oraz wysyłania reklam bez zgody Administracji.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>2.07.</strong> -
+                        Zakaz nadmiernego używania CAPS LOCK-a.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>2.08.</strong> -
+                        Zakaz celowego pisania na niewłaściwych kanałach.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>2.09.</strong> -
+                        Zakaz ciągłego pingowania użytkowników, ról oraz Administracji.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>2.10.</strong> -
+                        Zakaz publikowania cudzych zdjęć lub materiałów bez zgody autora.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>2.11.</strong> -
+                        Zakaz kłótni, prowokowania konfliktów oraz obrażania innych użytkowników.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>2.12.</strong> -
+                        Zakaz rozmów na tematy seksualne.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>2.13.</strong> -
+                        Zakaz publikowania treści drastycznych, szokujących lub napastliwych.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>2.14.</strong> -
+                        Zakaz składania bezpodstawnych zgłoszeń i ticketów.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>2.15.</strong> -
+                        Zakaz celowego zaśmiecania kanałów treściami niezwiązanymi z ich przeznaczeniem.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DZIAŁ 3 -->
+
+            <div class="regulamin-section">
+
+                <h2>
+                    🎙️ DZIAŁ 3 - KANAŁY GŁOSOWE
+                </h2>
+
+                <div class="regulamin-list">
+
+                    <div class="regulamin-rule">
+                        <strong>3.01.</strong> -
+                        Zakaz krzyczenia oraz celowego zakłócania rozmów.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>3.02.</strong> -
+                        Nie przeszkadzaj innym użytkownikom podczas rozmowy.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>3.03.</strong> -
+                        Zakaz nadmiernego używania przekleństw i wulgaryzmów.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>3.04.</strong> -
+                        Zakaz puszczania głośnych lub uciążliwych dźwięków.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>3.05.</strong> -
+                        Zakaz używania źle skonfigurowanego mikrofonu powodującego zakłócenia.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>3.06.</strong> -
+                        Zakaz celowego powodowania echa, przesterów oraz innych zakłóceń.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>3.07.</strong> -
+                        Zakaz reklamowania się podczas rozmów i transmisji bez zgody Administracji.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>3.08.</strong> -
+                        Zakaz streamowania treści 18+ oraz materiałów niezgodnych z regulaminem.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>3.09.</strong> -
+                        Zakaz celowego przeszkadzania osobom prowadzącym transmisję.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>3.10.</strong> -
+                        Zakaz wykorzystywania botów muzycznych do celowego irytowania innych użytkowników.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>3.11.</strong> -
+                        Zakaz nagrywania rozmów bez zgody osób uczestniczących w rozmowie.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DZIAŁ 4 -->
+
+            <div class="regulamin-section">
+
+                <h2>
+                    🎫 DZIAŁ 4 - TICKETY I KONTAKT Z ADMINISTRACJĄ
+                </h2>
+
+                <div class="regulamin-list">
+
+                    <div class="regulamin-rule">
+                        <strong>4.01.</strong> -
+                        Tickety służą do kontaktu z Administracją oraz zgłaszania problemów.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>4.02.</strong> -
+                        Zakaz składania bezpodstawnych lub fałszywych zgłoszeń.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>4.03.</strong> -
+                        Zakaz otwierania wielu ticketów w tej samej sprawie.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>4.04.</strong> -
+                        Zakaz kłótni, obrażania oraz prowokowania Administracji w ticketach.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>4.05.</strong> -
+                        Zakaz celowego wprowadzania Administracji w błąd.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>4.06.</strong> -
+                        Tickety należy zamykać zgodnie z zasadami obowiązującymi na serwerze.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>4.07.</strong> -
+                        Administracja ma prawo zamknąć ticket, jeżeli sprawa została rozwiązana lub zgłoszenie jest bezpodstawne.
+                    </div>
+
+                    <div class="regulamin-rule">
+                        <strong>4.08.</strong> -
+                        Zabrania się udostępniania treści prywatnych rozmów z ticketów bez zgody osób biorących w nich udział.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DODATKOWE INFORMACJE -->
+
+            <div class="regulamin-section">
+
+                <h2>
+                    ℹ️ DODATKOWE INFORMACJE
+                </h2>
+
+                <div class="additional-info">
+
+                    <div class="additional-box">
+
+                        <h3>
+                            📌 Dodatkowe zasady
+                        </h3>
+
+                        <p>
+                            Na serwerze obowiązuje również regulamin
+                            oraz Terms of Service Discorda.
+                        </p>
+
+                    </div>
+
+
+                    <div class="additional-box">
+
+                        <h3>
+                            ⚖️ Taryfikator kar
+                        </h3>
+
+                        <p>
+                            Szczegółowy taryfikator kar ustala
+                            Administracja serwera.
+                        </p>
+
+                    </div>
+
+
+                    <div class="additional-box">
+
+                        <h3>
+                            📩 Odwołania od kar
+                        </h3>
+
+                        <p>
+                            W przypadku niesłusznie nałożonej kary
+                            użytkownik może skontaktować się
+                            z Administracją w celu wyjaśnienia sytuacji.
+                        </p>
+
+                    </div>
+
+
+                    <div class="additional-box">
+
+                        <h3>
+                            🚨 Skargi
+                        </h3>
+
+                        <p>
+                            Skargi oraz zgłoszenia dotyczące
+                            użytkowników lub działania serwera
+                            można składać poprzez odpowiedni
+                            system ticketów.
+                        </p>
+
+                    </div>
+
+
+                    <div class="additional-box">
+
+                        <h3>
+                            🔄 Zmiany regulaminu
+                        </h3>
+
+                        <p>
+                            Administracja zastrzega sobie prawo
+                            do zmiany regulaminu. O ważniejszych
+                            zmianach użytkownicy zostaną poinformowani
+                            na serwerze.
+                        </p>
+
+                    </div>
+
+
+                    <div class="additional-box">
+
+                        <h3>
+                            📜 Postanowienia końcowe
+                        </h3>
+
+                        <p>
+                            Dołączenie do serwera oznacza akceptację
+                            niniejszego regulaminu. Nieznajomość
+                            regulaminu nie zwalnia z jego przestrzegania.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DISCORD -->
+
+                <div class="discord-link-box">
+
+                    <h3>
+                        🌟 Uniwersalny link do serwera
+                    </h3>
+
+                    <p>
+                        Dołącz do Kolonii Pasjonatów na Discordzie.
+                    </p>
+
+                    <a href="https://discord.gg/886u97g22Q"
+                       target="_blank"
+                       rel="noopener"
+                       class="button button-primary">
+                        💬 Dołącz na Discord →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 Kolonia Pasjonatów
+    </p>
+
+    <p>
+        🌟 Oficjalna strona społeczności
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
