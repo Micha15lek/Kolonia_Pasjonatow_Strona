@@ -1,513 +1,645 @@
-document.addEventListener("DOMContentLoaded", () => {
-
-    const COLONY_START =
-        new Date("2026-06-11T00:00:00");
-
-    const WEBSITE_START =
-        new Date("2026-08-13T20:10:00");
+const COLONY_START = "2026-06-11T00:00:00";
+const WEBSITE_START = "2026-08-13T20:10:00";
 
 
-    const EVENTS = {
+/* =========================================
+   ŚWIĘTA I WYDARZENIA
+========================================= */
 
-        halloween:
-            new Date("2026-10-31T00:00:00"),
+const EVENTS = {
 
-        christmas:
-            new Date("2026-12-24T00:00:00"),
+    halloween: {
+        month: 10,
+        day: 31,
+        activeMessage: "Już jest! Straszenie Halloween 🎃"
+    },
 
-        newYear:
-            new Date("2027-01-01T00:00:00"),
+    christmas: {
+        month: 12,
+        day: 24,
+        activeMessage:
+            "Już jest! Miłej i spokojnej Wigilii. Spędź ją ze swoimi bliskimi. Wesołych Świąt! 🎄"
+    },
 
-        easter:
-            new Date("2027-03-28T00:00:00"),
+    newYear: {
+        month: 1,
+        day: 1,
+        activeMessage: "Już jest! 🎆"
+    },
 
-        end2026:
-            new Date("2026-12-31T00:00:00"),
+    easter: {
+        month: 3,
+        day: 28,
+        activeMessage: "Już jest! Wesołego jajka! 🐣"
+    },
 
-        newYear2027:
-            new Date("2027-01-01T00:00:00"),
+    sylwester: {
+        month: 12,
+        day: 31,
+        activeMessage: "Już jest! Miłego Sylwestra! 🎇"
+    }
 
-        summer2027:
-            new Date("2027-06-26T00:00:00")
-
-    };
-
-
-    const FERIE = {
-
-        "dolnoslaskie": {
-            name: "Dolnośląskie",
-            start: "2027-01-18T00:00:00",
-            end: "2027-01-31T23:59:59",
-            date: "18.01–31.01.2027"
-        },
-
-        "lodzkie": {
-            name: "Łódzkie",
-            start: "2027-01-18T00:00:00",
-            end: "2027-01-31T23:59:59",
-            date: "18.01–31.01.2027"
-        },
-
-        "opolskie": {
-            name: "Opolskie",
-            start: "2027-01-18T00:00:00",
-            end: "2027-01-31T23:59:59",
-            date: "18.01–31.01.2027"
-        },
-
-        "podkarpackie": {
-            name: "Podkarpackie",
-            start: "2027-01-18T00:00:00",
-            end: "2027-01-31T23:59:59",
-            date: "18.01–31.01.2027"
-        },
-
-        "podlaskie": {
-            name: "Podlaskie",
-            start: "2027-01-18T00:00:00",
-            end: "2027-01-31T23:59:59",
-            date: "18.01–31.01.2027"
-        },
-
-        "slaskie": {
-            name: "Śląskie",
-            start: "2027-01-18T00:00:00",
-            end: "2027-01-31T23:59:59",
-            date: "18.01–31.01.2027"
-        },
+};
 
 
-        "lubelskie": {
-            name: "Lubelskie",
-            start: "2027-02-01T00:00:00",
-            end: "2027-02-14T23:59:59",
-            date: "01.02–14.02.2027"
-        },
+/* =========================================
+   WYDARZENIA ROCZNE
+========================================= */
 
-        "mazowieckie": {
-            name: "Mazowieckie",
-            start: "2027-02-01T00:00:00",
-            end: "2027-02-14T23:59:59",
-            date: "01.02–14.02.2027"
-        },
+const YEAR_EVENTS = {
 
-        "pomorskie": {
-            name: "Pomorskie",
-            start: "2027-02-01T00:00:00",
-            end: "2027-02-14T23:59:59",
-            date: "01.02–14.02.2027"
-        },
+    summer2027: {
+        date: "2027-06-26T00:00:00",
+        activeMessage: "Już są! Wesołych wakacji! 🏖️"
+    },
 
-        "swietokrzyskie": {
-            name: "Świętokrzyskie",
-            start: "2027-02-01T00:00:00",
-            end: "2027-02-14T23:59:59",
-            date: "01.02–14.02.2027"
-        },
+    end2026: {
+        date: "2026-12-31T00:00:00",
+        activeMessage: "Już jest! Koniec 2026 roku! 🎉"
+    }
+
+};
 
 
-        "kujawsko-pomorskie": {
-            name: "Kujawsko-Pomorskie",
-            start: "2027-02-15T00:00:00",
-            end: "2027-02-28T23:59:59",
-            date: "15.02–28.02.2027"
-        },
+/* =========================================
+   FERIE ZIMOWE
+========================================= */
 
-        "lubuskie": {
-            name: "Lubuskie",
-            start: "2027-02-15T00:00:00",
-            end: "2027-02-28T23:59:59",
-            date: "15.02–28.02.2027"
-        },
+const FERIE = {
 
-        "malopolskie": {
-            name: "Małopolskie",
-            start: "2027-02-15T00:00:00",
-            end: "2027-02-28T23:59:59",
-            date: "15.02–28.02.2027"
-        },
+    "dolnoslaskie": ["18.01.2027", "31.01.2027"],
+    "lodzkie": ["18.01.2027", "31.01.2027"],
+    "opolskie": ["18.01.2027", "31.01.2027"],
+    "podkarpackie": ["18.01.2027", "31.01.2027"],
+    "podlaskie": ["18.01.2027", "31.01.2027"],
+    "slaskie": ["18.01.2027", "31.01.2027"],
 
-        "warminsko-mazurskie": {
-            name: "Warmińsko-Mazurskie",
-            start: "2027-02-15T00:00:00",
-            end: "2027-02-28T23:59:59",
-            date: "15.02–28.02.2027"
-        },
+    "lubelskie": ["01.02.2027", "14.02.2027"],
+    "mazowieckie": ["01.02.2027", "14.02.2027"],
+    "pomorskie": ["01.02.2027", "14.02.2027"],
+    "swietokrzyskie": ["01.02.2027", "14.02.2027"],
 
-        "wielkopolskie": {
-            name: "Wielkopolskie",
-            start: "2027-02-15T00:00:00",
-            end: "2027-02-28T23:59:59",
-            date: "15.02–28.02.2027"
-        },
+    "kujawsko-pomorskie": ["15.02.2027", "28.02.2027"],
+    "lubuskie": ["15.02.2027", "28.02.2027"],
+    "malopolskie": ["15.02.2027", "28.02.2027"],
+    "warminsko-mazurskie": ["15.02.2027", "28.02.2027"],
+    "wielkopolskie": ["15.02.2027", "28.02.2027"],
+    "zachodniopomorskie": ["15.02.2027", "28.02.2027"]
 
-        "zachodniopomorskie": {
-            name: "Zachodniopomorskie",
-            start: "2027-02-15T00:00:00",
-            end: "2027-02-28T23:59:59",
-            date: "15.02–28.02.2027"
-        }
-
-    };
+};
 
 
-    function getDifference(target) {
+/* =========================================
+   FORMATOWANIE CZASU
+========================================= */
 
-        const now = new Date();
+function formatTime(milliseconds) {
 
-        return Math.max(
+    const totalSeconds = Math.max(
+        0,
+        Math.floor(milliseconds / 1000)
+    );
+
+    const days = Math.floor(
+        totalSeconds / 86400
+    );
+
+    const hours = Math.floor(
+        (totalSeconds % 86400) / 3600
+    );
+
+    const minutes = Math.floor(
+        (totalSeconds % 3600) / 60
+    );
+
+    const seconds =
+        totalSeconds % 60;
+
+
+    return `${days} DNI ${String(hours).padStart(2, "0")} GODZ. ${String(minutes).padStart(2, "0")} MIN. ${String(seconds).padStart(2, "0")} SEK.`;
+}
+
+
+/* =========================================
+   CZAS DZIAŁANIA
+========================================= */
+
+function updateUptime() {
+
+    const now = new Date();
+
+
+    const colonyTime =
+        now - new Date(COLONY_START);
+
+    const websiteTime =
+        now - new Date(WEBSITE_START);
+
+
+    const colonyText =
+        formatTime(colonyTime);
+
+    const websiteText =
+        formatTime(websiteTime);
+
+
+    const colony =
+        document.getElementById("colonyUptime");
+
+    const website =
+        document.getElementById("websiteUptime");
+
+    const detailedColony =
+        document.getElementById("detailedUptime");
+
+    const detailedWebsite =
+        document.getElementById("websiteDetailedUptime");
+
+
+    if (colony) {
+        colony.textContent = colonyText;
+    }
+
+    if (website) {
+        website.textContent = websiteText;
+    }
+
+    if (detailedColony) {
+        detailedColony.textContent = colonyText;
+    }
+
+    if (detailedWebsite) {
+        detailedWebsite.textContent = websiteText;
+    }
+}
+
+
+/* =========================================
+   NAJBLIŻSZA DATA ŚWIĘTA
+========================================= */
+
+function getNextEventDate(event) {
+
+    const now = new Date();
+
+    let year = now.getFullYear();
+
+
+    let date = new Date(
+        year,
+        event.month - 1,
+        event.day,
+        0,
+        0,
+        0
+    );
+
+
+    if (date <= now) {
+
+        date = new Date(
+            year + 1,
+            event.month - 1,
+            event.day,
             0,
-            target.getTime() - now.getTime()
+            0,
+            0
         );
-
     }
 
 
-    function getDays(target) {
+    return date;
+}
 
-        const difference =
-            getDifference(target);
 
-        return Math.ceil(
-            difference / 86400000
-        );
+/* =========================================
+   FORMAT DATY
+========================================= */
 
+function formatDate(date) {
+
+    return `${String(date.getDate()).padStart(2, "0")}.${String(date.getMonth() + 1).padStart(2, "0")}.${date.getFullYear()}`;
+}
+
+
+/* =========================================
+   OBSŁUGA ŚWIĘTA
+========================================= */
+
+function updateEvent(
+    event,
+    countdownId,
+    dateId
+) {
+
+    const countdown =
+        document.getElementById(countdownId);
+
+    const dateElement =
+        document.getElementById(dateId);
+
+
+    if (!countdown) {
+        return;
     }
 
 
-    function getUptime(start) {
+    const now = new Date();
 
-        const now = new Date();
-
-        const difference =
-            Math.max(
-                0,
-                now.getTime() -
-                start.getTime()
-            );
-
-        const totalSeconds =
-            Math.floor(
-                difference / 1000
-            );
-
-        const days =
-            Math.floor(
-                totalSeconds / 86400
-            );
-
-        const hours =
-            Math.floor(
-                (totalSeconds % 86400) / 3600
-            );
-
-        const minutes =
-            Math.floor(
-                (totalSeconds % 3600) / 60
-            );
-
-        const seconds =
-            totalSeconds % 60;
-
-        return {
-            days,
-            hours,
-            minutes,
-            seconds
-        };
-
-    }
+    const currentYear =
+        now.getFullYear();
 
 
-    function updateUptime(
-        elementId,
-        startDate
+    const eventStart = new Date(
+        currentYear,
+        event.month - 1,
+        event.day,
+        0,
+        0,
+        0
+    );
+
+
+    const eventEnd = new Date(
+        currentYear,
+        event.month - 1,
+        event.day + 1,
+        0,
+        0,
+        0
+    );
+
+
+    /* DZIEŃ WYDARZENIA */
+
+    if (
+        now >= eventStart &&
+        now < eventEnd
     ) {
 
-        const element =
-            document.getElementById(
-                elementId
-            );
-
-        if (!element) return;
-
-        const time =
-            getUptime(startDate);
-
-        element.textContent =
-            `${time.days} dni`;
-
-    }
-
-
-    function updateDetailedUptime(
-        elementId,
-        startDate
-    ) {
-
-        const element =
-            document.getElementById(
-                elementId
-            );
-
-        if (!element) return;
-
-        const time =
-            getUptime(startDate);
-
-        element.textContent =
-            `${time.days} dni, ` +
-            `${String(time.hours).padStart(2, "0")} godz. ` +
-            `${String(time.minutes).padStart(2, "0")} min. ` +
-            `${String(time.seconds).padStart(2, "0")} sek.`;
-
-    }
-
-
-    function updateDays(
-        elementId,
-        target
-    ) {
-
-        const element =
-            document.getElementById(
-                elementId
-            );
-
-        if (!element) return;
-
-        const days =
-            getDays(target);
-
-        element.textContent =
-            `${days} dni`;
-
-    }
-
-
-    function updateAll() {
-
-        updateUptime(
-            "colonyUptime",
-            COLONY_START
-        );
-
-        updateUptime(
-            "websiteUptime",
-            WEBSITE_START
-        );
-
-
-        updateDetailedUptime(
-            "detailedUptime",
-            COLONY_START
-        );
-
-        updateDetailedUptime(
-            "websiteDetailedUptime",
-            WEBSITE_START
-        );
-
-
-        updateDays(
-            "daysToHalloween",
-            EVENTS.halloween
-        );
-
-        updateDays(
-            "daysToChristmas",
-            EVENTS.christmas
-        );
-
-        updateDays(
-            "daysToNewYear",
-            EVENTS.newYear
-        );
-
-        updateDays(
-            "daysToEaster",
-            EVENTS.easter
-        );
-
-
-        updateDays(
-            "daysToSummer2027",
-            EVENTS.summer2027
-        );
-
-        updateDays(
-            "daysToEnd2026",
-            EVENTS.end2026
-        );
-
-        updateDays(
-            "daysToNewYear2027",
-            EVENTS.newYear2027
-        );
-
-
-        updateHolidays();
-
-
-        const lastUpdate =
-            document.getElementById(
-                "lastUpdate"
-            );
-
-        if (lastUpdate) {
-
-            const now = new Date();
-
-            lastUpdate.textContent =
-                now.toLocaleString(
-                    "pl-PL",
-                    {
-                        day: "2-digit",
-                        month: "2-digit",
-                        year: "numeric",
-                        hour: "2-digit",
-                        minute: "2-digit",
-                        second: "2-digit"
-                    }
-                );
-
+        if (dateElement) {
+            dateElement.textContent =
+                formatDate(eventStart);
         }
 
+        countdown.textContent =
+            event.activeMessage;
+
+        return;
     }
 
 
-    function updateHolidays() {
+    /* KOLEJNA EDYCJA */
+
+    const nextDate =
+        getNextEventDate(event);
+
+
+    if (dateElement) {
+        dateElement.textContent =
+            formatDate(nextDate);
+    }
+
+
+    countdown.textContent =
+        formatTime(
+            nextDate - now
+        );
+}
+
+
+/* =========================================
+   WYDARZENIA ROCZNE
+========================================= */
+
+function updateYearEvent(
+    event,
+    elementId
+) {
+
+    const element =
+        document.getElementById(elementId);
+
+
+    if (!element) {
+        return;
+    }
+
+
+    const now = new Date();
+
+    const target =
+        new Date(event.date);
+
+
+    /*
+       W dniu wydarzenia
+    */
+
+    const targetDayStart =
+        new Date(
+            target.getFullYear(),
+            target.getMonth(),
+            target.getDate(),
+            0,
+            0,
+            0
+        );
+
+
+    const targetDayEnd =
+        new Date(
+            target.getFullYear(),
+            target.getMonth(),
+            target.getDate() + 1,
+            0,
+            0,
+            0
+        );
+
+
+    if (
+        now >= targetDayStart &&
+        now < targetDayEnd
+    ) {
+
+        element.textContent =
+            event.activeMessage;
+
+        return;
+    }
+
+
+    /*
+       Przed wydarzeniem
+    */
+
+    if (now < targetDayStart) {
+
+        element.textContent =
+            formatTime(
+                targetDayStart - now
+            );
+
+        return;
+    }
+
+
+    /*
+       Po wydarzeniu
+    */
+
+    element.textContent =
+        "Wydarzenie zakończone";
+}
+
+
+/* =========================================
+   FERIE
+========================================= */
+
+function updateHolidays() {
+
+    const select =
+        document.getElementById(
+            "voivodeshipSelect"
+        );
+
+    const dateElement =
+        document.getElementById(
+            "holidaysDate"
+        );
+
+    const countdown =
+        document.getElementById(
+            "daysToHolidays"
+        );
+
+
+    if (
+        !select ||
+        !dateElement ||
+        !countdown
+    ) {
+        return;
+    }
+
+
+    const dates =
+        FERIE[select.value];
+
+
+    if (!dates) {
+        return;
+    }
+
+
+    const startParts =
+        dates[0]
+            .split(".")
+            .map(Number);
+
+    const endParts =
+        dates[1]
+            .split(".")
+            .map(Number);
+
+
+    const start = new Date(
+        startParts[2],
+        startParts[1] - 1,
+        startParts[0],
+        0,
+        0,
+        0
+    );
+
+
+    const end = new Date(
+        endParts[2],
+        endParts[1] - 1,
+        endParts[0],
+        23,
+        59,
+        59
+    );
+
+
+    const now = new Date();
+
+
+    dateElement.textContent =
+        `${dates[0]} – ${dates[1]}`;
+
+
+    /*
+       FERIE TRWAJĄ
+    */
+
+    if (
+        now >= start &&
+        now <= end
+    ) {
+
+        countdown.textContent =
+            "Już są! Wesołych ferii! 🏫";
+
+        return;
+    }
+
+
+    /*
+       PRZED FERIAMI
+    */
+
+    if (now < start) {
+
+        countdown.textContent =
+            formatTime(
+                start - now
+            );
+
+        return;
+    }
+
+
+    /*
+       PO FERIACH
+    */
+
+    countdown.textContent =
+        "Ferie zakończone";
+}
+
+
+/* =========================================
+   AKTUALIZACJA WSZYSTKIEGO
+========================================= */
+
+function updateAll() {
+
+    updateUptime();
+
+
+    updateEvent(
+        EVENTS.halloween,
+        "halloweenCountdown",
+        "halloweenDate"
+    );
+
+
+    updateEvent(
+        EVENTS.christmas,
+        "christmasCountdown",
+        "christmasDate"
+    );
+
+
+    updateEvent(
+        EVENTS.newYear,
+        "newYearCountdown",
+        "newYearDate"
+    );
+
+
+    updateEvent(
+        EVENTS.easter,
+        "easterCountdown",
+        "easterDate"
+    );
+
+
+    updateEvent(
+        EVENTS.sylwester,
+        "sylwesterCountdown",
+        "sylwesterDate"
+    );
+
+
+    updateYearEvent(
+        YEAR_EVENTS.summer2027,
+        "summer2027Countdown"
+    );
+
+
+    updateYearEvent(
+        YEAR_EVENTS.end2026,
+        "end2026Countdown"
+    );
+
+
+    updateHolidays();
+
+
+    const lastUpdate =
+        document.getElementById(
+            "lastUpdate"
+        );
+
+
+    if (lastUpdate) {
+
+        lastUpdate.textContent =
+            new Date().toLocaleString(
+                "pl-PL"
+            );
+    }
+}
+
+
+/* =========================================
+   WOJEWÓDZTWO
+========================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
         const select =
             document.getElementById(
                 "voivodeshipSelect"
             );
 
-        const dateElement =
-            document.getElementById(
-                "holidaysDate"
-            );
 
-        const counterElement =
-            document.getElementById(
-                "daysToHolidays"
-            );
+        if (select) {
 
-        if (
-            !select ||
-            !dateElement ||
-            !counterElement
-        ) return;
-
-
-        const selected =
-            FERIE[select.value];
-
-        if (!selected) return;
-
-
-        dateElement.textContent =
-            selected.date;
-
-
-        const now =
-            new Date();
-
-        const start =
-            new Date(
-                selected.start
-            );
-
-        const end =
-            new Date(
-                selected.end
-            );
-
-
-        if (now < start) {
-
-            const days =
-                Math.ceil(
-                    (
-                        start.getTime() -
-                        now.getTime()
-                    ) / 86400000
+            const saved =
+                localStorage.getItem(
+                    "kolonia-voivodeship"
                 );
 
-            counterElement.textContent =
-                `${days} dni`;
 
-            return;
-
-        }
-
-
-        if (
-            now >= start &&
-            now <= end
-        ) {
-
-            counterElement.textContent =
-                "TRWAJĄ";
-
-            return;
-
-        }
-
-
-        counterElement.textContent =
-            "ZAKOŃCZONE";
-
-    }
-
-
-    const voivodeshipSelect =
-        document.getElementById(
-            "voivodeshipSelect"
-        );
-
-
-    if (voivodeshipSelect) {
-
-        const saved =
-            localStorage.getItem(
-                "kolonia-voivodeship"
-            );
-
-        if (
-            saved &&
-            FERIE[saved]
-        ) {
-
-            voivodeshipSelect.value =
-                saved;
-
-        }
-
-
-        voivodeshipSelect.addEventListener(
-            "change",
-            () => {
-
-                localStorage.setItem(
-                    "kolonia-voivodeship",
-                    voivodeshipSelect.value
-                );
-
-                updateHolidays();
-
+            if (
+                saved &&
+                FERIE[saved]
+            ) {
+                select.value =
+                    saved;
             }
+
+
+            select.addEventListener(
+                "change",
+                () => {
+
+                    localStorage.setItem(
+                        "kolonia-voivodeship",
+                        select.value
+                    );
+
+                    updateHolidays();
+                }
+            );
+        }
+
+
+        updateAll();
+
+
+        setInterval(
+            updateAll,
+            1000
         );
 
     }
-
-
-    updateAll();
-
-    setInterval(
-        updateAll,
-        1000
-    );
-
-});
+);
