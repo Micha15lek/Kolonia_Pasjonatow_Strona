@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
        DOKŁADNY LICZNIK CZASU
     ========================================= */
 
-    function getExactTimeDifference(startDate) {
+    function getTimeParts(startDate) {
 
         const start =
             new Date(startDate);
@@ -110,43 +110,38 @@ document.addEventListener("DOMContentLoaded", () => {
                 difference / 1000
             );
 
-        const days =
-            Math.floor(
-                totalSeconds / 86400
-            );
+        return {
 
-        const hours =
-            Math.floor(
-                (totalSeconds % 86400) / 3600
-            );
+            days:
+                Math.floor(
+                    totalSeconds / 86400
+                ),
 
-        const minutes =
-            Math.floor(
-                (totalSeconds % 3600) / 60
-            );
+            hours:
+                Math.floor(
+                    (totalSeconds % 86400) / 3600
+                ),
 
-        const seconds =
-            totalSeconds % 60;
+            minutes:
+                Math.floor(
+                    (totalSeconds % 3600) / 60
+                ),
 
-        return `${days} dni ${String(hours).padStart(2, "0")} godz. ${String(minutes).padStart(2, "0")} min. ${String(seconds).padStart(2, "0")} sek.`;
+            seconds:
+                totalSeconds % 60
+        };
     }
 
 
     function updateCounters() {
 
+        /* =====================================
+           LICZBA CZŁONKÓW
+        ===================================== */
+
         const membersCount =
             document.getElementById(
                 "membersCount"
-            );
-
-        const colonyDays =
-            document.getElementById(
-                "colonyDays"
-            );
-
-        const websiteDays =
-            document.getElementById(
-                "websiteDays"
             );
 
 
@@ -157,26 +152,157 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
+        /* =====================================
+           START KOLONII
+        ===================================== */
+
+        const colony =
+            getTimeParts(
+                COLONY_START_DATE
+            );
+
+
+        const colonyDays =
+            document.getElementById(
+                "colonyDays"
+            );
+
+        const colonyHours =
+            document.getElementById(
+                "colonyHours"
+            );
+
+        const colonyMinutes =
+            document.getElementById(
+                "colonyMinutes"
+            );
+
+        const colonySeconds =
+            document.getElementById(
+                "colonySeconds"
+            );
+
+
         if (colonyDays) {
 
             colonyDays.textContent =
-                getExactTimeDifference(
-                    COLONY_START_DATE
+                colony.days;
+        }
+
+
+        if (colonyHours) {
+
+            colonyHours.textContent =
+                String(
+                    colony.hours
+                ).padStart(
+                    2,
+                    "0"
                 );
         }
+
+
+        if (colonyMinutes) {
+
+            colonyMinutes.textContent =
+                String(
+                    colony.minutes
+                ).padStart(
+                    2,
+                    "0"
+                );
+        }
+
+
+        if (colonySeconds) {
+
+            colonySeconds.textContent =
+                String(
+                    colony.seconds
+                ).padStart(
+                    2,
+                    "0"
+                );
+        }
+
+
+        /* =====================================
+           START STRONY
+        ===================================== */
+
+        const website =
+            getTimeParts(
+                WEBSITE_START_DATE
+            );
+
+
+        const websiteDays =
+            document.getElementById(
+                "websiteDays"
+            );
+
+        const websiteHours =
+            document.getElementById(
+                "websiteHours"
+            );
+
+        const websiteMinutes =
+            document.getElementById(
+                "websiteMinutes"
+            );
+
+        const websiteSeconds =
+            document.getElementById(
+                "websiteSeconds"
+            );
 
 
         if (websiteDays) {
 
             websiteDays.textContent =
-                getExactTimeDifference(
-                    WEBSITE_START_DATE
+                website.days;
+        }
+
+
+        if (websiteHours) {
+
+            websiteHours.textContent =
+                String(
+                    website.hours
+                ).padStart(
+                    2,
+                    "0"
+                );
+        }
+
+
+        if (websiteMinutes) {
+
+            websiteMinutes.textContent =
+                String(
+                    website.minutes
+                ).padStart(
+                    2,
+                    "0"
+                );
+        }
+
+
+        if (websiteSeconds) {
+
+            websiteSeconds.textContent =
+                String(
+                    website.seconds
+                ).padStart(
+                    2,
+                    "0"
                 );
         }
     }
 
 
     updateCounters();
+
 
     setInterval(
         updateCounters,
