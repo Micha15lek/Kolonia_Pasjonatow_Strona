@@ -151,7 +151,7 @@
     </section>
 
 
-    <!-- STATYSTYKI I LICZNIK -->
+    <!-- NAJWAŻNIEJSZE STATYSTYKI -->
 
     <section class="stats-section">
 
@@ -170,11 +170,17 @@
 
             <div class="stats-grid">
 
+                <!-- LICZBA CZŁONKÓW -->
+
                 <div class="stat-card">
 
-                    <span class="stat-icon">👥</span>
+                    <span class="stat-icon">
+                        👥
+                    </span>
 
-                    <strong>20</strong>
+                    <strong>
+                        20
+                    </strong>
 
                     <span>
                         członków społeczności
@@ -183,66 +189,103 @@
                 </div>
 
 
-                <div class="stat-card">
-
-                    <span class="stat-icon">🏠</span>
-
-                    <strong id="colonyDaysValue">
-                        0
-                    </strong>
-
-                    <span>
-                        dni istnienia Kolonii
-                    </span>
-
-                </div>
-
+                <!-- START KOLONII -->
 
                 <div class="stat-card">
 
-                    <span class="stat-icon">🌐</span>
+                    <span class="stat-icon">
+                        🏠
+                    </span>
 
-                    <strong id="websiteDaysValue">
-                        0
+                    <strong class="stat-title">
+                        Start Kolonii
                     </strong>
 
                     <span>
-                        dni istnienia strony
+                        11.06.2026
                     </span>
 
+                    <div class="stat-time">
+
+                        <div>
+                            <strong id="colonyDays">
+                                0
+                            </strong>
+                            <span>DNI</span>
+                        </div>
+
+                        <div>
+                            <strong id="colonyHours">
+                                00
+                            </strong>
+                            <span>GODZIN</span>
+                        </div>
+
+                        <div>
+                            <strong id="colonyMinutes">
+                                00
+                            </strong>
+                            <span>MINUT</span>
+                        </div>
+
+                        <div>
+                            <strong id="colonySeconds">
+                                00
+                            </strong>
+                            <span>SEKUND</span>
+                        </div>
+
+                    </div>
+
                 </div>
 
-            </div>
 
+                <!-- START STRONY -->
 
-            <!-- START SPOŁECZNOŚCI -->
+                <div class="stat-card">
 
-            <div class="counter-wrapper">
+                    <span class="stat-icon">
+                        🌐
+                    </span>
 
-                <div class="counter-title">
-                    🏠 Start społeczności — 11.06.2026
-                </div>
+                    <strong class="stat-title">
+                        Start strony
+                    </strong>
 
-                <div class="stat-counter">
+                    <span>
+                        13.08.2026 — 20:10
+                    </span>
 
-                    <div class="counter-box">
-                        <strong id="colonyDays">0</strong>
-                        <span>DNI</span>
-                    </div>
+                    <div class="stat-time">
 
-                    <div class="counter-box">
-                        <strong id="colonyHours">00</strong>
-                        <span>GODZIN</span>
-                    </div>
+                        <div>
+                            <strong id="websiteDays">
+                                0
+                            </strong>
+                            <span>DNI</span>
+                        </div>
 
-                    <div class="counter-box">
-                        <strong id="colonyMinutes">00</strong>
-                        <span>MINUT</span>
-                    </div>
+                        <div>
+                            <strong id="websiteHours">
+                                00
+                            </strong>
+                            <span>GODZIN</span>
+                        </div>
 
-                    <div class="counter-box">
-                        <strong id="colonySeconds">00</strong>
-                        <span>SEKUND</span>
+                        <div>
+                            <strong id="websiteMinutes">
+                                00
+                            </strong>
+                            <span>MINUT</span>
+                        </div>
+
+                        <div>
+                            <strong id="websiteSeconds">
+                                00
+                            </strong>
+                            <span>SEKUND</span>
+                        </div>
+
                     </div>
 
                 </div>
@@ -254,7 +297,7 @@
     </section>
 
 
-    <!-- WYDARZENIA -->
+    <!-- NADCHODZĄCE WYDARZENIA -->
 
     <section>
 
@@ -349,7 +392,7 @@
     </section>
 
 
-    <!-- ZAPOWIEDŹ -->
+    <!-- ZAPOWIEDŹ ŚWIĄTECZNA -->
 
     <section>
 
@@ -358,7 +401,7 @@
             <div class="announcement">
 
                 <div class="announcement-icon">
-                    📢
+                    🎄
                 </div>
 
                 <div>
@@ -368,12 +411,13 @@
                     </span>
 
                     <h3>
-                        Jesienna seria wydarzeń
+                        Świąteczna strefa Kolonii Pasjonatów
                     </h3>
 
                     <p>
-                        Jesień w Kolonii Pasjonatów będzie pełna
-                        nowych wydarzeń, aktywności i wspólnej zabawy.
+                        Zimą Kolonię Pasjonatów czekają świąteczne
+                        wydarzenia, specjalne aktywności oraz
+                        wspólne świętowanie w naszej społeczności.
                     </p>
 
                 </div>
@@ -564,35 +608,53 @@
 
 <script>
 
-const COLONY_START_DATE = "2026-06-11T00:00:00";
-const WEBSITE_START_DATE = "2026-08-13T20:10:00";
+const COLONY_START_DATE =
+    "2026-06-11T00:00:00";
+
+const WEBSITE_START_DATE =
+    "2026-08-13T20:10:00";
 
 
 function getTimeParts(startDate) {
 
-    const start = new Date(startDate);
-    const now = new Date();
+    const start =
+        new Date(startDate);
 
-    const difference = Math.max(
-        0,
-        now.getTime() - start.getTime()
-    );
+    const now =
+        new Date();
+
+    const difference =
+        Math.max(
+            0,
+            now.getTime() -
+            start.getTime()
+        );
 
     const totalSeconds =
-        Math.floor(difference / 1000);
+        Math.floor(
+            difference / 1000
+        );
+
 
     return {
-        days: Math.floor(totalSeconds / 86400),
 
-        hours: Math.floor(
-            (totalSeconds % 86400) / 3600
-        ),
+        days:
+            Math.floor(
+                totalSeconds / 86400
+            ),
 
-        minutes: Math.floor(
-            (totalSeconds % 3600) / 60
-        ),
+        hours:
+            Math.floor(
+                (totalSeconds % 86400) / 3600
+            ),
 
-        seconds: totalSeconds % 60
+        minutes:
+            Math.floor(
+                (totalSeconds % 3600) / 60
+            ),
+
+        seconds:
+            totalSeconds % 60
     };
 }
 
@@ -600,65 +662,139 @@ function getTimeParts(startDate) {
 function updateCounter() {
 
     const colony =
-        getTimeParts(COLONY_START_DATE);
+        getTimeParts(
+            COLONY_START_DATE
+        );
 
     const website =
-        getTimeParts(WEBSITE_START_DATE);
+        getTimeParts(
+            WEBSITE_START_DATE
+        );
 
 
-    /* LICZNIK STARTU SPOŁECZNOŚCI */
+    /* START KOLONII */
 
     const colonyDays =
-        document.getElementById("colonyDays");
+        document.getElementById(
+            "colonyDays"
+        );
 
     const colonyHours =
-        document.getElementById("colonyHours");
+        document.getElementById(
+            "colonyHours"
+        );
 
     const colonyMinutes =
-        document.getElementById("colonyMinutes");
+        document.getElementById(
+            "colonyMinutes"
+        );
 
     const colonySeconds =
-        document.getElementById("colonySeconds");
+        document.getElementById(
+            "colonySeconds"
+        );
 
 
     if (colonyDays)
-        colonyDays.textContent = colony.days;
+        colonyDays.textContent =
+            colony.days;
+
 
     if (colonyHours)
         colonyHours.textContent =
-            String(colony.hours).padStart(2, "0");
+            String(
+                colony.hours
+            ).padStart(
+                2,
+                "0"
+            );
+
 
     if (colonyMinutes)
         colonyMinutes.textContent =
-            String(colony.minutes).padStart(2, "0");
+            String(
+                colony.minutes
+            ).padStart(
+                2,
+                "0"
+            );
+
 
     if (colonySeconds)
         colonySeconds.textContent =
-            String(colony.seconds).padStart(2, "0");
+            String(
+                colony.seconds
+            ).padStart(
+                2,
+                "0"
+            );
 
 
-    /* STATYSTYKA DNI */
+    /* START STRONY */
 
-    const colonyDaysValue =
-        document.getElementById("colonyDaysValue");
+    const websiteDays =
+        document.getElementById(
+            "websiteDays"
+        );
 
-    const websiteDaysValue =
-        document.getElementById("websiteDaysValue");
+    const websiteHours =
+        document.getElementById(
+            "websiteHours"
+        );
+
+    const websiteMinutes =
+        document.getElementById(
+            "websiteMinutes"
+        );
+
+    const websiteSeconds =
+        document.getElementById(
+            "websiteSeconds"
+        );
 
 
-    if (colonyDaysValue)
-        colonyDaysValue.textContent =
-            colony.days;
-
-    if (websiteDaysValue)
-        websiteDaysValue.textContent =
+    if (websiteDays)
+        websiteDays.textContent =
             website.days;
+
+
+    if (websiteHours)
+        websiteHours.textContent =
+            String(
+                website.hours
+            ).padStart(
+                2,
+                "0"
+            );
+
+
+    if (websiteMinutes)
+        websiteMinutes.textContent =
+            String(
+                website.minutes
+            ).padStart(
+                2,
+                "0"
+            );
+
+
+    if (websiteSeconds)
+        websiteSeconds.textContent =
+            String(
+                website.seconds
+            ).padStart(
+                2,
+                "0"
+            );
 }
 
 
 updateCounter();
 
-setInterval(updateCounter, 1000);
+setInterval(
+    updateCounter,
+    1000
+);
 
 </script>
 
