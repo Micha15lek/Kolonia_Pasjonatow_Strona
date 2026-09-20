@@ -1,6 +1,6 @@
 /* =========================================
    KOLONIA PASJONATÓW
-   STYLE 4.2
+   STYLE 4.3
 ========================================= */
 
 /* =========================================
@@ -278,7 +278,8 @@ nav a {
         transform 0.2s ease;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.active {
     background: rgba(88, 101, 242, 0.12);
 
     color: var(--text);
@@ -352,6 +353,22 @@ nav a:hover {
 
 .hero-content {
     max-width: 850px;
+}
+
+.hero-label {
+    display: inline-flex;
+
+    align-items: center;
+
+    margin-bottom: 14px;
+
+    color: var(--accent);
+
+    font-size: 0.75rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.08em;
 }
 
 .hero h1 {
@@ -1256,15 +1273,12 @@ section {
     padding: 10px 0 20px;
 }
 
-/* PIONOWA LINIA */
-
 .timeline::before {
     content: "";
 
     position: absolute;
 
     top: 0;
-
     bottom: 0;
 
     left: 50%;
@@ -1284,10 +1298,6 @@ section {
 
     opacity: 0.45;
 }
-
-/* =========================================
-   ELEMENT OSI CZASU
-========================================= */
 
 .timeline-item {
     position: relative;
@@ -1312,10 +1322,6 @@ section {
 
     text-align: left;
 }
-
-/* =========================================
-   KROPKA
-========================================= */
 
 .timeline-dot {
     position: absolute;
@@ -1349,10 +1355,6 @@ section {
     left: -8px;
 }
 
-/* =========================================
-   KARTA OSI CZASU
-========================================= */
-
 .timeline-content {
     position: relative;
 
@@ -1383,10 +1385,6 @@ section {
     transform: translateY(-4px);
 }
 
-/* =========================================
-   DATA OSI CZASU
-========================================= */
-
 .timeline-date {
     display: inline-flex;
 
@@ -1412,10 +1410,6 @@ section {
     font-weight: 900;
 }
 
-/* =========================================
-   IKONA
-========================================= */
-
 .timeline-icon {
     margin-bottom: 8px;
 
@@ -1423,10 +1417,6 @@ section {
 
     line-height: 1;
 }
-
-/* =========================================
-   TYTUŁ OSI CZASU
-========================================= */
 
 .timeline-content h3 {
     margin-bottom: 7px;
@@ -1438,10 +1428,6 @@ section {
     line-height: 1.25;
 }
 
-/* =========================================
-   OPIS
-========================================= */
-
 .timeline-content p {
     color: var(--text-secondary);
 
@@ -1449,10 +1435,6 @@ section {
 
     line-height: 1.65;
 }
-
-/* =========================================
-   TRYB JASNY — OŚ CZASU
-========================================= */
 
 body.light .timeline::before {
     opacity: 0.30;
@@ -1520,10 +1502,6 @@ body.light .timeline-content:hover {
     color: var(--text-secondary);
 }
 
-/* =========================================
-   TABELA
-========================================= */
-
 .admin-table-wrapper {
     width: 100%;
 
@@ -1589,10 +1567,6 @@ body.light .timeline-content:hover {
         rgba(88, 101, 242, 0.045);
 }
 
-/* =========================================
-   OSOBA
-========================================= */
-
 .admin-person strong {
     display: block;
 
@@ -1602,10 +1576,6 @@ body.light .timeline-content:hover {
 
     font-weight: 900;
 }
-
-/* =========================================
-   ROLA
-========================================= */
 
 .admin-role {
     display: inline-flex;
@@ -1654,10 +1624,6 @@ body.light .timeline-content:hover {
         rgba(88, 101, 242, 0.18);
 }
 
-/* =========================================
-   DATA
-========================================= */
-
 .admin-date {
     color: var(--text-secondary);
 
@@ -1667,10 +1633,6 @@ body.light .timeline-content:hover {
 
     white-space: nowrap;
 }
-
-/* =========================================
-   LICZNIK ADMINISTRACJI
-========================================= */
 
 .admin-counter {
     display: grid;
@@ -1738,10 +1700,6 @@ body.light .timeline-content:hover {
     letter-spacing: 0.03em;
 }
 
-/* =========================================
-   TRYB JASNY — ADMINISTRACJA
-========================================= */
-
 body.light .admin-table-wrapper {
     background: var(--card);
 
@@ -1763,6 +1721,208 @@ body.light .admin-table tbody tr:hover {
 body.light .admin-counter > div {
     background:
         rgba(88, 101, 242, 0.055);
+}
+
+/* =========================================
+   RANKING TYPERÓW
+========================================= */
+
+.ranking-container {
+    width: 100%;
+
+    overflow-x: auto;
+
+    margin-top: 22px;
+}
+
+.ranking-container table {
+    width: 100%;
+
+    min-width: 620px;
+
+    border-collapse: separate;
+
+    border-spacing: 0 7px;
+}
+
+.ranking-container thead th {
+    padding: 12px 16px;
+
+    text-align: left;
+
+    color: var(--muted);
+
+    font-size: 0.72rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.06em;
+
+    text-transform: uppercase;
+}
+
+.ranking-container tbody tr {
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+.ranking-container tbody tr:hover {
+    transform: translateY(-2px);
+}
+
+.ranking-container tbody td {
+    padding: 15px 16px;
+
+    background: var(--card);
+
+    border-top: 1px solid var(--border);
+
+    border-bottom: 1px solid var(--border);
+
+    color: var(--text-secondary);
+
+    font-size: 0.92rem;
+
+    font-weight: 700;
+}
+
+.ranking-container tbody td:first-child {
+    width: 130px;
+
+    border-left: 1px solid var(--border);
+
+    border-radius: 13px 0 0 13px;
+
+    color: var(--text);
+
+    font-weight: 900;
+}
+
+.ranking-container tbody td:nth-child(2) {
+    color: var(--text);
+
+    font-weight: 900;
+}
+
+.ranking-container tbody td:last-child {
+    width: 140px;
+
+    border-right: 1px solid var(--border);
+
+    border-radius: 0 13px 13px 0;
+
+    color: var(--accent);
+
+    font-weight: 900;
+}
+
+/* =========================================
+   PODIUM
+========================================= */
+
+.ranking-container tbody tr:nth-child(1) td {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(245, 197, 66, 0.10),
+            rgba(245, 197, 66, 0.045)
+        );
+
+    border-color:
+        rgba(245, 197, 66, 0.20);
+}
+
+.ranking-container tbody tr:nth-child(1) td:first-child,
+.ranking-container tbody tr:nth-child(1) td:last-child {
+    color: var(--yellow);
+}
+
+.ranking-container tbody tr:nth-child(2) td {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(190, 200, 215, 0.075),
+            rgba(190, 200, 215, 0.035)
+        );
+}
+
+.ranking-container tbody tr:nth-child(2) td:first-child {
+    color: #c7ceda;
+}
+
+.ranking-container tbody tr:nth-child(3) td {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(205, 127, 50, 0.075),
+            rgba(205, 127, 50, 0.035)
+        );
+
+    border-color:
+        rgba(205, 127, 50, 0.16);
+}
+
+.ranking-container tbody tr:nth-child(3) td:first-child {
+    color: #d89a5b;
+}
+
+.ranking-container tbody tr:nth-child(n+4) td {
+    background:
+        rgba(88, 101, 242, 0.035);
+}
+
+/* =========================================
+   RANKING — HOVER
+========================================= */
+
+.ranking-container tbody tr:hover td {
+    background:
+        rgba(88, 101, 242, 0.11);
+}
+
+.ranking-container tbody tr:nth-child(1):hover td {
+    background:
+        rgba(245, 197, 66, 0.13);
+}
+
+.ranking-container tbody tr:nth-child(2):hover td {
+    background:
+        rgba(190, 200, 215, 0.10);
+}
+
+.ranking-container tbody tr:nth-child(3):hover td {
+    background:
+        rgba(205, 127, 50, 0.10);
+}
+
+/* =========================================
+   RANKING — TRYB JASNY
+========================================= */
+
+body.light .ranking-container tbody tr:nth-child(n+4) td {
+    background:
+        rgba(88, 101, 242, 0.035);
+}
+
+body.light .ranking-container tbody tr:hover td {
+    background:
+        rgba(88, 101, 242, 0.08);
+}
+
+body.light .ranking-container tbody tr:nth-child(1):hover td {
+    background:
+        rgba(245, 197, 66, 0.12);
+}
+
+body.light .ranking-container tbody tr:nth-child(2):hover td {
+    background:
+        rgba(190, 200, 215, 0.09);
+}
+
+body.light .ranking-container tbody tr:nth-child(3):hover td {
+    background:
+        rgba(205, 127, 50, 0.09);
 }
 
 /* =========================================
@@ -2079,6 +2239,107 @@ button:focus-visible {
     }
 
     /* =====================================
+       RANKING — MOBILE
+    ===================================== */
+
+    .ranking-container {
+        overflow-x: visible;
+    }
+
+    .ranking-container table {
+        min-width: 0;
+
+        border-spacing: 0 9px;
+    }
+
+    .ranking-container thead {
+        display: none;
+    }
+
+    .ranking-container tbody {
+        display: grid;
+
+        gap: 9px;
+    }
+
+    .ranking-container tbody tr {
+        display: grid;
+
+        grid-template-columns:
+            1fr auto;
+
+        gap: 5px 12px;
+
+        padding: 14px 15px;
+
+        border:
+            1px solid
+            var(--border);
+
+        border-radius: 14px;
+
+        background: var(--card);
+
+        box-shadow: var(--shadow);
+    }
+
+    .ranking-container tbody tr:hover {
+        transform: none;
+    }
+
+    .ranking-container tbody td {
+        padding: 0;
+
+        border: none !important;
+
+        border-radius: 0 !important;
+
+        background: transparent !important;
+    }
+
+    .ranking-container tbody td:first-child {
+        width: auto;
+
+        grid-column: 1;
+
+        color: var(--text);
+
+        font-size: 0.8rem;
+    }
+
+    .ranking-container tbody td:nth-child(2) {
+        grid-column: 1 / -1;
+
+        font-size: 1rem;
+    }
+
+    .ranking-container tbody td:last-child {
+        width: auto;
+
+        grid-column: 2;
+
+        grid-row: 1;
+
+        text-align: right;
+
+        color: var(--accent);
+
+        font-size: 0.82rem;
+    }
+
+    .ranking-container tbody tr:nth-child(1) td:first-child {
+        color: var(--yellow);
+    }
+
+    .ranking-container tbody tr:nth-child(2) td:first-child {
+        color: #c7ceda;
+    }
+
+    .ranking-container tbody tr:nth-child(3) td:first-child {
+        color: #d89a5b;
+    }
+
+    /* =====================================
        ADMINISTRACJA — MOBILE
     ===================================== */
 
@@ -2289,6 +2550,22 @@ button:focus-visible {
 
     .timeline-date {
         font-size: 0.68rem;
+    }
+
+    /* =====================================
+       RANKING — MAŁE EKRANY
+    ===================================== */
+
+    .ranking-container tbody tr {
+        padding: 13px;
+    }
+
+    .ranking-container tbody td:nth-child(2) {
+        font-size: 0.95rem;
+    }
+
+    .ranking-container tbody td:last-child {
+        font-size: 0.78rem;
     }
 
     /* =====================================
