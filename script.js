@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ========================================= */
 
     const COLONY_START_DATE = "2026-06-11T00:00:00";
-    const WEBSITE_START_DATE = "2026-08-13T21:10:00";
+    const WEBSITE_START_DATE = "2026-08-13T20:10:00";
     const MEMBERS_COUNT = 20;
 
 
@@ -13,16 +13,34 @@ document.addEventListener("DOMContentLoaded", () => {
        MOTYW JASNY / CIEMNY
     ========================================= */
 
-    const themeToggle = document.getElementById("themeToggle");
+    const themeToggle =
+        document.getElementById("themeToggle");
 
     function applyTheme(isLight) {
-        document.body.classList.toggle("light-theme", isLight);
-        document.documentElement.classList.toggle("light-theme", isLight);
+
+        /* CSS używa klasy "light" */
+
+        document.body.classList.toggle(
+            "light",
+            isLight
+        );
+
+        document.documentElement.classList.toggle(
+            "light",
+            isLight
+        );
 
         document.documentElement.dataset.theme =
             isLight ? "light" : "dark";
 
         if (themeToggle) {
+
+            /*
+             * W trybie ciemnym pokazujemy słońce,
+             * ponieważ przycisk służy do przejścia
+             * w tryb jasny.
+             */
+
             themeToggle.textContent =
                 isLight ? "🌙" : "☀️";
 
@@ -35,26 +53,36 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+
     const savedTheme =
         localStorage.getItem("kolonia-theme");
 
-    applyTheme(savedTheme === "light");
+    applyTheme(
+        savedTheme === "light"
+    );
+
 
     if (themeToggle) {
-        themeToggle.addEventListener("click", () => {
 
-            const isLight =
-                !document.body.classList.contains(
-                    "light-theme"
+        themeToggle.addEventListener(
+            "click",
+            () => {
+
+                const isLight =
+                    !document.body.classList.contains(
+                        "light"
+                    );
+
+                applyTheme(isLight);
+
+                localStorage.setItem(
+                    "kolonia-theme",
+                    isLight
+                        ? "light"
+                        : "dark"
                 );
-
-            applyTheme(isLight);
-
-            localStorage.setItem(
-                "kolonia-theme",
-                isLight ? "light" : "dark"
-            );
-        });
+            }
+        );
     }
 
 
@@ -64,19 +92,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function getExactTimeDifference(startDate) {
 
-        const start = new Date(startDate);
-        const now = new Date();
+        const start =
+            new Date(startDate);
 
-        const difference = Math.max(
-            0,
-            now.getTime() - start.getTime()
-        );
+        const now =
+            new Date();
+
+        const difference =
+            Math.max(
+                0,
+                now.getTime() -
+                start.getTime()
+            );
 
         const totalSeconds =
-            Math.floor(difference / 1000);
+            Math.floor(
+                difference / 1000
+            );
 
         const days =
-            Math.floor(totalSeconds / 86400);
+            Math.floor(
+                totalSeconds / 86400
+            );
 
         const hours =
             Math.floor(
@@ -98,33 +135,46 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateCounters() {
 
         const membersCount =
-            document.getElementById("membersCount");
+            document.getElementById(
+                "membersCount"
+            );
 
         const colonyDays =
-            document.getElementById("colonyDays");
+            document.getElementById(
+                "colonyDays"
+            );
 
         const websiteDays =
-            document.getElementById("websiteDays");
+            document.getElementById(
+                "websiteDays"
+            );
+
 
         if (membersCount) {
+
             membersCount.textContent =
                 MEMBERS_COUNT;
         }
 
+
         if (colonyDays) {
+
             colonyDays.textContent =
                 getExactTimeDifference(
                     COLONY_START_DATE
                 );
         }
 
+
         if (websiteDays) {
+
             websiteDays.textContent =
                 getExactTimeDifference(
                     WEBSITE_START_DATE
                 );
         }
     }
+
 
     updateCounters();
 
@@ -140,21 +190,32 @@ document.addEventListener("DOMContentLoaded", () => {
     ========================================= */
 
     const calendar =
-        document.getElementById("calendar");
+        document.getElementById(
+            "calendar"
+        );
 
     const calendarMonth =
-        document.getElementById("calendarMonth");
+        document.getElementById(
+            "calendarMonth"
+        );
 
     const calendarYear =
-        document.getElementById("calendarYear");
+        document.getElementById(
+            "calendarYear"
+        );
 
     const previousMonth =
-        document.getElementById("previousMonth");
+        document.getElementById(
+            "previousMonth"
+        );
 
     const nextMonth =
-        document.getElementById("nextMonth");
+        document.getElementById(
+            "nextMonth"
+        );
 
-    let calendarDate = new Date();
+    let calendarDate =
+        new Date();
 
 
     function renderCalendar() {
@@ -163,13 +224,9 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        /*
-         * Pobieramy aktualną datę z urządzenia.
-         * Dzięki temu zaznaczony dzień zawsze
-         * odpowiada rzeczywistej dacie użytkownika.
-         */
 
-        const deviceDate = new Date();
+        const deviceDate =
+            new Date();
 
         const currentDay =
             deviceDate.getDate();
@@ -188,8 +245,6 @@ document.addEventListener("DOMContentLoaded", () => {
             calendarDate.getMonth();
 
 
-        /* Nazwa miesiąca */
-
         const monthName =
             calendarDate.toLocaleDateString(
                 "pl-PL",
@@ -198,19 +253,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             );
 
+
         if (calendarMonth) {
+
             calendarMonth.textContent =
                 monthName.charAt(0).toUpperCase() +
                 monthName.slice(1);
         }
 
+
         if (calendarYear) {
+
             calendarYear.textContent =
                 year;
         }
 
-
-        /* Pierwszy dzień miesiąca */
 
         const firstDay =
             new Date(
@@ -220,18 +277,11 @@ document.addEventListener("DOMContentLoaded", () => {
             ).getDay();
 
 
-        /*
-         * Polska wersja kalendarza zaczyna tydzień
-         * od poniedziałku.
-         */
-
         const startingDay =
             firstDay === 0
                 ? 6
                 : firstDay - 1;
 
-
-        /* Liczba dni miesiąca */
 
         const daysInMonth =
             new Date(
@@ -244,8 +294,6 @@ document.addEventListener("DOMContentLoaded", () => {
         calendar.innerHTML = "";
 
 
-        /* Puste pola przed pierwszym dniem */
-
         for (
             let i = 0;
             i < startingDay;
@@ -253,7 +301,9 @@ document.addEventListener("DOMContentLoaded", () => {
         ) {
 
             const emptyDay =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
             emptyDay.className =
                 "calendar-day empty";
@@ -264,8 +314,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        /* Dni miesiąca */
-
         for (
             let day = 1;
             day <= daysInMonth;
@@ -273,7 +321,9 @@ document.addEventListener("DOMContentLoaded", () => {
         ) {
 
             const dayElement =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
             dayElement.className =
                 "calendar-day";
@@ -281,12 +331,6 @@ document.addEventListener("DOMContentLoaded", () => {
             dayElement.textContent =
                 day;
 
-
-            /*
-             * Zaznaczamy DZISIAJ tylko wtedy,
-             * gdy oglądany miesiąc i rok odpowiadają
-             * aktualnej dacie urządzenia.
-             */
 
             if (
                 day === currentDay &&
@@ -307,9 +351,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /*
-     * Poprzedni miesiąc
-     */
+    /* =========================================
+       POPRZEDNI MIESIĄC
+    ========================================= */
 
     if (previousMonth) {
 
@@ -327,9 +371,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /*
-     * Następny miesiąc
-     */
+    /* =========================================
+       NASTĘPNY MIESIĄC
+    ========================================= */
 
     if (nextMonth) {
 
@@ -351,14 +395,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================================
-       AKTUALIZACJA KALENDARZA O PÓŁNOCY
+       AKTUALIZACJA KALENDARZA
     ========================================= */
-
-    /*
-     * Jeśli strona jest otwarta przez całą noc,
-     * po zmianie dnia kalendarz odświeży się
-     * automatycznie.
-     */
 
     setInterval(
         () => {
@@ -368,11 +406,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (
                 now.getDate() !==
-                calendarDate.getDate() &&
+                    calendarDate.getDate() &&
                 now.getMonth() ===
-                calendarDate.getMonth() &&
+                    calendarDate.getMonth() &&
                 now.getFullYear() ===
-                calendarDate.getFullYear()
+                    calendarDate.getFullYear()
             ) {
 
                 renderCalendar();
@@ -388,7 +426,10 @@ document.addEventListener("DOMContentLoaded", () => {
     ========================================= */
 
     const header =
-        document.querySelector("header");
+        document.querySelector(
+            "header"
+        );
+
 
     function handleHeaderScroll() {
 
@@ -396,19 +437,31 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+
         if (window.scrollY > 20) {
-            header.classList.add("scrolled");
+
+            header.classList.add(
+                "scrolled"
+            );
+
         } else {
-            header.classList.remove("scrolled");
+
+            header.classList.remove(
+                "scrolled"
+            );
         }
     }
 
+
     handleHeaderScroll();
+
 
     window.addEventListener(
         "scroll",
         handleHeaderScroll,
-        { passive: true }
+        {
+            passive: true
+        }
     );
 
 
@@ -419,18 +472,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentPage =
         window.location.pathname
             .split("/")
-            .pop() || "index.html";
+            .pop() ||
+        "index.html";
+
 
     document
         .querySelectorAll("nav a")
         .forEach(link => {
 
             const href =
-                link.getAttribute("href");
+                link.getAttribute(
+                    "href"
+                );
+
 
             if (
                 href === currentPage
             ) {
+
                 link.classList.add(
                     "active"
                 );
@@ -443,7 +502,9 @@ document.addEventListener("DOMContentLoaded", () => {
     ========================================= */
 
     document
-        .querySelectorAll('a[href^="#"]')
+        .querySelectorAll(
+            'a[href^="#"]'
+        )
         .forEach(anchor => {
 
             anchor.addEventListener(
@@ -455,22 +516,27 @@ document.addEventListener("DOMContentLoaded", () => {
                             "href"
                         );
 
+
                     if (
                         targetId === "#"
                     ) {
                         return;
                     }
 
+
                     const target =
                         document.querySelector(
                             targetId
                         );
 
+
                     if (!target) {
                         return;
                     }
 
+
                     event.preventDefault();
+
 
                     target.scrollIntoView({
                         behavior: "smooth",
@@ -490,9 +556,9 @@ document.addEventListener("DOMContentLoaded", () => {
             ".reveal"
         );
 
+
     if (
-        "IntersectionObserver"
-        in window
+        "IntersectionObserver" in window
     ) {
 
         const observer =
@@ -522,9 +588,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             );
 
+
         revealElements.forEach(
             element =>
-                observer.observe(element)
+                observer.observe(
+                    element
+                )
         );
 
     } else {
@@ -543,7 +612,9 @@ document.addEventListener("DOMContentLoaded", () => {
     ========================================= */
 
     document
-        .querySelectorAll(".button")
+        .querySelectorAll(
+            ".button"
+        )
         .forEach(button => {
 
             button.addEventListener(
@@ -558,8 +629,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     ripple.className =
                         "button-ripple";
 
+
                     const rect =
                         this.getBoundingClientRect();
+
 
                     const size =
                         Math.max(
@@ -567,25 +640,32 @@ document.addEventListener("DOMContentLoaded", () => {
                             rect.height
                         );
 
+
                     ripple.style.width =
                         `${size}px`;
 
                     ripple.style.height =
                         `${size}px`;
 
+
                     ripple.style.left =
                         `${event.clientX - rect.left - size / 2}px`;
 
+
                     ripple.style.top =
                         `${event.clientY - rect.top - size / 2}px`;
+
 
                     this.appendChild(
                         ripple
                     );
 
+
                     setTimeout(
                         () => {
+
                             ripple.remove();
+
                         },
                         600
                     );
@@ -599,22 +679,28 @@ document.addEventListener("DOMContentLoaded", () => {
     ========================================= */
 
     const logo =
-        document.querySelector(".logo");
+        document.querySelector(
+            ".logo"
+        );
+
 
     if (logo) {
 
         logo.addEventListener(
             "mouseenter",
             () => {
+
                 logo.classList.add(
                     "logo-hover"
                 );
             }
         );
 
+
         logo.addEventListener(
             "mouseleave",
             () => {
+
                 logo.classList.remove(
                     "logo-hover"
                 );
@@ -639,12 +725,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     .querySelectorAll(
                         ".open"
                     )
-                    .forEach(element => {
+                    .forEach(
+                        element => {
 
-                        element.classList.remove(
-                            "open"
-                        );
-                    });
+                            element.classList.remove(
+                                "open"
+                            );
+                        }
+                    );
             }
         }
     );
@@ -659,6 +747,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "currentYear"
         );
 
+
     if (currentYearElement) {
 
         currentYearElement.textContent =
@@ -670,12 +759,14 @@ document.addEventListener("DOMContentLoaded", () => {
        ZAŁADOWANIE STRONY
     ========================================= */
 
-    requestAnimationFrame(() => {
+    requestAnimationFrame(
+        () => {
 
-        document.body.classList.add(
-            "page-loaded"
-        );
+            document.body.classList.add(
+                "page-loaded"
+            );
 
-    });
+        }
+    );
 
 });
