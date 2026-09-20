@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,63 +12,48 @@
 <body>
 
 <header>
+    <div class="header-inner">
 
-    <div class="logo">
-        🌟 Kolonia Pasjonatów
+        <a href="index.html" class="logo">
+            🌟 Kolonia Pasjonatów
+        </a>
+
+        <nav>
+            <a href="index.html">Strona główna</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="licznik.html">Licznik</a>
+            <a href="ogloszenia.html">Ogłoszenia</a>
+            <a href="linki.html" class="active">Linki</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
+
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Zmień motyw">
+            🌙
+        </button>
+
     </div>
-
-    <nav>
-
-        <a href="index.html">
-            🏠 Strona główna
-        </a>
-
-        <a href="ranking.html">
-            🏆 Ranking
-        </a>
-
-        <a href="statystyki.html">
-            ⏱️ Licznik
-        </a>
-        <a href="linki.html" class="active">
-            🔗 Linki
-        </a>
-
-        <a href="kontakt.html">
-            📧 Kontakt
-        </a>
-
-    </nav>
-
-    <button
-        id="themeToggle"
-        class="theme-toggle"
-        type="button"
-        aria-label="Zmień motyw">
-
-        🌙
-
-    </button>
-
 </header>
 
 
 <main>
 
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
+    <!-- HERO -->
 
     <section class="hero">
 
         <div class="hero-content">
 
-            <span class="section-label">
+            <span class="hero-label">
                 🔗 NASZA SPOŁECZNOŚĆ
             </span>
 
             <h1>
-                Zaprzyjaźnione <span>kanały</span>
+                Zaprzyjaźnione
+                <span>kanały</span>
             </h1>
 
             <p>
@@ -82,22 +66,27 @@
     </section>
 
 
-    <!-- =====================================================
-         ZAPRZYJAŹNIONE KANAŁY
-    ====================================================== -->
+    <!-- KANAŁY -->
 
     <section class="section">
 
         <div class="section-header">
 
-            <h2 class="section-title">
-                🤝 Zaprzyjaźnione kanały
-            </h2>
+            <div>
 
-            <p class="section-description">
-                Kanały naszych znajomych i członków społeczności.
-                Sprawdź ich twórczość i zostaw subskrypcję! ❤️
-            </p>
+                <span class="section-label">
+                    🤝 ZAPRZYJAŹNIONE KANAŁY
+                </span>
+
+                <h2>
+                    Kanały YouTube
+                </h2>
+
+                <p>
+                    Kanały związane ze społecznością Kolonii Pasjonatów.
+                </p>
+
+            </div>
 
         </div>
 
@@ -105,203 +94,606 @@
         <div class="info-grid">
 
 
-            <!-- KOLEJOWY MICHAŁ -->
+            <!-- =========================================
+                 KOLEJOWY MICHAŁ
+            ========================================== -->
 
-            <article class="info-card channel-card">
+            <article class="channel-card">
 
-                <img
-                    src="https://yt3.googleusercontent.com/EMvlMCtezmn7PmarvbnOV5zIAMUYIDkXw-w9KtbGRbUZurlIMZlblzqalJap9BynrDgKr9oK-A=s160-c-k-c0x00ffffff-no-rj"
-                    alt="Profilowe kanału Kolejowy_Michał"
-                    class="channel-avatar"
-                >
+                <div class="channel-top">
 
-                <span class="status">
-                    🌟 NASZ KANAŁ
-                </span>
+                    <img
+                        class="channel-avatar"
+                        src="https://yt3.googleusercontent.com/bgHLQbnCvgb4Tfea09E3Z3CUlgD9iLFIFIWbXaOu-6rKvk0rD_2GR2EG8SsyFCkcfjyn58k8oFw=s160-c-k-c0x00ffffff-no-rj"
+                        alt="Profilowe kanału Kolejowy_Michał">
 
-                <h2>
-                    🚆 Kolejowy_Michał
-                </h2>
+                    <div class="channel-info">
 
-                <p>
-                    Kanał Michała z Wrocławia poświęcony kolei.
-                    Znajdziesz tutaj filmy z gier kolejowych oraz
-                    shortsy z oceniania stacji widzów.
-                </p>
+                        <span class="status">
+                            🌟 NASZ KANAŁ
+                        </span>
 
-                <div class="channel-achievement">
-                    🎉 <strong>876 subskrypcji</strong> — 23.08.2026
+                        <h3>
+                            Kolejowy_Michał
+                        </h3>
+
+                        <div class="channel-subs">
+                            👥 <strong>999</strong> subskrypcji
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <a
-                    href="https://youtube.com/@kolejowy_michal15"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="button button-primary">
 
-                    ▶️ YouTube
+                <div class="channel-meta">
 
-                </a>
+                    <div>
+                        📅 <strong>Założono:</strong>
+                        <span>11.02.2026</span>
+                    </div>
+
+                </div>
+
+
+                <!-- LICZNIK STAŻU -->
+
+                <div class="channel-age-box">
+
+                    <div class="channel-age-title">
+                        ⏱️ Na YouTube
+                    </div>
+
+                    <div
+                        class="channel-age"
+                        data-start="2026-02-11T00:00:00">
+
+                        <div>
+                            <strong class="age-days">0</strong>
+                            <span>DNI</span>
+                        </div>
+
+                        <div>
+                            <strong class="age-hours">00</strong>
+                            <span>GODZINY</span>
+                        </div>
+
+                        <div>
+                            <strong class="age-minutes">00</strong>
+                            <span>MINUTY</span>
+                        </div>
+
+                        <div>
+                            <strong class="age-seconds">00</strong>
+                            <span>SEKUNDY</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- OPIS -->
+
+                <div class="channel-description">
+
+                    <div class="description-full">
+
+Cześć
+
+Nazywam się Michał pochodzę z Wrocławia. Jeżeli lubisz kolej to dobrze trafiłeś, na kanale pojawiają się filmy z różnych gier kolejowych oraz shortsy z oceniania waszych stacji. Jeżeli podoba wam się mój kontent to zostawcie subika.
+
+-------------------------
+
+Moje ulubione lokomotywy
+
+1. Ep07 339 💚
+2. Ep09 046 🧡🤎🧡 😔😔
+3. Su4220 001 💙🧡
+4. Eu07a 001 💙🤍
+5. Ep08 001 🧡💚
+
+-------------------------
+
+Moje ulubione EZT
+
+1. En57 1703 🤍💛🖤
+2. En57 038 💙💛
+3. En71 001 💙💛
+4. 48WEc 038 🤍💛🖤
+5. 45We 021 🤍💛🖤
+
+-------------------------
+
+Serwer Discord
+
+• https://discord.gg/886u97g22Q
+
+-------------------------
+
+🎵 TikTok
+
+• 👀⏳🎬
+
+-------------------------
+
+Moje ulubione miejsca do nagrywek
+
+- Na razie brak ale wkrótce się to zmieni
+
+-------------------------
+
+Liczba subskrypcji
+
+•10 ✅️
+•20 ✅️
+•50 ✅️
+•100 ✅️
+•200 ✅️
+•250 ✅️
+•300 ✅️
+•400 ✅️
+•500 ✅️
+•600 ✅️
+•700 ✅️ 22.07.2026 🎉
+•800 ✅️ 07.08.2026 🎉
+•900 ✅️ 31.08.2026 🎉
+•1000 ❌️
+
+                    </div>
+
+                </div>
+
+
+                <div class="channel-actions">
+
+                    <a
+                        href="https://youtube.com/@kolejowy_michal15?si=1OTyguwzWYb03h1N"
+                        target="_blank"
+                        rel="noopener"
+                        class="btn">
+                        ▶️ Subskrybuj
+                    </a>
+
+                    <button
+                        type="button"
+                        class="btn secondary description-toggle">
+                        📖 Pokaż pełny opis
+                    </button>
+
+                </div>
 
             </article>
 
 
-            <!-- MIKOL YORIICHI -->
+            <!-- =========================================
+                 FARMINGOWY PAN
+            ========================================== -->
 
-            <article class="info-card channel-card">
+            <article class="channel-card">
 
-                <img
-                    src="https://yt3.googleusercontent.com/VQZ9ah_2x1sWWGtokSkYdo1TraiplpmJTHxTqKBKsu3gJk3-RNhvyeslXceIVb7KVdlajqLHID0=s160-c-k-c0x00ffffff-no-rj"
-                    alt="Profilowe kanału Mikol yoriichi"
-                    class="channel-avatar"
-                >
+                <div class="channel-top">
 
-                <span class="status">
-                    🤝 ZAPRZYJAŹNIONY
-                </span>
+                    <img
+                        class="channel-avatar"
+                        src="https://yt3.googleusercontent.com/5E2U1WPNQQOpP9Zw3O3NMeTZlPfG89yuMLfwAvAfzbKuGvyzOleN2vXJyWoVQ93dAohfGXgPvoQ=s160-c-k-c0x00ffffff-no-rj"
+                        alt="Profilowe kanału Farmingowy Pan">
 
-                <h2>
-                    🚆 Mikol yoriichi
-                </h2>
+                    <div class="channel-info">
 
-                <p>
-                    Jestem Mikol yoriichi, lubię kolej i foty
-                    lokomotyw.
-                </p>
+                        <span class="status">
+                            🤝 ZAPRZYJAŹNIONY
+                        </span>
 
-                <div class="channel-achievement">
-                    🎉 <strong>83 subskrypcje</strong> — 23.08.2026
+                        <h3>
+                            Farmingowy Pan
+                        </h3>
+
+                        <div class="channel-subs">
+                            👥 <strong>165</strong> subskrypcji
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <a
-                    href="https://youtube.com/@mikol_yoriichi"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="button button-primary">
 
-                    ▶️ YouTube
+                <div class="channel-meta">
 
-                </a>
+                    <div>
+                        📅 <strong>Założono:</strong>
+                        <span>28.12.2025</span>
+                    </div>
+
+                </div>
+
+
+                <div class="channel-age-box">
+
+                    <div class="channel-age-title">
+                        ⏱️ Na YouTube
+                    </div>
+
+                    <div
+                        class="channel-age"
+                        data-start="2025-12-28T00:00:00">
+
+                        <div>
+                            <strong class="age-days">0</strong>
+                            <span>DNI</span>
+                        </div>
+
+                        <div>
+                            <strong class="age-hours">00</strong>
+                            <span>GODZINY</span>
+                        </div>
+
+                        <div>
+                            <strong class="age-minutes">00</strong>
+                            <span>MINUTY</span>
+                        </div>
+
+                        <div>
+                            <strong class="age-seconds">00</strong>
+                            <span>SEKUNDY</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="channel-description">
+
+                    <div class="description-full">
+
+Siemka Tu farmingowy pan będę nagrywał z fs25 z kolei a tak że z Minecraft @fanspidermana @kuracyjastartodnowa
+
+                    </div>
+
+                </div>
+
+
+                <div class="channel-actions">
+
+                    <a
+                        href="https://youtube.com/@kolejowyfs?si=dD3PcrMSRbncliVA"
+                        target="_blank"
+                        rel="noopener"
+                        class="btn">
+                        ▶️ Subskrybuj
+                    </a>
+
+                    <button
+                        type="button"
+                        class="btn secondary description-toggle">
+                        📖 Pokaż pełny opis
+                    </button>
+
+                </div>
 
             </article>
 
 
-            <!-- FARMINGOWY PAN -->
+            <!-- =========================================
+                 MIKOL YORIICHI
+            ========================================== -->
 
-            <article class="info-card channel-card">
+            <article class="channel-card">
 
-                <img
-                    src="https://yt3.googleusercontent.com/5E2U1WPNQQOpP9Zw3O3NMeTZlPfG89yuMLfwAvAfzbKuGvyzOleN2vXJyWoVQ93dAohfGXgPvoQ=s160-c-k-c0x00ffffff-no-rj"
-                    alt="Profilowe kanału Farmingowy Pan"
-                    class="channel-avatar"
-                >
+                <div class="channel-top">
 
-                <span class="status">
-                    🤝 ZAPRZYJAŹNIONY
-                </span>
+                    <img
+                        class="channel-avatar"
+                        src="https://yt3.googleusercontent.com/VQZ9ah_2x1sWWGtokSkYdo1TraiplpmJTHxTqKBKsu3gJk3-RNhvyeslXceIVb7KVdlajqLHID0=s160-c-k-c0x00ffffff-no-rj"
+                        alt="Profilowe kanału mikol yoriichi">
 
-                <h2>
-                    🚜 Farmingowy Pan
-                </h2>
+                    <div class="channel-info">
 
-                <p>
-                    Kanał poświęcony Farming Simulator 25,
-                    kolei oraz Minecraftowi.
-                </p>
+                        <span class="status">
+                            🤝 ZAPRZYJAŹNIONY
+                        </span>
 
-                <div class="channel-achievement">
-                    🎉 <strong>153 subskrypcje</strong> — 23.08.2026
+                        <h3>
+                            mikol yoriichi
+                        </h3>
+
+                        <div class="channel-subs">
+                            👥 <strong>81</strong> subskrypcji
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <a
-                    href="https://youtube.com/@kolejowyfs"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="button button-primary">
 
-                    ▶️ YouTube
+                <div class="channel-meta">
 
-                </a>
+                    <div>
+                        📅 <strong>Założono:</strong>
+                        <span>11.02.2026</span>
+                    </div>
+
+                </div>
+
+
+                <div class="channel-age-box">
+
+                    <div class="channel-age-title">
+                        ⏱️ Na YouTube
+                    </div>
+
+                    <div
+                        class="channel-age"
+                        data-start="2026-02-11T00:00:00">
+
+                        <div>
+                            <strong class="age-days">0</strong>
+                            <span>DNI</span>
+                        </div>
+
+                        <div>
+                            <strong class="age-hours">00</strong>
+                            <span>GODZINY</span>
+                        </div>
+
+                        <div>
+                            <strong class="age-minutes">00</strong>
+                            <span>MINUTY</span>
+                        </div>
+
+                        <div>
+                            <strong class="age-seconds">00</strong>
+                            <span>SEKUNDY</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="channel-description">
+
+                    <div class="description-full">
+
+Jestem Mikol yoriichi, lubię kolej i foty lokomotyw.
+
+                    </div>
+
+                </div>
+
+
+                <div class="channel-actions">
+
+                    <a
+                        href="https://youtube.com/@mikol_yoriichi?si=3UXBvhiJJ8a-22cy"
+                        target="_blank"
+                        rel="noopener"
+                        class="btn">
+                        ▶️ Subskrybuj
+                    </a>
+
+                    <button
+                        type="button"
+                        class="btn secondary description-toggle">
+                        📖 Pokaż pełny opis
+                    </button>
+
+                </div>
 
             </article>
 
 
-            <!-- TCZEWSKI MK -->
+            <!-- =========================================
+                 NOWORUDZKI MK08 GAMING
+            ========================================== -->
 
-            <article class="info-card channel-card">
+            <article class="channel-card">
 
-                <img
-                    src="https://yt3.googleusercontent.com/hJWc0SVzZkBAD9FeX8sS3SXjZkacMRJljSEuc5OpILzybFS7B21_opNBBVvyhxO514hhsQL2RQ=s160-c-k-c0x00ffffff-no-rj"
-                    alt="Profilowe kanału Tczewski_mk"
-                    class="channel-avatar"
-                >
+                <div class="channel-top">
 
-                <span class="status">
-                    🤝 ZAPRZYJAŹNIONY
-                </span>
+                    <img
+                        class="channel-avatar"
+                        src="https://yt3.googleusercontent.com/tLhKFg9Ysiy_qhFsANfVb1F8nARhUDPb-j0i6B5biq7hEjmDyLWVepe7kcC-V5VkYmuTandKoA=s160-c-k-c0x00ffffff-no-rj"
+                        alt="Profilowe kanału Noworudzki_MK08 Gaming">
 
-                <h2>
-                    🚆 Tczewski_mk
-                </h2>
+                    <div class="channel-info">
 
-                <p>
-                    Zaprzyjaźniony kanał związany ze społecznością
-                    Kolonii Pasjonatów.
-                </p>
+                        <span class="status">
+                            🤝 ZAPRZYJAŹNIONY
+                        </span>
 
-                <div class="channel-achievement">
-                    🎉 <strong>18 subskrypcji</strong> — 23.08.2026
+                        <h3>
+                            Noworudzki_MK08 Gaming
+                        </h3>
+
+                        <div class="channel-subs">
+                            👥 <strong>10</strong> subskrypcji
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <a
-                    href="https://youtube.com/@tczewski_mikol"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="button button-primary">
 
-                    ▶️ YouTube
+                <div class="channel-meta">
 
-                </a>
+                    <div>
+                        📅 <strong>Założono:</strong>
+                        <span>03.08.2026</span>
+                    </div>
+
+                </div>
+
+
+                <div class="channel-age-box">
+
+                    <div class="channel-age-title">
+                        ⏱️ Na YouTube
+                    </div>
+
+                    <div
+                        class="channel-age"
+                        data-start="2026-08-03T00:00:00">
+
+                        <div>
+                            <strong class="age-days">0</strong>
+                            <span>DNI</span>
+                        </div>
+
+                        <div>
+                            <strong class="age-hours">00</strong>
+                            <span>GODZINY</span>
+                        </div>
+
+                        <div>
+                            <strong class="age-minutes">00</strong>
+                            <span>MINUTY</span>
+                        </div>
+
+                        <div>
+                            <strong class="age-seconds">00</strong>
+                            <span>SEKUNDY</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="channel-description">
+
+                    <div class="description-full">
+                        Brak opisu kanału.
+                    </div>
+
+                </div>
+
+
+                <div class="channel-actions">
+
+                    <a
+                        href="https://youtube.com/@noworudzkimk456gry?si=2JwTruBkSzYWh6XQ"
+                        target="_blank"
+                        rel="noopener"
+                        class="btn">
+                        ▶️ Subskrybuj
+                    </a>
+
+                    <button
+                        type="button"
+                        class="btn secondary description-toggle">
+                        📖 Pokaż pełny opis
+                    </button>
+
+                </div>
 
             </article>
 
 
-            <!-- NOWORUDZKI MK08 -->
+            <!-- =========================================
+                 TCZEWSKI MK
+            ========================================== -->
 
-            <article class="info-card channel-card">
+            <article class="channel-card">
 
-                <img
-                    src="https://yt3.googleusercontent.com/Cz6m9sMx1_EpvcPL7XkqMWySrqGFJftx0CXlSazMAG3GxZNCeBPYKpeoHN49hEZ0OxBEFSJ5DQ=s160-c-k-c0x00ffffff-no-rj"
-                    alt="Profilowe kanału Noworudzki_Mk08"
-                    class="channel-avatar"
-                >
+                <div class="channel-top">
 
-                <span class="status">
-                    🤝 ZAPRZYJAŹNIONY
-                </span>
+                    <img
+                        class="channel-avatar"
+                        src="https://yt3.googleusercontent.com/hJWc0SVzZkBAD9FeX8sS3SXjZkacMRJljSEuc5OpILzybFS7B21_opNBBVvyhxO514hhsQL2RQ=s160-c-k-c0x00ffffff-no-rj"
+                        alt="Profilowe kanału Tczewski_mk">
 
-                <h2>
-                    🚆 Noworudzki_Mk08
-                </h2>
+                    <div class="channel-info">
 
-                <p>
-                    Zaprzyjaźniony kanał członka społeczności
-                    Kolonii Pasjonatów.
-                </p>
+                        <span class="status">
+                            🤝 ZAPRZYJAŹNIONY
+                        </span>
 
-                <div class="channel-achievement">
-                    🎉 <strong>87 subskrypcji</strong> — 23.08.2026
+                        <h3>
+                            Tczewski_mk
+                        </h3>
+
+                        <div class="channel-subs">
+                            👥 <strong>18</strong> subskrypcji
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <a
-                    href="https://youtube.com/@noworudzki_mk3"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="button button-primary">
 
-                    ▶️ YouTube
+                <div class="channel-meta">
 
-                </a>
+                    <div>
+                        📅 <strong>Założono:</strong>
+                        <span>15.03.2026</span>
+                    </div>
+
+                </div>
+
+
+                <div class="channel-age-box">
+
+                    <div class="channel-age-title">
+                        ⏱️ Na YouTube
+                    </div>
+
+                    <div
+                        class="channel-age"
+                        data-start="2026-03-15T00:00:00">
+
+                        <div>
+                            <strong class="age-days">0</strong>
+                            <span>DNI</span>
+                        </div>
+
+                        <div>
+                            <strong class="age-hours">00</strong>
+                            <span>GODZINY</span>
+                        </div>
+
+                        <div>
+                            <strong class="age-minutes">00</strong>
+                            <span>MINUTY</span>
+                        </div>
+
+                        <div>
+                            <strong class="age-seconds">00</strong>
+                            <span>SEKUNDY</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="channel-description">
+
+                    <div class="description-full">
+                        Brak opisu kanału.
+                    </div>
+
+                </div>
+
+
+                <div class="channel-actions">
+
+                    <a
+                        href="https://youtube.com/@tczewski_mikol?si=F045GCYYGBwtu2nR"
+                        target="_blank"
+                        rel="noopener"
+                        class="btn">
+                        ▶️ Subskrybuj
+                    </a>
+
+                    <button
+                        type="button"
+                        class="btn secondary description-toggle">
+                        📖 Pokaż pełny opis
+                    </button>
+
+                </div>
 
             </article>
 
@@ -311,268 +703,45 @@
     </section>
 
 
-    <!-- =====================================================
-         POLECANE KANAŁY
-    ====================================================== -->
+    <!-- =========================================
+         SERWERY DISCORD
+    ========================================== -->
 
     <section class="section">
 
         <div class="section-header">
 
-            <h2 class="section-title">
-                ⭐ Polecane kanały
-            </h2>
+            <div>
 
-            <p class="section-description">
-                Wybrane kanały, które szczególnie polecamy
-                naszej społeczności. ❤️
-            </p>
+                <span class="section-label">
+                    💬 ZAPRZYJAŹNIONE SERWERY DISCORD
+                </span>
+
+                <h2>
+                    Serwery Discord
+                </h2>
+
+                <p>
+                    Dołącz do zaprzyjaźnionych społeczności.
+                </p>
+
+            </div>
 
         </div>
 
 
         <div class="info-grid">
 
-
-            <!-- ADAM_PKP -->
-
-            <article class="info-card channel-card">
-
-                <img
-                    src="https://yt3.googleusercontent.com/IBoS5DtBk7TKv6MWpXY1BsLcMZh_EX29p_rLPMHciXwIgJpGRsgzjYJ27hSABb6KRh4IBDV0zTA=s160-c-k-c0x00ffffff-no-rj"
-                    alt="Profilowe kanału Adam_Pkp"
-                    class="channel-avatar"
-                >
-
-                <span class="status">
-                    ⭐ POLECANY
-                </span>
-
-                <h2>
-                    🚆 Adam_Pkp
-                </h2>
-
-                <p>
-                    Zaprzyjaźniony kanał związany z koleją
-                    i tematyką kolejową.
-                </p>
-
-                <div class="channel-achievement">
-                    🎉 <strong>964 subskrypcje</strong> — 23.08.2026
-                </div>
-
-                <a
-                    href="https://youtube.com/@trainspotter_polska"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="button button-primary">
-
-                    ▶️ YouTube
-
-                </a>
-
-            </article>
-
-
-            <!-- KOLEJOWY KOŚCIAN MK -->
-
-            <article class="info-card channel-card">
-
-                <img
-                    src="https://yt3.googleusercontent.com/CxBS2ERAxqn_RsCUsPb3o0BOzj6N6JWeipjZGcwh0n9Em5alKSIiL0Pj5uLz3u3mmPI1z9jv=s160-c-k-c0x00ffffff-no-rj"
-                    alt="Profilowe kanału Kolejowy Kościan MK"
-                    class="channel-avatar"
-                >
-
-                <span class="status">
-                    ⭐ POLECANY
-                </span>
-
-                <h2>
-                    🚆 Kolejowy Kościan MK
-                </h2>
-
-                <p>
-                    Zaprzyjaźniony kanał poświęcony kolei
-                    oraz tematyce kolejowej.
-                </p>
-
-                <div class="channel-achievement">
-                    🎉 <strong>370 subskrypcji</strong> — 23.08.2026
-                </div>
-
-                <a
-                    href="https://youtube.com/@kolejowykoscianmk21"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="button button-primary">
-
-                    ▶️ YouTube
-
-                </a>
-
-            </article>
-
-
-            <!-- ŁÓDZKI MIKOL -->
-
-            <article class="info-card channel-card">
-
-                <img
-                    src="https://yt3.googleusercontent.com/CNG3g8t5lWH3ae-CC82zUZMssQH66x7NRuHDKkL3-boAxGyoCvq0FXlJikvV1kzXdEk24icS=s160-c-k-c0x00ffffff-no-rj"
-                    alt="Profilowe kanału Łódzki Mikol"
-                    class="channel-avatar"
-                >
-
-                <span class="status">
-                    ⭐ POLECANY
-                </span>
-
-                <h2>
-                    🚆 Łódzki Mikol
-                </h2>
-
-                <p>
-                    Zaprzyjaźniony kanał związany z koleją
-                    i fotografią kolejową.
-                </p>
-
-                <div class="channel-achievement">
-                    🎉 <strong>116 subskrypcji</strong> — 23.08.2026
-                </div>
-
-                <a
-                    href="https://youtube.com/@lodzkimikol"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="button button-primary">
-
-                    ▶️ YouTube
-
-                </a>
-
-            </article>
-
-
-            <!-- ŚWIEBODZICKI MK -->
-
-            <article class="info-card channel-card">
-
-                <img
-                    src="https://yt3.googleusercontent.com/Z7rIM4pdfYxFztUbUc2RjZsoXVMKOq3NQ3mni5Ki6b1mTrmolZY3Oxou_s5vjtzaFSuhYzr-CQ=s160-c-k-c0x00ffffff-no-rj"
-                    alt="Profilowe kanału Świebodzicki_MK"
-                    class="channel-avatar"
-                >
-
-                <span class="status">
-                    ⭐ POLECANY
-                </span>
-
-                <h2>
-                    🚆 Świebodzicki_MK
-                </h2>
-
-                <p>
-                    Zaprzyjaźniony kanał związany ze społecznością
-                    Kolonii Pasjonatów i tematyką kolejową.
-                </p>
-
-                <div class="channel-achievement">
-                    🎉 <strong>3,01 tys. subskrypcji</strong> — 23.08.2026
-                </div>
-
-                <a
-                    href="https://youtube.com/@swiebodzickimk"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="button button-primary">
-
-                    ▶️ YouTube
-
-                </a>
-
-            </article>
-
-
-            <!-- KOLEJOWYKUBASZ -->
-
-            <article class="info-card channel-card">
-
-                <img
-                    src="https://yt3.googleusercontent.com/u_HbS10KRCFQd6u2mqUkqC9f1pPcdES9Z51tSvDadWH2rNp2g-hb0UKpkbiekIgpav9LC_CJxw=s160-c-k-c0x00ffffff-no-rj"
-                    alt="Profilowe kanału KolejowyKubaSz"
-                    class="channel-avatar"
-                >
-
-                <span class="status">
-                    ⭐ POLECANY
-                </span>
-
-                <h2>
-                    🚆 𝙺𝚘𝚕𝚎𝚓𝚘𝚠𝚢𝙺𝚞𝚋𝚊𝚜𝚣
-                </h2>
-
-                <p>
-                    Zaprzyjaźniony kanał związany z koleją
-                    i tematyką kolejową.
-                </p>
-
-                <div class="channel-achievement">
-                    🎉 <strong>2,28 tys. subskrypcji</strong> — 23.08.2026
-                </div>
-
-                <a
-                    href="https://youtube.com/@kkmk-kkmk8"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="button button-primary">
-
-                    ▶️ YouTube
-
-                </a>
-
-            </article>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         ZAPRZYJAŹNIONE SERWERY DISCORD
-    ====================================================== -->
-
-    <section class="section">
-
-        <div class="section-header">
-
-            <h2 class="section-title">
-                💬 Zaprzyjaźnione serwery Discord
-            </h2>
-
-            <p class="section-description">
-                Serwery Discord zaprzyjaźnione z Kolonią Pasjonatów.
-                Dołącz do nich i poznaj nowe społeczności! 💬
-            </p>
-
-        </div>
-
-
-        <div class="info-grid">
-
-
-            <!-- MIKOLAND HUB -->
 
             <article class="info-card">
 
-                <div class="card-icon">
+                <span class="channel-icon">
                     💬
-                </div>
+                </span>
 
-                <h2>
-                    🌐 Mikoland HUB
-                </h2>
+                <h3>
+                    Mikoland HUB
+                </h3>
 
                 <p>
                     Zaprzyjaźniony serwer Discord dla miłośników
@@ -582,27 +751,23 @@
                 <a
                     href="https://discord.gg/ezuCUv7sEF"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    class="button button-primary">
-
+                    rel="noopener"
+                    class="btn">
                     💬 Dołącz na Discord
-
                 </a>
 
             </article>
 
 
-            <!-- STREFA -->
-
             <article class="info-card">
 
-                <div class="card-icon">
+                <span class="channel-icon">
                     💬
-                </div>
+                </span>
 
-                <h2>
-                    🌐 STREFA
-                </h2>
+                <h3>
+                    STREFA
+                </h3>
 
                 <p>
                     Zaprzyjaźniony serwer Discord społeczności.
@@ -611,27 +776,23 @@
                 <a
                     href="https://discord.gg/aRtcPvj6AB"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    class="button button-primary">
-
+                    rel="noopener"
+                    class="btn">
                     💬 Dołącz na Discord
-
                 </a>
 
             </article>
 
 
-            <!-- POD SEMAFOMEM -->
-
             <article class="info-card">
 
-                <div class="card-icon">
-                    🚦
-                </div>
+                <span class="channel-icon">
+                    🚆
+                </span>
 
-                <h2>
-                    🚦 Pod Semaforem
-                </h2>
+                <h3>
+                    Pod Semaforem
+                </h3>
 
                 <p>
                     Zaprzyjaźniony serwer Discord związany
@@ -641,11 +802,9 @@
                 <a
                     href="https://discord.gg/7RsYDs6MnV"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    class="button button-primary">
-
+                    rel="noopener"
+                    class="btn">
                     💬 Dołącz na Discord
-
                 </a>
 
             </article>
@@ -656,30 +815,30 @@
     </section>
 
 
-    <!-- =====================================================
-         DOŁĄCZENIE DO LISTY
-    ====================================================== -->
+    <!-- KONTAKT -->
 
     <section class="section">
 
         <div class="info-card">
 
+            <span class="channel-icon">
+                🤝
+            </span>
+
             <h2>
-                🤝 Chcesz dołączyć do listy?
+                Chcesz dołączyć do listy?
             </h2>
 
             <p>
                 Jeśli jesteś zaprzyjaźnionym kanałem lub serwerem
-                i chcesz pojawić się na tej stronie, skontaktuj się
-                z administracją.
+                i chcesz pojawić się na tej stronie,
+                skontaktuj się z administracją.
             </p>
 
             <a
                 href="kontakt.html"
-                class="button">
-
+                class="btn">
                 📧 Kontakt
-
             </a>
 
         </div>
@@ -688,10 +847,6 @@
 
 </main>
 
-
-<!-- =====================================================
-     STOPKA
-===================================================== -->
 
 <footer>
 
@@ -708,6 +863,150 @@
 
 <script src="script.js"></script>
 
-</body>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* ==========================================
+       LICZNIK STAŻU KANAŁÓW
+    ========================================== */
+
+    function updateChannelAges() {
+
+        const now = new Date();
+
+        document.querySelectorAll(".channel-age").forEach(counter => {
+
+            const start = new Date(
+                counter.dataset.start
+            );
+
+            if (isNaN(start.getTime())) {
+                return;
+            }
+
+            const difference =
+                now.getTime() - start.getTime();
+
+
+            /* Kanał jeszcze nie wystartował */
+
+            if (difference < 0) {
+
+                counter.querySelector(".age-days").textContent = "0";
+                counter.querySelector(".age-hours").textContent = "00";
+                counter.querySelector(".age-minutes").textContent = "00";
+                counter.querySelector(".age-seconds").textContent = "00";
+
+                return;
+            }
+
+
+            const totalSeconds =
+                Math.floor(difference / 1000);
+
+
+            const days =
+                Math.floor(
+                    totalSeconds / 86400
+                );
+
+
+            const hours =
+                Math.floor(
+                    (totalSeconds % 86400) / 3600
+                );
+
+
+            const minutes =
+                Math.floor(
+                    (totalSeconds % 3600) / 60
+                );
+
+
+            const seconds =
+                totalSeconds % 60;
+
+
+            counter.querySelector(".age-days").textContent =
+                days;
+
+
+            counter.querySelector(".age-hours").textContent =
+                String(hours).padStart(2, "0");
+
+
+            counter.querySelector(".age-minutes").textContent =
+                String(minutes).padStart(2, "0");
+
+
+            counter.querySelector(".age-seconds").textContent =
+                String(seconds).padStart(2, "0");
+
+        });
+
+    }
+
+
+    updateChannelAges();
+
+    setInterval(
+        updateChannelAges,
+        1000
+    );
+
+
+    /* ==========================================
+       POKAŻ / UKRYJ PEŁNY OPIS
+    ========================================== */
+
+    document
+        .querySelectorAll(".description-toggle")
+        .forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                const card =
+                    button.closest(".channel-card");
+
+                const description =
+                    card.querySelector(
+                        ".description-full"
+                    );
+
+
+                const isVisible =
+                    description.classList.contains(
+                        "show"
+                    );
+
+
+                if (isVisible) {
+
+                    description.classList.remove(
+                        "show"
+                    );
+
+                    button.textContent =
+                        "📖 Pokaż pełny opis";
+
+                } else {
+
+                    description.classList.add(
+                        "show"
+                    );
+
+                    button.textContent =
+                        "📕 Ukryj pełny opis";
+
+                }
+
+            });
+
+        });
+
+});
+</script>
+
+</body>
 </html>
