@@ -1,6 +1,7 @@
+```css
 /* =========================================================
-   KOLONIA PASJONATÓW 2.0
-   FUTURISTIC DESIGN SYSTEM
+   KOLONIA PASJONATÓW 3.0
+   MODERN COMMUNITY / RAILWAY DESIGN SYSTEM
    ========================================================= */
 
 
@@ -9,40 +10,47 @@
    ========================================================= */
 
 :root {
-    --bg-main: #050914;
-    --bg-secondary: #081426;
-    --bg-tertiary: #0a172b;
+    --bg-main: #05070d;
+    --bg-secondary: #080d17;
+    --bg-tertiary: #0c1422;
 
-    --card: rgba(13, 27, 48, 0.72);
-    --card-solid: #0d1b30;
-    --card-hover: rgba(19, 38, 65, 0.88);
+    --surface: rgba(14, 22, 36, 0.78);
+    --surface-light: rgba(19, 30, 48, 0.86);
+    --surface-solid: #0e1726;
+    --surface-hover: rgba(24, 39, 62, 0.94);
 
-    --text-main: #f5f8ff;
-    --text-secondary: #b7c7dd;
-    --text-muted: #71829b;
+    --text-main: #f4f7fb;
+    --text-secondary: #aebdd0;
+    --text-muted: #718198;
 
-    --primary: #2f8cff;
-    --primary-light: #63b3ff;
-    --primary-dark: #1765c4;
+    --primary: #3b9cff;
+    --primary-light: #72bbff;
+    --primary-dark: #1974ce;
 
-    --accent: #795cff;
-    --accent-light: #9a86ff;
+    --accent: #765cff;
+    --accent-light: #9b89ff;
 
-    --success: #35d07f;
-    --warning: #ffbd4a;
-    --danger: #ff6572;
+    --success: #38d996;
+    --warning: #ffc857;
+    --danger: #ff6878;
 
-    --border: rgba(255, 255, 255, 0.085);
-    --border-hover: rgba(99, 179, 255, 0.35);
+    --rail-yellow: #ffd447;
 
-    --blue-glow: rgba(47, 140, 255, 0.28);
-    --purple-glow: rgba(121, 92, 255, 0.22);
+    --border: rgba(255, 255, 255, 0.075);
+    --border-strong: rgba(255, 255, 255, 0.13);
+    --border-hover: rgba(76, 161, 255, 0.4);
 
-    --shadow:
-        0 25px 80px rgba(0, 0, 0, 0.35);
+    --blue-glow: rgba(59, 156, 255, 0.25);
+    --purple-glow: rgba(118, 92, 255, 0.22);
 
     --shadow-small:
-        0 12px 35px rgba(0, 0, 0, 0.25);
+        0 12px 35px rgba(0, 0, 0, 0.22);
+
+    --shadow:
+        0 25px 80px rgba(0, 0, 0, 0.34);
+
+    --shadow-hover:
+        0 28px 75px rgba(0, 0, 0, 0.4);
 
     --radius-small: 12px;
     --radius: 20px;
@@ -50,9 +58,9 @@
 
     --container: 1240px;
 
-    --transition-fast: 0.2s ease;
-    --transition: 0.35s cubic-bezier(.2,.8,.2,1);
-    --transition-slow: 0.7s cubic-bezier(.2,.8,.2,1);
+    --transition-fast: 0.18s ease;
+    --transition: 0.32s cubic-bezier(.2, .8, .2, 1);
+    --transition-slow: 0.65s cubic-bezier(.16, 1, .3, 1);
 }
 
 
@@ -68,7 +76,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px;
+    scroll-padding-top: 110px;
 }
 
 body {
@@ -78,16 +86,21 @@ body {
 
     background:
         radial-gradient(
-            circle at 10% 10%,
-            rgba(47, 140, 255, 0.08),
-            transparent 28%
+            circle at 8% 5%,
+            rgba(59, 156, 255, 0.085),
+            transparent 27%
         ),
         radial-gradient(
-            circle at 90% 20%,
-            rgba(121, 92, 255, 0.08),
-            transparent 28%
+            circle at 92% 12%,
+            rgba(118, 92, 255, 0.075),
+            transparent 25%
         ),
-        var(--bg-main);
+        linear-gradient(
+            180deg,
+            #05070d 0%,
+            #070b13 48%,
+            #05070d 100%
+        );
 
     font-family:
         "Inter",
@@ -106,6 +119,7 @@ body {
         color var(--transition);
 }
 
+/* Delikatna siatka */
 body::before {
     content: "";
 
@@ -116,22 +130,30 @@ body::before {
 
     pointer-events: none;
 
-    background:
+    background-image:
         linear-gradient(
-            115deg,
-            transparent 20%,
-            rgba(47, 140, 255, 0.025),
-            transparent 45%,
-            rgba(121, 92, 255, 0.025),
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
             transparent 75%
         );
 
-    background-size: 250% 250%;
-
-    animation:
-        backgroundFlow 18s ease-in-out infinite;
+    opacity: 0.55;
 }
 
+/* Subtelne światło */
 body::after {
     content: "";
 
@@ -142,22 +164,14 @@ body::after {
 
     pointer-events: none;
 
-    opacity: 0.18;
-
-    background-image:
+    background:
         radial-gradient(
-            rgba(255,255,255,0.08) 1px,
-            transparent 1px
+            circle at 50% 0%,
+            rgba(59, 156, 255, 0.035),
+            transparent 38%
         );
 
-    background-size: 42px 42px;
-
-    mask-image:
-        linear-gradient(
-            to bottom,
-            black,
-            transparent 75%
-        );
+    opacity: 0.9;
 }
 
 a {
@@ -193,13 +207,13 @@ h3,
 h4,
 h5,
 h6 {
+    color: var(--text-main);
+
     font-family:
         "Space Grotesk",
         "Inter",
         system-ui,
         sans-serif;
-
-    color: var(--text-main);
 
     line-height: 1.1;
 }
@@ -208,7 +222,7 @@ h6 {
     color: #ffffff;
 
     background:
-        rgba(47, 140, 255, 0.45);
+        rgba(59, 156, 255, 0.4);
 }
 
 
@@ -236,7 +250,7 @@ h6 {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--bg-main);
+    background: #05070d;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -246,6 +260,9 @@ h6 {
             var(--primary),
             var(--accent)
         );
+
+    border:
+        2px solid #05070d;
 
     border-radius: 999px;
 }
@@ -261,13 +278,13 @@ h6 {
 
 
 /* =========================================================
-   6. HEADER / NAVBAR
+   6. HEADER
    ========================================================= */
 
 header {
     position: sticky;
 
-    top: 14px;
+    top: 12px;
 
     z-index: 1000;
 
@@ -277,40 +294,44 @@ header {
             1360px
         );
 
-    margin: 14px auto 0;
+    margin: 12px auto 0;
 
     background:
-        rgba(5, 9, 20, 0.68);
+        rgba(5, 8, 15, 0.78);
 
     border:
-        1px solid rgba(255,255,255,0.08);
+        1px solid var(--border-strong);
 
-    border-radius: 20px;
+    border-radius: 18px;
 
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter:
+        blur(24px)
+        saturate(140%);
+
+    -webkit-backdrop-filter:
+        blur(24px)
+        saturate(140%);
 
     box-shadow:
-        0 12px 45px rgba(0,0,0,0.22);
+        0 12px 50px rgba(0, 0, 0, 0.25);
 
     transition:
-        transform var(--transition),
         background var(--transition),
-        box-shadow var(--transition),
-        border-color var(--transition);
+        border-color var(--transition),
+        box-shadow var(--transition);
 }
 
 header:hover {
     border-color:
-        rgba(99, 179, 255, 0.16);
+        rgba(59, 156, 255, 0.18);
 
     box-shadow:
-        0 16px 55px rgba(0,0,0,0.28),
-        0 0 35px rgba(47,140,255,0.05);
+        0 18px 60px rgba(0, 0, 0, 0.32),
+        0 0 40px rgba(59, 156, 255, 0.035);
 }
 
 header .container {
-    min-height: 72px;
+    min-height: 70px;
 
     display: flex;
     align-items: center;
@@ -341,19 +362,22 @@ header .container {
     font-size: 1.05rem;
     font-weight: 800;
 
+    letter-spacing: -0.02em;
+
     white-space: nowrap;
 
     transition:
         color var(--transition),
-        transform var(--transition),
-        text-shadow var(--transition);
+        transform var(--transition);
 }
 
 .logo::before {
     content: "";
 
-    width: 9px;
-    height: 9px;
+    width: 10px;
+    height: 10px;
+
+    flex-shrink: 0;
 
     border-radius: 50%;
 
@@ -365,47 +389,47 @@ header .container {
         );
 
     box-shadow:
-        0 0 16px var(--blue-glow);
+        0 0 0 4px rgba(59, 156, 255, 0.07),
+        0 0 18px rgba(59, 156, 255, 0.55);
 
     animation:
-        logoPulse 2.8s ease-in-out infinite;
+        logoPulse 3s ease-in-out infinite;
 }
 
 .logo:hover {
     color: var(--primary-light);
 
-    transform: translateY(-1px);
-
-    text-shadow:
-        0 0 25px rgba(99,179,255,0.28);
+    transform:
+        translateY(-1px);
 }
 
 
 /* =========================================================
-   8. NAVIGACJA
+   8. NAWIGACJA
    ========================================================= */
 
 nav {
     display: flex;
     align-items: center;
 
-    gap: 4px;
+    gap: 3px;
 
     flex-wrap: wrap;
+
     justify-content: center;
 }
 
 nav a {
     position: relative;
 
-    padding: 10px 14px;
+    padding: 9px 13px;
 
     color: var(--text-secondary);
 
-    font-size: 0.88rem;
-    font-weight: 650;
+    border-radius: 10px;
 
-    border-radius: 11px;
+    font-size: 0.86rem;
+    font-weight: 650;
 
     transition:
         color var(--transition),
@@ -419,7 +443,7 @@ nav a::after {
     position: absolute;
 
     left: 50%;
-    bottom: 4px;
+    bottom: 3px;
 
     width: 0;
     height: 2px;
@@ -437,7 +461,7 @@ nav a::after {
     border-radius: 999px;
 
     box-shadow:
-        0 0 10px var(--blue-glow);
+        0 0 12px rgba(59, 156, 255, 0.45);
 
     transition:
         width var(--transition);
@@ -447,14 +471,14 @@ nav a:hover {
     color: var(--text-main);
 
     background:
-        rgba(47,140,255,0.07);
+        rgba(59, 156, 255, 0.065);
 
     transform:
         translateY(-1px);
 }
 
 nav a:hover::after {
-    width: 35%;
+    width: 30%;
 }
 
 nav a.active {
@@ -463,13 +487,13 @@ nav a.active {
     background:
         linear-gradient(
             135deg,
-            rgba(47,140,255,0.11),
-            rgba(121,92,255,0.07)
+            rgba(59, 156, 255, 0.12),
+            rgba(118, 92, 255, 0.07)
         );
 }
 
 nav a.active::after {
-    width: 55%;
+    width: 48%;
 }
 
 
@@ -478,8 +502,8 @@ nav a.active::after {
    ========================================================= */
 
 .theme-toggle {
-    width: 43px;
-    height: 43px;
+    width: 42px;
+    height: 42px;
 
     display: flex;
     align-items: center;
@@ -490,7 +514,7 @@ nav a.active::after {
     color: var(--text-main);
 
     background:
-        rgba(255,255,255,0.045);
+        rgba(255, 255, 255, 0.045);
 
     border:
         1px solid var(--border);
@@ -498,7 +522,7 @@ nav a.active::after {
     border-radius: 50%;
 
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.05);
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
     transition:
         transform var(--transition),
@@ -509,17 +533,19 @@ nav a.active::after {
 
 .theme-toggle:hover {
     transform:
-        rotate(18deg)
-        scale(1.08);
+        rotate(15deg)
+        scale(1.07);
+
+    color: var(--primary-light);
 
     background:
-        rgba(47,140,255,0.12);
+        rgba(59, 156, 255, 0.1);
 
     border-color:
-        rgba(99,179,255,0.3);
+        rgba(59, 156, 255, 0.28);
 
     box-shadow:
-        0 0 25px rgba(47,140,255,0.15);
+        0 0 28px rgba(59, 156, 255, 0.13);
 }
 
 
@@ -530,7 +556,7 @@ nav a.active::after {
 .hero {
     position: relative;
 
-    min-height: 690px;
+    min-height: 680px;
 
     display: flex;
     align-items: center;
@@ -544,23 +570,57 @@ nav a.active::after {
 
     background:
         radial-gradient(
-            circle at 15% 45%,
-            rgba(47,140,255,0.16),
-            transparent 32%
+            circle at 10% 50%,
+            rgba(59, 156, 255, 0.13),
+            transparent 30%
         ),
         radial-gradient(
-            circle at 85% 35%,
-            rgba(121,92,255,0.15),
-            transparent 30%
+            circle at 88% 35%,
+            rgba(118, 92, 255, 0.12),
+            transparent 28%
         ),
         linear-gradient(
             135deg,
-            #050914,
-            #081426
+            #05070d,
+            #09111d 55%,
+            #070b14
         );
 }
 
+/* Linia kolejowa */
 .hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 125%;
+    height: 1px;
+
+    left: -12%;
+    bottom: 21%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(59, 156, 255, 0.22),
+            rgba(118, 92, 255, 0.18),
+            transparent
+        );
+
+    transform:
+        rotate(-7deg);
+
+    box-shadow:
+        0 20px 0 rgba(255, 255, 255, 0.025);
+
+    opacity: 0.8;
+
+    pointer-events: none;
+}
+
+/* Światło */
+.hero::after {
     content: "";
 
     position: absolute;
@@ -568,57 +628,29 @@ nav a.active::after {
     width: 650px;
     height: 650px;
 
-    top: -300px;
-    right: -220px;
+    top: -340px;
+    right: -230px;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(47,140,255,0.17),
+            rgba(59, 156, 255, 0.14),
             transparent 68%
         );
 
-    filter: blur(12px);
+    filter: blur(14px);
 
     animation:
-        heroOrb 9s ease-in-out infinite alternate;
-
-    pointer-events: none;
-}
-
-.hero::after {
-    content: "";
-
-    position: absolute;
-
-    width: 520px;
-    height: 520px;
-
-    bottom: -300px;
-    left: -220px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(121,92,255,0.15),
-            transparent 68%
-        );
-
-    filter: blur(15px);
-
-    animation:
-        heroOrb 12s ease-in-out infinite alternate-reverse;
+        heroOrb 10s ease-in-out infinite alternate;
 
     pointer-events: none;
 }
 
 
 /* =========================================================
-   11. HERO GRID
+   11. HERO CONTENT
    ========================================================= */
 
 .hero-content {
@@ -628,10 +660,10 @@ nav a.active::after {
 
     max-width: 900px;
 
-    padding: 120px 0;
+    padding: 115px 0;
 
     animation:
-        heroEnter 1s cubic-bezier(.16,1,.3,1) both;
+        heroEnter 0.9s cubic-bezier(.16, 1, .3, 1) both;
 }
 
 
@@ -642,37 +674,50 @@ nav a.active::after {
 .section-label {
     display: inline-flex;
     align-items: center;
+
     gap: 8px;
 
-    margin-bottom: 22px;
+    margin-bottom: 21px;
 
-    padding: 8px 13px;
+    padding: 7px 12px;
 
     color: var(--primary-light);
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(47,140,255,0.11),
-            rgba(121,92,255,0.08)
-        );
+        rgba(59, 156, 255, 0.07);
 
     border:
-        1px solid rgba(99,179,255,0.16);
+        1px solid rgba(59, 156, 255, 0.16);
 
     border-radius: 999px;
 
-    font-size: 0.74rem;
+    font-size: 0.71rem;
     font-weight: 800;
 
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+
+    letter-spacing: 0.13em;
 
     box-shadow:
-        0 0 25px rgba(47,140,255,0.05);
+        0 8px 30px rgba(59, 156, 255, 0.035);
 
     animation:
-        fadeUp 0.8s 0.1s both;
+        fadeUp 0.75s 0.08s both;
+}
+
+.section-label::before {
+    content: "";
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background:
+        var(--primary);
+
+    box-shadow:
+        0 0 10px var(--primary);
 }
 
 
@@ -681,25 +726,25 @@ nav a.active::after {
    ========================================================= */
 
 .hero h1 {
-    margin-bottom: 25px;
+    margin-bottom: 24px;
 
     font-family:
         "Space Grotesk",
         sans-serif;
 
     font-size:
-        clamp(3.3rem, 8vw, 7rem);
+        clamp(3.2rem, 8vw, 7rem);
 
     font-weight: 800;
 
-    line-height: 0.92;
+    line-height: 0.91;
 
-    letter-spacing: -0.065em;
+    letter-spacing: -0.07em;
 
     text-wrap: balance;
 
     animation:
-        fadeUp 0.9s 0.2s both;
+        fadeUp 0.85s 0.18s both;
 }
 
 .hero h1 span {
@@ -710,10 +755,10 @@ nav a.active::after {
     background:
         linear-gradient(
             100deg,
-            #63b3ff 0%,
-            #2f8cff 35%,
-            #795cff 75%,
-            #a894ff 100%
+            #78c0ff 0%,
+            #3b9cff 32%,
+            #765cff 72%,
+            #a99bff 100%
         );
 
     background-size: 200% auto;
@@ -722,13 +767,13 @@ nav a.active::after {
     -webkit-background-clip: text;
 
     animation:
-        gradientFlow 6s ease-in-out infinite;
+        gradientFlow 7s ease-in-out infinite;
 }
 
 .hero h1 small {
     display: block;
 
-    margin-top: 16px;
+    margin-top: 17px;
 
     color: var(--text-secondary);
 
@@ -741,16 +786,16 @@ nav a.active::after {
 }
 
 .hero p {
-    max-width: 720px;
+    max-width: 700px;
 
     margin-bottom: 30px;
 
     color: var(--text-secondary);
 
-    font-size: 1.08rem;
+    font-size: 1.05rem;
 
     animation:
-        fadeUp 0.9s 0.35s both;
+        fadeUp 0.85s 0.32s both;
 }
 
 
@@ -762,10 +807,10 @@ nav a.active::after {
     display: flex;
     flex-wrap: wrap;
 
-    gap: 13px;
+    gap: 12px;
 
     animation:
-        fadeUp 0.9s 0.5s both;
+        fadeUp 0.85s 0.45s both;
 }
 
 
@@ -777,19 +822,18 @@ nav a.active::after {
     position: relative;
 
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
-    min-height: 48px;
+    min-height: 47px;
 
-    padding: 11px 20px;
+    padding: 10px 19px;
 
     overflow: hidden;
 
     color: var(--text-main);
 
-    border-radius: 13px;
+    border-radius: 12px;
 
     font-weight: 750;
 
@@ -806,27 +850,28 @@ nav a.active::after {
     position: absolute;
 
     top: 0;
-    left: -120%;
+    left: -125%;
 
-    width: 80%;
+    width: 75%;
     height: 100%;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,255,255,0.18),
+            rgba(255, 255, 255, 0.17),
             transparent
         );
 
-    transform: skewX(-20deg);
+    transform:
+        skewX(-20deg);
 
     transition:
         left 0.65s ease;
 }
 
 .button:hover::before {
-    left: 140%;
+    left: 145%;
 }
 
 .button:hover {
@@ -834,7 +879,7 @@ nav a.active::after {
         translateY(-3px);
 
     box-shadow:
-        0 15px 35px rgba(0,0,0,0.25);
+        0 15px 35px rgba(0, 0, 0, 0.25);
 }
 
 .button:active {
@@ -854,20 +899,20 @@ nav a.active::after {
         );
 
     box-shadow:
-        0 10px 35px rgba(47,140,255,0.22);
+        0 10px 35px rgba(59, 156, 255, 0.2);
 }
 
 .button-primary:hover {
     box-shadow:
-        0 18px 45px rgba(47,140,255,0.32);
+        0 18px 48px rgba(59, 156, 255, 0.3);
 }
 
 .button-secondary {
     background:
-        rgba(255,255,255,0.045);
+        rgba(255, 255, 255, 0.04);
 
     border:
-        1px solid var(--border);
+        1px solid var(--border-strong);
 
     backdrop-filter:
         blur(10px);
@@ -875,10 +920,10 @@ nav a.active::after {
 
 .button-secondary:hover {
     border-color:
-        rgba(99,179,255,0.28);
+        rgba(59, 156, 255, 0.3);
 
     background:
-        rgba(47,140,255,0.08);
+        rgba(59, 156, 255, 0.075);
 }
 
 
@@ -889,7 +934,7 @@ nav a.active::after {
 .section {
     position: relative;
 
-    padding: 105px 0;
+    padding: 100px 0;
 }
 
 .section:nth-of-type(even) {
@@ -897,7 +942,7 @@ nav a.active::after {
         linear-gradient(
             180deg,
             transparent,
-            rgba(255,255,255,0.012),
+            rgba(255, 255, 255, 0.009),
             transparent
         );
 }
@@ -905,30 +950,30 @@ nav a.active::after {
 .section-header {
     max-width: 800px;
 
-    margin-bottom: 42px;
+    margin-bottom: 40px;
 }
 
 .section-title {
-    margin-bottom: 12px;
+    margin-bottom: 11px;
 
     font-family:
         "Space Grotesk",
         sans-serif;
 
     font-size:
-        clamp(2rem, 4vw, 3.2rem);
+        clamp(2rem, 4vw, 3.15rem);
 
     font-weight: 750;
 
-    letter-spacing: -0.045em;
+    letter-spacing: -0.05em;
 }
 
 .section-description {
+    max-width: 700px;
+
     color: var(--text-secondary);
 
-    font-size: 1rem;
-
-    max-width: 700px;
+    font-size: 0.98rem;
 }
 
 
@@ -949,12 +994,12 @@ nav a.active::after {
     grid-template-columns:
         repeat(3, minmax(0, 1fr));
 
-    gap: 22px;
+    gap: 20px;
 }
 
 
 /* =========================================================
-   18. GLASS CARDS
+   18. WSPÓLNE KARTY
    ========================================================= */
 
 .info-card,
@@ -968,13 +1013,15 @@ nav a.active::after {
 .podium-card {
     position: relative;
 
+    overflow: hidden;
+
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,0.045),
-            rgba(255,255,255,0.018)
+            rgba(255, 255, 255, 0.038),
+            rgba(255, 255, 255, 0.012)
         ),
-        var(--card);
+        var(--surface);
 
     border:
         1px solid var(--border);
@@ -985,10 +1032,12 @@ nav a.active::after {
         var(--shadow-small);
 
     backdrop-filter:
-        blur(18px);
+        blur(20px)
+        saturate(120%);
 
     -webkit-backdrop-filter:
-        blur(18px);
+        blur(20px)
+        saturate(120%);
 
     transition:
         transform var(--transition),
@@ -997,6 +1046,7 @@ nav a.active::after {
         background var(--transition);
 }
 
+/* Górny błysk */
 .info-card::before,
 .stat-card::before,
 .announcement-card::before,
@@ -1007,36 +1057,24 @@ nav a.active::after {
 
     position: absolute;
 
-    inset: 0;
+    top: 0;
+    left: 12%;
 
-    border-radius: inherit;
-
-    padding: 1px;
+    width: 76%;
+    height: 1px;
 
     background:
         linear-gradient(
-            135deg,
-            rgba(99,179,255,0.25),
-            transparent 35%,
-            rgba(121,92,255,0.20)
+            90deg,
+            transparent,
+            rgba(114, 187, 255, 0.4),
+            transparent
         );
 
-    mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-
-    mask-composite:
-        exclude;
-
-    -webkit-mask-composite:
-        xor;
-
-    opacity: 0;
+    opacity: 0.25;
 
     transition:
         opacity var(--transition);
-
-    pointer-events: none;
 }
 
 .info-card:hover,
@@ -1049,7 +1087,7 @@ nav a.active::after {
 .active-user:hover,
 .podium-card:hover {
     transform:
-        translateY(-8px);
+        translateY(-7px);
 
     border-color:
         var(--border-hover);
@@ -1057,14 +1095,14 @@ nav a.active::after {
     background:
         linear-gradient(
             145deg,
-            rgba(47,140,255,0.08),
-            rgba(121,92,255,0.035)
+            rgba(59, 156, 255, 0.07),
+            rgba(118, 92, 255, 0.035)
         ),
-        var(--card-hover);
+        var(--surface-hover);
 
     box-shadow:
-        0 25px 60px rgba(0,0,0,0.28),
-        0 0 35px rgba(47,140,255,0.06);
+        var(--shadow-hover),
+        0 0 35px rgba(59, 156, 255, 0.045);
 }
 
 .info-card:hover::before,
@@ -1083,34 +1121,33 @@ nav a.active::after {
 
 .info-card {
     padding: 28px;
-    overflow: hidden;
 }
 
 .card-icon {
-    width: 52px;
-    height: 52px;
+    width: 51px;
+    height: 51px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    margin-bottom: 20px;
+    margin-bottom: 19px;
 
     color: var(--primary-light);
 
     background:
         linear-gradient(
             135deg,
-            rgba(47,140,255,0.14),
-            rgba(121,92,255,0.09)
+            rgba(59, 156, 255, 0.13),
+            rgba(118, 92, 255, 0.08)
         );
 
     border:
-        1px solid rgba(99,179,255,0.13);
+        1px solid rgba(114, 187, 255, 0.13);
 
-    border-radius: 15px;
+    border-radius: 14px;
 
-    font-size: 1.45rem;
+    font-size: 1.4rem;
 
     transition:
         transform var(--transition),
@@ -1119,21 +1156,22 @@ nav a.active::after {
 
 .info-card:hover .card-icon {
     transform:
-        rotate(-4deg)
-        scale(1.08);
+        translateY(-2px)
+        rotate(-3deg)
+        scale(1.07);
 
     box-shadow:
-        0 0 30px rgba(47,140,255,0.12);
+        0 0 28px rgba(59, 156, 255, 0.13);
 }
 
 .info-card h2 {
-    margin-bottom: 9px;
+    margin-bottom: 8px;
 
-    font-size: 1.25rem;
+    font-size: 1.22rem;
 }
 
 .info-card p {
-    margin-bottom: 20px;
+    margin-bottom: 19px;
 
     color: var(--text-secondary);
 }
@@ -1155,11 +1193,11 @@ nav a.active::after {
 
     gap: 6px;
 
-    padding: 6px 10px;
+    padding: 5px 9px;
 
     border-radius: 999px;
 
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 800;
 }
 
@@ -1169,12 +1207,14 @@ nav a.active::after {
     width: 6px;
     height: 6px;
 
+    flex-shrink: 0;
+
     border-radius: 50%;
 
     background: currentColor;
 
     box-shadow:
-        0 0 10px currentColor;
+        0 0 9px currentColor;
 }
 
 
@@ -1183,23 +1223,23 @@ nav a.active::after {
    ========================================================= */
 
 .stat-card {
-    padding: 32px 25px;
+    padding: 30px 24px;
 
     text-align: center;
 }
 
 .stat-icon {
-    margin-bottom: 13px;
+    margin-bottom: 12px;
 
     color: var(--primary-light);
 
-    font-size: 1.8rem;
+    font-size: 1.75rem;
 }
 
 .stat-number {
     display: block;
 
-    margin-bottom: 7px;
+    margin-bottom: 6px;
 
     color: transparent;
 
@@ -1214,19 +1254,19 @@ nav a.active::after {
     -webkit-background-clip: text;
 
     font-size:
-        clamp(2.2rem, 5vw, 3.7rem);
+        clamp(2.2rem, 5vw, 3.65rem);
 
     font-weight: 900;
 
     line-height: 1;
 
-    letter-spacing: -0.05em;
+    letter-spacing: -0.055em;
 }
 
 .stat-label {
     color: var(--text-secondary);
 
-    font-size: 0.9rem;
+    font-size: 0.88rem;
 }
 
 
@@ -1235,27 +1275,27 @@ nav a.active::after {
    ========================================================= */
 
 .announcement-card {
-    padding: 25px;
+    padding: 24px;
 }
 
 .announcement-date {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 
     gap: 10px;
 
-    margin-bottom: 16px;
+    margin-bottom: 15px;
 
     color: var(--text-muted);
 
-    font-size: 0.8rem;
+    font-size: 0.78rem;
 }
 
 .announcement-card h3 {
-    margin-bottom: 9px;
+    margin-bottom: 8px;
 
-    font-size: 1.16rem;
+    font-size: 1.14rem;
 }
 
 .announcement-card p {
@@ -1272,9 +1312,9 @@ nav a.active::after {
 
     grid-template-columns: 82px 1fr;
 
-    gap: 18px;
+    gap: 17px;
 
-    padding: 21px;
+    padding: 20px;
 }
 
 .event-date {
@@ -1293,14 +1333,14 @@ nav a.active::after {
     background:
         linear-gradient(
             145deg,
-            rgba(47,140,255,0.13),
-            rgba(121,92,255,0.08)
+            rgba(59, 156, 255, 0.12),
+            rgba(118, 92, 255, 0.07)
         );
 
     border:
-        1px solid rgba(99,179,255,0.12);
+        1px solid rgba(114, 187, 255, 0.12);
 
-    border-radius: 14px;
+    border-radius: 13px;
 
     text-align: center;
 
@@ -1310,28 +1350,28 @@ nav a.active::after {
 .event-date strong {
     display: block;
 
-    font-size: 1.45rem;
+    font-size: 1.42rem;
 }
 
 .event-date span {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
 }
 
 .event-content h3 {
     margin-bottom: 6px;
 
-    font-size: 1.08rem;
+    font-size: 1.07rem;
 }
 
 .event-content p {
     color: var(--text-secondary);
 
-    font-size: 0.9rem;
+    font-size: 0.89rem;
 }
 
 
 /* =========================================================
-   24. RANKING
+   24. RANKING / TABELE
    ========================================================= */
 
 .ranking-table-wrapper,
@@ -1341,7 +1381,7 @@ nav a.active::after {
     overflow-x: auto;
 
     background:
-        rgba(13,27,48,0.65);
+        rgba(11, 19, 31, 0.72);
 
     border:
         1px solid var(--border);
@@ -1366,14 +1406,14 @@ nav a.active::after {
 
 .ranking-table th,
 .data-table th {
-    padding: 16px 18px;
+    padding: 15px 18px;
 
     color: var(--text-secondary);
 
     background:
-        rgba(47,140,255,0.055);
+        rgba(59, 156, 255, 0.045);
 
-    font-size: 0.76rem;
+    font-size: 0.74rem;
 
     text-align: left;
 
@@ -1384,7 +1424,7 @@ nav a.active::after {
 
 .ranking-table td,
 .data-table td {
-    padding: 16px 18px;
+    padding: 15px 18px;
 
     border-top:
         1px solid var(--border);
@@ -1399,7 +1439,7 @@ nav a.active::after {
 .ranking-table tbody tr:hover,
 .data-table tbody tr:hover {
     background:
-        rgba(47,140,255,0.045);
+        rgba(59, 156, 255, 0.04);
 }
 
 .ranking-position {
@@ -1433,33 +1473,33 @@ nav a.active::after {
     grid-template-columns:
         repeat(3, minmax(0, 1fr));
 
-    gap: 22px;
+    gap: 20px;
 
     align-items: end;
 }
 
 .podium-card {
-    padding: 28px;
+    padding: 27px;
 
     text-align: center;
 }
 
 .podium-card.first {
-    padding-top: 40px;
+    padding-top: 39px;
 
     border-color:
-        rgba(99,179,255,0.28);
+        rgba(114, 187, 255, 0.27);
 
     box-shadow:
-        0 25px 70px rgba(47,140,255,0.1);
+        0 25px 65px rgba(59, 156, 255, 0.09);
 }
 
 .podium-place {
-    margin-bottom: 9px;
+    margin-bottom: 8px;
 
     color: var(--primary-light);
 
-    font-size: 2.1rem;
+    font-size: 2.05rem;
     font-weight: 900;
 }
 
@@ -1473,14 +1513,14 @@ nav a.active::after {
 
     align-items: center;
 
-    gap: 15px;
+    gap: 14px;
 
-    padding: 19px;
+    padding: 18px;
 }
 
 .active-user-avatar {
-    width: 50px;
-    height: 50px;
+    width: 49px;
+    height: 49px;
 
     display: flex;
     align-items: center;
@@ -1493,12 +1533,12 @@ nav a.active::after {
     background:
         linear-gradient(
             135deg,
-            rgba(47,140,255,0.14),
-            rgba(121,92,255,0.1)
+            rgba(59, 156, 255, 0.13),
+            rgba(118, 92, 255, 0.09)
         );
 
     border:
-        1px solid rgba(99,179,255,0.12);
+        1px solid rgba(114, 187, 255, 0.12);
 
     border-radius: 50%;
 
@@ -1512,7 +1552,7 @@ nav a.active::after {
 .active-user span {
     color: var(--text-secondary);
 
-    font-size: 0.84rem;
+    font-size: 0.83rem;
 }
 
 
@@ -1554,7 +1594,7 @@ nav a.active::after {
     transform:
         translateX(-50%);
 
-    opacity: 0.65;
+    opacity: 0.55;
 }
 
 .timeline-item {
@@ -1580,8 +1620,8 @@ nav a.active::after {
 
     top: 31px;
 
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
 
     background:
         var(--primary);
@@ -1592,11 +1632,11 @@ nav a.active::after {
     border-radius: 50%;
 
     box-shadow:
-        0 0 0 5px rgba(47,140,255,0.13),
-        0 0 20px rgba(47,140,255,0.4);
+        0 0 0 5px rgba(59, 156, 255, 0.11),
+        0 0 20px rgba(59, 156, 255, 0.35);
 
     animation:
-        timelinePulse 2.5s ease-in-out infinite;
+        timelinePulse 2.8s ease-in-out infinite;
 }
 
 .timeline-item:nth-child(odd) .timeline-dot {
@@ -1608,10 +1648,10 @@ nav a.active::after {
 }
 
 .timeline-card {
-    padding: 24px;
+    padding: 23px;
 
     background:
-        rgba(13,27,48,0.7);
+        rgba(13, 22, 36, 0.7);
 
     border:
         1px solid var(--border);
@@ -1622,11 +1662,12 @@ nav a.active::after {
         var(--shadow-small);
 
     backdrop-filter:
-        blur(15px);
+        blur(16px);
 
     transition:
         transform var(--transition),
-        border-color var(--transition);
+        border-color var(--transition),
+        box-shadow var(--transition);
 }
 
 .timeline-card:hover {
@@ -1635,16 +1676,19 @@ nav a.active::after {
 
     border-color:
         var(--border-hover);
+
+    box-shadow:
+        var(--shadow);
 }
 
 .timeline-date {
     display: inline-block;
 
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 
     color: var(--primary-light);
 
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 800;
 }
 
@@ -1662,36 +1706,36 @@ nav a.active::after {
    ========================================================= */
 
 .admin-card {
-    padding: 28px;
+    padding: 27px;
 
     text-align: center;
 }
 
 .admin-avatar {
-    width: 70px;
-    height: 70px;
+    width: 69px;
+    height: 69px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    margin: 0 auto 16px;
+    margin: 0 auto 15px;
 
     color: var(--primary-light);
 
     background:
         linear-gradient(
             135deg,
-            rgba(47,140,255,0.14),
-            rgba(121,92,255,0.1)
+            rgba(59, 156, 255, 0.13),
+            rgba(118, 92, 255, 0.09)
         );
 
     border:
-        1px solid rgba(99,179,255,0.13);
+        1px solid rgba(114, 187, 255, 0.13);
 
     border-radius: 50%;
 
-    font-size: 1.55rem;
+    font-size: 1.5rem;
 
     transition:
         transform var(--transition),
@@ -1700,10 +1744,10 @@ nav a.active::after {
 
 .admin-card:hover .admin-avatar {
     transform:
-        scale(1.08);
+        scale(1.07);
 
     box-shadow:
-        0 0 35px rgba(47,140,255,0.14);
+        0 0 32px rgba(59, 156, 255, 0.13);
 }
 
 .admin-card strong {
@@ -1715,7 +1759,7 @@ nav a.active::after {
 .admin-card span {
     color: var(--text-secondary);
 
-    font-size: 0.87rem;
+    font-size: 0.86rem;
 }
 
 
@@ -1727,7 +1771,7 @@ nav a.active::after {
     overflow: hidden;
 
     background:
-        rgba(13,27,48,0.7);
+        rgba(13, 22, 36, 0.72);
 
     border:
         1px solid var(--border);
@@ -1749,14 +1793,14 @@ nav a.active::after {
 
     gap: 15px;
 
-    padding: 21px;
+    padding: 20px;
 
     border-bottom:
         1px solid var(--border);
 }
 
 .calendar-header h2 {
-    font-size: 1.3rem;
+    font-size: 1.28rem;
 }
 
 .calendar-grid {
@@ -1783,7 +1827,7 @@ nav a.active::after {
 
 .calendar-day:hover {
     background:
-        rgba(47,140,255,0.045);
+        rgba(59, 156, 255, 0.04);
 }
 
 .calendar-day-number {
@@ -1791,7 +1835,7 @@ nav a.active::after {
 
     color: var(--text-secondary);
 
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 700;
 }
 
@@ -1807,14 +1851,14 @@ nav a.active::after {
     color: var(--primary-light);
 
     background:
-        rgba(47,140,255,0.1);
+        rgba(59, 156, 255, 0.085);
 
     border:
-        1px solid rgba(99,179,255,0.08);
+        1px solid rgba(114, 187, 255, 0.08);
 
     border-radius: 6px;
 
-    font-size: 0.7rem;
+    font-size: 0.69rem;
 
     white-space: nowrap;
 
@@ -1827,31 +1871,37 @@ nav a.active::after {
    ========================================================= */
 
 .achievement-card {
-    padding: 28px;
+    padding: 27px;
 
     text-align: center;
 }
 
 .achievement-icon {
-    margin-bottom: 14px;
+    margin-bottom: 13px;
 
     color: var(--primary-light);
 
-    font-size: 2.15rem;
+    font-size: 2.1rem;
 
     filter:
         drop-shadow(
-            0 0 15px rgba(47,140,255,0.2)
+            0 0 15px rgba(59, 156, 255, 0.2)
         );
 
     transition:
-        transform var(--transition);
+        transform var(--transition),
+        filter var(--transition);
 }
 
 .achievement-card:hover .achievement-icon {
     transform:
         translateY(-5px)
-        scale(1.1);
+        scale(1.08);
+
+    filter:
+        drop-shadow(
+            0 0 22px rgba(59, 156, 255, 0.35)
+        );
 }
 
 .achievement-card p {
@@ -1867,12 +1917,11 @@ nav a.active::after {
     display: flex;
 
     align-items: center;
-
     justify-content: space-between;
 
     gap: 15px;
 
-    padding: 19px 21px;
+    padding: 18px 20px;
 }
 
 .link-card > span {
@@ -1886,7 +1935,7 @@ nav a.active::after {
 
 .link-card:hover > span {
     transform:
-        translateX(4px);
+        translateX(5px);
 }
 
 
@@ -1897,23 +1946,23 @@ nav a.active::after {
 .search-box {
     position: relative;
 
-    margin-bottom: 28px;
+    margin-bottom: 27px;
 }
 
 .search-box input {
     width: 100%;
 
-    padding: 15px 18px;
+    padding: 14px 17px;
 
     color: var(--text-main);
 
     background:
-        rgba(13,27,48,0.7);
+        rgba(13, 22, 36, 0.7);
 
     border:
         1px solid var(--border);
 
-    border-radius: 13px;
+    border-radius: 12px;
 
     outline: none;
 
@@ -1932,14 +1981,14 @@ nav a.active::after {
 
 .search-box input:focus {
     border-color:
-        rgba(99,179,255,0.4);
+        rgba(114, 187, 255, 0.4);
 
     background:
-        rgba(13,27,48,0.9);
+        rgba(13, 22, 36, 0.9);
 
     box-shadow:
-        0 0 0 4px rgba(47,140,255,0.08),
-        0 0 35px rgba(47,140,255,0.06);
+        0 0 0 4px rgba(59, 156, 255, 0.07),
+        0 0 30px rgba(59, 156, 255, 0.055);
 }
 
 
@@ -1952,25 +2001,25 @@ nav a.active::after {
 
     overflow: hidden;
 
-    padding: 60px 45px;
+    padding: 58px 44px;
 
     text-align: center;
 
     background:
         radial-gradient(
             circle at 20% 20%,
-            rgba(47,140,255,0.16),
+            rgba(59, 156, 255, 0.14),
             transparent 35%
         ),
         radial-gradient(
             circle at 80% 80%,
-            rgba(121,92,255,0.14),
+            rgba(118, 92, 255, 0.12),
             transparent 35%
         ),
-        rgba(13,27,48,0.65);
+        rgba(13, 22, 36, 0.72);
 
     border:
-        1px solid rgba(99,179,255,0.16);
+        1px solid rgba(114, 187, 255, 0.15);
 
     border-radius: var(--radius-large);
 
@@ -1978,7 +2027,7 @@ nav a.active::after {
         var(--shadow);
 
     backdrop-filter:
-        blur(20px);
+        blur(22px);
 }
 
 .discord-cta::before {
@@ -1995,22 +2044,22 @@ nav a.active::after {
     border-radius: 50%;
 
     background:
-        rgba(47,140,255,0.12);
+        rgba(59, 156, 255, 0.1);
 
     filter:
-        blur(20px);
+        blur(25px);
 
     animation:
-        heroOrb 8s ease-in-out infinite alternate;
+        heroOrb 9s ease-in-out infinite alternate;
 }
 
 .discord-cta h2 {
     position: relative;
 
-    margin-bottom: 10px;
+    margin-bottom: 9px;
 
     font-size:
-        clamp(1.8rem, 4vw, 2.8rem);
+        clamp(1.8rem, 4vw, 2.75rem);
 }
 
 .discord-cta p {
@@ -2018,7 +2067,7 @@ nav a.active::after {
 
     max-width: 650px;
 
-    margin: 0 auto 24px;
+    margin: 0 auto 23px;
 
     color: var(--text-secondary);
 }
@@ -2036,7 +2085,7 @@ select {
     color: var(--text-main);
 
     background:
-        rgba(13,27,48,0.7);
+        rgba(13, 22, 36, 0.7);
 
     border:
         1px solid var(--border);
@@ -2055,13 +2104,13 @@ input:focus,
 textarea:focus,
 select:focus {
     border-color:
-        rgba(99,179,255,0.4);
+        rgba(114, 187, 255, 0.4);
 
     background:
-        rgba(13,27,48,0.9);
+        rgba(13, 22, 36, 0.9);
 
     box-shadow:
-        0 0 0 4px rgba(47,140,255,0.08);
+        0 0 0 4px rgba(59, 156, 255, 0.07);
 }
 
 textarea {
@@ -2079,28 +2128,28 @@ textarea {
     color: var(--success);
 
     background:
-        rgba(53,208,127,0.1);
+        rgba(56, 217, 150, 0.09);
 }
 
 .badge-warning {
     color: var(--warning);
 
     background:
-        rgba(255,189,74,0.1);
+        rgba(255, 200, 87, 0.09);
 }
 
 .badge-danger {
     color: var(--danger);
 
     background:
-        rgba(255,101,114,0.1);
+        rgba(255, 104, 120, 0.09);
 }
 
 .badge-info {
     color: var(--primary-light);
 
     background:
-        rgba(47,140,255,0.1);
+        rgba(59, 156, 255, 0.09);
 }
 
 
@@ -2111,15 +2160,15 @@ textarea {
 footer {
     position: relative;
 
-    margin-top: 60px;
+    margin-top: 55px;
 
-    padding: 65px 0 25px;
+    padding: 62px 0 24px;
 
     background:
         linear-gradient(
             180deg,
             transparent,
-            rgba(8,20,38,0.8)
+            rgba(8, 13, 23, 0.88)
         );
 
     border-top:
@@ -2140,16 +2189,16 @@ footer {
 }
 
 .footer-bottom {
-    margin-top: 40px;
+    margin-top: 38px;
 
-    padding-top: 22px;
+    padding-top: 21px;
 
     border-top:
         1px solid var(--border);
 
     color: var(--text-muted);
 
-    font-size: 0.82rem;
+    font-size: 0.8rem;
 
     text-align: center;
 }
@@ -2160,29 +2209,11 @@ footer {
    ========================================================= */
 
 @keyframes fadeUp {
-
     from {
         opacity: 0;
 
         transform:
-            translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-}
-
-@keyframes fadeDown {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(-20px);
+            translateY(22px);
     }
 
     to {
@@ -2194,13 +2225,12 @@ footer {
 }
 
 @keyframes heroEnter {
-
     from {
         opacity: 0;
 
         transform:
-            translateY(45px)
-            scale(0.98);
+            translateY(40px)
+            scale(0.985);
     }
 
     to {
@@ -2212,51 +2242,21 @@ footer {
     }
 }
 
-@keyframes float {
-
-    0%,
-    100% {
-        transform:
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            translateY(-8px);
-    }
-}
-
 @keyframes heroOrb {
-
     from {
         transform:
-            translate3d(-20px, -10px, 0)
+            translate3d(-18px, -8px, 0)
             scale(1);
     }
 
     to {
         transform:
-            translate3d(20px, 15px, 0)
+            translate3d(20px, 16px, 0)
             scale(1.08);
     }
 }
 
 @keyframes gradientFlow {
-
-    0%,
-    100% {
-        background-position:
-            0% 50%;
-    }
-
-    50% {
-        background-position:
-            100% 50%;
-    }
-}
-
-@keyframes backgroundFlow {
-
     0%,
     100% {
         background-position:
@@ -2270,32 +2270,32 @@ footer {
 }
 
 @keyframes logoPulse {
-
     0%,
     100% {
         box-shadow:
-            0 0 10px rgba(47,140,255,0.35);
+            0 0 0 4px rgba(59, 156, 255, 0.07),
+            0 0 12px rgba(59, 156, 255, 0.35);
     }
 
     50% {
         box-shadow:
-            0 0 24px rgba(47,140,255,0.7);
+            0 0 0 5px rgba(59, 156, 255, 0.1),
+            0 0 23px rgba(59, 156, 255, 0.65);
     }
 }
 
 @keyframes timelinePulse {
-
     0%,
     100% {
         box-shadow:
-            0 0 0 5px rgba(47,140,255,0.1),
-            0 0 15px rgba(47,140,255,0.3);
+            0 0 0 5px rgba(59, 156, 255, 0.09),
+            0 0 15px rgba(59, 156, 255, 0.28);
     }
 
     50% {
         box-shadow:
-            0 0 0 8px rgba(47,140,255,0.06),
-            0 0 28px rgba(47,140,255,0.55);
+            0 0 0 8px rgba(59, 156, 255, 0.045),
+            0 0 27px rgba(59, 156, 255, 0.48);
     }
 }
 
@@ -2311,12 +2311,28 @@ footer {
 .admin-card,
 .achievement-card {
     animation:
-        fadeUp 0.7s both;
+        fadeUp 0.65s both;
 }
 
 
 /* =========================================================
-   39. RESPONSYWNOŚĆ — TABLET
+   39. FOCUS — KLAWIATURA
+   ========================================================= */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline:
+        2px solid var(--primary-light);
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   40. RESPONSYWNOŚĆ — TABLET
    ========================================================= */
 
 @media (max-width: 1150px) {
@@ -2345,21 +2361,21 @@ footer {
 
 
 /* =========================================================
-   40. RESPONSYWNOŚĆ — MOBILE
+   41. RESPONSYWNOŚĆ — MOBILE
    ========================================================= */
 
 @media (max-width: 850px) {
 
     header {
-        top: 8px;
+        top: 7px;
 
-        margin-top: 8px;
+        margin-top: 7px;
     }
 
     header .container {
         min-height: auto;
 
-        padding: 13px 0;
+        padding: 12px 0;
 
         flex-wrap: wrap;
     }
@@ -2395,24 +2411,24 @@ footer {
     }
 
     .hero {
-        min-height: 570px;
+        min-height: 560px;
     }
 
     .hero-content {
-        padding: 85px 0;
+        padding: 82px 0;
     }
 
     .hero h1 {
         font-size:
-            clamp(2.8rem, 13vw, 5rem);
+            clamp(2.75rem, 13vw, 5rem);
     }
 
     .hero p {
-        font-size: 1rem;
+        font-size: 0.98rem;
     }
 
     .section {
-        padding: 75px 0;
+        padding: 72px 0;
     }
 
     .podium {
@@ -2453,7 +2469,7 @@ footer {
     }
 
     .calendar-event {
-        font-size: 0.64rem;
+        font-size: 0.63rem;
     }
 
     .footer-content {
@@ -2463,7 +2479,7 @@ footer {
 
 
 /* =========================================================
-   41. MAŁE TELEFONY
+   42. MAŁE TELEFONY
    ========================================================= */
 
 @media (max-width: 550px) {
@@ -2482,7 +2498,7 @@ footer {
     }
 
     .logo {
-        font-size: 0.95rem;
+        font-size: 0.93rem;
     }
 
     .info-grid,
@@ -2497,7 +2513,7 @@ footer {
     }
 
     .hero {
-        min-height: 540px;
+        min-height: 530px;
     }
 
     .hero h1 small {
@@ -2538,33 +2554,80 @@ footer {
     }
 
     .calendar-day-number {
-        font-size: 0.7rem;
+        font-size: 0.68rem;
     }
 
     .section {
-        padding: 60px 0;
+        padding: 58px 0;
     }
 }
 
 
 /* =========================================================
-   42. REDUKCJA RUCHU
+   43. BARDZO MAŁE EKRANY
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .container {
+        width:
+            calc(100% - 20px);
+    }
+
+    header {
+        width:
+            calc(100% - 12px);
+    }
+
+    nav a {
+        padding:
+            8px 10px;
+
+        font-size:
+            0.8rem;
+    }
+
+    .hero h1 {
+        font-size:
+            2.55rem;
+    }
+
+    .section-title {
+        font-size:
+            1.85rem;
+    }
+
+    .info-card,
+    .announcement-card,
+    .achievement-card,
+    .admin-card {
+        padding:
+            23px 20px;
+    }
+}
+
+
+/* =========================================================
+   44. REDUKCJA RUCHU
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
+    html {
+        scroll-behavior: auto;
+    }
+
     *,
     *::before,
     *::after {
-        scroll-behavior: auto !important;
+        animation-duration:
+            0.01ms !important;
 
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
+        animation-iteration-count:
+            1 !important;
 
-        transition-duration: 0.01ms !important;
-    }
-
-    body::before {
-        animation: none;
+        transition-duration:
+            0.01ms !important;
     }
 }
+```
