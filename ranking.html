@@ -14,42 +14,49 @@
 
 <header>
 
-    <div class="logo">
-        🌟 Kolonia Pasjonatów
+    <div class="header-inner">
+
+        <a href="index.html" class="logo">
+            🌟 Kolonia Pasjonatów
+        </a>
+
+        <nav>
+
+            <a href="index.html">
+                Strona główna
+            </a>
+
+            <a href="ranking.html" class="active">
+                Ranking
+            </a>
+
+            <a href="licznik.html">
+                Licznik
+            </a>
+
+            <a href="ogloszenia.html">
+                Ogłoszenia
+            </a>
+
+            <a href="linki.html">
+                Linki
+            </a>
+
+            <a href="kontakt.html">
+                Kontakt
+            </a>
+
+        </nav>
+
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Zmień motyw">
+            🌙
+        </button>
+
     </div>
-
-    <nav>
-
-        <a href="index.html">
-            🏠 Strona główna
-        </a>
-
-        <a href="ranking.html" class="active">
-            🏆 Ranking
-        </a>
-
-        <a href="statystyki.html">
-            ⏱️ Licznik
-        </a>
-        <a href="linki.html">
-            🔗 Linki
-        </a>
-
-        <a href="kontakt.html">
-            📧 Kontakt
-        </a>
-
-    </nav>
-
-    <button
-        id="themeToggle"
-        class="theme-toggle"
-        type="button"
-        aria-label="Zmień motyw">
-
-        ☀️
-
-    </button>
 
 </header>
 
@@ -63,21 +70,25 @@
 
     <section class="hero">
 
-        <div class="hero-content">
+        <div class="container">
 
-            <span class="section-label">
-                🏆 RANKING KOLONII PASJONATÓW
-            </span>
+            <div class="hero-content">
 
-            <h1>
-                Ranking<br>
-                <span>typerów</span>
-            </h1>
+                <span class="hero-label">
+                    🏆 RANKING KOLONII PASJONATÓW
+                </span>
 
-            <p>
-                Aktualna klasyfikacja typerów Kolonii Pasjonatów.
-                Sprawdź, kto prowadzi w poszczególnych ligach!
-            </p>
+                <h1>
+                    Ranking<br>
+                    <span>typerów</span>
+                </h1>
+
+                <p>
+                    Aktualna klasyfikacja typerów Kolonii Pasjonatów.
+                    Sprawdź, kto prowadzi w poszczególnych ligach!
+                </p>
+
+            </div>
 
         </div>
 
@@ -88,67 +99,84 @@
          PKO BP EKSTRAKLASA
     ====================================================== -->
 
-    <section class="section">
+    <section>
 
-        <h2 class="section-title">
-            🇵🇱 PKO BP Ekstraklasa
-        </h2>
+        <div class="container">
 
-        <div class="info-card">
+            <div class="section-heading">
 
-            <h2>
-                🏆 Klasyfikacja typerów
-            </h2>
+                <span class="section-label">
+                    🏆 PUCHAR
+                </span>
 
-            <div class="ranking-container">
+                <h2>
+                    🏆 PKO BP Ekstraklasa
+                </h2>
 
-                <table>
+                <p>
+                    Klasyfikacja typerów PKO BP Ekstraklasy.
+                </p>
 
-                    <thead>
+            </div>
 
-                        <tr>
-                            <th>🏆 Miejsce</th>
-                            <th>🎯 Typer</th>
-                            <th>🏆 Punkty</th>
-                        </tr>
 
-                    </thead>
+            <div class="info-card">
 
-                    <tbody>
+                <h2>
+                    🏆 Klasyfikacja typerów
+                </h2>
 
-                        <tr>
-                            <td>🥇 1.</td>
-                            <td>Michał</td>
-                            <td><strong>18 pkt</strong></td>
-                        </tr>
+                <div class="ranking-container">
 
-                        <tr>
-                            <td>🥈 2.</td>
-                            <td>Noworudzki_Mk08</td>
-                            <td>3 pkt</td>
-                        </tr>
+                    <table>
 
-                        <tr>
-                            <td>🥉 3.</td>
-                            <td>Mikol Yoriichi</td>
-                            <td>2 pkt</td>
-                        </tr>
+                        <thead>
 
-                        <tr>
-                            <td>4.</td>
-                            <td>Kolej_farming</td>
-                            <td>0 pkt</td>
-                        </tr>
+                            <tr>
+                                <th>🏆 Miejsce</th>
+                                <th>🎯 Typer</th>
+                                <th>🏆 Punkty</th>
+                            </tr>
 
-                        <tr>
-                            <td>5.</td>
-                            <td>KEBABKRAFTOWY</td>
-                            <td>0 pkt</td>
-                        </tr>
+                        </thead>
 
-                    </tbody>
+                        <tbody>
 
-                </table>
+                            <tr>
+                                <td>🥇 1.</td>
+                                <td>Michał</td>
+                                <td><strong>18 pkt</strong></td>
+                            </tr>
+
+                            <tr>
+                                <td>🥈 2.</td>
+                                <td>Noworudzki_Mk08</td>
+                                <td>3 pkt</td>
+                            </tr>
+
+                            <tr>
+                                <td>🥉 3.</td>
+                                <td>Mikol Yoriichi</td>
+                                <td>2 pkt</td>
+                            </tr>
+
+                            <tr>
+                                <td>4.</td>
+                                <td>Kolej_farming</td>
+                                <td>0 pkt</td>
+                            </tr>
+
+                            <tr>
+                                <td>5.</td>
+                                <td>KEBABKRAFTOWY</td>
+                                <td>0 pkt</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
 
             </div>
 
@@ -161,67 +189,84 @@
          BETCLIC 1 LIGA
     ====================================================== -->
 
-    <section class="section">
+    <section>
 
-        <h2 class="section-title">
-            ⚽ Betclic 1 Liga
-        </h2>
+        <div class="container">
 
-        <div class="info-card">
+            <div class="section-heading">
 
-            <h2>
-                🏆 Klasyfikacja typerów
-            </h2>
+                <span class="section-label">
+                    🥇 1 MIEJSCE
+                </span>
 
-            <div class="ranking-container">
+                <h2>
+                    🥇 Betclic 1 Liga
+                </h2>
 
-                <table>
+                <p>
+                    Klasyfikacja typerów Betclic 1 Ligi.
+                </p>
 
-                    <thead>
+            </div>
 
-                        <tr>
-                            <th>🏆 Miejsce</th>
-                            <th>🎯 Typer</th>
-                            <th>🏆 Punkty</th>
-                        </tr>
 
-                    </thead>
+            <div class="info-card">
 
-                    <tbody>
+                <h2>
+                    🏆 Klasyfikacja typerów
+                </h2>
 
-                        <tr>
-                            <td>🥇 1.</td>
-                            <td>Michał</td>
-                            <td><strong>7 pkt</strong></td>
-                        </tr>
+                <div class="ranking-container">
 
-                        <tr>
-                            <td>🥈 2.</td>
-                            <td>noworudzki_mk2</td>
-                            <td>0 pkt</td>
-                        </tr>
+                    <table>
 
-                        <tr>
-                            <td>🥉 3.</td>
-                            <td>Kolej_farming</td>
-                            <td>0 pkt</td>
-                        </tr>
+                        <thead>
 
-                        <tr>
-                            <td>4.</td>
-                            <td>Mikol Yoriichi</td>
-                            <td>0 pkt</td>
-                        </tr>
+                            <tr>
+                                <th>🏆 Miejsce</th>
+                                <th>🎯 Typer</th>
+                                <th>🏆 Punkty</th>
+                            </tr>
 
-                        <tr>
-                            <td>5.</td>
-                            <td>KEBABKRAFTOWY</td>
-                            <td>0 pkt</td>
-                        </tr>
+                        </thead>
 
-                    </tbody>
+                        <tbody>
 
-                </table>
+                            <tr>
+                                <td>🥇 1.</td>
+                                <td>Michał</td>
+                                <td><strong>7 pkt</strong></td>
+                            </tr>
+
+                            <tr>
+                                <td>🥈 2.</td>
+                                <td>noworudzki_mk2</td>
+                                <td>0 pkt</td>
+                            </tr>
+
+                            <tr>
+                                <td>🥉 3.</td>
+                                <td>Kolej_farming</td>
+                                <td>0 pkt</td>
+                            </tr>
+
+                            <tr>
+                                <td>4.</td>
+                                <td>Mikol Yoriichi</td>
+                                <td>0 pkt</td>
+                            </tr>
+
+                            <tr>
+                                <td>5.</td>
+                                <td>KEBABKRAFTOWY</td>
+                                <td>0 pkt</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
 
             </div>
 
@@ -234,67 +279,84 @@
          BETCLIC 2 LIGA
     ====================================================== -->
 
-    <section class="section">
+    <section>
 
-        <h2 class="section-title">
-            ⚽ Betclic 2 Liga
-        </h2>
+        <div class="container">
 
-        <div class="info-card">
+            <div class="section-heading">
 
-            <h2>
-                🏆 Klasyfikacja typerów
-            </h2>
+                <span class="section-label">
+                    🥈 2 MIEJSCE
+                </span>
 
-            <div class="ranking-container">
+                <h2>
+                    🥈 Betclic 2 Liga
+                </h2>
 
-                <table>
+                <p>
+                    Klasyfikacja typerów Betclic 2 Ligi.
+                </p>
 
-                    <thead>
+            </div>
 
-                        <tr>
-                            <th>🏆 Miejsce</th>
-                            <th>🎯 Typer</th>
-                            <th>🏆 Punkty</th>
-                        </tr>
 
-                    </thead>
+            <div class="info-card">
 
-                    <tbody>
+                <h2>
+                    🏆 Klasyfikacja typerów
+                </h2>
 
-                        <tr>
-                            <td>🥇 1.</td>
-                            <td>Michał</td>
-                            <td><strong>7 pkt</strong></td>
-                        </tr>
+                <div class="ranking-container">
 
-                        <tr>
-                            <td>🥈 2.</td>
-                            <td>noworudzki_mk2</td>
-                            <td>0 pkt</td>
-                        </tr>
+                    <table>
 
-                        <tr>
-                            <td>🥉 3.</td>
-                            <td>Kolej_farming</td>
-                            <td>0 pkt</td>
-                        </tr>
+                        <thead>
 
-                        <tr>
-                            <td>4.</td>
-                            <td>Mikol Yoriichi</td>
-                            <td>0 pkt</td>
-                        </tr>
+                            <tr>
+                                <th>🏆 Miejsce</th>
+                                <th>🎯 Typer</th>
+                                <th>🏆 Punkty</th>
+                            </tr>
 
-                        <tr>
-                            <td>5.</td>
-                            <td>KEBABKRAFTOWY</td>
-                            <td>0 pkt</td>
-                        </tr>
+                        </thead>
 
-                    </tbody>
+                        <tbody>
 
-                </table>
+                            <tr>
+                                <td>🥇 1.</td>
+                                <td>Michał</td>
+                                <td><strong>7 pkt</strong></td>
+                            </tr>
+
+                            <tr>
+                                <td>🥈 2.</td>
+                                <td>noworudzki_mk2</td>
+                                <td>0 pkt</td>
+                            </tr>
+
+                            <tr>
+                                <td>🥉 3.</td>
+                                <td>Kolej_farming</td>
+                                <td>0 pkt</td>
+                            </tr>
+
+                            <tr>
+                                <td>4.</td>
+                                <td>Mikol Yoriichi</td>
+                                <td>0 pkt</td>
+                            </tr>
+
+                            <tr>
+                                <td>5.</td>
+                                <td>KEBABKRAFTOWY</td>
+                                <td>0 pkt</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
 
             </div>
 
@@ -307,19 +369,23 @@
          INFORMACJA
     ====================================================== -->
 
-    <section class="section">
+    <section>
 
-        <div class="info-card">
+        <div class="container">
 
-            <h2>
-                ℹ️ Informacja
-            </h2>
+            <div class="info-card">
 
-            <p>
-                Ranking jest aktualizowany na podstawie
-                wyników typerów. Kolejne punkty będą
-                dodawane wraz z następnymi typowaniami.
-            </p>
+                <h2>
+                    ℹ️ Informacja
+                </h2>
+
+                <p>
+                    Ranking jest aktualizowany na podstawie
+                    wyników typerów. Kolejne punkty będą
+                    dodawane wraz z następnymi typowaniami.
+                </p>
+
+            </div>
 
         </div>
 
@@ -329,9 +395,9 @@
 </main>
 
 
-<!-- =========================================================
+<!-- =====================================================
      STOPKA
-========================================================= -->
+====================================================== -->
 
 <footer>
 
