@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Licznik | Kolonia Pasjonatów</title>
+    <title>Licznik — Kolonia Pasjonatów</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -42,102 +42,79 @@
 <main>
 
     <!-- HERO -->
-
     <section class="hero">
-        <div class="container">
+        <div class="hero-content">
 
-            <div class="hero-content">
+            <span class="hero-label">
+                ⏱️ LICZNIK KOLONII PASJONATÓW
+            </span>
 
-                <span class="hero-label">
-                    ⏱️ KOLONIA PASJONATÓW
-                </span>
+            <h1>
+                Wszystko<br>
+                <span>w jednym miejscu</span>
+            </h1>
 
-                <h1>
-                    Licznik<br>
-                    <span>czasu</span>
-                </h1>
-
-                <p>
-                    Sprawdź, jak długo działa Kolonia Pasjonatów,
-                    jej oficjalna strona oraz ile czasu pozostało
-                    do najważniejszych wydarzeń.
-                </p>
-
-            </div>
+            <p>
+                Sprawdź dokładny czas działania Kolonii Pasjonatów,
+                odliczanie do wydarzeń oraz najważniejsze daty.
+            </p>
 
         </div>
     </section>
 
 
     <!-- NAJWAŻNIEJSZE -->
+    <section class="section">
 
-    <section>
+        <div class="section-heading">
+            <span>🌟 NAJWAŻNIEJSZE</span>
 
-        <div class="container">
+            <h2>Nasze liczniki</h2>
 
-            <div class="section-heading">
+            <p>
+                Dokładny czas działania Kolonii Pasjonatów
+                oraz oficjalnej strony.
+            </p>
+        </div>
 
-                <span class="section-label">
-                    🌟 NAJWAŻNIEJSZE
-                </span>
 
-                <h2>
-                    Liczniki czasu
-                </h2>
+        <div class="countdown-grid">
 
-                <p>
-                    Sprawdź, jak długo działa Kolonia Pasjonatów
-                    oraz jej oficjalna strona.
-                </p>
+            <!-- KOLONIA -->
+            <div class="countdown-card">
+
+                <div class="countdown-icon">
+                    🌟
+                </div>
+
+                <h3>Kolonia Pasjonatów</h3>
+
+                <p>Od 11.06.2026</p>
+
+                <div
+                    id="colonyUptime"
+                    class="countdown-number">
+                    Ładowanie...
+                </div>
 
             </div>
 
 
-            <div class="countdown-grid">
+            <!-- STRONA -->
+            <div class="countdown-card">
 
-                <div class="countdown-card">
-
-                    <span class="countdown-icon">
-                        🌟
-                    </span>
-
-                    <h3>
-                        Kolonia Pasjonatów
-                    </h3>
-
-                    <p>
-                        Działa od 11.06.2026
-                    </p>
-
-                    <div
-                        id="colonyUptime"
-                        class="countdown-number">
-                        0 dni
-                    </div>
-
+                <div class="countdown-icon">
+                    🌐
                 </div>
 
+                <h3>Oficjalna strona</h3>
 
-                <div class="countdown-card">
+                <p>Od 13.08.2026, 20:10</p>
 
-                    <span class="countdown-icon">
-                        🌐
-                    </span>
-
-                    <h3>
-                        Oficjalna strona
-                    </h3>
-
-                    <p>
-                        Działa od 13.08.2026, 20:10
-                    </p>
-
-                    <div
-                        id="websiteUptime"
-                        class="countdown-number">
-                        0 dni
-                    </div>
-
+                <div
+                    id="websiteUptime"
+                    class="countdown-number">
+                    Ładowanie...
                 </div>
 
             </div>
@@ -147,121 +124,131 @@
     </section>
 
 
-    <!-- WYDARZENIA -->
+    <!-- ŚWIĘTA I WYDARZENIA -->
+    <section class="section">
 
-    <section>
+        <div class="section-heading">
 
-        <div class="container">
+            <span>⏳ ODLICZANIE</span>
 
-            <div class="section-heading">
+            <h2>Święta i wydarzenia</h2>
 
-                <span class="section-label">
-                    ⏳ WYDARZENIA
-                </span>
+            <p>
+                Odliczanie do najważniejszych świąt
+                i wydarzeń Kolonii Pasjonatów.
+            </p>
 
-                <h2>
-                    Odliczanie do wydarzeń
-                </h2>
+        </div>
 
-                <p>
-                    Sprawdź, ile czasu pozostało do najważniejszych
-                    wydarzeń w Kolonii Pasjonatów.
+
+        <div class="countdown-grid">
+
+
+            <!-- HALLOWEEN -->
+            <div class="countdown-card">
+
+                <div class="countdown-icon">
+                    🎃
+                </div>
+
+                <h3>Halloween</h3>
+
+                <p id="halloweenDate">
+                    31.10.2026
                 </p>
+
+                <div
+                    id="halloweenCountdown"
+                    class="countdown-number">
+                    Ładowanie...
+                </div>
 
             </div>
 
 
-            <div class="countdown-grid">
+            <!-- WIGILIA -->
+            <div class="countdown-card">
 
-                <div class="countdown-card">
-
-                    <span class="countdown-icon">
-                        🎃
-                    </span>
-
-                    <h3>
-                        Halloween
-                    </h3>
-
-                    <p>
-                        31.10.2026
-                    </p>
-
-                    <div
-                        id="daysToHalloween"
-                        class="countdown-number">
-                        0 dni
-                    </div>
-
+                <div class="countdown-icon">
+                    🎄
                 </div>
 
+                <h3>Wigilia</h3>
 
-                <div class="countdown-card">
+                <p id="christmasDate">
+                    24.12.2026
+                </p>
 
-                    <span class="countdown-icon">
-                        🎄
-                    </span>
-
-                    <h3>
-                        Wigilia
-                    </h3>
-
-                    <p>
-                        24.12.2026
-                    </p>
-
-                    <div
-                        id="daysToChristmas"
-                        class="countdown-number">
-                        0 dni
-                    </div>
-
+                <div
+                    id="christmasCountdown"
+                    class="countdown-number">
+                    Ładowanie...
                 </div>
 
+            </div>
 
-                <div class="countdown-card">
 
-                    <span class="countdown-icon">
-                        🎆
-                    </span>
+            <!-- NOWY ROK -->
+            <div class="countdown-card">
 
-                    <h3>
-                        Nowy Rok
-                    </h3>
-
-                    <p>
-                        01.01.2027
-                    </p>
-
-                    <div
-                        id="daysToNewYear"
-                        class="countdown-number">
-                        0 dni
-                    </div>
-
+                <div class="countdown-icon">
+                    🎆
                 </div>
 
+                <h3>Nowy Rok</h3>
 
-                <div class="countdown-card">
+                <p id="newYearDate">
+                    01.01.2027
+                </p>
 
-                    <span class="countdown-icon">
-                        🐣
-                    </span>
+                <div
+                    id="newYearCountdown"
+                    class="countdown-number">
+                    Ładowanie...
+                </div>
 
-                    <h3>
-                        Wielkanoc
-                    </h3>
+            </div>
 
-                    <p>
-                        28.03.2027
-                    </p>
 
-                    <div
-                        id="daysToEaster"
-                        class="countdown-number">
-                        0 dni
-                    </div>
+            <!-- WIELKANOC -->
+            <div class="countdown-card">
 
+                <div class="countdown-icon">
+                    🐣
+                </div>
+
+                <h3>Wielkanoc</h3>
+
+                <p id="easterDate">
+                    28.03.2027
+                </p>
+
+                <div
+                    id="easterCountdown"
+                    class="countdown-number">
+                    Ładowanie...
+                </div>
+
+            </div>
+
+
+            <!-- SYLWESTER -->
+            <div class="countdown-card">
+
+                <div class="countdown-icon">
+                    🎇
+                </div>
+
+                <h3>Sylwester</h3>
+
+                <p id="sylwesterDate">
+                    31.12.2026
+                </p>
+
+                <div
+                    id="sylwesterCountdown"
+                    class="countdown-number">
+                    Ładowanie...
                 </div>
 
             </div>
@@ -272,215 +259,173 @@
 
 
     <!-- ROCZNE / SEZONOWE -->
+    <section class="section">
 
-    <section>
+        <div class="section-heading">
 
-        <div class="container">
+            <span>📅 ROCZNE / SEZONOWE</span>
 
-            <div class="section-heading">
+            <h2>Najważniejsze daty</h2>
 
-                <span class="section-label">
-                    📅 ROCZNE / SEZONOWE
-                </span>
+            <p>
+                Daty sezonowe oraz wydarzenia w Kolonii Pasjonatów.
+            </p>
 
-                <h2>
-                    Ważne daty
-                </h2>
+        </div>
 
-                <p>
-                    Najważniejsze daty związane z kolejnym
-                    rokiem i wakacjami.
+
+        <div class="countdown-grid">
+
+
+            <!-- WAKACJE -->
+            <div class="countdown-card">
+
+                <div class="countdown-icon">
+                    🏖️
+                </div>
+
+                <h3>Wakacje 2027</h3>
+
+                <p id="summer2027Date">
+                    26.06.2027
                 </p>
+
+                <div
+                    id="summer2027Countdown"
+                    class="countdown-number">
+                    Ładowanie...
+                </div>
 
             </div>
 
 
-            <div class="countdown-grid">
+            <!-- KONIEC 2026 -->
+            <div class="countdown-card">
+
+                <div class="countdown-icon">
+                    📅
+                </div>
+
+                <h3>Koniec 2026</h3>
+
+                <p>
+                    31.12.2026
+                </p>
+
+                <div
+                    id="end2026Countdown"
+                    class="countdown-number">
+                    Ładowanie...
+                </div>
+
+            </div>
 
 
-                <!-- WAKACJE 2027 -->
+            <!-- FERIE -->
+            <div class="countdown-card holidays-card">
 
-                <div class="countdown-card">
+                <div class="countdown-icon">
+                    🏫
+                </div>
 
-                    <span class="countdown-icon">
-                        🏖️
-                    </span>
+                <h3>Ferie zimowe 2027</h3>
 
-                    <h3>
-                        Wakacje 2027
-                    </h3>
+                <p>
+                    Wybierz swoje województwo
+                </p>
 
-                    <p>
-                        26.06.2027
-                    </p>
 
-                    <div
-                        id="daysToSummer2027"
-                        class="countdown-number">
-                        0 dni
-                    </div>
+                <label
+                    for="voivodeshipSelect"
+                    class="holidays-label">
+                    Województwo
+                </label>
 
+
+                <select
+                    id="voivodeshipSelect"
+                    class="holidays-select">
+
+                    <option value="dolnoslaskie">
+                        Dolnośląskie
+                    </option>
+
+                    <option value="kujawsko-pomorskie">
+                        Kujawsko-Pomorskie
+                    </option>
+
+                    <option value="lubelskie">
+                        Lubelskie
+                    </option>
+
+                    <option value="lubuskie">
+                        Lubuskie
+                    </option>
+
+                    <option value="lodzkie">
+                        Łódzkie
+                    </option>
+
+                    <option value="malopolskie">
+                        Małopolskie
+                    </option>
+
+                    <option value="mazowieckie">
+                        Mazowieckie
+                    </option>
+
+                    <option value="opolskie">
+                        Opolskie
+                    </option>
+
+                    <option value="podkarpackie">
+                        Podkarpackie
+                    </option>
+
+                    <option value="podlaskie">
+                        Podlaskie
+                    </option>
+
+                    <option
+                        value="pomorskie"
+                        selected>
+                        Pomorskie
+                    </option>
+
+                    <option value="slaskie">
+                        Śląskie
+                    </option>
+
+                    <option value="swietokrzyskie">
+                        Świętokrzyskie
+                    </option>
+
+                    <option value="warminsko-mazurskie">
+                        Warmińsko-Mazurskie
+                    </option>
+
+                    <option value="wielkopolskie">
+                        Wielkopolskie
+                    </option>
+
+                    <option value="zachodniopomorskie">
+                        Zachodniopomorskie
+                    </option>
+
+                </select>
+
+
+                <div
+                    id="holidaysDate"
+                    class="holidays-date">
+                    Ładowanie...
                 </div>
 
 
-                <!-- KONIEC 2026 -->
-
-                <div class="countdown-card">
-
-                    <span class="countdown-icon">
-                        📅
-                    </span>
-
-                    <h3>
-                        Koniec 2026
-                    </h3>
-
-                    <p>
-                        31.12.2026
-                    </p>
-
-                    <div
-                        id="daysToEnd2026"
-                        class="countdown-number">
-                        0 dni
-                    </div>
-
-                </div>
-
-
-                <!-- NOWY ROK 2027 -->
-
-                <div class="countdown-card">
-
-                    <span class="countdown-icon">
-                        🎆
-                    </span>
-
-                    <h3>
-                        Nowy Rok 2027
-                    </h3>
-
-                    <p>
-                        01.01.2027
-                    </p>
-
-                    <div
-                        id="daysToNewYear2027"
-                        class="countdown-number">
-                        0 dni
-                    </div>
-
-                </div>
-
-
-                <!-- FERIE -->
-
-                <div class="countdown-card holidays-card">
-
-                    <span class="countdown-icon">
-                        🏫
-                    </span>
-
-                    <h3>
-                        Ferie zimowe 2027
-                    </h3>
-
-                    <p>
-                        Wybierz swoje województwo
-                    </p>
-
-
-                    <label
-                        for="voivodeshipSelect"
-                        class="holidays-label">
-                        Województwo
-                    </label>
-
-
-                    <select
-                        id="voivodeshipSelect"
-                        class="holidays-select">
-
-                        <option value="dolnoslaskie">
-                            Dolnośląskie
-                        </option>
-
-                        <option value="kujawsko-pomorskie">
-                            Kujawsko-Pomorskie
-                        </option>
-
-                        <option value="lubelskie">
-                            Lubelskie
-                        </option>
-
-                        <option value="lubuskie">
-                            Lubuskie
-                        </option>
-
-                        <option value="lodzkie">
-                            Łódzkie
-                        </option>
-
-                        <option value="malopolskie">
-                            Małopolskie
-                        </option>
-
-                        <option value="mazowieckie">
-                            Mazowieckie
-                        </option>
-
-                        <option value="opolskie">
-                            Opolskie
-                        </option>
-
-                        <option value="podkarpackie">
-                            Podkarpackie
-                        </option>
-
-                        <option value="podlaskie">
-                            Podlaskie
-                        </option>
-
-                        <option value="pomorskie" selected>
-                            Pomorskie
-                        </option>
-
-                        <option value="slaskie">
-                            Śląskie
-                        </option>
-
-                        <option value="swietokrzyskie">
-                            Świętokrzyskie
-                        </option>
-
-                        <option value="warminsko-mazurskie">
-                            Warmińsko-Mazurskie
-                        </option>
-
-                        <option value="wielkopolskie">
-                            Wielkopolskie
-                        </option>
-
-                        <option value="zachodniopomorskie">
-                            Zachodniopomorskie
-                        </option>
-
-                    </select>
-
-
-                    <div
-                        id="holidaysDate"
-                        class="holidays-date">
-                        01.02–14.02.2027
-                    </div>
-
-
-                    <div
-                        id="daysToHolidays"
-                        class="countdown-number">
-                        0 dni
-                    </div>
-
+                <div
+                    id="daysToHolidays"
+                    class="countdown-number">
+                    Ładowanie...
                 </div>
 
             </div>
@@ -491,125 +436,108 @@
 
 
     <!-- SPOŁECZNOŚĆ -->
+    <section class="section">
 
-    <section>
+        <div class="section-heading">
 
-        <div class="container">
+            <span>👥 SPOŁECZNOŚĆ</span>
 
-            <div class="section-heading">
-
-                <span class="section-label">
-                    👥 SPOŁECZNOŚĆ
-                </span>
-
-                <h2>
-                    Kolonia Pasjonatów
-                </h2>
-
-            </div>
-
-
-            <div class="stats-grid">
-
-                <div class="stat-card">
-
-                    <span class="stat-icon">
-                        👥
-                    </span>
-
-                    <strong class="stat-title">
-                        Członkowie
-                    </strong>
-
-                    <strong
-                        id="usersCount"
-                        class="stat-number">
-                        20
-                    </strong>
-
-                    <span>
-                        osób w społeczności
-                    </span>
-
-                </div>
-
-            </div>
+            <h2>Kolonia Pasjonatów</h2>
 
         </div>
 
-    </section>
 
+        <div class="countdown-grid">
 
-    <!-- SZCZEGÓŁOWY CZAS -->
+            <div class="countdown-card">
 
-    <section>
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <span class="section-label">
-                    ⏱️ SZCZEGÓŁY
-                </span>
-
-                <h2>
-                    Dokładny czas działania
-                </h2>
-
-            </div>
-
-
-            <div class="info-grid">
-
-                <div class="info-card">
-
-                    <h3>
-                        🌟 Kolonia Pasjonatów
-                    </h3>
-
-                    <p id="detailedUptime">
-                        0 dni, 00 godz. 00 min. 00 sek.
-                    </p>
-
+                <div class="countdown-icon">
+                    👥
                 </div>
 
+                <h3>Członkowie</h3>
 
-                <div class="info-card">
-
-                    <h3>
-                        🌐 Oficjalna strona
-                    </h3>
-
-                    <p id="websiteDetailedUptime">
-                        0 dni, 00 godz. 00 min. 00 sek.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- AKTUALIZACJA -->
-
-    <section>
-
-        <div class="container">
-
-            <div class="info-card">
-
-                <h3>
-                    🔄 Ostatnia aktualizacja
-                </h3>
-
-                <p id="lastUpdate">
-                    —
+                <p>
+                    Aktualna liczba członków
                 </p>
 
+                <div
+                    id="usersCount"
+                    class="countdown-number">
+                    20
+                </div>
+
             </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SZCZEGÓŁY -->
+    <section class="section">
+
+        <div class="section-heading">
+
+            <span>📊 SZCZEGÓŁY</span>
+
+            <h2>Dokładny czas</h2>
+
+        </div>
+
+
+        <div class="countdown-grid">
+
+            <div class="countdown-card">
+
+                <div class="countdown-icon">
+                    ⏱️
+                </div>
+
+                <h3>Działanie Kolonii</h3>
+
+                <div
+                    id="detailedUptime"
+                    class="countdown-number">
+                    Ładowanie...
+                </div>
+
+            </div>
+
+
+            <div class="countdown-card">
+
+                <div class="countdown-icon">
+                    🌐
+                </div>
+
+                <h3>Działanie strony</h3>
+
+                <div
+                    id="websiteDetailedUptime"
+                    class="countdown-number">
+                    Ładowanie...
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- OSTATNIA AKTUALIZACJA -->
+    <section class="section">
+
+        <div class="section-heading">
+
+            <span>🔄 AKTUALIZACJA</span>
+
+            <h2>Ostatnia aktualizacja</h2>
+
+            <p id="lastUpdate">
+                Ładowanie...
+            </p>
 
         </div>
 
@@ -620,32 +548,10 @@
 
 <footer>
 
-    <div class="footer-content">
-
-        <div>
-
-            <div class="logo">
-                🌟 Kolonia Pasjonatów
-            </div>
-
-            <p>
-                Oficjalna strona naszej społeczności.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        © 2026 Kolonia Pasjonatów
-
-        <br>
-
-        🌟 Oficjalna strona społeczności
-
-    </div>
+    <p>
+        © <span id="footerYear"></span>
+        Kolonia Pasjonatów
+    </p>
 
 </footer>
 
