@@ -1,6 +1,6 @@
 /* =========================================
    KOLONIA PASJONATÓW
-   STYLE 4.3
+   STYLE 4.4
 ========================================= */
 
 /* =========================================
@@ -955,7 +955,7 @@ section {
 }
 
 /* =========================================
-   LICZNIKI
+   STARE LICZNIKI
 ========================================= */
 
 .counter-box {
@@ -1007,6 +1007,309 @@ section {
     color: var(--muted);
 
     font-size: 0.78rem;
+}
+
+/* =========================================
+   LICZNIK — KARTY CZASU
+========================================= */
+
+.countdown-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(250px, 1fr)
+        );
+
+    gap: 18px;
+}
+
+.countdown-card {
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 230px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 26px;
+
+    text-align: center;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.countdown-card:hover {
+    transform: translateY(-4px);
+
+    background: var(--card-hover);
+
+    border-color: var(--border-hover);
+
+    box-shadow: var(--shadow-hover);
+}
+
+.countdown-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: -75px;
+
+    right: -75px;
+
+    width: 180px;
+
+    height: 180px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(88, 101, 242, 0.07);
+
+    pointer-events: none;
+}
+
+.countdown-icon {
+    position: relative;
+
+    z-index: 1;
+
+    width: 54px;
+
+    height: 54px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 14px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(88, 101, 242, 0.12);
+
+    border:
+        1px solid
+        rgba(88, 101, 242, 0.18);
+
+    font-size: 1.6rem;
+}
+
+.countdown-card h3 {
+    position: relative;
+
+    z-index: 1;
+
+    margin-bottom: 6px;
+
+    color: var(--text);
+
+    font-size: 1.15rem;
+
+    font-weight: 900;
+}
+
+.countdown-card p {
+    position: relative;
+
+    z-index: 1;
+
+    color: var(--text-secondary);
+
+    font-size: 0.85rem;
+}
+
+.countdown-number {
+    position: relative;
+
+    z-index: 1;
+
+    margin-top: 15px;
+
+    color: var(--accent);
+
+    font-size: 1.8rem;
+
+    font-weight: 900;
+
+    line-height: 1.25;
+}
+
+/* =========================================
+   LICZNIK — FERIE ZIMOWE
+========================================= */
+
+.holidays-card {
+    align-items: stretch;
+
+    justify-content: flex-start;
+
+    text-align: left;
+}
+
+.holidays-card .countdown-icon {
+    align-self: center;
+}
+
+.holidays-card h3,
+.holidays-card p {
+    text-align: center;
+}
+
+.holidays-label {
+    position: relative;
+
+    z-index: 1;
+
+    display: block;
+
+    margin-top: 15px;
+
+    margin-bottom: 6px;
+
+    color: var(--muted);
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.04em;
+
+    text-transform: uppercase;
+}
+
+.holidays-select {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    padding: 11px 13px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 10px;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    font-family: inherit;
+
+    font-size: 0.88rem;
+
+    font-weight: 700;
+
+    outline: none;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.holidays-select:hover,
+.holidays-select:focus {
+    background:
+        rgba(88, 101, 242, 0.06);
+
+    border-color:
+        var(--border-hover);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(88, 101, 242, 0.08);
+}
+
+.holidays-date {
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    margin-top: 12px;
+
+    padding: 9px 11px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(88, 101, 242, 0.07);
+
+    border:
+        1px solid var(--border);
+
+    color: var(--text);
+
+    font-size: 0.82rem;
+
+    font-weight: 800;
+
+    text-align: center;
+}
+
+.holidays-card .countdown-number {
+    width: 100%;
+
+    margin-top: 12px;
+
+    text-align: center;
+}
+
+/* =========================================
+   LICZNIK — TRYB JASNY
+========================================= */
+
+body.light .countdown-card {
+    background: var(--card);
+
+    border-color: var(--border);
+
+    box-shadow: var(--shadow);
+}
+
+body.light .countdown-card:hover {
+    background: var(--card-hover);
+
+    border-color: var(--border-hover);
+
+    box-shadow: var(--shadow-hover);
+}
+
+body.light .holidays-select {
+    background: var(--card);
+
+    color: var(--text);
 }
 
 /* =========================================
@@ -2053,7 +2356,8 @@ body.light .discord-cta {
 ========================================= */
 
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+select:focus-visible {
     outline:
         2px solid
         var(--accent);
@@ -2169,6 +2473,36 @@ button:focus-visible {
 
     .stat-time span {
         font-size: 0.52rem;
+    }
+
+    /* =====================================
+       LICZNIK — MOBILE
+    ===================================== */
+
+    .countdown-grid {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+    .countdown-card {
+        min-height: 215px;
+
+        padding: 22px;
+    }
+
+    .countdown-number {
+        font-size: 1.6rem;
+    }
+
+    .holidays-select {
+        font-size: 0.84rem;
+
+        padding: 10px 11px;
+    }
+
+    .holidays-date {
+        font-size: 0.78rem;
     }
 
     .announcement,
@@ -2506,6 +2840,36 @@ button:focus-visible {
 
     .counter-number {
         font-size: 1.55rem;
+    }
+
+    /* =====================================
+       LICZNIK — MAŁE EKRANY
+    ===================================== */
+
+    .countdown-card {
+        min-height: 205px;
+
+        padding: 20px;
+    }
+
+    .countdown-icon {
+        width: 50px;
+
+        height: 50px;
+
+        font-size: 1.45rem;
+    }
+
+    .countdown-card h3 {
+        font-size: 1.05rem;
+    }
+
+    .countdown-card p {
+        font-size: 0.8rem;
+    }
+
+    .countdown-number {
+        font-size: 1.5rem;
     }
 
     /* =====================================
