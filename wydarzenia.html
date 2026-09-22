@@ -2,64 +2,376 @@
 <html lang="pl">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ogłoszenia | Kolonia Pasjonatów</title>
+    <title>Wydarzenia | Kolonia Pasjonatów</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================================
+           WYDARZENIA
+        ========================================= */
+
+        .events-section {
+            padding: 80px 0;
+        }
+
+        .events-year {
+            margin-bottom: 50px;
+        }
+
+        .events-year-title {
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .events-year-title span {
+            color: var(--accent);
+        }
+
+
+        /* =========================================
+           KARTA WYDARZENIA
+        ========================================= */
+
+        .event-card {
+            padding: 30px;
+            margin-bottom: 30px;
+
+            border-radius: 22px;
+
+            background: var(--card-bg);
+
+            border: 1px solid var(--border);
+
+            box-shadow: var(--shadow);
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-4px);
+
+            border-color: rgba(88, 101, 242, 0.35);
+
+            box-shadow:
+                0 18px 40px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .event-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+
+        .event-date {
+            display: inline-block;
+
+            margin-bottom: 12px;
+
+            padding: 7px 13px;
+
+            border-radius: 999px;
+
+            background: rgba(88, 101, 242, 0.10);
+
+            color: var(--accent);
+
+            font-size: 0.82rem;
+
+            font-weight: 900;
+        }
+
+
+        .event-card h3 {
+            margin-bottom: 12px;
+
+            font-size: 1.5rem;
+        }
+
+
+        .event-card > p {
+            margin-bottom: 22px;
+
+            color: var(--text-secondary);
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           PRZYCISKI
+        ========================================= */
+
+        .event-buttons {
+            display: flex;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .event-buttons .button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            border: none;
+        }
+
+
+        /* =========================================
+           UKRYTE INFORMACJE
+        ========================================= */
+
+        .event-details {
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            border-radius: 18px;
+
+            background: rgba(88, 101, 242, 0.05);
+
+            border: 1px solid var(--border);
+
+            animation: eventOpen 0.25s ease;
+        }
+
+
+        .event-details.active {
+            display: block;
+        }
+
+
+        @keyframes eventOpen {
+
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        .event-details h4 {
+            margin-bottom: 18px;
+
+            font-size: 1.2rem;
+        }
+
+
+        .event-details p {
+            margin: 0;
+
+            color: var(--text-secondary);
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           HARMONOGRAM
+        ========================================= */
+
+        .schedule-item {
+            padding: 15px 0;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+
+        .schedule-item:last-child {
+            border-bottom: none;
+
+            padding-bottom: 0;
+        }
+
+
+        .schedule-item:first-child {
+            padding-top: 0;
+        }
+
+
+        .schedule-item strong {
+            display: block;
+
+            margin-bottom: 6px;
+
+            color: var(--text);
+        }
+
+
+        .schedule-item p {
+            margin: 0;
+
+            color: var(--text-secondary);
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================================
+           2027
+        ========================================= */
+
+        .coming-soon {
+            padding: 30px;
+
+            border-radius: 22px;
+
+            background: var(--card-bg);
+
+            border: 1px solid var(--border);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .coming-soon h3 {
+            margin-bottom: 10px;
+        }
+
+
+        .coming-soon p {
+            margin: 0;
+
+            color: var(--text-secondary);
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            .events-section {
+                padding: 55px 0;
+            }
+
+
+            .event-card {
+                padding: 22px;
+            }
+
+
+            .events-year-title {
+                font-size: 1.65rem;
+            }
+
+
+            .event-card h3 {
+                font-size: 1.3rem;
+            }
+
+
+            .event-details {
+                padding: 20px;
+            }
+
+
+            .event-buttons {
+                flex-direction: column;
+            }
+
+
+            .event-buttons .button {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
+
 <header>
 
-    <div class="logo">
-        🌟 Kolonia Pasjonatów
+    <div class="header-inner">
+
+
+        <a href="index.html" class="logo">
+            🌟 Kolonia Pasjonatów
+        </a>
+
+
+        <nav>
+
+            <a href="index.html">
+                Strona główna
+            </a>
+
+
+            <a href="ranking.html">
+                Ranking
+            </a>
+
+
+            <a href="licznik.html">
+                Licznik
+            </a>
+
+
+            <a href="wydarzenia.html" class="active">
+                Wydarzenia
+            </a>
+
+
+            <a href="linki.html">
+                Linki
+            </a>
+
+
+            <a href="kontakt.html">
+                Kontakt
+            </a>
+
+        </nav>
+
+
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Zmień motyw">
+
+            🌙
+
+        </button>
+
     </div>
-
-    <nav>
-
-        <a href="index.html">
-            🏠 Strona główna
-        </a>
-
-        <a href="ranking.html">
-            🏆 Ranking
-        </a>
-
-        <a href="statystyki.html">
-            ⏱️ Licznik
-        </a>
-
-        <a href="ogloszenia.html" class="active">
-            📢 Ogłoszenia
-        </a>
-
-        <a href="linki.html">
-            🔗 Linki
-        </a>
-
-        <a href="kontakt.html">
-            📧 Kontakt
-        </a>
-
-    </nav>
-
-    <button
-        id="themeToggle"
-        class="theme-toggle"
-        type="button"
-        aria-label="Zmień motyw">
-
-        ☀️
-
-    </button>
 
 </header>
 
 
 <main>
+
 
     <!-- =====================================================
          HERO
@@ -67,21 +379,21 @@
 
     <section class="hero">
 
-        <div class="hero-content">
+        <div class="container">
 
-            <span class="section-label">
-                📢 KOLONIA PASJONATÓW
-            </span>
+            <div class="hero-content">
 
-            <h1>
-                Ogłoszenia<br>
-                <span>Kolonii Pasjonatów</span>
-            </h1>
+                <h1>
+                    Wydarzenia
+                    <span>Kolonii Pasjonatów!</span>
+                </h1>
 
-            <p>
-                Najważniejsze informacje, komunikaty
-                oraz aktualności dotyczące naszej społeczności.
-            </p>
+                <p>
+                    Poznaj wszystkie zaplanowane wydarzenia,
+                    konkursy oraz specjalne aktywności naszej społeczności.
+                </p>
+
+            </div>
 
         </div>
 
@@ -89,66 +401,267 @@
 
 
     <!-- =====================================================
-         NAJNOWSZE OGŁOSZENIA
+         WYDARZENIA 2026
     ====================================================== -->
 
-    <section class="section">
+    <section class="events-section">
 
-        <div class="section-header">
-
-            <span class="section-label">
-                📌 NAJNOWSZE INFORMACJE
-            </span>
-
-            <h2 class="section-title">
-                Najnowsze ogłoszenia
-            </h2>
-
-            <p class="section-description">
-                Tutaj znajdziesz najważniejsze informacje
-                dotyczące Kolonii Pasjonatów.
-            </p>
-
-        </div>
+        <div class="container">
 
 
-        <div class="info-grid">
+            <div class="events-year">
 
 
-            <!-- OGŁOSZENIE -->
-
-            <article class="info-card announcement-card">
-
-                <div class="card-icon">
-                    📢
-                </div>
-
-                <span class="status">
-                    🟢 AKTUALNE
-                </span>
-
-                <small class="announcement-date">
-                    📅 13.08.2026
-                </small>
-
-                <h2>
-                    Oficjalnie ruszyła strona Kolonii Pasjonatów!
+                <h2 class="events-year-title">
+                    📅 Wydarzenia <span>2026</span>
                 </h2>
 
-                <p>
-                    Z przyjemnością informujemy, że oficjalna
-                    strona internetowa Kolonii Pasjonatów
-                    została uruchomiona! 🎉
-                </p>
 
-                <p>
-                    Na stronie znajdziecie najważniejsze
-                    informacje dotyczące naszej społeczności,
-                    ranking typerów, licznik, ogłoszenia,
-                    kalendarz oraz wiele innych elementów.
-                </p>
+                <!-- =================================================
+                     KOLEJ W JESIENNYM OBIEKTYWIE
+                ================================================== -->
 
-            </article>
+
+                <article class="event-card">
+
+
+                    <div class="event-icon">
+                        📸🍂🚆
+                    </div>
+
+
+                    <span class="event-date">
+                        23.09–09.10.2026
+                    </span>
+
+
+                    <h3>
+                        Kolej w jesiennym obiektywie
+                    </h3>
+
+
+                    <p>
+                        Konkurs fotograficzny, w którym uczestnicy
+                        pokazują swoje najlepsze zdjęcia kolei
+                        w jesiennej scenerii. 🍂🚆
+                    </p>
+
+
+                    <!-- PRZYCISKI -->
+
+                    <div class="event-buttons">
+
+
+                        <button
+                            type="button"
+                            class="button button-primary"
+                            onclick="toggleEvent('harmonogram-jesienny')">
+
+                            📋 Harmonogram
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="button button-secondary"
+                            onclick="toggleEvent('opis-jesienny')">
+
+                            ℹ️ Opis wydarzenia
+
+                        </button>
+
+
+                    </div>
+
+
+                    <!-- =================================================
+                         OPIS — UKRYTY
+                    ================================================== -->
+
+
+                    <div
+                        id="opis-jesienny"
+                        class="event-details">
+
+
+                        <h4>
+                            ℹ️ Opis wydarzenia
+                        </h4>
+
+
+                        <p>
+                            📸 Weź udział w konkursie
+                            „Kolej w jesiennym krajobrazie”!
+                            Pokaż swoje najlepsze zdjęcie kolei
+                            w jesiennej scenerii, zmierz się z innymi
+                            uczestnikami i zawalcz o miejsce na podium
+                            oraz wyróżnienia. 🍂🚆
+                            <br><br>
+                            Na zwycięzców czekają nagrody, a o wynikach
+                            zdecydują głosy publiczności oraz jury
+                            konkursowego. 👥👑
+                        </p>
+
+
+                    </div>
+
+
+                    <!-- =================================================
+                         HARMONOGRAM — UKRYTY
+                    ================================================== -->
+
+
+                    <div
+                        id="harmonogram-jesienny"
+                        class="event-details">
+
+
+                        <h4>
+                            📋 Harmonogram konkursu
+                        </h4>
+
+
+                        <div class="schedule-item">
+
+                            <strong>
+                                🔓 22.09.2026 – Otwarcie kanału konkursowego
+                            </strong>
+
+                            <p>
+                                Kanał
+                                &lt;#1536473927365300244&gt;
+                                zostanie otwarty dzień przed oficjalnym
+                                rozpoczęciem konkursu, aby uczestnicy mogli
+                                zapoznać się z zasadami i przygotować
+                                swoje zgłoszenia.
+                            </p>
+
+                        </div>
+
+
+                        <div class="schedule-item">
+
+                            <strong>
+                                📢 23.09.2026, godz. 00:00 – Start konkursu
+                            </strong>
+
+                            <p>
+                                Od godziny <strong>00:00</strong>
+                                rozpoczyna się możliwość wysyłania
+                                zdjęć konkursowych.
+                            </p>
+
+                        </div>
+
+
+                        <div class="schedule-item">
+
+                            <strong>
+                                📸 23.09–05.10.2026 – Nadsyłanie zdjęć
+                            </strong>
+
+                            <p>
+                                Uczestnicy mogą przesyłać swoje zdjęcia
+                                konkursowe do
+                                <strong>05.10.2026</strong>.
+                            </p>
+
+                        </div>
+
+
+                        <div class="schedule-item">
+
+                            <strong>
+                                👨‍⚖️ 05–07.10.2026 – Głosowanie jury
+                            </strong>
+
+                            <p>
+                                Jury ocenia wszystkie zgłoszone zdjęcia
+                                i przyznaje swoje punkty.
+                            </p>
+
+                        </div>
+
+
+                        <div class="schedule-item">
+
+                            <strong>
+                                🗳️ 07–08.10.2026 – Głosowanie publiczności
+                            </strong>
+
+                            <p>
+                                Społeczność Kolonii Pasjonatów wybiera
+                                swoje ulubione zdjęcia.
+                            </p>
+
+                        </div>
+
+
+                        <div class="schedule-item">
+
+                            <strong>
+                                🔎 08.10.2026 – Weryfikacja i głosowanie jury
+                            </strong>
+
+                            <p>
+                                Ostateczna weryfikacja zgłoszeń oraz
+                                końcowe głosowanie jury.
+                            </p>
+
+                        </div>
+
+
+                        <div class="schedule-item">
+
+                            <strong>
+                                🏆 09.10.2026 – Ogłoszenie wyników
+                            </strong>
+
+                            <p>
+                                Podanie oficjalnych wyników konkursu.
+                            </p>
+
+                        </div>
+
+
+                        <div class="schedule-item">
+
+                            <strong>
+                                🎉 09.10.2026 – Oficjalne zakończenie
+                            </strong>
+
+                            <p>
+                                Oficjalne zakończenie konkursu
+                                <strong>
+                                    „Kolej w jesiennym obiektywie”
+                                </strong>.
+                            </p>
+
+                        </div>
+
+
+                        <div class="schedule-item">
+
+                            <strong>
+                                ❤️ Podziękowanie
+                            </strong>
+
+                            <p>
+                                Dziękujemy wszystkim za udział
+                                i życzymy powodzenia! 🚆🍂📸
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+            </div>
 
 
         </div>
@@ -157,68 +670,83 @@
 
 
     <!-- =====================================================
-         INFORMACJA
+         WYDARZENIA 2027
     ====================================================== -->
 
-    <section class="section">
 
-        <div class="info-card">
+    <section class="events-section">
 
-            <h2>
-                ℹ️ Informacja
-            </h2>
 
-            <p>
-                Ogłoszenia będą dodawane na bieżąco.
-                Warto zaglądać tutaj regularnie, aby nie
-                przegapić najważniejszych informacji
-                dotyczących Kolonii Pasjonatów.
-            </p>
+        <div class="container">
+
+
+            <div class="events-year">
+
+
+                <h2 class="events-year-title">
+                    📅 Wydarzenia <span>2027</span>
+                </h2>
+
+
+                <div class="coming-soon">
+
+                    <h3>
+                        🚧 Kolejne wydarzenia już wkrótce
+                    </h3>
+
+                    <p>
+                        Lista wydarzeń na 2027 rok będzie
+                        sukcesywnie uzupełniana.
+                    </p>
+
+                </div>
+
+
+            </div>
+
 
         </div>
 
+
     </section>
+
 
 </main>
 
 
-<!-- =====================================================
-     STOPKA
-====================================================== -->
-
 <footer>
 
-    <div class="footer-content">
-
-        <div>
-
-            <div class="logo">
-                🌟 Kolonia Pasjonatów
-            </div>
-
-            <p>
-                Oficjalna strona naszej społeczności.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
+    <p>
         © 2026 Kolonia Pasjonatów
+    </p>
 
-        <br>
 
+    <p>
         🌟 Oficjalna strona społeczności
-
-    </div>
+    </p>
 
 </footer>
 
 
+<script>
+
+    function toggleEvent(id) {
+
+        const element = document.getElementById(id);
+
+        if (!element) {
+            return;
+        }
+
+        element.classList.toggle("active");
+
+    }
+
+</script>
+
+
 <script src="script.js"></script>
+
 
 </body>
 
