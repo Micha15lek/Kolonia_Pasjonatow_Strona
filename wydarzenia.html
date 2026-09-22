@@ -133,59 +133,138 @@
 
 
         /* =========================================
-           UKRYTE INFORMACJE
+           MODAL
         ========================================= */
 
-        .event-details {
+        .event-modal {
+            position: fixed;
+
+            inset: 0;
+
             display: none;
 
-            margin-top: 25px;
+            align-items: center;
+            justify-content: center;
 
-            padding: 25px;
+            padding: 20px;
 
-            border-radius: 18px;
+            background: rgba(0, 0, 0, 0.70);
 
-            background: rgba(88, 101, 242, 0.05);
+            backdrop-filter: blur(8px);
+
+            z-index: 9999;
+        }
+
+
+        .event-modal.active {
+            display: flex;
+
+            animation: modalBackground 0.2s ease;
+        }
+
+
+        .event-modal-content {
+            position: relative;
+
+            width: min(760px, 100%);
+
+            max-height: 85vh;
+
+            overflow-y: auto;
+
+            padding: 32px;
+
+            border-radius: 24px;
+
+            background: var(--card-bg);
 
             border: 1px solid var(--border);
 
-            animation: eventOpen 0.25s ease;
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.35);
+
+            animation: modalOpen 0.25s ease;
         }
 
 
-        .event-details.active {
-            display: block;
+        .event-modal-content h3 {
+            margin: 0 45px 22px 0;
+
+            font-size: 1.55rem;
         }
 
 
-        @keyframes eventOpen {
+        .event-modal-content > p {
+            color: var(--text-secondary);
+
+            line-height: 1.75;
+        }
+
+
+        .event-modal-close {
+            position: absolute;
+
+            top: 18px;
+            right: 18px;
+
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid var(--border);
+
+            border-radius: 50%;
+
+            background: transparent;
+
+            color: var(--text);
+
+            font-size: 1.2rem;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+
+        .event-modal-close:hover {
+            background: rgba(88, 101, 242, 0.12);
+
+            transform: rotate(90deg);
+        }
+
+
+        @keyframes modalBackground {
 
             from {
                 opacity: 0;
-                transform: translateY(-8px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
             }
 
         }
 
 
-        .event-details h4 {
-            margin-bottom: 18px;
+        @keyframes modalOpen {
 
-            font-size: 1.2rem;
-        }
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.97);
+            }
 
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
 
-        .event-details p {
-            margin: 0;
-
-            color: var(--text-secondary);
-
-            line-height: 1.7;
         }
 
 
@@ -194,7 +273,7 @@
         ========================================= */
 
         .schedule-item {
-            padding: 15px 0;
+            padding: 16px 0;
 
             border-bottom: 1px solid var(--border);
         }
@@ -215,9 +294,11 @@
         .schedule-item strong {
             display: block;
 
-            margin-bottom: 6px;
+            margin-bottom: 7px;
 
             color: var(--text);
+
+            line-height: 1.5;
         }
 
 
@@ -226,7 +307,7 @@
 
             color: var(--text-secondary);
 
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
 
@@ -287,11 +368,6 @@
             }
 
 
-            .event-details {
-                padding: 20px;
-            }
-
-
             .event-buttons {
                 flex-direction: column;
             }
@@ -299,6 +375,27 @@
 
             .event-buttons .button {
                 width: 100%;
+            }
+
+
+            .event-modal {
+                padding: 12px;
+            }
+
+
+            .event-modal-content {
+                padding: 24px;
+
+                max-height: 90vh;
+
+                border-radius: 20px;
+            }
+
+
+            .event-modal-content h3 {
+                font-size: 1.3rem;
+
+                margin-right: 35px;
             }
 
         }
@@ -315,7 +412,6 @@
 
     <div class="header-inner">
 
-
         <a href="index.html" class="logo">
             🌟 Kolonia Pasjonatów
         </a>
@@ -327,26 +423,21 @@
                 Strona główna
             </a>
 
-
             <a href="ranking.html">
                 Ranking
             </a>
-
 
             <a href="licznik.html">
                 Licznik
             </a>
 
-
             <a href="wydarzenia.html" class="active">
                 Wydarzenia
             </a>
 
-
             <a href="linki.html">
                 Linki
             </a>
-
 
             <a href="kontakt.html">
                 Kontakt
@@ -408,9 +499,7 @@
 
         <div class="container">
 
-
             <div class="events-year">
-
 
                 <h2 class="events-year-title">
                     📅 Wydarzenia <span>2026</span>
@@ -421,9 +510,7 @@
                      KOLEJ W JESIENNYM OBIEKTYWIE
                 ================================================== -->
 
-
                 <article class="event-card">
-
 
                     <div class="event-icon">
                         🍂
@@ -447,15 +534,12 @@
                     </p>
 
 
-                    <!-- PRZYCISKI -->
-
                     <div class="event-buttons">
-
 
                         <button
                             type="button"
                             class="button button-primary"
-                            onclick="toggleEvent('harmonogram-jesienny')">
+                            onclick="openEventModal('harmonogram-jesienny')">
 
                             📋 Harmonogram
 
@@ -465,204 +549,71 @@
                         <button
                             type="button"
                             class="button button-secondary"
-                            onclick="toggleEvent('opis-jesienny')">
+                            onclick="openEventModal('opis-jesienny')">
 
                             ℹ️ Opis wydarzenia
 
                         </button>
 
-
                     </div>
-
-
-                    <!-- =================================================
-                         OPIS — UKRYTY
-                    ================================================== -->
-
-
-                    <div
-                        id="opis-jesienny"
-                        class="event-details">
-
-
-                        <h4>
-                            ℹ️ Opis wydarzenia
-                        </h4>
-
-
-                        <p>
-                            📸 Weź udział w konkursie
-                            „Kolej w jesiennym krajobrazie”!
-                            Pokaż swoje najlepsze zdjęcie kolei
-                            w jesiennej scenerii, zmierz się z innymi
-                            uczestnikami i zawalcz o miejsce na podium
-                            oraz wyróżnienia. 🍂🚆
-                            <br><br>
-                            Na zwycięzców czekają nagrody, a o wynikach
-                            zdecydują głosy publiczności oraz jury
-                            konkursowego. 👥👑
-                        </p>
-
-
-                    </div>
-
-
-                    <!-- =================================================
-                         HARMONOGRAM — UKRYTY
-                    ================================================== -->
-
-
-                    <div
-                        id="harmonogram-jesienny"
-                        class="event-details">
-
-
-                        <h4>
-                            📋 Harmonogram konkursu
-                        </h4>
-
-
-                        <div class="schedule-item">
-
-                            <strong>
-                                🔓 22.09.2026 – Otwarcie kanału konkursowego
-                            </strong>
-
-                            <p>
-                                Kanał
-                                &lt;#1536473927365300244&gt;
-                                zostanie otwarty dzień przed oficjalnym
-                                rozpoczęciem konkursu, aby uczestnicy mogli
-                                zapoznać się z zasadami i przygotować
-                                swoje zgłoszenia.
-                            </p>
-
-                        </div>
-
-
-                        <div class="schedule-item">
-
-                            <strong>
-                                📢 23.09.2026, godz. 00:00 – Start konkursu
-                            </strong>
-
-                            <p>
-                                Od godziny <strong>00:00</strong>
-                                rozpoczyna się możliwość wysyłania
-                                zdjęć konkursowych.
-                            </p>
-
-                        </div>
-
-
-                        <div class="schedule-item">
-
-                            <strong>
-                                📸 23.09–05.10.2026 – Nadsyłanie zdjęć
-                            </strong>
-
-                            <p>
-                                Uczestnicy mogą przesyłać swoje zdjęcia
-                                konkursowe do
-                                <strong>05.10.2026</strong>.
-                            </p>
-
-                        </div>
-
-
-                        <div class="schedule-item">
-
-                            <strong>
-                                👨‍⚖️ 05–07.10.2026 – Głosowanie jury
-                            </strong>
-
-                            <p>
-                                Jury ocenia wszystkie zgłoszone zdjęcia
-                                i przyznaje swoje punkty.
-                            </p>
-
-                        </div>
-
-
-                        <div class="schedule-item">
-
-                            <strong>
-                                🗳️ 07–08.10.2026 – Głosowanie publiczności
-                            </strong>
-
-                            <p>
-                                Społeczność Kolonii Pasjonatów wybiera
-                                swoje ulubione zdjęcia.
-                            </p>
-
-                        </div>
-
-
-                        <div class="schedule-item">
-
-                            <strong>
-                                🔎 08.10.2026 – Weryfikacja i głosowanie jury
-                            </strong>
-
-                            <p>
-                                Ostateczna weryfikacja zgłoszeń oraz
-                                końcowe głosowanie jury.
-                            </p>
-
-                        </div>
-
-
-                        <div class="schedule-item">
-
-                            <strong>
-                                🏆 09.10.2026 – Ogłoszenie wyników
-                            </strong>
-
-                            <p>
-                                Podanie oficjalnych wyników konkursu.
-                            </p>
-
-                        </div>
-
-
-                        <div class="schedule-item">
-
-                            <strong>
-                                🎉 09.10.2026 – Oficjalne zakończenie
-                            </strong>
-
-                            <p>
-                                Oficjalne zakończenie konkursu
-                                <strong>
-                                    „Kolej w jesiennym obiektywie”
-                                </strong>.
-                            </p>
-
-                        </div>
-
-
-                        <div class="schedule-item">
-
-                            <strong>
-                                ❤️ Podziękowanie
-                            </strong>
-
-                            <p>
-                                Dziękujemy wszystkim za udział
-                                i życzymy powodzenia! 🚆🍂📸
-                            </p>
-
-                        </div>
-
-
-                    </div>
-
 
                 </article>
 
 
-            </div>
+                <!-- =================================================
+                     STREFA ZIMOWA
+                ================================================== -->
 
+                <article class="event-card">
+
+                    <div class="event-icon">
+                        ❄️
+                    </div>
+
+
+                    <span class="event-date">
+                        20.11.2026–31.01.2027
+                    </span>
+
+
+                    <h3>
+                        Strefa Zimowa 2026/2027
+                    </h3>
+
+
+                    <p>
+                        Pierwsza Strefa Zimowa w historii Kolonii Pasjonatów!
+                        Czeka nas ponad dwa miesiące zimowego,
+                        świątecznego klimatu, konkursów i wydarzeń. ❄️🎄
+                    </p>
+
+
+                    <div class="event-buttons">
+
+                        <button
+                            type="button"
+                            class="button button-primary"
+                            onclick="openEventModal('harmonogram-zimowy')">
+
+                            📋 Harmonogram
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="button button-secondary"
+                            onclick="openEventModal('opis-zimowy')">
+
+                            ℹ️ Opis wydarzenia
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </div>
 
         </div>
 
@@ -673,45 +624,585 @@
          WYDARZENIA 2027
     ====================================================== -->
 
-
     <section class="events-section">
-
 
         <div class="container">
 
-
             <div class="events-year">
-
 
                 <h2 class="events-year-title">
                     📅 Wydarzenia <span>2027</span>
                 </h2>
 
 
-                <div class="coming-soon">
+                <!-- =================================================
+                     STREFA WAKACYJNA
+                ================================================== -->
+
+                <article class="event-card">
+
+                    <div class="event-icon">
+                        ☀️
+                    </div>
+
+
+                    <span class="event-date">
+                        01.06.2027–31.08.2027
+                    </span>
+
 
                     <h3>
-                        🚧 Kolejne wydarzenia już wkrótce
+                        Strefa Wakacyjna 2027
                     </h3>
 
+
                     <p>
-                        Lista wydarzeń na 2027 rok będzie
-                        sukcesywnie uzupełniana.
+                        Letnia strefa pełna wydarzeń, konkursów
+                        i wspólnej zabawy w Kolonii Pasjonatów. ☀️🚆
                     </p>
 
-                </div>
+
+                    <div class="event-buttons">
+
+                        <button
+                            type="button"
+                            class="button button-primary"
+                            onclick="openEventModal('harmonogram-wakacyjny')">
+
+                            📋 Harmonogram
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="button button-secondary"
+                            onclick="openEventModal('opis-wakacyjny')">
+
+                            ℹ️ Opis wydarzenia
+
+                        </button>
+
+                    </div>
+
+                </article>
 
 
             </div>
 
-
         </div>
-
 
     </section>
 
 
 </main>
+
+
+<!-- =========================================================
+     MODAL — JESIENNY HARMONOGRAM
+========================================================== -->
+
+<div
+    id="harmonogram-jesienny"
+    class="event-modal"
+    onclick="closeEventModal(event)">
+
+    <div class="event-modal-content">
+
+        <button
+            type="button"
+            class="event-modal-close"
+            onclick="closeEventModal()"
+            aria-label="Zamknij">
+
+            ✕
+
+        </button>
+
+
+        <h3>
+            📋 Harmonogram – Kolej w jesiennym obiektywie
+        </h3>
+
+
+        <div class="schedule-item">
+
+            <strong>
+                🔓 22.09.2026 – OTWARCIE KANAŁU KONKURSOWEGO
+            </strong>
+
+            <p>
+                Kanał &lt;#1536473927365300244&gt; zostanie otwarty dzień
+                przed oficjalnym rozpoczęciem konkursu, aby uczestnicy
+                mogli zapoznać się z zasadami i przygotować swoje zgłoszenia.
+            </p>
+
+        </div>
+
+
+        <div class="schedule-item">
+
+            <strong>
+                📢 23.09.2026, godz. 00:00 – START KONKURSU
+            </strong>
+
+            <p>
+                Od godziny 00:00 rozpoczyna się możliwość wysyłania
+                zdjęć konkursowych.
+            </p>
+
+        </div>
+
+
+        <div class="schedule-item">
+
+            <strong>
+                📸 23.09–05.10.2026 – NADSYŁANIE ZDJĘĆ
+            </strong>
+
+            <p>
+                Uczestnicy mogą przesyłać swoje zdjęcia konkursowe
+                do 05.10.2026.
+            </p>
+
+        </div>
+
+
+        <div class="schedule-item">
+
+            <strong>
+                👨‍⚖️ 05–07.10.2026 – GŁOSOWANIE JURY
+            </strong>
+
+            <p>
+                Jury ocenia wszystkie zgłoszone zdjęcia
+                i przyznaje swoje punkty.
+            </p>
+
+        </div>
+
+
+        <div class="schedule-item">
+
+            <strong>
+                🗳️ 07–08.10.2026 – GŁOSOWANIE PUBLICZNOŚCI
+            </strong>
+
+            <p>
+                Społeczność Kolonii Pasjonatów wybiera
+                swoje ulubione zdjęcia.
+            </p>
+
+        </div>
+
+
+        <div class="schedule-item">
+
+            <strong>
+                🔎 08.10.2026 – WERYFIKACJA I GŁOSOWANIE JURY
+            </strong>
+
+            <p>
+                Ostateczna weryfikacja zgłoszeń oraz końcowe
+                głosowanie jury.
+            </p>
+
+        </div>
+
+
+        <div class="schedule-item">
+
+            <strong>
+                🏆 09.10.2026 – OGŁOSZENIE WYNIKÓW
+            </strong>
+
+            <p>
+                Podanie oficjalnych wyników konkursu.
+            </p>
+
+        </div>
+
+
+        <div class="schedule-item">
+
+            <strong>
+                🎉 09.10.2026 – OFICJALNE ZAKOŃCZENIE
+            </strong>
+
+            <p>
+                Oficjalne zakończenie konkursu
+                „Kolej w jesiennym obiektywie”.
+            </p>
+
+        </div>
+
+
+        <div class="schedule-item">
+
+            <strong>
+                ❤️ Podziękowanie
+            </strong>
+
+            <p>
+                Dziękujemy wszystkim za udział i życzymy powodzenia! 🚆🍂📸
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     MODAL — JESIENNY OPIS
+========================================================== -->
+
+<div
+    id="opis-jesienny"
+    class="event-modal"
+    onclick="closeEventModal(event)">
+
+    <div class="event-modal-content">
+
+        <button
+            type="button"
+            class="event-modal-close"
+            onclick="closeEventModal()"
+            aria-label="Zamknij">
+
+            ✕
+
+        </button>
+
+
+        <h3>
+            ℹ️ Kolej w jesiennym obiektywie
+        </h3>
+
+
+        <p>
+            📸 Weź udział w konkursie „Kolej w jesiennym krajobrazie”!
+            Pokaż swoje najlepsze zdjęcie kolei w jesiennej scenerii,
+            zmierz się z innymi uczestnikami i zawalcz o miejsce na podium
+            oraz wyróżnienia. 🍂🚆
+            <br><br>
+            Na zwycięzców czekają nagrody, a o wynikach zdecydują głosy
+            publiczności oraz jury konkursowego. 👥👑
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     MODAL — ZIMOWY HARMONOGRAM
+========================================================== -->
+
+<div
+    id="harmonogram-zimowy"
+    class="event-modal"
+    onclick="closeEventModal(event)">
+
+    <div class="event-modal-content">
+
+        <button
+            type="button"
+            class="event-modal-close"
+            onclick="closeEventModal()"
+            aria-label="Zamknij">
+
+            ✕
+
+        </button>
+
+
+        <h3>
+            ❄️ Harmonogram Strefy Zimowej 2026/2027
+        </h3>
+
+
+        <div class="schedule-item">
+
+            <strong>
+                ❄️ 20.11.2026 — Start Strefy Zimowej
+            </strong>
+
+        </div>
+
+
+        <div class="schedule-item">
+
+            <strong>
+                📸 28.11–06.12.2026 — Mini konkurs „Zima na kolei”
+            </strong>
+
+        </div>
+
+
+        <div class="schedule-item">
+
+            <strong>
+                🎅 06.12.2026, 18:00 — Mikołajki w Kolonii
+            </strong>
+
+        </div>
+
+
+        <div class="schedule-item">
+
+            <strong>
+                🚆 12–20.12.2026 — Zimowy pojedynek taboru
+            </strong>
+
+        </div>
+
+
+        <div class="schedule-item">
+
+            <strong>
+                🎄 23.12.2026, 19:00 – 25.12.2026, 14:00 — Wigilia w Kolonii
+            </strong>
+
+        </div>
+
+
+        <div class="schedule-item">
+
+            <strong>
+                🎆 30.12.2026, 17:00 – 01.01.2027, 14:30 — Sylwester w Kolonii
+            </strong>
+
+        </div>
+
+
+        <div class="schedule-item">
+
+            <strong>
+                📷 09–17.01.2027 — „Najlepsze zimowe ujęcie”
+            </strong>
+
+        </div>
+
+
+        <div class="schedule-item">
+
+            <strong>
+                🚉 20–24.01.2027 — „Zimowa stacja roku”
+            </strong>
+
+        </div>
+
+
+        <div class="schedule-item">
+
+            <strong>
+                🏁 31.01.2027 — Zakończenie Strefy Zimowej
+            </strong>
+
+        </div>
+
+
+        <p style="margin-top: 22px; text-align: center;">
+            ❄️ <strong>Strefa Zimowa trwa: 20.11.2026–31.01.2027</strong> ❄️
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     MODAL — ZIMOWY OPIS
+========================================================== -->
+
+<div
+    id="opis-zimowy"
+    class="event-modal"
+    onclick="closeEventModal(event)">
+
+    <div class="event-modal-content">
+
+        <button
+            type="button"
+            class="event-modal-close"
+            onclick="closeEventModal()"
+            aria-label="Zamknij">
+
+            ✕
+
+        </button>
+
+
+        <h3>
+            ❄️ Strefa Zimowa 2026/2027 🎄
+        </h3>
+
+
+        <p>
+
+            📅 <strong>Czas trwania:</strong>
+            20.11.2026 – 31.01.2027
+
+            <br><br>
+
+            Kolonia Pasjonatów rozpoczyna swoją pierwszą
+            <strong>Strefę Zimową!</strong> ❄️❤️
+
+            <br><br>
+
+            Przez ponad dwa miesiące na serwerze będzie panował
+            zimowy i świąteczny klimat. Przygotowaliśmy specjalne
+            wydarzenia, konkursy, zabawy oraz atrakcje dla całej
+            społeczności. 🎄🎉
+
+            <br><br>
+
+            🎅 <strong>W programie m.in.:</strong>
+
+            <br><br>
+
+            ❄️ Wielkie Otwarcie Strefy Zimowej
+            <br>
+            🎅 Mikołajki w Kolonii
+            <br>
+            🎄 Świąteczny Konkurs Kolonii
+            <br>
+            🎆 Sylwester w Kolonii
+            <br>
+            🎉 Noworoczny Start Kolonii
+            <br>
+            📸 Zimowa Kolonia w Obiektywie
+            <br>
+            ❄️ Zimowy Quiz Kolonii
+            <br>
+            🏆 Wielkie Zakończenie Strefy Zimowej
+
+            <br><br>
+
+            📅 <strong>
+                Więcej informacji dotyczących Strefy Zimowej
+                pojawi się w październiku 2026 roku.
+            </strong>
+
+            <br><br>
+
+            ❤️ Przygotujcie się na zimę pełną wydarzeń,
+            konkursów, wspólnej zabawy i wyjątkowego klimatu!
+
+            <br><br>
+
+            ❄️ <strong>
+                STREFA ZIMOWA 2026/2027 –
+                ZACZYNAMY 20 LISTOPADA O 18:00!
+            </strong> 🎄🚆
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     MODAL — WAKACYJNY HARMONOGRAM
+========================================================== -->
+
+<div
+    id="harmonogram-wakacyjny"
+    class="event-modal"
+    onclick="closeEventModal(event)">
+
+    <div class="event-modal-content">
+
+        <button
+            type="button"
+            class="event-modal-close"
+            onclick="closeEventModal()"
+            aria-label="Zamknij">
+
+            ✕
+
+        </button>
+
+
+        <h3>
+            ☀️ Harmonogram Strefy Wakacyjnej 2027
+        </h3>
+
+
+        <p>
+            📅 <strong>
+                01.06.2027–31.08.2027
+            </strong>
+        </p>
+
+
+        <p style="margin-top: 20px;">
+
+            🚧 Harmonogram Strefy Wakacyjnej 2027
+            zostanie opublikowany w późniejszym terminie.
+
+            <br><br>
+
+            ☀️ Więcej informacji już wkrótce!
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     MODAL — WAKACYJNY OPIS
+========================================================== -->
+
+<div
+    id="opis-wakacyjny"
+    class="event-modal"
+    onclick="closeEventModal(event)">
+
+    <div class="event-modal-content">
+
+        <button
+            type="button"
+            class="event-modal-close"
+            onclick="closeEventModal()"
+            aria-label="Zamknij">
+
+            ✕
+
+        </button>
+
+
+        <h3>
+            ☀️ Strefa Wakacyjna 2027
+        </h3>
+
+
+        <p>
+
+            📅 <strong>
+                Czas trwania: 01.06.2027–31.08.2027
+            </strong>
+
+            <br><br>
+
+            ☀️ Strefa Wakacyjna 2027 będzie kolejnym
+            specjalnym okresem wydarzeń w Kolonii Pasjonatów.
+
+            <br><br>
+
+            🚧 Więcej informacji dotyczących programu,
+            konkursów oraz atrakcji pojawi się wkrótce.
+
+        </p>
+
+    </div>
+
+</div>
 
 
 <footer>
@@ -730,17 +1221,57 @@
 
 <script>
 
-    function toggleEvent(id) {
+    /* =========================================
+       OTWIERANIE MODALA
+    ========================================= */
 
-        const element = document.getElementById(id);
+    function openEventModal(id) {
 
-        if (!element) {
+        const modal = document.getElementById(id);
+
+        if (!modal) {
             return;
         }
 
-        element.classList.toggle("active");
+        document.querySelectorAll('.event-modal.active').forEach(function(item) {
+            item.classList.remove('active');
+        });
 
+        modal.classList.add('active');
+
+        document.body.style.overflow = 'hidden';
     }
+
+
+    /* =========================================
+       ZAMYKANIE MODALA
+    ========================================= */
+
+    function closeEventModal(event) {
+
+        if (event && event.target !== event.currentTarget) {
+            return;
+        }
+
+        document.querySelectorAll('.event-modal.active').forEach(function(modal) {
+            modal.classList.remove('active');
+        });
+
+        document.body.style.overflow = '';
+    }
+
+
+    /* =========================================
+       ESC — ZAMKNIĘCIE
+    ========================================= */
+
+    document.addEventListener('keydown', function(event) {
+
+        if (event.key === 'Escape') {
+            closeEventModal();
+        }
+
+    });
 
 </script>
 
