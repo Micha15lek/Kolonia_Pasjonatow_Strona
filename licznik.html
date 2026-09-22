@@ -1,1164 +1,800 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Licznik — Kolonia Pasjonatów</title>
+    <title>Wydarzenia | Kolonia Pasjonatów</title>
 
     <link rel="stylesheet" href="style.css">
 
     <style>
-
-        /* =========================================
-           LICZNIK — WYGLĄD
-        ========================================= */
-
-        .counter-page {
-            padding-bottom: 40px;
+        .events-section {
+            padding: 70px 0;
         }
 
-        .counter-hero {
-            padding: 90px 0 75px;
-        }
-
-        .counter-section {
-            padding: 75px 0;
-        }
-
-        .counter-heading {
-            margin-bottom: 45px;
-            text-align: center;
-        }
-
-        .counter-heading-label {
-            display: inline-block;
-            margin-bottom: 12px;
-            color: var(--accent);
-            font-size: 0.8rem;
-            font-weight: 900;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .counter-heading h2 {
-            margin-bottom: 12px;
-        }
-
-        .counter-heading p {
-            max-width: 700px;
-            margin: 0 auto;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        /* =========================================
-           GŁÓWNE LICZNIKI
-        ========================================= */
-
-        .main-counter-grid {
+        .events-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 25px;
-            max-width: 1000px;
-            margin: 0 auto;
+            gap: 28px;
         }
 
-        .main-counter-card {
-            position: relative;
-            padding: 35px;
-            overflow: hidden;
-
+        .event-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 24px;
-
+            border-radius: 22px;
+            padding: 30px;
             box-shadow: var(--shadow);
-
-            text-align: center;
-
-            transition:
-                transform 0.25s ease,
-                border-color 0.25s ease,
-                box-shadow 0.25s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
-        .main-counter-card::before {
-            content: "";
-
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-
-            height: 4px;
-
-            background: var(--accent);
-        }
-
-        .main-counter-card:hover {
+        .event-card:hover {
             transform: translateY(-5px);
-
-            border-color: rgba(88, 101, 242, 0.35);
-
-            box-shadow:
-                0 18px 40px rgba(0, 0, 0, 0.16);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
         }
 
-        .main-counter-icon {
-            width: 72px;
-            height: 72px;
-
-            margin: 0 auto 20px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
+        .event-year {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 6px 12px;
+            border-radius: 999px;
             background: rgba(88, 101, 242, 0.12);
-
-            font-size: 2rem;
-        }
-
-        .main-counter-card h3 {
-            margin-bottom: 8px;
-            font-size: 1.3rem;
-        }
-
-        .main-counter-card p {
-            margin-bottom: 20px;
-            color: var(--text-secondary);
-        }
-
-        .main-counter-value {
-            color: var(--accent);
-            font-size: 1.35rem;
-            font-weight: 900;
-            line-height: 1.5;
-        }
-
-        /* =========================================
-           STANDARDOWE KARTY
-        ========================================= */
-
-        .counter-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 22px;
-        }
-
-        .counter-card {
-            position: relative;
-
-            padding: 28px 24px;
-
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 21px;
-
-            box-shadow: var(--shadow);
-
-            text-align: center;
-
-            transition:
-                transform 0.25s ease,
-                border-color 0.25s ease,
-                box-shadow 0.25s ease;
-        }
-
-        .counter-card:hover {
-            transform: translateY(-4px);
-
-            border-color: rgba(88, 101, 242, 0.35);
-
-            box-shadow:
-                0 15px 32px rgba(0, 0, 0, 0.14);
-        }
-
-        .counter-card-icon {
-            width: 58px;
-            height: 58px;
-
-            margin: 0 auto 17px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: rgba(88, 101, 242, 0.10);
-
-            font-size: 1.6rem;
-        }
-
-        .counter-card h3 {
-            margin-bottom: 8px;
-            font-size: 1.08rem;
-        }
-
-        .counter-card p {
-            margin-bottom: 18px;
-            color: var(--text-secondary);
-            font-size: 0.92rem;
-        }
-
-        .counter-number {
-            color: var(--accent);
-            font-size: 1.05rem;
-            font-weight: 900;
-            line-height: 1.55;
-        }
-
-        /* =========================================
-           FERIE
-        ========================================= */
-
-        .holidays-card {
-            text-align: center;
-        }
-
-        .holidays-label {
-            display: block;
-
-            margin: 15px 0 8px;
-
-            color: var(--text-secondary);
-
-            font-size: 0.82rem;
-            font-weight: 800;
-        }
-
-        .holidays-select {
-            width: 100%;
-
-            padding: 11px 13px;
-
-            border-radius: 12px;
-
-            border: 1px solid var(--border);
-
-            background: var(--card-bg);
-
-            color: var(--text);
-
-            font: inherit;
-
-            outline: none;
-
-            cursor: pointer;
-
-            transition:
-                border-color 0.2s ease,
-                box-shadow 0.2s ease;
-        }
-
-        .holidays-select:focus {
-            border-color: var(--accent);
-
-            box-shadow:
-                0 0 0 3px rgba(88, 101, 242, 0.12);
-        }
-
-        /* LISTA OPTIONÓW — TRYB JASNY */
-
-        .holidays-select option {
-            color: #111827;
-            background: #ffffff;
-        }
-
-        /* LISTA OPTIONÓW — TRYB CIEMNY */
-
-        body.dark .holidays-select {
-            color: #f5f7ff;
-            background: #171923;
-            border-color: rgba(255, 255, 255, 0.12);
-        }
-
-        body.dark .holidays-select option {
-            color: #f5f7ff;
-            background: #171923;
-        }
-
-        [data-theme="dark"] .holidays-select {
-            color: #f5f7ff;
-            background: #171923;
-            border-color: rgba(255, 255, 255, 0.12);
-        }
-
-        [data-theme="dark"] .holidays-select option {
-            color: #f5f7ff;
-            background: #171923;
-        }
-
-        .holidays-date {
-            margin-top: 15px;
-
-            color: var(--text-secondary);
-
-            font-size: 0.9rem;
+            color: #5865f2;
+            font-size: 0.85rem;
             font-weight: 700;
         }
 
-        /* =========================================
-           SPOŁECZNOŚĆ
-        ========================================= */
-
-        .community-card {
-            max-width: 450px;
-            margin: 0 auto;
+        .event-card h2 {
+            margin: 0 0 10px;
+            font-size: 1.5rem;
         }
 
-        .community-number {
+        .event-date {
+            margin-bottom: 18px;
+            font-weight: 700;
             color: var(--accent);
-            font-size: 2.5rem;
-            font-weight: 950;
-            line-height: 1;
         }
 
-        /* =========================================
-           SZCZEGÓŁY
-        ========================================= */
-
-        .detail-value {
-            color: var(--accent);
-
-            font-size: 1.15rem;
-            font-weight: 900;
-
-            line-height: 1.55;
-        }
-
-        /* =========================================
-           OSTATNIA AKTUALIZACJA
-        ========================================= */
-
-        .last-update-box {
-            max-width: 750px;
-
-            margin: 0 auto;
-
-            padding: 30px;
-
-            background: var(--card-bg);
-
-            border: 1px solid var(--border);
-
-            border-radius: 22px;
-
-            box-shadow: var(--shadow);
-
-            text-align: center;
-        }
-
-        .last-update-box p {
-            margin: 0;
-
-            color: var(--text-secondary);
-
+        .event-card p {
             line-height: 1.7;
+            color: var(--muted-text);
         }
 
-        /* =========================================
-           RESPONSIVE
-        ========================================= */
-
-        @media (max-width: 950px) {
-
-            .counter-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
+        .event-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
         }
 
-        @media (max-width: 760px) {
+        .event-button {
+            border: none;
+            border-radius: 12px;
+            padding: 11px 16px;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
 
-            .counter-hero {
-                padding: 70px 0 55px;
+        .event-button:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .event-button.secondary {
+            background: rgba(88, 101, 242, 0.12);
+            color: #5865f2;
+        }
+
+        .year-heading {
+            margin: 0 0 25px;
+            font-size: 2rem;
+        }
+
+        .year-block {
+            margin-bottom: 60px;
+        }
+
+        .event-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.72);
+            backdrop-filter: blur(8px);
+            animation: modalBackground 0.25s ease;
+        }
+
+        .event-modal.active {
+            display: flex;
+        }
+
+        .event-modal-content {
+            position: relative;
+            width: min(700px, 100%);
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 34px;
+            border-radius: 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.35);
+            animation: modalOpen 0.3s ease;
+        }
+
+        .event-modal-content h2 {
+            margin: 0 45px 25px 0;
+            font-size: 1.8rem;
+        }
+
+        .event-modal-content p {
+            line-height: 1.75;
+            color: var(--muted-text);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(127, 127, 127, 0.12);
+            color: var(--text);
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+            background: rgba(127, 127, 127, 0.2);
+        }
+
+        .schedule {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .schedule-item {
+            padding: 17px 18px;
+            border-radius: 14px;
+            background: rgba(127, 127, 127, 0.08);
+            border: 1px solid var(--border);
+            line-height: 1.6;
+        }
+
+        .schedule-item strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        @keyframes modalBackground {
+            from {
+                opacity: 0;
             }
 
-            .counter-section {
-                padding: 55px 0;
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes modalOpen {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.97);
             }
 
-            .main-counter-grid {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @media (max-width: 800px) {
+            .events-grid {
                 grid-template-columns: 1fr;
             }
 
-            .counter-grid {
-                grid-template-columns: 1fr;
+            .events-section {
+                padding: 50px 0;
             }
 
-            .main-counter-card {
-                padding: 28px 22px;
+            .event-card {
+                padding: 24px;
             }
 
+            .event-modal-content {
+                padding: 26px 20px;
+            }
         }
 
-        @media (max-width: 480px) {
-
-            .counter-hero {
-                padding: 55px 0 45px;
+        @media (max-width: 600px) {
+            .event-buttons {
+                flex-direction: column;
             }
 
-            .main-counter-card {
-                padding: 25px 18px;
-                border-radius: 20px;
+            .event-button {
+                width: 100%;
             }
-
-            .counter-card {
-                padding: 24px 18px;
-                border-radius: 18px;
-            }
-
-            .main-counter-icon {
-                width: 64px;
-                height: 64px;
-                font-size: 1.8rem;
-            }
-
-            .counter-card-icon {
-                width: 54px;
-                height: 54px;
-            }
-
         }
-
     </style>
-
 </head>
-
 
 <body>
 
-
 <header>
-
     <div class="header-inner">
 
         <a href="index.html" class="logo">
             🌟 Kolonia Pasjonatów
         </a>
 
-
         <nav>
-
-            <a href="index.html">
-                Strona główna
-            </a>
-
-            <a href="ranking.html">
-                Ranking
-            </a>
-
-            <a href="licznik.html" class="active">
-                Licznik
-            </a>
-
-            <a href="wydarzenia.html">
-                Wydarzenia
-            </a>
-
-            <a href="linki.html">
-                Linki
-            </a>
-
-            <a href="kontakt.html">
-                Kontakt
-            </a>
-
+            <a href="index.html">Strona główna</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="licznik.html">Licznik</a>
+            <a href="wydarzenia.html" class="active">Wydarzenia</a>
+            <a href="linki.html">Linki</a>
+            <a href="kontakt.html">Kontakt</a>
         </nav>
-
 
         <button
             id="themeToggle"
             class="theme-toggle"
             type="button"
-            aria-label="Zmień motyw">
-
+            aria-label="Zmień motyw"
+        >
             🌙
-
         </button>
 
     </div>
-
 </header>
 
 
-<main class="counter-page">
+<main>
 
-
-    <!-- HERO -->
+    <!-- HERO — taki sam jak na licznik.html -->
 
     <section class="hero">
-
         <div class="container">
 
             <div class="hero-content">
 
                 <h1>
-                    Licznik
+                    Wydarzenia
                     <span>Kolonii Pasjonatów!</span>
                 </h1>
 
                 <p>
-                    Sprawdź dokładny czas działania Kolonii Pasjonatów,
-                    odliczanie do wydarzeń oraz najważniejsze daty.
+                    Sprawdź najważniejsze wydarzenia, konkursy i aktywności
+                    organizowane w Kolonii Pasjonatów.
                 </p>
 
             </div>
 
         </div>
-
     </section>
 
 
-    <!-- NAJWAŻNIEJSZE -->
+    <!-- WYDARZENIA -->
 
-    <section class="counter-section">
+    <section class="events-section">
 
         <div class="container">
 
-            <div class="counter-heading">
+            <!-- 2026 -->
 
-                <span class="counter-heading-label">
-                    🌟 NAJWAŻNIEJSZE
-                </span>
+            <div class="year-block">
 
-                <h2>
-                    Nasze liczniki
+                <h2 class="year-heading">
+                    📅 Wydarzenia 2026
                 </h2>
 
-                <p>
-                    Dokładny czas działania Kolonii Pasjonatów
-                    oraz oficjalnej strony.
-                </p>
+                <div class="events-grid">
+
+                    <!-- JESIEŃ -->
+
+                    <article class="event-card">
+
+                        <span class="event-year">
+                            2026
+                        </span>
+
+                        <h2>
+                            🍂📸 Kolej w jesiennym obiektywie
+                        </h2>
+
+                        <div class="event-date">
+                            23.09–09.10.2026
+                        </div>
+
+                        <p>
+                            Jesienny konkurs fotograficzny dla miłośników kolei.
+                            Pokaż swoje najlepsze kolejowe ujęcia w jesiennym klimacie!
+                        </p>
+
+                        <div class="event-buttons">
+
+                            <button
+                                class="event-button"
+                                onclick="openEventModal('harmonogram-jesienny')"
+                            >
+                                📅 Harmonogram
+                            </button>
+
+                            <button
+                                class="event-button secondary"
+                                onclick="openEventModal('opis-jesienny')"
+                            >
+                                ℹ️ Opis wydarzenia
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ZIMA -->
+
+                    <article class="event-card">
+
+                        <span class="event-year">
+                            2026/2027
+                        </span>
+
+                        <h2>
+                            ❄️ Strefa Zimowa 2026/2027
+                        </h2>
+
+                        <div class="event-date">
+                            20.11.2026–31.01.2027
+                        </div>
+
+                        <p>
+                            Zimowa strefa pełna kolejowych aktywności,
+                            konkursów i wydarzeń społecznościowych.
+                        </p>
+
+                        <div class="event-buttons">
+
+                            <button
+                                class="event-button"
+                                onclick="openEventModal('harmonogram-zimowy')"
+                            >
+                                📅 Harmonogram
+                            </button>
+
+                            <button
+                                class="event-button secondary"
+                                onclick="openEventModal('opis-zimowy')"
+                            >
+                                ℹ️ Opis wydarzenia
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
 
             </div>
 
 
-            <div class="main-counter-grid">
+            <!-- 2027 -->
 
+            <div class="year-block">
 
-                <!-- KOLONIA -->
+                <h2 class="year-heading">
+                    📅 Wydarzenia 2027
+                </h2>
 
-                <div class="main-counter-card">
+                <div class="events-grid">
 
-                    <div class="main-counter-icon">
-                        🌟
-                    </div>
+                    <!-- LATO -->
 
-                    <h3>
-                        Kolonia Pasjonatów
-                    </h3>
+                    <article class="event-card">
 
-                    <p>
-                        Od 11.06.2026
-                    </p>
+                        <span class="event-year">
+                            2027
+                        </span>
 
-                    <div
-                        id="colonyUptime"
-                        class="main-counter-value">
+                        <h2>
+                            ☀️ Strefa Letnia 2027
+                        </h2>
 
-                        Ładowanie...
+                        <div class="event-date">
+                            01.06–31.08.2027
+                        </div>
 
-                    </div>
+                        <p>
+                            Letnia strefa pełna aktywności, wydarzeń
+                            i zabawy dla całej społeczności.
+                        </p>
 
-                </div>
+                        <div class="event-buttons">
 
+                            <button
+                                class="event-button secondary"
+                                onclick="openEventModal('opis-letnia')"
+                            >
+                                ℹ️ Opis wydarzenia
+                            </button>
 
-                <!-- STRONA -->
+                        </div>
 
-                <div class="main-counter-card">
-
-                    <div class="main-counter-icon">
-                        🌐
-                    </div>
-
-                    <h3>
-                        Oficjalna strona
-                    </h3>
-
-                    <p>
-                        Od 13.08.2026, 20:10
-                    </p>
-
-                    <div
-                        id="websiteUptime"
-                        class="main-counter-value">
-
-                        Ładowanie...
-
-                    </div>
+                    </article>
 
                 </div>
-
 
             </div>
 
         </div>
 
     </section>
-
-
-    <!-- ŚWIĘTA I WYDARZENIA -->
-
-    <section class="counter-section">
-
-        <div class="container">
-
-            <div class="counter-heading">
-
-                <span class="counter-heading-label">
-                    ⏳ ODLICZANIE
-                </span>
-
-                <h2>
-                    Święta i wydarzenia
-                </h2>
-
-                <p>
-                    Odliczanie do najważniejszych świąt
-                    i wydarzeń Kolonii Pasjonatów.
-                </p>
-
-            </div>
-
-
-            <div class="counter-grid">
-
-
-                <!-- HALLOWEEN -->
-
-                <div class="counter-card">
-
-                    <div class="counter-card-icon">
-                        🎃
-                    </div>
-
-                    <h3>
-                        Halloween
-                    </h3>
-
-                    <p id="halloweenDate">
-                        31.10.2026
-                    </p>
-
-                    <div
-                        id="halloweenCountdown"
-                        class="counter-number">
-
-                        Ładowanie...
-
-                    </div>
-
-                </div>
-
-
-                <!-- WIGILIA -->
-
-                <div class="counter-card">
-
-                    <div class="counter-card-icon">
-                        🎄
-                    </div>
-
-                    <h3>
-                        Wigilia
-                    </h3>
-
-                    <p id="christmasDate">
-                        24.12.2026
-                    </p>
-
-                    <div
-                        id="christmasCountdown"
-                        class="counter-number">
-
-                        Ładowanie...
-
-                    </div>
-
-                </div>
-
-
-                <!-- NOWY ROK -->
-
-                <div class="counter-card">
-
-                    <div class="counter-card-icon">
-                        🎆
-                    </div>
-
-                    <h3>
-                        Nowy Rok
-                    </h3>
-
-                    <p id="newYearDate">
-                        01.01.2027
-                    </p>
-
-                    <div
-                        id="newYearCountdown"
-                        class="counter-number">
-
-                        Ładowanie...
-
-                    </div>
-
-                </div>
-
-
-                <!-- WIELKANOC -->
-
-                <div class="counter-card">
-
-                    <div class="counter-card-icon">
-                        🐣
-                    </div>
-
-                    <h3>
-                        Wielkanoc
-                    </h3>
-
-                    <p id="easterDate">
-                        28.03.2027
-                    </p>
-
-                    <div
-                        id="easterCountdown"
-                        class="counter-number">
-
-                        Ładowanie...
-
-                    </div>
-
-                </div>
-
-
-                <!-- SYLWESTER -->
-
-                <div class="counter-card">
-
-                    <div class="counter-card-icon">
-                        🎇
-                    </div>
-
-                    <h3>
-                        Sylwester
-                    </h3>
-
-                    <p id="sylwesterDate">
-                        31.12.2026
-                    </p>
-
-                    <div
-                        id="sylwesterCountdown"
-                        class="counter-number">
-
-                        Ładowanie...
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ROCZNE / SEZONOWE -->
-
-    <section class="counter-section">
-
-        <div class="container">
-
-            <div class="counter-heading">
-
-                <span class="counter-heading-label">
-                    📅 ROCZNE / SEZONOWE
-                </span>
-
-                <h2>
-                    Najważniejsze daty
-                </h2>
-
-                <p>
-                    Daty sezonowe oraz wydarzenia w Kolonii Pasjonatów.
-                </p>
-
-            </div>
-
-
-            <div class="counter-grid">
-
-
-                <!-- WAKACJE -->
-
-                <div class="counter-card">
-
-                    <div class="counter-card-icon">
-                        🏖️
-                    </div>
-
-                    <h3>
-                        Wakacje 2027
-                    </h3>
-
-                    <p id="summer2027Date">
-                        26.06.2027
-                    </p>
-
-                    <div
-                        id="summer2027Countdown"
-                        class="counter-number">
-
-                        Ładowanie...
-
-                    </div>
-
-                </div>
-
-
-                <!-- KONIEC 2026 -->
-
-                <div class="counter-card">
-
-                    <div class="counter-card-icon">
-                        📅
-                    </div>
-
-                    <h3>
-                        Koniec 2026
-                    </h3>
-
-                    <p>
-                        31.12.2026
-                    </p>
-
-                    <div
-                        id="end2026Countdown"
-                        class="counter-number">
-
-                        Ładowanie...
-
-                    </div>
-
-                </div>
-
-
-                <!-- FERIE -->
-
-                <div class="counter-card holidays-card">
-
-                    <div class="counter-card-icon">
-                        🏫
-                    </div>
-
-                    <h3>
-                        Ferie zimowe 2027
-                    </h3>
-
-                    <p>
-                        Wybierz swoje województwo
-                    </p>
-
-
-                    <label
-                        for="voivodeshipSelect"
-                        class="holidays-label">
-
-                        Województwo
-
-                    </label>
-
-
-                    <select
-                        id="voivodeshipSelect"
-                        class="holidays-select">
-
-                        <option value="dolnoslaskie">
-                            Dolnośląskie
-                        </option>
-
-                        <option value="kujawsko-pomorskie">
-                            Kujawsko-Pomorskie
-                        </option>
-
-                        <option value="lubelskie">
-                            Lubelskie
-                        </option>
-
-                        <option value="lubuskie">
-                            Lubuskie
-                        </option>
-
-                        <option value="lodzkie">
-                            Łódzkie
-                        </option>
-
-                        <option value="malopolskie">
-                            Małopolskie
-                        </option>
-
-                        <option value="mazowieckie">
-                            Mazowieckie
-                        </option>
-
-                        <option value="opolskie">
-                            Opolskie
-                        </option>
-
-                        <option value="podkarpackie">
-                            Podkarpackie
-                        </option>
-
-                        <option value="podlaskie">
-                            Podlaskie
-                        </option>
-
-                        <option
-                            value="pomorskie"
-                            selected>
-
-                            Pomorskie
-
-                        </option>
-
-                        <option value="slaskie">
-                            Śląskie
-                        </option>
-
-                        <option value="swietokrzyskie">
-                            Świętokrzyskie
-                        </option>
-
-                        <option value="warminsko-mazurskie">
-                            Warmińsko-Mazurskie
-                        </option>
-
-                        <option value="wielkopolskie">
-                            Wielkopolskie
-                        </option>
-
-                        <option value="zachodniopomorskie">
-                            Zachodniopomorskie
-                        </option>
-
-                    </select>
-
-
-                    <div
-                        id="holidaysDate"
-                        class="holidays-date">
-
-                        Ładowanie...
-
-                    </div>
-
-
-                    <div
-                        id="daysToHolidays"
-                        class="counter-number">
-
-                        Ładowanie...
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- SPOŁECZNOŚĆ -->
-
-    <section class="counter-section">
-
-        <div class="container">
-
-            <div class="counter-heading">
-
-                <span class="counter-heading-label">
-                    👥 SPOŁECZNOŚĆ
-                </span>
-
-                <h2>
-                    Kolonia Pasjonatów
-                </h2>
-
-            </div>
-
-
-            <div class="counter-grid">
-
-
-                <div class="counter-card community-card">
-
-                    <div class="counter-card-icon">
-                        👥
-                    </div>
-
-                    <h3>
-                        Członkowie
-                    </h3>
-
-                    <p>
-                        Aktualna liczba członków
-                    </p>
-
-                    <div
-                        id="usersCount"
-                        class="community-number">
-
-                        20
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- SZCZEGÓŁY -->
-
-    <section class="counter-section">
-
-        <div class="container">
-
-            <div class="counter-heading">
-
-                <span class="counter-heading-label">
-                    📊 SZCZEGÓŁY
-                </span>
-
-                <h2>
-                    Dokładny czas
-                </h2>
-
-            </div>
-
-
-            <div class="counter-grid">
-
-
-                <div class="counter-card">
-
-                    <div class="counter-card-icon">
-                        ⏱️
-                    </div>
-
-                    <h3>
-                        Działanie Kolonii
-                    </h3>
-
-                    <div
-                        id="detailedUptime"
-                        class="detail-value">
-
-                        Ładowanie...
-
-                    </div>
-
-                </div>
-
-
-                <div class="counter-card">
-
-                    <div class="counter-card-icon">
-                        🌐
-                    </div>
-
-                    <h3>
-                        Działanie strony
-                    </h3>
-
-                    <div
-                        id="websiteDetailedUptime"
-                        class="detail-value">
-
-                        Ładowanie...
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- OSTATNIA AKTUALIZACJA -->
-
-    <section class="counter-section">
-
-        <div class="container">
-
-            <div class="counter-heading">
-
-                <span class="counter-heading-label">
-                    🔄 AKTUALIZACJA
-                </span>
-
-                <h2>
-                    Ostatnia aktualizacja
-                </h2>
-
-            </div>
-
-
-            <div class="last-update-box">
-
-                <p id="lastUpdate">
-                    Ładowanie...
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
 
 </main>
 
 
+<!-- MODAL: JESIENNY HARMONOGRAM -->
+
+<div
+    class="event-modal"
+    id="harmonogram-jesienny"
+    onclick="closeEventModal(event)"
+>
+
+    <div class="event-modal-content">
+
+        <button
+            class="modal-close"
+            type="button"
+            onclick="closeEventModal()"
+            aria-label="Zamknij"
+        >
+            ×
+        </button>
+
+        <h2>
+            🍂 Harmonogram — Kolej w jesiennym obiektywie
+        </h2>
+
+        <div class="schedule">
+
+            <div class="schedule-item">
+                <strong>23.09.2026</strong>
+                🍂 Start konkursu „Kolej w jesiennym obiektywie”.
+            </div>
+
+            <div class="schedule-item">
+                <strong>23.09–04.10.2026</strong>
+                📸 Przyjmowanie prac konkursowych.
+            </div>
+
+            <div class="schedule-item">
+                <strong>05–07.10.2026</strong>
+                👨‍⚖️ Głosowanie jury.
+            </div>
+
+            <div class="schedule-item">
+                <strong>07–08.10.2026</strong>
+                🗳️ Głosowanie publiczności.
+            </div>
+
+            <div class="schedule-item">
+                <strong>08.10.2026</strong>
+                🔎 Weryfikacja wyników i końcowe głosowanie jury.
+            </div>
+
+            <div class="schedule-item">
+                <strong>09.10.2026</strong>
+                🏆 Ogłoszenie wyników i zakończenie wydarzenia.
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- MODAL: JESIENNY OPIS -->
+
+<div
+    class="event-modal"
+    id="opis-jesienny"
+    onclick="closeEventModal(event)"
+>
+
+    <div class="event-modal-content">
+
+        <button
+            class="modal-close"
+            type="button"
+            onclick="closeEventModal()"
+            aria-label="Zamknij"
+        >
+            ×
+        </button>
+
+        <h2>
+            🍂📸 Kolej w jesiennym obiektywie
+        </h2>
+
+        <p>
+            „Kolej w jesiennym obiektywie” to konkurs fotograficzny
+            poświęcony kolei w jesiennej scenerii.
+        </p>
+
+        <p>
+            Każda praca może otrzymać maksymalnie
+            <strong>100 punktów od jury</strong>.
+        </p>
+
+        <p>
+            Głosowanie publiczności odbywa się za pomocą reakcji:
+        </p>
+
+        <div class="schedule">
+
+            <div class="schedule-item">
+                👍 <strong>GOOD</strong>
+            </div>
+
+            <div class="schedule-item">
+                😐 <strong>MID</strong>
+            </div>
+
+            <div class="schedule-item">
+                👎 <strong>BAD</strong>
+            </div>
+
+        </div>
+
+        <p>
+            Wynik końcowy będzie wynikiem połączenia punktów jury
+            oraz głosów publiczności.
+        </p>
+
+        <p>
+            ⚠️ Nie wolno głosować na własną pracę.
+            Głosy oddane na własną pracę nie będą liczone.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- MODAL: ZIMOWY HARMONOGRAM -->
+
+<div
+    class="event-modal"
+    id="harmonogram-zimowy"
+    onclick="closeEventModal(event)"
+>
+
+    <div class="event-modal-content">
+
+        <button
+            class="modal-close"
+            type="button"
+            onclick="closeEventModal()"
+            aria-label="Zamknij"
+        >
+            ×
+        </button>
+
+        <h2>
+            ❄️ Harmonogram — Strefa Zimowa 2026/2027
+        </h2>
+
+        <div class="schedule">
+
+            <div class="schedule-item">
+                <strong>20.11.2026</strong>
+                ❄️ Start Strefy Zimowej.
+            </div>
+
+            <div class="schedule-item">
+                <strong>28.11–06.12.2026</strong>
+                📸 Mini konkurs „Zima na kolei”.
+            </div>
+
+            <div class="schedule-item">
+                <strong>06.12.2026, 18:00</strong>
+                🎅 Mikołajki w Kolonii.
+            </div>
+
+            <div class="schedule-item">
+                <strong>12–20.12.2026</strong>
+                🚆 Zimowy pojedynek taboru.
+            </div>
+
+            <div class="schedule-item">
+                <strong>23.12.2026, 19:00 – 25.12.2026, 14:00</strong>
+                🎄 Wigilia w Kolonii.
+            </div>
+
+            <div class="schedule-item">
+                <strong>30.12.2026, 17:00 – 01.01.2027, 14:30</strong>
+                🎆 Sylwester w Kolonii.
+            </div>
+
+            <div class="schedule-item">
+                <strong>09–17.01.2027</strong>
+                📷 „Najlepsze zimowe ujęcie”.
+            </div>
+
+            <div class="schedule-item">
+                <strong>20–24.01.2027</strong>
+                🚉 „Zimowa stacja roku”.
+            </div>
+
+            <div class="schedule-item">
+                <strong>31.01.2027</strong>
+                🏁 Zakończenie Strefy Zimowej.
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- MODAL: ZIMOWY OPIS -->
+
+<div
+    class="event-modal"
+    id="opis-zimowy"
+    onclick="closeEventModal(event)"
+>
+
+    <div class="event-modal-content">
+
+        <button
+            class="modal-close"
+            type="button"
+            onclick="closeEventModal()"
+            aria-label="Zamknij"
+        >
+            ×
+        </button>
+
+        <h2>
+            ❄️ Strefa Zimowa 2026/2027
+        </h2>
+
+        <p>
+            Strefa Zimowa to specjalny okres wydarzeń w Kolonii Pasjonatów
+            poświęcony zimowej atmosferze oraz kolejowym aktywnościom.
+        </p>
+
+        <p>
+            W ramach strefy odbędą się konkursy, aktywności związane
+            z taborem oraz wydarzenia społecznościowe.
+        </p>
+
+        <p>
+            🚆 W programie znajdzie się między innymi
+            <strong>Zimowy pojedynek taboru</strong>.
+        </p>
+
+        <p>
+            📸 Nie zabraknie również zimowych konkursów fotograficznych
+            oraz wyboru <strong>„Zimowej stacji roku”</strong>.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- MODAL: LATO -->
+
+<div
+    class="event-modal"
+    id="opis-letnia"
+    onclick="closeEventModal(event)"
+>
+
+    <div class="event-modal-content">
+
+        <button
+            class="modal-close"
+            type="button"
+            onclick="closeEventModal()"
+            aria-label="Zamknij"
+        >
+            ×
+        </button>
+
+        <h2>
+            ☀️ Strefa Letnia 2027
+        </h2>
+
+        <p>
+            <strong>01.06–31.08.2027</strong>
+        </p>
+
+        <p>
+            Strefa Letnia będzie okresem pełnym aktywności,
+            wydarzeń i zabawy dla społeczności Kolonii Pasjonatów.
+        </p>
+
+        <p>
+            ☀️ Szczegółowy harmonogram zostanie przedstawiony
+            bliżej rozpoczęcia strefy.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- STOPKA -->
+
 <footer>
-
-    <p>
-        © 2026 Kolonia Pasjonatów
-    </p>
-
-    <p>
-        🌟 Oficjalna strona społeczności
-    </p>
-
+    <p>© 2026 Kolonia Pasjonatów</p>
+    <p>🌟 Oficjalna strona społeczności</p>
 </footer>
 
 
-<script src="licznik.js"></script>
+<script>
+    function openEventModal(id) {
+        const modal = document.getElementById(id);
+
+        if (!modal) {
+            return;
+        }
+
+        document
+            .querySelectorAll('.event-modal.active')
+            .forEach(function(item) {
+                item.classList.remove('active');
+            });
+
+        modal.classList.add('active');
+
+        document.body.style.overflow = 'hidden';
+    }
+
+
+    function closeEventModal(event) {
+
+        if (event && event.target !== event.currentTarget) {
+            return;
+        }
+
+        document
+            .querySelectorAll('.event-modal.active')
+            .forEach(function(modal) {
+                modal.classList.remove('active');
+            });
+
+        document.body.style.overflow = '';
+    }
+
+
+    document.addEventListener('keydown', function(event) {
+
+        if (event.key === 'Escape') {
+            closeEventModal();
+        }
+
+    });
+</script>
+
+
 <script src="script.js"></script>
 
-
 </body>
-
 </html>
