@@ -13,118 +13,69 @@
     <style>
 
         /* =========================================
-           LICZNIK — DODATKOWY WYGLĄD
+           LICZNIK — WYGLĄD
         ========================================= */
 
         .counter-page {
-            padding-bottom: 30px;
+            padding-bottom: 40px;
         }
-
-
-        /* HERO */
 
         .counter-hero {
-            min-height: 430px;
-
-            display: flex;
-            align-items: center;
-
-            background:
-                radial-gradient(
-                    circle at 15% 20%,
-                    rgba(88, 101, 242, 0.16),
-                    transparent 35%
-                ),
-                radial-gradient(
-                    circle at 85% 70%,
-                    rgba(88, 101, 242, 0.10),
-                    transparent 35%
-                );
+            padding: 90px 0 75px;
         }
-
-        .counter-hero .hero-content {
-            max-width: 850px;
-        }
-
-        .hero-label {
-            display: inline-flex;
-
-            padding: 8px 14px;
-            margin-bottom: 18px;
-
-            border-radius: 999px;
-
-            background: rgba(88, 101, 242, 0.10);
-            border: 1px solid rgba(88, 101, 242, 0.20);
-
-            color: var(--accent);
-
-            font-size: 0.78rem;
-            font-weight: 900;
-            letter-spacing: 0.08em;
-        }
-
-
-        /* SEKCJE */
 
         .counter-section {
             padding: 75px 0;
         }
 
-
         .counter-heading {
+            margin-bottom: 45px;
             text-align: center;
-            max-width: 720px;
-            margin: 0 auto 38px;
         }
 
         .counter-heading-label {
             display: inline-block;
-
-            margin-bottom: 10px;
-
+            margin-bottom: 12px;
             color: var(--accent);
-
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             font-weight: 900;
-            letter-spacing: 0.09em;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
         .counter-heading h2 {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .counter-heading p {
+            max-width: 700px;
+            margin: 0 auto;
             color: var(--text-secondary);
+            line-height: 1.7;
         }
 
-
-        /* NAJWAŻNIEJSZE LICZNIKI */
+        /* =========================================
+           GŁÓWNE LICZNIKI
+        ========================================= */
 
         .main-counter-grid {
             display: grid;
-
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
-
-            gap: 24px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-
 
         .main-counter-card {
             position: relative;
-
-            padding: 34px;
-
-            border-radius: 24px;
+            padding: 35px;
+            overflow: hidden;
 
             background: var(--card-bg);
-
             border: 1px solid var(--border);
+            border-radius: 24px;
 
             box-shadow: var(--shadow);
-
-            overflow: hidden;
 
             text-align: center;
 
@@ -134,25 +85,18 @@
                 box-shadow 0.25s ease;
         }
 
-
         .main-counter-card::before {
             content: "";
 
             position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
 
-            width: 220px;
-            height: 220px;
+            height: 4px;
 
-            top: -110px;
-            right: -90px;
-
-            border-radius: 50%;
-
-            background: rgba(88, 101, 242, 0.07);
-
-            pointer-events: none;
+            background: var(--accent);
         }
-
 
         .main-counter-card:hover {
             transform: translateY(-5px);
@@ -160,15 +104,86 @@
             border-color: rgba(88, 101, 242, 0.35);
 
             box-shadow:
-                0 18px 45px rgba(0, 0, 0, 0.15);
+                0 18px 40px rgba(0, 0, 0, 0.16);
         }
 
+        .main-counter-icon {
+            width: 72px;
+            height: 72px;
 
-        .counter-icon-large {
-            width: 76px;
-            height: 76px;
+            margin: 0 auto 20px;
 
-            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(88, 101, 242, 0.12);
+
+            font-size: 2rem;
+        }
+
+        .main-counter-card h3 {
+            margin-bottom: 8px;
+            font-size: 1.3rem;
+        }
+
+        .main-counter-card p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .main-counter-value {
+            color: var(--accent);
+            font-size: 1.35rem;
+            font-weight: 900;
+            line-height: 1.5;
+        }
+
+        /* =========================================
+           STANDARDOWE KARTY
+        ========================================= */
+
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .counter-card {
+            position: relative;
+
+            padding: 28px 24px;
+
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 21px;
+
+            box-shadow: var(--shadow);
+
+            text-align: center;
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .counter-card:hover {
+            transform: translateY(-4px);
+
+            border-color: rgba(88, 101, 242, 0.35);
+
+            box-shadow:
+                0 15px 32px rgba(0, 0, 0, 0.14);
+        }
+
+        .counter-card-icon {
+            width: 58px;
+            height: 58px;
+
+            margin: 0 auto 17px;
 
             display: flex;
             align-items: center;
@@ -178,288 +193,197 @@
 
             background: rgba(88, 101, 242, 0.10);
 
-            border: 1px solid rgba(88, 101, 242, 0.18);
-
-            font-size: 2rem;
+            font-size: 1.6rem;
         }
 
-
-        .main-counter-card h3 {
-            margin-bottom: 6px;
-            font-size: 1.35rem;
+        .counter-card h3 {
+            margin-bottom: 8px;
+            font-size: 1.08rem;
         }
 
-
-        .counter-date {
+        .counter-card p {
+            margin-bottom: 18px;
             color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 22px;
+            font-size: 0.92rem;
         }
 
+        .counter-number {
+            color: var(--accent);
+            font-size: 1.05rem;
+            font-weight: 900;
+            line-height: 1.55;
+        }
 
-        .counter-value {
-            padding: 18px;
+        /* =========================================
+           FERIE
+        ========================================= */
 
-            border-radius: 16px;
+        .holidays-card {
+            text-align: center;
+        }
 
-            background: rgba(88, 101, 242, 0.06);
+        .holidays-label {
+            display: block;
+
+            margin: 15px 0 8px;
+
+            color: var(--text-secondary);
+
+            font-size: 0.82rem;
+            font-weight: 800;
+        }
+
+        .holidays-select {
+            width: 100%;
+
+            padding: 11px 13px;
+
+            border-radius: 12px;
 
             border: 1px solid var(--border);
 
+            background: var(--card-bg);
+
+            color: var(--text);
+
+            font: inherit;
+
+            outline: none;
+
+            cursor: pointer;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .holidays-select:focus {
+            border-color: var(--accent);
+
+            box-shadow:
+                0 0 0 3px rgba(88, 101, 242, 0.12);
+        }
+
+        /* LISTA OPTIONÓW — TRYB JASNY */
+
+        .holidays-select option {
+            color: #111827;
+            background: #ffffff;
+        }
+
+        /* LISTA OPTIONÓW — TRYB CIEMNY */
+
+        body.dark .holidays-select {
+            color: #f5f7ff;
+            background: #171923;
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        body.dark .holidays-select option {
+            color: #f5f7ff;
+            background: #171923;
+        }
+
+        [data-theme="dark"] .holidays-select {
+            color: #f5f7ff;
+            background: #171923;
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        [data-theme="dark"] .holidays-select option {
+            color: #f5f7ff;
+            background: #171923;
+        }
+
+        .holidays-date {
+            margin-top: 15px;
+
+            color: var(--text-secondary);
+
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        /* =========================================
+           SPOŁECZNOŚĆ
+        ========================================= */
+
+        .community-card {
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .community-number {
+            color: var(--accent);
+            font-size: 2.5rem;
+            font-weight: 950;
+            line-height: 1;
+        }
+
+        /* =========================================
+           SZCZEGÓŁY
+        ========================================= */
+
+        .detail-value {
             color: var(--accent);
 
             font-size: 1.15rem;
             font-weight: 900;
 
-            line-height: 1.5;
-        }
-
-
-        /* ZWYKŁE KARTY */
-
-        .counter-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, minmax(0, 1fr));
-
-            gap: 20px;
-        }
-
-
-        .counter-card {
-            position: relative;
-
-            display: flex;
-            flex-direction: column;
-
-            padding: 25px;
-
-            min-height: 235px;
-
-            border-radius: 21px;
-
-            background: var(--card-bg);
-
-            border: 1px solid var(--border);
-
-            box-shadow: var(--shadow);
-
-            overflow: hidden;
-
-            transition:
-                transform 0.22s ease,
-                border-color 0.22s ease,
-                box-shadow 0.22s ease;
-        }
-
-
-        .counter-card::after {
-            content: "";
-
-            position: absolute;
-
-            width: 130px;
-            height: 130px;
-
-            right: -55px;
-            bottom: -65px;
-
-            border-radius: 50%;
-
-            background: rgba(88, 101, 242, 0.05);
-
-            pointer-events: none;
-        }
-
-
-        .counter-card:hover {
-            transform: translateY(-4px);
-
-            border-color: rgba(88, 101, 242, 0.28);
-        }
-
-
-        .counter-card-icon {
-            width: 54px;
-            height: 54px;
-
-            margin-bottom: 17px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 16px;
-
-            background: rgba(88, 101, 242, 0.09);
-
-            border: 1px solid rgba(88, 101, 242, 0.16);
-
-            font-size: 1.45rem;
-        }
-
-
-        .counter-card h3 {
-            margin-bottom: 5px;
-            font-size: 1.08rem;
-        }
-
-
-        .counter-card-date {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-
-            margin-bottom: 15px;
-        }
-
-
-        .counter-number {
-            margin-top: auto;
-
-            color: var(--accent);
-
-            font-size: 1.05rem;
-            font-weight: 900;
-
-            line-height: 1.5;
-        }
-
-
-        /* FERIE */
-
-        .holidays-card {
-            grid-column: span 2;
-        }
-
-
-        .holidays-label {
-            display: block;
-
-            margin: 12px 0 7px;
-
-            color: var(--text-secondary);
-
-            font-size: 0.82rem;
-            font-weight: 700;
-        }
-
-
-        .holidays-select {
-            width: 100%;
-
-            padding: 12px 14px;
-
-            border-radius: 12px;
-
-            background: var(--bg);
-
-            color: var(--text);
-
-            border: 1px solid var(--border);
-
-            outline: none;
-
-            font: inherit;
-        }
-
-
-        .holidays-select:focus {
-            border-color: var(--accent);
-        }
-
-
-        .holidays-date {
-            margin-top: 12px;
-
-            color: var(--text-secondary);
-
-            font-size: 0.85rem;
-        }
-
-
-        .holidays-card .counter-number {
-            margin-top: 12px;
-        }
-
-
-        /* SPOŁECZNOŚĆ */
-
-        .community-card {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-
-        .community-number {
-            margin-top: auto;
-
-            color: var(--accent);
-
-            font-size: 2.6rem;
-            font-weight: 950;
-        }
-
-
-        /* SZCZEGÓŁY */
-
-        .detail-value {
-            margin-top: auto;
-
-            padding: 14px;
-
-            border-radius: 13px;
-
-            background: rgba(88, 101, 242, 0.06);
-
-            color: var(--accent);
-
-            font-weight: 900;
-
             line-height: 1.55;
         }
 
-
-        /* OSTATNIA AKTUALIZACJA */
+        /* =========================================
+           OSTATNIA AKTUALIZACJA
+        ========================================= */
 
         .last-update-box {
-            max-width: 700px;
+            max-width: 750px;
 
             margin: 0 auto;
 
-            padding: 25px;
-
-            text-align: center;
-
-            border-radius: 20px;
+            padding: 30px;
 
             background: var(--card-bg);
 
             border: 1px solid var(--border);
 
-            box-shadow: var(--shadow);
-        }
+            border-radius: 22px;
 
+            box-shadow: var(--shadow);
+
+            text-align: center;
+        }
 
         .last-update-box p {
             margin: 0;
+
             color: var(--text-secondary);
+
+            line-height: 1.7;
         }
 
-
-        /* RESPONSYWNOŚĆ */
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
 
         @media (max-width: 950px) {
 
             .counter-grid {
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
         }
 
-
         @media (max-width: 760px) {
+
+            .counter-hero {
+                padding: 70px 0 55px;
+            }
+
+            .counter-section {
+                padding: 55px 0;
+            }
 
             .main-counter-grid {
                 grid-template-columns: 1fr;
@@ -469,30 +393,37 @@
                 grid-template-columns: 1fr;
             }
 
-            .holidays-card {
-                grid-column: auto;
-            }
-
-            .counter-section {
-                padding: 55px 0;
+            .main-counter-card {
+                padding: 28px 22px;
             }
 
         }
 
-
         @media (max-width: 480px) {
 
-            .main-counter-card,
-            .counter-card {
-                padding: 21px;
-            }
-
             .counter-hero {
-                min-height: 390px;
+                padding: 55px 0 45px;
             }
 
-            .counter-value {
-                font-size: 0.95rem;
+            .main-counter-card {
+                padding: 25px 18px;
+                border-radius: 20px;
+            }
+
+            .counter-card {
+                padding: 24px 18px;
+                border-radius: 18px;
+            }
+
+            .main-counter-icon {
+                width: 64px;
+                height: 64px;
+                font-size: 1.8rem;
+            }
+
+            .counter-card-icon {
+                width: 54px;
+                height: 54px;
             }
 
         }
@@ -558,25 +489,20 @@
 </header>
 
 
-
 <main class="counter-page">
 
 
     <!-- HERO -->
 
-    <section class="counter-hero">
+    <section class="hero">
 
         <div class="container">
 
             <div class="hero-content">
 
-                <span class="hero-label">
-                    ⏱️ LICZNIK KOLONII PASJONATÓW
-                </span>
-
                 <h1>
-                    Wszystko<br>
-                    <span>w jednym miejscu</span>
+                    Licznik
+                    <span>Kolonii Pasjonatów!</span>
                 </h1>
 
                 <p>
@@ -589,7 +515,6 @@
         </div>
 
     </section>
-
 
 
     <!-- NAJWAŻNIEJSZE -->
@@ -619,9 +544,11 @@
             <div class="main-counter-grid">
 
 
+                <!-- KOLONIA -->
+
                 <div class="main-counter-card">
 
-                    <div class="counter-icon-large">
+                    <div class="main-counter-icon">
                         🌟
                     </div>
 
@@ -629,13 +556,13 @@
                         Kolonia Pasjonatów
                     </h3>
 
-                    <p class="counter-date">
-                        Start: 11.06.2026
+                    <p>
+                        Od 11.06.2026
                     </p>
 
                     <div
                         id="colonyUptime"
-                        class="counter-value">
+                        class="main-counter-value">
 
                         Ładowanie...
 
@@ -644,10 +571,11 @@
                 </div>
 
 
+                <!-- STRONA -->
 
                 <div class="main-counter-card">
 
-                    <div class="counter-icon-large">
+                    <div class="main-counter-icon">
                         🌐
                     </div>
 
@@ -655,13 +583,13 @@
                         Oficjalna strona
                     </h3>
 
-                    <p class="counter-date">
-                        Start: 13.08.2026, 20:10
+                    <p>
+                        Od 13.08.2026, 20:10
                     </p>
 
                     <div
                         id="websiteUptime"
-                        class="counter-value">
+                        class="main-counter-value">
 
                         Ładowanie...
 
@@ -677,8 +605,7 @@
     </section>
 
 
-
-    <!-- ŚWIĘTA -->
+    <!-- ŚWIĘTA I WYDARZENIA -->
 
     <section class="counter-section">
 
@@ -717,11 +644,8 @@
                         Halloween
                     </h3>
 
-                    <p class="counter-card-date"
-                       id="halloweenDate">
-
+                    <p id="halloweenDate">
                         31.10.2026
-
                     </p>
 
                     <div
@@ -733,7 +657,6 @@
                     </div>
 
                 </div>
-
 
 
                 <!-- WIGILIA -->
@@ -748,11 +671,8 @@
                         Wigilia
                     </h3>
 
-                    <p class="counter-card-date"
-                       id="christmasDate">
-
+                    <p id="christmasDate">
                         24.12.2026
-
                     </p>
 
                     <div
@@ -764,7 +684,6 @@
                     </div>
 
                 </div>
-
 
 
                 <!-- NOWY ROK -->
@@ -779,11 +698,8 @@
                         Nowy Rok
                     </h3>
 
-                    <p class="counter-card-date"
-                       id="newYearDate">
-
+                    <p id="newYearDate">
                         01.01.2027
-
                     </p>
 
                     <div
@@ -795,7 +711,6 @@
                     </div>
 
                 </div>
-
 
 
                 <!-- WIELKANOC -->
@@ -810,11 +725,8 @@
                         Wielkanoc
                     </h3>
 
-                    <p class="counter-card-date"
-                       id="easterDate">
-
+                    <p id="easterDate">
                         28.03.2027
-
                     </p>
 
                     <div
@@ -826,7 +738,6 @@
                     </div>
 
                 </div>
-
 
 
                 <!-- SYLWESTER -->
@@ -841,11 +752,8 @@
                         Sylwester
                     </h3>
 
-                    <p class="counter-card-date"
-                       id="sylwesterDate">
-
+                    <p id="sylwesterDate">
                         31.12.2026
-
                     </p>
 
                     <div
@@ -866,7 +774,6 @@
     </section>
 
 
-
     <!-- ROCZNE / SEZONOWE -->
 
     <section class="counter-section">
@@ -884,8 +791,7 @@
                 </h2>
 
                 <p>
-                    Daty sezonowe oraz wydarzenia
-                    w Kolonii Pasjonatów.
+                    Daty sezonowe oraz wydarzenia w Kolonii Pasjonatów.
                 </p>
 
             </div>
@@ -906,11 +812,8 @@
                         Wakacje 2027
                     </h3>
 
-                    <p class="counter-card-date"
-                       id="summer2027Date">
-
+                    <p id="summer2027Date">
                         26.06.2027
-
                     </p>
 
                     <div
@@ -922,7 +825,6 @@
                     </div>
 
                 </div>
-
 
 
                 <!-- KONIEC 2026 -->
@@ -937,10 +839,8 @@
                         Koniec 2026
                     </h3>
 
-                    <p class="counter-card-date">
-
+                    <p>
                         31.12.2026
-
                     </p>
 
                     <div
@@ -952,7 +852,6 @@
                     </div>
 
                 </div>
-
 
 
                 <!-- FERIE -->
@@ -967,7 +866,7 @@
                         Ferie zimowe 2027
                     </h3>
 
-                    <p class="counter-card-date">
+                    <p>
                         Wybierz swoje województwo
                     </p>
 
@@ -1025,8 +924,12 @@
                             Podlaskie
                         </option>
 
-                        <option value="pomorskie" selected>
+                        <option
+                            value="pomorskie"
+                            selected>
+
                             Pomorskie
+
                         </option>
 
                         <option value="slaskie">
@@ -1079,7 +982,6 @@
     </section>
 
 
-
     <!-- SPOŁECZNOŚĆ -->
 
     <section class="counter-section">
@@ -1095,10 +997,6 @@
                 <h2>
                     Kolonia Pasjonatów
                 </h2>
-
-                <p>
-                    Aktualne informacje o naszej społeczności.
-                </p>
 
             </div>
 
@@ -1116,7 +1014,7 @@
                         Członkowie
                     </h3>
 
-                    <p class="counter-card-date">
+                    <p>
                         Aktualna liczba członków
                     </p>
 
@@ -1138,7 +1036,6 @@
     </section>
 
 
-
     <!-- SZCZEGÓŁY -->
 
     <section class="counter-section">
@@ -1154,11 +1051,6 @@
                 <h2>
                     Dokładny czas
                 </h2>
-
-                <p>
-                    Szczegółowe informacje o działaniu
-                    Kolonii oraz strony.
-                </p>
 
             </div>
 
@@ -1185,7 +1077,6 @@
                     </div>
 
                 </div>
-
 
 
                 <div class="counter-card">
@@ -1216,8 +1107,7 @@
     </section>
 
 
-
-    <!-- AKTUALIZACJA -->
+    <!-- OSTATNIA AKTUALIZACJA -->
 
     <section class="counter-section">
 
@@ -1252,7 +1142,6 @@
 </main>
 
 
-
 <footer>
 
     <p>
@@ -1266,7 +1155,6 @@
 </footer>
 
 
-
 <script src="licznik.js"></script>
 <script src="script.js"></script>
 
@@ -1274,4 +1162,3 @@
 </body>
 
 </html>
-
