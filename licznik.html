@@ -1,121 +1,863 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Licznik — Kolonia Pasjonatów</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================================
+           LICZNIK — DODATKOWY WYGLĄD
+        ========================================= */
+
+        .counter-page {
+            padding-bottom: 30px;
+        }
+
+
+        /* HERO */
+
+        .counter-hero {
+            min-height: 430px;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(88, 101, 242, 0.16),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 85% 70%,
+                    rgba(88, 101, 242, 0.10),
+                    transparent 35%
+                );
+        }
+
+        .counter-hero .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-label {
+            display: inline-flex;
+
+            padding: 8px 14px;
+            margin-bottom: 18px;
+
+            border-radius: 999px;
+
+            background: rgba(88, 101, 242, 0.10);
+            border: 1px solid rgba(88, 101, 242, 0.20);
+
+            color: var(--accent);
+
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+        }
+
+
+        /* SEKCJE */
+
+        .counter-section {
+            padding: 75px 0;
+        }
+
+
+        .counter-heading {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 38px;
+        }
+
+        .counter-heading-label {
+            display: inline-block;
+
+            margin-bottom: 10px;
+
+            color: var(--accent);
+
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.09em;
+        }
+
+        .counter-heading h2 {
+            margin-bottom: 10px;
+        }
+
+        .counter-heading p {
+            color: var(--text-secondary);
+        }
+
+
+        /* NAJWAŻNIEJSZE LICZNIKI */
+
+        .main-counter-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 24px;
+        }
+
+
+        .main-counter-card {
+            position: relative;
+
+            padding: 34px;
+
+            border-radius: 24px;
+
+            background: var(--card-bg);
+
+            border: 1px solid var(--border);
+
+            box-shadow: var(--shadow);
+
+            overflow: hidden;
+
+            text-align: center;
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        .main-counter-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
+            top: -110px;
+            right: -90px;
+
+            border-radius: 50%;
+
+            background: rgba(88, 101, 242, 0.07);
+
+            pointer-events: none;
+        }
+
+
+        .main-counter-card:hover {
+            transform: translateY(-5px);
+
+            border-color: rgba(88, 101, 242, 0.35);
+
+            box-shadow:
+                0 18px 45px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .counter-icon-large {
+            width: 76px;
+            height: 76px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(88, 101, 242, 0.10);
+
+            border: 1px solid rgba(88, 101, 242, 0.18);
+
+            font-size: 2rem;
+        }
+
+
+        .main-counter-card h3 {
+            margin-bottom: 6px;
+            font-size: 1.35rem;
+        }
+
+
+        .counter-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 22px;
+        }
+
+
+        .counter-value {
+            padding: 18px;
+
+            border-radius: 16px;
+
+            background: rgba(88, 101, 242, 0.06);
+
+            border: 1px solid var(--border);
+
+            color: var(--accent);
+
+            font-size: 1.15rem;
+            font-weight: 900;
+
+            line-height: 1.5;
+        }
+
+
+        /* ZWYKŁE KARTY */
+
+        .counter-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 20px;
+        }
+
+
+        .counter-card {
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+
+            padding: 25px;
+
+            min-height: 235px;
+
+            border-radius: 21px;
+
+            background: var(--card-bg);
+
+            border: 1px solid var(--border);
+
+            box-shadow: var(--shadow);
+
+            overflow: hidden;
+
+            transition:
+                transform 0.22s ease,
+                border-color 0.22s ease,
+                box-shadow 0.22s ease;
+        }
+
+
+        .counter-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 130px;
+            height: 130px;
+
+            right: -55px;
+            bottom: -65px;
+
+            border-radius: 50%;
+
+            background: rgba(88, 101, 242, 0.05);
+
+            pointer-events: none;
+        }
+
+
+        .counter-card:hover {
+            transform: translateY(-4px);
+
+            border-color: rgba(88, 101, 242, 0.28);
+        }
+
+
+        .counter-card-icon {
+            width: 54px;
+            height: 54px;
+
+            margin-bottom: 17px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 16px;
+
+            background: rgba(88, 101, 242, 0.09);
+
+            border: 1px solid rgba(88, 101, 242, 0.16);
+
+            font-size: 1.45rem;
+        }
+
+
+        .counter-card h3 {
+            margin-bottom: 5px;
+            font-size: 1.08rem;
+        }
+
+
+        .counter-card-date {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+
+            margin-bottom: 15px;
+        }
+
+
+        .counter-number {
+            margin-top: auto;
+
+            color: var(--accent);
+
+            font-size: 1.05rem;
+            font-weight: 900;
+
+            line-height: 1.5;
+        }
+
+
+        /* FERIE */
+
+        .holidays-card {
+            grid-column: span 2;
+        }
+
+
+        .holidays-label {
+            display: block;
+
+            margin: 12px 0 7px;
+
+            color: var(--text-secondary);
+
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+
+        .holidays-select {
+            width: 100%;
+
+            padding: 12px 14px;
+
+            border-radius: 12px;
+
+            background: var(--bg);
+
+            color: var(--text);
+
+            border: 1px solid var(--border);
+
+            outline: none;
+
+            font: inherit;
+        }
+
+
+        .holidays-select:focus {
+            border-color: var(--accent);
+        }
+
+
+        .holidays-date {
+            margin-top: 12px;
+
+            color: var(--text-secondary);
+
+            font-size: 0.85rem;
+        }
+
+
+        .holidays-card .counter-number {
+            margin-top: 12px;
+        }
+
+
+        /* SPOŁECZNOŚĆ */
+
+        .community-card {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+
+        .community-number {
+            margin-top: auto;
+
+            color: var(--accent);
+
+            font-size: 2.6rem;
+            font-weight: 950;
+        }
+
+
+        /* SZCZEGÓŁY */
+
+        .detail-value {
+            margin-top: auto;
+
+            padding: 14px;
+
+            border-radius: 13px;
+
+            background: rgba(88, 101, 242, 0.06);
+
+            color: var(--accent);
+
+            font-weight: 900;
+
+            line-height: 1.55;
+        }
+
+
+        /* OSTATNIA AKTUALIZACJA */
+
+        .last-update-box {
+            max-width: 700px;
+
+            margin: 0 auto;
+
+            padding: 25px;
+
+            text-align: center;
+
+            border-radius: 20px;
+
+            background: var(--card-bg);
+
+            border: 1px solid var(--border);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .last-update-box p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+
+
+        /* RESPONSYWNOŚĆ */
+
+        @media (max-width: 950px) {
+
+            .counter-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+        }
+
+
+        @media (max-width: 760px) {
+
+            .main-counter-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .counter-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .holidays-card {
+                grid-column: auto;
+            }
+
+            .counter-section {
+                padding: 55px 0;
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .main-counter-card,
+            .counter-card {
+                padding: 21px;
+            }
+
+            .counter-hero {
+                min-height: 390px;
+            }
+
+            .counter-value {
+                font-size: 0.95rem;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
+
 <header>
+
     <div class="header-inner">
 
         <a href="index.html" class="logo">
             🌟 Kolonia Pasjonatów
         </a>
 
+
         <nav>
-            <a href="index.html">Strona główna</a>
-            <a href="ranking.html">Ranking</a>
-            <a href="licznik.html" class="active">Licznik</a>
-            <a href="ogloszenia.html">Ogłoszenia</a>
-            <a href="linki.html">Linki</a>
-            <a href="kontakt.html">Kontakt</a>
+
+            <a href="index.html">
+                Strona główna
+            </a>
+
+            <a href="ranking.html">
+                Ranking
+            </a>
+
+            <a href="licznik.html" class="active">
+                Licznik
+            </a>
+
+            <a href="ogloszenia.html">
+                Wydarzenia
+            </a>
+
+            <a href="linki.html">
+                Linki
+            </a>
+
+            <a href="kontakt.html">
+                Kontakt
+            </a>
+
         </nav>
+
 
         <button
             id="themeToggle"
             class="theme-toggle"
             type="button"
             aria-label="Zmień motyw">
+
             🌙
+
         </button>
 
     </div>
+
 </header>
 
 
-<main>
+
+<main class="counter-page">
+
 
     <!-- HERO -->
-    <section class="hero">
-        <div class="hero-content">
 
-            <span class="hero-label">
-                ⏱️ LICZNIK KOLONII PASJONATÓW
-            </span>
+    <section class="counter-hero">
 
-            <h1>
-                Wszystko<br>
-                <span>w jednym miejscu</span>
-            </h1>
+        <div class="container">
 
-            <p>
-                Sprawdź dokładny czas działania Kolonii Pasjonatów,
-                odliczanie do wydarzeń oraz najważniejsze daty.
-            </p>
+            <div class="hero-content">
+
+                <span class="hero-label">
+                    ⏱️ LICZNIK KOLONII PASJONATÓW
+                </span>
+
+                <h1>
+                    Wszystko<br>
+                    <span>w jednym miejscu</span>
+                </h1>
+
+                <p>
+                    Sprawdź dokładny czas działania Kolonii Pasjonatów,
+                    odliczanie do wydarzeń oraz najważniejsze daty.
+                </p>
+
+            </div>
 
         </div>
+
     </section>
+
 
 
     <!-- NAJWAŻNIEJSZE -->
-    <section class="section">
 
-        <div class="section-heading">
-            <span>🌟 NAJWAŻNIEJSZE</span>
+    <section class="counter-section">
 
-            <h2>Nasze liczniki</h2>
+        <div class="container">
 
-            <p>
-                Dokładny czas działania Kolonii Pasjonatów
-                oraz oficjalnej strony.
-            </p>
-        </div>
+            <div class="counter-heading">
 
+                <span class="counter-heading-label">
+                    🌟 NAJWAŻNIEJSZE
+                </span>
 
-        <div class="countdown-grid">
+                <h2>
+                    Nasze liczniki
+                </h2>
 
-            <!-- KOLONIA -->
-            <div class="countdown-card">
-
-                <div class="countdown-icon">
-                    🌟
-                </div>
-
-                <h3>Kolonia Pasjonatów</h3>
-
-                <p>Od 11.06.2026</p>
-
-                <div
-                    id="colonyUptime"
-                    class="countdown-number">
-                    Ładowanie...
-                </div>
+                <p>
+                    Dokładny czas działania Kolonii Pasjonatów
+                    oraz oficjalnej strony.
+                </p>
 
             </div>
 
 
-            <!-- STRONA -->
-            <div class="countdown-card">
+            <div class="main-counter-grid">
 
-                <div class="countdown-icon">
-                    🌐
+
+                <div class="main-counter-card">
+
+                    <div class="counter-icon-large">
+                        🌟
+                    </div>
+
+                    <h3>
+                        Kolonia Pasjonatów
+                    </h3>
+
+                    <p class="counter-date">
+                        Start: 11.06.2026
+                    </p>
+
+                    <div
+                        id="colonyUptime"
+                        class="counter-value">
+
+                        Ładowanie...
+
+                    </div>
+
                 </div>
 
-                <h3>Oficjalna strona</h3>
 
-                <p>Od 13.08.2026, 20:10</p>
 
-                <div
-                    id="websiteUptime"
-                    class="countdown-number">
-                    Ładowanie...
+                <div class="main-counter-card">
+
+                    <div class="counter-icon-large">
+                        🌐
+                    </div>
+
+                    <h3>
+                        Oficjalna strona
+                    </h3>
+
+                    <p class="counter-date">
+                        Start: 13.08.2026, 20:10
+                    </p>
+
+                    <div
+                        id="websiteUptime"
+                        class="counter-value">
+
+                        Ładowanie...
+
+                    </div>
+
                 </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ŚWIĘTA -->
+
+    <section class="counter-section">
+
+        <div class="container">
+
+            <div class="counter-heading">
+
+                <span class="counter-heading-label">
+                    ⏳ ODLICZANIE
+                </span>
+
+                <h2>
+                    Święta i wydarzenia
+                </h2>
+
+                <p>
+                    Odliczanie do najważniejszych świąt
+                    i wydarzeń Kolonii Pasjonatów.
+                </p>
+
+            </div>
+
+
+            <div class="counter-grid">
+
+
+                <!-- HALLOWEEN -->
+
+                <div class="counter-card">
+
+                    <div class="counter-card-icon">
+                        🎃
+                    </div>
+
+                    <h3>
+                        Halloween
+                    </h3>
+
+                    <p class="counter-card-date"
+                       id="halloweenDate">
+
+                        31.10.2026
+
+                    </p>
+
+                    <div
+                        id="halloweenCountdown"
+                        class="counter-number">
+
+                        Ładowanie...
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- WIGILIA -->
+
+                <div class="counter-card">
+
+                    <div class="counter-card-icon">
+                        🎄
+                    </div>
+
+                    <h3>
+                        Wigilia
+                    </h3>
+
+                    <p class="counter-card-date"
+                       id="christmasDate">
+
+                        24.12.2026
+
+                    </p>
+
+                    <div
+                        id="christmasCountdown"
+                        class="counter-number">
+
+                        Ładowanie...
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- NOWY ROK -->
+
+                <div class="counter-card">
+
+                    <div class="counter-card-icon">
+                        🎆
+                    </div>
+
+                    <h3>
+                        Nowy Rok
+                    </h3>
+
+                    <p class="counter-card-date"
+                       id="newYearDate">
+
+                        01.01.2027
+
+                    </p>
+
+                    <div
+                        id="newYearCountdown"
+                        class="counter-number">
+
+                        Ładowanie...
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- WIELKANOC -->
+
+                <div class="counter-card">
+
+                    <div class="counter-card-icon">
+                        🐣
+                    </div>
+
+                    <h3>
+                        Wielkanoc
+                    </h3>
+
+                    <p class="counter-card-date"
+                       id="easterDate">
+
+                        28.03.2027
+
+                    </p>
+
+                    <div
+                        id="easterCountdown"
+                        class="counter-number">
+
+                        Ładowanie...
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SYLWESTER -->
+
+                <div class="counter-card">
+
+                    <div class="counter-card-icon">
+                        🎇
+                    </div>
+
+                    <h3>
+                        Sylwester
+                    </h3>
+
+                    <p class="counter-card-date"
+                       id="sylwesterDate">
+
+                        31.12.2026
+
+                    </p>
+
+                    <div
+                        id="sylwesterCountdown"
+                        class="counter-number">
+
+                        Ładowanie...
+
+                    </div>
+
+                </div>
+
 
             </div>
 
@@ -123,401 +865,349 @@
 
     </section>
 
-
-    <!-- ŚWIĘTA I WYDARZENIA -->
-    <section class="section">
-
-        <div class="section-heading">
-
-            <span>⏳ ODLICZANIE</span>
-
-            <h2>Święta i wydarzenia</h2>
-
-            <p>
-                Odliczanie do najważniejszych świąt
-                i wydarzeń Kolonii Pasjonatów.
-            </p>
-
-        </div>
-
-
-        <div class="countdown-grid">
-
-
-            <!-- HALLOWEEN -->
-            <div class="countdown-card">
-
-                <div class="countdown-icon">
-                    🎃
-                </div>
-
-                <h3>Halloween</h3>
-
-                <p id="halloweenDate">
-                    31.10.2026
-                </p>
-
-                <div
-                    id="halloweenCountdown"
-                    class="countdown-number">
-                    Ładowanie...
-                </div>
-
-            </div>
-
-
-            <!-- WIGILIA -->
-            <div class="countdown-card">
-
-                <div class="countdown-icon">
-                    🎄
-                </div>
-
-                <h3>Wigilia</h3>
-
-                <p id="christmasDate">
-                    24.12.2026
-                </p>
-
-                <div
-                    id="christmasCountdown"
-                    class="countdown-number">
-                    Ładowanie...
-                </div>
-
-            </div>
-
-
-            <!-- NOWY ROK -->
-            <div class="countdown-card">
-
-                <div class="countdown-icon">
-                    🎆
-                </div>
-
-                <h3>Nowy Rok</h3>
-
-                <p id="newYearDate">
-                    01.01.2027
-                </p>
-
-                <div
-                    id="newYearCountdown"
-                    class="countdown-number">
-                    Ładowanie...
-                </div>
-
-            </div>
-
-
-            <!-- WIELKANOC -->
-            <div class="countdown-card">
-
-                <div class="countdown-icon">
-                    🐣
-                </div>
-
-                <h3>Wielkanoc</h3>
-
-                <p id="easterDate">
-                    28.03.2027
-                </p>
-
-                <div
-                    id="easterCountdown"
-                    class="countdown-number">
-                    Ładowanie...
-                </div>
-
-            </div>
-
-
-            <!-- SYLWESTER -->
-            <div class="countdown-card">
-
-                <div class="countdown-icon">
-                    🎇
-                </div>
-
-                <h3>Sylwester</h3>
-
-                <p id="sylwesterDate">
-                    31.12.2026
-                </p>
-
-                <div
-                    id="sylwesterCountdown"
-                    class="countdown-number">
-                    Ładowanie...
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
 
 
     <!-- ROCZNE / SEZONOWE -->
-    <section class="section">
 
-        <div class="section-heading">
+    <section class="counter-section">
 
-            <span>📅 ROCZNE / SEZONOWE</span>
+        <div class="container">
 
-            <h2>Najważniejsze daty</h2>
+            <div class="counter-heading">
 
-            <p>
-                Daty sezonowe oraz wydarzenia w Kolonii Pasjonatów.
-            </p>
+                <span class="counter-heading-label">
+                    📅 ROCZNE / SEZONOWE
+                </span>
 
-        </div>
+                <h2>
+                    Najważniejsze daty
+                </h2>
 
-
-        <div class="countdown-grid">
-
-
-            <!-- WAKACJE -->
-            <div class="countdown-card">
-
-                <div class="countdown-icon">
-                    🏖️
-                </div>
-
-                <h3>Wakacje 2027</h3>
-
-                <p id="summer2027Date">
-                    26.06.2027
+                <p>
+                    Daty sezonowe oraz wydarzenia
+                    w Kolonii Pasjonatów.
                 </p>
-
-                <div
-                    id="summer2027Countdown"
-                    class="countdown-number">
-                    Ładowanie...
-                </div>
 
             </div>
 
 
-            <!-- KONIEC 2026 -->
-            <div class="countdown-card">
-
-                <div class="countdown-icon">
-                    📅
-                </div>
-
-                <h3>Koniec 2026</h3>
-
-                <p>
-                    31.12.2026
-                </p>
-
-                <div
-                    id="end2026Countdown"
-                    class="countdown-number">
-                    Ładowanie...
-                </div>
-
-            </div>
+            <div class="counter-grid">
 
 
-            <!-- FERIE -->
-            <div class="countdown-card holidays-card">
+                <!-- WAKACJE -->
 
-                <div class="countdown-icon">
-                    🏫
-                </div>
+                <div class="counter-card">
 
-                <h3>Ferie zimowe 2027</h3>
+                    <div class="counter-card-icon">
+                        🏖️
+                    </div>
 
-                <p>
-                    Wybierz swoje województwo
-                </p>
+                    <h3>
+                        Wakacje 2027
+                    </h3>
 
+                    <p class="counter-card-date"
+                       id="summer2027Date">
 
-                <label
-                    for="voivodeshipSelect"
-                    class="holidays-label">
-                    Województwo
-                </label>
+                        26.06.2027
 
+                    </p>
 
-                <select
-                    id="voivodeshipSelect"
-                    class="holidays-select">
+                    <div
+                        id="summer2027Countdown"
+                        class="counter-number">
 
-                    <option value="dolnoslaskie">
-                        Dolnośląskie
-                    </option>
+                        Ładowanie...
 
-                    <option value="kujawsko-pomorskie">
-                        Kujawsko-Pomorskie
-                    </option>
+                    </div>
 
-                    <option value="lubelskie">
-                        Lubelskie
-                    </option>
-
-                    <option value="lubuskie">
-                        Lubuskie
-                    </option>
-
-                    <option value="lodzkie">
-                        Łódzkie
-                    </option>
-
-                    <option value="malopolskie">
-                        Małopolskie
-                    </option>
-
-                    <option value="mazowieckie">
-                        Mazowieckie
-                    </option>
-
-                    <option value="opolskie">
-                        Opolskie
-                    </option>
-
-                    <option value="podkarpackie">
-                        Podkarpackie
-                    </option>
-
-                    <option value="podlaskie">
-                        Podlaskie
-                    </option>
-
-                    <option
-                        value="pomorskie"
-                        selected>
-                        Pomorskie
-                    </option>
-
-                    <option value="slaskie">
-                        Śląskie
-                    </option>
-
-                    <option value="swietokrzyskie">
-                        Świętokrzyskie
-                    </option>
-
-                    <option value="warminsko-mazurskie">
-                        Warmińsko-Mazurskie
-                    </option>
-
-                    <option value="wielkopolskie">
-                        Wielkopolskie
-                    </option>
-
-                    <option value="zachodniopomorskie">
-                        Zachodniopomorskie
-                    </option>
-
-                </select>
-
-
-                <div
-                    id="holidaysDate"
-                    class="holidays-date">
-                    Ładowanie...
                 </div>
 
 
-                <div
-                    id="daysToHolidays"
-                    class="countdown-number">
-                    Ładowanie...
+
+                <!-- KONIEC 2026 -->
+
+                <div class="counter-card">
+
+                    <div class="counter-card-icon">
+                        📅
+                    </div>
+
+                    <h3>
+                        Koniec 2026
+                    </h3>
+
+                    <p class="counter-card-date">
+
+                        31.12.2026
+
+                    </p>
+
+                    <div
+                        id="end2026Countdown"
+                        class="counter-number">
+
+                        Ładowanie...
+
+                    </div>
+
                 </div>
+
+
+
+                <!-- FERIE -->
+
+                <div class="counter-card holidays-card">
+
+                    <div class="counter-card-icon">
+                        🏫
+                    </div>
+
+                    <h3>
+                        Ferie zimowe 2027
+                    </h3>
+
+                    <p class="counter-card-date">
+                        Wybierz swoje województwo
+                    </p>
+
+
+                    <label
+                        for="voivodeshipSelect"
+                        class="holidays-label">
+
+                        Województwo
+
+                    </label>
+
+
+                    <select
+                        id="voivodeshipSelect"
+                        class="holidays-select">
+
+                        <option value="dolnoslaskie">
+                            Dolnośląskie
+                        </option>
+
+                        <option value="kujawsko-pomorskie">
+                            Kujawsko-Pomorskie
+                        </option>
+
+                        <option value="lubelskie">
+                            Lubelskie
+                        </option>
+
+                        <option value="lubuskie">
+                            Lubuskie
+                        </option>
+
+                        <option value="lodzkie">
+                            Łódzkie
+                        </option>
+
+                        <option value="malopolskie">
+                            Małopolskie
+                        </option>
+
+                        <option value="mazowieckie">
+                            Mazowieckie
+                        </option>
+
+                        <option value="opolskie">
+                            Opolskie
+                        </option>
+
+                        <option value="podkarpackie">
+                            Podkarpackie
+                        </option>
+
+                        <option value="podlaskie">
+                            Podlaskie
+                        </option>
+
+                        <option value="pomorskie" selected>
+                            Pomorskie
+                        </option>
+
+                        <option value="slaskie">
+                            Śląskie
+                        </option>
+
+                        <option value="swietokrzyskie">
+                            Świętokrzyskie
+                        </option>
+
+                        <option value="warminsko-mazurskie">
+                            Warmińsko-Mazurskie
+                        </option>
+
+                        <option value="wielkopolskie">
+                            Wielkopolskie
+                        </option>
+
+                        <option value="zachodniopomorskie">
+                            Zachodniopomorskie
+                        </option>
+
+                    </select>
+
+
+                    <div
+                        id="holidaysDate"
+                        class="holidays-date">
+
+                        Ładowanie...
+
+                    </div>
+
+
+                    <div
+                        id="daysToHolidays"
+                        class="counter-number">
+
+                        Ładowanie...
+
+                    </div>
+
+                </div>
+
 
             </div>
 
         </div>
 
     </section>
+
 
 
     <!-- SPOŁECZNOŚĆ -->
-    <section class="section">
 
-        <div class="section-heading">
+    <section class="counter-section">
 
-            <span>👥 SPOŁECZNOŚĆ</span>
+        <div class="container">
 
-            <h2>Kolonia Pasjonatów</h2>
+            <div class="counter-heading">
 
-        </div>
+                <span class="counter-heading-label">
+                    👥 SPOŁECZNOŚĆ
+                </span>
 
-
-        <div class="countdown-grid">
-
-            <div class="countdown-card">
-
-                <div class="countdown-icon">
-                    👥
-                </div>
-
-                <h3>Członkowie</h3>
+                <h2>
+                    Kolonia Pasjonatów
+                </h2>
 
                 <p>
-                    Aktualna liczba członków
+                    Aktualne informacje o naszej społeczności.
                 </p>
 
-                <div
-                    id="usersCount"
-                    class="countdown-number">
-                    20
+            </div>
+
+
+            <div class="counter-grid">
+
+
+                <div class="counter-card community-card">
+
+                    <div class="counter-card-icon">
+                        👥
+                    </div>
+
+                    <h3>
+                        Członkowie
+                    </h3>
+
+                    <p class="counter-card-date">
+                        Aktualna liczba członków
+                    </p>
+
+                    <div
+                        id="usersCount"
+                        class="community-number">
+
+                        20
+
+                    </div>
+
                 </div>
+
 
             </div>
 
         </div>
 
     </section>
+
 
 
     <!-- SZCZEGÓŁY -->
-    <section class="section">
 
-        <div class="section-heading">
+    <section class="counter-section">
 
-            <span>📊 SZCZEGÓŁY</span>
+        <div class="container">
 
-            <h2>Dokładny czas</h2>
+            <div class="counter-heading">
 
-        </div>
+                <span class="counter-heading-label">
+                    📊 SZCZEGÓŁY
+                </span>
 
+                <h2>
+                    Dokładny czas
+                </h2>
 
-        <div class="countdown-grid">
-
-            <div class="countdown-card">
-
-                <div class="countdown-icon">
-                    ⏱️
-                </div>
-
-                <h3>Działanie Kolonii</h3>
-
-                <div
-                    id="detailedUptime"
-                    class="countdown-number">
-                    Ładowanie...
-                </div>
+                <p>
+                    Szczegółowe informacje o działaniu
+                    Kolonii oraz strony.
+                </p>
 
             </div>
 
 
-            <div class="countdown-card">
+            <div class="counter-grid">
 
-                <div class="countdown-icon">
-                    🌐
+
+                <div class="counter-card">
+
+                    <div class="counter-card-icon">
+                        ⏱️
+                    </div>
+
+                    <h3>
+                        Działanie Kolonii
+                    </h3>
+
+                    <div
+                        id="detailedUptime"
+                        class="detail-value">
+
+                        Ładowanie...
+
+                    </div>
+
                 </div>
 
-                <h3>Działanie strony</h3>
 
-                <div
-                    id="websiteDetailedUptime"
-                    class="countdown-number">
-                    Ładowanie...
+
+                <div class="counter-card">
+
+                    <div class="counter-card-icon">
+                        🌐
+                    </div>
+
+                    <h3>
+                        Działanie strony
+                    </h3>
+
+                    <div
+                        id="websiteDetailedUptime"
+                        class="detail-value">
+
+                        Ładowanie...
+
+                    </div>
+
                 </div>
+
 
             </div>
 
@@ -526,38 +1216,62 @@
     </section>
 
 
-    <!-- OSTATNIA AKTUALIZACJA -->
-    <section class="section">
 
-        <div class="section-heading">
+    <!-- AKTUALIZACJA -->
 
-            <span>🔄 AKTUALIZACJA</span>
+    <section class="counter-section">
 
-            <h2>Ostatnia aktualizacja</h2>
+        <div class="container">
 
-            <p id="lastUpdate">
-                Ładowanie...
-            </p>
+            <div class="counter-heading">
+
+                <span class="counter-heading-label">
+                    🔄 AKTUALIZACJA
+                </span>
+
+                <h2>
+                    Ostatnia aktualizacja
+                </h2>
+
+            </div>
+
+
+            <div class="last-update-box">
+
+                <p id="lastUpdate">
+                    Ładowanie...
+                </p>
+
+            </div>
 
         </div>
 
     </section>
+
 
 </main>
+
 
 
 <footer>
 
     <p>
-        © <span id="footerYear"></span>
-        Kolonia Pasjonatów
+        © 2026 Kolonia Pasjonatów
+    </p>
+
+    <p>
+        🌟 Oficjalna strona społeczności
     </p>
 
 </footer>
 
 
+
 <script src="licznik.js"></script>
 <script src="script.js"></script>
 
+
 </body>
+
 </html>
+
