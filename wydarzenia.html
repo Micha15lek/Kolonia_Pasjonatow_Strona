@@ -148,9 +148,10 @@
 
             padding: 20px;
 
-            background: rgba(0, 0, 0, 0.70);
+            background: rgba(5, 7, 15, 0.78);
 
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
 
             z-index: 9999;
         }
@@ -159,47 +160,102 @@
         .event-modal.active {
             display: flex;
 
-            animation: modalBackground 0.2s ease;
+            animation: modalBackground 0.25s ease;
         }
 
+
+        /* =========================================
+           GŁÓWNE OKNO MODALA
+        ========================================= */
 
         .event-modal-content {
             position: relative;
 
-            width: min(760px, 100%);
+            width: min(780px, 100%);
 
             max-height: 85vh;
 
             overflow-y: auto;
 
-            padding: 32px;
+            padding: 36px;
 
-            border-radius: 24px;
+            border-radius: 26px;
 
-            background: var(--card-bg);
+            background:
+                linear-gradient(
+                    145deg,
+                    var(--card-bg),
+                    rgba(88, 101, 242, 0.045)
+                );
 
-            border: 1px solid var(--border);
+            border: 1px solid rgba(88, 101, 242, 0.22);
 
             box-shadow:
-                0 30px 80px rgba(0, 0, 0, 0.35);
+                0 35px 100px rgba(0, 0, 0, 0.45),
+                0 0 0 1px rgba(255, 255, 255, 0.025);
 
-            animation: modalOpen 0.25s ease;
+            animation:
+                modalOpen 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+
+        /* Górna linia dekoracyjna */
+
+        .event-modal-content::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 10%;
+            right: 10%;
+
+            height: 2px;
+
+            border-radius: 999px;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                var(--accent),
+                transparent
+            );
+
+            opacity: 0.8;
+        }
+
+
+        /* =========================================
+           NAGŁÓWEK MODALA
+        ========================================= */
 
         .event-modal-content h3 {
-            margin: 0 45px 22px 0;
+            margin: 0 55px 26px 0;
 
-            font-size: 1.55rem;
+            font-size: 1.65rem;
+
+            line-height: 1.35;
+
+            color: var(--text);
         }
 
+
+        /* =========================================
+           TEKST MODALA
+        ========================================= */
 
         .event-modal-content > p {
+            margin: 0;
+
             color: var(--text-secondary);
 
-            line-height: 1.75;
+            line-height: 1.8;
         }
 
+
+        /* =========================================
+           PRZYCISK ZAMKNIĘCIA
+        ========================================= */
 
         .event-modal-close {
             position: absolute;
@@ -207,8 +263,8 @@
             top: 18px;
             right: 18px;
 
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
 
             display: flex;
 
@@ -217,54 +273,34 @@
 
             border: 1px solid var(--border);
 
-            border-radius: 50%;
+            border-radius: 12px;
 
-            background: transparent;
+            background: rgba(255, 255, 255, 0.025);
 
-            color: var(--text);
+            color: var(--text-secondary);
 
-            font-size: 1.2rem;
+            font-size: 1.15rem;
+
+            font-weight: 700;
 
             cursor: pointer;
 
             transition:
                 background 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease,
                 transform 0.2s ease;
         }
 
 
         .event-modal-close:hover {
-            background: rgba(88, 101, 242, 0.12);
+            background: rgba(88, 101, 242, 0.15);
+
+            color: var(--text);
+
+            border-color: rgba(88, 101, 242, 0.35);
 
             transform: rotate(90deg);
-        }
-
-
-        @keyframes modalBackground {
-
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-
-        }
-
-
-        @keyframes modalOpen {
-
-            from {
-                opacity: 0;
-                transform: translateY(20px) scale(0.97);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-
         }
 
 
@@ -273,7 +309,9 @@
         ========================================= */
 
         .schedule-item {
-            padding: 16px 0;
+            position: relative;
+
+            padding: 18px 0 18px 18px;
 
             border-bottom: 1px solid var(--border);
         }
@@ -288,6 +326,35 @@
 
         .schedule-item:first-child {
             padding-top: 0;
+        }
+
+
+        .schedule-item::before {
+            content: "";
+
+            position: absolute;
+
+            top: 18px;
+            bottom: 18px;
+            left: 0;
+
+            width: 2px;
+
+            border-radius: 999px;
+
+            background: var(--accent);
+
+            opacity: 0.65;
+        }
+
+
+        .schedule-item:first-child::before {
+            top: 2px;
+        }
+
+
+        .schedule-item:last-child::before {
+            bottom: 2px;
         }
 
 
@@ -308,6 +375,70 @@
             color: var(--text-secondary);
 
             line-height: 1.65;
+        }
+
+
+        /* =========================================
+           SCROLLBAR MODALA
+        ========================================= */
+
+        .event-modal-content::-webkit-scrollbar {
+            width: 7px;
+        }
+
+
+        .event-modal-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+
+        .event-modal-content::-webkit-scrollbar-thumb {
+            background: rgba(88, 101, 242, 0.35);
+
+            border-radius: 999px;
+        }
+
+
+        .event-modal-content::-webkit-scrollbar-thumb:hover {
+            background: rgba(88, 101, 242, 0.55);
+        }
+
+
+        /* =========================================
+           ANIMACJE
+        ========================================= */
+
+        @keyframes modalBackground {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+
+        @keyframes modalOpen {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(25px)
+                    scale(0.96);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+
         }
 
 
@@ -384,18 +515,29 @@
 
 
             .event-modal-content {
-                padding: 24px;
+                width: 100%;
 
                 max-height: 90vh;
 
-                border-radius: 20px;
+                padding: 27px 22px;
+
+                border-radius: 22px;
             }
 
 
             .event-modal-content h3 {
-                font-size: 1.3rem;
+                margin-right: 45px;
 
-                margin-right: 35px;
+                font-size: 1.35rem;
+            }
+
+
+            .event-modal-close {
+                top: 14px;
+                right: 14px;
+
+                width: 38px;
+                height: 38px;
             }
 
         }
@@ -464,9 +606,7 @@
 <main>
 
 
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
+    <!-- HERO -->
 
     <section class="hero">
 
@@ -491,9 +631,7 @@
     </section>
 
 
-    <!-- =====================================================
-         WYDARZENIA 2026
-    ====================================================== -->
+    <!-- WYDARZENIA 2026 -->
 
     <section class="events-section">
 
@@ -506,9 +644,7 @@
                 </h2>
 
 
-                <!-- =================================================
-                     KOLEJ W JESIENNYM OBIEKTYWIE
-                ================================================== -->
+                <!-- KOLEJ W JESIENNYM OBIEKTYWIE -->
 
                 <article class="event-card">
 
@@ -560,9 +696,7 @@
                 </article>
 
 
-                <!-- =================================================
-                     STREFA ZIMOWA
-                ================================================== -->
+                <!-- STREFA ZIMOWA -->
 
                 <article class="event-card">
 
@@ -620,9 +754,7 @@
     </section>
 
 
-    <!-- =====================================================
-         WYDARZENIA 2027
-    ====================================================== -->
+    <!-- WYDARZENIA 2027 -->
 
     <section class="events-section">
 
@@ -635,9 +767,7 @@
                 </h2>
 
 
-                <!-- =================================================
-                     STREFA WAKACYJNA
-                ================================================== -->
+                <!-- STREFA WAKACYJNA -->
 
                 <article class="event-card">
 
@@ -686,7 +816,6 @@
                     </div>
 
                 </article>
-
 
             </div>
 
@@ -886,7 +1015,9 @@
             Pokaż swoje najlepsze zdjęcie kolei w jesiennej scenerii,
             zmierz się z innymi uczestnikami i zawalcz o miejsce na podium
             oraz wyróżnienia. 🍂🚆
+
             <br><br>
+
             Na zwycięzców czekają nagrody, a o wynikach zdecydują głosy
             publiczności oraz jury konkursowego. 👥👑
         </p>
