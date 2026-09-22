@@ -1,15 +1,194 @@
-```html
 <!DOCTYPE html>
 <html lang="pl">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Linki | Kolonia Pasjonatów</title>
+    <title>Linki — Kolonia Pasjonatów</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================================
+           KANAŁY YOUTUBE
+        ========================================= */
+
+        .channel-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .channel-profile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* IDEALNE KOŁO */
+        .channel-avatar {
+            display: block;
+            width: 112px;
+            height: 112px;
+            min-width: 112px;
+            min-height: 112px;
+
+            object-fit: cover;
+
+            border-radius: 50% !important;
+
+            border: 4px solid var(--border);
+
+            box-shadow:
+                0 0 0 7px rgba(88, 101, 242, 0.08),
+                0 10px 28px rgba(0, 0, 0, 0.20);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .channel-card:hover .channel-avatar {
+            transform: scale(1.06);
+
+            box-shadow:
+                0 0 0 8px rgba(88, 101, 242, 0.12),
+                0 14px 34px rgba(0, 0, 0, 0.25);
+        }
+
+
+        .channel-info {
+            width: 100%;
+        }
+
+        .channel-info .status-badge {
+            display: inline-flex;
+            margin-bottom: 10px;
+        }
+
+        .channel-info h3 {
+            margin-bottom: 8px;
+            font-size: 1.25rem;
+        }
+
+        .channel-subs {
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+
+        .channel-subs strong {
+            color: var(--accent);
+            font-weight: 900;
+        }
+
+
+        /* INFORMACJE KANAŁU */
+
+        .channel-details {
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            margin-top: 12px;
+            padding: 12px;
+
+            border-radius: 14px;
+
+            background: rgba(88, 101, 242, 0.06);
+            border: 1px solid var(--border);
+
+            text-align: left;
+        }
+
+        .channel-details div {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+
+            font-size: 0.88rem;
+        }
+
+        .channel-details span {
+            color: var(--text-secondary);
+        }
+
+        .channel-details strong {
+            margin-left: auto;
+            color: var(--text);
+        }
+
+
+        .channel-button {
+            width: 100%;
+            margin-top: 18px;
+        }
+
+
+        /* =========================================
+           SERWERY DISCORD
+        ========================================= */
+
+        .discord-server-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .discord-server-card .status-badge {
+            width: fit-content;
+            margin-bottom: 12px;
+        }
+
+        .discord-server-card .button {
+            margin-top: auto;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 760px) {
+
+            .channel-avatar {
+                width: 96px;
+                height: 96px;
+                min-width: 96px;
+                min-height: 96px;
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .channel-avatar {
+                width: 86px;
+                height: 86px;
+                min-width: 86px;
+                min-height: 86px;
+            }
+
+            .channel-info h3 {
+                font-size: 1.08rem;
+            }
+
+            .channel-details div {
+                font-size: 0.82rem;
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -40,7 +219,7 @@
                 Licznik
             </a>
 
-            <a href="wydarzenia.html">
+            <a href="ogloszenia.html">
                 Wydarzenia
             </a>
 
@@ -76,7 +255,7 @@
 
     <!-- =========================================
          HERO
-    ========================================== -->
+    ========================================= -->
 
     <section class="hero">
 
@@ -84,18 +263,13 @@
 
             <div class="hero-content">
 
-                <span class="hero-label">
-                    🔗 KOLONIA PASJONATÓW
-                </span>
-
                 <h1>
-                    Zaprzyjaźnione<br>
-                    <span>kanały i serwery</span>
+                    🔗 <span>Zaprzyjaźnione kanały</span>
                 </h1>
 
                 <p>
-                    Poznaj kanały YouTube oraz serwery Discord
-                    związane z naszą społecznością.
+                    Poznaj kanały naszych znajomych i członków
+                    Kolonii Pasjonatów oraz zaprzyjaźnione serwery Discord.
                 </p>
 
             </div>
@@ -107,13 +281,12 @@
 
 
     <!-- =========================================
-         KANAŁY YOUTUBE
-    ========================================== -->
+         YOUTUBE
+    ========================================= -->
 
     <section>
 
         <div class="container">
-
 
             <div class="section-heading">
 
@@ -122,34 +295,27 @@
                 </h2>
 
                 <p>
-                    Kanały naszych znajomych i członków
-                    Kolonii Pasjonatów.
+                    Kanały naszych znajomych i członków społeczności.
                 </p>
 
             </div>
 
 
-
             <div class="cards-grid">
 
 
-                <!-- =================================
-                     KOLEJOWY_MICHAŁ
-                ================================== -->
+                <!-- KOLEJOWY MICHAŁ -->
 
                 <article class="card channel-card">
-
 
                     <div class="channel-profile">
 
                         <img
                             src="https://yt3.googleusercontent.com/bgHLQbnCvgb4Tfea09E3Z3CUlgD9iLFIFIWbXaOu-6rKvk0rD_2GR2EG8SsyFCkcfjyn58k8oFw=s160-c-k-c0x00ffffff-no-rj"
                             alt="Kolejowy_Michał"
-                            class="channel-avatar"
-                        >
+                            class="channel-avatar">
 
                     </div>
-
 
 
                     <div class="channel-info">
@@ -166,29 +332,20 @@
                             👥 <strong>999</strong> subskrybentów
                         </p>
 
+
                         <div class="channel-details">
 
                             <div>
                                 📅
-                                <span>
-                                    Kanał od
-                                </span>
-
-                                <strong>
-                                    11.02.2026
-                                </strong>
+                                <span>Kanał od</span>
+                                <strong>11.02.2026</strong>
                             </div>
-
 
                             <div>
                                 ⏱️
-                                <span>
-                                    Staż kanału
-                                </span>
-
-                                <strong
-                                    class="channel-age"
-                                    data-date="2026-02-11">
+                                <span>Staż</span>
+                                <strong class="channel-age"
+                                        data-date="2026-02-11">
                                     Ładowanie...
                                 </strong>
                             </div>
@@ -196,7 +353,6 @@
                         </div>
 
                     </div>
-
 
 
                     <a
@@ -209,28 +365,22 @@
 
                     </a>
 
-
                 </article>
 
 
 
-                <!-- =================================
-                     FARMINGOWY PAN
-                ================================== -->
+                <!-- FARMINGOWY PAN -->
 
                 <article class="card channel-card">
-
 
                     <div class="channel-profile">
 
                         <img
                             src="https://yt3.googleusercontent.com/5E2U1WPNQQOpP9Zw3O3NMeTZlPfG89yuMLfwAvAfzbKuGvyzOleN2vXJyWoVQ93dAohfGXgPvoQ=s160-c-k-c0x00ffffff-no-rj"
                             alt="Farmingowy Pan"
-                            class="channel-avatar"
-                        >
+                            class="channel-avatar">
 
                     </div>
-
 
 
                     <div class="channel-info">
@@ -252,25 +402,15 @@
 
                             <div>
                                 📅
-                                <span>
-                                    Kanał od
-                                </span>
-
-                                <strong>
-                                    28.12.2025
-                                </strong>
+                                <span>Kanał od</span>
+                                <strong>28.12.2025</strong>
                             </div>
-
 
                             <div>
                                 ⏱️
-                                <span>
-                                    Staż kanału
-                                </span>
-
-                                <strong
-                                    class="channel-age"
-                                    data-date="2025-12-28">
+                                <span>Staż</span>
+                                <strong class="channel-age"
+                                        data-date="2025-12-28">
                                     Ładowanie...
                                 </strong>
                             </div>
@@ -278,7 +418,6 @@
                         </div>
 
                     </div>
-
 
 
                     <a
@@ -291,28 +430,22 @@
 
                     </a>
 
-
                 </article>
 
 
 
-                <!-- =================================
-                     MIKOL YORIICHI
-                ================================== -->
+                <!-- MIKOL YORIICHI -->
 
                 <article class="card channel-card">
-
 
                     <div class="channel-profile">
 
                         <img
                             src="https://yt3.googleusercontent.com/VQZ9ah_2x1sWWGtokSkYdo1TraiplpmJTHxTqKBKsu3gJk3-RNhvyeslXceIVb7KVdlajqLHID0=s160-c-k-c0x00ffffff-no-rj"
                             alt="mikol yoriichi"
-                            class="channel-avatar"
-                        >
+                            class="channel-avatar">
 
                     </div>
-
 
 
                     <div class="channel-info">
@@ -334,25 +467,15 @@
 
                             <div>
                                 📅
-                                <span>
-                                    Kanał od
-                                </span>
-
-                                <strong>
-                                    11.02.2026
-                                </strong>
+                                <span>Kanał od</span>
+                                <strong>11.02.2026</strong>
                             </div>
-
 
                             <div>
                                 ⏱️
-                                <span>
-                                    Staż kanału
-                                </span>
-
-                                <strong
-                                    class="channel-age"
-                                    data-date="2026-02-11">
+                                <span>Staż</span>
+                                <strong class="channel-age"
+                                        data-date="2026-02-11">
                                     Ładowanie...
                                 </strong>
                             </div>
@@ -360,7 +483,6 @@
                         </div>
 
                     </div>
-
 
 
                     <a
@@ -373,28 +495,22 @@
 
                     </a>
 
-
                 </article>
 
 
 
-                <!-- =================================
-                     NOWORUDZKI_MK08
-                ================================== -->
+                <!-- NOWORUDZKI MK08 -->
 
                 <article class="card channel-card">
-
 
                     <div class="channel-profile">
 
                         <img
                             src="https://yt3.googleusercontent.com/tLhKFg9Ysiy_qhFsANfVb1F8nARhUDPb-j0i6B5biq7hEjmDyLWVepe7kcC-V5VkYmuTandKoA=s160-c-k-c0x00ffffff-no-rj"
                             alt="Noworudzki_MK08 Gaming"
-                            class="channel-avatar"
-                        >
+                            class="channel-avatar">
 
                     </div>
-
 
 
                     <div class="channel-info">
@@ -416,25 +532,15 @@
 
                             <div>
                                 📅
-                                <span>
-                                    Kanał od
-                                </span>
-
-                                <strong>
-                                    03.08.2026
-                                </strong>
+                                <span>Kanał od</span>
+                                <strong>03.08.2026</strong>
                             </div>
-
 
                             <div>
                                 ⏱️
-                                <span>
-                                    Staż kanału
-                                </span>
-
-                                <strong
-                                    class="channel-age"
-                                    data-date="2026-08-03">
+                                <span>Staż</span>
+                                <strong class="channel-age"
+                                        data-date="2026-08-03">
                                     Ładowanie...
                                 </strong>
                             </div>
@@ -442,7 +548,6 @@
                         </div>
 
                     </div>
-
 
 
                     <a
@@ -455,28 +560,22 @@
 
                     </a>
 
-
                 </article>
 
 
 
-                <!-- =================================
-                     TCZEWSKI_MK
-                ================================== -->
+                <!-- TCZEWSKI MK -->
 
                 <article class="card channel-card">
-
 
                     <div class="channel-profile">
 
                         <img
                             src="https://yt3.googleusercontent.com/hJWc0SVzZkBAD9FeX8sS3SXjZkacMRJljSEuc5OpILzybFS7B21_opNBBVvyhxO514hhsQL2RQ=s160-c-k-c0x00ffffff-no-rj"
                             alt="Tczewski_mk"
-                            class="channel-avatar"
-                        >
+                            class="channel-avatar">
 
                     </div>
-
 
 
                     <div class="channel-info">
@@ -498,25 +597,15 @@
 
                             <div>
                                 📅
-                                <span>
-                                    Kanał od
-                                </span>
-
-                                <strong>
-                                    15.03.2026
-                                </strong>
+                                <span>Kanał od</span>
+                                <strong>15.03.2026</strong>
                             </div>
-
 
                             <div>
                                 ⏱️
-                                <span>
-                                    Staż kanału
-                                </span>
-
-                                <strong
-                                    class="channel-age"
-                                    data-date="2026-03-15">
+                                <span>Staż</span>
+                                <strong class="channel-age"
+                                        data-date="2026-03-15">
                                     Ładowanie...
                                 </strong>
                             </div>
@@ -524,7 +613,6 @@
                         </div>
 
                     </div>
-
 
 
                     <a
@@ -536,7 +624,6 @@
                         ▶️ Otwórz kanał
 
                     </a>
-
 
                 </article>
 
@@ -550,13 +637,12 @@
 
 
     <!-- =========================================
-         SERWERY DISCORD
+         DISCORD
     ========================================== -->
 
     <section>
 
         <div class="container">
-
 
             <div class="section-heading">
 
@@ -571,13 +657,10 @@
             </div>
 
 
-
             <div class="cards-grid">
 
 
-                <!-- MIKOLAND HUB -->
-
-                <article class="card">
+                <article class="card discord-server-card">
 
                     <div class="card-icon">
                         🌐
@@ -610,9 +693,7 @@
 
 
 
-                <!-- STREFA -->
-
-                <article class="card">
+                <article class="card discord-server-card">
 
                     <div class="card-icon">
                         🚆
@@ -645,9 +726,7 @@
 
 
 
-                <!-- POD SEMAForem -->
-
-                <article class="card">
+                <article class="card discord-server-card">
 
                     <div class="card-icon">
                         🚦
@@ -725,10 +804,6 @@
 
 
 
-<!-- =========================================
-     FOOTER
-========================================= -->
-
 <footer>
 
     <p>
@@ -746,107 +821,99 @@
 <script src="script.js"></script>
 
 
-
-<!-- =========================================
-     STAŻ KANAŁÓW
-========================================= -->
-
 <script>
+
+/* =========================================
+   DYNAMICZNY STAŻ KANAŁÓW
+========================================= */
 
 function updateChannelAge() {
 
     const today = new Date();
 
-    document
-        .querySelectorAll(".channel-age")
-        .forEach(function(element) {
+    document.querySelectorAll(".channel-age").forEach(function(element) {
 
-            const dateString =
-                element.dataset.date;
+        const start = new Date(
+            element.dataset.date + "T00:00:00"
+        );
 
-            const start =
+        let years =
+            today.getFullYear() -
+            start.getFullYear();
+
+        let months =
+            today.getMonth() -
+            start.getMonth();
+
+        let days =
+            today.getDate() -
+            start.getDate();
+
+
+        if (days < 0) {
+
+            months--;
+
+            const previousMonth =
                 new Date(
-                    dateString + "T00:00:00"
+                    today.getFullYear(),
+                    today.getMonth(),
+                    0
                 );
 
-            let years =
-                today.getFullYear() -
-                start.getFullYear();
+            days += previousMonth.getDate();
 
-            let months =
-                today.getMonth() -
-                start.getMonth();
-
-            let days =
-                today.getDate() -
-                start.getDate();
+        }
 
 
-            if (days < 0) {
+        if (months < 0) {
 
-                months--;
+            years--;
 
-                const previousMonth =
-                    new Date(
-                        today.getFullYear(),
-                        today.getMonth(),
-                        0
-                    );
+            months += 12;
 
-                days +=
-                    previousMonth.getDate();
+        }
 
+
+        let result = "";
+
+
+        if (years > 0) {
+
+            result +=
+                years +
+                (years === 1 ? " rok" : " lat");
+
+        }
+
+
+        if (months > 0) {
+
+            if (result) {
+                result += ", ";
             }
 
+            result += months + " mies.";
 
-            if (months < 0) {
+        }
 
-                years--;
-                months += 12;
 
+        if (days > 0 || result === "") {
+
+            if (result) {
+                result += ", ";
             }
 
+            result +=
+                days +
+                (days === 1 ? " dzień" : " dni");
 
-            let result = "";
-
-
-            if (years > 0) {
-
-                result +=
-                    years +
-                    (years === 1 ? " rok" : " lat");
-
-            }
+        }
 
 
-            if (months > 0) {
+        element.textContent = result;
 
-                if (result)
-                    result += ", ";
-
-                result +=
-                    months +
-                    (months === 1 ? " mies." : " mies.");
-
-            }
-
-
-            if (days > 0 || result === "") {
-
-                if (result)
-                    result += ", ";
-
-                result +=
-                    days +
-                    (days === 1 ? " dzień" : " dni");
-
-            }
-
-
-            element.textContent =
-                result;
-
-        });
+    });
 
 }
 
@@ -859,4 +926,3 @@ updateChannelAge();
 </body>
 
 </html>
-```
