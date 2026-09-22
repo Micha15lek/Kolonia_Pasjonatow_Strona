@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,274 +9,172 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* =========================
-           WYDARZENIA
-        ========================= */
-
-        .events-hero {
-            text-align: center;
-            padding: 70px 20px 40px;
-        }
-
-        .events-hero h1 {
-            margin-bottom: 12px;
-        }
-
-        .events-hero h1 span {
-            display: inline;
-        }
-
-        .events-hero p {
-            opacity: 0.8;
-            font-size: 17px;
-        }
-
-        .events-container {
-            width: min(1100px, 92%);
-            margin: 0 auto 70px;
-        }
-
-        .events-section-title {
-            margin: 45px 0 22px;
-            font-size: 28px;
+        .events-section {
+            padding: 70px 0;
         }
 
         .events-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 28px;
         }
 
         .event-card {
-            position: relative;
-            padding: 28px;
-            border-radius: 24px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease,
-                border-color 0.25s ease;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
         .event-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.13);
-            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
         }
 
-        .event-icon {
-            font-size: 42px;
+        .event-year {
+            display: inline-block;
             margin-bottom: 12px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(88, 101, 242, 0.12);
+            color: #5865f2;
+            font-size: 0.85rem;
+            font-weight: 700;
         }
 
-        .event-card h3 {
+        .event-card h2 {
             margin: 0 0 10px;
-            font-size: 23px;
+            font-size: 1.5rem;
         }
 
         .event-date {
-            font-weight: 600;
-            opacity: 0.75;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
+            font-weight: 700;
+            color: var(--accent);
         }
 
-        .event-description {
-            line-height: 1.6;
-            opacity: 0.82;
-            margin-bottom: 22px;
+        .event-card p {
+            line-height: 1.7;
+            color: var(--muted-text);
         }
 
         .event-buttons {
             display: flex;
-            gap: 10px;
             flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
         }
 
-        .event-buttons button {
+        .event-button {
             border: none;
-            padding: 11px 16px;
             border-radius: 12px;
+            padding: 11px 16px;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 700;
             cursor: pointer;
-            font-weight: 600;
-            transition:
-                transform 0.2s ease,
-                opacity 0.2s ease;
+            transition: transform 0.2s ease, opacity 0.2s ease;
         }
 
-        .event-buttons button:hover {
+        .event-button:hover {
             transform: translateY(-2px);
             opacity: 0.9;
         }
 
-        .event-button-primary {
-            background: #ffffff;
-            color: #17191f;
+        .event-button.secondary {
+            background: rgba(88, 101, 242, 0.12);
+            color: #5865f2;
         }
 
-        .event-button-secondary {
-            background: rgba(255, 255, 255, 0.15);
-            color: inherit;
-            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        .year-heading {
+            margin: 0 0 25px;
+            font-size: 2rem;
         }
 
-        /* =========================
-           MODAL
-        ========================= */
+        .year-block {
+            margin-bottom: 60px;
+        }
 
         .event-modal {
             position: fixed;
             inset: 0;
-
+            z-index: 9999;
             display: none;
             align-items: center;
             justify-content: center;
-
             padding: 20px;
-
-            background: rgba(20, 22, 28, 0.28);
-
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-
-            z-index: 9999;
+            background: rgba(0, 0, 0, 0.72);
+            backdrop-filter: blur(8px);
+            animation: modalBackground 0.25s ease;
         }
 
         .event-modal.active {
             display: flex;
-            animation: modalBackground 0.22s ease;
         }
 
         .event-modal-content {
             position: relative;
-
-            width: min(780px, 100%);
-            max-height: 85vh;
-
+            width: min(700px, 100%);
+            max-height: 90vh;
             overflow-y: auto;
-
-            padding: 36px;
-
-            border-radius: 26px;
-
-            background: rgba(255, 255, 255, 0.90);
-
-            border: 1px solid rgba(255, 255, 255, 0.75);
-
-            color: #181a20;
-
-            box-shadow:
-                0 25px 70px rgba(0, 0, 0, 0.18),
-                0 5px 20px rgba(0, 0, 0, 0.08);
-
-            animation: modalOpen 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 34px;
+            border-radius: 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.35);
+            animation: modalOpen 0.3s ease;
         }
 
         .event-modal-content h2 {
-            margin-top: 0;
-            margin-right: 40px;
-            margin-bottom: 22px;
-
-            font-size: 29px;
-
-            color: #15171c;
+            margin: 0 45px 25px 0;
+            font-size: 1.8rem;
         }
 
         .event-modal-content p {
-            color: #33363d;
-            line-height: 1.7;
+            line-height: 1.75;
+            color: var(--muted-text);
         }
-
-        .event-modal-content strong {
-            color: #15171c;
-        }
-
-        /* =========================
-           PRZYCISK ZAMKNIĘCIA
-        ========================= */
 
         .modal-close {
             position: absolute;
-
-            top: 15px;
+            top: 16px;
             right: 18px;
-
             width: 40px;
             height: 40px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
             border: none;
             border-radius: 50%;
-
-            background: rgba(0, 0, 0, 0.07);
-            color: #181a20;
-
-            font-size: 25px;
-            line-height: 1;
-
+            background: rgba(127, 127, 127, 0.12);
+            color: var(--text);
+            font-size: 1.4rem;
             cursor: pointer;
-
-            transition:
-                background 0.2s ease,
-                transform 0.2s ease;
+            transition: transform 0.2s ease, background 0.2s ease;
         }
 
         .modal-close:hover {
-            background: rgba(0, 0, 0, 0.13);
-            transform: rotate(5deg);
+            transform: rotate(90deg);
+            background: rgba(127, 127, 127, 0.2);
         }
-
-        /* =========================
-           HARMONOGRAM
-        ========================= */
 
         .schedule {
             display: flex;
             flex-direction: column;
-            gap: 13px;
-
-            margin-top: 20px;
+            gap: 14px;
         }
 
         .schedule-item {
             padding: 17px 18px;
-
-            border-radius: 16px;
-
-            background: rgba(0, 0, 0, 0.045);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-
-            color: #25272d;
-
-            transition:
-                background 0.2s ease,
-                transform 0.2s ease;
-        }
-
-        .schedule-item:hover {
-            background: rgba(0, 0, 0, 0.07);
-            transform: translateX(3px);
+            border-radius: 14px;
+            background: rgba(127, 127, 127, 0.08);
+            border: 1px solid var(--border);
+            line-height: 1.6;
         }
 
         .schedule-item strong {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
-
-        .schedule-item span {
-            display: block;
-            line-height: 1.5;
-        }
-
-        /* =========================
-           ANIMACJE
-        ========================= */
 
         @keyframes modalBackground {
             from {
@@ -292,7 +189,7 @@
         @keyframes modalOpen {
             from {
                 opacity: 0;
-                transform: translateY(18px) scale(0.97);
+                transform: translateY(20px) scale(0.97);
             }
 
             to {
@@ -301,56 +198,31 @@
             }
         }
 
-        /* =========================
-           TELEFONY
-        ========================= */
-
-        @media (max-width: 600px) {
-
-            .events-hero {
-                padding: 45px 15px 30px;
+        @media (max-width: 800px) {
+            .events-grid {
+                grid-template-columns: 1fr;
             }
 
-            .events-hero h1 {
-                font-size: 30px;
-            }
-
-            .events-container {
-                width: 92%;
-            }
-
-            .events-section-title {
-                font-size: 24px;
+            .events-section {
+                padding: 50px 0;
             }
 
             .event-card {
-                padding: 23px;
-            }
-
-            .event-modal {
-                padding: 12px;
+                padding: 24px;
             }
 
             .event-modal-content {
-                padding: 28px 22px;
-                border-radius: 21px;
-                max-height: 90vh;
+                padding: 26px 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .event-buttons {
+                flex-direction: column;
             }
 
-            .event-modal-content h2 {
-                font-size: 24px;
-                margin-right: 35px;
-            }
-
-            .modal-close {
-                width: 36px;
-                height: 36px;
-                top: 12px;
-                right: 12px;
-            }
-
-            .schedule-item {
-                padding: 14px;
+            .event-button {
+                width: 100%;
             }
         }
     </style>
@@ -358,602 +230,571 @@
 
 <body>
 
-    <!-- =========================
-         HEADER
-    ========================= -->
+<header>
+    <div class="header-inner">
 
-    <header>
-        <div class="header-inner">
+        <a href="index.html" class="logo">
+            🌟 Kolonia Pasjonatów
+        </a>
 
-            <a href="index.html" class="logo">
-                🌟 Kolonia Pasjonatów
-            </a>
+        <nav>
+            <a href="index.html">Strona główna</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="licznik.html">Licznik</a>
+            <a href="wydarzenia.html" class="active">Wydarzenia</a>
+            <a href="linki.html">Linki</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
 
-            <nav>
-                <a href="index.html">
-                    Strona główna
-                </a>
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Zmień motyw"
+        >
+            🌙
+        </button>
 
-                <a href="ranking.html">
-                    Ranking
-                </a>
+    </div>
+</header>
 
-                <a href="licznik.html">
-                    Licznik
-                </a>
 
-                <a href="wydarzenia.html" class="active">
+<main>
+
+    <!-- HERO — taki sam jak na licznik.html -->
+
+    <section class="hero">
+        <div class="container">
+
+            <div class="hero-content">
+
+                <h1>
                     Wydarzenia
-                </a>
+                    <span>Kolonii Pasjonatów!</span>
+                </h1>
 
-                <a href="linki.html">
-                    Linki
-                </a>
+                <p>
+                    Sprawdź najważniejsze wydarzenia, konkursy i aktywności
+                    organizowane w Kolonii Pasjonatów.
+                </p>
 
-                <a href="kontakt.html">
-                    Kontakt
-                </a>
-            </nav>
-
-            <button
-                id="themeToggle"
-                class="theme-toggle"
-                type="button"
-                aria-label="Zmień motyw">
-                🌙
-            </button>
+            </div>
 
         </div>
-    </header>
+    </section>
 
-    <!-- =========================
-         GŁÓWNA CZĘŚĆ
-    ========================= -->
 
-    <main>
+    <!-- WYDARZENIA -->
 
-        <section class="events-hero">
+    <section class="events-section">
 
-            <h1>
-                Wydarzenia
-                <span>Kolonii Pasjonatów!</span>
-            </h1>
+        <div class="container">
 
-            <p>
-                Sprawdź najważniejsze wydarzenia, konkursy i aktywności
-                organizowane w Kolonii Pasjonatów.
-            </p>
+            <!-- 2026 -->
 
-        </section>
+            <div class="year-block">
 
-        <section class="events-container">
+                <h2 class="year-heading">
+                    📅 Wydarzenia 2026
+                </h2>
 
-            <!-- =========================
-                 2026
-            ========================= -->
+                <div class="events-grid">
 
-            <h2 class="events-section-title">
-                📅 Wydarzenia 2026
-            </h2>
+                    <!-- JESIEŃ -->
 
-            <div class="events-grid">
+                    <article class="event-card">
 
-                <!-- KOLEJ W JESIENNYM OBIEKTYWIE -->
+                        <span class="event-year">
+                            2026
+                        </span>
 
-                <article class="event-card">
+                        <h2>
+                            🍂📸 Kolej w jesiennym obiektywie
+                        </h2>
 
-                    <div class="event-icon">
-                        🍂
-                    </div>
+                        <div class="event-date">
+                            23.09–09.10.2026
+                        </div>
 
-                    <h3>
-                        Kolej w jesiennym obiektywie
-                    </h3>
+                        <p>
+                            Jesienny konkurs fotograficzny dla miłośników kolei.
+                            Pokaż swoje najlepsze kolejowe ujęcia w jesiennym klimacie!
+                        </p>
 
-                    <div class="event-date">
-                        23.09–09.10.2026
-                    </div>
+                        <div class="event-buttons">
 
-                    <p class="event-description">
-                        Jesienny konkurs fotograficzny dla miłośników kolei.
-                        Pokaż swoje najlepsze kolejowe ujęcia w jesiennym klimacie!
-                    </p>
+                            <button
+                                class="event-button"
+                                onclick="openEventModal('harmonogram-jesienny')"
+                            >
+                                📅 Harmonogram
+                            </button>
 
-                    <div class="event-buttons">
+                            <button
+                                class="event-button secondary"
+                                onclick="openEventModal('opis-jesienny')"
+                            >
+                                ℹ️ Opis wydarzenia
+                            </button>
 
-                        <button
-                            class="event-button-primary"
-                            onclick="openEventModal('harmonogram-jesienny')">
-                            📅 Harmonogram
-                        </button>
+                        </div>
 
-                        <button
-                            class="event-button-secondary"
-                            onclick="openEventModal('opis-jesienny')">
-                            ℹ️ Opis wydarzenia
-                        </button>
+                    </article>
 
-                    </div>
 
-                </article>
+                    <!-- ZIMA -->
 
-                <!-- STREFA ZIMOWA -->
+                    <article class="event-card">
 
-                <article class="event-card">
+                        <span class="event-year">
+                            2026/2027
+                        </span>
 
-                    <div class="event-icon">
-                        ❄️
-                    </div>
+                        <h2>
+                            ❄️ Strefa Zimowa 2026/2027
+                        </h2>
 
-                    <h3>
-                        Strefa Zimowa 2026/2027
-                    </h3>
+                        <div class="event-date">
+                            20.11.2026–31.01.2027
+                        </div>
 
-                    <div class="event-date">
-                        20.11.2026–31.01.2027
-                    </div>
+                        <p>
+                            Zimowa strefa pełna kolejowych aktywności,
+                            konkursów i wydarzeń społecznościowych.
+                        </p>
 
-                    <p class="event-description">
-                        Zimowa strefa pełna kolejowych aktywności,
-                        konkursów i wydarzeń społecznościowych.
-                    </p>
+                        <div class="event-buttons">
 
-                    <div class="event-buttons">
+                            <button
+                                class="event-button"
+                                onclick="openEventModal('harmonogram-zimowy')"
+                            >
+                                📅 Harmonogram
+                            </button>
 
-                        <button
-                            class="event-button-primary"
-                            onclick="openEventModal('harmonogram-zimowy')">
-                            📅 Harmonogram
-                        </button>
+                            <button
+                                class="event-button secondary"
+                                onclick="openEventModal('opis-zimowy')"
+                            >
+                                ℹ️ Opis wydarzenia
+                            </button>
 
-                        <button
-                            class="event-button-secondary"
-                            onclick="openEventModal('opis-zimowy')">
-                            ℹ️ Opis wydarzenia
-                        </button>
+                        </div>
 
-                    </div>
+                    </article>
 
-                </article>
+                </div>
 
             </div>
 
-            <!-- =========================
-                 2027
-            ========================= -->
 
-            <h2 class="events-section-title">
-                📅 Wydarzenia 2027
-            </h2>
+            <!-- 2027 -->
 
-            <div class="events-grid">
+            <div class="year-block">
 
-                <!-- STREFA LETNIA -->
+                <h2 class="year-heading">
+                    📅 Wydarzenia 2027
+                </h2>
 
-                <article class="event-card">
+                <div class="events-grid">
 
-                    <div class="event-icon">
-                        ☀️
-                    </div>
+                    <!-- LATO -->
 
-                    <h3>
-                        Strefa Letnia 2027
-                    </h3>
+                    <article class="event-card">
 
-                    <div class="event-date">
-                        01.06–31.08.2027
-                    </div>
+                        <span class="event-year">
+                            2027
+                        </span>
 
-                    <p class="event-description">
-                        Letnia strefa pełna aktywności, wydarzeń
-                        i zabawy dla całej społeczności.
-                    </p>
+                        <h2>
+                            ☀️ Strefa Letnia 2027
+                        </h2>
 
-                    <div class="event-buttons">
+                        <div class="event-date">
+                            01.06–31.08.2027
+                        </div>
 
-                        <button
-                            class="event-button-secondary"
-                            onclick="openEventModal('opis-letnia')">
-                            ℹ️ Opis wydarzenia
-                        </button>
+                        <p>
+                            Letnia strefa pełna aktywności, wydarzeń
+                            i zabawy dla całej społeczności.
+                        </p>
 
-                    </div>
+                        <div class="event-buttons">
 
-                </article>
+                            <button
+                                class="event-button secondary"
+                                onclick="openEventModal('opis-letnia')"
+                            >
+                                ℹ️ Opis wydarzenia
+                            </button>
 
-            </div>
+                        </div>
 
-        </section>
+                    </article>
 
-    </main>
-
-    <!-- =====================================================
-         MODAL — JESIEŃ — HARMONOGRAM
-    ====================================================== -->
-
-    <div
-        id="harmonogram-jesienny"
-        class="event-modal"
-        onclick="closeEventModal(event)">
-
-        <div
-            class="event-modal-content"
-            onclick="event.stopPropagation()">
-
-            <button
-                class="modal-close"
-                onclick="closeEventModal()"
-                aria-label="Zamknij">
-                ×
-            </button>
-
-            <h2>
-                🍂📸 Harmonogram — Kolej w jesiennym obiektywie
-            </h2>
-
-            <div class="schedule">
-
-                <div class="schedule-item">
-                    <strong>23.09.2026</strong>
-                    <span>
-                        🍂 Start konkursu „Kolej w jesiennym obiektywie”.
-                    </span>
-                </div>
-
-                <div class="schedule-item">
-                    <strong>23.09–04.10.2026</strong>
-                    <span>
-                        📸 Przyjmowanie prac konkursowych.
-                    </span>
-                </div>
-
-                <div class="schedule-item">
-                    <strong>05–07.10.2026</strong>
-                    <span>
-                        👨‍⚖️ Głosowanie jury.
-                    </span>
-                </div>
-
-                <div class="schedule-item">
-                    <strong>07–08.10.2026</strong>
-                    <span>
-                        🗳️ Głosowanie publiczności.
-                    </span>
-                </div>
-
-                <div class="schedule-item">
-                    <strong>08.10.2026</strong>
-                    <span>
-                        🔎 Weryfikacja wyników i końcowe głosowanie jury.
-                    </span>
-                </div>
-
-                <div class="schedule-item">
-                    <strong>09.10.2026</strong>
-                    <span>
-                        🏆 Ogłoszenie wyników i zakończenie wydarzenia.
-                    </span>
                 </div>
 
             </div>
 
         </div>
 
-    </div>
+    </section>
 
-    <!-- =====================================================
-         MODAL — JESIEŃ — OPIS
-    ====================================================== -->
+</main>
 
-    <div
-        id="opis-jesienny"
-        class="event-modal"
-        onclick="closeEventModal(event)">
 
-        <div
-            class="event-modal-content"
-            onclick="event.stopPropagation()">
+<!-- MODAL: JESIENNY HARMONOGRAM -->
 
-            <button
-                class="modal-close"
-                onclick="closeEventModal()"
-                aria-label="Zamknij">
-                ×
-            </button>
+<div
+    class="event-modal"
+    id="harmonogram-jesienny"
+    onclick="closeEventModal(event)"
+>
 
-            <h2>
-                🍂📸 Kolej w jesiennym obiektywie
-            </h2>
+    <div class="event-modal-content">
 
-            <p>
-                „Kolej w jesiennym obiektywie” to konkurs fotograficzny
-                poświęcony kolei w jesiennej scenerii.
-            </p>
+        <button
+            class="modal-close"
+            type="button"
+            onclick="closeEventModal()"
+            aria-label="Zamknij"
+        >
+            ×
+        </button>
 
-            <p>
-                Każda praca może otrzymać maksymalnie
-                <strong>100 punktów od jury</strong>.
-            </p>
+        <h2>
+            🍂 Harmonogram — Kolej w jesiennym obiektywie
+        </h2>
 
-            <p>
-                Głosowanie publiczności odbywa się za pomocą reakcji:
-            </p>
+        <div class="schedule">
 
-            <div class="schedule">
-
-                <div class="schedule-item">
-                    👍 <strong>GOOD</strong>
-                </div>
-
-                <div class="schedule-item">
-                    😐 <strong>MID</strong>
-                </div>
-
-                <div class="schedule-item">
-                    👎 <strong>BAD</strong>
-                </div>
-
+            <div class="schedule-item">
+                <strong>23.09.2026</strong>
+                🍂 Start konkursu „Kolej w jesiennym obiektywie”.
             </div>
 
-            <p>
-                Punkty jury oraz punkty publiczności zostaną połączone
-                w końcowy wynik konkursu.
-            </p>
+            <div class="schedule-item">
+                <strong>23.09–04.10.2026</strong>
+                📸 Przyjmowanie prac konkursowych.
+            </div>
 
-            <p>
-                ⚠️ Nie wolno głosować na własną pracę.
-                Głosy oddane na własną pracę nie będą liczone.
-            </p>
+            <div class="schedule-item">
+                <strong>05–07.10.2026</strong>
+                👨‍⚖️ Głosowanie jury.
+            </div>
 
-        </div>
+            <div class="schedule-item">
+                <strong>07–08.10.2026</strong>
+                🗳️ Głosowanie publiczności.
+            </div>
 
-    </div>
+            <div class="schedule-item">
+                <strong>08.10.2026</strong>
+                🔎 Weryfikacja wyników i końcowe głosowanie jury.
+            </div>
 
-    <!-- =====================================================
-         MODAL — ZIMA — HARMONOGRAM
-    ====================================================== -->
-
-    <div
-        id="harmonogram-zimowy"
-        class="event-modal"
-        onclick="closeEventModal(event)">
-
-        <div
-            class="event-modal-content"
-            onclick="event.stopPropagation()">
-
-            <button
-                class="modal-close"
-                onclick="closeEventModal()"
-                aria-label="Zamknij">
-                ×
-            </button>
-
-            <h2>
-                ❄️ Harmonogram — Strefa Zimowa 2026/2027
-            </h2>
-
-            <div class="schedule">
-
-                <div class="schedule-item">
-                    <strong>❄️ 20.11.2026</strong>
-                    <span>
-                        Start Strefy Zimowej.
-                    </span>
-                </div>
-
-                <div class="schedule-item">
-                    <strong>📸 28.11–06.12.2026</strong>
-                    <span>
-                        Mini konkurs „Zima na kolei”.
-                    </span>
-                </div>
-
-                <div class="schedule-item">
-                    <strong>🎅 06.12.2026, 18:00</strong>
-                    <span>
-                        Mikołajki w Kolonii.
-                    </span>
-                </div>
-
-                <div class="schedule-item">
-                    <strong>🚆 12–20.12.2026</strong>
-                    <span>
-                        Zimowy pojedynek taboru.
-                    </span>
-                </div>
-
-                <div class="schedule-item">
-                    <strong>
-                        🎄 23.12.2026, 19:00 – 25.12.2026, 14:00
-                    </strong>
-                    <span>
-                        Wigilia w Kolonii.
-                    </span>
-                </div>
-
-                <div class="schedule-item">
-                    <strong>
-                        🎆 30.12.2026, 17:00 – 01.01.2027, 14:30
-                    </strong>
-                    <span>
-                        Sylwester w Kolonii.
-                    </span>
-                </div>
-
-                <div class="schedule-item">
-                    <strong>📷 09–17.01.2027</strong>
-                    <span>
-                        „Najlepsze zimowe ujęcie”.
-                    </span>
-                </div>
-
-                <div class="schedule-item">
-                    <strong>🚉 20–24.01.2027</strong>
-                    <span>
-                        „Zimowa stacja roku”.
-                    </span>
-                </div>
-
-                <div class="schedule-item">
-                    <strong>🏁 31.01.2027</strong>
-                    <span>
-                        Zakończenie Strefy Zimowej.
-                    </span>
-                </div>
-
+            <div class="schedule-item">
+                <strong>09.10.2026</strong>
+                🏆 Ogłoszenie wyników i zakończenie wydarzenia.
             </div>
 
         </div>
 
     </div>
 
-    <!-- =====================================================
-         MODAL — ZIMA — OPIS
-    ====================================================== -->
+</div>
 
-    <div
-        id="opis-zimowy"
-        class="event-modal"
-        onclick="closeEventModal(event)">
 
-        <div
-            class="event-modal-content"
-            onclick="event.stopPropagation()">
+<!-- MODAL: JESIENNY OPIS -->
 
-            <button
-                class="modal-close"
-                onclick="closeEventModal()"
-                aria-label="Zamknij">
-                ×
-            </button>
+<div
+    class="event-modal"
+    id="opis-jesienny"
+    onclick="closeEventModal(event)"
+>
 
-            <h2>
-                ❄️ Strefa Zimowa 2026/2027
-            </h2>
+    <div class="event-modal-content">
 
-            <p>
-                Strefa Zimowa to specjalny okres wydarzeń
-                w Kolonii Pasjonatów poświęcony zimowej atmosferze
-                oraz kolejowym aktywnościom.
-            </p>
+        <button
+            class="modal-close"
+            type="button"
+            onclick="closeEventModal()"
+            aria-label="Zamknij"
+        >
+            ×
+        </button>
 
-            <p>
-                W ramach strefy odbędą się konkursy,
-                aktywności związane z taborem oraz wydarzenia
-                społecznościowe.
-            </p>
+        <h2>
+            🍂📸 Kolej w jesiennym obiektywie
+        </h2>
 
-            <p>
-                🚆 W programie znajdzie się między innymi
-                <strong>Zimowy pojedynek taboru</strong>.
-            </p>
+        <p>
+            „Kolej w jesiennym obiektywie” to konkurs fotograficzny
+            poświęcony kolei w jesiennej scenerii.
+        </p>
 
-            <p>
-                📸 Nie zabraknie również zimowych konkursów
-                fotograficznych oraz wyboru
-                <strong>„Zimowej stacji roku”</strong>.
-            </p>
+        <p>
+            Każda praca może otrzymać maksymalnie
+            <strong>100 punktów od jury</strong>.
+        </p>
+
+        <p>
+            Głosowanie publiczności odbywa się za pomocą reakcji:
+        </p>
+
+        <div class="schedule">
+
+            <div class="schedule-item">
+                👍 <strong>GOOD</strong>
+            </div>
+
+            <div class="schedule-item">
+                😐 <strong>MID</strong>
+            </div>
+
+            <div class="schedule-item">
+                👎 <strong>BAD</strong>
+            </div>
+
+        </div>
+
+        <p>
+            Wynik końcowy będzie wynikiem połączenia punktów jury
+            oraz głosów publiczności.
+        </p>
+
+        <p>
+            ⚠️ Nie wolno głosować na własną pracę.
+            Głosy oddane na własną pracę nie będą liczone.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- MODAL: ZIMOWY HARMONOGRAM -->
+
+<div
+    class="event-modal"
+    id="harmonogram-zimowy"
+    onclick="closeEventModal(event)"
+>
+
+    <div class="event-modal-content">
+
+        <button
+            class="modal-close"
+            type="button"
+            onclick="closeEventModal()"
+            aria-label="Zamknij"
+        >
+            ×
+        </button>
+
+        <h2>
+            ❄️ Harmonogram — Strefa Zimowa 2026/2027
+        </h2>
+
+        <div class="schedule">
+
+            <div class="schedule-item">
+                <strong>20.11.2026</strong>
+                ❄️ Start Strefy Zimowej.
+            </div>
+
+            <div class="schedule-item">
+                <strong>28.11–06.12.2026</strong>
+                📸 Mini konkurs „Zima na kolei”.
+            </div>
+
+            <div class="schedule-item">
+                <strong>06.12.2026, 18:00</strong>
+                🎅 Mikołajki w Kolonii.
+            </div>
+
+            <div class="schedule-item">
+                <strong>12–20.12.2026</strong>
+                🚆 Zimowy pojedynek taboru.
+            </div>
+
+            <div class="schedule-item">
+                <strong>23.12.2026, 19:00 – 25.12.2026, 14:00</strong>
+                🎄 Wigilia w Kolonii.
+            </div>
+
+            <div class="schedule-item">
+                <strong>30.12.2026, 17:00 – 01.01.2027, 14:30</strong>
+                🎆 Sylwester w Kolonii.
+            </div>
+
+            <div class="schedule-item">
+                <strong>09–17.01.2027</strong>
+                📷 „Najlepsze zimowe ujęcie”.
+            </div>
+
+            <div class="schedule-item">
+                <strong>20–24.01.2027</strong>
+                🚉 „Zimowa stacja roku”.
+            </div>
+
+            <div class="schedule-item">
+                <strong>31.01.2027</strong>
+                🏁 Zakończenie Strefy Zimowej.
+            </div>
 
         </div>
 
     </div>
 
-    <!-- =====================================================
-         MODAL — LATO — OPIS
-    ====================================================== -->
+</div>
 
-    <div
-        id="opis-letnia"
-        class="event-modal"
-        onclick="closeEventModal(event)">
 
-        <div
-            class="event-modal-content"
-            onclick="event.stopPropagation()">
+<!-- MODAL: ZIMOWY OPIS -->
 
-            <button
-                class="modal-close"
-                onclick="closeEventModal()"
-                aria-label="Zamknij">
-                ×
-            </button>
+<div
+    class="event-modal"
+    id="opis-zimowy"
+    onclick="closeEventModal(event)"
+>
 
-            <h2>
-                ☀️ Strefa Letnia 2027
-            </h2>
+    <div class="event-modal-content">
 
-            <p>
-                <strong>01.06–31.08.2027</strong>
-            </p>
+        <button
+            class="modal-close"
+            type="button"
+            onclick="closeEventModal()"
+            aria-label="Zamknij"
+        >
+            ×
+        </button>
 
-            <p>
-                Strefa Letnia będzie okresem pełnym aktywności,
-                wydarzeń i zabawy dla społeczności
-                Kolonii Pasjonatów.
-            </p>
+        <h2>
+            ❄️ Strefa Zimowa 2026/2027
+        </h2>
 
-            <p>
-                ☀️ Szczegółowy harmonogram zostanie przedstawiony
-                bliżej rozpoczęcia strefy.
-            </p>
+        <p>
+            Strefa Zimowa to specjalny okres wydarzeń w Kolonii Pasjonatów
+            poświęcony zimowej atmosferze oraz kolejowym aktywnościom.
+        </p>
 
-        </div>
+        <p>
+            W ramach strefy odbędą się konkursy, aktywności związane
+            z taborem oraz wydarzenia społecznościowe.
+        </p>
+
+        <p>
+            🚆 W programie znajdzie się między innymi
+            <strong>Zimowy pojedynek taboru</strong>.
+        </p>
+
+        <p>
+            📸 Nie zabraknie również zimowych konkursów fotograficznych
+            oraz wyboru <strong>„Zimowej stacji roku”</strong>.
+        </p>
 
     </div>
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
+</div>
 
-    <footer>
-        <p>© 2026 Kolonia Pasjonatów</p>
-        <p>🌟 Oficjalna strona społeczności</p>
-    </footer>
 
-    <!-- =========================
-         OBSŁUGA MODALI
-    ========================= -->
+<!-- MODAL: LATO -->
 
-    <script>
-        function openEventModal(id) {
-            const modal = document.getElementById(id);
+<div
+    class="event-modal"
+    id="opis-letnia"
+    onclick="closeEventModal(event)"
+>
 
-            if (!modal) return;
+    <div class="event-modal-content">
 
-            document
-                .querySelectorAll('.event-modal.active')
-                .forEach(function(item) {
-                    item.classList.remove('active');
-                });
+        <button
+            class="modal-close"
+            type="button"
+            onclick="closeEventModal()"
+            aria-label="Zamknij"
+        >
+            ×
+        </button>
 
-            modal.classList.add('active');
+        <h2>
+            ☀️ Strefa Letnia 2027
+        </h2>
 
-            document.body.style.overflow = 'hidden';
+        <p>
+            <strong>01.06–31.08.2027</strong>
+        </p>
+
+        <p>
+            Strefa Letnia będzie okresem pełnym aktywności,
+            wydarzeń i zabawy dla społeczności Kolonii Pasjonatów.
+        </p>
+
+        <p>
+            ☀️ Szczegółowy harmonogram zostanie przedstawiony
+            bliżej rozpoczęcia strefy.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- STOPKA -->
+
+<footer>
+    <p>© 2026 Kolonia Pasjonatów</p>
+    <p>🌟 Oficjalna strona społeczności</p>
+</footer>
+
+
+<script>
+    function openEventModal(id) {
+        const modal = document.getElementById(id);
+
+        if (!modal) {
+            return;
         }
 
-        function closeEventModal(event) {
-            if (event && event.target !== event.currentTarget) {
-                return;
-            }
+        document
+            .querySelectorAll('.event-modal.active')
+            .forEach(function(item) {
+                item.classList.remove('active');
+            });
 
-            document
-                .querySelectorAll('.event-modal.active')
-                .forEach(function(modal) {
-                    modal.classList.remove('active');
-                });
+        modal.classList.add('active');
 
-            document.body.style.overflow = '';
+        document.body.style.overflow = 'hidden';
+    }
+
+
+    function closeEventModal(event) {
+
+        if (event && event.target !== event.currentTarget) {
+            return;
         }
 
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeEventModal();
-            }
-        });
-    </script>
+        document
+            .querySelectorAll('.event-modal.active')
+            .forEach(function(modal) {
+                modal.classList.remove('active');
+            });
 
-    <script src="script.js"></script>
+        document.body.style.overflow = '';
+    }
+
+
+    document.addEventListener('keydown', function(event) {
+
+        if (event.key === 'Escape') {
+            closeEventModal();
+        }
+
+    });
+</script>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
