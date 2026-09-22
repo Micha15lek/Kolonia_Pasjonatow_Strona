@@ -9,319 +9,438 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* ================================
-           LICZNIK — DODATKOWY WYGLĄD
-        ================================= */
+    /* ========================================
+       LICZNIK — PREMIUM DESIGN
+    ======================================== */
 
-        .counter-page {
-            padding-bottom: 70px;
+    .counter-page {
+        padding-bottom: 80px;
+    }
+
+    .counter-section {
+        padding: 75px 0;
+    }
+
+    /* ========================================
+       HERO
+    ======================================== */
+
+    .hero-content h1 {
+        letter-spacing: -1.5px;
+    }
+
+    .hero-content h1 span {
+        display: inline-block;
+    }
+
+    .hero-content p {
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.7;
+    }
+
+    /* ========================================
+       NAGŁÓWKI SEKCJI
+    ======================================== */
+
+    .counter-heading {
+        margin-bottom: 38px;
+        text-align: center;
+    }
+
+    .counter-heading h2 {
+        margin: 0 0 12px;
+        font-size: clamp(1.8rem, 4vw, 2.35rem);
+        font-weight: 800;
+        letter-spacing: -0.5px;
+    }
+
+    .counter-heading p {
+        margin: 0 auto;
+        max-width: 650px;
+        color: var(--muted-text);
+        line-height: 1.7;
+        font-size: 1rem;
+    }
+
+    /* ========================================
+       GÓRNE KAFELKI
+    ======================================== */
+
+    .main-counter-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px;
+        margin-bottom: 28px;
+    }
+
+    .main-counter-card {
+        position: relative;
+        overflow: hidden;
+        min-height: 280px;
+        padding: 38px 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        border-radius: 28px;
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease,
+            border-color 0.3s ease;
+    }
+
+    .main-counter-card::before {
+        content: "";
+        position: absolute;
+        width: 230px;
+        height: 230px;
+        top: -110px;
+        right: -80px;
+        border-radius: 50%;
+        background: rgba(88, 101, 242, 0.10);
+        pointer-events: none;
+    }
+
+    .main-counter-card::after {
+        content: "";
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        bottom: -100px;
+        left: -70px;
+        border-radius: 50%;
+        background: rgba(88, 101, 242, 0.06);
+        pointer-events: none;
+    }
+
+    .main-counter-card:hover {
+        transform: translateY(-7px);
+        box-shadow: 0 22px 55px rgba(0, 0, 0, 0.15);
+    }
+
+    .main-counter-card > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .counter-card-icon {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 18px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 19px;
+        background: rgba(88, 101, 242, 0.12);
+
+        font-size: 1.9rem;
+    }
+
+    .main-counter-card h2 {
+        margin: 0 0 17px;
+        font-size: clamp(1.15rem, 2vw, 1.4rem);
+        font-weight: 750;
+        letter-spacing: -0.3px;
+    }
+
+    .main-counter-card .counter-value {
+        font-size: clamp(2.25rem, 5vw, 4rem);
+        font-weight: 900;
+        line-height: 1.05;
+        letter-spacing: -1.5px;
+        color: var(--accent);
+    }
+
+    .main-counter-card .counter-label {
+        margin-top: 13px;
+        color: var(--muted-text);
+        font-size: 0.95rem;
+    }
+
+    /* ========================================
+       MNIEJSZE KAFELKI
+    ======================================== */
+
+    .counter-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .counter-card {
+        position: relative;
+        overflow: hidden;
+        padding: 27px;
+        border-radius: 21px;
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+    }
+
+    .counter-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 38px rgba(0, 0, 0, 0.11);
+    }
+
+    .counter-card h3 {
+        margin: 0 0 13px;
+        font-size: 1.1rem;
+        font-weight: 750;
+    }
+
+    .detail-value {
+        font-size: 1.08rem;
+        font-weight: 700;
+        line-height: 1.7;
+    }
+
+    /* ========================================
+       FERIE
+    ======================================== */
+
+    .holidays-card {
+        margin-top: 30px;
+        padding: 32px;
+        border-radius: 25px;
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+    }
+
+    .holidays-card h2 {
+        margin: 0 0 20px;
+        font-size: 1.35rem;
+    }
+
+    .holidays-select {
+        width: 100%;
+        max-width: 450px;
+        padding: 14px 16px;
+
+        border-radius: 13px;
+        color: var(--text);
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+
+        font: inherit;
+        cursor: pointer;
+        outline: none;
+
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    .holidays-select:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.12);
+    }
+
+    .holidays-select option {
+        color: #111827;
+        background: #ffffff;
+    }
+
+    body.dark .holidays-select {
+        color: #f5f7ff;
+        background: #171923;
+        border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    body.dark .holidays-select option {
+        color: #f5f7ff;
+        background: #171923;
+    }
+
+    [data-theme="dark"] .holidays-select {
+        color: #f5f7ff;
+        background: #171923;
+        border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    [data-theme="dark"] .holidays-select option {
+        color: #f5f7ff;
+        background: #171923;
+    }
+
+    .holidays-result {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        margin-top: 25px;
+    }
+
+    /* ========================================
+       SPOŁECZNOŚĆ
+    ======================================== */
+
+    .community-card {
+        position: relative;
+        overflow: hidden;
+
+        margin-top: 0;
+        padding: 48px 30px;
+
+        text-align: center;
+
+        border-radius: 28px;
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+    .community-card::before {
+        content: "";
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        top: -180px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        background: rgba(88, 101, 242, 0.12);
+        pointer-events: none;
+    }
+
+    .community-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
+    }
+
+    .community-card > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .community-icon {
+        width: 74px;
+        height: 74px;
+        margin: 0 auto 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 22px;
+        background: rgba(88, 101, 242, 0.12);
+
+        font-size: 2.1rem;
+    }
+
+    .community-card h2 {
+        margin: 0 0 15px;
+        font-size: 1.45rem;
+        font-weight: 800;
+    }
+
+    .community-card .counter-value {
+        font-size: clamp(3.2rem, 8vw, 5.3rem);
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: -2px;
+        color: var(--accent);
+    }
+
+    .community-card .counter-label {
+        margin-top: 12px;
+        color: var(--muted-text);
+    }
+
+    /* ========================================
+       OSTATNIA AKTUALIZACJA
+    ======================================== */
+
+    .last-update-box {
+        margin-top: 25px;
+        padding: 18px 20px;
+
+        border-radius: 16px;
+        background: rgba(127, 127, 127, 0.07);
+        border: 1px solid var(--border);
+
+        color: var(--muted-text);
+        text-align: center;
+    }
+
+    .last-update-box strong {
+        color: var(--text);
+    }
+
+    /* ========================================
+       RESPONSYWNOŚĆ
+    ======================================== */
+
+    @media (max-width: 850px) {
+
+        .main-counter-grid,
+        .counter-grid,
+        .holidays-result {
+            grid-template-columns: 1fr;
         }
 
         .counter-section {
-            padding: 70px 0;
-        }
-
-        .counter-heading {
-            margin-bottom: 35px;
-            text-align: center;
-        }
-
-        .counter-heading h2 {
-            margin: 0 0 10px;
-            font-size: 2rem;
-        }
-
-        .counter-heading p {
-            margin: 0;
-            color: var(--muted-text);
-            line-height: 1.6;
-        }
-
-        /* GŁÓWNE LICZNIKI */
-
-        .main-counter-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
+            padding: 55px 0;
         }
 
         .main-counter-card {
-            position: relative;
-            overflow: hidden;
-            padding: 38px 30px;
-            text-align: center;
-            border-radius: 26px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
+            min-height: 250px;
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .counter-section {
+            padding: 45px 0;
         }
 
-        .main-counter-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                135deg,
-                rgba(88, 101, 242, 0.12),
-                transparent 60%
-            );
-            pointer-events: none;
+        .main-counter-card,
+        .counter-card,
+        .holidays-card,
+        .community-card {
+            padding: 25px 20px;
         }
 
-        .main-counter-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.14);
+        .main-counter-card {
+            min-height: 230px;
         }
 
-        .main-counter-card > * {
-            position: relative;
-            z-index: 1;
+        .counter-heading {
+            margin-bottom: 28px;
         }
 
-        .main-counter-card h2 {
-            margin: 0 0 20px;
-            font-size: 1.35rem;
+        .counter-heading h2 {
+            font-size: 1.7rem;
         }
-
-        .counter-value {
-            font-size: clamp(2rem, 5vw, 3.6rem);
-            font-weight: 900;
-            line-height: 1.1;
-            color: var(--accent);
-        }
-
-        .counter-label {
-            margin-top: 12px;
-            color: var(--muted-text);
-            line-height: 1.5;
-        }
-
-        /* KARTY */
-
-        .counter-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 20px;
-        }
-
-        .counter-card {
-            padding: 27px;
-            border-radius: 21px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-        }
-
-        .counter-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-        }
-
-        .counter-card h3 {
-            margin: 0 0 12px;
-            font-size: 1.15rem;
-        }
-
-        .detail-value {
-            font-size: 1.1rem;
-            font-weight: 700;
-            line-height: 1.7;
-        }
-
-        /* FERIE */
-
-        .holidays-card {
-            margin-top: 30px;
-            padding: 32px;
-            border-radius: 24px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-        }
-
-        .holidays-card h2 {
-            margin: 0 0 20px;
-        }
-
-        .holidays-select {
-            width: 100%;
-            max-width: 450px;
-            padding: 14px 16px;
-            border-radius: 13px;
-            color: var(--text);
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            font: inherit;
-            cursor: pointer;
-            outline: none;
-        }
-
-        .holidays-select:focus {
-            border-color: var(--accent);
-        }
-
-        .holidays-select option {
-            color: #111827;
-            background: #ffffff;
-        }
-
-        body.dark .holidays-select {
-            color: #f5f7ff;
-            background: #171923;
-            border-color: rgba(255, 255, 255, 0.12);
-        }
-
-        body.dark .holidays-select option {
-            color: #f5f7ff;
-            background: #171923;
-        }
-
-        [data-theme="dark"] .holidays-select {
-            color: #f5f7ff;
-            background: #171923;
-            border-color: rgba(255, 255, 255, 0.12);
-        }
-
-        [data-theme="dark"] .holidays-select option {
-            color: #f5f7ff;
-            background: #171923;
-        }
-
-        .holidays-result {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        /* SPOŁECZNOŚĆ */
 
         .community-card {
-            position: relative;
-            overflow: hidden;
-            margin-top: 0;
-            padding: 45px 30px;
-            text-align: center;
-            border-radius: 28px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-        }
-
-        .community-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(
-                    circle at 50% 0%,
-                    rgba(88, 101, 242, 0.16),
-                    transparent 55%
-                );
-            pointer-events: none;
-        }
-
-        .community-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
-        }
-
-        .community-card > * {
-            position: relative;
-            z-index: 1;
+            padding: 38px 20px;
         }
 
         .community-icon {
-            width: 76px;
-            height: 76px;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 22px;
-            background: rgba(88, 101, 242, 0.12);
-            font-size: 2.2rem;
+            width: 65px;
+            height: 65px;
+            font-size: 1.9rem;
         }
-
-        .community-card h2 {
-            margin: 0 0 14px;
-            font-size: 1.5rem;
-        }
-
-        .community-card .counter-value {
-            font-size: clamp(3.2rem, 8vw, 5.2rem);
-            font-weight: 900;
-            line-height: 1;
-        }
-
-        .community-card .counter-label {
-            margin-top: 12px;
-            font-size: 1rem;
-        }
-
-        /* OSTATNIA AKTUALIZACJA */
-
-        .last-update-box {
-            margin-top: 25px;
-            padding: 18px 20px;
-            border-radius: 16px;
-            background: rgba(127, 127, 127, 0.07);
-            border: 1px solid var(--border);
-            color: var(--muted-text);
-            text-align: center;
-        }
-
-        .last-update-box strong {
-            color: var(--text);
-        }
-
-        /* RESPONSYWNOŚĆ */
-
-        @media (max-width: 850px) {
-            .main-counter-grid,
-            .counter-grid,
-            .holidays-result {
-                grid-template-columns: 1fr;
-            }
-
-            .counter-section {
-                padding: 55px 0;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .main-counter-card,
-            .counter-card,
-            .holidays-card,
-            .community-card {
-                padding: 25px 20px;
-            }
-
-            .counter-heading h2 {
-                font-size: 1.7rem;
-            }
-
-            .community-card {
-                padding: 35px 20px;
-            }
-
-            .community-icon {
-                width: 65px;
-                height: 65px;
-                font-size: 1.9rem;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 
 <body>
