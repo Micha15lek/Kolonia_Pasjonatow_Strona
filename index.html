@@ -11,15 +11,19 @@
 
 <body>
 
-<header>
+<header class="site-header">
     <div class="header-inner">
 
         <a href="index.html" class="logo">
-            🌟 Kolonia Pasjonatów
+            <img
+                src="https://media.discordapp.net/attachments/1520530901807661249/1533093804398088362/Screenshot_20260801-1445422.jpg?ex=6aba61de&is=6ab9105e&hm=c19ed64c294dc7aa1a8fab3383a613232a74302cbb687a556e8932b2cfcbb0f1&=&format=webp"
+                alt="Logo Kolonii Pasjonatów"
+            >
+            <span>Kolonia Pasjonatów</span>
         </a>
 
         <nav>
-            <a href="index.html">Strona główna</a>
+            <a href="index.html" class="active">Strona główna</a>
             <a href="ranking.html">Ranking</a>
             <a href="licznik.html">Licznik</a>
             <a href="wydarzenia.html">Wydarzenia</a>
@@ -27,9 +31,12 @@
             <a href="kontakt.html">Kontakt</a>
         </nav>
 
-        <button id="themeToggle"
-                class="theme-toggle"
-                aria-label="Zmień motyw">
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Zmień motyw"
+        >
             🌙
         </button>
 
@@ -43,34 +50,213 @@
 
     <section class="hero">
 
-        <div class="container">
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-container">
 
             <div class="hero-content">
 
+                <div class="hero-logo">
+                    <img
+                        src="https://media.discordapp.net/attachments/1520530901807661249/1533093804398088362/Screenshot_20260801-1445422.jpg?ex=6aba61de&is=6ab9105e&hm=c19ed64c294dc7aa1a8fab3383a613232a74302cbb687a556e8932b2cfcbb0f1&=&format=webp"
+                        alt="Kolonia Pasjonatów"
+                    >
+                </div>
+
+                <p class="hero-kicker">
+                    OFICJALNA STRONA SPOŁECZNOŚCI
+                </p>
+
                 <h1>
-                    Witamy w <span>Kolonii Pasjonatów!</span>
+                    Witamy w
+                    <span>Kolonii Pasjonatów!</span>
                 </h1>
 
-                <p>
+                <p class="hero-description">
                     Społeczność stworzona dla osób, które łączą
                     wspólne zainteresowania, pasję i dobrą zabawę.
                 </p>
 
                 <div class="hero-buttons">
 
-                    <a href="https://discord.gg/886u97g22Q"
-                       target="_blank"
-                       rel="noopener"
-                       class="button button-primary">
+                    <a
+                        href="https://discord.gg/886u97g22Q"
+                        target="_blank"
+                        rel="noopener"
+                        class="button button-primary"
+                    >
                         💬 Dołącz na Discord
                     </a>
 
-                    <a href="#projekty"
-                       class="button button-secondary">
-                        Poznaj nas ↓
+                    <a
+                        href="#aktualnosci"
+                        class="button button-outline"
+                    >
+                        Poznaj Kolonię ↓
                     </a>
 
                 </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PASEK INFORMACYJNY -->
+
+    <section class="quick-info">
+
+        <div class="container">
+
+            <div class="quick-info-grid">
+
+                <a href="wydarzenia.html" class="quick-info-card">
+                    <span class="quick-icon">📅</span>
+                    <div>
+                        <small>NAJBLIŻSZE WYDARZENIE</small>
+                        <strong>Kolej w jesiennym obiektywie</strong>
+                    </div>
+                    <span class="quick-arrow">→</span>
+                </a>
+
+                <a href="licznik.html" class="quick-info-card">
+                    <span class="quick-icon">👥</span>
+                    <div>
+                        <small>SPOŁECZNOŚĆ</small>
+                        <strong>20 członków Kolonii</strong>
+                    </div>
+                    <span class="quick-arrow">→</span>
+                </a>
+
+                <a href="ranking.html" class="quick-info-card">
+                    <span class="quick-icon">🏆</span>
+                    <div>
+                        <small>SPOŁECZNOŚĆ</small>
+                        <strong>Ranking Kolonii Pasjonatów</strong>
+                    </div>
+                    <span class="quick-arrow">→</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- AKTUALNOŚCI -->
+
+    <section id="aktualnosci" class="section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">
+                        KOLONIA PASJONATÓW
+                    </span>
+
+                    <h2>
+                        Najważniejsze informacje
+                    </h2>
+                </div>
+
+                <p>
+                    Wszystko, co warto wiedzieć o naszej społeczności.
+                </p>
+
+            </div>
+
+
+            <div class="news-grid">
+
+                <article class="news-card news-card-large">
+
+                    <div class="news-image news-image-autumn">
+                        <span>🍂</span>
+                    </div>
+
+                    <div class="news-content">
+
+                        <span class="news-category">
+                            WYDARZENIE
+                        </span>
+
+                        <h3>
+                            Kolej w jesiennym obiektywie
+                        </h3>
+
+                        <p>
+                            Jesienny konkurs fotograficzny dla miłośników
+                            kolei. Pokaż swoje najlepsze kolejowe ujęcia
+                            w jesiennym klimacie!
+                        </p>
+
+                        <div class="news-meta">
+                            <span>23.09–09.10.2026</span>
+                            <a href="wydarzenia.html">
+                                Sprawdź →
+                            </a>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="news-card">
+
+                    <div class="news-top">
+                        <span class="news-icon">❄️</span>
+                        <span class="news-category">
+                            NADCHODZI
+                        </span>
+                    </div>
+
+                    <h3>
+                        Strefa Zimowa 2026/2027
+                    </h3>
+
+                    <p>
+                        Zimowa strefa pełna kolejowych aktywności,
+                        konkursów i wydarzeń społecznościowych.
+                    </p>
+
+                    <div class="news-footer">
+                        <span>20.11.2026–31.01.2027</span>
+                        <a href="wydarzenia.html">→</a>
+                    </div>
+
+                </article>
+
+
+                <article class="news-card">
+
+                    <div class="news-top">
+                        <span class="news-icon">☀️</span>
+                        <span class="news-category">
+                            2027
+                        </span>
+                    </div>
+
+                    <h3>
+                        Strefa Letnia 2027
+                    </h3>
+
+                    <p>
+                        Letnia strefa pełna aktywności, wydarzeń
+                        i zabawy dla całej społeczności.
+                    </p>
+
+                    <div class="news-footer">
+                        <span>01.06–31.08.2027</span>
+                        <a href="wydarzenia.html">→</a>
+                    </div>
+
+                </article>
 
             </div>
 
@@ -81,66 +267,92 @@
 
     <!-- PROJEKTY -->
 
-    <section id="projekty">
+    <section class="section section-alt">
 
         <div class="container">
 
             <div class="section-heading">
 
-                <h2>🚀 Projekty Kolonii Pasjonatów</h2>
+                <div>
+                    <span class="section-label">
+                        NASZA SPOŁECZNOŚĆ
+                    </span>
+
+                    <h2>
+                        Projekty Kolonii
+                    </h2>
+                </div>
 
                 <p>
-                    Najważniejsze miejsca i projekty naszej społeczności.
+                    Najważniejsze miejsca naszej społeczności.
                 </p>
 
             </div>
 
 
-            <div class="cards-grid">
+            <div class="projects-grid">
 
-                <article class="card project-card discord-card">
+                <article class="project-card">
 
-                    <div class="card-icon">
+                    <div class="project-icon">
                         💬
                     </div>
 
-                    <h3>
-                        Serwer Discord
-                    </h3>
+                    <div class="project-content">
 
-                    <p>
-                        Główne miejsce naszej społeczności.
-                        Rozmowy, wydarzenia, konkursy i wspólna zabawa.
-                    </p>
+                        <span class="project-label">
+                            GŁÓWNE MIEJSCE SPOŁECZNOŚCI
+                        </span>
 
-                    <a href="https://discord.gg/886u97g22Q"
-                       target="_blank"
-                       rel="noopener"
-                       class="button button-primary">
-                        Dołącz →
-                    </a>
+                        <h3>
+                            Serwer Discord
+                        </h3>
+
+                        <p>
+                            Rozmowy, wydarzenia, konkursy, zabawy
+                            i wspólne spędzanie czasu.
+                        </p>
+
+                        <a
+                            href="https://discord.gg/886u97g22Q"
+                            target="_blank"
+                            rel="noopener"
+                            class="text-link"
+                        >
+                            Dołącz do serwera →
+                        </a>
+
+                    </div>
 
                 </article>
 
 
-                <article class="card project-card whatsapp-card">
+                <article class="project-card">
 
-                    <div class="card-icon">
+                    <div class="project-icon">
                         📱
                     </div>
 
-                    <h3>
-                        WhatsApp
-                    </h3>
+                    <div class="project-content">
 
-                    <p>
-                        Dodatkowe miejsce kontaktu dla członków
-                        Kolonii Pasjonatów.
-                    </p>
+                        <span class="project-label">
+                            DODATKOWY KONTAKT
+                        </span>
 
-                    <span class="status-badge">
-                        🔧 W przygotowaniu
-                    </span>
+                        <h3>
+                            WhatsApp
+                        </h3>
+
+                        <p>
+                            Dodatkowe miejsce kontaktu dla członków
+                            Kolonii Pasjonatów.
+                        </p>
+
+                        <span class="status-badge">
+                            🔧 W przygotowaniu
+                        </span>
+
+                    </div>
 
                 </article>
 
@@ -151,15 +363,23 @@
     </section>
 
 
-    <!-- NAJWAŻNIEJSZE STATYSTYKI -->
+    <!-- STATYSTYKI -->
 
-    <section class="stats-section">
+    <section class="section">
 
         <div class="container">
 
             <div class="section-heading">
 
-                <h2>📊 Najważniejsze statystyki</h2>
+                <div>
+                    <span class="section-label">
+                        KOLONIA W LICZBACH
+                    </span>
+
+                    <h2>
+                        Nasze statystyki
+                    </h2>
+                </div>
 
                 <p>
                     Kolonia cały czas się rozwija!
@@ -170,219 +390,110 @@
 
             <div class="stats-grid">
 
-                <!-- LICZBA CZŁONKÓW -->
+                <article class="stat-card">
 
-                <div class="stat-card">
-
-                    <span class="stat-icon">
+                    <div class="stat-icon">
                         👥
-                    </span>
+                    </div>
 
-                    <strong>
+                    <strong class="stat-number">
                         20
                     </strong>
 
-                    <span>
+                    <span class="stat-label">
                         członków społeczności
                     </span>
 
-                </div>
+                </article>
 
 
-                <!-- START KOLONII -->
+                <article class="stat-card stat-card-wide">
 
-                <div class="stat-card">
-
-                    <span class="stat-icon">
+                    <div class="stat-icon">
                         🏠
-                    </span>
+                    </div>
 
-                    <strong class="stat-title">
-                        Start Kolonii
-                    </strong>
+                    <div class="stat-main">
 
-                    <span>
-                        11.06.2026
-                    </span>
+                        <span class="stat-title">
+                            Kolonia Pasjonatów działa od
+                        </span>
+
+                        <strong>
+                            11.06.2026
+                        </strong>
+
+                    </div>
 
                     <div class="stat-time">
 
                         <div>
-                            <strong id="colonyDays">
-                                0
-                            </strong>
+                            <strong id="colonyDays">0</strong>
                             <span>DNI</span>
                         </div>
 
                         <div>
-                            <strong id="colonyHours">
-                                00
-                            </strong>
+                            <strong id="colonyHours">00</strong>
                             <span>GODZIN</span>
                         </div>
 
                         <div>
-                            <strong id="colonyMinutes">
-                                00
-                            </strong>
+                            <strong id="colonyMinutes">00</strong>
                             <span>MINUT</span>
                         </div>
 
                         <div>
-                            <strong id="colonySeconds">
-                                00
-                            </strong>
+                            <strong id="colonySeconds">00</strong>
                             <span>SEKUND</span>
                         </div>
 
                     </div>
 
-                </div>
+                </article>
 
 
-                <!-- START STRONY -->
+                <article class="stat-card stat-card-wide">
 
-                <div class="stat-card">
-
-                    <span class="stat-icon">
+                    <div class="stat-icon">
                         🌐
-                    </span>
+                    </div>
 
-                    <strong class="stat-title">
-                        Start strony
-                    </strong>
+                    <div class="stat-main">
 
-                    <span>
-                        13.08.2026 — 20:10
-                    </span>
+                        <span class="stat-title">
+                            Oficjalna strona działa od
+                        </span>
+
+                        <strong>
+                            13.08.2026 — 20:10
+                        </strong>
+
+                    </div>
 
                     <div class="stat-time">
 
                         <div>
-                            <strong id="websiteDays">
-                                0
-                            </strong>
+                            <strong id="websiteDays">0</strong>
                             <span>DNI</span>
                         </div>
 
                         <div>
-                            <strong id="websiteHours">
-                                00
-                            </strong>
+                            <strong id="websiteHours">00</strong>
                             <span>GODZIN</span>
                         </div>
 
                         <div>
-                            <strong id="websiteMinutes">
-                                00
-                            </strong>
+                            <strong id="websiteMinutes">00</strong>
                             <span>MINUT</span>
                         </div>
 
                         <div>
-                            <strong id="websiteSeconds">
-                                00
-                            </strong>
+                            <strong id="websiteSeconds">00</strong>
                             <span>SEKUND</span>
                         </div>
 
                     </div>
 
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- NADCHODZĄCE WYDARZENIA -->
-
-    <section>
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <h2>📅 Nadchodzące wydarzenia</h2>
-
-                <p>
-                    Najważniejsze wydarzenia zaplanowane w Kolonii.
-                </p>
-
-            </div>
-
-
-            <div class="events-grid">
-
-                <article class="event-card">
-
-                    <div class="event-date">
-
-                        <strong>
-                            23.09
-                        </strong>
-
-                        <span>
-                            09.10.2026
-                        </span>
-
-                    </div>
-
-
-                    <div class="event-content">
-
-                        <div class="event-icon">
-                            🍂
-                        </div>
-
-                        <h3>
-                            Kolej w jesiennym krajobrazie
-                        </h3>
-
-                        <p>
-                            Jesienna akcja fotograficzna poświęcona
-                            kolei i pięknym jesiennym krajobrazom.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <article class="event-card">
-
-                    <div class="event-date">
-
-                        <strong>
-                            31.10
-                        </strong>
-
-                        <span>
-                            2026
-                        </span>
-
-                    </div>
-
-
-                    <div class="event-content">
-
-                        <div class="event-icon">
-                            🎃
-                        </div>
-
-                        <h3>
-                            Halloween Kolonii Pasjonatów
-                        </h3>
-
-                        <p>
-                            Specjalne halloweenowe wydarzenie
-                            w naszej społeczności.
-                        </p>
-
-                    </div>
-
                 </article>
 
             </div>
@@ -392,67 +503,129 @@
     </section>
 
 
-    <!-- ZAPOWIEDŹ ŚWIĄTECZNA -->
+    <!-- WYDARZENIA -->
 
-    <section>
+    <section class="section section-dark">
 
         <div class="container">
 
-            <div class="announcement">
-
-                <div class="announcement-icon">
-                    🎄
-                </div>
+            <div class="section-heading section-heading-light">
 
                 <div>
-
-                    <span class="announcement-label">
-                        ZAPOWIEDŹ
+                    <span class="section-label">
+                        KALENDARZ
                     </span>
 
-                    <h3>
-                        Świąteczna strefa Kolonii Pasjonatów
-                    </h3>
-
-                    <p>
-                        Zimą Kolonię Pasjonatów czekają świąteczne
-                        wydarzenia, specjalne aktywności oraz
-                        wspólne świętowanie w naszej społeczności.
-                    </p>
-
+                    <h2>
+                        Nadchodzące wydarzenia
+                    </h2>
                 </div>
+
+                <a
+                    href="wydarzenia.html"
+                    class="heading-link"
+                >
+                    Wszystkie wydarzenia →
+                </a>
 
             </div>
 
-        </div>
 
-    </section>
+            <div class="event-list">
+
+                <a href="wydarzenia.html" class="event-row">
+
+                    <div class="event-date-box">
+                        <strong>23</strong>
+                        <span>WRZ</span>
+                    </div>
+
+                    <div class="event-row-icon">
+                        🍂
+                    </div>
+
+                    <div class="event-row-content">
+                        <span>
+                            KONKURS FOTOGRAFICZNY
+                        </span>
+
+                        <h3>
+                            Kolej w jesiennym obiektywie
+                        </h3>
+
+                        <p>
+                            23.09–09.10.2026
+                        </p>
+                    </div>
+
+                    <div class="event-arrow">
+                        →
+                    </div>
+
+                </a>
 
 
-    <!-- HISTORIA -->
+                <a href="wydarzenia.html" class="event-row">
 
-    <section>
+                    <div class="event-date-box">
+                        <strong>20</strong>
+                        <span>LIS</span>
+                    </div>
 
-        <div class="container">
+                    <div class="event-row-icon">
+                        ❄️
+                    </div>
 
-            <div class="history-box">
+                    <div class="event-row-content">
+                        <span>
+                            STREFA TEMATYCZNA
+                        </span>
 
-                <div>
+                        <h3>
+                            Strefa Zimowa 2026/2027
+                        </h3>
 
-                    <h3>
-                        📖 Historia społeczności
-                    </h3>
+                        <p>
+                            20.11.2026–31.01.2027
+                        </p>
+                    </div>
 
-                    <p>
-                        Poznaj najważniejsze momenty w historii
-                        Kolonii Pasjonatów.
-                    </p>
+                    <div class="event-arrow">
+                        →
+                    </div>
 
-                </div>
+                </a>
 
-                <a href="historia.html"
-                   class="button button-secondary">
-                    Zobacz historię →
+
+                <a href="wydarzenia.html" class="event-row">
+
+                    <div class="event-date-box">
+                        <strong>01</strong>
+                        <span>CZE</span>
+                    </div>
+
+                    <div class="event-row-icon">
+                        ☀️
+                    </div>
+
+                    <div class="event-row-content">
+                        <span>
+                            STREFA TEMATYCZNA
+                        </span>
+
+                        <h3>
+                            Strefa Letnia 2027
+                        </h3>
+
+                        <p>
+                            01.06–31.08.2027
+                        </p>
+                    </div>
+
+                    <div class="event-arrow">
+                        →
+                    </div>
+
                 </a>
 
             </div>
@@ -462,30 +635,115 @@
     </section>
 
 
-    <!-- KALENDARZ -->
+    <!-- HISTORIA / KALENDARZ -->
 
-    <section>
+    <section class="section">
 
         <div class="container">
 
-            <div class="history-box">
+            <div class="feature-grid">
 
-                <div>
+                <a href="historia.html" class="feature-card">
 
-                    <h3>
-                        📅 Kalendarz Kolonii Pasjonatów
-                    </h3>
+                    <div class="feature-icon">
+                        📖
+                    </div>
 
-                    <p>
-                        Sprawdź wydarzenia, święta, ważne daty
-                        oraz urodziny członków Kolonii.
-                    </p>
+                    <div>
+                        <span>
+                            POZNAJ NAS
+                        </span>
 
-                </div>
+                        <h3>
+                            Historia społeczności
+                        </h3>
 
-                <a href="kalendarz.html"
-                   class="button button-secondary">
-                    Zobacz kalendarz →
+                        <p>
+                            Najważniejsze momenty w historii
+                            Kolonii Pasjonatów.
+                        </p>
+                    </div>
+
+                    <strong>→</strong>
+
+                </a>
+
+
+                <a href="kalendarz.html" class="feature-card">
+
+                    <div class="feature-icon">
+                        📅
+                    </div>
+
+                    <div>
+                        <span>
+                            SPRAWDŹ DATY
+                        </span>
+
+                        <h3>
+                            Kalendarz Kolonii
+                        </h3>
+
+                        <p>
+                            Wydarzenia, święta, ważne daty
+                            i urodziny członków.
+                        </p>
+                    </div>
+
+                    <strong>→</strong>
+
+                </a>
+
+
+                <a href="administracja.html" class="feature-card">
+
+                    <div class="feature-icon">
+                        ⚙️
+                    </div>
+
+                    <div>
+                        <span>
+                            ZESPÓŁ
+                        </span>
+
+                        <h3>
+                            Administracja
+                        </h3>
+
+                        <p>
+                            Poznaj osoby odpowiedzialne za rozwój
+                            Kolonii Pasjonatów.
+                        </p>
+                    </div>
+
+                    <strong>→</strong>
+
+                </a>
+
+
+                <a href="regulamin.html" class="feature-card">
+
+                    <div class="feature-icon">
+                        📜
+                    </div>
+
+                    <div>
+                        <span>
+                            WAŻNE INFORMACJE
+                        </span>
+
+                        <h3>
+                            Regulamin
+                        </h3>
+
+                        <p>
+                            Zapoznaj się z zasadami naszej
+                            społeczności.
+                        </p>
+                    </div>
+
+                    <strong>→</strong>
+
                 </a>
 
             </div>
@@ -495,92 +753,45 @@
     </section>
 
 
-    <!-- ADMINISTRACJA -->
-
-    <section>
-
-        <div class="container">
-
-            <div class="rules-banner">
-
-                <div>
-
-                    <h3>
-                        ⚙️ Administracja
-                    </h3>
-
-                    <p>
-                        Poznaj osoby odpowiedzialne za działanie
-                        i rozwój Kolonii Pasjonatów.
-                    </p>
-
-                </div>
-
-                <a href="administracja.html"
-                   class="button button-secondary">
-                    Zobacz administrację →
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- REGULAMIN -->
-
-    <section>
-
-        <div class="container">
-
-            <div class="rules-banner">
-
-                <div>
-
-                    <h3>
-                        📜 Regulamin Kolonii Pasjonatów
-                    </h3>
-
-                    <p>
-                        Zapoznaj się z zasadami obowiązującymi
-                        w naszej społeczności.
-                    </p>
-
-                </div>
-
-                <a href="regulamin.html"
-                   class="button button-secondary">
-                    Przejdź do regulaminu →
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- DISCORD -->
+    <!-- DISCORD CTA -->
 
     <section class="discord-cta">
 
         <div class="container">
 
-            <h2>
-                💬 Dołącz do Kolonii Pasjonatów!
-            </h2>
+            <div class="discord-cta-inner">
 
-            <p>
-                Dołącz do nas i stań się częścią naszej społeczności.
-            </p>
+                <div class="discord-cta-icon">
+                    💬
+                </div>
 
-            <a href="https://discord.gg/886u97g22Q"
-               target="_blank"
-               rel="noopener"
-               class="button button-discord">
-                🚀 Dołącz na Discord
-            </a>
+                <div class="discord-cta-content">
+
+                    <span>
+                        DOŁĄCZ DO NAS
+                    </span>
+
+                    <h2>
+                        Zostań częścią Kolonii Pasjonatów
+                    </h2>
+
+                    <p>
+                        Dołącz do naszej społeczności i razem
+                        twórzmy kolejne rozdziały Kolonii.
+                    </p>
+
+                </div>
+
+                <a
+                    href="https://discord.gg/886u97g22Q"
+                    target="_blank"
+                    rel="noopener"
+                    class="button button-discord"
+                >
+                    🚀 Dołącz na Discord
+                </a>
+
+            </div>
 
         </div>
 
@@ -589,17 +800,38 @@
 </main>
 
 
-<!-- FOOTER -->
-
 <footer>
 
-    <p>
-        © 2026 Kolonia Pasjonatów
-    </p>
+    <div class="footer-inner">
 
-    <p>
-        🌟 Oficjalna strona społeczności
-    </p>
+        <div class="footer-brand">
+
+            <img
+                src="https://media.discordapp.net/attachments/1520530901807661249/1533093804398088362/Screenshot_20260801-1445422.jpg?ex=6aba61de&is=6ab9105e&hm=c19ed64c294dc7aa1a8fab3383a613232a74302cbb687a556e8932b2cfcbb0f1&=&format=webp"
+                alt="Logo Kolonii Pasjonatów"
+            >
+
+            <div>
+                <strong>Kolonia Pasjonatów</strong>
+                <span>Oficjalna strona społeczności</span>
+            </div>
+
+        </div>
+
+        <div class="footer-links">
+
+            <a href="index.html">Strona główna</a>
+            <a href="wydarzenia.html">Wydarzenia</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="kontakt.html">Kontakt</a>
+
+        </div>
+
+        <div class="footer-copy">
+            © 2026 Kolonia Pasjonatów
+        </div>
+
+    </div>
 
 </footer>
 
@@ -608,53 +840,40 @@
 
 <script>
 
-const COLONY_START_DATE =
-    "2026-06-11T00:00:00";
-
-const WEBSITE_START_DATE =
-    "2026-08-13T20:10:00";
+const COLONY_START_DATE = "2026-06-11T00:00:00";
+const WEBSITE_START_DATE = "2026-08-13T20:10:00";
 
 
 function getTimeParts(startDate) {
 
-    const start =
-        new Date(startDate);
+    const start = new Date(startDate);
+    const now = new Date();
 
-    const now =
-        new Date();
+    const difference = Math.max(
+        0,
+        now.getTime() - start.getTime()
+    );
 
-    const difference =
-        Math.max(
-            0,
-            now.getTime() -
-            start.getTime()
-        );
-
-    const totalSeconds =
-        Math.floor(
-            difference / 1000
-        );
-
+    const totalSeconds = Math.floor(
+        difference / 1000
+    );
 
     return {
 
-        days:
-            Math.floor(
-                totalSeconds / 86400
-            ),
+        days: Math.floor(
+            totalSeconds / 86400
+        ),
 
-        hours:
-            Math.floor(
-                (totalSeconds % 86400) / 3600
-            ),
+        hours: Math.floor(
+            (totalSeconds % 86400) / 3600
+        ),
 
-        minutes:
-            Math.floor(
-                (totalSeconds % 3600) / 60
-            ),
+        minutes: Math.floor(
+            (totalSeconds % 3600) / 60
+        ),
 
-        seconds:
-            totalSeconds % 60
+        seconds: totalSeconds % 60
+
     };
 }
 
@@ -662,142 +881,76 @@ function getTimeParts(startDate) {
 function updateCounter() {
 
     const colony =
-        getTimeParts(
-            COLONY_START_DATE
-        );
+        getTimeParts(COLONY_START_DATE);
 
     const website =
-        getTimeParts(
-            WEBSITE_START_DATE
-        );
+        getTimeParts(WEBSITE_START_DATE);
 
-
-    /* START KOLONII */
 
     const colonyDays =
-        document.getElementById(
-            "colonyDays"
-        );
+        document.getElementById("colonyDays");
 
     const colonyHours =
-        document.getElementById(
-            "colonyHours"
-        );
+        document.getElementById("colonyHours");
 
     const colonyMinutes =
-        document.getElementById(
-            "colonyMinutes"
-        );
+        document.getElementById("colonyMinutes");
 
     const colonySeconds =
-        document.getElementById(
-            "colonySeconds"
-        );
+        document.getElementById("colonySeconds");
 
 
     if (colonyDays)
-        colonyDays.textContent =
-            colony.days;
-
+        colonyDays.textContent = colony.days;
 
     if (colonyHours)
         colonyHours.textContent =
-            String(
-                colony.hours
-            ).padStart(
-                2,
-                "0"
-            );
-
+            String(colony.hours).padStart(2, "0");
 
     if (colonyMinutes)
         colonyMinutes.textContent =
-            String(
-                colony.minutes
-            ).padStart(
-                2,
-                "0"
-            );
-
+            String(colony.minutes).padStart(2, "0");
 
     if (colonySeconds)
         colonySeconds.textContent =
-            String(
-                colony.seconds
-            ).padStart(
-                2,
-                "0"
-            );
+            String(colony.seconds).padStart(2, "0");
 
-
-    /* START STRONY */
 
     const websiteDays =
-        document.getElementById(
-            "websiteDays"
-        );
+        document.getElementById("websiteDays");
 
     const websiteHours =
-        document.getElementById(
-            "websiteHours"
-        );
+        document.getElementById("websiteHours");
 
     const websiteMinutes =
-        document.getElementById(
-            "websiteMinutes"
-        );
+        document.getElementById("websiteMinutes");
 
     const websiteSeconds =
-        document.getElementById(
-            "websiteSeconds"
-        );
+        document.getElementById("websiteSeconds");
 
 
     if (websiteDays)
-        websiteDays.textContent =
-            website.days;
-
+        websiteDays.textContent = website.days;
 
     if (websiteHours)
         websiteHours.textContent =
-            String(
-                website.hours
-            ).padStart(
-                2,
-                "0"
-            );
-
+            String(website.hours).padStart(2, "0");
 
     if (websiteMinutes)
         websiteMinutes.textContent =
-            String(
-                website.minutes
-            ).padStart(
-                2,
-                "0"
-            );
-
+            String(website.minutes).padStart(2, "0");
 
     if (websiteSeconds)
         websiteSeconds.textContent =
-            String(
-                website.seconds
-            ).padStart(
-                2,
-                "0"
-            );
+            String(website.seconds).padStart(2, "0");
 }
 
 
 updateCounter();
 
-setInterval(
-    updateCounter,
-    1000
-);
+setInterval(updateCounter, 1000);
 
 </script>
 
 </body>
 </html>
-```
