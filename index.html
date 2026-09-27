@@ -43,10 +43,8 @@
     </div>
 </header>
 
-
 <main>
 
-    <!-- HERO -->
     <section class="hero">
         <div class="hero-overlay"></div>
 
@@ -99,7 +97,6 @@
     </section>
 
 
-    <!-- SZYBKIE INFORMACJE -->
     <section class="quick-info">
 
         <div class="container">
@@ -107,7 +104,6 @@
             <div class="quick-info-grid">
 
                 <a href="wydarzenia.html" class="quick-info-card">
-
                     <span class="quick-icon">📅</span>
 
                     <div>
@@ -116,12 +112,9 @@
                     </div>
 
                     <span class="quick-arrow">→</span>
-
                 </a>
 
-
                 <a href="licznik.html" class="quick-info-card">
-
                     <span class="quick-icon">👥</span>
 
                     <div>
@@ -130,12 +123,9 @@
                     </div>
 
                     <span class="quick-arrow">→</span>
-
                 </a>
 
-
                 <a href="ranking.html" class="quick-info-card">
-
                     <span class="quick-icon">🏆</span>
 
                     <div>
@@ -144,7 +134,6 @@
                     </div>
 
                     <span class="quick-arrow">→</span>
-
                 </a>
 
             </div>
@@ -154,7 +143,6 @@
     </section>
 
 
-    <!-- AKTUALNOŚCI -->
     <section id="aktualnosci" class="section">
 
         <div class="container">
@@ -180,7 +168,6 @@
 
             <div class="news-grid">
 
-                <!-- JESIEŃ -->
                 <article class="news-card news-card-large">
 
                     <div class="news-card-content">
@@ -218,7 +205,6 @@
                 </article>
 
 
-                <!-- ZIMA -->
                 <article class="news-card">
 
                     <div class="news-card-content">
@@ -254,7 +240,6 @@
                 </article>
 
 
-                <!-- LATO -->
                 <article class="news-card">
 
                     <div class="news-card-content">
@@ -296,7 +281,6 @@
     </section>
 
 
-    <!-- PROJEKTY -->
     <section class="section section-alt">
 
         <div class="container">
@@ -324,7 +308,6 @@
 
             <div class="projects-grid">
 
-                <!-- DISCORD -->
                 <article class="project-card">
 
                     <div class="project-icon">
@@ -357,7 +340,6 @@
                 </article>
 
 
-                <!-- WHATSAPP -->
                 <article class="project-card whatsapp-card">
 
                     <div class="card-icon">
@@ -390,7 +372,6 @@
     </section>
 
 
-    <!-- STATYSTYKI -->
     <section class="section stats-section">
 
         <div class="container">
@@ -418,7 +399,6 @@
 
             <div class="stats-grid">
 
-                <!-- CZŁONKOWIE -->
                 <div class="stat-card">
 
                     <span class="stat-icon">
@@ -436,7 +416,6 @@
                 </div>
 
 
-                <!-- CZAS KOLONII -->
                 <div class="stat-card stat-time">
 
                     <span class="stat-icon">
@@ -486,7 +465,6 @@
                 </div>
 
 
-                <!-- CZAS STRONY -->
                 <div class="stat-card stat-time">
 
                     <span class="stat-icon">
@@ -542,7 +520,6 @@
     </section>
 
 
-    <!-- WYDARZENIA -->
     <section class="events-section">
 
         <div class="container">
@@ -570,7 +547,6 @@
 
             <div class="events-list">
 
-                <!-- JESIEŃ -->
                 <div class="event-row">
 
                     <div class="event-date">
@@ -608,7 +584,6 @@
                 </div>
 
 
-                <!-- ZIMA -->
                 <div class="event-row">
 
                     <div class="event-date">
@@ -646,7 +621,6 @@
                 </div>
 
 
-                <!-- LATO -->
                 <div class="event-row">
 
                     <div class="event-date">
@@ -690,14 +664,12 @@
     </section>
 
 
-    <!-- FUNKCJE -->
     <section class="section">
 
         <div class="container">
 
             <div class="feature-grid">
 
-                <!-- HISTORIA -->
                 <a href="historia.html" class="feature-card">
 
                     <span class="feature-icon">
@@ -723,7 +695,6 @@
                 </a>
 
 
-                <!-- KALENDARZ -->
                 <a href="kalendarz.html" class="feature-card">
 
                     <span class="feature-icon">
@@ -749,7 +720,6 @@
                 </a>
 
 
-                <!-- ADMINISTRACJA -->
                 <a href="administracja.html" class="feature-card">
 
                     <span class="feature-icon">
@@ -775,7 +745,6 @@
                 </a>
 
 
-                <!-- REGULAMIN -->
                 <a href="regulamin.html" class="feature-card">
 
                     <span class="feature-icon">
@@ -807,7 +776,6 @@
     </section>
 
 
-    <!-- DISCORD CTA -->
     <section class="discord-cta">
 
         <div class="container">
@@ -853,7 +821,6 @@
 </main>
 
 
-<!-- FOOTER -->
 <footer>
 
     <div class="footer-inner">
@@ -921,7 +888,6 @@
 const COLONY_START_DATE = "2026-06-11T00:00:00";
 const WEBSITE_START_DATE = "2026-08-13T20:10:00";
 
-
 function getTimeParts(startDate) {
 
     const start = new Date(startDate);
@@ -937,36 +903,17 @@ function getTimeParts(startDate) {
     );
 
     return {
-
-        days: Math.floor(
-            totalSeconds / 86400
-        ),
-
-        hours: Math.floor(
-            (totalSeconds % 86400) / 3600
-        ),
-
-        minutes: Math.floor(
-            (totalSeconds % 3600) / 60
-        ),
-
+        days: Math.floor(totalSeconds / 86400),
+        hours: Math.floor((totalSeconds % 86400) / 3600),
+        minutes: Math.floor((totalSeconds % 3600) / 60),
         seconds: totalSeconds % 60
-
     };
-
 }
-
 
 function updateCounter() {
 
-    const colony = getTimeParts(
-        COLONY_START_DATE
-    );
-
-    const website = getTimeParts(
-        WEBSITE_START_DATE
-    );
-
+    const colony = getTimeParts(COLONY_START_DATE);
+    const website = getTimeParts(WEBSITE_START_DATE);
 
     const colonyDays =
         document.getElementById("colonyDays");
@@ -979,7 +926,6 @@ function updateCounter() {
 
     const colonySeconds =
         document.getElementById("colonySeconds");
-
 
     if (colonyDays)
         colonyDays.textContent = colony.days;
@@ -1009,7 +955,6 @@ function updateCounter() {
     const websiteSeconds =
         document.getElementById("websiteSeconds");
 
-
     if (websiteDays)
         websiteDays.textContent = website.days;
 
@@ -1024,9 +969,7 @@ function updateCounter() {
     if (websiteSeconds)
         websiteSeconds.textContent =
             String(website.seconds).padStart(2, "0");
-
 }
-
 
 updateCounter();
 
