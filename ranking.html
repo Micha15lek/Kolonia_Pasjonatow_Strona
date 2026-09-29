@@ -8,11 +8,24 @@
     <title>Ranking | Kolonia Pasjonatów</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <script>
+        (function () {
+            const savedTheme =
+                localStorage.getItem("koloniaTheme") || "blue";
+
+            const savedMode =
+                localStorage.getItem("koloniaMode") || "dark";
+
+            document.documentElement.dataset.theme = savedTheme;
+            document.documentElement.dataset.mode = savedMode;
+        })();
+    </script>
 </head>
 
-<body>
+<body data-theme="blue" data-mode="dark">
 
-<header>
+<header class="site-header">
 
     <div class="header-inner">
 
@@ -23,38 +36,49 @@
         <nav>
 
             <a href="index.html">
-                Strona główna
+                🏠 Strona główna
             </a>
 
             <a href="ranking.html" class="active">
-                Ranking
+                🏆 Ranking
             </a>
 
             <a href="licznik.html">
-                Licznik
+                ⏱️ Licznik
             </a>
 
             <a href="wydarzenia.html">
-                Wydarzenia
+                📅 Wydarzenia
             </a>
 
             <a href="linki.html">
-                Linki
+                🔗 Linki
             </a>
 
             <a href="kontakt.html">
-                Kontakt
+                📞 Kontakt
             </a>
 
         </nav>
 
-        <button
-            id="themeToggle"
-            class="theme-toggle"
-            type="button"
-            aria-label="Zmień motyw">
-            🌙
-        </button>
+        <div class="header-actions">
+
+            <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Zmień tryb wyglądu">
+                🌙
+            </button>
+
+            <a
+                href="ustawienia.html"
+                class="settings-button"
+                aria-label="Ustawienia">
+                ⚙️
+            </a>
+
+        </div>
 
     </div>
 
@@ -69,7 +93,7 @@
 
         <div class="container">
 
-            <div class="hero-content">
+            <div class="hero-content reveal">
 
                 <span class="hero-label">
                     🏆 RANKING TYPERÓW KOLONII PASJONATÓW
@@ -98,7 +122,7 @@
 
         <div class="container">
 
-            <div class="section-heading">
+            <div class="section-heading reveal">
 
                 <span class="section-label"></span>
 
@@ -112,7 +136,7 @@
 
             </div>
 
-            <div class="info-card">
+            <div class="info-card reveal">
 
                 <h2>
                     🏆 Klasyfikacja typerów
@@ -181,7 +205,7 @@
 
         <div class="container">
 
-            <div class="section-heading">
+            <div class="section-heading reveal">
 
                 <span class="section-label"></span>
 
@@ -195,7 +219,7 @@
 
             </div>
 
-            <div class="info-card">
+            <div class="info-card reveal">
 
                 <h2>
                     🏆 Klasyfikacja typerów
@@ -264,7 +288,7 @@
 
         <div class="container">
 
-            <div class="section-heading">
+            <div class="section-heading reveal">
 
                 <span class="section-label"></span>
 
@@ -278,7 +302,7 @@
 
             </div>
 
-            <div class="info-card">
+            <div class="info-card reveal">
 
                 <h2>
                     🏆 Klasyfikacja typerów
@@ -347,7 +371,7 @@
 
         <div class="container">
 
-            <div class="info-card">
+            <div class="info-card reveal">
 
                 <h2>
                     ℹ️ Informacja
