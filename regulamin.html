@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,92 +11,263 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+
+        /* =========================
+           REGULAMIN
+        ========================= */
+
         .regulamin-page {
-            padding: 50px 0 80px;
+            padding: 70px 0 90px;
+        }
+
+        .regulamin-image-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto 45px;
+            padding: 8px;
+
+            border: 1px solid var(--border);
+            border-radius: 26px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.055),
+                    rgba(255,255,255,.012)
+                ),
+                var(--card);
+
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .regulamin-image-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+
+            background:
+                radial-gradient(
+                    circle at 100% 0%,
+                    color-mix(
+                        in srgb,
+                        var(--accent) 12%,
+                        transparent
+                    ),
+                    transparent 45%
+                );
+
+            opacity: .9;
         }
 
         .regulamin-image {
-            width: 100%;
-            max-width: 768px;
-            margin: 0 auto 35px;
+            position: relative;
+            z-index: 1;
 
             display: block;
+            width: 100%;
+            height: auto;
 
-            border-radius: 18px;
+            border-radius: 20px;
+            object-fit: cover;
+
             border: 1px solid var(--border);
-
-            box-shadow: var(--shadow);
+            box-shadow: 0 18px 45px rgba(0,0,0,.18);
         }
 
         .regulamin-header {
-            margin-bottom: 35px;
+            max-width: 900px;
+            margin: 0 auto 45px;
             text-align: center;
         }
 
         .regulamin-header h1 {
-            margin-bottom: 12px;
+            margin-bottom: 14px;
 
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            line-height: 1.2;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.15;
         }
 
         .regulamin-header p {
+            margin: 0;
             color: var(--text-secondary);
+            line-height: 1.7;
         }
 
         .regulamin-intro {
-            margin-bottom: 25px;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto 35px;
+
+            padding: 30px;
+
+            border: 1px solid var(--border);
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.045),
+                    rgba(255,255,255,.012)
+                ),
+                var(--card);
+
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .regulamin-intro::before,
+        .regulamin-section::before,
+        .additional-box::before,
+        .discord-link-box::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+
+            background:
+                radial-gradient(
+                    circle at 100% 0%,
+                    color-mix(
+                        in srgb,
+                        var(--accent) 8%,
+                        transparent
+                    ),
+                    transparent 43%
+                );
+
+            opacity: .8;
+        }
+
+        .regulamin-intro h2 {
+            position: relative;
+            z-index: 1;
+
+            margin-bottom: 18px;
+            font-size: 1.35rem;
         }
 
         .regulamin-intro p {
+            position: relative;
+            z-index: 1;
+
             margin-bottom: 14px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        .regulamin-intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .regulamin-intro strong {
+            color: var(--text);
         }
 
         .regulamin-section {
-            margin-bottom: 25px;
+            position: relative;
+
+            max-width: 900px;
+            margin: 0 auto 30px;
+
+            padding: 26px;
+
+            border: 1px solid var(--border);
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.035),
+                    rgba(255,255,255,.008)
+                ),
+                var(--card);
+
+            box-shadow: var(--shadow);
+
+            overflow: hidden;
+
+            transition:
+                border-color .4s ease,
+                box-shadow .45s ease,
+                transform .45s ease;
+        }
+
+        .regulamin-section:hover {
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-hover), var(--glow);
         }
 
         .regulamin-section h2 {
-            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
 
-            padding: 16px 20px;
+            margin-bottom: 20px;
+            padding: 17px 20px;
+
+            border: 1px solid var(--border);
+            border-radius: 17px;
 
             background:
                 linear-gradient(
                     135deg,
-                    rgba(88, 101, 242, 0.14),
-                    rgba(88, 101, 242, 0.05)
+                    color-mix(
+                        in srgb,
+                        var(--accent) 12%,
+                        transparent
+                    ),
+                    rgba(255,255,255,.018)
                 );
 
-            border: 1px solid var(--border);
-            border-radius: 14px;
-
-            font-size: 1.35rem;
+            font-size: 1.25rem;
         }
 
         .regulamin-list {
+            position: relative;
+            z-index: 1;
+
             display: grid;
             gap: 10px;
         }
 
         .regulamin-rule {
-            padding: 16px 18px;
-
-            background: var(--card);
+            padding: 17px 18px;
 
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.025),
+                    rgba(255,255,255,.008)
+                );
 
             color: var(--text-secondary);
+            line-height: 1.65;
 
             transition:
-                border-color 0.2s ease,
-                transform 0.2s ease;
+                transform .35s var(--ease),
+                border-color .35s ease,
+                background .35s ease,
+                box-shadow .35s ease;
         }
 
         .regulamin-rule:hover {
+            transform: translateX(5px);
+
             border-color: var(--border-hover);
-            transform: translateX(2px);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.045),
+                    rgba(255,255,255,.012)
+                );
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,.10);
         }
 
         .regulamin-rule strong {
@@ -102,107 +275,226 @@
         }
 
         .additional-info {
+            position: relative;
+            z-index: 1;
+
             display: grid;
-            gap: 16px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 15px;
         }
 
         .additional-box {
-            padding: 22px;
+            position: relative;
 
-            background: var(--card);
+            padding: 23px;
 
             border: 1px solid var(--border);
-            border-radius: var(--radius);
+            border-radius: 18px;
 
-            box-shadow: var(--shadow);
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.035),
+                    rgba(255,255,255,.008)
+                );
+
+            overflow: hidden;
+
+            transition:
+                transform .4s var(--ease),
+                border-color .35s ease,
+                box-shadow .4s ease;
+        }
+
+        .additional-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-hover), var(--glow);
+        }
+
+        .additional-box h3,
+        .additional-box p {
+            position: relative;
+            z-index: 1;
         }
 
         .additional-box h3 {
-            margin-bottom: 8px;
+            margin-bottom: 9px;
+            font-size: 1rem;
         }
 
         .additional-box p {
+            margin: 0;
             color: var(--text-secondary);
+            line-height: 1.65;
         }
 
         .discord-link-box {
-            margin-top: 30px;
-            padding: 28px;
+            position: relative;
+            z-index: 1;
+
+            margin-top: 28px;
+            padding: 32px;
 
             text-align: center;
+
+            border: 1px solid var(--border);
+            border-radius: 22px;
 
             background:
                 linear-gradient(
                     135deg,
-                    rgba(88, 101, 242, 0.16),
-                    rgba(35, 209, 139, 0.06)
+                    color-mix(
+                        in srgb,
+                        var(--accent) 12%,
+                        transparent
+                    ),
+                    rgba(255,255,255,.015)
                 );
 
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+
+            transition:
+                transform .4s var(--ease),
+                border-color .35s ease,
+                box-shadow .4s ease;
+        }
+
+        .discord-link-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-hover), var(--glow);
+        }
+
+        .discord-link-box h3,
+        .discord-link-box p,
+        .discord-link-box a {
+            position: relative;
+            z-index: 1;
         }
 
         .discord-link-box h3 {
-            margin-bottom: 10px;
+            margin-bottom: 9px;
         }
 
         .discord-link-box p {
-            margin-bottom: 18px;
+            margin-bottom: 20px;
             color: var(--text-secondary);
         }
 
         @media (max-width: 760px) {
+
             .regulamin-page {
-                padding: 35px 0 60px;
+                padding: 50px 0 65px;
+            }
+
+            .regulamin-image-wrapper {
+                margin-bottom: 32px;
+                border-radius: 20px;
+                padding: 6px;
+            }
+
+            .regulamin-image {
+                border-radius: 15px;
+            }
+
+            .regulamin-header {
+                margin-bottom: 32px;
+            }
+
+            .regulamin-intro,
+            .regulamin-section {
+                padding: 20px;
+                border-radius: 19px;
             }
 
             .regulamin-section h2 {
-                font-size: 1.15rem;
+                font-size: 1.08rem;
+                padding: 14px 16px;
             }
 
             .regulamin-rule {
                 padding: 14px;
+                font-size: .92rem;
             }
+
+            .additional-info {
+                grid-template-columns: 1fr;
+            }
+
+            .discord-link-box {
+                padding: 25px 18px;
+            }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
+
 <header>
+
     <div class="header-inner">
 
-        <a href="index.html" class="logo">
-            🌟 Kolonia Pasjonatów
+        <a
+            href="index.html"
+            class="back-home-link"
+            aria-label="Powrót do strony głównej"
+        >
+            ← Powrót do strony głównej
         </a>
 
-        <nav>
-            <a href="index.html">← Strona główna</a>
-        </nav>
+        <div class="header-actions">
 
-        <button id="themeToggle"
+            <button
+                id="themeToggle"
                 class="theme-toggle"
-                aria-label="Zmień motyw">
-            🌙
-        </button>
+                type="button"
+                aria-label="Zmień motyw"
+            >
+                🌙
+            </button>
+
+            <a
+                href="ustawienia.html"
+                class="settings-button"
+                aria-label="Ustawienia"
+                title="Ustawienia"
+            >
+                ⚙️
+            </a>
+
+        </div>
 
     </div>
+
 </header>
 
 
 <main>
 
+
     <section class="regulamin-page">
 
         <div class="container">
 
+
             <!-- ZDJĘCIE -->
 
-            <img
-                class="regulamin-image"
-                src="https://media.discordapp.net/attachments/1491067016931704872/1540473196938010744/90fc31db-0cc2-4e2b-8c79-ed8643c11a5d.png?ex=6ab0f936&is=6aafa7b6&hm=149d6114eec0e63b2d2b1c14e5b21d96b407cfb0a3d899e7e58e7de7162c7054&=&format=webp&quality=lossless&width=768&height=433"
-                alt="Kolonia Pasjonatów"
-            >
+            <div class="regulamin-image-wrapper">
+
+                <img
+                    class="regulamin-image"
+                    src="https://media.discordapp.net/attachments/1491067016931704872/1540473196938010744/90fc31db-0cc2-4e2b-8c79-ed8643c11a5d.png?ex=6ab0f936&is=6aafa7b6&hm=149d6114eec0e63b2d2b1c14e5b21d96b407cfb0a3d899e7e58e7de7162c7054&=&format=webp&quality=lossless&width=768&height=433"
+                    alt="Kolonia Pasjonatów"
+                >
+
+            </div>
 
 
             <!-- TYTUŁ -->
@@ -225,7 +517,7 @@
 
             <!-- WSTĘP -->
 
-            <div class="card regulamin-intro">
+            <div class="regulamin-intro">
 
                 <h2>
                     WSTĘP
@@ -733,10 +1025,12 @@
                         Dołącz do Kolonii Pasjonatów na Discordzie.
                     </p>
 
-                    <a href="https://discord.gg/886u97g22Q"
-                       target="_blank"
-                       rel="noopener"
-                       class="button button-primary">
+                    <a
+                        href="https://discord.gg/886u97g22Q"
+                        target="_blank"
+                        rel="noopener"
+                        class="button button-primary"
+                    >
                         💬 Dołącz na Discord →
                     </a>
 
@@ -744,14 +1038,13 @@
 
             </div>
 
+
         </div>
 
     </section>
 
 </main>
 
-
-<!-- FOOTER -->
 
 <footer>
 
@@ -769,4 +1062,5 @@
 <script src="script.js"></script>
 
 </body>
+
 </html>
