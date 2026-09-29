@@ -336,20 +336,35 @@
 <header>
     <div class="header-inner">
 
-        <a href="index.html" class="logo">
-            🌟 Kolonia Pasjonatów
+        <a
+            href="index.html"
+            class="back-home-link"
+            aria-label="Powrót do strony głównej"
+        >
+            ← Powrót do strony głównej
         </a>
 
-        <nav>
-            <a href="index.html">← Strona główna</a>
-        </nav>
+        <div class="header-actions">
 
-        <button
-            id="themeToggle"
-            class="theme-toggle"
-            aria-label="Zmień motyw">
-            🌙
-        </button>
+            <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Zmień motyw"
+            >
+                🌙
+            </button>
+
+            <a
+                href="ustawienia.html"
+                class="settings-button"
+                aria-label="Ustawienia"
+                title="Ustawienia"
+            >
+                ⚙️
+            </a>
+
+        </div>
 
     </div>
 </header>
