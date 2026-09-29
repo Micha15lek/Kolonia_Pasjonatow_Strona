@@ -45,6 +45,7 @@
         </nav>
 
         <div class="header-actions">
+
             <button
                 id="themeToggle"
                 class="theme-toggle"
@@ -63,6 +64,7 @@
             >
                 ⚙️
             </a>
+
         </div>
 
     </div>
@@ -104,7 +106,10 @@
                     💬 Dołącz do Kolonii
                 </a>
 
-                <a href="#opis" class="btn">
+                <a
+                    href="#opis"
+                    class="btn"
+                >
                     Poznaj Kolonię ↓
                 </a>
 
@@ -131,7 +136,9 @@
                 💬
             </div>
 
-            <h2>Discord</h2>
+            <h2>
+                Discord
+            </h2>
 
             <p>
                 Dołącz do naszej społeczności, poznaj innych pasjonatów,
@@ -160,7 +167,9 @@
                 📱
             </div>
 
-            <h2>WhatsApp</h2>
+            <h2>
+                WhatsApp
+            </h2>
 
             <p>
                 Dodatkowa forma kontaktu ze społecznością.
@@ -209,7 +218,9 @@
                     🚉
                 </div>
 
-                <h3>Kolej</h3>
+                <h3>
+                    Kolej
+                </h3>
 
                 <p>
                     Rozmawiamy o pociągach, lokomotywach,
@@ -226,7 +237,9 @@
                     🚌
                 </div>
 
-                <h3>Autobusy</h3>
+                <h3>
+                    Autobusy
+                </h3>
 
                 <p>
                     Transport autobusowy, pojazdy,
@@ -242,7 +255,9 @@
                     🚋
                 </div>
 
-                <h3>Tramwaje</h3>
+                <h3>
+                    Tramwaje
+                </h3>
 
                 <p>
                     Miłośnicy tramwajów znajdą tutaj miejsce
@@ -258,7 +273,9 @@
                     🎮
                 </div>
 
-                <h3>Gry</h3>
+                <h3>
+                    Gry
+                </h3>
 
                 <p>
                     Rozmawiamy również o grach,
@@ -419,7 +436,6 @@
 
         <div class="events-grid">
 
-
             <a
                 href="wydarzenia.html"
                 class="event-card reveal"
@@ -549,7 +565,6 @@
 
         <div class="cards-grid">
 
-
             <a
                 href="historia.html"
                 class="info-card reveal"
@@ -676,7 +691,6 @@
             </p>
 
         </div>
-
 
         <a
             href="https://discord.gg/886u97g22Q"
@@ -848,7 +862,6 @@
             "colonySeconds"
         );
 
-
         updateTimeCounter(
             WEBSITE_START_DATE,
             "websiteDays",
@@ -884,24 +897,25 @@
                     1
                 );
 
-
             const eased =
                 1 - Math.pow(1 - progress, 3);
 
-
             const value =
                 Math.floor(target * eased);
-
 
             element.textContent =
                 value.toLocaleString("pl-PL");
 
 
             if (progress < 1) {
+
                 requestAnimationFrame(animate);
+
             } else {
+
                 element.textContent =
                     target.toLocaleString("pl-PL");
+
             }
         }
 
