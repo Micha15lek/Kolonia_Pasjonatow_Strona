@@ -5,19 +5,291 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Kolonia Pasjonatów — Oficjalna strona</title>
+    <title>Linki | Kolonia Pasjonatów</title>
 
-    <meta
-        name="description"
-        content="Oficjalna strona społeczności Kolonia Pasjonatów. Kolej, autobusy, tramwaje, gry, wydarzenia i wspólna pasja."
-    >
+    <script>
+        (function () {
+            const savedTheme =
+                localStorage.getItem("koloniaTheme") || "blue";
+
+            const savedMode =
+                localStorage.getItem("koloniaMode") || "dark";
+
+            document.documentElement.dataset.theme = savedTheme;
+            document.documentElement.dataset.mode = savedMode;
+        })();
+    </script>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================================
+           ŚWIECĄCE CHMURKI — YOUTUBE + DISCORD
+        ========================================= */
+
+        .channel-card,
+        .discord-server-card {
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .channel-card::before,
+        .discord-server-card::before {
+            content: "";
+            position: absolute;
+
+            width: 260px;
+            height: 260px;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(47, 140, 255, 0.30) 0%,
+                    rgba(121, 92, 255, 0.20) 32%,
+                    rgba(47, 140, 255, 0.10) 52%,
+                    transparent 72%
+                );
+
+            filter: blur(28px);
+            opacity: 0.65;
+
+            pointer-events: none;
+            z-index: -1;
+
+            transition:
+                opacity 0.35s ease,
+                transform 0.35s ease,
+                filter 0.35s ease;
+        }
+
+        .channel-card::after,
+        .discord-server-card::after {
+            content: "";
+            position: absolute;
+
+            width: 140px;
+            height: 140px;
+
+            right: -55px;
+            bottom: -55px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(121, 92, 255, 0.28),
+                    transparent 70%
+                );
+
+            filter: blur(22px);
+            opacity: 0.45;
+
+            pointer-events: none;
+            z-index: -1;
+
+            transition:
+                opacity 0.35s ease,
+                transform 0.35s ease;
+        }
+
+        .channel-card:hover::before,
+        .discord-server-card:hover::before {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.25);
+            filter: blur(22px);
+        }
+
+        .channel-card:hover::after,
+        .discord-server-card:hover::after {
+            opacity: 0.9;
+            transform: scale(1.5);
+        }
+
+        .channel-card:hover,
+        .discord-server-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 18px 45px rgba(0, 0, 0, 0.28),
+                0 0 30px rgba(47, 140, 255, 0.18);
+        }
+
+
+        /* =========================================
+           KARTY YOUTUBE
+        ========================================= */
+
+        .channel-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .channel-profile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-bottom: 18px;
+
+            position: relative;
+            z-index: 1;
+        }
+
+        .channel-avatar {
+            display: block;
+
+            width: 112px;
+            height: 112px;
+
+            min-width: 112px;
+            min-height: 112px;
+
+            object-fit: cover;
+
+            border-radius: 50% !important;
+
+            border: 4px solid var(--border);
+
+            box-shadow:
+                0 0 0 7px rgba(88, 101, 242, 0.08),
+                0 10px 28px rgba(0, 0, 0, 0.20);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .channel-card:hover .channel-avatar {
+            transform: scale(1.06);
+
+            box-shadow:
+                0 0 0 8px rgba(88, 101, 242, 0.12),
+                0 0 28px rgba(47, 140, 255, 0.20),
+                0 14px 34px rgba(0, 0, 0, 0.25);
+        }
+
+        .channel-info {
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .channel-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .channel-description {
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+
+        .channel-subs {
+            margin-bottom: 0;
+            color: var(--text-secondary);
+        }
+
+        .channel-subs strong {
+            color: var(--accent);
+            font-weight: 900;
+        }
+
+        .channel-button {
+            width: 100%;
+            margin-top: 22px;
+
+            position: relative;
+            z-index: 1;
+        }
+
+
+        /* =========================================
+           KARTY DISCORD
+        ========================================= */
+
+        .discord-server-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .discord-server-card h3,
+        .discord-server-card p,
+        .discord-server-card .status-badge,
+        .discord-server-card .btn {
+            position: relative;
+            z-index: 1;
+        }
+
+        .discord-server-card .status-badge {
+            width: fit-content;
+            margin-bottom: 12px;
+        }
+
+        .discord-server-card .btn {
+            margin-top: auto;
+        }
+
+
+        /* =========================================
+           HERO — ŚWIECĄCY NAPIS
+        ========================================= */
+
+        .hero h1 {
+            text-shadow:
+                0 0 12px rgba(47, 140, 255, 0.18),
+                0 0 28px rgba(121, 92, 255, 0.12);
+        }
+
+
+        /* =========================================
+           RESPONSYWNOŚĆ
+        ========================================= */
+
+        @media (max-width: 760px) {
+            .channel-avatar {
+                width: 96px;
+                height: 96px;
+
+                min-width: 96px;
+                min-height: 96px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .channel-avatar {
+                width: 86px;
+                height: 86px;
+
+                min-width: 86px;
+                min-height: 86px;
+            }
+
+            .channel-info h3 {
+                font-size: 1.08rem;
+            }
+        }
+    </style>
 </head>
+
 
 <body data-theme="blue" data-mode="dark">
 
 <header class="site-header">
+
     <div class="header-inner">
 
         <a
@@ -29,12 +301,31 @@
         </a>
 
         <nav aria-label="Główna nawigacja">
-            <a href="index.html" class="active">🏠 Strona główna</a>
-            <a href="ranking.html">🏆 Ranking</a>
-            <a href="licznik.html">⏱️ Licznik</a>
-            <a href="wydarzenia.html">📅 Wydarzenia</a>
-            <a href="linki.html">🔗 Linki</a>
-            <a href="kontakt.html">📞 Kontakt</a>
+
+            <a href="index.html">
+                🏠 Strona główna
+            </a>
+
+            <a href="ranking.html">
+                🏆 Ranking
+            </a>
+
+            <a href="licznik.html">
+                ⏱️ Licznik
+            </a>
+
+            <a href="wydarzenia.html">
+                📅 Wydarzenia
+            </a>
+
+            <a href="linki.html" class="active">
+                🔗 Linki
+            </a>
+
+            <a href="kontakt.html">
+                📞 Kontakt
+            </a>
+
         </nav>
 
         <div class="header-actions">
@@ -61,926 +352,455 @@
         </div>
 
     </div>
+
 </header>
 
 
 <main>
 
-    <!-- =========================
+    <!-- =========================================
          HERO
-    ========================== -->
+    ========================================= -->
 
     <section class="hero">
 
-        <div class="hero-content">
+        <div class="container">
 
             <span class="eyebrow">
-                OFICJALNA STRONA SPOŁECZNOŚCI
+                🔗 NASZE LINKI
             </span>
 
             <h1>
-                Witamy w
-                <span>Kolonii Pasjonatów!</span>
+                Poznaj nasze zaprzyjaźnione kanały YouTube i serwery Discord!
             </h1>
 
             <p>
-                Miejscu, w którym spotykają się pasjonaci kolei,
-                komunikacji, gier i wielu innych zainteresowań.
+                Znajdź kanały YouTube naszych znajomych oraz zaprzyjaźnione
+                serwery Discord.
             </p>
 
-            <div class="hero-buttons">
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         YOUTUBE
+    ========================================= -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span class="eyebrow">
+                    ▶️ YOUTUBE
+                </span>
+
+                <h2>
+                    Zaprzyjaźnione kanały
+                </h2>
+
+            </div>
+
+
+            <div class="cards-grid">
+
+
+                <!-- KOLEJOWY MICHAŁ -->
+
+                <article class="card channel-card reveal">
+
+                    <div class="channel-profile">
+
+                        <img
+                            src="https://yt3.googleusercontent.com/bgHLQbnCvgb4Tfea09E3Z3CUlgD9iLFIFIWbXaOu-6rKvk0rD_2GR2EG8SsyFCkcfjyn58k8oFw=s160-c-k-c0x00ffffff-no-rj"
+                            alt="Kolejowy_Michał"
+                            class="channel-avatar"
+                        >
+
+                    </div>
+
+                    <div class="channel-info">
+
+                        <h3>
+                            Kolejowy_Michał
+                        </h3>
+
+                        <p class="channel-description">
+                            Kanał poświęcony kolei, pociągom,
+                            stacjom i ciekawostkom kolejowym.
+                        </p>
+
+                        <p class="channel-subs">
+                            👥 <strong>1011</strong> subskrybentów
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://youtube.com/@kolejowy_michal15?si=1OTyguwzWYb03h1N"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary channel-button"
+                    >
+                        ▶️ Odwiedź kanał
+                    </a>
+
+                </article>
+
+
+                <!-- FARMINGOWY PAN -->
+
+                <article class="card channel-card reveal">
+
+                    <div class="channel-profile">
+
+                        <img
+                            src="https://yt3.googleusercontent.com/5E2U1WPNQQOpP9Zw3O3NMeTZlPfG89yuMLfwAvAfzbKuGvyzOleN2vXJyWoVQ93dAohfGXgPvoQ=s160-c-k-c0x00ffffff-no-rj"
+                            alt="Farmingowy Pan"
+                            class="channel-avatar"
+                        >
+
+                    </div>
+
+                    <div class="channel-info">
+
+                        <h3>
+                            Farmingowy Pan
+                        </h3>
+
+                        <p class="channel-description">
+                            Kolej, rolnictwo, gry i inne
+                            wspólne zainteresowania.
+                        </p>
+
+                        <p class="channel-subs">
+                            👥 <strong>165</strong> subskrybentów
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://youtube.com/@kolejowyfs?si=dD3PcrMSRbncliVA"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary channel-button"
+                    >
+                        ▶️ Odwiedź kanał
+                    </a>
+
+                </article>
+
+
+                <!-- MIKOL YORIICHI -->
+
+                <article class="card channel-card reveal">
+
+                    <div class="channel-profile">
+
+                        <img
+                            src="https://yt3.googleusercontent.com/VQZ9ah_2x1sWWGtokSkYdo1TraiplpmJTHxTqKBKsu3gJk3-RNhvyeslXceIVb7KVdlajqLHID0=s160-c-k-c0x00ffffff-no-rj"
+                            alt="mikol yoriichi"
+                            class="channel-avatar"
+                        >
+
+                    </div>
+
+                    <div class="channel-info">
+
+                        <h3>
+                            mikol yoriichi
+                        </h3>
+
+                        <p class="channel-description">
+                            Kanał poświęcony kolei oraz
+                            tematyce mikolskiej.
+                        </p>
+
+                        <p class="channel-subs">
+                            👥 <strong>90</strong> subskrybentów
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://youtube.com/@mikol_yoriichi?si=3UXBvhiJJ8a-22cy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary channel-button"
+                    >
+                        ▶️ Odwiedź kanał
+                    </a>
+
+                </article>
+
+
+                <!-- NOWORUDZKI MK08 GAMING -->
+
+                <article class="card channel-card reveal">
+
+                    <div class="channel-profile">
+
+                        <img
+                            src="https://yt3.googleusercontent.com/tLhKFg9Ysiy_qhFsANfVb1F8nARhUDPb-j0i6B5biq7hEjmDyLWVepe7kcC-V5VkYmuTandKoA=s160-c-k-c0x00ffffff-no-rj"
+                            alt="Noworudzki_MK08 Gaming"
+                            class="channel-avatar"
+                        >
+
+                    </div>
+
+                    <div class="channel-info">
+
+                        <h3>
+                            Noworudzki_MK08 Gaming
+                        </h3>
+
+                        <p class="channel-description">
+                            Gry, kolej i materiały
+                            związane z pasją kolejową.
+                        </p>
+
+                        <p class="channel-subs">
+                            👥 <strong>13</strong> subskrybentów
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://youtube.com/@noworudzkimk456gry?si=2JwTruBkSzYWh6XQ"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary channel-button"
+                    >
+                        ▶️ Odwiedź kanał
+                    </a>
+
+                </article>
+
+
+                <!-- TCZEWSKI_MK -->
+
+                <article class="card channel-card reveal">
+
+                    <div class="channel-profile">
+
+                        <img
+                            src="https://yt3.googleusercontent.com/hJWc0SVzZkBAD9FeX8sS3SXjZkacMRJljSEuc5OpILzybFS7B21_opNBBVvyhxO514hhsQL2RQ=s160-c-k-c0x00ffffff-no-rj"
+                            alt="Tczewski_mk"
+                            class="channel-avatar"
+                        >
+
+                    </div>
+
+                    <div class="channel-info">
+
+                        <h3>
+                            Tczewski_mk
+                        </h3>
+
+                        <p class="channel-description">
+                            Materiały kolejowe oraz
+                            ciekawostki ze świata kolei.
+                        </p>
+
+                        <p class="channel-subs">
+                            👥 <strong>19</strong> subskrybentów
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://youtube.com/@tczewski_mikol?si=F045GCYYGBwtu2nR"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary channel-button"
+                    >
+                        ▶️ Odwiedź kanał
+                    </a>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         DISCORD
+    ========================================= -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span class="eyebrow">
+                    💬 DISCORD
+                </span>
+
+                <h2>
+                    Zaprzyjaźnione serwery
+                </h2>
+
+            </div>
+
+
+            <div class="cards-grid">
+
+
+                <!-- MIKOLAND HUB -->
+
+                <article class="card discord-server-card reveal">
+
+                    <h3>
+                        Mikoland HUB
+                    </h3>
+
+                    <span class="status-badge">
+                        🚆 Społeczność kolejowa
+                    </span>
+
+                    <p>
+                        Serwer społecznościowy poświęcony kolei
+                        oraz wspólnym zainteresowaniom.
+                    </p>
+
+                    <a
+                        href="https://discord.gg/ezuCUv7sEF"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary"
+                    >
+                        💬 Dołącz
+                    </a>
+
+                </article>
+
+
+                <!-- STREFA -->
+
+                <article class="card discord-server-card reveal">
+
+                    <h3>
+                        STREFA
+                    </h3>
+
+                    <span class="status-badge">
+                        🚆 Społeczność kolejowa
+                    </span>
+
+                    <p>
+                        Społeczność dla miłośników kolei oraz
+                        osób zainteresowanych wspólną zabawą.
+                    </p>
+
+                    <a
+                        href="https://discord.gg/aRtcPvj6AB"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary"
+                    >
+                        💬 Dołącz
+                    </a>
+
+                </article>
+
+
+                <!-- POD SEMAForem -->
+
+                <article class="card discord-server-card reveal">
+
+                    <h3>
+                        Pod Semaforem
+                    </h3>
+
+                    <span class="status-badge">
+                        🚆 Społeczność kolejowa
+                    </span>
+
+                    <p>
+                        Serwer skupiający osoby zainteresowane
+                        koleją, fotografią kolejową i tematyką mikolską.
+                    </p>
+
+                    <a
+                        href="https://discord.gg/7RsYDs6MnV"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary"
+                    >
+                        💬 Dołącz
+                    </a>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CTA
+    ========================================= -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <article class="card reveal">
+
+                <h2>
+                    📩 Masz swój kanał lub serwer?
+                </h2>
+
+                <p>
+                    Chcesz znaleźć się na tej stronie?
+                    Skontaktuj się z administracją Kolonii Pasjonatów.
+                </p>
 
                 <a
-                    href="https://discord.gg/886u97g22Q"
+                    href="kontakt.html"
                     class="btn btn-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
                 >
-                    💬 Dołącz do Kolonii
+                    📩 Skontaktuj się
                 </a>
 
-                <a
-                    href="#opis"
-                    class="btn"
-                >
-                    Poznaj Kolonię ↓
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         DISCORD / WHATSAPP
-    ========================== -->
-
-    <section class="community-grid">
-
-        <article class="discord-card reveal">
-
-            <span class="eyebrow">
-                GŁÓWNE MIEJSCE SPOŁECZNOŚCI
-            </span>
-
-            <div class="card-icon emoji-icon">
-                💬
-            </div>
-
-            <h2>
-                Discord
-            </h2>
-
-            <p>
-                Dołącz do naszej społeczności, poznaj innych pasjonatów,
-                porozmawiaj i bierz udział w wydarzeniach Kolonii Pasjonatów.
-            </p>
-
-            <a
-                href="https://discord.gg/886u97g22Q"
-                class="btn btn-primary"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Dołącz do Discorda →
-            </a>
-
-        </article>
-
-
-        <article class="whatsapp-card reveal">
-
-            <span class="eyebrow">
-                DODATKOWY KONTAKT
-            </span>
-
-            <div class="card-icon emoji-icon">
-                📱
-            </div>
-
-            <h2>
-                WhatsApp
-            </h2>
-
-            <p>
-                Dodatkowa forma kontaktu ze społecznością.
-                Szczegóły oraz możliwość dołączenia pojawią się wkrótce.
-            </p>
-
-            <span class="status-badge">
-                🔧 W przygotowaniu
-            </span>
-
-        </article>
-
-    </section>
-
-
-    <!-- =========================
-         OPIS SPOŁECZNOŚCI
-    ========================== -->
-
-    <section id="opis" class="section">
-
-        <div class="section-heading">
-
-            <span class="eyebrow">
-                KIM JESTEŚMY?
-            </span>
-
-            <h2>
-                Poznaj naszą społeczność
-            </h2>
-
-            <p>
-                Kolonia Pasjonatów to miejsce stworzone dla osób,
-                które chcą dzielić się swoimi zainteresowaniami,
-                poznawać innych i wspólnie spędzać czas.
-            </p>
-
-        </div>
-
-
-        <div class="cards-grid">
-
-            <article class="info-card reveal">
-
-                <div class="card-icon emoji-icon">
-                    🚉
-                </div>
-
-                <h3>
-                    Kolej
-                </h3>
-
-                <p>
-                    Rozmawiamy o pociągach, lokomotywach,
-                    stacjach, liniach kolejowych i wszystkim,
-                    co związane z koleją.
-                </p>
-
-            </article>
-
-
-            <article class="info-card reveal">
-
-                <div class="card-icon emoji-icon">
-                    🚌
-                </div>
-
-                <h3>
-                    Autobusy
-                </h3>
-
-                <p>
-                    Transport autobusowy, pojazdy,
-                    przewoźnicy oraz ciekawostki ze świata komunikacji.
-                </p>
-
-            </article>
-
-
-            <article class="info-card reveal">
-
-                <div class="card-icon emoji-icon">
-                    🚋
-                </div>
-
-                <h3>
-                    Tramwaje
-                </h3>
-
-                <p>
-                    Miłośnicy tramwajów znajdą tutaj miejsce
-                    do rozmów o taborze, sieciach i komunikacji miejskiej.
-                </p>
-
-            </article>
-
-
-            <article class="info-card reveal">
-
-                <div class="card-icon emoji-icon">
-                    🎮
-                </div>
-
-                <h3>
-                    Gry
-                </h3>
-
-                <p>
-                    Rozmawiamy również o grach,
-                    wspólnym graniu oraz naszych ulubionych produkcjach.
-                </p>
-
             </article>
 
         </div>
-
-    </section>
-
-
-    <!-- =========================
-         STATYSTYKI
-    ========================== -->
-
-    <section class="section stats-section">
-
-        <div class="section-heading">
-
-            <span class="eyebrow">
-                KOLONIA W LICZBACH
-            </span>
-
-            <h2>
-                Statystyki społeczności
-            </h2>
-
-            <p>
-                Kolonia cały czas się rozwija!
-            </p>
-
-        </div>
-
-
-        <div class="stats-grid">
-
-            <article class="stat-card reveal">
-
-                <div class="stat-icon">
-                    👥
-                </div>
-
-                <strong
-                    class="stat-number"
-                    data-target="21"
-                >
-                    0
-                </strong>
-
-                <span>
-                    członków Kolonii
-                </span>
-
-            </article>
-
-
-            <article class="stat-card reveal">
-
-                <div class="stat-icon">
-                    ⏱️
-                </div>
-
-                <strong
-                    class="stat-number uptime-counter"
-                    id="colonyDays"
-                >
-                    0
-                </strong>
-
-                <span>
-                    dni działania Kolonii
-                </span>
-
-                <small>
-                    <span id="colonyHours">00</span>h
-                    <span id="colonyMinutes">00</span>m
-                    <span id="colonySeconds">00</span>s
-                </small>
-
-            </article>
-
-
-            <article class="stat-card reveal">
-
-                <div class="stat-icon">
-                    🌐
-                </div>
-
-                <strong
-                    class="stat-number uptime-counter"
-                    id="websiteDays"
-                >
-                    0
-                </strong>
-
-                <span>
-                    dni działania strony
-                </span>
-
-                <small>
-                    <span id="websiteHours">00</span>h
-                    <span id="websiteMinutes">00</span>m
-                    <span id="websiteSeconds">00</span>s
-                </small>
-
-            </article>
-
-
-            <article class="stat-card reveal">
-
-                <div class="stat-icon">
-                    📅
-                </div>
-
-                <strong
-                    class="stat-number"
-                    data-target="3"
-                >
-                    0
-                </strong>
-
-                <span>
-                    zaplanowane wydarzenia
-                </span>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         NADCHODZĄCE WYDARZENIA
-    ========================== -->
-
-    <section class="section">
-
-        <div class="section-heading">
-
-            <span class="eyebrow">
-                CO PRZED NAMI?
-            </span>
-
-            <h2>
-                Nadchodzące wydarzenia
-            </h2>
-
-            <p>
-                Najważniejsze wydarzenia, które już niedługo odbędą się
-                w Kolonii Pasjonatów.
-            </p>
-
-        </div>
-
-
-        <div class="events-grid">
-
-            <a
-                href="wydarzenia.html"
-                class="event-card reveal"
-            >
-
-                <div class="event-icon emoji-icon">
-                    🍂
-                </div>
-
-                <div class="event-content">
-
-                    <span class="event-date">
-                        23.09–09.10.2026
-                    </span>
-
-                    <h3>
-                        Kolej w jesiennym obiektywie
-                    </h3>
-
-                    <p>
-                        Jesienny konkurs fotograficzny dla
-                        miłośników kolei.
-                    </p>
-
-                </div>
-
-            </a>
-
-
-            <a
-                href="wydarzenia.html"
-                class="event-card reveal"
-            >
-
-                <div class="event-icon emoji-icon">
-                    ❄️
-                </div>
-
-                <div class="event-content">
-
-                    <span class="event-date">
-                        20.11.2026–31.01.2027
-                    </span>
-
-                    <h3>
-                        Strefa Zimowa 2026/2027
-                    </h3>
-
-                    <p>
-                        Zimowy okres pełen aktywności,
-                        wydarzeń i wspólnej zabawy.
-                    </p>
-
-                </div>
-
-            </a>
-
-
-            <a
-                href="wydarzenia.html"
-                class="event-card reveal"
-            >
-
-                <div class="event-icon emoji-icon">
-                    ☀️
-                </div>
-
-                <div class="event-content">
-
-                    <span class="event-date">
-                        01.06–31.08.2027
-                    </span>
-
-                    <h3>
-                        Strefa Letnia 2027
-                    </h3>
-
-                    <p>
-                        Letni okres specjalnych wydarzeń
-                        i aktywności społeczności.
-                    </p>
-
-                </div>
-
-            </a>
-
-        </div>
-
-
-        <div class="section-action">
-
-            <a
-                href="wydarzenia.html"
-                class="btn"
-            >
-                📅 Zobacz wszystkie wydarzenia →
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         DODATKOWE PODSTRONY
-    ========================== -->
-
-    <section class="section">
-
-        <div class="section-heading">
-
-            <span class="eyebrow">
-                POZNAJ KOLONIĘ
-            </span>
-
-            <h2>
-                Najważniejsze informacje
-            </h2>
-
-            <p>
-                Sprawdź historię, kalendarz, administrację oraz zasady
-                obowiązujące w naszej społeczności.
-            </p>
-
-        </div>
-
-
-        <div class="cards-grid">
-
-            <a
-                href="historia.html"
-                class="info-card reveal"
-            >
-
-                <div class="card-icon emoji-icon">
-                    📜
-                </div>
-
-                <h3>
-                    Historia
-                </h3>
-
-                <p>
-                    Poznaj historię społeczności
-                    i najważniejsze momenty jej rozwoju.
-                </p>
-
-                <span class="more-link">
-                    Poznaj historię →
-                </span>
-
-            </a>
-
-
-            <a
-                href="kalendarz.html"
-                class="info-card reveal"
-            >
-
-                <div class="card-icon emoji-icon">
-                    📅
-                </div>
-
-                <h3>
-                    Kalendarz
-                </h3>
-
-                <p>
-                    Sprawdź najważniejsze daty,
-                    wydarzenia i aktywności Kolonii.
-                </p>
-
-                <span class="more-link">
-                    Sprawdź kalendarz →
-                </span>
-
-            </a>
-
-
-            <a
-                href="administracja.html"
-                class="info-card reveal"
-            >
-
-                <div class="card-icon emoji-icon">
-                    🛡️
-                </div>
-
-                <h3>
-                    Administracja
-                </h3>
-
-                <p>
-                    Poznaj osoby tworzące Kolonię Pasjonatów
-                    i dbające o jej rozwój.
-                </p>
-
-                <span class="more-link">
-                    Poznaj administrację →
-                </span>
-
-            </a>
-
-
-            <a
-                href="regulamin.html"
-                class="info-card reveal"
-            >
-
-                <div class="card-icon emoji-icon">
-                    📖
-                </div>
-
-                <h3>
-                    Regulamin
-                </h3>
-
-                <p>
-                    Poznaj zasady naszej społeczności
-                    i najważniejsze informacje dotyczące korzystania z Kolonii.
-                </p>
-
-                <span class="more-link">
-                    Poznaj regulamin →
-                </span>
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         DISCORD CTA
-    ========================== -->
-
-    <section class="discord-cta reveal">
-
-        <div>
-
-            <span class="eyebrow">
-                DOŁĄCZ DO NAS
-            </span>
-
-            <h2>
-                Widzimy się w Kolonii Pasjonatów!
-            </h2>
-
-            <p>
-                Dołącz do naszej społeczności na Discordzie
-                i stań się częścią Kolonii.
-            </p>
-
-        </div>
-
-        <a
-            href="https://discord.gg/886u97g22Q"
-            class="btn btn-primary"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            💬 Dołącz na Discord →
-        </a>
 
     </section>
 
 </main>
 
 
-<!-- =========================
-     FOOTER
-========================== -->
+<footer class="site-footer">
 
-<footer>
+    <div class="container">
 
-    <p>
-        © 2026 Kolonia Pasjonatów
-    </p>
+        <p>
+            © 2026 Kolonia Pasjonatów
+        </p>
 
-    <p>
-        🌟 Oficjalna strona społeczności
-    </p>
+        <p>
+            🌟 Oficjalna strona społeczności
+        </p>
+
+    </div>
 
 </footer>
 
 
 <script src="script.js"></script>
-
-<script>
-
-    /* =========================================
-       DATY STARTOWE
-    ========================================= */
-
-    const COLONY_START_DATE =
-        "2026-06-11T00:00:00";
-
-    const WEBSITE_START_DATE =
-        "2026-08-13T20:10:00";
-
-
-    /* =========================================
-       OBLICZANIE CZASU
-    ========================================= */
-
-    function getTimeParts(startDate) {
-
-        const start = new Date(startDate);
-        const now = new Date();
-
-        let difference = now - start;
-
-        if (difference < 0) {
-            difference = 0;
-        }
-
-        const totalSeconds =
-            Math.floor(difference / 1000);
-
-        const days =
-            Math.floor(totalSeconds / 86400);
-
-        const hours =
-            Math.floor((totalSeconds % 86400) / 3600);
-
-        const minutes =
-            Math.floor((totalSeconds % 3600) / 60);
-
-        const seconds =
-            totalSeconds % 60;
-
-        return {
-            days,
-            hours,
-            minutes,
-            seconds
-        };
-    }
-
-
-    /* =========================================
-       AKTUALIZACJA LICZNIKÓW
-    ========================================= */
-
-    function updateTimeCounter(
-        startDate,
-        daysId,
-        hoursId,
-        minutesId,
-        secondsId
-    ) {
-
-        const time =
-            getTimeParts(startDate);
-
-        const daysElement =
-            document.getElementById(daysId);
-
-        const hoursElement =
-            document.getElementById(hoursId);
-
-        const minutesElement =
-            document.getElementById(minutesId);
-
-        const secondsElement =
-            document.getElementById(secondsId);
-
-
-        if (daysElement) {
-            daysElement.textContent =
-                time.days;
-        }
-
-        if (hoursElement) {
-            hoursElement.textContent =
-                String(time.hours).padStart(2, "0");
-        }
-
-        if (minutesElement) {
-            minutesElement.textContent =
-                String(time.minutes).padStart(2, "0");
-        }
-
-        if (secondsElement) {
-            secondsElement.textContent =
-                String(time.seconds).padStart(2, "0");
-        }
-    }
-
-
-    function updateCounters() {
-
-        updateTimeCounter(
-            COLONY_START_DATE,
-            "colonyDays",
-            "colonyHours",
-            "colonyMinutes",
-            "colonySeconds"
-        );
-
-        updateTimeCounter(
-            WEBSITE_START_DATE,
-            "websiteDays",
-            "websiteHours",
-            "websiteMinutes",
-            "websiteSeconds"
-        );
-    }
-
-
-    /* =========================================
-       ANIMACJA LICZB
-    ========================================= */
-
-    function animateNumber(element) {
-
-        const target =
-            Number(element.dataset.target);
-
-        if (!Number.isFinite(target)) {
-            return;
-        }
-
-        const duration = 1200;
-        const startTime = performance.now();
-
-
-        function animate(currentTime) {
-
-            const progress =
-                Math.min(
-                    (currentTime - startTime) / duration,
-                    1
-                );
-
-            const eased =
-                1 - Math.pow(1 - progress, 3);
-
-            const value =
-                Math.floor(target * eased);
-
-            element.textContent =
-                value.toLocaleString("pl-PL");
-
-
-            if (progress < 1) {
-
-                requestAnimationFrame(animate);
-
-            } else {
-
-                element.textContent =
-                    target.toLocaleString("pl-PL");
-
-            }
-        }
-
-
-        requestAnimationFrame(animate);
-    }
-
-
-    /* =========================================
-       START
-    ========================================= */
-
-    updateCounters();
-
-    setInterval(
-        updateCounters,
-        1000
-    );
-
-
-    /* =========================================
-       ANIMACJA STATYSTYK
-    ========================================= */
-
-    const statsObserver =
-        new IntersectionObserver(
-            (entries, observer) => {
-
-                entries.forEach(entry => {
-
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
-
-                    const number =
-                        entry.target;
-
-                    animateNumber(number);
-
-                    observer.unobserve(number);
-
-                });
-
-            },
-            {
-                threshold: 0.35
-            }
-        );
-
-
-    document
-        .querySelectorAll(
-            ".stat-number[data-target]"
-        )
-        .forEach(number => {
-
-            statsObserver.observe(number);
-
-        });
-
-
-    /* =========================================
-       ANIMACJA KART
-    ========================================= */
-
-    const revealObserver =
-        new IntersectionObserver(
-            (entries, observer) => {
-
-                entries.forEach(entry => {
-
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
-
-                    entry.target.classList.add("visible");
-
-                    observer.unobserve(entry.target);
-
-                });
-
-            },
-            {
-                threshold: 0.12
-            }
-        );
-
-
-    document
-        .querySelectorAll(".reveal")
-        .forEach(element => {
-
-            revealObserver.observe(element);
-
-        });
-
-</script>
 
 </body>
 </html>
