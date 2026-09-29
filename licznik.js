@@ -11,7 +11,7 @@ const EVENTS = {
     halloween: {
         month: 10,
         day: 31,
-        activeMessage: "Już jest! Straszenie Halloween 🎃"
+        activeMessage: "Już jest! Straszenego Halloween 🎃"
     },
 
     christmas: {
