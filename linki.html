@@ -25,7 +25,7 @@
     <style>
 
         /* =========================================
-           CHMURKI NA KARTACH
+           CHMURKI JAK NA INDEX.HTML
         ========================================= */
 
         .channel-card,
@@ -33,91 +33,122 @@
             position: relative;
             overflow: hidden;
             isolation: isolate;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: var(--radius);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.045),
+                    rgba(255,255,255,.012)
+                ),
+                var(--card);
+
+            box-shadow:
+                var(--shadow);
+
+            transition:
+                transform .5s var(--ease),
+                border-color .4s ease,
+                box-shadow .5s ease,
+                background .45s ease;
+        }
+
+        .channel-card::before,
+        .discord-server-card::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            background:
+                radial-gradient(
+                    circle at 100% 0%,
+                    color-mix(
+                        in srgb,
+                        var(--accent) 9%,
+                        transparent
+                    ),
+                    transparent 42%
+                );
+
+            opacity: .8;
+
+            transition:
+                opacity .45s ease;
+        }
+
+        .channel-card::after,
+        .discord-server-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 130px;
+            height: 130px;
+
+            right: -75px;
+            bottom: -75px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    color-mix(
+                        in srgb,
+                        var(--accent-secondary) 10%,
+                        transparent
+                    ),
+                    transparent 70%
+                );
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                opacity .5s ease,
+                transform .6s var(--ease);
+        }
+
+        .channel-card:hover,
+        .discord-server-card:hover {
+            transform:
+                translateY(-8px);
+
+            border-color:
+                var(--border-hover);
+
+            box-shadow:
+                var(--shadow-hover),
+                var(--glow);
+        }
+
+        .channel-card:hover::before,
+        .discord-server-card:hover::before {
+            opacity: 1;
+        }
+
+        .channel-card:hover::after,
+        .discord-server-card:hover::after {
+            opacity: 1;
+
+            transform:
+                scale(1.35);
         }
 
         .channel-card > *,
         .discord-server-card > * {
             position: relative;
             z-index: 2;
-        }
-
-        .link-cloud {
-            position: absolute !important;
-            z-index: 0 !important;
-
-            width: 260px;
-            height: 260px;
-
-            border-radius: 50%;
-
-            pointer-events: none;
-
-            filter: blur(48px);
-
-            opacity: 0.65;
-
-            transition:
-                transform 0.45s ease,
-                opacity 0.45s ease;
-        }
-
-        .link-cloud.blue {
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(47, 140, 255, 0.75) 0%,
-                    rgba(47, 140, 255, 0.45) 30%,
-                    rgba(47, 140, 255, 0.18) 55%,
-                    rgba(47, 140, 255, 0) 75%
-                );
-        }
-
-        .link-cloud.purple {
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(121, 92, 255, 0.75) 0%,
-                    rgba(121, 92, 255, 0.45) 30%,
-                    rgba(121, 92, 255, 0.18) 55%,
-                    rgba(121, 92, 255, 0) 75%
-                );
-        }
-
-        .link-cloud.cyan {
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(0, 210, 255, 0.65) 0%,
-                    rgba(0, 210, 255, 0.38) 30%,
-                    rgba(0, 210, 255, 0.15) 55%,
-                    rgba(0, 210, 255, 0) 75%
-                );
-        }
-
-        .cloud-top-left {
-            top: -135px;
-            left: -125px;
-        }
-
-        .cloud-top-right {
-            top: -135px;
-            right: -125px;
-        }
-
-        .cloud-bottom-left {
-            bottom: -135px;
-            left: -125px;
-        }
-
-        .cloud-bottom-right {
-            bottom: -135px;
-            right: -125px;
-        }
-
-        .channel-card:hover .link-cloud,
-        .discord-server-card:hover .link-cloud {
-            opacity: 0.9;
-            transform: scale(1.12);
         }
 
 
@@ -233,11 +264,6 @@
                 min-width: 96px;
                 min-height: 96px;
             }
-
-            .link-cloud {
-                width: 210px;
-                height: 210px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -252,13 +278,6 @@
 
             .channel-info h3 {
                 font-size: 1.08rem;
-            }
-
-            .link-cloud {
-                width: 180px;
-                height: 180px;
-
-                filter: blur(40px);
             }
         }
 
@@ -401,9 +420,6 @@
 
             <article class="card channel-card reveal">
 
-                <div class="link-cloud blue cloud-top-left"></div>
-                <div class="link-cloud purple cloud-bottom-right"></div>
-
                 <div class="channel-profile">
 
                     <img
@@ -449,9 +465,6 @@
             <!-- FARMINGOWY PAN -->
 
             <article class="card channel-card reveal">
-
-                <div class="link-cloud purple cloud-top-right"></div>
-                <div class="link-cloud cyan cloud-bottom-left"></div>
 
                 <div class="channel-profile">
 
@@ -499,9 +512,6 @@
 
             <article class="card channel-card reveal">
 
-                <div class="link-cloud cyan cloud-top-left"></div>
-                <div class="link-cloud blue cloud-bottom-right"></div>
-
                 <div class="channel-profile">
 
                     <img
@@ -548,9 +558,6 @@
 
             <article class="card channel-card reveal">
 
-                <div class="link-cloud blue cloud-top-right"></div>
-                <div class="link-cloud purple cloud-bottom-left"></div>
-
                 <div class="channel-profile">
 
                     <img
@@ -596,9 +603,6 @@
             <!-- TCZEWSKI MK -->
 
             <article class="card channel-card reveal">
-
-                <div class="link-cloud purple cloud-top-left"></div>
-                <div class="link-cloud cyan cloud-bottom-right"></div>
 
                 <div class="channel-profile">
 
@@ -672,9 +676,6 @@
 
             <article class="card discord-server-card reveal">
 
-                <div class="link-cloud blue cloud-top-left"></div>
-                <div class="link-cloud purple cloud-bottom-right"></div>
-
                 <h3>
                     Mikoland HUB
                 </h3>
@@ -705,9 +706,6 @@
 
             <article class="card discord-server-card reveal">
 
-                <div class="link-cloud purple cloud-top-right"></div>
-                <div class="link-cloud cyan cloud-bottom-left"></div>
-
                 <h3>
                     STREFA
                 </h3>
@@ -737,9 +735,6 @@
             <!-- POD SEMAForem -->
 
             <article class="card discord-server-card reveal">
-
-                <div class="link-cloud cyan cloud-top-left"></div>
-                <div class="link-cloud blue cloud-bottom-right"></div>
 
                 <h3>
                     Pod Semaforem
