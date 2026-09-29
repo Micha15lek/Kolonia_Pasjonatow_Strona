@@ -30,6 +30,11 @@
     --red: #ef5350;
     --orange: #ff9f43;
     --blue: #42a5f5;
+
+    /* GLOBALNA SKALA CZCIONEK */
+    --text-base: 14px;
+    --text-small: 12px;
+    --text-tiny: 11px;
 }
 
 
@@ -508,10 +513,10 @@ html {
 body {
     min-height: 100vh;
     margin: 0;
-
     padding-top: 110px;
 
     font-family: var(--font-main);
+    font-size: var(--text-base);
 
     color: var(--text);
 
@@ -550,8 +555,8 @@ body {
         );
 
     transition:
-        background .6s ease,
-        color .4s ease;
+        background .8s var(--ease-smooth),
+        color .45s ease;
 
     overflow-x: hidden;
 }
@@ -560,7 +565,7 @@ body::before {
     content: "";
 
     position: fixed;
-    inset: 0;
+    inset: -10%;
 
     z-index: -2;
     pointer-events: none;
@@ -578,7 +583,7 @@ body::before {
         );
 
     animation:
-        backgroundMove 15s ease-in-out infinite alternate;
+        backgroundMove 18s ease-in-out infinite alternate;
 }
 
 body::after {
@@ -608,8 +613,10 @@ body::after {
             transparent 70%
         );
 
+    filter: blur(2px);
+
     animation:
-        floatingOrb 12s ease-in-out infinite;
+        floatingOrb 15s ease-in-out infinite;
 }
 
 a {
@@ -663,6 +670,8 @@ a {
             var(--accent),
             var(--accent-secondary)
         );
+
+    transition: background .3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -727,12 +736,13 @@ header {
     overflow: hidden;
 
     animation:
-        headerAppear .8s var(--ease-smooth) both;
+        headerAppear .85s var(--ease-smooth) both;
 
     transition:
-        background .5s ease,
-        border-color .4s ease,
-        box-shadow .4s ease;
+        background .55s ease,
+        border-color .45s ease,
+        box-shadow .45s ease,
+        transform .45s var(--ease);
 }
 
 .site-header::before,
@@ -756,6 +766,9 @@ header::before {
                 transparent
             )
         );
+
+    animation:
+        glassShimmer 9s ease-in-out infinite;
 }
 
 .site-header::after,
@@ -784,7 +797,7 @@ header::after {
     opacity: .55;
 
     animation:
-        glassLine 4s ease-in-out infinite;
+        glassLine 5s ease-in-out infinite;
 }
 
 .site-header:hover,
@@ -837,24 +850,25 @@ header:hover {
 
     font-family: var(--font-display);
 
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 900;
 
-    letter-spacing: .075em;
+    letter-spacing: .065em;
 
     white-space: nowrap;
 
     transition:
-        color .25s ease,
-        transform .35s var(--ease),
-        text-shadow .3s ease;
+        color .3s ease,
+        transform .4s var(--ease-bounce),
+        text-shadow .35s ease;
 }
 
 .logo:hover {
     color: var(--accent-hover);
 
     transform:
-        translateY(-2px);
+        translateY(-2px)
+        scale(1.015);
 
     text-shadow:
         0 0 24px
@@ -889,10 +903,10 @@ nav a {
     align-items: center;
     justify-content: center;
 
-    min-height: 44px;
+    min-height: 42px;
 
     padding:
-        0 12px;
+        0 11px;
 
     border:
         1px solid
@@ -902,7 +916,7 @@ nav a {
 
     color: var(--text-secondary);
 
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
 
     white-space: nowrap;
@@ -911,7 +925,7 @@ nav a {
         color .25s ease,
         background .3s ease,
         border-color .3s ease,
-        transform .35s var(--ease);
+        transform .35s var(--ease-bounce);
 }
 
 nav a::before {
@@ -932,11 +946,11 @@ nav a::before {
     opacity: 0;
 
     transform:
-        scale(.82);
+        scale(.78);
 
     transition:
         opacity .3s ease,
-        transform .35s var(--ease);
+        transform .4s var(--ease-smooth);
 }
 
 nav a::after {
@@ -962,8 +976,10 @@ nav a::after {
     transform:
         scaleX(0);
 
+    transform-origin: center;
+
     transition:
-        transform .35s var(--ease);
+        transform .4s var(--ease-smooth);
 }
 
 nav a:hover {
@@ -1039,8 +1055,8 @@ nav a.active {
 .settings-button {
     position: relative;
 
-    width: 43px;
-    height: 43px;
+    width: 41px;
+    height: 41px;
 
     display: inline-flex;
     align-items: center;
@@ -1062,10 +1078,10 @@ nav a.active {
     overflow: hidden;
 
     transition:
-        transform .35s var(--ease-bounce),
-        background .3s ease,
-        border-color .3s ease,
-        box-shadow .3s ease;
+        transform .4s var(--ease-bounce),
+        background .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
 }
 
 .theme-toggle:hover,
@@ -1100,7 +1116,7 @@ nav a.active {
 .theme-toggle:active,
 .settings-button:active {
     transform:
-        scale(.94);
+        scale(.92);
 }
 
 .settings-button:hover {
@@ -1134,11 +1150,11 @@ main {
 section {
     position: relative;
 
-    margin-bottom: 90px;
+    margin-bottom: 82px;
 }
 
 .section-heading {
-    margin-bottom: 32px;
+    margin-bottom: 29px;
 
     text-align: center;
 }
@@ -1146,14 +1162,14 @@ section {
 .eyebrow {
     display: inline-block;
 
-    margin-bottom: 10px;
+    margin-bottom: 9px;
 
     color: var(--accent-hover);
 
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 900;
 
-    letter-spacing: .18em;
+    letter-spacing: .17em;
 
     text-transform: uppercase;
 }
@@ -1166,27 +1182,29 @@ section h2 {
 
     font-size:
         clamp(
-            28px,
-            4vw,
-            42px
+            25px,
+            3.5vw,
+            38px
         );
 
     line-height: 1.12;
 
     font-weight: 900;
 
-    letter-spacing: -.045em;
+    letter-spacing: -.04em;
 }
 
 .section-heading p {
-    max-width: 720px;
+    max-width: 700px;
 
     margin:
-        14px auto 0;
+        12px auto 0;
 
     color: var(--text-secondary);
 
-    line-height: 1.75;
+    font-size: 14px;
+
+    line-height: 1.7;
 }
 
 
@@ -1203,7 +1221,7 @@ section h2 {
     justify-content: center;
 
     padding:
-        55px 20px 85px;
+        55px 20px 80px;
 
     text-align: center;
 
@@ -1215,8 +1233,8 @@ section h2 {
 
     position: absolute;
 
-    width: 650px;
-    height: 650px;
+    width: 620px;
+    height: 620px;
 
     left: 50%;
     top: 50%;
@@ -1237,15 +1255,17 @@ section h2 {
             transparent 68%
         );
 
+    filter: blur(1px);
+
     animation:
-        heroGlow 6s ease-in-out infinite alternate;
+        heroGlow 8s ease-in-out infinite alternate;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
 
-    max-width: 950px;
+    max-width: 900px;
 }
 
 .hero h1 {
@@ -1255,19 +1275,19 @@ section h2 {
 
     font-size:
         clamp(
-            44px,
-            7vw,
-            76px
+            40px,
+            6vw,
+            68px
         );
 
     line-height: 1.02;
 
     font-weight: 900;
 
-    letter-spacing: -.06em;
+    letter-spacing: -.055em;
 
     animation:
-        heroReveal .9s var(--ease-smooth) both;
+        heroReveal 1s var(--ease-smooth) both;
 }
 
 .hero h1 span {
@@ -1289,25 +1309,25 @@ section h2 {
     color: transparent;
 
     animation:
-        gradientText 6s linear infinite;
+        gradientText 8s linear infinite;
 }
 
 .hero p {
-    max-width: 760px;
+    max-width: 720px;
 
     margin:
-        23px auto 0;
+        21px auto 0;
 
     color: var(--text-secondary);
 
     font-size:
         clamp(
-            16px,
-            2vw,
-            19px
+            14px,
+            1.8vw,
+            17px
         );
 
-    line-height: 1.75;
+    line-height: 1.72;
 
     animation:
         fadeUp .9s .15s var(--ease-smooth) both;
@@ -1326,9 +1346,9 @@ section h2 {
     align-items: center;
     justify-content: center;
 
-    gap: 13px;
+    gap: 12px;
 
-    margin-top: 32px;
+    margin-top: 29px;
 
     flex-wrap: wrap;
 }
@@ -1336,10 +1356,10 @@ section h2 {
 .btn {
     position: relative;
 
-    min-height: 50px;
+    min-height: 47px;
 
     padding:
-        0 22px;
+        0 20px;
 
     display: inline-flex;
     align-items: center;
@@ -1356,15 +1376,45 @@ section h2 {
 
     color: var(--text);
 
+    font-size: 13px;
     font-weight: 800;
 
     overflow: hidden;
 
     transition:
-        transform .35s var(--ease-bounce),
-        box-shadow .35s ease,
+        transform .4s var(--ease-bounce),
+        box-shadow .4s ease,
         background .35s ease,
         border-color .35s ease;
+}
+
+.btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.16),
+            transparent
+        );
+
+    transform: skewX(-18deg);
+
+    transition:
+        left .65s var(--ease-smooth);
+}
+
+.btn:hover::before {
+    left: 140%;
 }
 
 .btn:hover {
@@ -1424,7 +1474,7 @@ section h2 {
             minmax(0, 1fr)
         );
 
-    gap: 22px;
+    gap: 20px;
 }
 
 
@@ -1459,10 +1509,10 @@ section h2 {
     overflow: hidden;
 
     transition:
-        transform .45s var(--ease),
-        border-color .35s ease,
-        box-shadow .45s ease,
-        background .4s ease;
+        transform .5s var(--ease),
+        border-color .4s ease,
+        box-shadow .5s ease,
+        background .45s ease;
 }
 
 .info-card::before,
@@ -1490,6 +1540,46 @@ section h2 {
         );
 
     opacity: .8;
+
+    transition:
+        opacity .45s ease;
+}
+
+.info-card::after,
+.discord-card::after,
+.whatsapp-card::after,
+.stat-card::after,
+.event-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    right: -75px;
+    bottom: -75px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            color-mix(
+                in srgb,
+                var(--accent-secondary) 10%,
+                transparent
+            ),
+            transparent 70%
+        );
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity .5s ease,
+        transform .6s var(--ease);
 }
 
 .info-card:hover,
@@ -1508,6 +1598,25 @@ section h2 {
         var(--glow);
 }
 
+.info-card:hover::before,
+.discord-card:hover::before,
+.whatsapp-card:hover::before,
+.stat-card:hover::before,
+.event-card:hover::before {
+    opacity: 1;
+}
+
+.info-card:hover::after,
+.discord-card:hover::after,
+.whatsapp-card:hover::after,
+.stat-card:hover::after,
+.event-card:hover::after {
+    opacity: 1;
+
+    transform:
+        scale(1.35);
+}
+
 
 /* =========================================================
    DISCORD / WHATSAPP
@@ -1515,9 +1624,9 @@ section h2 {
 
 .discord-card,
 .whatsapp-card {
-    padding: 30px;
+    padding: 28px;
 
-    min-height: 230px;
+    min-height: 225px;
 }
 
 .discord-card h2,
@@ -1525,13 +1634,13 @@ section h2 {
     position: relative;
     z-index: 2;
 
-    margin-top: 16px;
+    margin-top: 15px;
 
     color: var(--text);
 
     font-family: var(--font-display);
 
-    font-size: 25px;
+    font-size: 23px;
 }
 
 .discord-card p,
@@ -1539,11 +1648,13 @@ section h2 {
     position: relative;
     z-index: 2;
 
-    margin-top: 10px;
+    margin-top: 9px;
 
     color: var(--text-secondary);
 
-    line-height: 1.7;
+    font-size: 14px;
+
+    line-height: 1.65;
 }
 
 .discord-card .btn,
@@ -1551,7 +1662,7 @@ section h2 {
     position: relative;
     z-index: 2;
 
-    margin-top: 20px;
+    margin-top: 18px;
 }
 
 
@@ -1563,8 +1674,8 @@ section h2 {
     position: relative;
     z-index: 2;
 
-    width: 55px;
-    height: 55px;
+    width: 52px;
+    height: 52px;
 
     display: flex;
     align-items: center;
@@ -1587,11 +1698,11 @@ section h2 {
             transparent
         );
 
-    font-size: 27px;
+    font-size: 25px;
 
     transition:
-        transform .4s var(--ease-bounce),
-        box-shadow .35s ease;
+        transform .45s var(--ease-bounce),
+        box-shadow .4s ease;
 }
 
 .info-card:hover .emoji-icon,
@@ -1627,35 +1738,37 @@ section h2 {
             minmax(0, 1fr)
         );
 
-    gap: 20px;
+    gap: 18px;
 }
 
 .info-card {
-    padding: 27px;
+    padding: 25px;
 }
 
 .info-card h3 {
     position: relative;
     z-index: 2;
 
-    margin-top: 17px;
+    margin-top: 16px;
 
     color: var(--text);
 
     font-family: var(--font-display);
 
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .info-card p {
     position: relative;
     z-index: 2;
 
-    margin-top: 9px;
+    margin-top: 8px;
 
     color: var(--text-secondary);
 
-    line-height: 1.7;
+    font-size: 13px;
+
+    line-height: 1.65;
 }
 
 
@@ -1672,13 +1785,13 @@ section h2 {
             minmax(0, 1fr)
         );
 
-    gap: 20px;
+    gap: 18px;
 }
 
 .stat-card {
-    min-height: 190px;
+    min-height: 180px;
 
-    padding: 26px;
+    padding: 24px;
 
     display: flex;
     flex-direction: column;
@@ -1693,9 +1806,9 @@ section h2 {
     position: relative;
     z-index: 2;
 
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 
-    font-size: 27px;
+    font-size: 25px;
 }
 
 .stat-number {
@@ -1708,27 +1821,27 @@ section h2 {
 
     font-size:
         clamp(
-            31px,
-            4vw,
-            44px
+            28px,
+            3.5vw,
+            39px
         );
 
     line-height: 1;
 
     font-weight: 900;
 
-    letter-spacing: -.04em;
+    letter-spacing: -.035em;
 }
 
 .stat-card > span {
     position: relative;
     z-index: 2;
 
-    margin-top: 9px;
+    margin-top: 8px;
 
     color: var(--text-secondary);
 
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
 }
 
@@ -1736,11 +1849,11 @@ section h2 {
     position: relative;
     z-index: 2;
 
-    margin-top: 7px;
+    margin-top: 6px;
 
     color: var(--muted);
 
-    font-size: 12px;
+    font-size: 11px;
 }
 
 
@@ -1757,15 +1870,15 @@ section h2 {
             minmax(0, 1fr)
         );
 
-    gap: 22px;
+    gap: 20px;
 }
 
 .event-card {
     display: block;
 
-    padding: 27px;
+    padding: 25px;
 
-    min-height: 245px;
+    min-height: 235px;
 }
 
 .event-content {
@@ -1774,30 +1887,32 @@ section h2 {
 }
 
 .event-card h3 {
-    margin-top: 15px;
+    margin-top: 14px;
 
     color: var(--text);
 
     font-family: var(--font-display);
 
-    font-size: 21px;
+    font-size: 19px;
 
     line-height: 1.3;
 }
 
 .event-card p {
-    margin-top: 10px;
+    margin-top: 9px;
 
     color: var(--text-secondary);
 
-    line-height: 1.7;
+    font-size: 13px;
+
+    line-height: 1.65;
 }
 
 .event-date {
     display: inline-flex;
 
     padding:
-        7px 12px;
+        6px 11px;
 
     border-radius: 10px;
 
@@ -1810,7 +1925,7 @@ section h2 {
 
     color: var(--accent-hover);
 
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 800;
 }
 
@@ -1826,24 +1941,25 @@ section h2 {
     display: inline-flex;
     align-items: center;
 
-    margin-top: 21px;
+    margin-top: 19px;
 
     color: var(--accent-hover);
 
+    font-size: 13px;
     font-weight: 800;
 
     transition:
         color .25s ease,
-        transform .3s var(--ease);
+        transform .35s var(--ease-bounce);
 }
 
 .more-link::after {
     content: "→";
 
-    margin-left: 8px;
+    margin-left: 7px;
 
     transition:
-        transform .35s var(--ease-bounce);
+        transform .4s var(--ease-bounce);
 }
 
 .more-link:hover {
@@ -1867,7 +1983,7 @@ section h2 {
     position: relative;
 
     padding:
-        55px 30px;
+        50px 28px;
 
     text-align: center;
 
@@ -1930,6 +2046,9 @@ section h2 {
         );
 
     pointer-events: none;
+
+    animation:
+        ctaGlow 7s ease-in-out infinite alternate;
 }
 
 .discord-cta > * {
@@ -1944,9 +2063,9 @@ section h2 {
 
     font-size:
         clamp(
-            28px,
-            4vw,
-            42px
+            25px,
+            3.5vw,
+            38px
         );
 
     font-weight: 900;
@@ -1955,20 +2074,21 @@ section h2 {
 }
 
 .discord-cta p {
-    max-width: 650px;
+    max-width: 630px;
 
     margin:
-        13px auto 0;
+        12px auto 0;
 
     color: var(--text-secondary);
 
-    line-height: 1.7;
+    font-size: 14px;
+
+    line-height: 1.65;
 }
 
 
 /* =========================================================
    BOTTOM LINKS
-   ZOSTAJE W CSSIE, ALE MOŻNA USUNĄĆ Z INDEXU
 ========================================================= */
 
 .bottom-links {
@@ -1982,13 +2102,13 @@ section h2 {
         20px auto 65px;
 
     padding:
-        20px;
+        19px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    gap: 10px;
+    gap: 9px;
 
     flex-wrap: wrap;
 
@@ -2014,10 +2134,10 @@ section h2 {
 }
 
 .bottom-links a {
-    min-height: 42px;
+    min-height: 40px;
 
     padding:
-        0 15px;
+        0 14px;
 
     display: inline-flex;
     align-items: center;
@@ -2027,12 +2147,13 @@ section h2 {
 
     color: var(--text-secondary);
 
+    font-size: 13px;
     font-weight: 700;
 
     transition:
         color .25s ease,
         background .3s ease,
-        transform .3s var(--ease);
+        transform .35s var(--ease-bounce);
 }
 
 .bottom-links a:hover {
@@ -2065,7 +2186,7 @@ footer {
         0 auto;
 
     padding:
-        28px 20px 35px;
+        27px 20px 34px;
 
     text-align: center;
 
@@ -2074,6 +2195,8 @@ footer {
         var(--border);
 
     color: var(--muted);
+
+    font-size: 12px;
 
     transition:
         color .35s ease,
@@ -2097,16 +2220,16 @@ footer p:first-child {
     opacity: 0;
 
     transform:
-        translateY(25px)
-        scale(.985);
+        translateY(28px)
+        scale(.982);
 
     filter:
-        blur(4px);
+        blur(5px);
 
     transition:
-        opacity .7s var(--ease-smooth),
-        transform .7s var(--ease-smooth),
-        filter .7s ease;
+        opacity .8s var(--ease-smooth),
+        transform .8s var(--ease-smooth),
+        filter .8s ease;
 }
 
 .reveal.visible {
@@ -2131,8 +2254,11 @@ footer p:first-child {
 
         transform:
             translateX(-50%)
-            translateY(-22px)
-            scale(.97);
+            translateY(-25px)
+            scale(.965);
+
+        filter:
+            blur(5px);
     }
 
     to {
@@ -2142,32 +2268,54 @@ footer p:first-child {
             translateX(-50%)
             translateY(0)
             scale(1);
+
+        filter:
+            blur(0);
     }
 }
 
 @keyframes glassLine {
     0%,
     100% {
-        opacity: .25;
-        transform: scaleX(.55);
+        opacity: .22;
+        transform: scaleX(.5);
     }
 
     50% {
-        opacity: .8;
+        opacity: .85;
         transform: scaleX(1);
     }
 }
 
+@keyframes glassShimmer {
+    0%,
+    100% {
+        opacity: .7;
+        transform: translateX(-1%);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(1%);
+    }
+}
+
 @keyframes backgroundMove {
-    from {
+    0% {
         transform:
-            translate3d(0,0,0)
+            translate3d(-1%, 0, 0)
             scale(1);
     }
 
-    to {
+    50% {
         transform:
-            translate3d(1.5%,-1.5%,0)
+            translate3d(1%, -1%, 0)
+            scale(1.02);
+    }
+
+    100% {
+        transform:
+            translate3d(-.5%, 1%, 0)
             scale(1.035);
     }
 }
@@ -2176,30 +2324,48 @@ footer p:first-child {
     0%,
     100% {
         transform:
-            translate3d(0,0,0);
+            translate3d(0, 0, 0)
+            scale(1);
+    }
+
+    25% {
+        transform:
+            translate3d(-20px, 15px, 0)
+            scale(1.03);
     }
 
     50% {
         transform:
-            translate3d(-35px,25px,0);
+            translate3d(-38px, 28px, 0)
+            scale(1.06);
+    }
+
+    75% {
+        transform:
+            translate3d(-15px, 10px, 0)
+            scale(1.025);
     }
 }
 
 @keyframes heroGlow {
-    from {
+    0% {
         transform:
-            translate(-50%,-50%)
+            translate(-50%, -50%)
             scale(.88);
 
-        opacity: .55;
+        opacity: .48;
     }
 
-    to {
-        transform:
-            translate(-50%,-50%)
-            scale(1.12);
+    50% {
+        opacity: .72;
+    }
 
-        opacity: 1;
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.1);
+
+        opacity: .95;
     }
 }
 
@@ -2208,11 +2374,11 @@ footer p:first-child {
         opacity: 0;
 
         transform:
-            translateY(32px)
-            scale(.97);
+            translateY(34px)
+            scale(.965);
 
         filter:
-            blur(7px);
+            blur(8px);
     }
 
     to {
@@ -2232,7 +2398,7 @@ footer p:first-child {
         opacity: 0;
 
         transform:
-            translateY(20px);
+            translateY(22px);
     }
 
     to {
@@ -2244,12 +2410,34 @@ footer p:first-child {
 }
 
 @keyframes gradientText {
-    from {
+    0% {
         background-position: 0% center;
     }
 
-    to {
+    50% {
+        background-position: 110% center;
+    }
+
+    100% {
         background-position: 220% center;
+    }
+}
+
+@keyframes ctaGlow {
+    from {
+        transform:
+            translateX(-50%)
+            scale(.9);
+
+        opacity: .55;
+    }
+
+    to {
+        transform:
+            translateX(-50%)
+            scale(1.1);
+
+        opacity: 1;
     }
 }
 
@@ -2265,7 +2453,7 @@ footer p:first-child {
     }
 
     .logo {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     nav {
@@ -2276,7 +2464,7 @@ footer p:first-child {
         padding:
             0 8px;
 
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .cards-grid,
@@ -2359,7 +2547,7 @@ footer p:first-child {
     }
 
     section {
-        margin-bottom: 65px;
+        margin-bottom: 60px;
     }
 
     .community-grid,
@@ -2374,6 +2562,24 @@ footer p:first-child {
         width:
             calc(100% - 24px);
     }
+
+    .section-heading h2,
+    section h2 {
+        font-size: 27px;
+    }
+
+    .hero h1 {
+        font-size:
+            clamp(
+                37px,
+                10vw,
+                58px
+            );
+    }
+
+    .stat-number {
+        font-size: 30px;
+    }
 }
 
 
@@ -2384,15 +2590,15 @@ footer p:first-child {
 @media (max-width: 480px) {
 
     .logo {
-        font-size: 10px;
+        font-size: 9px;
 
-        letter-spacing: .045em;
+        letter-spacing: .04em;
     }
 
     .theme-toggle,
     .settings-button {
-        width: 37px;
-        height: 37px;
+        width: 36px;
+        height: 36px;
 
         border-radius: 11px;
     }
@@ -2400,14 +2606,14 @@ footer p:first-child {
     .hero h1 {
         font-size:
             clamp(
-                35px,
-                11vw,
-                54px
+                33px,
+                10.5vw,
+                50px
             );
     }
 
     .hero p {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .hero-buttons,
@@ -2427,7 +2633,15 @@ footer p:first-child {
     .whatsapp-card,
     .stat-card,
     .event-card {
-        padding: 22px;
+        padding: 21px;
+    }
+
+    .info-card h3 {
+        font-size: 17px;
+    }
+
+    .event-card h3 {
+        font-size: 18px;
     }
 
     .bottom-links {
