@@ -22,18 +22,125 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* ================================
-           KARTY KANAŁÓW YOUTUBE
+        /* =================================
+           ŚWIECĄCY NAGŁÓWEK
+        ================================= */
+
+        .links-hero h1 {
+            text-shadow:
+                0 0 10px rgba(47, 140, 255, 0.55),
+                0 0 25px rgba(121, 92, 255, 0.40),
+                0 0 50px rgba(47, 140, 255, 0.20);
+        }
+
+
+        /* =================================
+           KARTY YOUTUBE
         ================================= */
 
         .channel-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
             position: relative;
             overflow: hidden;
+            isolation: isolate;
         }
+
+        .channel-card > *:not(.link-cloud) {
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* =================================
+           KARTY DISCORD
+        ================================= */
+
+        .discord-server-card {
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .discord-server-card > *:not(.link-cloud) {
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* =================================
+           CHMURKI
+        ================================= */
+
+        .link-cloud {
+            position: absolute;
+            width: 190px;
+            height: 190px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+
+            filter: blur(45px);
+            opacity: 0.55;
+
+            transform: translateZ(0);
+        }
+
+        .link-cloud.blue {
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(47, 140, 255, 0.85) 0%,
+                    rgba(47, 140, 255, 0.38) 38%,
+                    rgba(47, 140, 255, 0) 72%
+                );
+        }
+
+        .link-cloud.purple {
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(121, 92, 255, 0.85) 0%,
+                    rgba(121, 92, 255, 0.38) 38%,
+                    rgba(121, 92, 255, 0) 72%
+                );
+        }
+
+        .link-cloud.cyan {
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(0, 210, 255, 0.75) 0%,
+                    rgba(0, 210, 255, 0.30) 38%,
+                    rgba(0, 210, 255, 0) 72%
+                );
+        }
+
+
+        /* Różne pozycje, żeby nie wyglądały identycznie */
+
+        .cloud-top-left {
+            top: -90px;
+            left: -70px;
+        }
+
+        .cloud-top-right {
+            top: -75px;
+            right: -65px;
+        }
+
+        .cloud-bottom-left {
+            bottom: -90px;
+            left: -60px;
+        }
+
+        .cloud-bottom-right {
+            bottom: -85px;
+            right: -70px;
+        }
+
+
+        /* =================================
+           AVATARY
+        ================================= */
 
         .channel-profile {
             display: flex;
@@ -51,9 +158,11 @@
             object-fit: cover;
             border-radius: 50% !important;
             border: 4px solid var(--border);
+
             box-shadow:
                 0 0 0 7px rgba(88, 101, 242, 0.08),
                 0 10px 28px rgba(0, 0, 0, 0.20);
+
             transition:
                 transform 0.25s ease,
                 box-shadow 0.25s ease;
@@ -61,6 +170,7 @@
 
         .channel-card:hover .channel-avatar {
             transform: scale(1.06);
+
             box-shadow:
                 0 0 0 8px rgba(88, 101, 242, 0.12),
                 0 14px 34px rgba(0, 0, 0, 0.25);
@@ -95,15 +205,14 @@
             margin-top: 22px;
         }
 
-        /* ================================
-           KARTY DISCORD
+
+        /* =================================
+           DISCORD
         ================================= */
 
         .discord-server-card {
             display: flex;
             flex-direction: column;
-            position: relative;
-            overflow: hidden;
         }
 
         .discord-server-card .status-badge {
@@ -115,20 +224,42 @@
             margin-top: auto;
         }
 
-        /* ================================
+
+        /* =================================
+           HOVER CHMUREK
+        ================================= */
+
+        .channel-card:hover .link-cloud,
+        .discord-server-card:hover .link-cloud {
+            opacity: 0.75;
+            transform: scale(1.12);
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease;
+        }
+
+
+        /* =================================
            RESPONSYWNOŚĆ
         ================================= */
 
         @media (max-width: 760px) {
+
             .channel-avatar {
                 width: 96px;
                 height: 96px;
                 min-width: 96px;
                 min-height: 96px;
             }
+
+            .link-cloud {
+                width: 150px;
+                height: 150px;
+            }
         }
 
         @media (max-width: 480px) {
+
             .channel-avatar {
                 width: 86px;
                 height: 86px;
@@ -139,9 +270,16 @@
             .channel-info h3 {
                 font-size: 1.08rem;
             }
+
+            .link-cloud {
+                width: 130px;
+                height: 130px;
+                filter: blur(35px);
+            }
         }
     </style>
 </head>
+
 
 <body data-theme="blue" data-mode="dark">
 
@@ -150,6 +288,7 @@
     ================================= -->
 
     <header class="site-header">
+
         <div class="header-inner">
 
             <a
@@ -161,12 +300,31 @@
             </a>
 
             <nav aria-label="Główna nawigacja">
-                <a href="index.html">🏠 Strona główna</a>
-                <a href="ranking.html">🏆 Ranking</a>
-                <a href="licznik.html">⏱️ Licznik</a>
-                <a href="wydarzenia.html">📅 Wydarzenia</a>
-                <a href="linki.html" class="active">🔗 Linki</a>
-                <a href="kontakt.html">📞 Kontakt</a>
+
+                <a href="index.html">
+                    🏠 Strona główna
+                </a>
+
+                <a href="ranking.html">
+                    🏆 Ranking
+                </a>
+
+                <a href="licznik.html">
+                    ⏱️ Licznik
+                </a>
+
+                <a href="wydarzenia.html">
+                    📅 Wydarzenia
+                </a>
+
+                <a href="linki.html" class="active">
+                    🔗 Linki
+                </a>
+
+                <a href="kontakt.html">
+                    📞 Kontakt
+                </a>
+
             </nav>
 
             <div class="header-actions">
@@ -193,16 +351,18 @@
             </div>
 
         </div>
+
     </header>
 
 
+    <!-- ================================
+         HERO
+    ================================= -->
+
     <main>
 
-        <!-- ================================
-             HERO
-        ================================= -->
+        <section class="hero links-hero">
 
-        <section class="hero">
             <div class="container">
 
                 <span class="eyebrow">
@@ -210,15 +370,17 @@
                 </span>
 
                 <h1>
-                    Poznaj nasze zaprzyjaźnione kanały YT i serwery Discord!
+                    Poznaj nasze zaprzyjaźnione
+                    kanały YouTube i serwery Discord!
                 </h1>
 
                 <p>
-                    Znajdź kanały YouTube naszych znajomych oraz zaprzyjaźnione
-                    serwery Discord.
+                    Znajdź kanały YouTube naszych znajomych
+                    oraz zaprzyjaźnione serwery Discord.
                 </p>
 
             </div>
+
         </section>
 
 
@@ -227,6 +389,7 @@
         ================================= -->
 
         <section class="section">
+
             <div class="container">
 
                 <div class="section-heading">
@@ -248,6 +411,9 @@
                     <!-- KOLEJOWY MICHAŁ -->
 
                     <article class="card channel-card reveal">
+
+                        <div class="link-cloud blue cloud-top-left"></div>
+                        <div class="link-cloud purple cloud-bottom-right"></div>
 
                         <div class="channel-profile">
 
@@ -292,6 +458,9 @@
 
                     <article class="card channel-card reveal">
 
+                        <div class="link-cloud purple cloud-top-right"></div>
+                        <div class="link-cloud cyan cloud-bottom-left"></div>
+
                         <div class="channel-profile">
 
                             <img
@@ -335,6 +504,9 @@
 
                     <article class="card channel-card reveal">
 
+                        <div class="link-cloud cyan cloud-top-left"></div>
+                        <div class="link-cloud blue cloud-bottom-right"></div>
+
                         <div class="channel-profile">
 
                             <img
@@ -374,9 +546,12 @@
                     </article>
 
 
-                    <!-- NOWORUDZKI MK08 GAMING -->
+                    <!-- NOWORUDZKI MK08 -->
 
                     <article class="card channel-card reveal">
+
+                        <div class="link-cloud blue cloud-top-right"></div>
+                        <div class="link-cloud purple cloud-bottom-left"></div>
 
                         <div class="channel-profile">
 
@@ -421,6 +596,9 @@
 
                     <article class="card channel-card reveal">
 
+                        <div class="link-cloud purple cloud-top-left"></div>
+                        <div class="link-cloud cyan cloud-bottom-right"></div>
+
                         <div class="channel-profile">
 
                             <img
@@ -459,10 +637,10 @@
 
                     </article>
 
-
                 </div>
 
             </div>
+
         </section>
 
 
@@ -471,6 +649,7 @@
         ================================= -->
 
         <section class="section">
+
             <div class="container">
 
                 <div class="section-heading">
@@ -492,6 +671,9 @@
                     <!-- MIKOLAND HUB -->
 
                     <article class="card discord-server-card reveal">
+
+                        <div class="link-cloud blue cloud-top-left"></div>
+                        <div class="link-cloud purple cloud-bottom-right"></div>
 
                         <h3>
                             Mikoland HUB
@@ -522,6 +704,9 @@
 
                     <article class="card discord-server-card reveal">
 
+                        <div class="link-cloud purple cloud-top-right"></div>
+                        <div class="link-cloud cyan cloud-bottom-left"></div>
+
                         <h3>
                             STREFA
                         </h3>
@@ -551,6 +736,9 @@
 
                     <article class="card discord-server-card reveal">
 
+                        <div class="link-cloud cyan cloud-top-left"></div>
+                        <div class="link-cloud blue cloud-bottom-right"></div>
+
                         <h3>
                             Pod Semaforem
                         </h3>
@@ -575,18 +763,19 @@
 
                     </article>
 
-
                 </div>
 
             </div>
+
         </section>
 
 
         <!-- ================================
-             CTA
+             KONTAKT
         ================================= -->
 
         <section class="section">
+
             <div class="container">
 
                 <article class="card reveal">
@@ -610,6 +799,7 @@
                 </article>
 
             </div>
+
         </section>
 
     </main>
