@@ -31,6 +31,27 @@
             overflow: hidden;
         }
 
+        /* Dymek wokół CAŁEJ nazwy kanału */
+        .channel-name-bubble {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            max-width: 100%;
+            padding: 9px 16px;
+            margin-bottom: 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: var(--glass);
+            color: var(--text);
+            font-weight: 800;
+            font-size: 1.25rem;
+            line-height: 1.2;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
         .channel-profile {
             display: flex;
             justify-content: center;
@@ -64,11 +85,6 @@
 
         .channel-info {
             width: 100%;
-        }
-
-        .channel-info h3 {
-            margin-bottom: 10px;
-            font-size: 1.25rem;
         }
 
         .channel-subs {
@@ -109,6 +125,10 @@
                 min-width: 96px;
                 min-height: 96px;
             }
+
+            .channel-name-bubble {
+                font-size: 1.12rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -119,8 +139,9 @@
                 min-height: 86px;
             }
 
-            .channel-info h3 {
-                font-size: 1.08rem;
+            .channel-name-bubble {
+                font-size: 1rem;
+                padding: 8px 13px;
             }
         }
     </style>
@@ -190,6 +211,7 @@
 
     <!-- HERO -->
     <section class="hero">
+
         <div class="hero-content">
 
             <span class="eyebrow">
@@ -206,6 +228,7 @@
             </p>
 
         </div>
+
     </section>
 
 
@@ -213,7 +236,10 @@
     <section class="section">
 
         <div class="section-heading">
-            <span class="eyebrow">▶️ YOUTUBE</span>
+
+            <span class="eyebrow">
+                📺 KANAŁY YOUTUBE
+            </span>
 
             <h2>
                 Kanały YouTube
@@ -222,6 +248,7 @@
             <p>
                 Kanały naszych znajomych i członków społeczności.
             </p>
+
         </div>
 
 
@@ -231,24 +258,26 @@
             <!-- KOLEJOWY MICHAŁ -->
             <article class="card channel-card">
 
-                <div class="card-icon">
-                    🚆
-                </div>
-
                 <div class="channel-profile">
+
                     <img
                         class="channel-avatar"
                         src="https://yt3.googleusercontent.com/bgHLQbnCvgb4Tfea09E3Z3CUlgD9iLFIFIWbXaOu-6rKvk0rD_2GR2EG8SsyFCkcfjyn58k8oFw=s160-c-k-c0x00ffffff-no-rj"
                         alt="Kolejowy_Michał"
                     >
+
                 </div>
 
                 <div class="channel-info">
-                    <h3>Kolejowy_Michał</h3>
+
+                    <div class="channel-name-bubble">
+                        📺 Kolejowy_Michał
+                    </div>
 
                     <p class="channel-subs">
                         <strong>1011</strong> subskrybentów
                     </p>
+
                 </div>
 
                 <a
@@ -266,24 +295,26 @@
             <!-- FARMINGOWY PAN -->
             <article class="card channel-card">
 
-                <div class="card-icon">
-                    🚜
-                </div>
-
                 <div class="channel-profile">
+
                     <img
                         class="channel-avatar"
                         src="https://yt3.googleusercontent.com/5E2U1WPNQQOpP9Zw3O3NMeTZlPfG89yuMLfwAvAfzbKuGvyzOleN2vXJyWoVQ93dAohfGXgPvoQ=s160-c-k-c0x00ffffff-no-rj"
                         alt="Farmingowy Pan"
                     >
+
                 </div>
 
                 <div class="channel-info">
-                    <h3>Farmingowy Pan</h3>
+
+                    <div class="channel-name-bubble">
+                        📺 Farmingowy Pan
+                    </div>
 
                     <p class="channel-subs">
                         <strong>165</strong> subskrybentów
                     </p>
+
                 </div>
 
                 <a
@@ -301,24 +332,26 @@
             <!-- MIKOL YORIICHI -->
             <article class="card channel-card">
 
-                <div class="card-icon">
-                    🚆
-                </div>
-
                 <div class="channel-profile">
+
                     <img
                         class="channel-avatar"
                         src="https://yt3.googleusercontent.com/VQZ9ah_2x1sWWGtokSkYdo1TraiplpmJTHxTqKBKsu3gJk3-RNhvyeslXceIVb7KVdlajqLHID0=s160-c-k-c0x00ffffff-no-rj"
                         alt="mikol yoriichi"
                     >
+
                 </div>
 
                 <div class="channel-info">
-                    <h3>mikol yoriichi</h3>
+
+                    <div class="channel-name-bubble">
+                        📺 mikol yoriichi
+                    </div>
 
                     <p class="channel-subs">
                         <strong>90</strong> subskrybentów
                     </p>
+
                 </div>
 
                 <a
@@ -333,27 +366,29 @@
             </article>
 
 
-            <!-- NOWORUDZKI -->
+            <!-- NOWORUDZKI MK08 GAMING -->
             <article class="card channel-card">
 
-                <div class="card-icon">
-                    🎮
-                </div>
-
                 <div class="channel-profile">
+
                     <img
                         class="channel-avatar"
                         src="https://yt3.googleusercontent.com/tLhKFg9Ysiy_qhFsANfVb1F8nARhUDPb-j0i6B5biq7hEjmDyLWVepe7kcC-V5VkYmuTandKoA=s160-c-k-c0x00ffffff-no-rj"
                         alt="Noworudzki_MK08 Gaming"
                     >
+
                 </div>
 
                 <div class="channel-info">
-                    <h3>Noworudzki_MK08 Gaming</h3>
+
+                    <div class="channel-name-bubble">
+                        📺 Noworudzki_MK08 Gaming
+                    </div>
 
                     <p class="channel-subs">
                         <strong>13</strong> subskrybentów
                     </p>
+
                 </div>
 
                 <a
@@ -368,27 +403,29 @@
             </article>
 
 
-            <!-- TCZEWSKI -->
+            <!-- TCZEWSKI MK -->
             <article class="card channel-card">
 
-                <div class="card-icon">
-                    📸
-                </div>
-
                 <div class="channel-profile">
+
                     <img
                         class="channel-avatar"
-                        src="https://yt3.googleusercontent.com/hJWc0SVzZkBAD9FeX8sS3SXjZkacMRJljSEuc5OpILzybFS7B21_opNBBVvyhxO514hhsQL2RQ=s160-c-k-c0x00ffffff-no-rj"
+                        src="https://yt3.googleusercontent.com/hJWc0SVzQBAD9FeX8sS3SXjZkacMRJljSEuc5OpILzybFS7B21_opNBBVvyhxO514hhsQL2RQ=s160-c-k-c0x00ffffff-no-rj"
                         alt="Tczewski_mk"
                     >
+
                 </div>
 
                 <div class="channel-info">
-                    <h3>Tczewski_mk</h3>
+
+                    <div class="channel-name-bubble">
+                        📺 Tczewski_mk
+                    </div>
 
                     <p class="channel-subs">
                         <strong>19</strong> subskrybentów
                     </p>
+
                 </div>
 
                 <a
@@ -411,7 +448,10 @@
     <section class="section">
 
         <div class="section-heading">
-            <span class="eyebrow">💬 DISCORD</span>
+
+            <span class="eyebrow">
+                💬 SERWERY DISCORD
+            </span>
 
             <h2>
                 Zaprzyjaźnione serwery Discord
@@ -420,6 +460,7 @@
             <p>
                 Dołącz do innych społeczności i poznaj nowych ludzi.
             </p>
+
         </div>
 
 
@@ -429,16 +470,12 @@
             <!-- MIKOLAND HUB -->
             <article class="card discord-server-card">
 
-                <div class="card-icon">
-                    🌐
-                </div>
-
                 <span class="status-badge">
                     🚆 Społeczność kolejowa
                 </span>
 
                 <h3>
-                    Mikoland HUB
+                    🌐 Mikoland HUB
                 </h3>
 
                 <p>
@@ -461,16 +498,12 @@
             <!-- STREFA -->
             <article class="card discord-server-card">
 
-                <div class="card-icon">
-                    🚆
-                </div>
-
                 <span class="status-badge">
                     🚆 Społeczność kolejowa
                 </span>
 
                 <h3>
-                    STREFA
+                    🚆 STREFA
                 </h3>
 
                 <p>
@@ -490,19 +523,15 @@
             </article>
 
 
-            <!-- POD SEMAForem -->
+            <!-- POD SEMAFOREM -->
             <article class="card discord-server-card">
-
-                <div class="card-icon">
-                    🚦
-                </div>
 
                 <span class="status-badge">
                     📸 Kolej i fotografia
                 </span>
 
                 <h3>
-                    Pod Semaforem
+                    🚦 Pod Semaforem
                 </h3>
 
                 <p>
@@ -526,14 +555,10 @@
     </section>
 
 
-    <!-- CONTACT CTA -->
+    <!-- CONTACT -->
     <section class="section">
 
         <div class="discord-cta">
-
-            <div class="card-icon">
-                📩
-            </div>
 
             <h2>
                 📩 Masz swój kanał lub serwer?
