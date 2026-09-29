@@ -10,6 +10,19 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <script>
+        (function () {
+            const savedTheme =
+                localStorage.getItem("koloniaTheme") || "blue";
+
+            const savedMode =
+                localStorage.getItem("koloniaMode") || "dark";
+
+            document.documentElement.dataset.theme = savedTheme;
+            document.documentElement.dataset.mode = savedMode;
+        })();
+    </script>
+
     <style>
 
         /* =========================================
@@ -277,29 +290,39 @@
 
     <div class="header-inner">
 
-        <a href="index.html" class="logo">
-            🌟 Kolonia Pasjonatów
+        <a
+            href="index.html"
+            class="back-home-link"
+            aria-label="Powrót do strony głównej"
+        >
+            ← Powrót do strony głównej
         </a>
 
 
-        <nav>
+        <div class="header-actions">
 
-            <a href="index.html">
-                Strona główna
+            <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Zmień motyw">
+
+                🌙
+
+            </button>
+
+
+            <a
+                href="ustawienia.html"
+                class="settings-button"
+                aria-label="Ustawienia"
+                title="Ustawienia">
+
+                ⚙️
+
             </a>
 
-        </nav>
-
-
-        <button
-            id="themeToggle"
-            class="theme-toggle"
-            type="button"
-            aria-label="Zmień motyw">
-
-            🌙
-
-        </button>
+        </div>
 
     </div>
 
