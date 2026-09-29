@@ -90,6 +90,71 @@
 
 
         /* =========================================
+           DYMKI INFORMACYJNE
+        ========================================= */
+
+        .channel-description {
+            width: 100%;
+
+            margin-top: 18px;
+            padding: 15px 17px;
+
+            border-radius: var(--radius-md);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.08),
+                    rgba(255, 255, 255, 0.03)
+                );
+
+            border: 1px solid var(--border);
+
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.07),
+                0 8px 24px rgba(0, 0, 0, 0.10);
+
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+
+            color: var(--text-secondary);
+
+            font-size: 0.9rem;
+            line-height: 1.55;
+
+            transition:
+                transform 0.25s var(--ease),
+                border-color 0.25s var(--ease),
+                box-shadow 0.25s var(--ease);
+        }
+
+        .channel-description strong {
+            display: block;
+
+            margin-bottom: 5px;
+
+            color: var(--text-primary);
+
+            font-size: 0.92rem;
+            font-weight: 800;
+        }
+
+        .channel-card:hover .channel-description {
+            transform: translateY(-2px);
+
+            border-color: var(--accent);
+
+            box-shadow:
+                0 10px 28px rgba(0, 0, 0, 0.14),
+                0 0 18px color-mix(
+                    in srgb,
+                    var(--accent) 12%,
+                    transparent
+                );
+        }
+
+
+        /* =========================================
            SERWERY DISCORD
         ========================================= */
 
@@ -100,66 +165,9 @@
             overflow: hidden;
         }
 
-        /*
-           PREMIUM DYMKI
-        */
-
         .discord-server-card .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-
             width: fit-content;
-
-            margin-bottom: 16px;
-            padding: 7px 13px;
-
-            border-radius: 999px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255, 255, 255, 0.10),
-                    rgba(255, 255, 255, 0.04)
-                );
-
-            border: 1px solid var(--border);
-
-            color: var(--text-secondary);
-
-            font-size: 0.78rem;
-            font-weight: 800;
-            letter-spacing: 0.02em;
-
-            box-shadow:
-                inset 0 1px 0 rgba(255, 255, 255, 0.08),
-                0 6px 18px rgba(0, 0, 0, 0.10);
-
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-
-            transition:
-                transform 0.25s var(--ease),
-                border-color 0.25s var(--ease),
-                box-shadow 0.25s var(--ease),
-                background 0.25s var(--ease);
-        }
-
-        .discord-server-card:hover .status-badge {
-            transform: translateY(-2px);
-
-            border-color: var(--accent);
-
-            background:
-                linear-gradient(
-                    135deg,
-                    color-mix(in srgb, var(--accent) 16%, transparent),
-                    rgba(255, 255, 255, 0.05)
-                );
-
-            box-shadow:
-                0 8px 24px rgba(0, 0, 0, 0.14),
-                0 0 18px color-mix(in srgb, var(--accent) 18%, transparent);
+            margin-bottom: 12px;
         }
 
         .discord-server-card .button {
@@ -198,9 +206,9 @@
                 font-size: 1.08rem;
             }
 
-            .discord-server-card .status-badge {
-                font-size: 0.74rem;
-                padding: 6px 11px;
+            .channel-description {
+                font-size: 0.84rem;
+                padding: 13px 14px;
             }
 
         }
@@ -220,7 +228,6 @@
         <a href="index.html" class="logo">
             🌟 Kolonia Pasjonatów
         </a>
-
 
         <nav>
 
@@ -250,7 +257,6 @@
 
         </nav>
 
-
         <button
             id="themeToggle"
             class="theme-toggle"
@@ -264,7 +270,6 @@
     </div>
 
 </header>
-
 
 
 <main>
@@ -295,7 +300,6 @@
         </div>
 
     </section>
-
 
 
     <!-- =========================================
@@ -335,7 +339,6 @@
 
                     </div>
 
-
                     <div class="channel-info">
 
                         <h3>
@@ -346,8 +349,16 @@
                             👥 <strong>1011</strong> subskrybentów
                         </p>
 
-                    </div>
+                        <div class="channel-description">
 
+                            <strong>🚆 Kolej</strong>
+
+                            Kanał poświęcony kolei, pociągom,
+                            taborowi i kolejowym ciekawostkom.
+
+                        </div>
+
+                    </div>
 
                     <a
                         href="https://youtube.com/@kolejowy_michal15?si=1OTyguwzWYb03h1N"
@@ -360,7 +371,6 @@
                     </a>
 
                 </article>
-
 
 
                 <!-- FARMINGOWY PAN -->
@@ -376,7 +386,6 @@
 
                     </div>
 
-
                     <div class="channel-info">
 
                         <h3>
@@ -387,8 +396,16 @@
                             👥 <strong>165</strong> subskrybentów
                         </p>
 
-                    </div>
+                        <div class="channel-description">
 
+                            <strong>🚜 Farming</strong>
+
+                            Materiały związane z rolnictwem,
+                            Farming Simulatorem i koleją.
+
+                        </div>
+
+                    </div>
 
                     <a
                         href="https://youtube.com/@kolejowyfs?si=dD3PcrMSRbncliVA"
@@ -401,7 +418,6 @@
                     </a>
 
                 </article>
-
 
 
                 <!-- MIKOL YORIICHI -->
@@ -417,7 +433,6 @@
 
                     </div>
 
-
                     <div class="channel-info">
 
                         <h3>
@@ -428,8 +443,16 @@
                             👥 <strong>90</strong> subskrybentów
                         </p>
 
-                    </div>
+                        <div class="channel-description">
 
+                            <strong>🚆 Kolej</strong>
+
+                            Materiały kolejowe, pociągi
+                            oraz tematyka miłośników kolei.
+
+                        </div>
+
+                    </div>
 
                     <a
                         href="https://youtube.com/@mikol_yoriichi?si=3UXBvhiJJ8a-22cy"
@@ -442,7 +465,6 @@
                     </a>
 
                 </article>
-
 
 
                 <!-- NOWORUDZKI MK08 -->
@@ -458,7 +480,6 @@
 
                     </div>
 
-
                     <div class="channel-info">
 
                         <h3>
@@ -469,8 +490,16 @@
                             👥 <strong>13</strong> subskrybentów
                         </p>
 
-                    </div>
+                        <div class="channel-description">
 
+                            <strong>🎮 Gaming</strong>
+
+                            Gry, rozgrywka i materiały
+                            związane z gamingiem.
+
+                        </div>
+
+                    </div>
 
                     <a
                         href="https://youtube.com/@noworudzkimk456gry?si=2JwTruBkSzYWh6XQ"
@@ -483,7 +512,6 @@
                     </a>
 
                 </article>
-
 
 
                 <!-- TCZEWSKI MK -->
@@ -499,7 +527,6 @@
 
                     </div>
 
-
                     <div class="channel-info">
 
                         <h3>
@@ -510,8 +537,16 @@
                             👥 <strong>19</strong> subskrybentów
                         </p>
 
-                    </div>
+                        <div class="channel-description">
 
+                            <strong>📸 Kolej</strong>
+
+                            Fotografia kolejowa, pociągi
+                            i materiały miłośnika kolei.
+
+                        </div>
+
+                    </div>
 
                     <a
                         href="https://youtube.com/@tczewski_mikol?si=F045GCYYGBwtu2nR"
@@ -531,7 +566,6 @@
         </div>
 
     </section>
-
 
 
     <!-- =========================================
@@ -590,7 +624,6 @@
                 </article>
 
 
-
                 <article class="card discord-server-card">
 
                     <div class="card-icon">
@@ -621,7 +654,6 @@
                     </a>
 
                 </article>
-
 
 
                 <article class="card discord-server-card">
@@ -663,7 +695,6 @@
     </section>
 
 
-
     <!-- =========================================
          KONTAKT
     ========================================== -->
@@ -701,7 +732,6 @@
 </main>
 
 
-
 <footer>
 
     <p>
@@ -713,7 +743,6 @@
     </p>
 
 </footer>
-
 
 
 <script src="script.js"></script>
