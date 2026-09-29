@@ -62,6 +62,51 @@ const YEAR_EVENTS = {
 
 
 /* =========================================
+   WYDARZENIA KOLONII PASJONATÓW
+========================================= */
+
+const COLONY_EVENTS = {
+
+    autumn: {
+        start: "2026-09-23T00:00:00",
+        end: "2026-10-09T23:59:59",
+        activeMessage: "🟢 Konkurs trwa! 🍂📸"
+    },
+
+    winter: {
+        start: "2026-11-20T00:00:00",
+        end: "2027-01-31T23:59:59",
+        activeMessage: "🟢 Strefa Zimowa trwa! ❄️"
+    },
+
+    mikolajki: {
+        start: "2026-12-06T18:00:00",
+        end: "2026-12-06T23:59:59",
+        activeMessage: "🎅 Mikołajki właśnie trwają!"
+    },
+
+    wigilia: {
+        start: "2026-12-23T19:00:00",
+        end: "2026-12-25T14:00:00",
+        activeMessage: "🎄 Wigilia w Kolonii trwa!"
+    },
+
+    sylwester: {
+        start: "2026-12-30T17:00:00",
+        end: "2027-01-01T14:30:00",
+        activeMessage: "🎆 Sylwester w Kolonii trwa!"
+    },
+
+    summer: {
+        start: "2027-06-01T00:00:00",
+        end: "2027-08-31T23:59:59",
+        activeMessage: "🟢 Strefa Letnia trwa! ☀️"
+    }
+
+};
+
+
+/* =========================================
    FERIE ZIMOWE
 ========================================= */
 
@@ -149,12 +194,6 @@ function updateUptime() {
     const website =
         document.getElementById("websiteUptime");
 
-    const detailedColony =
-        document.getElementById("detailedUptime");
-
-    const detailedWebsite =
-        document.getElementById("websiteDetailedUptime");
-
 
     if (colony) {
         colony.textContent = colonyText;
@@ -162,14 +201,6 @@ function updateUptime() {
 
     if (website) {
         website.textContent = websiteText;
-    }
-
-    if (detailedColony) {
-        detailedColony.textContent = colonyText;
-    }
-
-    if (detailedWebsite) {
-        detailedWebsite.textContent = websiteText;
     }
 }
 
@@ -332,10 +363,6 @@ function updateYearEvent(
         new Date(event.date);
 
 
-    /*
-       W dniu wydarzenia
-    */
-
     const targetDayStart =
         new Date(
             target.getFullYear(),
@@ -370,10 +397,6 @@ function updateYearEvent(
     }
 
 
-    /*
-       Przed wydarzeniem
-    */
-
     if (now < targetDayStart) {
 
         element.textContent =
@@ -385,9 +408,64 @@ function updateYearEvent(
     }
 
 
-    /*
-       Po wydarzeniu
-    */
+    element.textContent =
+        "Wydarzenie zakończone";
+}
+
+
+/* =========================================
+   WYDARZENIA KOLONII PASJONATÓW
+========================================= */
+
+function updateColonyEvent(
+    event,
+    elementId
+) {
+
+    const element =
+        document.getElementById(elementId);
+
+
+    if (!element) {
+        return;
+    }
+
+
+    const now = new Date();
+
+    const start =
+        new Date(event.start);
+
+    const end =
+        new Date(event.end);
+
+
+    /* PRZED WYDARZENIEM */
+
+    if (now < start) {
+
+        element.textContent =
+            `Start za ${formatTime(start - now)}`;
+
+        return;
+    }
+
+
+    /* WYDARZENIE TRWA */
+
+    if (
+        now >= start &&
+        now <= end
+    ) {
+
+        element.textContent =
+            event.activeMessage;
+
+        return;
+    }
+
+
+    /* PO WYDARZENIU */
 
     element.textContent =
         "Wydarzenie zakończone";
@@ -472,10 +550,6 @@ function updateHolidays() {
         `${dates[0]} – ${dates[1]}`;
 
 
-    /*
-       FERIE TRWAJĄ
-    */
-
     if (
         now >= start &&
         now <= end
@@ -488,10 +562,6 @@ function updateHolidays() {
     }
 
 
-    /*
-       PRZED FERIAMI
-    */
-
     if (now < start) {
 
         countdown.textContent =
@@ -502,10 +572,6 @@ function updateHolidays() {
         return;
     }
 
-
-    /*
-       PO FERIACH
-    */
 
     countdown.textContent =
         "Ferie zakończone";
@@ -520,6 +586,8 @@ function updateAll() {
 
     updateUptime();
 
+
+    /* ŚWIĘTA */
 
     updateEvent(
         EVENTS.halloween,
@@ -556,6 +624,8 @@ function updateAll() {
     );
 
 
+    /* WYDARZENIA ROCZNE */
+
     updateYearEvent(
         YEAR_EVENTS.summer2027,
         "summer2027Countdown"
@@ -568,8 +638,50 @@ function updateAll() {
     );
 
 
+    /* WYDARZENIA KOLONII */
+
+    updateColonyEvent(
+        COLONY_EVENTS.autumn,
+        "autumnEventCountdown"
+    );
+
+
+    updateColonyEvent(
+        COLONY_EVENTS.winter,
+        "winterEventCountdown"
+    );
+
+
+    updateColonyEvent(
+        COLONY_EVENTS.mikolajki,
+        "mikolajkiEventCountdown"
+    );
+
+
+    updateColonyEvent(
+        COLONY_EVENTS.wigilia,
+        "wigiliaEventCountdown"
+    );
+
+
+    updateColonyEvent(
+        COLONY_EVENTS.sylwester,
+        "koloniaSylwesterEventCountdown"
+    );
+
+
+    updateColonyEvent(
+        COLONY_EVENTS.summer,
+        "summerEventCountdown"
+    );
+
+
+    /* FERIE */
+
     updateHolidays();
 
+
+    /* OSTATNIA AKTUALIZACJA */
 
     const lastUpdate =
         document.getElementById(
