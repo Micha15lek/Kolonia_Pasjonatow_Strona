@@ -25,7 +25,7 @@
     <style>
 
         /* =========================================
-           CHMURKI JAK NA INDEX.HTML
+           KARTY LINKÓW — CHMURKI
         ========================================= */
 
         .channel-card,
@@ -34,10 +34,7 @@
             overflow: hidden;
             isolation: isolate;
 
-            border:
-                1px solid
-                var(--border);
-
+            border: 1px solid var(--border);
             border-radius: var(--radius);
 
             background:
@@ -48,8 +45,7 @@
                 ),
                 var(--card);
 
-            box-shadow:
-                var(--shadow);
+            box-shadow: var(--shadow);
 
             transition:
                 transform .5s var(--ease),
@@ -63,7 +59,6 @@
             content: "";
 
             position: absolute;
-
             inset: 0;
 
             pointer-events: none;
@@ -81,8 +76,7 @@
 
             opacity: .8;
 
-            transition:
-                opacity .45s ease;
+            transition: opacity .45s ease;
         }
 
         .channel-card::after,
@@ -91,11 +85,11 @@
 
             position: absolute;
 
-            width: 130px;
-            height: 130px;
+            width: 150px;
+            height: 150px;
 
-            right: -75px;
-            bottom: -75px;
+            right: -80px;
+            bottom: -80px;
 
             border-radius: 50%;
 
@@ -104,7 +98,7 @@
                     circle,
                     color-mix(
                         in srgb,
-                        var(--accent-secondary) 10%,
+                        var(--accent-secondary) 12%,
                         transparent
                     ),
                     transparent 70%
@@ -121,11 +115,9 @@
 
         .channel-card:hover,
         .discord-server-card:hover {
-            transform:
-                translateY(-8px);
+            transform: translateY(-8px);
 
-            border-color:
-                var(--border-hover);
+            border-color: var(--border-hover);
 
             box-shadow:
                 var(--shadow-hover),
@@ -140,9 +132,7 @@
         .channel-card:hover::after,
         .discord-server-card:hover::after {
             opacity: 1;
-
-            transform:
-                scale(1.35);
+            transform: scale(1.35);
         }
 
         .channel-card > *,
@@ -153,7 +143,7 @@
 
 
         /* =========================================
-           KARTY YOUTUBE
+           YOUTUBE — WIĘCEJ MIEJSCA
         ========================================= */
 
         .channel-card {
@@ -161,13 +151,16 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+
+            padding: 34px 30px 30px;
         }
 
         .channel-profile {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 18px;
+
+            margin-bottom: 24px;
         }
 
         .channel-avatar {
@@ -190,8 +183,8 @@
                 0 10px 28px rgba(0, 0, 0, 0.20);
 
             transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
+                transform .25s ease,
+                box-shadow .25s ease;
         }
 
         .channel-card:hover .channel-avatar {
@@ -207,13 +200,14 @@
         }
 
         .channel-info h3 {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-size: 1.25rem;
         }
 
         .channel-description {
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             color: var(--text-secondary);
+            line-height: 1.65;
         }
 
         .channel-subs {
@@ -226,9 +220,17 @@
             font-weight: 900;
         }
 
+        /*
+           Przycisk schodzi niżej,
+           dzięki czemu znajduje się bliżej dolnej
+           części chmurki.
+        */
+
         .channel-button {
             width: 100%;
-            margin-top: 22px;
+
+            margin-top: 30px;
+            margin-bottom: -4px;
         }
 
 
@@ -239,15 +241,212 @@
         .discord-server-card {
             display: flex;
             flex-direction: column;
+
+            padding: 30px;
+            min-height: 270px;
+        }
+
+        .discord-server-card h3 {
+            margin-bottom: 12px;
         }
 
         .discord-server-card .status-badge {
             width: fit-content;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
+        }
+
+        .discord-server-card p {
+            line-height: 1.65;
         }
 
         .discord-server-card .btn {
             margin-top: auto;
+        }
+
+
+        /* =========================================
+           PRZEJŚCIE DISCORD → KONTAKT
+        ========================================= */
+
+        .links-contact-transition {
+            position: relative;
+
+            height: 90px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            pointer-events: none;
+        }
+
+        .links-contact-transition::before {
+            content: "";
+
+            width: 70%;
+            max-width: 700px;
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    color-mix(
+                        in srgb,
+                        var(--accent) 45%,
+                        transparent
+                    ),
+                    color-mix(
+                        in srgb,
+                        var(--accent-secondary) 45%,
+                        transparent
+                    ),
+                    transparent
+                );
+
+            box-shadow:
+                0 0 18px
+                color-mix(
+                    in srgb,
+                    var(--accent) 20%,
+                    transparent
+                );
+        }
+
+        .links-contact-transition::after {
+            content: "";
+
+            position: absolute;
+
+            width: 80px;
+            height: 80px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    color-mix(
+                        in srgb,
+                        var(--accent) 10%,
+                        transparent
+                    ),
+                    transparent 70%
+                );
+
+            filter: blur(12px);
+        }
+
+
+        /* =========================================
+           KONTAKT — WYRÓŻNIONA KARTA
+        ========================================= */
+
+        .links-contact-card {
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+
+            text-align: center;
+
+            padding: 42px 35px;
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.05),
+                    rgba(255,255,255,.012)
+                ),
+                var(--card);
+
+            box-shadow: var(--shadow);
+
+            transition:
+                transform .5s var(--ease),
+                border-color .4s ease,
+                box-shadow .5s ease;
+        }
+
+        .links-contact-card::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            pointer-events: none;
+
+            background:
+                radial-gradient(
+                    circle at 0% 100%,
+                    color-mix(
+                        in srgb,
+                        var(--accent-secondary) 10%,
+                        transparent
+                    ),
+                    transparent 42%
+                );
+        }
+
+        .links-contact-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            right: -90px;
+            top: -90px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    color-mix(
+                        in srgb,
+                        var(--accent) 12%,
+                        transparent
+                    ),
+                    transparent 70%
+                );
+
+            pointer-events: none;
+        }
+
+        .links-contact-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .links-contact-card:hover {
+            transform: translateY(-6px);
+
+            border-color: var(--border-hover);
+
+            box-shadow:
+                var(--shadow-hover),
+                var(--glow);
+        }
+
+        .links-contact-card h2 {
+            margin-bottom: 14px;
+        }
+
+        .links-contact-card p {
+            max-width: 700px;
+
+            margin:
+                0 auto 24px;
+
+            color: var(--text-secondary);
+
+            line-height: 1.7;
         }
 
 
@@ -257,6 +456,10 @@
 
         @media (max-width: 760px) {
 
+            .channel-card {
+                padding: 30px 24px 26px;
+            }
+
             .channel-avatar {
                 width: 96px;
                 height: 96px;
@@ -264,9 +467,22 @@
                 min-width: 96px;
                 min-height: 96px;
             }
+
+            .discord-server-card {
+                min-height: 240px;
+                padding: 26px 24px;
+            }
+
+            .links-contact-transition {
+                height: 70px;
+            }
         }
 
         @media (max-width: 480px) {
+
+            .channel-card {
+                padding: 26px 20px 24px;
+            }
 
             .channel-avatar {
                 width: 86px;
@@ -278,6 +494,27 @@
 
             .channel-info h3 {
                 font-size: 1.08rem;
+            }
+
+            .channel-button {
+                margin-top: 26px;
+            }
+
+            .discord-server-card {
+                min-height: 220px;
+                padding: 24px 20px;
+            }
+
+            .links-contact-transition {
+                height: 55px;
+            }
+
+            .links-contact-transition::before {
+                width: 82%;
+            }
+
+            .links-contact-card {
+                padding: 32px 22px;
             }
         }
 
@@ -374,14 +611,12 @@
                 🔗 NASZE LINKI
             </span>
 
-
             <h1>
                 Poznaj nasze zaprzyjaźnione
                 <span>
                     kanały YouTube i serwery Discord!
                 </span>
             </h1>
-
 
             <p>
                 Znajdź kanały YouTube naszych znajomych
@@ -391,7 +626,6 @@
         </div>
 
     </section>
-
 
 
     <!-- =========================================
@@ -430,7 +664,6 @@
 
                 </div>
 
-
                 <div class="channel-info">
 
                     <h3>
@@ -448,7 +681,6 @@
 
                 </div>
 
-
                 <a
                     href="https://youtube.com/@kolejowy_michal15?si=1OTyguwzWYb03h1N"
                     target="_blank"
@@ -459,7 +691,6 @@
                 </a>
 
             </article>
-
 
 
             <!-- FARMINGOWY PAN -->
@@ -475,7 +706,6 @@
                     >
 
                 </div>
-
 
                 <div class="channel-info">
 
@@ -494,7 +724,6 @@
 
                 </div>
 
-
                 <a
                     href="https://youtube.com/@kolejowyfs?si=dD3PcrMSRbncliVA"
                     target="_blank"
@@ -505,7 +734,6 @@
                 </a>
 
             </article>
-
 
 
             <!-- MIKOL YORIICHI -->
@@ -521,7 +749,6 @@
                     >
 
                 </div>
-
 
                 <div class="channel-info">
 
@@ -540,7 +767,6 @@
 
                 </div>
 
-
                 <a
                     href="https://youtube.com/@mikol_yoriichi?si=3UXBvhiJJ8a-22cy"
                     target="_blank"
@@ -551,7 +777,6 @@
                 </a>
 
             </article>
-
 
 
             <!-- NOWORUDZKI MK08 -->
@@ -567,7 +792,6 @@
                     >
 
                 </div>
-
 
                 <div class="channel-info">
 
@@ -586,7 +810,6 @@
 
                 </div>
 
-
                 <a
                     href="https://youtube.com/@noworudzkimk456gry?si=2JwTruBkSzYWh6XQ"
                     target="_blank"
@@ -597,7 +820,6 @@
                 </a>
 
             </article>
-
 
 
             <!-- TCZEWSKI MK -->
@@ -613,7 +835,6 @@
                     >
 
                 </div>
-
 
                 <div class="channel-info">
 
@@ -632,7 +853,6 @@
 
                 </div>
 
-
                 <a
                     href="https://youtube.com/@tczewski_mikol?si=F045GCYYGBwtu2nR"
                     target="_blank"
@@ -647,7 +867,6 @@
         </div>
 
     </section>
-
 
 
     <!-- =========================================
@@ -701,7 +920,6 @@
             </article>
 
 
-
             <!-- STREFA -->
 
             <article class="card discord-server-card reveal">
@@ -729,7 +947,6 @@
                 </a>
 
             </article>
-
 
 
             <!-- POD SEMAForem -->
@@ -765,6 +982,12 @@
     </section>
 
 
+    <!-- =========================================
+         PRZEJŚCIE DO KONTAKTU
+    ========================================= -->
+
+    <div class="links-contact-transition"></div>
+
 
     <!-- =========================================
          KONTAKT
@@ -774,7 +997,7 @@
 
         <div class="container">
 
-            <article class="card reveal">
+            <article class="links-contact-card reveal">
 
                 <h2>
                     📩 Masz swój kanał lub serwer?
@@ -799,7 +1022,6 @@
     </section>
 
 </main>
-
 
 
 <footer class="site-footer">
