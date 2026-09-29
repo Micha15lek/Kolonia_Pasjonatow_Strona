@@ -1,824 +1,1032 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Kolonia Pasjonatów</title>
 
+    <meta
+        name="description"
+        content="Oficjalna strona społeczności Kolonia Pasjonatów."
+    >
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header class="site-header">
+
     <div class="header-inner">
 
-        <nav>
-            <a href="index.html" class="active">Strona główna</a>
-            <a href="ranking.html">Ranking</a>
-            <a href="licznik.html">Licznik</a>
-            <a href="wydarzenia.html">Wydarzenia</a>
-            <a href="linki.html">Linki</a>
-            <a href="kontakt.html">Kontakt</a>
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="Kolonia Pasjonatów — strona główna"
+        >
+            KOLONIA PASJONATÓW
+        </a>
+
+
+        <nav aria-label="Główna nawigacja">
+
+            <a
+                href="index.html"
+                class="active"
+            >
+                🏠 Strona główna
+            </a>
+
+            <a href="ranking.html">
+                🏆 Ranking
+            </a>
+
+            <a href="licznik.html">
+                ⏱️ Licznik
+            </a>
+
+            <a href="wydarzenia.html">
+                📅 Wydarzenia
+            </a>
+
+            <a href="linki.html">
+                🔗 Linki
+            </a>
+
+            <a href="kontakt.html">
+                📞 Kontakt
+            </a>
+
         </nav>
 
-        <button
-            id="themeToggle"
-            class="theme-toggle"
-            type="button"
-            aria-label="Zmień motyw"
-        >
-            🌙
-        </button>
+
+        <div class="header-actions">
+
+            <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Zmień motyw"
+            >
+                🌙
+            </button>
+
+
+            <a
+                href="ustawienia.html"
+                class="settings-button"
+                aria-label="Ustawienia"
+                title="Ustawienia"
+            >
+                ⚙️
+            </a>
+
+        </div>
 
     </div>
+
 </header>
 
 
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
 <main>
 
-    <!-- HERO -->
+
+    <!-- =================================================
+         HERO
+    ================================================== -->
+
     <section class="hero">
-        <div class="hero-overlay"></div>
 
-        <div class="container hero-container">
-            <div class="hero-content">
+        <div class="hero-content">
 
-                <p class="hero-kicker">
-                    OFICJALNA STRONA SPOŁECZNOŚCI
-                </p>
+            <span class="hero-kicker">
+                OFICJALNA STRONA SPOŁECZNOŚCI
+            </span>
 
-                <h1>
-                    Witamy w
-                    <span>Kolonii Pasjonatów!</span>
-                </h1>
 
-                <p class="hero-description">
-                    Społeczność stworzona dla osób, które łączą
-                    wspólne zainteresowania, pasję i dobrą zabawę.
-                </p>
+            <h1>
+                Witamy w
+                <span>Kolonii Pasjonatów!</span>
+            </h1>
 
-                <div class="hero-buttons">
 
-                    <a
-                        href="https://discord.gg/886u97g22Q"
-                        target="_blank"
-                        rel="noopener"
-                        class="button button-primary"
-                    >
-                        💬 Dołącz na Discord
-                    </a>
+            <p class="hero-description">
+                Miejsce stworzone dla osób, które łączą wspólne
+                zainteresowania, pasję, dobrą zabawę i przede wszystkim
+                świetną społeczność.
+            </p>
 
-                    <a
-                        href="#aktualnosci"
-                        class="button button-outline"
-                    >
-                        Poznaj Kolonię ↓
-                    </a>
 
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- SZYBKIE INFORMACJE -->
-    <section class="quick-info">
-
-        <div class="container">
-
-            <div class="quick-info-grid">
-
-                <a href="wydarzenia.html" class="quick-info-card">
-
-                    <span class="quick-icon">📅</span>
-
-                    <div>
-                        <small>NAJBLIŻSZE WYDARZENIE</small>
-                        <strong>Kolej w jesiennym krajobrazie</strong>
-                    </div>
-
-                    <span class="quick-arrow">→</span>
-
-                </a>
-
-
-                <a href="licznik.html" class="quick-info-card">
-
-                    <span class="quick-icon">👥</span>
-
-                    <div>
-                        <small>SPOŁECZNOŚĆ</small>
-                        <strong>20 członków Kolonii</strong>
-                    </div>
-
-                    <span class="quick-arrow">→</span>
-
-                </a>
-
-
-                <a href="ranking.html" class="quick-info-card">
-
-                    <span class="quick-icon">🏆</span>
-
-                    <div>
-                        <small>SPOŁECZNOŚĆ</small>
-                        <strong>Ranking Kolonii Pasjonatów</strong>
-                    </div>
-
-                    <span class="quick-arrow">→</span>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- AKTUALNOŚCI -->
-    <section id="aktualnosci" class="section">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <div>
-
-                    <span class="section-label">
-                        KOLONIA PASJONATÓW
-                    </span>
-
-                    <h2>
-                        Najważniejsze informacje
-                    </h2>
-
-                    <p>
-                        Wszystko, co warto wiedzieć o naszej społeczności.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="news-grid">
-
-                <article class="news-card news-card-large">
-
-                    <div class="news-card-content">
-
-                        <span class="news-icon">🍂📸</span>
-
-                        <span class="news-label">
-                            NAJBLIŻSZE WYDARZENIE
-                        </span>
-
-                        <h3>
-                            Kolej w jesiennym krajobrazie
-                        </h3>
-
-                        <p>
-                            Konkurs fotograficzny dla członków Kolonii Pasjonatów.
-                            Pokażcie kolej w jesiennej odsłonie i podzielcie się
-                            swoimi najlepszymi zdjęciami!
-                        </p>
-
-                        <div class="news-bottom">
-
-                            <span>
-                                📅 23.09–09.10.2026
-                            </span>
-
-                            <a href="wydarzenia.html">
-                                Szczegóły →
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <article class="news-card">
-
-                    <div class="news-card-content">
-
-                        <span class="news-icon">🎃</span>
-
-                        <span class="news-label">
-                            WYDARZENIE TEMATYCZNE
-                        </span>
-
-                        <h3>
-                            Halloween w Kolonii
-                        </h3>
-
-                        <p>
-                            Specjalna jesienna aktywność przygotowana
-                            dla członków społeczności.
-                        </p>
-
-                        <div class="news-bottom">
-
-                            <span>
-                                📅 Październik 2026
-                            </span>
-
-                            <a href="wydarzenia.html">
-                                Szczegóły →
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <article class="news-card">
-
-                    <div class="news-card-content">
-
-                        <span class="news-icon">🎄</span>
-
-                        <span class="news-label">
-                            WKRÓTCE
-                        </span>
-
-                        <h3>
-                            Świąteczna Kolonia
-                        </h3>
-
-                        <p>
-                            Zimowy okres pełen wydarzeń,
-                            aktywności i wspólnej zabawy.
-                        </p>
-
-                        <div class="news-bottom">
-
-                            <span>
-                                📅 Grudzień 2026
-                            </span>
-
-                            <a href="wydarzenia.html">
-                                Szczegóły →
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- PROJEKTY -->
-    <section class="section section-alt">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <div>
-
-                    <span class="section-label">
-                        NASZA SPOŁECZNOŚĆ
-                    </span>
-
-                    <h2>
-                        Projekty Kolonii
-                    </h2>
-
-                    <p>
-                        Najważniejsze miejsca naszej społeczności.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="projects-grid">
-
-                <article class="project-card">
-
-                    <div class="project-icon">
-                        💬
-                    </div>
-
-                    <span class="project-label">
-                        GŁÓWNE MIEJSCE SPOŁECZNOŚCI
-                    </span>
-
-                    <h3>
-                        Serwer Discord
-                    </h3>
-
-                    <p>
-                        Dołącz do naszej społeczności, poznaj innych pasjonatów,
-                        bierz udział w wydarzeniach, konkursach i wspólnych
-                        aktywnościach.
-                    </p>
-
-                    <a
-                        href="https://discord.gg/886u97g22Q"
-                        target="_blank"
-                        rel="noopener"
-                        class="button button-primary"
-                    >
-                        Dołącz do serwera →
-                    </a>
-
-                </article>
-
-
-                <article class="project-card whatsapp-card">
-
-                    <div class="card-icon">
-                        📱
-                    </div>
-
-                    <span class="project-label">
-                        DODATKOWY KONTAKT
-                    </span>
-
-                    <h3>
-                        WhatsApp
-                    </h3>
-
-                    <p>
-                        Dodatkowa forma kontaktu i komunikacji dla członków
-                        Kolonii Pasjonatów.
-                    </p>
-
-                    <span class="status-badge">
-                        🔧 W przygotowaniu
-                    </span>
-
-                </article>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- STATYSTYKI -->
-    <section class="section stats-section">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <div>
-
-                    <span class="section-label">
-                        KOLONIA W LICZBACH
-                    </span>
-
-                    <h2>
-                        Nasze statystyki
-                    </h2>
-
-                    <p>
-                        Kolonia cały czas się rozwija!
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="stats-grid">
-
-                <div class="stat-card">
-
-                    <span class="stat-icon">
-                        👥
-                    </span>
-
-                    <strong>
-                        20
-                    </strong>
-
-                    <span>
-                        członków Kolonii
-                    </span>
-
-                </div>
-
-
-                <div class="stat-card stat-time">
-
-                    <span class="stat-icon">
-                        ⏱️
-                    </span>
-
-                    <div>
-
-                        <span class="stat-title">
-                            Kolonia działa już
-                        </span>
-
-                        <strong id="colonyDays">
-                            0
-                        </strong>
-
-                        <span>
-                            dni
-                        </span>
-
-                        <strong id="colonyHours">
-                            00
-                        </strong>
-
-                        <span>
-                            godz.
-                        </span>
-
-                        <strong id="colonyMinutes">
-                            00
-                        </strong>
-
-                        <span>
-                            min.
-                        </span>
-
-                        <strong id="colonySeconds">
-                            00
-                        </strong>
-
-                        <span>
-                            sek.
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="stat-card stat-time">
-
-                    <span class="stat-icon">
-                        🌐
-                    </span>
-
-                    <div>
-
-                        <span class="stat-title">
-                            Strona działa już
-                        </span>
-
-                        <strong id="websiteDays">
-                            0
-                        </strong>
-
-                        <span>
-                            dni
-                        </span>
-
-                        <strong id="websiteHours">
-                            00
-                        </strong>
-
-                        <span>
-                            godz.
-                        </span>
-
-                        <strong id="websiteMinutes">
-                            00
-                        </strong>
-
-                        <span>
-                            min.
-                        </span>
-
-                        <strong id="websiteSeconds">
-                            00
-                        </strong>
-
-                        <span>
-                            sek.
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- WYDARZENIA -->
-    <section class="events-section">
-
-        <div class="container">
-
-            <div class="section-heading section-heading-light">
-
-                <div>
-
-                    <span class="section-label">
-                        KALENDARZ
-                    </span>
-
-                    <h2>
-                        Nadchodzące wydarzenia
-                    </h2>
-
-                </div>
-
-                <a href="wydarzenia.html" class="section-link">
-                    Wszystkie wydarzenia →
-                </a>
-
-            </div>
-
-
-            <div class="events-list">
-
-                <div class="event-row">
-
-                    <div class="event-date">
-
-                        <strong>
-                            23
-                        </strong>
-
-                        <span>
-                            WRZ
-                        </span>
-
-                    </div>
-
-                    <div class="event-icon">
-                        🍂
-                    </div>
-
-                    <div class="event-content">
-
-                        <span>
-                            AKTYWNOŚĆ JESIENNA
-                        </span>
-
-                        <h3>
-                            Kolej w jesiennym krajobrazie
-                        </h3>
-
-                        <p>
-                            23.09–09.10.2026
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="event-row">
-
-                    <div class="event-date">
-
-                        <strong>
-                            31
-                        </strong>
-
-                        <span>
-                            PAŹ
-                        </span>
-
-                    </div>
-
-                    <div class="event-icon">
-                        🎃
-                    </div>
-
-                    <div class="event-content">
-
-                        <span>
-                            WYDARZENIE TEMATYCZNE
-                        </span>
-
-                        <h3>
-                            Halloween w Kolonii
-                        </h3>
-
-                        <p>
-                            Październik 2026
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="event-row">
-
-                    <div class="event-date">
-
-                        <strong>
-                            06
-                        </strong>
-
-                        <span>
-                            GRU
-                        </span>
-
-                    </div>
-
-                    <div class="event-icon">
-                        🎅
-                    </div>
-
-                    <div class="event-content">
-
-                        <span>
-                            WYDARZENIE ŚWIĄTECZNE
-                        </span>
-
-                        <h3>
-                            Mikołajki w Kolonii
-                        </h3>
-
-                        <p>
-                            06.12.2026
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- FUNKCJE -->
-    <section class="section">
-
-        <div class="container">
-
-            <div class="feature-grid">
-
-                <a href="historia.html" class="feature-card">
-
-                    <span class="feature-icon">
-                        📖
-                    </span>
-
-                    <span class="feature-label">
-                        POZNAJ NAS
-                    </span>
-
-                    <h3>
-                        Historia społeczności
-                    </h3>
-
-                    <p>
-                        Zobacz, jak powstała i rozwijała się Kolonia Pasjonatów.
-                    </p>
-
-                    <span class="feature-arrow">
-                        →
-                    </span>
-
-                </a>
-
-
-                <a href="kalendarz.html" class="feature-card">
-
-                    <span class="feature-icon">
-                        📅
-                    </span>
-
-                    <span class="feature-label">
-                        SPRAWDŹ DATY
-                    </span>
-
-                    <h3>
-                        Kalendarz Kolonii
-                    </h3>
-
-                    <p>
-                        Wszystkie ważne wydarzenia i daty w jednym miejscu.
-                    </p>
-
-                    <span class="feature-arrow">
-                        →
-                    </span>
-
-                </a>
-
-
-                <a href="administracja.html" class="feature-card">
-
-                    <span class="feature-icon">
-                        ⚙️
-                    </span>
-
-                    <span class="feature-label">
-                        ZESPÓŁ
-                    </span>
-
-                    <h3>
-                        Administracja
-                    </h3>
-
-                    <p>
-                        Poznaj osoby odpowiedzialne za rozwój Kolonii.
-                    </p>
-
-                    <span class="feature-arrow">
-                        →
-                    </span>
-
-                </a>
-
-
-                <a href="regulamin.html" class="feature-card">
-
-                    <span class="feature-icon">
-                        📜
-                    </span>
-
-                    <span class="feature-label">
-                        WAŻNE INFORMACJE
-                    </span>
-
-                    <h3>
-                        Regulamin
-                    </h3>
-
-                    <p>
-                        Zapoznaj się z zasadami obowiązującymi w naszej społeczności.
-                    </p>
-
-                    <span class="feature-arrow">
-                        →
-                    </span>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- DISCORD CTA -->
-    <section class="discord-cta">
-
-        <div class="container">
-
-            <div class="discord-cta-inner">
-
-                <div class="discord-cta-icon">
-                    💬
-                </div>
-
-                <div class="discord-cta-content">
-
-                    <span class="section-label">
-                        DOŁĄCZ DO NAS
-                    </span>
-
-                    <h2>
-                        Zostań częścią Kolonii Pasjonatów
-                    </h2>
-
-                    <p>
-                        Dołącz do naszej społeczności na Discordzie i poznaj
-                        innych ludzi, którzy dzielą Twoje zainteresowania.
-                    </p>
-
-                </div>
+            <div class="hero-buttons">
 
                 <a
                     href="https://discord.gg/886u97g22Q"
                     target="_blank"
-                    rel="noopener"
-                    class="button button-primary"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary"
                 >
-                    🚀 Dołącz na Discord
+                    💬 Dołącz do Discorda
+                </a>
+
+
+                <a
+                    href="#opis"
+                    class="btn"
+                >
+                    Poznaj Kolonię ↓
                 </a>
 
             </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         DISCORD + WHATSAPP
+    ================================================== -->
+
+    <section class="community-contact">
+
+        <div class="cards-grid">
+
+
+            <!-- DISCORD -->
+
+            <article class="discord-card">
+
+                <div class="custom-icon">
+
+                    <svg
+                        viewBox="0 0 64 64"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M18 18C24 14 40 14 46 18"
+                            stroke="currentColor"
+                            stroke-width="4"
+                            stroke-linecap="round"
+                        />
+
+                        <path
+                            d="M16 19C12 25 10 35 13 45C18 49 24 51 32 51C40 51 46 49 51 45C54 35 52 25 48 19"
+                            stroke="currentColor"
+                            stroke-width="4"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+
+                        <circle
+                            cx="24"
+                            cy="33"
+                            r="3"
+                            fill="currentColor"
+                        />
+
+                        <circle
+                            cx="40"
+                            cy="33"
+                            r="3"
+                            fill="currentColor"
+                        />
+
+                        <path
+                            d="M24 42C29 45 35 45 40 42"
+                            stroke="currentColor"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+
+                </div>
+
+
+                <span class="project-label">
+                    GŁÓWNE MIEJSCE SPOŁECZNOŚCI
+                </span>
+
+
+                <h2>
+                    Discord
+                </h2>
+
+
+                <p>
+                    To tutaj żyje Kolonia Pasjonatów. Rozmawiamy,
+                    organizujemy wydarzenia, konkursy i wspólnie
+                    rozwijamy naszą społeczność.
+                </p>
+
+
+                <a
+                    href="https://discord.gg/886u97g22Q"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary"
+                >
+                    Dołącz do Discorda →
+                </a>
+
+            </article>
+
+
+            <!-- WHATSAPP -->
+
+            <article class="whatsapp-card">
+
+                <div class="custom-icon">
+
+                    <svg
+                        viewBox="0 0 64 64"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M32 12C20.4 12 11 20.8 11 31.7C11 35.7 12.2 39.4 14.4 42.6L12 51L20.8 48.7C24 50.4 27.8 51.3 32 51.3C43.6 51.3 53 42.5 53 31.6C53 20.8 43.6 12 32 12Z"
+                            stroke="currentColor"
+                            stroke-width="4"
+                            stroke-linejoin="round"
+                        />
+
+                        <path
+                            d="M25 23C24 23 23 24 23 25C23 29 27 35 30 38C33 41 39 45 42 44C43 44 44 43 44 42L45 39C45 38 44 37 43 37L39 35C38 35 37 35 36 36L35 37C33 36 31 34 30 33C29 32 27 29 27 28L29 26C30 25 29 24 28 23H25Z"
+                            fill="currentColor"
+                        />
+                    </svg>
+
+                </div>
+
+
+                <span class="project-label">
+                    DODATKOWY KONTAKT
+                </span>
+
+
+                <h2>
+                    WhatsApp
+                </h2>
+
+
+                <p>
+                    Dodatkowa forma kontaktu i komunikacji dla
+                    członków Kolonii Pasjonatów.
+                </p>
+
+
+                <span class="status-badge">
+                    🔧 W przygotowaniu
+                </span>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         OPIS SPOŁECZNOŚCI
+    ================================================== -->
+
+    <section
+        id="opis"
+        class="section community-description-section"
+    >
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                KIM JESTEŚMY?
+            </span>
+
+
+            <h2>
+                Opis naszej społeczności
+            </h2>
+
+
+            <p>
+                Kolonia Pasjonatów to społeczność skupiająca osoby
+                o różnych zainteresowaniach. Łączy nas przede wszystkim
+                pasja, wspólna zabawa i możliwość poznawania nowych osób.
+            </p>
+
+        </div>
+
+
+        <div class="community-grid">
+
+
+            <!-- KOLEJ -->
+
+            <article class="info-card">
+
+                <div class="custom-icon">
+
+                    <svg
+                        viewBox="0 0 64 64"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    >
+                        <rect
+                            x="15"
+                            y="10"
+                            width="34"
+                            height="36"
+                            rx="8"
+                            stroke="currentColor"
+                            stroke-width="4"
+                        />
+
+                        <path
+                            d="M15 31H49"
+                            stroke="currentColor"
+                            stroke-width="4"
+                        />
+
+                        <circle
+                            cx="24"
+                            cy="25"
+                            r="4"
+                            fill="currentColor"
+                        />
+
+                        <circle
+                            cx="40"
+                            cy="25"
+                            r="4"
+                            fill="currentColor"
+                        />
+
+                        <path
+                            d="M22 46L16 54M42 46L48 54M27 46L23 54M37 46L41 54"
+                            stroke="currentColor"
+                            stroke-width="4"
+                            stroke-linecap="round"
+                        />
+
+                        <path
+                            d="M25 16H39"
+                            stroke="currentColor"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+
+                </div>
+
+
+                <h3>
+                    Kolej
+                </h3>
+
+
+                <p>
+                    Pociągi, infrastruktura kolejowa, tabor
+                    i wszystko, co związane z koleją.
+                </p>
+
+            </article>
+
+
+            <!-- AUTOBUS -->
+
+            <article class="info-card">
+
+                <div class="custom-icon">
+
+                    <svg
+                        viewBox="0 0 64 64"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    >
+                        <rect
+                            x="13"
+                            y="10"
+                            width="38"
+                            height="40"
+                            rx="7"
+                            stroke="currentColor"
+                            stroke-width="4"
+                        />
+
+                        <path
+                            d="M13 30H51"
+                            stroke="currentColor"
+                            stroke-width="4"
+                        />
+
+                        <rect
+                            x="19"
+                            y="16"
+                            width="26"
+                            height="9"
+                            rx="2"
+                            stroke="currentColor"
+                            stroke-width="3"
+                        />
+
+                        <circle
+                            cx="22"
+                            cy="45"
+                            r="4"
+                            fill="currentColor"
+                        />
+
+                        <circle
+                            cx="42"
+                            cy="45"
+                            r="4"
+                            fill="currentColor"
+                        />
+
+                        <path
+                            d="M19 54H25M39 54H45"
+                            stroke="currentColor"
+                            stroke-width="4"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+
+                </div>
+
+
+                <h3>
+                    Autobusy
+                </h3>
+
+
+                <p>
+                    Komunikacja autobusowa, pojazdy i ciekawostki
+                    związane z transportem drogowym.
+                </p>
+
+            </article>
+
+
+            <!-- TRAMWAJ -->
+
+            <article class="info-card">
+
+                <div class="custom-icon">
+
+                    <svg
+                        viewBox="0 0 64 64"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M32 8V14"
+                            stroke="currentColor"
+                            stroke-width="4"
+                            stroke-linecap="round"
+                        />
+
+                        <rect
+                            x="14"
+                            y="14"
+                            width="36"
+                            height="34"
+                            rx="8"
+                            stroke="currentColor"
+                            stroke-width="4"
+                        />
+
+                        <path
+                            d="M14 31H50"
+                            stroke="currentColor"
+                            stroke-width="4"
+                        />
+
+                        <rect
+                            x="20"
+                            y="19"
+                            width="24"
+                            height="8"
+                            rx="2"
+                            stroke="currentColor"
+                            stroke-width="3"
+                        />
+
+                        <circle
+                            cx="23"
+                            cy="40"
+                            r="3"
+                            fill="currentColor"
+                        />
+
+                        <circle
+                            cx="41"
+                            cy="40"
+                            r="3"
+                            fill="currentColor"
+                        />
+
+                        <path
+                            d="M21 48L16 56M43 48L48 56"
+                            stroke="currentColor"
+                            stroke-width="4"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+
+                </div>
+
+
+                <h3>
+                    Tramwaje
+                </h3>
+
+
+                <p>
+                    Transport miejski, tramwaje oraz ciekawostki
+                    ze świata komunikacji miejskiej.
+                </p>
+
+            </article>
+
+
+            <!-- GRY -->
+
+            <article class="info-card">
+
+                <div class="custom-icon">
+
+                    <svg
+                        viewBox="0 0 64 64"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M19 22H45C51 22 55 27 54 33L51 47C50 52 44 54 40 50L35 45H29L24 50C20 54 14 52 13 47L10 33C9 27 13 22 19 22Z"
+                            stroke="currentColor"
+                            stroke-width="4"
+                            stroke-linejoin="round"
+                        />
+
+                        <path
+                            d="M20 32V41M15.5 36.5H24.5"
+                            stroke="currentColor"
+                            stroke-width="4"
+                            stroke-linecap="round"
+                        />
+
+                        <circle
+                            cx="41"
+                            cy="33"
+                            r="3"
+                            fill="currentColor"
+                        />
+
+                        <circle
+                            cx="47"
+                            cy="39"
+                            r="3"
+                            fill="currentColor"
+                        />
+                    </svg>
+
+                </div>
+
+
+                <h3>
+                    Gry
+                </h3>
+
+
+                <p>
+                    Gry komputerowe, Roblox, symulatory
+                    i wspólne granie ze społecznością.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         STATYSTYKI
+    ================================================== -->
+
+    <section class="section stats-section">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                KOLONIA W LICZBACH
+            </span>
+
+
+            <h2>
+                Statystyki społeczności
+            </h2>
+
+
+            <p>
+                Kolonia cały czas się rozwija!
+            </p>
+
+        </div>
+
+
+        <div class="stats-grid">
+
+
+            <!-- CZŁONKOWIE -->
+
+            <article class="stat-card">
+
+                <div class="stat-icon">
+                    👥
+                </div>
+
+
+                <strong
+                    class="stat-number"
+                    data-target="20"
+                >
+                    0
+                </strong>
+
+
+                <span class="stat-label">
+                    członków Kolonii
+                </span>
+
+            </article>
+
+
+            <!-- DZIAŁANIE KOLONII -->
+
+            <article class="stat-card stat-time">
+
+                <div class="stat-icon">
+                    ⏱️
+                </div>
+
+
+                <strong
+                    class="stat-number"
+                    id="colonyDays"
+                >
+                    0
+                </strong>
+
+
+                <span class="stat-label">
+                    dni działania Kolonii
+                </span>
+
+
+                <div class="countdown-extra">
+
+                    <strong id="colonyHours">
+                        00
+                    </strong>
+
+                    <span>godz.</span>
+
+
+                    <strong id="colonyMinutes">
+                        00
+                    </strong>
+
+                    <span>min.</span>
+
+
+                    <strong id="colonySeconds">
+                        00
+                    </strong>
+
+                    <span>sek.</span>
+
+                </div>
+
+            </article>
+
+
+            <!-- DZIAŁANIE STRONY -->
+
+            <article class="stat-card stat-time">
+
+                <div class="stat-icon">
+                    🌐
+                </div>
+
+
+                <strong
+                    class="stat-number"
+                    id="websiteDays"
+                >
+                    0
+                </strong>
+
+
+                <span class="stat-label">
+                    dni działania strony
+                </span>
+
+
+                <div class="countdown-extra">
+
+                    <strong id="websiteHours">
+                        00
+                    </strong>
+
+                    <span>godz.</span>
+
+
+                    <strong id="websiteMinutes">
+                        00
+                    </strong>
+
+                    <span>min.</span>
+
+
+                    <strong id="websiteSeconds">
+                        00
+                    </strong>
+
+                    <span>sek.</span>
+
+                </div>
+
+            </article>
+
+
+            <!-- WYDARZENIA -->
+
+            <article class="stat-card">
+
+                <div class="stat-icon">
+                    📅
+                </div>
+
+
+                <strong
+                    class="stat-number"
+                    data-target="3"
+                >
+                    0
+                </strong>
+
+
+                <span class="stat-label">
+                    zaplanowane wydarzenia
+                </span>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         NADCHODZĄCE WYDARZENIA
+    ================================================== -->
+
+    <section class="section events-section">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                KALENDARZ
+            </span>
+
+
+            <h2>
+                Nadchodzące wydarzenia
+            </h2>
+
+
+            <p>
+                Najbliższe wydarzenia organizowane w Kolonii Pasjonatów.
+            </p>
+
+        </div>
+
+
+        <div class="events-grid">
+
+
+            <!-- JESIEŃ -->
+
+            <article class="event-card">
+
+                <span class="event-date">
+                    23.09–09.10.2026
+                </span>
+
+
+                <div class="custom-icon">
+
+                    <svg
+                        viewBox="0 0 64 64"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M32 51C32 51 18 42 18 27C18 17 24 12 32 12C40 12 46 17 46 27C46 42 32 51 32 51Z"
+                            stroke="currentColor"
+                            stroke-width="4"
+                        />
+
+                        <path
+                            d="M32 16V42"
+                            stroke="currentColor"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                        />
+
+                        <path
+                            d="M32 27L24 21M32 34L40 27"
+                            stroke="currentColor"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+
+                </div>
+
+
+                <h3>
+                    Kolej w jesiennym obiektywie
+                </h3>
+
+
+                <p>
+                    Konkurs fotograficzny dla członków Kolonii Pasjonatów.
+                </p>
+
+
+                <a
+                    href="wydarzenia.html"
+                    class="more-link"
+                >
+                    Zobacz wydarzenie
+                </a>
+
+            </article>
+
+
+            <!-- ZIMA -->
+
+            <article class="event-card">
+
+                <span class="event-date">
+                    20.11.2026–31.01.2027
+                </span>
+
+
+                <div class="custom-icon">
+
+                    <svg
+                        viewBox="0 0 64 64"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M32 10V54M13 21L51 43M13 43L51 21"
+                            stroke="currentColor"
+                            stroke-width="4"
+                            stroke-linecap="round"
+                        />
+
+                        <path
+                            d="M32 10L27 17M32 10L37 17M32 54L27 47M32 54L37 47"
+                            stroke="currentColor"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                        />
+
+                        <path
+                            d="M13 21L21 22M13 21L17 28M51 43L43 42M51 43L47 36"
+                            stroke="currentColor"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+
+                </div>
+
+
+                <h3>
+                    Strefa Zimowa 2026/2027
+                </h3>
+
+
+                <p>
+                    Zimowy okres pełen aktywności i wydarzeń
+                    w naszej społeczności.
+                </p>
+
+
+                <a
+                    href="wydarzenia.html"
+                    class="more-link"
+                >
+                    Zobacz wydarzenie
+                </a>
+
+            </article>
+
+
+            <!-- LATO -->
+
+            <article class="event-card">
+
+                <span class="event-date">
+                    01.06–31.08.2027
+                </span>
+
+
+                <div class="custom-icon">
+
+                    <svg
+                        viewBox="0 0 64 64"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    >
+                        <circle
+                            cx="32"
+                            cy="32"
+                            r="11"
+                            stroke="currentColor"
+                            stroke-width="4"
+                        />
+
+                        <path
+                            d="M32 7V13M32 51V57M7 32H13M51 32H57M14 14L18 18M46 46L50 50M50 14L46 18M18 46L14 50"
+                            stroke="currentColor"
+                            stroke-width="4"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+
+                </div>
+
+
+                <h3>
+                    Strefa Letnia 2027
+                </h3>
+
+
+                <p>
+                    Letnia strefa Kolonii Pasjonatów
+                    i kolejne wspólne aktywności.
+                </p>
+
+
+                <a
+                    href="wydarzenia.html"
+                    class="more-link"
+                >
+                    Zobacz wydarzenie
+                </a>
+
+            </article>
+
+        </div>
+
+
+        <div
+            style="
+                display:flex;
+                justify-content:center;
+                margin-top:32px;
+            "
+        >
+
+            <a
+                href="wydarzenia.html"
+                class="btn btn-primary"
+            >
+                📅 Zobacz wszystkie wydarzenia →
+            </a>
 
         </div>
 
@@ -827,160 +1035,358 @@
 </main>
 
 
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
 
-    <div class="footer-inner">
+    <p>
+        © 2026 Kolonia Pasjonatów
+    </p>
 
-        <div class="footer-brand">
-
-            <div>
-
-                <strong>
-                    Kolonia Pasjonatów
-                </strong>
-
-                <span>
-                    Oficjalna strona społeczności
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-links">
-
-            <a href="index.html">
-                Strona główna
-            </a>
-
-            <a href="wydarzenia.html">
-                Wydarzenia
-            </a>
-
-            <a href="ranking.html">
-                Ranking
-            </a>
-
-            <a href="kontakt.html">
-                Kontakt
-            </a>
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 Kolonia Pasjonatów
-            </p>
-
-        </div>
-
-    </div>
+    <p>
+        🌟 Oficjalna strona społeczności
+    </p>
 
 </footer>
 
 
+<!-- =====================================================
+     SCRIPTS
+===================================================== -->
+
 <script src="script.js"></script>
+
 
 <script>
 
-const COLONY_START_DATE = "2026-06-11T00:00:00";
-const WEBSITE_START_DATE = "2026-08-13T20:10:00";
+    /* ==========================================
+       DATY STARTOWE
+    ========================================== */
 
-function getTimeParts(startDate) {
+    const COLONY_START_DATE =
+        "2026-06-11T00:00:00";
 
-    const start = new Date(startDate);
-    const now = new Date();
+    const WEBSITE_START_DATE =
+        "2026-08-13T20:10:00";
 
-    const difference = Math.max(
-        0,
-        now.getTime() - start.getTime()
+
+    /* ==========================================
+       LICZNIK CZASU
+    ========================================== */
+
+    function getTimeParts(startDate) {
+
+        const start =
+            new Date(startDate);
+
+        const now =
+            new Date();
+
+        const difference =
+            Math.max(
+                0,
+                now.getTime() - start.getTime()
+            );
+
+        const totalSeconds =
+            Math.floor(
+                difference / 1000
+            );
+
+        return {
+
+            days:
+                Math.floor(
+                    totalSeconds / 86400
+                ),
+
+            hours:
+                Math.floor(
+                    (totalSeconds % 86400) / 3600
+                ),
+
+            minutes:
+                Math.floor(
+                    (totalSeconds % 3600) / 60
+                ),
+
+            seconds:
+                totalSeconds % 60
+        };
+    }
+
+
+    function updateTimeCounter(
+        prefix,
+        startDate
+    ) {
+
+        const time =
+            getTimeParts(startDate);
+
+
+        const days =
+            document.getElementById(
+                prefix + "Days"
+            );
+
+        const hours =
+            document.getElementById(
+                prefix + "Hours"
+            );
+
+        const minutes =
+            document.getElementById(
+                prefix + "Minutes"
+            );
+
+        const seconds =
+            document.getElementById(
+                prefix + "Seconds"
+            );
+
+
+        if (days) {
+
+            days.textContent =
+                time.days;
+        }
+
+
+        if (hours) {
+
+            hours.textContent =
+                String(
+                    time.hours
+                ).padStart(
+                    2,
+                    "0"
+                );
+        }
+
+
+        if (minutes) {
+
+            minutes.textContent =
+                String(
+                    time.minutes
+                ).padStart(
+                    2,
+                    "0"
+                );
+        }
+
+
+        if (seconds) {
+
+            seconds.textContent =
+                String(
+                    time.seconds
+                ).padStart(
+                    2,
+                    "0"
+                );
+        }
+    }
+
+
+    function updateCounters() {
+
+        updateTimeCounter(
+            "colony",
+            COLONY_START_DATE
+        );
+
+        updateTimeCounter(
+            "website",
+            WEBSITE_START_DATE
+        );
+    }
+
+
+    updateCounters();
+
+    setInterval(
+        updateCounters,
+        1000
     );
 
-    const totalSeconds = Math.floor(
-        difference / 1000
+
+    /* ==========================================
+       ANIMOWANE LICZNIKI STATYSTYK
+    ========================================== */
+
+    function animateNumber(
+        element,
+        target,
+        duration = 1200
+    ) {
+
+        if (!element) return;
+
+        const startTime =
+            performance.now();
+
+
+        function update(currentTime) {
+
+            const progress =
+                Math.min(
+                    (currentTime - startTime) /
+                    duration,
+                    1
+                );
+
+
+            const eased =
+                1 -
+                Math.pow(
+                    1 - progress,
+                    3
+                );
+
+
+            const value =
+                Math.floor(
+                    target * eased
+                );
+
+
+            element.textContent =
+                value;
+
+
+            if (progress < 1) {
+
+                requestAnimationFrame(
+                    update
+                );
+
+            } else {
+
+                element.textContent =
+                    target;
+            }
+        }
+
+
+        requestAnimationFrame(
+            update
+        );
+    }
+
+
+    const statisticNumbers =
+        document.querySelectorAll(
+            ".stat-number[data-target]"
+        );
+
+
+    const statisticsObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(
+                    entry => {
+
+                        if (
+                            entry.isIntersecting &&
+                            !entry.target.dataset.animated
+                        ) {
+
+                            const target =
+                                Number(
+                                    entry.target.dataset.target
+                                );
+
+
+                            entry.target.dataset.animated =
+                                "true";
+
+
+                            animateNumber(
+                                entry.target,
+                                target
+                            );
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold: .35
+            }
+        );
+
+
+    statisticNumbers.forEach(
+        number => {
+
+            statisticsObserver.observe(
+                number
+            );
+        }
     );
 
-    return {
-        days: Math.floor(totalSeconds / 86400),
-        hours: Math.floor((totalSeconds % 86400) / 3600),
-        minutes: Math.floor((totalSeconds % 3600) / 60),
-        seconds: totalSeconds % 60
-    };
-}
 
-function updateCounter() {
+    /* ==========================================
+       REVEAL SEKCJI
+    ========================================== */
 
-    const colony = getTimeParts(COLONY_START_DATE);
-    const website = getTimeParts(WEBSITE_START_DATE);
-
-    const colonyDays =
-        document.getElementById("colonyDays");
-
-    const colonyHours =
-        document.getElementById("colonyHours");
-
-    const colonyMinutes =
-        document.getElementById("colonyMinutes");
-
-    const colonySeconds =
-        document.getElementById("colonySeconds");
-
-    if (colonyDays)
-        colonyDays.textContent = colony.days;
-
-    if (colonyHours)
-        colonyHours.textContent =
-            String(colony.hours).padStart(2, "0");
-
-    if (colonyMinutes)
-        colonyMinutes.textContent =
-            String(colony.minutes).padStart(2, "0");
-
-    if (colonySeconds)
-        colonySeconds.textContent =
-            String(colony.seconds).padStart(2, "0");
+    const revealElements =
+        document.querySelectorAll(
+            ".info-card, .stat-card, .event-card, .discord-card, .whatsapp-card"
+        );
 
 
-    const websiteDays =
-        document.getElementById("websiteDays");
+    const revealObserver =
+        new IntersectionObserver(
+            entries => {
 
-    const websiteHours =
-        document.getElementById("websiteHours");
+                entries.forEach(
+                    entry => {
 
-    const websiteMinutes =
-        document.getElementById("websiteMinutes");
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-    const websiteSeconds =
-        document.getElementById("websiteSeconds");
+                            entry.target.classList.add(
+                                "visible"
+                            );
 
-    if (websiteDays)
-        websiteDays.textContent = website.days;
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+                        }
 
-    if (websiteHours)
-        websiteHours.textContent =
-            String(website.hours).padStart(2, "0");
+                    }
+                );
 
-    if (websiteMinutes)
-        websiteMinutes.textContent =
-            String(website.minutes).padStart(2, "0");
+            },
+            {
+                threshold: .12
+            }
+        );
 
-    if (websiteSeconds)
-        websiteSeconds.textContent =
-            String(website.seconds).padStart(2, "0");
-}
 
-updateCounter();
+    revealElements.forEach(
+        element => {
 
-setInterval(
-    updateCounter,
-    1000
-);
+            element.classList.add(
+                "reveal"
+            );
+
+            revealObserver.observe(
+                element
+            );
+        }
+    );
 
 </script>
 
 </body>
-    </html>
+
+</html>
