@@ -1,1 +1,439 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Ustawienia — Kolonia Pasjonatów</title>
+
+    <meta
+        name="description"
+        content="Ustawienia wyglądu strony Kolonia Pasjonatów."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        (function () {
+            const savedTheme =
+                localStorage.getItem("koloniaTheme") || "blue";
+
+            const savedMode =
+                localStorage.getItem("koloniaMode") || "dark";
+
+            document.documentElement.dataset.theme = savedTheme;
+            document.documentElement.dataset.mode = savedMode;
+        })();
+    </script>
+</head>
+
+<body data-theme="blue" data-mode="dark">
+
+<header class="site-header">
+
+    <div class="header-inner">
+
+        <a
+            href="index.html"
+            class="back-home-link"
+            aria-label="Powrót do strony głównej"
+        >
+            ← Powrót do strony głównej
+        </a>
+
+        <div class="header-actions">
+
+            <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Zmień tryb"
+                title="Zmień tryb jasny/ciemny"
+            >
+                🌙
+            </button>
+
+            <a
+                href="ustawienia.html"
+                class="settings-button active"
+                aria-label="Ustawienia"
+                title="Ustawienia"
+            >
+                ⚙️
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero settings-hero">
+
+        <div class="hero-content">
+
+            <span class="eyebrow">
+                PERSONALIZACJA
+            </span>
+
+            <h1>
+                Ustawienia
+                <span>wyglądu strony</span>
+            </h1>
+
+            <p>
+                Wybierz swój ulubiony motyw Kolonii Pasjonatów
+                oraz zdecyduj, czy chcesz korzystać z trybu jasnego
+                czy ciemnego.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- USTAWIENIA -->
+
+    <section class="section settings-section">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                WYGLĄD
+            </span>
+
+            <h2>
+                Wybierz motyw
+            </h2>
+
+            <p>
+                Motyw zostanie zapisany automatycznie i będzie używany
+                na wszystkich podstronach Kolonii Pasjonatów.
+            </p>
+
+        </div>
+
+
+        <!-- MOTYWY -->
+
+        <div class="theme-settings-grid">
+
+
+            <button
+                class="theme-option"
+                type="button"
+                data-theme-option="blue"
+            >
+
+                <span class="theme-preview theme-preview-blue">
+                    <span></span>
+                </span>
+
+                <span class="theme-option-content">
+
+                    <strong>
+                        🔵 Kolonia Blue
+                    </strong>
+
+                    <small>
+                        Oficjalny motyw Kolonii Pasjonatów
+                    </small>
+
+                </span>
+
+                <span class="theme-check">
+                    ✓
+                </span>
+
+            </button>
+
+
+            <button
+                class="theme-option"
+                type="button"
+                data-theme-option="purple"
+            >
+
+                <span class="theme-preview theme-preview-purple">
+                    <span></span>
+                </span>
+
+                <span class="theme-option-content">
+
+                    <strong>
+                        🟣 Purple Galaxy
+                    </strong>
+
+                    <small>
+                        Fioletowy, kosmiczny klimat
+                    </small>
+
+                </span>
+
+                <span class="theme-check">
+                    ✓
+                </span>
+
+            </button>
+
+
+            <button
+                class="theme-option"
+                type="button"
+                data-theme-option="railway"
+            >
+
+                <span class="theme-preview theme-preview-railway">
+                    <span></span>
+                </span>
+
+                <span class="theme-option-content">
+
+                    <strong>
+                        🚉 Railway
+                    </strong>
+
+                    <small>
+                        Motyw inspirowany koleją
+                    </small>
+
+                </span>
+
+                <span class="theme-check">
+                    ✓
+                </span>
+
+            </button>
+
+
+            <button
+                class="theme-option"
+                type="button"
+                data-theme-option="midnight"
+            >
+
+                <span class="theme-preview theme-preview-midnight">
+                    <span></span>
+                </span>
+
+                <span class="theme-option-content">
+
+                    <strong>
+                        🌌 Midnight
+                    </strong>
+
+                    <small>
+                        Głęboki nocny klimat
+                    </small>
+
+                </span>
+
+                <span class="theme-check">
+                    ✓
+                </span>
+
+            </button>
+
+
+            <button
+                class="theme-option"
+                type="button"
+                data-theme-option="nature"
+            >
+
+                <span class="theme-preview theme-preview-nature">
+                    <span></span>
+                </span>
+
+                <span class="theme-option-content">
+
+                    <strong>
+                        🌿 Nature
+                    </strong>
+
+                    <small>
+                        Naturalne zielone odcienie
+                    </small>
+
+                </span>
+
+                <span class="theme-check">
+                    ✓
+                </span>
+
+            </button>
+
+
+            <button
+                class="theme-option"
+                type="button"
+                data-theme-option="sunset"
+            >
+
+                <span class="theme-preview theme-preview-sunset">
+                    <span></span>
+                </span>
+
+                <span class="theme-option-content">
+
+                    <strong>
+                        🌅 Sunset
+                    </strong>
+
+                    <small>
+                        Ciepłe kolory zachodu słońca
+                    </small>
+
+                </span>
+
+                <span class="theme-check">
+                    ✓
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- TRYB -->
+
+        <div class="settings-mode-box">
+
+            <div class="settings-mode-heading">
+
+                <span class="eyebrow">
+                    TRYB WYŚWIETLANIA
+                </span>
+
+                <h2>
+                    Jasny czy ciemny?
+                </h2>
+
+                <p>
+                    Wybierz sposób wyświetlania aktualnie wybranego motywu.
+                </p>
+
+            </div>
+
+
+            <div class="mode-selector">
+
+                <button
+                    id="darkModeButton"
+                    class="mode-option"
+                    type="button"
+                    data-mode-option="dark"
+                >
+
+                    <span class="mode-icon">
+                        🌙
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            Ciemny
+                        </strong>
+
+                        <small>
+                            Dark mode
+                        </small>
+
+                    </span>
+
+                </button>
+
+
+                <button
+                    id="lightModeButton"
+                    class="mode-option"
+                    type="button"
+                    data-mode-option="light"
+                >
+
+                    <span class="mode-icon">
+                        ☀️
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            Jasny
+                        </strong>
+
+                        <small>
+                            Light mode
+                        </small>
+
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- AKTUALNY WYBÓR -->
+
+        <div class="current-theme-box">
+
+            <div class="current-theme-icon">
+                🎨
+            </div>
+
+            <div>
+
+                <span class="eyebrow">
+                    AKTUALNY WYBÓR
+                </span>
+
+                <h3 id="currentThemeName">
+                    🔵 Kolonia Blue
+                </h3>
+
+                <p id="currentModeName">
+                    🌙 Tryb ciemny
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 Kolonia Pasjonatów
+    </p>
+
+    <p>
+        🌟 Oficjalna strona społeczności
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
