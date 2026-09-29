@@ -8,444 +8,386 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <script>
+        (function () {
+            const savedTheme =
+                localStorage.getItem("koloniaTheme") || "blue";
+
+            const savedMode =
+                localStorage.getItem("koloniaMode") || "dark";
+
+            document.documentElement.dataset.theme = savedTheme;
+            document.documentElement.dataset.mode = savedMode;
+        })();
+    </script>
+
     <style>
-    /* ========================================
-       LICZNIK — PREMIUM DESIGN
-    ======================================== */
-
-    .counter-page {
-        padding-bottom: 80px;
-    }
-
-    .counter-section {
-        padding: 75px 0;
-    }
-
-    /* ========================================
-       HERO
-    ======================================== */
-
-    .hero-content h1 {
-        letter-spacing: -1.5px;
-    }
-
-    .hero-content h1 span {
-        display: inline-block;
-    }
-
-    .hero-content p {
-        max-width: 720px;
-        margin-left: auto;
-        margin-right: auto;
-        line-height: 1.7;
-    }
-
-    /* ========================================
-       NAGŁÓWKI SEKCJI
-    ======================================== */
-
-    .counter-heading {
-        margin-bottom: 38px;
-        text-align: center;
-    }
-
-    .counter-heading h2 {
-        margin: 0 0 12px;
-        font-size: clamp(1.8rem, 4vw, 2.35rem);
-        font-weight: 800;
-        letter-spacing: -0.5px;
-    }
-
-    .counter-heading p {
-        margin: 0 auto;
-        max-width: 650px;
-        color: var(--muted-text);
-        line-height: 1.7;
-        font-size: 1rem;
-    }
-
-    /* ========================================
-       GÓRNE KAFELKI
-    ======================================== */
-
-    .main-counter-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 28px;
-        margin-bottom: 28px;
-    }
-
-    .main-counter-card {
-        position: relative;
-        overflow: hidden;
-        min-height: 280px;
-        padding: 38px 32px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-
-        border-radius: 28px;
-        background: var(--card-bg);
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow);
-
-        transition:
-            transform 0.3s ease,
-            box-shadow 0.3s ease,
-            border-color 0.3s ease;
-    }
-
-    .main-counter-card::before {
-        content: "";
-        position: absolute;
-        width: 230px;
-        height: 230px;
-        top: -110px;
-        right: -80px;
-        border-radius: 50%;
-        background: rgba(88, 101, 242, 0.10);
-        pointer-events: none;
-    }
-
-    .main-counter-card::after {
-        content: "";
-        position: absolute;
-        width: 180px;
-        height: 180px;
-        bottom: -100px;
-        left: -70px;
-        border-radius: 50%;
-        background: rgba(88, 101, 242, 0.06);
-        pointer-events: none;
-    }
-
-    .main-counter-card:hover {
-        transform: translateY(-7px);
-        box-shadow: 0 22px 55px rgba(0, 0, 0, 0.15);
-    }
-
-    .main-counter-card > * {
-        position: relative;
-        z-index: 1;
-    }
-
-    .counter-card-icon {
-        width: 64px;
-        height: 64px;
-        margin-bottom: 18px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        border-radius: 19px;
-        background: rgba(88, 101, 242, 0.12);
-
-        font-size: 1.9rem;
-    }
-
-    .main-counter-card h2 {
-        margin: 0 0 17px;
-        font-size: clamp(1.15rem, 2vw, 1.4rem);
-        font-weight: 750;
-        letter-spacing: -0.3px;
-    }
-
-    .main-counter-card .counter-value {
-        font-size: clamp(2.25rem, 5vw, 4rem);
-        font-weight: 900;
-        line-height: 1.05;
-        letter-spacing: -1.5px;
-        color: var(--accent);
-    }
-
-    .main-counter-card .counter-label {
-        margin-top: 13px;
-        color: var(--muted-text);
-        font-size: 0.95rem;
-    }
-
-    /* ========================================
-       MNIEJSZE KAFELKI
-    ======================================== */
-
-    .counter-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 20px;
-    }
-
-    .counter-card {
-        position: relative;
-        overflow: hidden;
-        padding: 27px;
-        border-radius: 21px;
-        background: var(--card-bg);
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow);
-
-        transition:
-            transform 0.25s ease,
-            box-shadow 0.25s ease;
-    }
-
-    .counter-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 15px 38px rgba(0, 0, 0, 0.11);
-    }
-
-    .counter-card h3 {
-        margin: 0 0 13px;
-        font-size: 1.1rem;
-        font-weight: 750;
-    }
-
-    .detail-value {
-        font-size: 1.08rem;
-        font-weight: 700;
-        line-height: 1.7;
-    }
-
-    /* ========================================
-       FERIE
-    ======================================== */
-
-    .holidays-card {
-        margin-top: 30px;
-        padding: 32px;
-        border-radius: 25px;
-        background: var(--card-bg);
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow);
-    }
-
-    .holidays-card h2 {
-        margin: 0 0 20px;
-        font-size: 1.35rem;
-    }
-
-    .holidays-select {
-        width: 100%;
-        max-width: 450px;
-        padding: 14px 16px;
-
-        border-radius: 13px;
-        color: var(--text);
-        background: var(--card-bg);
-        border: 1px solid var(--border);
-
-        font: inherit;
-        cursor: pointer;
-        outline: none;
-
-        transition:
-            border-color 0.2s ease,
-            box-shadow 0.2s ease;
-    }
-
-    .holidays-select:focus {
-        border-color: var(--accent);
-        box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.12);
-    }
-
-    .holidays-select option {
-        color: #111827;
-        background: #ffffff;
-    }
-
-    body.dark .holidays-select {
-        color: #f5f7ff;
-        background: #171923;
-        border-color: rgba(255, 255, 255, 0.12);
-    }
-
-    body.dark .holidays-select option {
-        color: #f5f7ff;
-        background: #171923;
-    }
-
-    [data-theme="dark"] .holidays-select {
-        color: #f5f7ff;
-        background: #171923;
-        border-color: rgba(255, 255, 255, 0.12);
-    }
-
-    [data-theme="dark"] .holidays-select option {
-        color: #f5f7ff;
-        background: #171923;
-    }
-
-    .holidays-result {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 20px;
-        margin-top: 25px;
-    }
-
-    /* ========================================
-       SPOŁECZNOŚĆ
-    ======================================== */
-
-    .community-card {
-        position: relative;
-        overflow: hidden;
-
-        margin-top: 0;
-        padding: 48px 30px;
-
-        text-align: center;
-
-        border-radius: 28px;
-        background: var(--card-bg);
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow);
-
-        transition:
-            transform 0.3s ease,
-            box-shadow 0.3s ease;
-    }
-
-    .community-card::before {
-        content: "";
-        position: absolute;
-        width: 300px;
-        height: 300px;
-        top: -180px;
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: 50%;
-        background: rgba(88, 101, 242, 0.12);
-        pointer-events: none;
-    }
-
-    .community-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
-    }
-
-    .community-card > * {
-        position: relative;
-        z-index: 1;
-    }
-
-    .community-icon {
-        width: 74px;
-        height: 74px;
-        margin: 0 auto 20px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        border-radius: 22px;
-        background: rgba(88, 101, 242, 0.12);
-
-        font-size: 2.1rem;
-    }
-
-    .community-card h2 {
-        margin: 0 0 15px;
-        font-size: 1.45rem;
-        font-weight: 800;
-    }
-
-    .community-card .counter-value {
-        font-size: clamp(3.2rem, 8vw, 5.3rem);
-        font-weight: 900;
-        line-height: 1;
-        letter-spacing: -2px;
-        color: var(--accent);
-    }
-
-    .community-card .counter-label {
-        margin-top: 12px;
-        color: var(--muted-text);
-    }
-
-    /* ========================================
-       OSTATNIA AKTUALIZACJA
-    ======================================== */
-
-    .last-update-box {
-        margin-top: 25px;
-        padding: 18px 20px;
-
-        border-radius: 16px;
-        background: rgba(127, 127, 127, 0.07);
-        border: 1px solid var(--border);
-
-        color: var(--muted-text);
-        text-align: center;
-    }
-
-    .last-update-box strong {
-        color: var(--text);
-    }
-
-    /* ========================================
-       RESPONSYWNOŚĆ
-    ======================================== */
-
-    @media (max-width: 850px) {
-
-        .main-counter-grid,
-        .counter-grid,
-        .holidays-result {
-            grid-template-columns: 1fr;
+        /* ========================================
+           LICZNIK — PREMIUM DESIGN
+        ======================================== */
+
+        .counter-page {
+            padding-bottom: 80px;
         }
 
         .counter-section {
-            padding: 55px 0;
+            padding: 75px 0;
         }
 
-        .main-counter-card {
-            min-height: 250px;
-        }
-    }
+        /* ========================================
+           HERO
+        ======================================== */
 
-    @media (max-width: 600px) {
-
-        .counter-section {
-            padding: 45px 0;
+        .hero-content h1 {
+            letter-spacing: -1.5px;
         }
 
-        .main-counter-card,
-        .counter-card,
-        .holidays-card,
-        .community-card {
-            padding: 25px 20px;
+        .hero-content h1 span {
+            display: inline-block;
         }
 
-        .main-counter-card {
-            min-height: 230px;
+        .hero-content p {
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
         }
+
+        /* ========================================
+           NAGŁÓWKI SEKCJI
+        ======================================== */
 
         .counter-heading {
-            margin-bottom: 28px;
+            margin-bottom: 38px;
+            text-align: center;
         }
 
         .counter-heading h2 {
-            font-size: 1.7rem;
+            margin: 0 0 12px;
+            font-size: clamp(1.8rem, 4vw, 2.35rem);
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
-        .community-card {
-            padding: 38px 20px;
+        .counter-heading p {
+            margin: 0 auto;
+            max-width: 650px;
+            color: var(--muted-text);
+            line-height: 1.7;
+            font-size: 1rem;
         }
 
-        .community-icon {
-            width: 65px;
-            height: 65px;
-            font-size: 1.9rem;
+        /* ========================================
+           GŁÓWNE LICZNIKI
+        ======================================== */
+
+        .main-counter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 28px;
+            margin-bottom: 28px;
         }
-    }
-</style>
+
+        .main-counter-card {
+            position: relative;
+            overflow: hidden;
+            min-height: 280px;
+            padding: 38px 32px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            border-radius: 28px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .main-counter-card::before {
+            content: "";
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            top: -110px;
+            right: -80px;
+            border-radius: 50%;
+            background: rgba(88, 101, 242, 0.10);
+            pointer-events: none;
+        }
+
+        .main-counter-card::after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            bottom: -100px;
+            left: -70px;
+            border-radius: 50%;
+            background: rgba(88, 101, 242, 0.06);
+            pointer-events: none;
+        }
+
+        .main-counter-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 22px 55px rgba(0, 0, 0, 0.15);
+        }
+
+        .main-counter-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-counter-card h2 {
+            margin: 0 0 17px;
+            font-size: clamp(1.15rem, 2vw, 1.4rem);
+            font-weight: 750;
+            letter-spacing: -0.3px;
+        }
+
+        .main-counter-card .counter-value {
+            font-size: clamp(2.25rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -1.5px;
+            color: var(--accent);
+        }
+
+        .main-counter-card .counter-label {
+            margin-top: 13px;
+            color: var(--muted-text);
+            font-size: 0.95rem;
+        }
+
+        /* ========================================
+           KAFELKI
+        ======================================== */
+
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .counter-card {
+            position: relative;
+            overflow: hidden;
+            padding: 27px;
+
+            border-radius: 21px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .counter-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 38px rgba(0, 0, 0, 0.11);
+        }
+
+        .counter-card h3 {
+            margin: 0 0 13px;
+            font-size: 1.1rem;
+            font-weight: 750;
+        }
+
+        .detail-value {
+            font-size: 1.08rem;
+            font-weight: 700;
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           FERIE
+        ======================================== */
+
+        .holidays-card {
+            margin-top: 30px;
+            padding: 32px;
+
+            border-radius: 25px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .holidays-card h2 {
+            margin: 0 0 20px;
+            font-size: 1.35rem;
+        }
+
+        .holidays-select {
+            width: 100%;
+            max-width: 450px;
+            padding: 14px 16px;
+
+            border-radius: 13px;
+            color: var(--text);
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+
+            font: inherit;
+            cursor: pointer;
+            outline: none;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .holidays-select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.12);
+        }
+
+        .holidays-select option {
+            color: #111827;
+            background: #ffffff;
+        }
+
+        [data-mode="dark"] .holidays-select {
+            color: #f5f7ff;
+            background: #171923;
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        [data-mode="dark"] .holidays-select option {
+            color: #f5f7ff;
+            background: #171923;
+        }
+
+        .holidays-result {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        /* ========================================
+           WYDARZENIA KOLONII
+        ======================================== */
+
+        .colony-event-card {
+            position: relative;
+            overflow: hidden;
+            padding: 30px;
+
+            border-radius: 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .colony-event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.13);
+        }
+
+        .colony-event-card h3 {
+            margin: 0 0 10px;
+            font-size: 1.25rem;
+            font-weight: 800;
+        }
+
+        .event-date {
+            margin-bottom: 18px;
+            color: var(--muted-text);
+            font-size: 0.95rem;
+        }
+
+        .event-countdown {
+            font-size: clamp(1.35rem, 3vw, 2rem);
+            font-weight: 900;
+            line-height: 1.3;
+            color: var(--accent);
+        }
+
+        /* ========================================
+           OSTATNIA AKTUALIZACJA
+        ======================================== */
+
+        .last-update-box {
+            margin-top: 25px;
+            padding: 20px;
+
+            border-radius: 18px;
+            background: rgba(127, 127, 127, 0.07);
+            border: 1px solid var(--border);
+
+            color: var(--muted-text);
+            text-align: center;
+        }
+
+        .last-update-box strong {
+            color: var(--text);
+        }
+
+        /* ========================================
+           RESPONSYWNOŚĆ
+        ======================================== */
+
+        @media (max-width: 850px) {
+            .main-counter-grid,
+            .counter-grid,
+            .holidays-result {
+                grid-template-columns: 1fr;
+            }
+
+            .counter-section {
+                padding: 55px 0;
+            }
+
+            .main-counter-card {
+                min-height: 250px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .counter-section {
+                padding: 45px 0;
+            }
+
+            .main-counter-card,
+            .counter-card,
+            .holidays-card,
+            .colony-event-card {
+                padding: 25px 20px;
+            }
+
+            .main-counter-card {
+                min-height: 230px;
+            }
+
+            .counter-heading {
+                margin-bottom: 28px;
+            }
+
+            .counter-heading h2 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
 </head>
 
-<body>
+<body data-theme="blue" data-mode="dark">
 
-<header>
+<header class="site-header">
     <div class="header-inner">
 
         <a href="index.html" class="logo">
@@ -453,22 +395,34 @@
         </a>
 
         <nav>
-            <a href="index.html">Strona główna</a>
-            <a href="ranking.html">Ranking</a>
-            <a href="licznik.html" class="active">Licznik</a>
-            <a href="wydarzenia.html">Wydarzenia</a>
-            <a href="linki.html">Linki</a>
-            <a href="kontakt.html">Kontakt</a>
+            <a href="index.html">🏠 Strona główna</a>
+            <a href="ranking.html">🏆 Ranking</a>
+            <a href="licznik.html" class="active">⏱️ Licznik</a>
+            <a href="wydarzenia.html">📅 Wydarzenia</a>
+            <a href="linki.html">🔗 Linki</a>
+            <a href="kontakt.html">📞 Kontakt</a>
         </nav>
 
-        <button
-            id="themeToggle"
-            class="theme-toggle"
-            type="button"
-            aria-label="Zmień motyw"
-        >
-            🌙
-        </button>
+        <div class="header-actions">
+
+            <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Zmień tryb wyglądu"
+            >
+                🌙
+            </button>
+
+            <a
+                href="ustawienia.html"
+                class="settings-button"
+                aria-label="Ustawienia"
+            >
+                ⚙️
+            </a>
+
+        </div>
 
     </div>
 </header>
@@ -476,12 +430,14 @@
 
 <main class="counter-page">
 
-    <!-- HERO -->
+    <!-- ========================================
+         HERO
+    ======================================== -->
 
     <section class="hero">
         <div class="container">
 
-            <div class="hero-content">
+            <div class="hero-content reveal">
 
                 <h1>
                     Licznik
@@ -489,8 +445,9 @@
                 </h1>
 
                 <p>
-                    Sprawdź dokładny czas działania Kolonii Pasjonatów,
-                    odliczanie do wydarzeń oraz najważniejsze daty.
+                    Sprawdź czas działania Kolonii Pasjonatów,
+                    odliczanie do świąt, ferii oraz wydarzeń
+                    organizowanych przez naszą społeczność.
                 </p>
 
             </div>
@@ -499,13 +456,15 @@
     </section>
 
 
-    <!-- CZAS DZIAŁANIA -->
+    <!-- ========================================
+         1. CZAS DZIAŁANIA
+    ======================================== -->
 
     <section class="counter-section">
 
         <div class="container">
 
-            <div class="counter-heading">
+            <div class="counter-heading reveal">
 
                 <h2>
                     ⏱️ Czas działania
@@ -513,7 +472,7 @@
 
                 <p>
                     Sprawdź, jak długo działa Kolonia Pasjonatów
-                    oraz jej oficjalna strona.
+                    oraz jej oficjalna strona internetowa.
                 </p>
 
             </div>
@@ -521,7 +480,7 @@
 
             <div class="main-counter-grid">
 
-                <article class="main-counter-card">
+                <article class="main-counter-card reveal">
 
                     <h2>
                         🌟 Kolonia Pasjonatów
@@ -541,7 +500,7 @@
                 </article>
 
 
-                <article class="main-counter-card">
+                <article class="main-counter-card reveal">
 
                     <h2>
                         🌐 Oficjalna strona
@@ -565,7 +524,7 @@
 
             <div class="counter-grid">
 
-                <article class="counter-card">
+                <article class="counter-card reveal">
 
                     <h3>
                         🌟 Szczegółowy czas Kolonii
@@ -581,7 +540,7 @@
                 </article>
 
 
-                <article class="counter-card">
+                <article class="counter-card reveal">
 
                     <h3>
                         🌐 Szczegółowy czas strony
@@ -603,20 +562,23 @@
     </section>
 
 
-    <!-- ŚWIĘTA -->
+    <!-- ========================================
+         2. ODLICZANIE DO ŚWIĄT
+    ======================================== -->
 
     <section class="counter-section">
 
         <div class="container">
 
-            <div class="counter-heading">
+            <div class="counter-heading reveal">
 
                 <h2>
-                    🎉 Odliczanie do wydarzeń i świąt
+                    🎉 Odliczanie do świąt
                 </h2>
 
                 <p>
-                    Sprawdź, ile czasu pozostało do najważniejszych dat.
+                    Sprawdź, ile czasu pozostało do najważniejszych
+                    świąt i wyjątkowych dni.
                 </p>
 
             </div>
@@ -624,7 +586,7 @@
 
             <div class="counter-grid">
 
-                <article class="counter-card">
+                <article class="counter-card reveal">
 
                     <h3>🎃 Halloween</h3>
 
@@ -645,7 +607,7 @@
                 </article>
 
 
-                <article class="counter-card">
+                <article class="counter-card reveal">
 
                     <h3>🎄 Boże Narodzenie</h3>
 
@@ -666,7 +628,7 @@
                 </article>
 
 
-                <article class="counter-card">
+                <article class="counter-card reveal">
 
                     <h3>🎆 Nowy Rok</h3>
 
@@ -687,7 +649,7 @@
                 </article>
 
 
-                <article class="counter-card">
+                <article class="counter-card reveal">
 
                     <h3>🐣 Wielkanoc</h3>
 
@@ -708,7 +670,7 @@
                 </article>
 
 
-                <article class="counter-card">
+                <article class="counter-card reveal">
 
                     <h3>🎇 Sylwester</h3>
 
@@ -729,28 +691,7 @@
                 </article>
 
 
-                <article class="counter-card">
-
-                    <h3>☀️ Strefa Letnia 2027</h3>
-
-                    <div
-                        class="detail-value"
-                        id="summer2027Date"
-                    >
-                        Ładowanie...
-                    </div>
-
-                    <div
-                        class="detail-value"
-                        id="summer2027Countdown"
-                    >
-                        Ładowanie...
-                    </div>
-
-                </article>
-
-
-                <article class="counter-card">
+                <article class="counter-card reveal">
 
                     <h3>📅 Koniec 2026 roku</h3>
 
@@ -770,26 +711,29 @@
     </section>
 
 
-    <!-- FERIE -->
+    <!-- ========================================
+         3. FERIE ZIMOWE
+    ======================================== -->
 
     <section class="counter-section">
 
         <div class="container">
 
-            <div class="counter-heading">
+            <div class="counter-heading reveal">
 
                 <h2>
                     🗓️ Ferie zimowe
                 </h2>
 
                 <p>
-                    Wybierz województwo, aby sprawdzić termin ferii.
+                    Wybierz województwo, aby sprawdzić termin
+                    ferii zimowych.
                 </p>
 
             </div>
 
 
-            <div class="holidays-card">
+            <div class="holidays-card reveal">
 
                 <h2>
                     📍 Wybierz województwo
@@ -913,50 +857,179 @@
     </section>
 
 
-    <!-- SPOŁECZNOŚĆ -->
+    <!-- ========================================
+         4. WYDARZENIA KOLONII PASJONATÓW
+    ======================================== -->
 
     <section class="counter-section">
 
         <div class="container">
 
-            <div class="counter-heading">
+            <div class="counter-heading reveal">
 
                 <h2>
-                    👥 Społeczność
+                    🎪 Odliczanie do wydarzeń Kolonii Pasjonatów
                 </h2>
 
                 <p>
-                    Aktualne informacje o społeczności Kolonii Pasjonatów.
+                    Sprawdź, ile czasu pozostało do najważniejszych
+                    wydarzeń organizowanych w Kolonii Pasjonatów.
                 </p>
 
             </div>
 
 
-            <div class="community-card">
+            <div class="counter-grid">
 
-                <div class="community-icon">
-                    👥
-                </div>
+                <article class="colony-event-card reveal">
+
+                    <h3>
+                        🍂📸 Kolej w jesiennym obiektywie
+                    </h3>
+
+                    <div class="event-date">
+                        23.09–09.10.2026
+                    </div>
+
+                    <div
+                        class="event-countdown"
+                        id="autumnEventCountdown"
+                    >
+                        Ładowanie...
+                    </div>
+
+                </article>
+
+
+                <article class="colony-event-card reveal">
+
+                    <h3>
+                        ❄️ Strefa Zimowa 2026/2027
+                    </h3>
+
+                    <div class="event-date">
+                        20.11.2026–31.01.2027
+                    </div>
+
+                    <div
+                        class="event-countdown"
+                        id="winterEventCountdown"
+                    >
+                        Ładowanie...
+                    </div>
+
+                </article>
+
+
+                <article class="colony-event-card reveal">
+
+                    <h3>
+                        🎅 Mikołajki w Kolonii
+                    </h3>
+
+                    <div class="event-date">
+                        06.12.2026
+                    </div>
+
+                    <div
+                        class="event-countdown"
+                        id="mikolajkiEventCountdown"
+                    >
+                        Ładowanie...
+                    </div>
+
+                </article>
+
+
+                <article class="colony-event-card reveal">
+
+                    <h3>
+                        🎄 Wigilia w Kolonii
+                    </h3>
+
+                    <div class="event-date">
+                        23.12–25.12.2026
+                    </div>
+
+                    <div
+                        class="event-countdown"
+                        id="wigiliaEventCountdown"
+                    >
+                        Ładowanie...
+                    </div>
+
+                </article>
+
+
+                <article class="colony-event-card reveal">
+
+                    <h3>
+                        🎆 Sylwester w Kolonii
+                    </h3>
+
+                    <div class="event-date">
+                        30.12.2026–01.01.2027
+                    </div>
+
+                    <div
+                        class="event-countdown"
+                        id="koloniaSylwesterEventCountdown"
+                    >
+                        Ładowanie...
+                    </div>
+
+                </article>
+
+
+                <article class="colony-event-card reveal">
+
+                    <h3>
+                        ☀️ Strefa Letnia 2027
+                    </h3>
+
+                    <div class="event-date">
+                        01.06–31.08.2027
+                    </div>
+
+                    <div
+                        class="event-countdown"
+                        id="summerEventCountdown"
+                    >
+                        Ładowanie...
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         5. OSTATNIA AKTUALIZACJA
+    ======================================== -->
+
+    <section class="counter-section">
+
+        <div class="container">
+
+            <div class="counter-heading reveal">
 
                 <h2>
-                    Członkowie Kolonii Pasjonatów
+                    🔄 Ostatnia aktualizacja
                 </h2>
 
-                <div
-                    class="counter-value"
-                    id="usersCount"
-                >
-                    20
-                </div>
-
-                <div class="counter-label">
-                    osób w społeczności
-                </div>
+                <p>
+                    Informacja o ostatniej aktualizacji danych
+                    prezentowanych na stronie.
+                </p>
 
             </div>
 
 
-            <div class="last-update-box">
+            <div class="last-update-box reveal">
 
                 Ostatnia aktualizacja:
                 <strong id="lastUpdate">
