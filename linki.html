@@ -32,8 +32,6 @@
             margin-bottom: 18px;
         }
 
-        /* IDEALNE KOŁO */
-
         .channel-avatar {
             display: block;
 
@@ -98,11 +96,70 @@
         .discord-server-card {
             display: flex;
             flex-direction: column;
+            position: relative;
+            overflow: hidden;
         }
 
+        /*
+           PREMIUM DYMKI
+        */
+
         .discord-server-card .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
             width: fit-content;
-            margin-bottom: 12px;
+
+            margin-bottom: 16px;
+            padding: 7px 13px;
+
+            border-radius: 999px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.10),
+                    rgba(255, 255, 255, 0.04)
+                );
+
+            border: 1px solid var(--border);
+
+            color: var(--text-secondary);
+
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.08),
+                0 6px 18px rgba(0, 0, 0, 0.10);
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            transition:
+                transform 0.25s var(--ease),
+                border-color 0.25s var(--ease),
+                box-shadow 0.25s var(--ease),
+                background 0.25s var(--ease);
+        }
+
+        .discord-server-card:hover .status-badge {
+            transform: translateY(-2px);
+
+            border-color: var(--accent);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    color-mix(in srgb, var(--accent) 16%, transparent),
+                    rgba(255, 255, 255, 0.05)
+                );
+
+            box-shadow:
+                0 8px 24px rgba(0, 0, 0, 0.14),
+                0 0 18px color-mix(in srgb, var(--accent) 18%, transparent);
         }
 
         .discord-server-card .button {
@@ -139,6 +196,11 @@
 
             .channel-info h3 {
                 font-size: 1.08rem;
+            }
+
+            .discord-server-card .status-badge {
+                font-size: 0.74rem;
+                padding: 6px 11px;
             }
 
         }
@@ -219,7 +281,7 @@
             <div class="hero-content">
 
                 <h1>
-                    Poznaj nasze zaprzyjaznione
+                    Poznaj nasze zaprzyjaźnione
                     <span>kanały YT i serwery Discord!</span>
                 </h1>
 
@@ -281,7 +343,7 @@
                         </h3>
 
                         <p class="channel-subs">
-                            👥 <strong>1002</strong> subskrybentów
+                            👥 <strong>1011</strong> subskrybentów
                         </p>
 
                     </div>
@@ -322,7 +384,7 @@
                         </h3>
 
                         <p class="channel-subs">
-                            👥 <strong>166</strong> subskrybentów
+                            👥 <strong>165</strong> subskrybentów
                         </p>
 
                     </div>
@@ -363,7 +425,7 @@
                         </h3>
 
                         <p class="channel-subs">
-                            👥 <strong>86</strong> subskrybentów
+                            👥 <strong>90</strong> subskrybentów
                         </p>
 
                     </div>
@@ -404,7 +466,7 @@
                         </h3>
 
                         <p class="channel-subs">
-                            👥 <strong>12</strong> subskrybentów
+                            👥 <strong>13</strong> subskrybentów
                         </p>
 
                     </div>
