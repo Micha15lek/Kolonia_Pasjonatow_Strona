@@ -90,8 +90,8 @@
         .main-counter-card {
             position: relative;
             overflow: hidden;
-            min-height: 280px;
-            padding: 38px 32px;
+            min-height: 260px;
+            padding: 34px 32px;
 
             display: flex;
             flex-direction: column;
@@ -146,24 +146,26 @@
         }
 
         .main-counter-card h2 {
-            margin: 0 0 17px;
-            font-size: clamp(1.15rem, 2vw, 1.4rem);
+            margin: 0 0 15px;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
             font-weight: 750;
             letter-spacing: -0.3px;
         }
 
+        /* ZMNIEJSZONY CZAS DZIAŁANIA */
+
         .main-counter-card .counter-value {
-            font-size: clamp(2.25rem, 5vw, 4rem);
+            font-size: clamp(1.8rem, 3.8vw, 2.9rem);
             font-weight: 900;
-            line-height: 1.05;
-            letter-spacing: -1.5px;
+            line-height: 1.15;
+            letter-spacing: -1px;
             color: var(--accent);
         }
 
         .main-counter-card .counter-label {
-            margin-top: 13px;
+            margin-top: 11px;
             color: var(--muted-text);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         /* ========================================
@@ -311,7 +313,7 @@
         }
 
         .event-countdown {
-            font-size: clamp(1.35rem, 3vw, 2rem);
+            font-size: clamp(1.2rem, 2.6vw, 1.8rem);
             font-weight: 900;
             line-height: 1.3;
             color: var(--accent);
@@ -353,7 +355,7 @@
             }
 
             .main-counter-card {
-                min-height: 250px;
+                min-height: 240px;
             }
         }
 
@@ -370,7 +372,7 @@
             }
 
             .main-counter-card {
-                min-height: 230px;
+                min-height: 220px;
             }
 
             .counter-heading {
@@ -379,6 +381,10 @@
 
             .counter-heading h2 {
                 font-size: 1.7rem;
+            }
+
+            .main-counter-card .counter-value {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -429,9 +435,7 @@
 
 <main class="counter-page">
 
-    <!-- ========================================
-         HERO
-    ======================================== -->
+    <!-- HERO -->
 
     <section class="hero">
         <div class="container">
@@ -455,9 +459,7 @@
     </section>
 
 
-    <!-- ========================================
-         1. CZAS DZIAŁANIA
-    ======================================== -->
+    <!-- 1. CZAS DZIAŁANIA -->
 
     <section class="counter-section">
 
@@ -465,9 +467,7 @@
 
             <div class="counter-heading reveal">
 
-                <h2>
-                    ⌛ Czas działania
-                </h2>
+                <h2>⌛ Czas działania</h2>
 
                 <p>
                     Sprawdź, jak długo działa Kolonia Pasjonatów
@@ -476,14 +476,11 @@
 
             </div>
 
-
             <div class="main-counter-grid">
 
                 <article class="main-counter-card reveal">
 
-                    <h2>
-                        🌟 Kolonia Pasjonatów
-                    </h2>
+                    <h2>🌟 Kolonia Pasjonatów</h2>
 
                     <div
                         class="counter-value"
@@ -501,9 +498,7 @@
 
                 <article class="main-counter-card reveal">
 
-                    <h2>
-                        🌐 Oficjalna strona
-                    </h2>
+                    <h2>🌐 Oficjalna strona</h2>
 
                     <div
                         class="counter-value"
@@ -525,9 +520,7 @@
     </section>
 
 
-    <!-- ========================================
-         2. ODLICZANIE DO ŚWIĄT
-    ======================================== -->
+    <!-- 2. ODLICZANIE DO ŚWIĄT -->
 
     <section class="counter-section">
 
@@ -535,9 +528,7 @@
 
             <div class="counter-heading reveal">
 
-                <h2>
-                    🎉 Odliczanie do świąt
-                </h2>
+                <h2>🎉 Odliczanie do świąt</h2>
 
                 <p>
                     Sprawdź, ile czasu pozostało do najważniejszych
@@ -545,7 +536,6 @@
                 </p>
 
             </div>
-
 
             <div class="counter-grid">
 
@@ -629,9 +619,7 @@
     </section>
 
 
-    <!-- ========================================
-         3. FERIE ZIMOWE
-    ======================================== -->
+    <!-- 3. FERIE ZIMOWE -->
 
     <section class="counter-section">
 
@@ -639,9 +627,7 @@
 
             <div class="counter-heading reveal">
 
-                <h2>
-                    🗓️ Ferie zimowe
-                </h2>
+                <h2>🗓️ Ferie zimowe</h2>
 
                 <p>
                     Wybierz województwo, aby sprawdzić termin
@@ -650,12 +636,9 @@
 
             </div>
 
-
             <div class="holidays-card reveal">
 
-                <h2>
-                    📍 Wybierz województwo
-                </h2>
+                <h2>📍 Wybierz województwo</h2>
 
                 <select
                     id="voivodeshipSelect"
@@ -666,69 +649,22 @@
                         Wybierz województwo
                     </option>
 
-                    <option value="dolnoslaskie">
-                        Dolnośląskie
-                    </option>
-
-                    <option value="kujawsko-pomorskie">
-                        Kujawsko-Pomorskie
-                    </option>
-
-                    <option value="lubelskie">
-                        Lubelskie
-                    </option>
-
-                    <option value="lubuskie">
-                        Lubuskie
-                    </option>
-
-                    <option value="lodzkie">
-                        Łódzkie
-                    </option>
-
-                    <option value="malopolskie">
-                        Małopolskie
-                    </option>
-
-                    <option value="mazowieckie">
-                        Mazowieckie
-                    </option>
-
-                    <option value="opolskie">
-                        Opolskie
-                    </option>
-
-                    <option value="podkarpackie">
-                        Podkarpackie
-                    </option>
-
-                    <option value="podlaskie">
-                        Podlaskie
-                    </option>
-
-                    <option value="pomorskie">
-                        Pomorskie
-                    </option>
-
-                    <option value="slaskie">
-                        Śląskie
-                    </option>
-
-                    <option value="swietokrzyskie">
-                        Świętokrzyskie
-                    </option>
-
-                    <option value="warminsko-mazurskie">
-                        Warmińsko-Mazurskie
-                    </option>
-
-                    <option value="wielkopolskie">
-                        Wielkopolskie
-                    </option>
-
-                    <option value="zachodniopomorskie">
-                        Zachodniopomorskie
-                    </option>
+                    <option value="dolnoslaskie">Dolnośląskie</option>
+                    <option value="kujawsko-pomorskie">Kujawsko-Pomorskie</option>
+                    <option value="lubelskie">Lubelskie</option>
+                    <option value="lubuskie">Lubuskie</option>
+                    <option value="lodzkie">Łódzkie</option>
+                    <option value="malopolskie">Małopolskie</option>
+                    <option value="mazowieckie">Mazowieckie</option>
+                    <option value="opolskie">Opolskie</option>
+                    <option value="podkarpackie">Podkarpackie</option>
+                    <option value="podlaskie">Podlaskie</option>
+                    <option value="pomorskie">Pomorskie</option>
+                    <option value="slaskie">Śląskie</option>
+                    <option value="swietokrzyskie">Świętokrzyskie</option>
+                    <option value="warminsko-mazurskie">Warmińsko-Mazurskie</option>
+                    <option value="wielkopolskie">Wielkopolskie</option>
+                    <option value="zachodniopomorskie">Zachodniopomorskie</option>
 
                 </select>
 
@@ -737,9 +673,7 @@
 
                     <article class="counter-card">
 
-                        <h3>
-                            📅 Termin ferii
-                        </h3>
+                        <h3>📅 Termin ferii</h3>
 
                         <div
                             class="detail-value"
@@ -753,9 +687,7 @@
 
                     <article class="counter-card">
 
-                        <h3>
-                            ⏳ Pozostało
-                        </h3>
+                        <h3>⏳ Pozostało</h3>
 
                         <div
                             class="detail-value"
@@ -775,9 +707,7 @@
     </section>
 
 
-    <!-- ========================================
-         4. WYDARZENIA KOLONII PASJONATÓW
-    ======================================== -->
+    <!-- 4. WYDARZENIA KOLONII PASJONATÓW -->
 
     <section class="counter-section">
 
@@ -813,7 +743,7 @@
                         class="event-countdown"
                         id="autumnEventCountdown"
                     >
-                        Ładowanie...
+                        Sprawdzanie...
                     </div>
 
                 </article>
@@ -833,7 +763,7 @@
                         class="event-countdown"
                         id="winterEventCountdown"
                     >
-                        Ładowanie...
+                        Sprawdzanie...
                     </div>
 
                 </article>
@@ -853,7 +783,7 @@
                         class="event-countdown"
                         id="mikolajkiEventCountdown"
                     >
-                        Ładowanie...
+                        Sprawdzanie...
                     </div>
 
                 </article>
@@ -873,7 +803,7 @@
                         class="event-countdown"
                         id="wigiliaEventCountdown"
                     >
-                        Ładowanie...
+                        Sprawdzanie...
                     </div>
 
                 </article>
@@ -893,7 +823,7 @@
                         class="event-countdown"
                         id="koloniaSylwesterEventCountdown"
                     >
-                        Ładowanie...
+                        Sprawdzanie...
                     </div>
 
                 </article>
@@ -913,7 +843,7 @@
                         class="event-countdown"
                         id="summerEventCountdown"
                     >
-                        Ładowanie...
+                        Sprawdzanie...
                     </div>
 
                 </article>
@@ -925,9 +855,7 @@
     </section>
 
 
-    <!-- ========================================
-         5. OSTATNIA AKTUALIZACJA
-    ======================================== -->
+    <!-- 5. OSTATNIA AKTUALIZACJA -->
 
     <section class="counter-section">
 
@@ -935,9 +863,7 @@
 
             <div class="counter-heading reveal">
 
-                <h2>
-                    🔄 Ostatnia aktualizacja
-                </h2>
+                <h2>🔄 Ostatnia aktualizacja</h2>
 
                 <p>
                     Informacja o ostatniej aktualizacji danych
@@ -945,7 +871,6 @@
                 </p>
 
             </div>
-
 
             <div class="last-update-box reveal">
 
