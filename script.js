@@ -10,57 +10,382 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================================
-       MOTYW JASNY / CIEMNY
+       SYSTEM MOTYWÓW
     ========================================= */
 
-    const themeToggle =
-        document.getElementById("themeToggle");
+    const THEMES = {
 
-    function applyTheme(isLight) {
+        blue: {
+            name: "🔵 Kolonia Blue"
+        },
 
-        /* CSS używa klasy "light" */
+        purple: {
+            name: "🟣 Purple Galaxy"
+        },
 
-        document.body.classList.toggle(
-            "light",
-            isLight
-        );
+        railway: {
+            name: "🚉 Railway"
+        },
 
-        document.documentElement.classList.toggle(
-            "light",
-            isLight
-        );
+        midnight: {
+            name: "🌌 Midnight"
+        },
 
-        document.documentElement.dataset.theme =
-            isLight ? "light" : "dark";
+        nature: {
+            name: "🌿 Nature"
+        },
 
-        if (themeToggle) {
-
-            /*
-             * W trybie ciemnym pokazujemy słońce,
-             * ponieważ przycisk służy do przejścia
-             * w tryb jasny.
-             */
-
-            themeToggle.textContent =
-                isLight ? "🌙" : "☀️";
-
-            themeToggle.setAttribute(
-                "aria-label",
-                isLight
-                    ? "Włącz tryb ciemny"
-                    : "Włącz tryb jasny"
-            );
+        sunset: {
+            name: "🌅 Sunset"
         }
+
+    };
+
+
+    const MODES = {
+
+        dark: {
+            name: "🌙 Tryb ciemny"
+        },
+
+        light: {
+            name: "☀️ Tryb jasny"
+        }
+
+    };
+
+
+    const DEFAULT_THEME = "blue";
+    const DEFAULT_MODE = "dark";
+
+
+    function getSavedTheme() {
+
+        const saved =
+            localStorage.getItem(
+                "koloniaTheme"
+            );
+
+        return THEMES[saved]
+            ? saved
+            : DEFAULT_THEME;
     }
 
 
-    const savedTheme =
-        localStorage.getItem("kolonia-theme");
+    function getSavedMode() {
 
-    applyTheme(
-        savedTheme === "light"
+        const saved =
+            localStorage.getItem(
+                "koloniaMode"
+            );
+
+        return MODES[saved]
+            ? saved
+            : DEFAULT_MODE;
+    }
+
+
+    let currentTheme =
+        getSavedTheme();
+
+    let currentMode =
+        getSavedMode();
+
+
+    /* =========================================
+       ELEMENTY USTAWIEŃ
+    ========================================= */
+
+    const themeToggle =
+        document.getElementById(
+            "themeToggle"
+        );
+
+
+    const themeOptions =
+        document.querySelectorAll(
+            "[data-theme-option]"
+        );
+
+
+    const modeOptions =
+        document.querySelectorAll(
+            "[data-mode-option]"
+        );
+
+
+    const currentThemeName =
+        document.getElementById(
+            "currentThemeName"
+        );
+
+
+    const currentModeName =
+        document.getElementById(
+            "currentModeName"
+        );
+
+
+    /* =========================================
+       AKTUALIZACJA WYBORU MOTYWU
+    ========================================= */
+
+    function updateThemeButtons() {
+
+        themeOptions.forEach(
+            button => {
+
+                const theme =
+                    button.dataset.themeOption;
+
+                button.classList.toggle(
+                    "selected",
+                    theme === currentTheme
+                );
+
+                button.setAttribute(
+                    "aria-pressed",
+                    theme === currentTheme
+                        ? "true"
+                        : "false"
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =========================================
+       AKTUALIZACJA WYBORU TRYBU
+    ========================================= */
+
+    function updateModeButtons() {
+
+        modeOptions.forEach(
+            button => {
+
+                const mode =
+                    button.dataset.modeOption;
+
+                button.classList.toggle(
+                    "selected",
+                    mode === currentMode
+                );
+
+                button.setAttribute(
+                    "aria-pressed",
+                    mode === currentMode
+                        ? "true"
+                        : "false"
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =========================================
+       AKTUALIZACJA INFORMACJI
+    ========================================= */
+
+    function updateCurrentThemeInfo() {
+
+        if (currentThemeName) {
+
+            currentThemeName.textContent =
+                THEMES[currentTheme].name;
+
+        }
+
+
+        if (currentModeName) {
+
+            currentModeName.textContent =
+                MODES[currentMode].name;
+
+        }
+
+    }
+
+
+    /* =========================================
+       PRZEŁĄCZNIK W GÓRNYM PASKU
+    ========================================= */
+
+    function updateThemeToggle() {
+
+        if (!themeToggle) {
+            return;
+        }
+
+
+        if (currentMode === "dark") {
+
+            themeToggle.textContent =
+                "☀️";
+
+            themeToggle.setAttribute(
+                "aria-label",
+                "Włącz tryb jasny"
+            );
+
+            themeToggle.setAttribute(
+                "title",
+                "Włącz tryb jasny"
+            );
+
+        } else {
+
+            themeToggle.textContent =
+                "🌙";
+
+            themeToggle.setAttribute(
+                "aria-label",
+                "Włącz tryb ciemny"
+            );
+
+            themeToggle.setAttribute(
+                "title",
+                "Włącz tryb ciemny"
+            );
+
+        }
+
+    }
+
+
+    /* =========================================
+       ZASTOSOWANIE MOTYWU
+    ========================================= */
+
+    function applyTheme(
+        theme,
+        save = true
+    ) {
+
+        if (!THEMES[theme]) {
+            theme = DEFAULT_THEME;
+        }
+
+
+        currentTheme = theme;
+
+
+        document.documentElement.dataset.theme =
+            currentTheme;
+
+        document.body.dataset.theme =
+            currentTheme;
+
+
+        if (save) {
+
+            localStorage.setItem(
+                "koloniaTheme",
+                currentTheme
+            );
+
+        }
+
+
+        updateThemeButtons();
+        updateCurrentThemeInfo();
+
+    }
+
+
+    /* =========================================
+       ZASTOSOWANIE TRYBU
+    ========================================= */
+
+    function applyMode(
+        mode,
+        save = true
+    ) {
+
+        if (!MODES[mode]) {
+            mode = DEFAULT_MODE;
+        }
+
+
+        currentMode = mode;
+
+
+        document.documentElement.dataset.mode =
+            currentMode;
+
+        document.body.dataset.mode =
+            currentMode;
+
+
+        if (save) {
+
+            localStorage.setItem(
+                "koloniaMode",
+                currentMode
+            );
+
+        }
+
+
+        updateModeButtons();
+        updateCurrentThemeInfo();
+        updateThemeToggle();
+
+    }
+
+
+    /* =========================================
+       WYBÓR MOTYWU
+    ========================================= */
+
+    themeOptions.forEach(
+        button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const theme =
+                        button.dataset.themeOption;
+
+                    applyTheme(theme);
+
+                }
+            );
+
+        }
     );
 
+
+    /* =========================================
+       WYBÓR TRYBU
+    ========================================= */
+
+    modeOptions.forEach(
+        button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const mode =
+                        button.dataset.modeOption;
+
+                    applyMode(mode);
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =========================================
+       PRZYCISK TRYBU W NAGŁÓWKU
+    ========================================= */
 
     if (themeToggle) {
 
@@ -68,22 +393,32 @@ document.addEventListener("DOMContentLoaded", () => {
             "click",
             () => {
 
-                const isLight =
-                    !document.body.classList.contains(
-                        "light"
-                    );
-
-                applyTheme(isLight);
-
-                localStorage.setItem(
-                    "kolonia-theme",
-                    isLight
+                const newMode =
+                    currentMode === "dark"
                         ? "light"
-                        : "dark"
-                );
+                        : "dark";
+
+                applyMode(newMode);
+
             }
         );
+
     }
+
+
+    /* =========================================
+       START SYSTEMU MOTYWÓW
+    ========================================= */
+
+    applyTheme(
+        currentTheme,
+        false
+    );
+
+    applyMode(
+        currentMode,
+        false
+    );
 
 
     /* =========================================
@@ -129,7 +464,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             seconds:
                 totalSeconds % 60
+
         };
+
     }
 
 
@@ -149,6 +486,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             membersCount.textContent =
                 MEMBERS_COUNT;
+
         }
 
 
@@ -187,6 +525,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             colonyDays.textContent =
                 colony.days;
+
         }
 
 
@@ -199,6 +538,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     2,
                     "0"
                 );
+
         }
 
 
@@ -211,6 +551,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     2,
                     "0"
                 );
+
         }
 
 
@@ -223,6 +564,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     2,
                     "0"
                 );
+
         }
 
 
@@ -261,6 +603,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             websiteDays.textContent =
                 website.days;
+
         }
 
 
@@ -273,6 +616,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     2,
                     "0"
                 );
+
         }
 
 
@@ -285,6 +629,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     2,
                     "0"
                 );
+
         }
 
 
@@ -297,7 +642,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     2,
                     "0"
                 );
+
         }
+
     }
 
 
@@ -326,117 +673,123 @@ document.addEventListener("DOMContentLoaded", () => {
             new Date();
 
 
-        adminMembers.forEach(member => {
+        adminMembers.forEach(
+            member => {
 
-            const joinDate =
-                new Date(
-                    member.dataset.joinDate
-                );
-
-
-            const difference =
-                Math.max(
-                    0,
-                    now.getTime() -
-                    joinDate.getTime()
-                );
-
-
-            const totalSeconds =
-                Math.floor(
-                    difference / 1000
-                );
-
-
-            const days =
-                Math.floor(
-                    totalSeconds / 86400
-                );
-
-
-            const hours =
-                Math.floor(
-                    (totalSeconds % 86400) / 3600
-                );
-
-
-            const minutes =
-                Math.floor(
-                    (totalSeconds % 3600) / 60
-                );
-
-
-            const seconds =
-                totalSeconds % 60;
-
-
-            const daysElement =
-                member.querySelector(
-                    "[data-days]"
-                );
-
-
-            const hoursElement =
-                member.querySelector(
-                    "[data-hours]"
-                );
-
-
-            const minutesElement =
-                member.querySelector(
-                    "[data-minutes]"
-                );
-
-
-            const secondsElement =
-                member.querySelector(
-                    "[data-seconds]"
-                );
-
-
-            if (daysElement) {
-
-                daysElement.textContent =
-                    days;
-            }
-
-
-            if (hoursElement) {
-
-                hoursElement.textContent =
-                    String(
-                        hours
-                    ).padStart(
-                        2,
-                        "0"
+                const joinDate =
+                    new Date(
+                        member.dataset.joinDate
                     );
-            }
 
 
-            if (minutesElement) {
-
-                minutesElement.textContent =
-                    String(
-                        minutes
-                    ).padStart(
-                        2,
-                        "0"
+                const difference =
+                    Math.max(
+                        0,
+                        now.getTime() -
+                        joinDate.getTime()
                     );
-            }
 
 
-            if (secondsElement) {
-
-                secondsElement.textContent =
-                    String(
-                        seconds
-                    ).padStart(
-                        2,
-                        "0"
+                const totalSeconds =
+                    Math.floor(
+                        difference / 1000
                     );
-            }
 
-        });
+
+                const days =
+                    Math.floor(
+                        totalSeconds / 86400
+                    );
+
+
+                const hours =
+                    Math.floor(
+                        (totalSeconds % 86400) / 3600
+                    );
+
+
+                const minutes =
+                    Math.floor(
+                        (totalSeconds % 3600) / 60
+                    );
+
+
+                const seconds =
+                    totalSeconds % 60;
+
+
+                const daysElement =
+                    member.querySelector(
+                        "[data-days]"
+                    );
+
+
+                const hoursElement =
+                    member.querySelector(
+                        "[data-hours]"
+                    );
+
+
+                const minutesElement =
+                    member.querySelector(
+                        "[data-minutes]"
+                    );
+
+
+                const secondsElement =
+                    member.querySelector(
+                        "[data-seconds]"
+                    );
+
+
+                if (daysElement) {
+
+                    daysElement.textContent =
+                        days;
+
+                }
+
+
+                if (hoursElement) {
+
+                    hoursElement.textContent =
+                        String(
+                            hours
+                        ).padStart(
+                            2,
+                            "0"
+                        );
+
+                }
+
+
+                if (minutesElement) {
+
+                    minutesElement.textContent =
+                        String(
+                            minutes
+                        ).padStart(
+                            2,
+                            "0"
+                        );
+
+                }
+
+
+                if (secondsElement) {
+
+                    secondsElement.textContent =
+                        String(
+                            seconds
+                        ).padStart(
+                            2,
+                            "0"
+                        );
+
+                }
+
+            }
+        );
 
     }
 
@@ -452,7 +805,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================================
        KALENDARZ
-       DATA POBIERANA Z URZĄDZENIA
     ========================================= */
 
     const calendar =
@@ -479,6 +831,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById(
             "nextMonth"
         );
+
 
     let calendarDate =
         new Date();
@@ -525,6 +878,7 @@ document.addEventListener("DOMContentLoaded", () => {
             calendarMonth.textContent =
                 monthName.charAt(0).toUpperCase() +
                 monthName.slice(1);
+
         }
 
 
@@ -532,6 +886,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             calendarYear.textContent =
                 year;
+
         }
 
 
@@ -577,6 +932,7 @@ document.addEventListener("DOMContentLoaded", () => {
             calendar.appendChild(
                 emptyDay
             );
+
         }
 
 
@@ -591,8 +947,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     "div"
                 );
 
+
             dayElement.className =
                 "calendar-day";
+
 
             dayElement.textContent =
                 day;
@@ -607,19 +965,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 dayElement.classList.add(
                     "today"
                 );
+
             }
 
 
             calendar.appendChild(
                 dayElement
             );
+
         }
+
     }
 
-
-    /* =========================================
-       POPRZEDNI MIESIĄC
-    ========================================= */
 
     if (previousMonth) {
 
@@ -632,14 +989,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
 
                 renderCalendar();
+
             }
         );
+
     }
 
-
-    /* =========================================
-       NASTĘPNY MIESIĄC
-    ========================================= */
 
     if (nextMonth) {
 
@@ -652,8 +1007,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
 
                 renderCalendar();
+
             }
         );
+
     }
 
 
@@ -661,34 +1018,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================================
-       AKTUALIZACJA KALENDARZA
-    ========================================= */
-
-    setInterval(
-        () => {
-
-            const now =
-                new Date();
-
-            if (
-                now.getDate() !==
-                    calendarDate.getDate() &&
-                now.getMonth() ===
-                    calendarDate.getMonth() &&
-                now.getFullYear() ===
-                    calendarDate.getFullYear()
-            ) {
-
-                renderCalendar();
-            }
-
-        },
-        60000
-    );
-
-
-    /* =========================================
-       NAGŁÓWEK — EFEKT PRZY SCROLLU
+       NAGŁÓWEK — SCROLL
     ========================================= */
 
     const header =
@@ -715,7 +1045,9 @@ document.addEventListener("DOMContentLoaded", () => {
             header.classList.remove(
                 "scrolled"
             );
+
         }
+
     }
 
 
@@ -744,23 +1076,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document
         .querySelectorAll("nav a")
-        .forEach(link => {
+        .forEach(
+            link => {
 
-            const href =
-                link.getAttribute(
-                    "href"
-                );
+                const href =
+                    link.getAttribute(
+                        "href"
+                    );
 
 
-            if (
-                href === currentPage
-            ) {
+                if (
+                    href === currentPage
+                ) {
 
-                link.classList.add(
-                    "active"
-                );
+                    link.classList.add(
+                        "active"
+                    );
+
+                }
+
             }
-        });
+        );
 
 
     /* =========================================
@@ -771,50 +1107,54 @@ document.addEventListener("DOMContentLoaded", () => {
         .querySelectorAll(
             'a[href^="#"]'
         )
-        .forEach(anchor => {
+        .forEach(
+            anchor => {
 
-            anchor.addEventListener(
-                "click",
-                event => {
+                anchor.addEventListener(
+                    "click",
+                    event => {
 
-                    const targetId =
-                        anchor.getAttribute(
-                            "href"
-                        );
+                        const targetId =
+                            anchor.getAttribute(
+                                "href"
+                            );
 
 
-                    if (
-                        targetId === "#"
-                    ) {
-                        return;
+                        if (
+                            targetId === "#"
+                        ) {
+                            return;
+                        }
+
+
+                        const target =
+                            document.querySelector(
+                                targetId
+                            );
+
+
+                        if (!target) {
+                            return;
+                        }
+
+
+                        event.preventDefault();
+
+
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+
                     }
+                );
 
-
-                    const target =
-                        document.querySelector(
-                            targetId
-                        );
-
-
-                    if (!target) {
-                        return;
-                    }
-
-
-                    event.preventDefault();
-
-
-                    target.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-                }
-            );
-        });
+            }
+        );
 
 
     /* =========================================
-       ANIMACJE POJAWIANIA SIĘ
+       ANIMACJE REVEAL
     ========================================= */
 
     const revealElements =
@@ -845,9 +1185,12 @@ document.addEventListener("DOMContentLoaded", () => {
                                 observer.unobserve(
                                     entry.target
                                 );
+
                             }
+
                         }
                     );
+
                 },
                 {
                     threshold: 0.12
@@ -870,78 +1213,84 @@ document.addEventListener("DOMContentLoaded", () => {
                     "visible"
                 )
         );
+
     }
 
 
     /* =========================================
-       RIPPLE NA PRZYCISKACH
+       RIPPLE
     ========================================= */
 
     document
         .querySelectorAll(
             ".button"
         )
-        .forEach(button => {
+        .forEach(
+            button => {
 
-            button.addEventListener(
-                "click",
-                function (event) {
+                button.addEventListener(
+                    "click",
+                    function (event) {
 
-                    const ripple =
-                        document.createElement(
-                            "span"
+                        const ripple =
+                            document.createElement(
+                                "span"
+                            );
+
+
+                        ripple.className =
+                            "button-ripple";
+
+
+                        const rect =
+                            this.getBoundingClientRect();
+
+
+                        const size =
+                            Math.max(
+                                rect.width,
+                                rect.height
+                            );
+
+
+                        ripple.style.width =
+                            `${size}px`;
+
+                        ripple.style.height =
+                            `${size}px`;
+
+
+                        ripple.style.left =
+                            `${event.clientX - rect.left - size / 2}px`;
+
+
+                        ripple.style.top =
+                            `${event.clientY - rect.top - size / 2}px`;
+
+
+                        this.appendChild(
+                            ripple
                         );
 
-                    ripple.className =
-                        "button-ripple";
 
+                        setTimeout(
+                            () => {
 
-                    const rect =
-                        this.getBoundingClientRect();
+                                ripple.remove();
 
-
-                    const size =
-                        Math.max(
-                            rect.width,
-                            rect.height
+                            },
+                            600
                         );
 
+                    }
+                );
 
-                    ripple.style.width =
-                        `${size}px`;
-
-                    ripple.style.height =
-                        `${size}px`;
-
-
-                    ripple.style.left =
-                        `${event.clientX - rect.left - size / 2}px`;
-
-
-                    ripple.style.top =
-                        `${event.clientY - rect.top - size / 2}px`;
-
-
-                    this.appendChild(
-                        ripple
-                    );
-
-
-                    setTimeout(
-                        () => {
-
-                            ripple.remove();
-
-                        },
-                        600
-                    );
-                }
-            );
-        });
+            }
+        );
 
 
     /* =========================================
-       LOGO — LEKKI EFEKT
+       LOGO
     ========================================= */
 
     const logo =
@@ -959,6 +1308,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 logo.classList.add(
                     "logo-hover"
                 );
+
             }
         );
 
@@ -970,13 +1320,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 logo.classList.remove(
                     "logo-hover"
                 );
+
             }
         );
+
     }
 
 
     /* =========================================
-       ESC — ZAMYKANIE ELEMENTÓW
+       ESC
     ========================================= */
 
     document.addEventListener(
@@ -997,9 +1349,12 @@ document.addEventListener("DOMContentLoaded", () => {
                             element.classList.remove(
                                 "open"
                             );
+
                         }
                     );
+
             }
+
         }
     );
 
@@ -1018,6 +1373,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         currentYearElement.textContent =
             new Date().getFullYear();
+
     }
 
 
