@@ -58,25 +58,33 @@
                 ⚙️
             </a>
 
-            <!-- PROFIL UŻYTKOWNIKA -->
+            <!-- LOGOWANIE -->
+            <a
+                href="logowanie.html"
+                id="loginButton"
+                class="settings-button login-button"
+                aria-label="Zaloguj przez Discord"
+                title="Zaloguj przez Discord"
+            >
+                🔵
+            </a>
+
+            <!-- PROFIL DISCORD -->
             <a
                 href="#"
                 id="profileButton"
-                class="profile-button"
-                aria-label="Profil użytkownika"
-                title="Profil użytkownika"
+                class="discord-profile"
+                aria-label="Profil Discord"
+                title="Profil Discord"
                 style="display: none;"
             >
-                <span class="profile-avatar">
-                    👤
-                </span>
-
-                <span
-                    id="profileName"
-                    class="profile-name"
+                <img
+                    id="profileAvatar"
+                    src=""
+                    alt="Profilowe Discord"
                 >
-                    Użytkownik
-                </span>
+
+                <span id="profileName"></span>
             </a>
 
         </div>
@@ -745,6 +753,19 @@
        PROFIL DISCORD
     ========================================= */
 
+    const loginButton =
+        document.getElementById("loginButton");
+
+    const profileButton =
+        document.getElementById("profileButton");
+
+    const profileAvatar =
+        document.getElementById("profileAvatar");
+
+    const profileName =
+        document.getElementById("profileName");
+
+
     const loginParams =
         new URLSearchParams(window.location.search);
 
@@ -754,41 +775,102 @@
     const username =
         loginParams.get("username");
 
+    const avatar =
+        loginParams.get("avatar");
+
+
+    /*
+     * Po powrocie z autoryzacji Discord
+     * zapisujemy dane użytkownika.
+     */
 
     if (
         loginSuccess === "success" &&
         username
     ) {
 
-        const profileButton =
-            document.getElementById("profileButton");
+        localStorage.setItem(
+            "discordUsername",
+            username
+        );
 
-        const profileName =
-            document.getElementById("profileName");
+        if (avatar) {
+
+            localStorage.setItem(
+                "discordAvatar",
+                avatar
+            );
+
+        }
+    }
 
 
-        if (profileButton && profileName) {
+    /*
+     * Pobieramy zapisane dane użytkownika.
+     */
 
-            profileName.textContent =
-                username;
+    const savedUsername =
+        localStorage.getItem("discordUsername");
+
+    const savedAvatar =
+        localStorage.getItem("discordAvatar");
+
+
+    /*
+     * Jeżeli użytkownik jest zalogowany,
+     * pokazujemy profil zamiast przycisku logowania.
+     */
+
+    if (savedUsername) {
+
+        if (loginButton) {
+
+            loginButton.style.display =
+                "none";
+
+        }
+
+        if (profileButton) {
 
             profileButton.style.display =
                 "flex";
 
         }
 
+        if (profileName) {
 
-        /*
-         * Usuwamy parametry logowania z adresu,
-         * żeby po odświeżeniu nie wyglądało,
-         * jakby logowanie odbywało się ponownie.
-         */
+            profileName.textContent =
+                savedUsername;
+
+        }
+
+        if (
+            savedAvatar &&
+            profileAvatar
+        ) {
+
+            profileAvatar.src =
+                savedAvatar;
+
+        }
+
+    }
+
+
+    /*
+     * Usuwamy parametry logowania z adresu.
+     */
+
+    if (
+        loginSuccess === "success"
+    ) {
 
         window.history.replaceState(
             {},
             document.title,
             "index.html"
         );
+
     }
 
 
@@ -809,26 +891,38 @@
 
     function getTimeParts(startDate) {
 
-        const start = new Date(startDate);
-        const now = new Date();
+        const start =
+            new Date(startDate);
 
-        let difference = now - start;
+        const now =
+            new Date();
+
+        let difference =
+            now - start;
 
         if (difference < 0) {
             difference = 0;
         }
 
         const totalSeconds =
-            Math.floor(difference / 1000);
+            Math.floor(
+                difference / 1000
+            );
 
         const days =
-            Math.floor(totalSeconds / 86400);
+            Math.floor(
+                totalSeconds / 86400
+            );
 
         const hours =
-            Math.floor((totalSeconds % 86400) / 3600);
+            Math.floor(
+                (totalSeconds % 86400) / 3600
+            );
 
         const minutes =
-            Math.floor((totalSeconds % 3600) / 60);
+            Math.floor(
+                (totalSeconds % 3600) / 60
+            );
 
         const seconds =
             totalSeconds % 60;
@@ -871,23 +965,34 @@
 
 
         if (daysElement) {
+
             daysElement.textContent =
                 time.days;
+
         }
 
         if (hoursElement) {
+
             hoursElement.textContent =
-                String(time.hours).padStart(2, "0");
+                String(time.hours)
+                    .padStart(2, "0");
+
         }
 
         if (minutesElement) {
+
             minutesElement.textContent =
-                String(time.minutes).padStart(2, "0");
+                String(time.minutes)
+                    .padStart(2, "0");
+
         }
 
         if (secondsElement) {
+
             secondsElement.textContent =
-                String(time.seconds).padStart(2, "0");
+                String(time.seconds)
+                    .padStart(2, "0");
+
         }
     }
 
@@ -919,48 +1024,67 @@
     function animateNumber(element) {
 
         const target =
-            Number(element.dataset.target);
+            Number(
+                element.dataset.target
+            );
 
         if (!Number.isFinite(target)) {
             return;
         }
 
         const duration = 1200;
-        const startTime = performance.now();
+
+        const startTime =
+            performance.now();
 
 
         function animate(currentTime) {
 
             const progress =
                 Math.min(
-                    (currentTime - startTime) / duration,
+                    (currentTime - startTime) /
+                    duration,
                     1
                 );
 
             const eased =
-                1 - Math.pow(1 - progress, 3);
+                1 -
+                Math.pow(
+                    1 - progress,
+                    3
+                );
 
             const value =
-                Math.floor(target * eased);
+                Math.floor(
+                    target * eased
+                );
 
             element.textContent =
-                value.toLocaleString("pl-PL");
+                value.toLocaleString(
+                    "pl-PL"
+                );
 
 
             if (progress < 1) {
 
-                requestAnimationFrame(animate);
+                requestAnimationFrame(
+                    animate
+                );
 
             } else {
 
                 element.textContent =
-                    target.toLocaleString("pl-PL");
+                    target.toLocaleString(
+                        "pl-PL"
+                    );
 
             }
         }
 
 
-        requestAnimationFrame(animate);
+        requestAnimationFrame(
+            animate
+        );
     }
 
 
@@ -993,9 +1117,13 @@
                     const number =
                         entry.target;
 
-                    animateNumber(number);
+                    animateNumber(
+                        number
+                    );
 
-                    observer.unobserve(number);
+                    observer.unobserve(
+                        number
+                    );
 
                 });
 
@@ -1012,7 +1140,9 @@
         )
         .forEach(number => {
 
-            statsObserver.observe(number);
+            statsObserver.observe(
+                number
+            );
 
         });
 
@@ -1031,9 +1161,13 @@
                         return;
                     }
 
-                    entry.target.classList.add("visible");
+                    entry.target.classList.add(
+                        "visible"
+                    );
 
-                    observer.unobserve(entry.target);
+                    observer.unobserve(
+                        entry.target
+                    );
 
                 });
 
@@ -1048,7 +1182,9 @@
         .querySelectorAll(".reveal")
         .forEach(element => {
 
-            revealObserver.observe(element);
+            revealObserver.observe(
+                element
+            );
 
         });
 
