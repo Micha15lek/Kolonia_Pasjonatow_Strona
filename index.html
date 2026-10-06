@@ -50,12 +50,33 @@
             </button>
 
             <a
-                href="ustawienia.html"
+                href="ustawienia.html?from=home"
                 class="settings-button"
                 aria-label="Ustawienia"
                 title="Ustawienia"
             >
                 ⚙️
+            </a>
+
+            <!-- PROFIL UŻYTKOWNIKA -->
+            <a
+                href="#"
+                id="profileButton"
+                class="profile-button"
+                aria-label="Profil użytkownika"
+                title="Profil użytkownika"
+                style="display: none;"
+            >
+                <span class="profile-avatar">
+                    👤
+                </span>
+
+                <span
+                    id="profileName"
+                    class="profile-name"
+                >
+                    Użytkownik
+                </span>
             </a>
 
         </div>
@@ -719,6 +740,57 @@
 <script src="script.js"></script>
 
 <script>
+
+    /* =========================================
+       PROFIL DISCORD
+    ========================================= */
+
+    const loginParams =
+        new URLSearchParams(window.location.search);
+
+    const loginSuccess =
+        loginParams.get("login");
+
+    const username =
+        loginParams.get("username");
+
+
+    if (
+        loginSuccess === "success" &&
+        username
+    ) {
+
+        const profileButton =
+            document.getElementById("profileButton");
+
+        const profileName =
+            document.getElementById("profileName");
+
+
+        if (profileButton && profileName) {
+
+            profileName.textContent =
+                username;
+
+            profileButton.style.display =
+                "flex";
+
+        }
+
+
+        /*
+         * Usuwamy parametry logowania z adresu,
+         * żeby po odświeżeniu nie wyglądało,
+         * jakby logowanie odbywało się ponownie.
+         */
+
+        window.history.replaceState(
+            {},
+            document.title,
+            "index.html"
+        );
+    }
+
 
     /* =========================================
        DATY STARTOWE
