@@ -134,6 +134,74 @@
             letter-spacing: 0.03em;
         }
 
+        .event-filter-panel {
+            margin: 0 0 34px;
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--surface);
+        }
+
+        .event-filter-heading {
+            margin: 0 0 6px;
+            font-size: 1.1rem;
+        }
+
+        .event-filter-help {
+            margin: 0 0 16px;
+            color: var(--text-secondary);
+            font-size: .9rem;
+            line-height: 1.55;
+        }
+
+        .event-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .event-filter {
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: var(--surface-solid);
+            color: var(--text-main);
+            font: inherit;
+            font-size: .88rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+        }
+
+        .event-filter:hover {
+            transform: translateY(-1px);
+            border-color: var(--accent);
+        }
+
+        .event-filter[aria-pressed="true"] {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        .event-filter-result {
+            margin: 14px 0 0;
+            color: var(--text-secondary);
+            font-size: .84rem;
+        }
+
+        .event-card[hidden],
+        .year-block[hidden],
+        .event-archive[hidden] {
+            display: none !important;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .event-filter {
+                transition: none;
+            }
+        }
+
         .event-archive {
             margin-top: 64px;
             padding-top: 34px;
@@ -381,6 +449,18 @@
     </section>
 
     <section class="events-section">
+
+        <section class="event-filter-panel" aria-labelledby="eventFilterTitle">
+            <h2 class="event-filter-heading" id="eventFilterTitle">🔎 Znajdź wydarzenie</h2>
+            <p class="event-filter-help">Wybierz status, aby szybciej znaleźć interesujące Cię wydarzenia. Statusy aktualizują się automatycznie na podstawie dat.</p>
+            <div class="event-filters" role="group" aria-label="Filtruj wydarzenia według statusu">
+                <button class="event-filter" type="button" data-event-filter="all" aria-pressed="true">Wszystkie</button>
+                <button class="event-filter" type="button" data-event-filter="upcoming" aria-pressed="false">🗓️ Nadchodzące</button>
+                <button class="event-filter" type="button" data-event-filter="ongoing" aria-pressed="false">🟢 Trwające</button>
+                <button class="event-filter" type="button" data-event-filter="ended" aria-pressed="false">✓ Zakończone</button>
+            </div>
+            <p class="event-filter-result" id="eventFilterResult" aria-live="polite">Wyświetlane są wszystkie wydarzenia.</p>
+        </section>
 
         <!-- 2026 -->
 
@@ -734,7 +814,53 @@
         }
     });
 
+    function setupEventFilters() {
+        const filterButtons = Array.from(document.querySelectorAll("[data-event-filter]"));
+        const eventCards = Array.from(document.querySelectorAll(".event-card[data-event-start][data-event-end]"));
+        const result = document.getElementById("eventFilterResult");
+
+        function applyFilter(filter) {
+            let visibleCount = 0;
+
+            eventCards.forEach((card) => {
+                const status = card.querySelector("[data-event-status]")?.dataset.status || "upcoming";
+                const visible = filter === "all" || status === filter;
+                card.hidden = !visible;
+                if (visible) visibleCount += 1;
+            });
+
+            document.querySelectorAll(".year-block").forEach((block) => {
+                block.hidden = !Array.from(block.querySelectorAll(".event-card")).some((card) => !card.hidden);
+            });
+
+            document.querySelectorAll(".event-archive").forEach((archive) => {
+                archive.hidden = !Array.from(archive.querySelectorAll(".event-card")).some((card) => !card.hidden);
+            });
+
+            filterButtons.forEach((button) => {
+                button.setAttribute("aria-pressed", String(button.dataset.eventFilter === filter));
+            });
+
+            const labels = {
+                all: "wszystkie",
+                upcoming: "nadchodzące",
+                ongoing: "trwające",
+                ended: "zakończone"
+            };
+            result.textContent = filter === "all"
+                ? `Wyświetlane są wszystkie wydarzenia (${visibleCount}).`
+                : `Wyświetlane: ${visibleCount} — ${labels[filter]}.`;
+        }
+
+        filterButtons.forEach((button) => {
+            button.addEventListener("click", () => applyFilter(button.dataset.eventFilter));
+        });
+
+        applyFilter("all");
+    }
+
     updateEventStatuses();
+    setupEventFilters();
 </script>
 
 <script src="script.js"></script>
