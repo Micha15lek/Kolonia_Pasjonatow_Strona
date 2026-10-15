@@ -3859,3 +3859,158 @@ footer p:first-child { color:var(--text-secondary); }
   .site-header,header,.info-card,.discord-card,.whatsapp-card,.stat-card,.event-card,.discord-cta,.btn,.button { border-color:var(--border-hover); }
   .muted,.text-muted,.hero p,.section-heading p,.section-description { color:var(--text-secondary); }
 }
+
+
+/* =========================================================
+   HOMEPAGE POLISH — PREMIUM LIQUID GLASS
+   Warstwa dopracowująca wygląd bez zmiany HTML/JS i liczników
+========================================================= */
+:root {
+  --glass-highlight: rgba(255,255,255,.13);
+  --glass-highlight-soft: rgba(255,255,255,.055);
+  --glass-depth: 0 22px 70px rgba(0,0,0,.16);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+::selection { background: color-mix(in srgb, var(--accent) 36%, transparent); color: var(--text); }
+
+a { text-underline-offset: 4px; }
+a:focus-visible, button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 82%, white);
+  outline-offset: 4px;
+}
+
+.site-header, header {
+  box-shadow: var(--shadow), inset 0 1px 0 var(--glass-highlight);
+}
+.site-header nav a, header nav a {
+  position: relative;
+  isolation: isolate;
+  transition: color .22s ease, background .28s ease, transform .28s var(--ease);
+}
+.site-header nav a:hover, header nav a:hover {
+  transform: translateY(-1px);
+}
+.site-header nav a.active, header nav a.active {
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
+  color: var(--text);
+}
+.theme-toggle, .settings-button {
+  box-shadow: inset 0 1px 0 var(--glass-highlight), 0 5px 16px rgba(0,0,0,.08);
+}
+.theme-toggle:active, .settings-button:active, .btn:active, .button:active, .home-button:active {
+  transform: translateY(1px) scale(.985);
+}
+
+.hero {
+  isolation: isolate;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+.hero .eyebrow {
+  width: fit-content;
+  max-width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--glass);
+  box-shadow: inset 0 1px 0 var(--glass-highlight);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+}
+.hero h1 {
+  text-wrap: balance;
+  letter-spacing: -.055em;
+}
+.hero p {
+  text-wrap: pretty;
+}
+.btn, .button, .home-button {
+  min-height: 46px;
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 var(--glass-highlight), 0 8px 22px rgba(0,0,0,.10);
+  transition: transform .28s var(--ease), box-shadow .28s ease, background .28s ease, border-color .28s ease;
+}
+.btn-primary {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.23), 0 10px 28px color-mix(in srgb, var(--accent) 24%, transparent);
+}
+.btn:hover, .button:hover, .home-button:hover {
+  box-shadow: inset 0 1px 0 var(--glass-highlight), 0 15px 34px rgba(0,0,0,.16);
+}
+
+.community-grid, .cards-grid, .stats-grid, .events-grid {
+  align-items: stretch;
+}
+.discord-card, .whatsapp-card, .info-card, .stat-card, .event-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  box-shadow: var(--shadow), inset 0 1px 0 var(--glass-highlight);
+  transition: transform .35s var(--ease), border-color .3s ease, background .3s ease, box-shadow .35s ease;
+}
+.discord-card::before, .whatsapp-card::before, .info-card::before, .stat-card::before, .event-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(135deg, var(--glass-highlight-soft), transparent 42%, transparent 70%, color-mix(in srgb, var(--accent) 5%, transparent));
+  opacity: .9;
+}
+.discord-card:hover, .whatsapp-card:hover, .info-card:hover, .stat-card:hover, .event-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--glass-depth), inset 0 1px 0 var(--glass-highlight);
+}
+.info-card h3, .event-card h3, .discord-card h3, .whatsapp-card h3 {
+  text-wrap: balance;
+}
+.info-card p, .event-card p, .discord-card p, .whatsapp-card p {
+  line-height: 1.75;
+}
+.card-icon, .event-icon, .stat-icon {
+  filter: drop-shadow(0 5px 12px color-mix(in srgb, var(--accent) 22%, transparent));
+}
+.stat-number {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.045em;
+}
+.uptime-counter {
+  font-variant-numeric: tabular-nums;
+}
+.event-date, .status-badge {
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--accent) 9%, var(--glass));
+}
+.section-heading h2, .section-header h2 {
+  text-wrap: balance;
+  letter-spacing: -.04em;
+}
+.discord-cta {
+  box-shadow: var(--shadow), inset 0 1px 0 var(--glass-highlight);
+}
+.bottom-links {
+  box-shadow: var(--shadow), inset 0 1px 0 var(--glass-highlight);
+}
+footer { line-height: 1.8; }
+
+/* Mniejsze ekrany: pewniejsze zawijanie długich nazw i przycisków */
+@media (max-width: 720px) {
+  .hero .eyebrow { margin-inline: auto; }
+  .hero-content { width: 100%; }
+  .hero-buttons { justify-content: center; }
+  .community-grid, .cards-grid, .stats-grid, .events-grid { align-items: stretch; }
+  .discord-card, .whatsapp-card, .info-card, .stat-card, .event-card { min-width: 0; }
+  .event-date { max-width: 100%; overflow-wrap: anywhere; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header nav a, header nav a, .btn, .button, .home-button,
+  .discord-card, .whatsapp-card, .info-card, .stat-card, .event-card {
+    transition: none !important;
+  }
+}
