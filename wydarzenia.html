@@ -20,6 +20,35 @@
             gap: 25px;
         }
 
+        .event-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            width: fit-content;
+            margin: 0 0 14px;
+            padding: 7px 11px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: var(--glass);
+            color: var(--text-secondary);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: .02em;
+        }
+
+        .event-status::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            flex: 0 0 7px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        .event-status[data-status="upcoming"] { color: var(--accent); }
+        .event-status[data-status="ongoing"] { color: #22c55e; }
+        .event-status[data-status="ended"] { color: var(--text-secondary); opacity: .8; }
+
         .event-card {
             position: relative;
             padding: 30px;
@@ -289,8 +318,9 @@
 
                 <!-- STREFA ZIMOWA -->
 
-                <article class="event-card reveal">
+                <article class="event-card reveal" data-event-start="2026-11-20" data-event-end="2027-01-31">
 
+                    <span class="event-status" data-event-status data-status="upcoming">Nadchodzące</span>
                     <span class="event-year">2026/2027</span>
 
                     <h3>❄️ Strefa Zimowa 2026/2027</h3>
@@ -307,6 +337,7 @@
                     <div class="event-buttons">
 
                         <button
+                            type="button"
                             class="event-button"
                             onclick="openEventModal('winterSchedule')">
                             📅 Harmonogram
@@ -334,8 +365,9 @@
 
             <div class="events-grid">
 
-                <article class="event-card reveal">
+                <article class="event-card reveal" data-event-start="2027-06-01" data-event-end="2027-08-31">
 
+                    <span class="event-status" data-event-status data-status="upcoming">Nadchodzące</span>
                     <span class="event-year">2027</span>
 
                     <h3>☀️ Strefa Letnia 2027</h3>
@@ -374,6 +406,9 @@
 <div
     class="event-modal"
     id="winterSchedule"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="winterScheduleTitle"
     onclick="closeEventModal(event)">
 
     <div
@@ -381,13 +416,14 @@
         onclick="event.stopPropagation()">
 
         <button
+            type="button"
             class="modal-close"
             onclick="closeEventModal(event)"
             aria-label="Zamknij">
             ✕
         </button>
 
-        <h2>📅 Harmonogram — Strefa Zimowa 2026/2027</h2>
+        <h2 id="winterScheduleTitle">📅 Harmonogram — Strefa Zimowa 2026/2027</h2>
 
         <div class="schedule">
 
@@ -447,6 +483,9 @@
 <div
     class="event-modal"
     id="winterDescription"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="winterDescriptionTitle"
     onclick="closeEventModal(event)">
 
     <div
@@ -460,7 +499,7 @@
             ✕
         </button>
 
-        <h2>❄️ Strefa Zimowa 2026/2027</h2>
+        <h2 id="winterDescriptionTitle">❄️ Strefa Zimowa 2026/2027</h2>
 
         <p>
             Strefa Zimowa to specjalny okres wydarzeń w Kolonii Pasjonatów,
@@ -485,6 +524,9 @@
 <div
     class="event-modal"
     id="summerDescription"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="summerDescriptionTitle"
     onclick="closeEventModal(event)">
 
     <div
@@ -498,7 +540,7 @@
             ✕
         </button>
 
-        <h2>☀️ Strefa Letnia 2027</h2>
+        <h2 id="summerDescriptionTitle">☀️ Strefa Letnia 2027</h2>
 
         <p>
             Strefa Letnia 2027 będzie kolejnym dużym okresem wydarzeń
@@ -521,12 +563,44 @@
 
 
 <script>
+    let lastModalTrigger = null;
+
+    function updateEventStatuses() {
+        const now = new Date();
+        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+        document.querySelectorAll("[data-event-start][data-event-end]").forEach((card) => {
+            const start = new Date(card.dataset.eventStart + "T00:00:00");
+            const end = new Date(card.dataset.eventEnd + "T23:59:59");
+            const badge = card.querySelector("[data-event-status]");
+            if (!badge || Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) return;
+
+            let status;
+            let label;
+            if (today < start) {
+                status = "upcoming";
+                label = "Nadchodzące";
+            } else if (today <= end) {
+                status = "ongoing";
+                label = "Trwa";
+            } else {
+                status = "ended";
+                label = "Zakończone";
+            }
+
+            badge.dataset.status = status;
+            badge.textContent = label;
+        });
+    }
+
     function openEventModal(id) {
         const modal = document.getElementById(id);
 
         if (modal) {
+            lastModalTrigger = document.activeElement;
             modal.classList.add("active");
             document.body.style.overflow = "hidden";
+            modal.querySelector(".modal-close")?.focus();
         }
     }
 
@@ -542,6 +616,7 @@
         if (modal) {
             modal.classList.remove("active");
             document.body.style.overflow = "";
+            lastModalTrigger?.focus();
             return;
         }
 
@@ -559,8 +634,11 @@
             });
 
             document.body.style.overflow = "";
+            lastModalTrigger?.focus();
         }
     });
+
+    updateEventStatuses();
 </script>
 
 <script src="script.js"></script>
