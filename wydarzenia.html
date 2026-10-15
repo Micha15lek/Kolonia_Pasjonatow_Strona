@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+        .event-search-label { display:block; margin:18px 0 8px; font-weight:800; }
+        .event-search-input { width:100%; max-width:560px; min-height:48px; padding:12px 15px; border:1px solid var(--border); border-radius:14px; background:var(--card); color:var(--text); font:inherit; }
+        .event-search-input:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+        .event-filter-panel [hidden], .event-card[hidden], .year-block[hidden], .event-archive[hidden] { display:none !important; }
+
         .events-section {
             max-width: 1200px;
             margin: 0 auto;
@@ -453,6 +458,8 @@
         <section class="event-filter-panel" aria-labelledby="eventFilterTitle">
             <h2 class="event-filter-heading" id="eventFilterTitle">🔎 Znajdź wydarzenie</h2>
             <p class="event-filter-help">Wybierz status, aby szybciej znaleźć interesujące Cię wydarzenia. Statusy aktualizują się automatycznie na podstawie dat.</p>
+            <label class="event-search-label" for="eventSearch">Szukaj po nazwie lub opisie</label>
+            <input class="event-search-input" id="eventSearch" type="search" placeholder="Np. strefa zimowa, kolej, lato..." autocomplete="off">
             <div class="event-filters" role="group" aria-label="Filtruj wydarzenia według statusu">
                 <button class="event-filter" type="button" data-event-filter="all" aria-pressed="true">Wszystkie</button>
                 <button class="event-filter" type="button" data-event-filter="upcoming" aria-pressed="false">🗓️ Nadchodzące</button>
@@ -818,13 +825,18 @@
         const filterButtons = Array.from(document.querySelectorAll("[data-event-filter]"));
         const eventCards = Array.from(document.querySelectorAll(".event-card[data-event-start][data-event-end]"));
         const result = document.getElementById("eventFilterResult");
+        const searchInput = document.getElementById("eventSearch");
 
         function applyFilter(filter) {
             let visibleCount = 0;
+            const query = (searchInput?.value || "").trim().toLocaleLowerCase("pl");
 
             eventCards.forEach((card) => {
                 const status = card.querySelector("[data-event-status]")?.dataset.status || "upcoming";
-                const visible = filter === "all" || status === filter;
+                const text = (card.innerText || card.textContent || "").toLocaleLowerCase("pl");
+                const matchesStatus = filter === "all" || status === filter;
+                const matchesSearch = !query || text.includes(query);
+                const visible = matchesStatus && matchesSearch;
                 card.hidden = !visible;
                 if (visible) visibleCount += 1;
             });
@@ -854,6 +866,11 @@
 
         filterButtons.forEach((button) => {
             button.addEventListener("click", () => applyFilter(button.dataset.eventFilter));
+        });
+
+        searchInput?.addEventListener("input", () => {
+            const activeFilter = filterButtons.find((button) => button.getAttribute("aria-pressed") === "true")?.dataset.eventFilter || "all";
+            applyFilter(activeFilter);
         });
 
         applyFilter("all");
