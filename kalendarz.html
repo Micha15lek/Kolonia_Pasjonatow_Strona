@@ -151,38 +151,63 @@
             margin-top: 3px;
         }
 
-        .event-marker {
-            margin-top: 8px;
-            font-size: 0.72rem;
-            font-weight: 800;
-            line-height: 1.2;
+        /* W kalendarzu pokazujemy oznaczenia, a nie długie tytuły. */
+        .day.event-day {
+            border-width: 2px;
         }
 
+        .day.event-day.event-day-event,
         .event-marker.event {
+            border-color: #58a6ff;
             color: #58a6ff;
         }
 
+        .day.event-day.event-day-update,
         .event-marker.update {
+            border-color: #f2cc60;
             color: #f2cc60;
         }
 
+        .day.event-day.event-day-important,
         .event-marker.important {
+            border-color: #ff7b72;
             color: #ff7b72;
         }
 
+        .day.event-day.event-day-special,
         .event-marker.special {
+            border-color: #bc8cff;
             color: #bc8cff;
+        }
+
+        .event-marker,
+        .birthday-marker {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 28px;
+            min-height: 28px;
+            margin-top: 7px;
+            padding: 3px 6px;
+            border: 1px solid currentColor;
+            border-radius: 9px;
+            background: var(--surface);
+            font-size: 1rem;
+            font-weight: 800;
+            line-height: 1;
         }
 
         .birthday-marker {
             color: #ff9ecb;
-            margin-top: 8px;
-            font-size: 0.72rem;
-            font-weight: 900;
+            border-color: #ff9ecb;
         }
 
-        .birthday-day {
-            border-color: #ff9ecb !important;
+        .day.birthday-day {
+            border-color: #ff9ecb;
+        }
+
+        .day.birthday-day.event-day {
+            box-shadow: inset 0 0 0 1px #ff9ecb;
         }
 
         .event-info {
@@ -1304,8 +1329,9 @@ function renderCalendar() {
             birthdayMarker.className =
                 "birthday-marker";
 
-            birthdayMarker.textContent =
-                `🎂 ${birthday.name}`;
+            birthdayMarker.textContent = "🎂";
+            birthdayMarker.setAttribute("aria-label", `Urodziny: ${birthday.name}`);
+            birthdayMarker.title = `Urodziny: ${birthday.name}`;
 
             dayElement.appendChild(
                 birthdayMarker
@@ -1338,11 +1364,23 @@ function renderCalendar() {
             const marker =
                 document.createElement("div");
 
+            const eventIcons = {
+                event: "📅",
+                update: "🔧",
+                important: "⚠️",
+                special: "⭐"
+            };
+            const eventIcon = eventIcons[event.type] || "📌";
+
             marker.className =
                 `event-marker ${event.type}`;
 
-            marker.textContent =
-                event.title;
+            marker.textContent = eventIcon;
+            marker.setAttribute("aria-label", event.title);
+            marker.title = event.title;
+
+            dayElement.classList.add("event-day", `event-day-${event.type}`);
+            dayElement.setAttribute("aria-label", `${day} ${monthNames[month]} ${year}: ${event.title}`);
 
             dayElement.appendChild(
                 marker
