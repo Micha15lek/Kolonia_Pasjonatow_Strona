@@ -912,6 +912,54 @@
 
         }
 
+        .accessibility-settings {
+            margin: 34px 0;
+            padding: 26px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--card);
+            box-shadow: var(--shadow);
+        }
+
+        .accessibility-settings h2 {
+            margin: 0 0 8px;
+        }
+
+        .accessibility-settings p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .font-size-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .font-size-option {
+            min-width: 100px;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--glass);
+            color: var(--text);
+            font: inherit;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .font-size-option[aria-pressed="true"] {
+            border-color: var(--accent);
+            background: color-mix(in srgb, var(--accent) 15%, var(--card));
+            box-shadow: var(--glow);
+        }
+
+        .font-size-option:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+        }
+
     </style>
 
 </head>
@@ -1267,6 +1315,22 @@
                 </div>
 
             </div>
+
+
+            <!-- =================================
+                 DOSTĘPNOŚĆ
+            ================================== -->
+            <section class="accessibility-settings" aria-labelledby="accessibilityTitle">
+                <span class="eyebrow">♿ WYGODA KORZYSTANIA</span>
+                <h2 id="accessibilityTitle">Rozmiar tekstu</h2>
+                <p>Wybierz wielkość tekstu odpowiednią dla siebie. Ustawienie zostanie zapamiętane i zastosowane na wszystkich podstronach.</p>
+                <div class="font-size-options" role="group" aria-label="Wybór rozmiaru tekstu">
+                    <button class="font-size-option" type="button" data-font-size="14" aria-pressed="false">A− Mały</button>
+                    <button class="font-size-option" type="button" data-font-size="16" aria-pressed="true">A Standardowy</button>
+                    <button class="font-size-option" type="button" data-font-size="18" aria-pressed="false">A+ Duży</button>
+                </div>
+                <p id="fontSizeStatus" aria-live="polite">Wybrany rozmiar: standardowy.</p>
+            </section>
 
 
             <!-- =================================
