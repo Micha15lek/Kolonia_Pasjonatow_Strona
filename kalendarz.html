@@ -184,22 +184,61 @@
         .birthday-marker {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            min-width: 28px;
+            gap: 6px;
+            max-width: 100%;
             min-height: 28px;
             margin-top: 7px;
-            padding: 3px 6px;
+            padding: 4px 7px;
             border: 1px solid currentColor;
             border-radius: 9px;
             background: var(--surface);
-            font-size: 1rem;
+            font-size: 0.72rem;
             font-weight: 800;
-            line-height: 1;
+            line-height: 1.2;
+        }
+
+        .event-marker-icon,
+        .birthday-marker-icon {
+            flex: 0 0 auto;
+            font-size: 1rem;
+        }
+
+        .event-marker-text {
+            overflow-wrap: anywhere;
         }
 
         .birthday-marker {
             color: #ff9ecb;
             border-color: #ff9ecb;
+        }
+
+        /* Na wąskich ekranach zachowujemy wyłącznie kolorowe obramowanie. */
+        @media (max-width: 600px) {
+            .event-marker,
+            .birthday-marker {
+                width: 26px;
+                min-width: 26px;
+                height: 9px;
+                min-height: 9px;
+                margin-top: 6px;
+                padding: 0;
+                border-width: 2px;
+                border-radius: 5px;
+                background: transparent;
+                font-size: 0;
+                overflow: hidden;
+            }
+
+            .event-marker-icon,
+            .event-marker-text,
+            .birthday-marker-icon {
+                display: none;
+            }
+
+            .day {
+                min-height: 76px;
+                padding: 6px;
+            }
         }
 
         .day.birthday-day {
@@ -1329,7 +1368,8 @@ function renderCalendar() {
             birthdayMarker.className =
                 "birthday-marker";
 
-            birthdayMarker.textContent = "🎂";
+            birthdayMarker.innerHTML = '<span class="birthday-marker-icon" aria-hidden="true">🎂</span><span class="event-marker-text"></span>';
+            birthdayMarker.querySelector(".event-marker-text").textContent = birthday.name;
             birthdayMarker.setAttribute("aria-label", `Urodziny: ${birthday.name}`);
             birthdayMarker.title = `Urodziny: ${birthday.name}`;
 
@@ -1375,7 +1415,9 @@ function renderCalendar() {
             marker.className =
                 `event-marker ${event.type}`;
 
-            marker.textContent = eventIcon;
+            marker.innerHTML = '<span class="event-marker-icon" aria-hidden="true"></span><span class="event-marker-text"></span>';
+            marker.querySelector(".event-marker-icon").textContent = eventIcon;
+            marker.querySelector(".event-marker-text").textContent = event.title;
             marker.setAttribute("aria-label", event.title);
             marker.title = event.title;
 
