@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const COLONY_START_DATE = "2026-06-11T00:00:00";
     const WEBSITE_START_DATE = "2026-08-13T20:10:00";
-    const MEMBERS_COUNT = 20;
+    const MEMBERS_COUNT = 21;
 
 
     /* =========================================
