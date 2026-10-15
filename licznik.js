@@ -67,12 +67,6 @@ const YEAR_EVENTS = {
 
 const COLONY_EVENTS = {
 
-    autumn: {
-        start: "2026-09-23T00:00:00",
-        end: "2026-10-09T23:59:59",
-        activeMessage: "🟢 Konkurs trwa! 🍂📸"
-    },
-
     winter: {
         start: "2026-11-20T00:00:00",
         end: "2027-01-31T23:59:59",
@@ -639,12 +633,6 @@ function updateAll() {
 
 
     /* WYDARZENIA KOLONII */
-
-    updateColonyEvent(
-        COLONY_EVENTS.autumn,
-        "autumnEventCountdown"
-    );
-
 
     updateColonyEvent(
         COLONY_EVENTS.winter,
