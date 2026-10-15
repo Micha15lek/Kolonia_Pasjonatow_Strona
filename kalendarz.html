@@ -138,6 +138,11 @@
             box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.12);
         }
 
+        .holiday-highlight {
+            border: 2px solid #f2cc60 !important;
+            box-shadow: 0 0 0 3px rgba(242, 204, 96, 0.16);
+        }
+
         .today-label {
             display: block;
             color: var(--primary);
@@ -326,6 +331,12 @@
             .event-marker,
             .birthday-marker {
                 display: none;
+            }
+
+            .day.holiday-highlight .event-marker {
+                display: block;
+                font-size: 0.58rem;
+                overflow-wrap: anywhere;
             }
         }
     </style>
@@ -944,16 +955,28 @@ function getEventForDate(date) {
     const dateString =
         formatDate(date);
 
-
     /*
-       Najpierw wydarzenia jednorazowe.
-       Dzięki temu wydarzenia Kolonii mają pierwszeństwo
-       przed zwykłymi świętami.
+       Wigilia i Sylwester są pokazywane jako zwykłe,
+       coroczne daty — także podczas wydarzeń Kolonii.
     */
+    const highlightedHoliday = yearlyEvents.find(event => {
+        return (
+            (event.month === 12 && event.day === 24 && date.getMonth() === 11 && date.getDate() === 24) ||
+            (event.month === 12 && event.day === 31 && date.getMonth() === 11 && date.getDate() === 31)
+        );
+    });
+
+    if (highlightedHoliday) {
+        return {
+            ...highlightedHoliday,
+            start: dateString,
+            end: dateString
+        };
+    }
 
     /*
-       Najpierw wydarzenia jednorazowe. Strefa Zimowa jest
-       drugorzędna, aby nie zasłaniała świąt i ważnych dat.
+       Pozostałe wydarzenia jednorazowe mają pierwszeństwo
+       przed corocznymi datami. Strefa Zimowa jest drugorzędna.
     */
 
     const oneTimeEvent =
@@ -1306,6 +1329,17 @@ function renderCalendar() {
                 birthdayMarker
             );
 
+        }
+
+
+        /*
+           OBRAMOWANIE WIGILII I SYLWESTRA
+        */
+
+        if (
+            (month === 11 && (day === 24 || day === 31))
+        ) {
+            dayElement.classList.add("holiday-highlight");
         }
 
 
