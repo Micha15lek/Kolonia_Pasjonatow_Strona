@@ -559,9 +559,9 @@ const oneTimeEvents = [
     {
         start: "2026-11-20",
         end: "2027-01-31",
-        title: "❄️🎄 STREFA ZIMOWA 2026/2027",
-        type: "special",
-        description: "Pierwsza Strefa Zimowa Kolonii Pasjonatów! Start 20.11.2026 o 18:00, zakończenie 31.01.2027 o 21:00. W programie m.in. Mikołajki, wydarzenia świąteczne, Sylwester, konkursy, quizy oraz zimowe atrakcje."
+        title: "❄️🎄 Strefa Zimowa 2026/2027",
+        type: "event",
+        description: "Dodatkowe wydarzenie sezonowe Kolonii Pasjonatów. Strefa Zimowa potrwa od 20.11.2026 o 18:00 do 31.01.2027 o 21:00. W tym okresie pierwszeństwo w kalendarzu mają święta i inne ważne daty."
     },
 
     {
@@ -656,6 +656,22 @@ const yearlyEvents = [
         title: "👑 Święto Trzech Króli",
         type: "important",
         description: "Uroczystość Objawienia Pańskiego."
+    },
+
+    {
+        month: 1,
+        day: 21,
+        title: "🌷 Dzień Babci",
+        type: "event",
+        description: "Dzień Babci — okazja do złożenia życzeń wszystkim babciom."
+    },
+
+    {
+        month: 1,
+        day: 22,
+        title: "💐 Dzień Dziadka",
+        type: "event",
+        description: "Dzień Dziadka — okazja do złożenia życzeń wszystkim dziadkom."
     },
 
     {
@@ -767,10 +783,26 @@ const yearlyEvents = [
 
     {
         month: 12,
+        day: 4,
+        title: "⛏️ Barbórka — Dzień Górnika",
+        type: "event",
+        description: "Barbórka, tradycyjne święto górników i osób związanych z górnictwem."
+    },
+
+    {
+        month: 12,
         day: 6,
         title: "🎅 Mikołajki",
         type: "event",
         description: "Mikołajki."
+    },
+
+    {
+        month: 12,
+        day: 24,
+        title: "🎄 Wigilia Bożego Narodzenia",
+        type: "important",
+        description: "Wigilia Bożego Narodzenia — dzień poprzedzający pierwszy dzień świąt."
     },
 
     {
@@ -919,10 +951,16 @@ function getEventForDate(date) {
        przed zwykłymi świętami.
     */
 
+    /*
+       Najpierw wydarzenia jednorazowe. Strefa Zimowa jest
+       drugorzędna, aby nie zasłaniała świąt i ważnych dat.
+    */
+
     const oneTimeEvent =
         oneTimeEvents.find(event => {
 
             return (
+                event.title !== "❄️🎄 Strefa Zimowa 2026/2027" &&
                 dateString >= event.start &&
                 dateString <= event.end
             );
@@ -936,7 +974,7 @@ function getEventForDate(date) {
 
 
     /*
-       Następnie wydarzenia coroczne.
+       Następnie święta i daty coroczne.
     */
 
     const yearlyEvent =
@@ -954,11 +992,31 @@ function getEventForDate(date) {
 
         return {
             ...yearlyEvent,
-
             start: dateString,
             end: dateString
         };
 
+    }
+
+
+    /*
+       Strefa Zimowa pokazuje się tylko wtedy, gdy danego dnia
+       nie ma ważniejszego wydarzenia ani święta.
+    */
+
+    const winterZone =
+        oneTimeEvents.find(event => {
+
+            return (
+                event.title === "❄️🎄 Strefa Zimowa 2026/2027" &&
+                dateString >= event.start &&
+                dateString <= event.end
+            );
+
+        });
+
+    if (winterZone) {
+        return winterZone;
     }
 
 
