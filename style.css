@@ -4664,3 +4664,298 @@ body {
         animation: none !important;
     }
 }
+
+
+/* =========================================================
+   RESPONSYWNOŚĆ 2.4 — HOME / TELEFONY / TABLETY
+   Dodatkowe nadpisania po Liquid Glass; bez zmian w JS.
+========================================================= */
+.home-page,
+.home-page body {
+    max-width: 100%;
+}
+.home-page main,
+.home-page .hero,
+.home-page .section,
+.home-page .community-grid,
+.home-page .section-heading,
+.home-page .hero-content {
+    min-width: 0;
+    box-sizing: border-box;
+}
+.home-page img,
+.home-page video,
+.home-page iframe {
+    max-width: 100%;
+}
+.home-page h1,
+.home-page h2,
+.home-page h3,
+.home-page p,
+.home-page a {
+    overflow-wrap: anywhere;
+}
+.home-page .hero p,
+.home-page .section-heading p {
+    text-wrap: pretty;
+}
+.home-page .site-header,
+.home-page .site-header * {
+    box-sizing: border-box;
+}
+.home-page .site-header .header-inner {
+    min-width: 0;
+}
+@media (min-width: 721px) and (max-width: 980px) {
+    .home-page .header-inner {
+        gap: 8px;
+        padding-inline: 12px;
+    }
+    .home-page .logo {
+        max-width: 175px;
+        font-size: clamp(10px, 1.3vw, 13px);
+        line-height: 1.2;
+    }
+    .home-page .site-header nav {
+        flex: 1 1 auto;
+        min-width: 0;
+        gap: 1px;
+    }
+    .home-page .site-header nav a {
+        padding-inline: 6px;
+        font-size: 10px;
+        white-space: normal;
+        text-align: center;
+    }
+    .home-page .header-actions {
+        gap: 5px;
+        flex-shrink: 0;
+    }
+}
+@media (max-width: 720px) {
+    html {
+        overflow-x: clip;
+        scroll-padding-top: 100px;
+    }
+    body.home-page {
+        width: 100%;
+        min-width: 320px;
+        padding-top: 86px;
+        overflow-x: clip;
+        background-attachment: scroll;
+    }
+    .home-page .site-header {
+        z-index: 1000;
+        width: calc(100% - 14px);
+        max-width: none;
+        top: 7px;
+        left: 7px;
+        right: 7px;
+    }
+    .home-page .site-header .header-inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        padding: 10px;
+    }
+    .home-page .site-header .logo {
+        order: 0;
+        flex: 1 1 110px;
+        min-width: 0;
+        max-width: calc(100% - 150px);
+        font-size: clamp(10px, 3.1vw, 13px);
+        letter-spacing: -.02em;
+        line-height: 1.2;
+        overflow-wrap: anywhere;
+    }
+    .home-page .site-header .mobile-nav-toggle {
+        order: 1;
+        min-height: 42px;
+        min-width: 82px;
+        padding-inline: 10px;
+        flex-shrink: 0;
+        border-radius: 13px;
+        background: color-mix(in srgb, var(--glass-strong) 88%, transparent);
+        -webkit-backdrop-filter: blur(18px) saturate(145%);
+        backdrop-filter: blur(18px) saturate(145%);
+    }
+    .home-page .site-header .header-actions {
+        order: 2;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-left: 0;
+        flex-shrink: 0;
+    }
+    .home-page .site-header nav,
+    .home-page .site-header nav.mobile-nav-open {
+        order: 3;
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: min(60svh, 390px);
+        margin: 2px 0 0;
+        padding: 8px;
+        gap: 5px;
+        border-radius: 17px;
+        background: color-mix(in srgb, var(--bg-secondary) 91%, transparent);
+        -webkit-backdrop-filter: blur(24px) saturate(150%);
+        backdrop-filter: blur(24px) saturate(150%);
+    }
+    .home-page .site-header nav a {
+        display: flex;
+        align-items: center;
+        min-height: 46px;
+        padding: 11px 13px;
+        border-radius: 12px;
+        font-size: 14px;
+        line-height: 1.35;
+    }
+    .home-page .site-header nav a.active {
+        background: color-mix(in srgb, var(--accent) 13%, transparent);
+    }
+    .home-page main {
+        width: 100%;
+        max-width: 100%;
+        overflow: clip;
+    }
+    .home-page .hero {
+        width: calc(100% - 24px);
+        min-height: auto;
+        margin: 10px auto 34px;
+        padding: clamp(44px, 12vw, 66px) clamp(18px, 5vw, 28px);
+        border-radius: 28px;
+    }
+    .home-page .hero h1 {
+        max-width: 100%;
+        margin: 23px auto 18px;
+        font-size: clamp(2.25rem, 10.5vw, 4.1rem);
+        line-height: 1.02;
+        letter-spacing: -.065em;
+    }
+    .home-page .hero h1 span {
+        overflow-wrap: anywhere;
+    }
+    .home-page .hero .eyebrow {
+        max-width: 100%;
+        justify-content: center;
+        padding: 9px 12px;
+        font-size: 10px;
+        line-height: 1.4;
+        letter-spacing: .09em;
+        text-align: center;
+    }
+    .home-page .hero p {
+        max-width: 36rem;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+    .home-page .hero-buttons {
+        width: 100%;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+        margin-top: 26px;
+    }
+    .home-page .hero-buttons .btn {
+        width: 100%;
+        min-width: 0;
+        min-height: 48px;
+        padding: 13px 16px;
+        justify-content: center;
+        text-align: center;
+    }
+    .home-page .section,
+    .home-page .community-grid {
+        width: calc(100% - 28px);
+        max-width: 100%;
+    }
+    .home-page .section {
+        padding-block: 34px;
+        margin-bottom: 24px;
+    }
+    .home-page .section-heading {
+        margin-bottom: 24px;
+        text-align: center;
+    }
+    .home-page .section-heading h2 {
+        margin-top: 14px;
+        font-size: clamp(1.8rem, 7.4vw, 2.5rem);
+        line-height: 1.12;
+        letter-spacing: -.045em;
+    }
+    .home-page .section-heading p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+    .home-page .community-grid {
+        gap: 14px;
+        margin-bottom: 26px;
+    }
+    .home-page .discord-card,
+    .home-page .whatsapp-card,
+    .home-page .info-card,
+    .home-page .stat-card,
+    .home-page .event-card,
+    .home-page .update-card {
+        width: 100%;
+        min-width: 0;
+        padding: clamp(18px, 5vw, 23px);
+        border-radius: 21px;
+    }
+    .home-page .stat-number {
+        font-size: clamp(2rem, 9vw, 3rem);
+    }
+    .home-page .section-action,
+    .home-page .section-action .btn {
+        width: 100%;
+    }
+    .home-page footer {
+        overflow-wrap: anywhere;
+    }
+}
+@media (max-width: 380px) {
+    .home-page .site-header .header-inner {
+        gap: 6px;
+        padding: 8px;
+    }
+    .home-page .site-header .logo {
+        flex-basis: 92px;
+        max-width: calc(100% - 140px);
+        font-size: 10px;
+    }
+    .home-page .site-header .mobile-nav-toggle {
+        min-width: 72px;
+        padding-inline: 8px;
+        gap: 6px;
+    }
+    .home-page .site-header .header-actions {
+        gap: 4px;
+    }
+    .home-page .theme-toggle,
+    .home-page .settings-button {
+        width: 34px;
+        height: 34px;
+    }
+    .home-page .hero {
+        width: calc(100% - 18px);
+        padding-inline: 16px;
+        border-radius: 23px;
+    }
+    .home-page .hero h1 {
+        font-size: clamp(2rem, 10.4vw, 2.5rem);
+    }
+    .home-page .section,
+    .home-page .community-grid {
+        width: calc(100% - 22px);
+    }
+}
+@media (hover: none) {
+    .home-page .info-card:hover,
+    .home-page .event-card:hover,
+    .home-page .stat-card:hover,
+    .home-page .update-card:hover {
+        transform: none;
+    }
+}
