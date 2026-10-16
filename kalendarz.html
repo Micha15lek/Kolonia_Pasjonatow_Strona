@@ -495,7 +495,7 @@
 
     <section class="calendar-navigation">
 
-        <button id="previousMonth">
+        <button id="previousMonth" type="button" aria-label="Poprzedni miesiąc">
             ← Poprzedni
         </button>
 
@@ -504,25 +504,32 @@
             id="monthTitle">
         </div>
 
-        <button id="nextMonth">
+        <button id="nextMonth" type="button" aria-label="Następny miesiąc">
             Następny →
         </button>
 
     </section>
+
+<nav class="page-quick-nav" aria-label="Szybka nawigacja kalendarza">
+  <a href="#widok-kalendarza">🗓️ Widok kalendarza</a>
+  <a href="#legenda-kalendarza">ℹ️ Legenda</a>
+</nav>
 
 
     <div class="today-button-wrapper">
 
         <button
             id="todayButton"
-            class="today-button">
+            type="button"
+            class="today-button"
+            aria-label="Przejdź do bieżącego miesiąca">
             📍 Dzisiaj
         </button>
 
     </div>
 
 
-    <section class="calendar">
+    <section class="calendar" id="widok-kalendarza">
 
         <div class="weekdays">
 
@@ -567,7 +574,7 @@
 
     <section class="legend">
 
-        <h3>Legenda</h3>
+        <h3 id="legenda-kalendarza">Legenda</h3>
 
         <div class="legend-items">
 
