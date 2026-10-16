@@ -7,13 +7,26 @@
 <title>Galeria społeczności | Kolonia Pasjonatów</title>
 <link rel="stylesheet" href="style.css">
 <style>
+
+/* Nawigacja tej podstrony: jeden zwykły przycisk powrotu. */
+@media (max-width: 720px) {
+  header.site-header .header-inner { position: relative; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 12px !important; padding: 16px 12px !important; text-align: center !important; }
+  header.site-header .logo { display: block; width: 100%; margin: 0 !important; text-align: center !important; }
+  header.site-header .header-actions { position: absolute; top: 10px; right: 10px; display: flex; gap: 6px; }
+  header.site-header nav[aria-label="Nawigacja podstrony"] { display: flex !important; position: static !important; width: 100% !important; align-items: center !important; justify-content: center !important; margin: 0 !important; padding: 0 !important; border: 0 !important; background: transparent !important; box-shadow: none !important; }
+  header.site-header nav[aria-label="Nawigacja podstrony"] a.home-return-button { display: inline-flex !important; align-items: center !important; justify-content: center !important; width: auto !important; min-width: 0 !important; max-width: calc(100% - 16px) !important; min-height: 42px !important; margin: 0 auto !important; padding: 10px 16px !important; border: 1px solid var(--border) !important; border-radius: 8px !important; background: var(--surface, var(--bg-secondary)) !important; color: var(--text) !important; font: 600 14px/1.3 var(--font-main, inherit) !important; text-align: center !important; text-decoration: none !important; box-shadow: none !important; }
+  header.site-header nav[aria-label="Nawigacja podstrony"] a.home-return-button::before, header.site-header nav[aria-label="Nawigacja podstrony"] a.home-return-button::after { content: none !important; display: none !important; }
+  header.site-header nav[aria-label="Nawigacja podstrony"] a:not(.home-return-button) { display: none !important; }
+  header.site-header .mobile-nav-toggle { display: none !important; }
+}
+
 .gallery-intro{max-width:780px;margin:0 auto 24px;text-align:center;color:var(--text-secondary);line-height:1.7}.gallery-tools{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(190px,1fr);gap:12px;max-width:850px;margin:0 auto 24px}.gallery-search,.gallery-category{width:100%;min-width:0;min-height:48px;padding:12px 14px;border:1px solid var(--border);border-radius:14px;background:var(--surface);color:var(--text);font:inherit}.gallery-result{max-width:850px;margin:0 auto 18px;color:var(--text-secondary);font-size:.9rem}.gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.gallery-card{padding:25px;border:1px solid var(--border);border-radius:22px;background:var(--card);box-shadow:var(--shadow);min-height:230px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s ease,border-color .2s ease}.gallery-card:hover{transform:translateY(-3px);border-color:var(--accent)}.gallery-card[hidden]{display:none!important}.gallery-symbol{font-size:2.5rem;margin-bottom:18px}.gallery-card h2{font-size:1.2rem;margin:0 0 10px}.gallery-card p{color:var(--text-secondary);line-height:1.65;margin:0}.gallery-note{margin-top:26px;padding:18px 20px;border:1px dashed var(--border);border-radius:18px;color:var(--text-secondary);line-height:1.65}.gallery-empty{padding:22px;border:1px dashed var(--border);border-radius:16px;text-align:center;color:var(--text-secondary)}.gallery-empty[hidden]{display:none!important}
 @media(max-width:800px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.gallery-tools{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr}.gallery-card{min-height:180px}.gallery-search,.gallery-category{font-size:16px}}@media(prefers-reduced-motion:reduce){.gallery-card{transition:none}}
 </style>
 </head>
 <body data-theme="blue" data-mode="dark">
-<header class="site-header"><div class="header-inner"><a href="index.html" class="logo" aria-label="Kolonia Pasjonatów — strona główna">KOLONIA PASJONATÓW</a><nav aria-label="Nawigacja podstrony">
-            <a href="index.html" class="active" aria-label="Powrót do strony głównej">🏠 Strona główna</a>
+<header class="site-header subpage-return-header"><div class="header-inner"><a href="index.html" class="logo" aria-label="Kolonia Pasjonatów — strona główna">KOLONIA PASJONATÓW</a><nav class="subpage-return-nav" aria-label="Nawigacja podstrony">
+            <a href="index.html" class="active home-return-button" aria-label="Powrót do strony głównej">← Powrót do strony głównej</a>
         </nav><div class="header-actions"><button id="themeToggle" class="theme-toggle" type="button" aria-label="Zmień tryb">🌙</button><a href="ustawienia.html" class="settings-button" aria-label="Ustawienia">⚙️</a></div></div></header>
 <main><section class="hero"><div class="hero-content"><span class="eyebrow">📸 WSPÓLNE ZAINTERESOWANIA</span><h1>Galeria <span>społeczności</span></h1><p>Miejsce na wspomnienia, pasje i materiały tworzone przez członków Kolonii.</p></div></section>
 <section class="section"><div class="container"><p class="gallery-intro">Przygotowaliśmy układ galerii, który można uzupełniać zdjęciami ze spotkań, kolei, komunikacji i wspólnych aktywności. Na razie nie dodajemy fikcyjnych zdjęć ani nie podpisujemy materiałów, których jeszcze nie otrzymaliśmy.</p>
