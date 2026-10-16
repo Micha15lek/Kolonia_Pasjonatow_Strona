@@ -33,17 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (homeLink) {
                 homeLink.classList.add("mobile-home-link");
             }
-            mobileSubpages.forEach(([file, label]) => {
-                const link = document.createElement("a");
-                link.href = file;
-                link.textContent = label;
-                link.className = "mobile-subpage-link";
-                if (file === currentFile) {
-                    link.classList.add("active");
-                    link.setAttribute("aria-current", "page");
-                }
-                mainNav.appendChild(link);
-            });
+            /* Na podstronach pozostaje wyłącznie link powrotu do strony głównej. */
+
         }
         mainNav.parentNode.insertBefore(navToggle, mainNav);
 
