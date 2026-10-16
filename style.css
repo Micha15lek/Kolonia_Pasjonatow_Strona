@@ -4015,3 +4015,29 @@ footer { line-height: 1.8; }
   }
 }
 
+
+
+/* DOPRACOWANIE RESPONSYWNOŚCI — październik 2026 */
+img, video, iframe { max-width: 100%; }
+main, section, article, .container, .header-inner { min-width: 0; }
+h1, h2, h3, p, a, button, label { overflow-wrap: anywhere; }
+input, select, textarea, button { max-width: 100%; }
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+@media (max-width: 720px) {
+  .event-filter-panel { padding: 17px; border-radius: 16px; }
+  .event-search-input { display: block; width: 100%; max-width: none; min-width: 0; font-size: 16px; }
+  .event-filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .event-filter { min-width: 0; padding: 10px 8px; text-align: center; overflow-wrap: anywhere; }
+  .events-section { padding-inline: 0; }
+  .year-block, .event-archive { min-width: 0; }
+  .event-card { min-width: 0; padding: 20px; }
+  .schedule-item { min-width: 0; overflow-wrap: anywhere; }
+}
+@media (max-width: 380px) {
+  .event-filters { grid-template-columns: minmax(0, 1fr); }
+  .event-filter-panel { padding: 13px; }
+  .header-inner { gap: 6px; }
+}
