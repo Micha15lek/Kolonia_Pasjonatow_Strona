@@ -5153,6 +5153,11 @@ body {
 }
 
 
+/* Linki dodatkowe są tworzone w DOM, ale poza telefonem nie zmieniają nawigacji. */
+.site-header nav .mobile-subpage-link,
+header nav .mobile-subpage-link {
+    display: none;
+}
 /* PAGE QUICK NAV — MOBILE ONLY FOR THE SIX SUBPAGES */
 .page-quick-nav {
     display: none;
@@ -5221,6 +5226,7 @@ html { scroll-padding-top: 110px; }
     .subpage-mobile-navigation .mobile-home-link {
         border: 1px solid var(--border);
         border-radius: 11px;
+        background: var(--bg-secondary);
     }
     .page-quick-nav {
         display: flex;
