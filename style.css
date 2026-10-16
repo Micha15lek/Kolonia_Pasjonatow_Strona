@@ -4041,3 +4041,178 @@ input, select, textarea, button { max-width: 100%; }
   .event-filter-panel { padding: 13px; }
   .header-inner { gap: 6px; }
 }
+
+
+/* =========================================================
+   ANIMACJE PREMIUM — KOLONIA PASJONATÓW
+   Płynne efekty, z poszanowaniem ustawień ograniczonego ruchu.
+========================================================= */
+:root {
+  --motion-fast: 180ms;
+  --motion-medium: 420ms;
+  --motion-slow: 760ms;
+  --motion-ease: cubic-bezier(.2,.75,.25,1);
+}
+html { scroll-behavior: smooth; }
+body {
+  animation: pageFadeIn 680ms var(--motion-ease) both;
+}
+.site-header {
+  animation: headerDropIn 760ms var(--motion-ease) both;
+}
+.logo {
+  transition: transform 280ms var(--motion-ease), letter-spacing 280ms ease, filter 280ms ease;
+}
+.logo:hover {
+  transform: translateY(-1px) scale(1.025);
+  letter-spacing: .035em;
+  filter: drop-shadow(0 0 12px color-mix(in srgb, var(--accent) 45%, transparent));
+}
+.hero .eyebrow {
+  animation: badgePop 720ms 100ms var(--motion-ease) both;
+}
+.hero h1 {
+  animation: heroTextIn 900ms 140ms var(--motion-ease) both;
+}
+.hero p {
+  animation: heroTextIn 900ms 260ms var(--motion-ease) both;
+}
+.hero-buttons {
+  animation: heroTextIn 900ms 380ms var(--motion-ease) both;
+}
+.btn, .button, .home-button, .theme-toggle, .settings-button {
+  transition: transform var(--motion-medium) var(--motion-ease),
+              box-shadow var(--motion-medium) ease,
+              background-color var(--motion-medium) ease,
+              border-color var(--motion-medium) ease,
+              filter var(--motion-medium) ease;
+}
+.btn:hover, .button:hover, .home-button:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.06);
+}
+.btn:active, .button:active, .home-button:active {
+  transform: translateY(0) scale(.975);
+}
+.theme-toggle:hover, .settings-button:hover {
+  transform: rotate(-7deg) scale(1.08);
+}
+.info-card, .event-card, .stat-card, .discord-card, .whatsapp-card,
+.update-card, .gallery-card, .admin-card, .link-card {
+  transform-origin: center bottom;
+  transition: transform 460ms var(--motion-ease),
+              box-shadow 460ms ease,
+              border-color 360ms ease,
+              background-color 360ms ease;
+}
+.info-card:hover, .event-card:hover, .stat-card:hover,
+.discord-card:hover, .whatsapp-card:hover, .update-card:hover,
+.gallery-card:hover, .admin-card:hover, .link-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow, 0 18px 42px rgba(0,0,0,.18));
+}
+.card-icon, .event-icon, .stat-icon, .gallery-symbol {
+  transform-origin: 50% 60%;
+  transition: transform 500ms var(--motion-ease), filter 400ms ease;
+}
+.info-card:hover .card-icon, .event-card:hover .event-icon,
+.discord-card:hover .card-icon, .whatsapp-card:hover .card-icon,
+.stat-card:hover .stat-icon, .gallery-card:hover .gallery-symbol {
+  transform: translateY(-3px) rotate(-5deg) scale(1.1);
+  filter: drop-shadow(0 8px 15px color-mix(in srgb, var(--accent) 35%, transparent));
+}
+.section-heading h2 {
+  transition: letter-spacing 420ms ease, transform 420ms var(--motion-ease);
+}
+.section-heading:hover h2 {
+  letter-spacing: -.025em;
+  transform: translateY(-2px);
+}
+.site-header nav a {
+  position: relative;
+  transition: color 260ms ease, transform 260ms var(--motion-ease), background-color 260ms ease;
+}
+.site-header nav a:hover {
+  transform: translateY(-2px);
+}
+.site-header nav a::after {
+  content: "";
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 99px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 280ms var(--motion-ease);
+}
+.site-header nav a:hover::after,
+.site-header nav a.active::after {
+  transform: scaleX(1);
+}
+.status-badge, .update-tag, .event-date {
+  transition: transform 300ms var(--motion-ease), border-color 300ms ease;
+}
+.status-badge:hover, .update-tag:hover, .event-date:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+.gallery-card[hidden] {
+  display: none !important;
+}
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes headerDropIn {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroTextIn {
+  from { opacity: 0; transform: translateY(24px); filter: blur(5px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+@keyframes badgePop {
+  0% { opacity: 0; transform: translateY(10px) scale(.92); }
+  70% { opacity: 1; transform: translateY(-2px) scale(1.025); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes softFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+@keyframes softPulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 0%, transparent); }
+  50% { box-shadow: 0 0 0 7px color-mix(in srgb, var(--accent) 10%, transparent); }
+}
+.hero .card-icon, .hero .event-icon {
+  animation: softFloat 4.5s ease-in-out infinite;
+}
+.stat-icon {
+  animation: softFloat 5.5s ease-in-out infinite;
+}
+.stat-card:nth-child(2) .stat-icon { animation-delay: -.8s; }
+.stat-card:nth-child(3) .stat-icon { animation-delay: -1.6s; }
+.stat-card:nth-child(4) .stat-icon { animation-delay: -2.4s; }
+@media (max-width: 720px) {
+  .info-card:hover, .event-card:hover, .stat-card:hover,
+  .discord-card:hover, .whatsapp-card:hover, .update-card:hover,
+  .gallery-card:hover, .admin-card:hover, .link-card:hover {
+    transform: translateY(-3px);
+  }
+  .hero .eyebrow, .hero h1, .hero p, .hero-buttons {
+    animation-duration: 600ms;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    transition-delay: 0ms !important;
+  }
+}
