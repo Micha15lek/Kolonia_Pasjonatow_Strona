@@ -406,17 +406,40 @@
         }
 
         @media (max-width: 420px) {
-            .calendar-navigation button {
-                padding: 8px 10px;
-                font-size: 0.8rem;
+            .calendar-navigation {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                gap: 8px;
             }
 
             .month-title {
+                grid-column: 1 / -1;
+                grid-row: 1;
                 font-size: 1.1rem;
+                overflow-wrap: anywhere;
             }
 
+            .calendar-navigation button {
+                min-width: 0;
+                min-height: 42px;
+                padding: 8px 6px;
+                font-size: 0.8rem;
+            }
+
+            .calendar-navigation #previousMonth { grid-column: 1; grid-row: 2; }
+            .calendar-navigation #nextMonth { grid-column: 2; grid-row: 2; }
+
             .day {
-                min-height: 70px;
+                min-width: 0;
+                min-height: 64px;
+                padding: 4px;
+                border-radius: 9px;
+            }
+
+            .day-number {
+                width: 1.7rem;
+                height: 1.7rem;
+                font-size: .9rem;
             }
 
             .event-marker,
@@ -429,6 +452,13 @@
                 font-size: 0.58rem;
                 overflow-wrap: anywhere;
             }
+
+            .event-info { padding: 18px; }
+        }
+
+        .day[role="button"]:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
         }
     </style>
 </head>
@@ -1290,6 +1320,7 @@ function renderCalendar() {
 
         emptyDay.className =
             "day empty";
+        emptyDay.setAttribute("aria-hidden", "true");
 
         calendarDays.appendChild(
             emptyDay
@@ -1320,7 +1351,9 @@ function renderCalendar() {
 
         dayElement.className =
             "day";
-
+        dayElement.setAttribute("role", "button");
+        dayElement.tabIndex = 0;
+        dayElement.setAttribute("aria-label", `${day} ${monthNames[month]} ${year}`);
 
         const dayNumber =
             document.createElement("div");
@@ -1392,6 +1425,7 @@ function renderCalendar() {
             birthdayMarker.querySelector(".event-marker-text").textContent = birthday.name;
             birthdayMarker.setAttribute("aria-label", `Urodziny: ${birthday.name}`);
             birthdayMarker.title = `Urodziny: ${birthday.name}`;
+            dayElement.setAttribute("aria-label", `${day} ${monthNames[month]} ${year}: urodziny ${birthday.name}`);
 
             dayElement.appendChild(
                 birthdayMarker
@@ -1455,9 +1489,7 @@ function renderCalendar() {
            KLIKNIĘCIE
         */
 
-        dayElement.addEventListener(
-            "click",
-            () => {
+        function activateDay() {
 
                 if (birthday) {
 
@@ -1482,8 +1514,15 @@ function renderCalendar() {
 
                 hideEventInfo();
 
+        }
+
+        dayElement.addEventListener("click", activateDay);
+        dayElement.addEventListener("keydown", (keyboardEvent) => {
+            if (keyboardEvent.key === "Enter" || keyboardEvent.key === " ") {
+                keyboardEvent.preventDefault();
+                activateDay();
             }
-        );
+        });
 
 
         calendarDays.appendChild(
