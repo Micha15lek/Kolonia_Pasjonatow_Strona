@@ -5153,8 +5153,9 @@ body {
 }
 
 
-/* PAGE QUICK NAV — RESPONSIVE */
+/* PAGE QUICK NAV — MOBILE ONLY FOR THE SIX SUBPAGES */
 .page-quick-nav {
+    display: none;
     width: min(100% - 32px, 1100px);
     margin: 18px auto 26px;
     padding: 10px;
@@ -5203,7 +5204,26 @@ html { scroll-padding-top: 110px; }
     scroll-margin-top: 110px;
 }
 @media (max-width: 720px) {
+    .subpage-mobile-navigation .mobile-home-link,
+    .subpage-mobile-navigation .mobile-subpage-link {
+        display: flex !important;
+    }
+    .subpage-mobile-navigation .mobile-subpage-link {
+        border: 1px solid var(--border);
+        border-radius: 11px;
+        background: color-mix(in srgb, var(--accent) 4%, var(--bg-secondary));
+    }
+    .subpage-mobile-navigation .mobile-subpage-link.active {
+        border-color: var(--accent);
+        background: color-mix(in srgb, var(--accent) 14%, var(--bg-secondary));
+        font-weight: 850;
+    }
+    .subpage-mobile-navigation .mobile-home-link {
+        border: 1px solid var(--border);
+        border-radius: 11px;
+    }
     .page-quick-nav {
+        display: flex;
         width: calc(100% - 24px);
         margin: 12px auto 20px;
         padding: 8px;
