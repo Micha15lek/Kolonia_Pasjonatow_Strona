@@ -8,50 +8,6 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-
-/* Zwykły, wyśrodkowany przycisk powrotu — styl zapisany bezpośrednio w pliku podstrony. */
-@media (max-width: 720px) {
-  header.site-header .header-inner {
-    display: flex !important; flex-direction: column !important;
-    align-items: center !important; justify-content: center !important;
-    gap: 12px !important; padding: 16px 12px !important; text-align: center !important;
-  }
-  header.site-header .logo { display:block; width:100%; margin:0 !important; text-align:center !important; }
-  header.site-header .header-actions { position:absolute; top:10px; right:10px; display:flex; gap:6px; }
-  header.site-header nav.subpage-return-nav {
-    display:flex !important; position:static !important; width:100% !important;
-    align-items:center !important; justify-content:center !important;
-    margin:0 auto !important; padding:0 !important; border:0 !important;
-    background:transparent !important; box-shadow:none !important;
-  }
-  header.site-header nav.subpage-return-nav a[href="index.html"] {
-    display:inline-flex !important; align-items:center !important; justify-content:center !important;
-    width:auto !important; min-width:0 !important; max-width:calc(100% - 16px) !important;
-    min-height:42px !important; margin:0 auto !important; padding:10px 16px !important;
-    border:1px solid var(--border) !important; border-radius:8px !important;
-    background:var(--surface, var(--bg-secondary)) !important; color:var(--text) !important;
-    font:600 14px/1.3 var(--font-main, inherit) !important; text-align:center !important;
-    text-decoration:none !important; box-shadow:none !important;
-  }
-  header.site-header nav.subpage-return-nav a[href="index.html"]::before,
-  header.site-header nav.subpage-return-nav a[href="index.html"]::after { content:none !important; display:none !important; }
-  header.site-header nav.subpage-return-nav a:not([href="index.html"]) { display:none !important; }
-  header.site-header .mobile-nav-toggle { display:none !important; }
-}
-
-
-/* Nawigacja tej podstrony: jeden zwykły przycisk powrotu. */
-@media (max-width: 720px) {
-  header.site-header .header-inner { position: relative; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 12px !important; padding: 16px 12px !important; text-align: center !important; }
-  header.site-header .logo { display: block; width: 100%; margin: 0 !important; text-align: center !important; }
-  header.site-header .header-actions { position: absolute; top: 10px; right: 10px; display: flex; gap: 6px; }
-  header.site-header nav[aria-label="Nawigacja podstrony"] { display: flex !important; position: static !important; width: 100% !important; align-items: center !important; justify-content: center !important; margin: 0 !important; padding: 0 !important; border: 0 !important; background: transparent !important; box-shadow: none !important; }
-  header.site-header nav[aria-label="Nawigacja podstrony"] a.home-return-button { display: inline-flex !important; align-items: center !important; justify-content: center !important; width: auto !important; min-width: 0 !important; max-width: calc(100% - 16px) !important; min-height: 42px !important; margin: 0 auto !important; padding: 10px 16px !important; border: 1px solid var(--border) !important; border-radius: 8px !important; background: var(--surface, var(--bg-secondary)) !important; color: var(--text) !important; font: 600 14px/1.3 var(--font-main, inherit) !important; text-align: center !important; text-decoration: none !important; box-shadow: none !important; }
-  header.site-header nav[aria-label="Nawigacja podstrony"] a.home-return-button::before, header.site-header nav[aria-label="Nawigacja podstrony"] a.home-return-button::after { content: none !important; display: none !important; }
-  header.site-header nav[aria-label="Nawigacja podstrony"] a:not(.home-return-button) { display: none !important; }
-  header.site-header .mobile-nav-toggle { display: none !important; }
-}
-
         .calendar-page {
             max-width: 1180px;
             margin: 0 auto;
@@ -509,10 +465,12 @@
 
 <body>
 
-<header class="site-header subpage-return-header">
+<header class="site-header">
     <div class="header-inner">
         <a href="index.html" class="logo" aria-label="Kolonia Pasjonatów — strona główna">KOLONIA PASJONATÓW</a>
-        
+        <nav aria-label="Nawigacja podstrony">
+            <a href="index.html" class="active" aria-label="Powrót do strony głównej">🏠 Strona główna</a>
+        </nav>
         <div class="header-actions">
             <button id="themeToggle" class="theme-toggle" type="button" aria-label="Zmień tryb" title="Zmień tryb jasny/ciemny">🌙</button>
             <a href="ustawienia.html" class="settings-button" aria-label="Ustawienia" title="Ustawienia">⚙️</a>
@@ -552,7 +510,10 @@
 
     </section>
 
-
+<nav class="page-quick-nav" aria-label="Szybka nawigacja kalendarza">
+  <a href="#widok-kalendarza">🗓️ Widok kalendarza</a>
+  <a href="#legenda-kalendarza">ℹ️ Legenda</a>
+</nav>
 
 
     <div class="today-button-wrapper">
