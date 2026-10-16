@@ -5449,3 +5449,88 @@ html { scroll-padding-top: 110px; }
         width: min(100%, 240px);
     }
 }
+
+/* FINALNA POPRAWKA: na podstronach tylko wyśrodkowany powrót do strony głównej. */
+@media (max-width: 720px) {
+    header.subpage-mobile-header {
+        width: 100%;
+        max-height: none;
+        overflow: visible;
+        top: 0;
+        border-radius: 0 0 18px 18px;
+    }
+    header.subpage-mobile-header .header-inner {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        padding: 14px 12px !important;
+        text-align: center !important;
+    }
+    header.subpage-mobile-header .logo {
+        order: 0;
+        width: 100%;
+        text-align: center !important;
+        justify-self: auto;
+        font-size: clamp(14px, 4vw, 17px);
+    }
+    header.subpage-mobile-header .header-actions {
+        order: 1;
+        width: auto;
+        justify-content: center;
+        align-self: center;
+        margin: 0;
+    }
+    header.subpage-mobile-header .mobile-nav-toggle {
+        display: none !important;
+    }
+    header.subpage-mobile-header nav,
+    header.subpage-mobile-header nav.mobile-nav-open {
+        display: flex !important;
+        position: static;
+        width: 100%;
+        max-height: none;
+        overflow: visible;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+    header.subpage-mobile-header nav a.mobile-home-link {
+        display: inline-flex !important;
+        width: auto;
+        min-width: 180px;
+        max-width: 100%;
+        min-height: 44px;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        padding: 11px 20px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: color-mix(in srgb, var(--accent) 12%, var(--bg-secondary));
+        text-align: center;
+        font-size: 14px;
+        font-weight: 800;
+    }
+    header.subpage-mobile-header nav .mobile-subpage-link {
+        display: none !important;
+    }
+}
+@media (max-width: 380px) {
+    header.subpage-mobile-header .header-inner {
+        padding: 12px 10px !important;
+    }
+    header.subpage-mobile-header nav a.mobile-home-link {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
