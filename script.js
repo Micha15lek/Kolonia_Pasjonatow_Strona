@@ -29,20 +29,21 @@ document.addEventListener("DOMContentLoaded", () => {
         if (mobileSubpages.some(([file]) => file === currentFile)) {
             siteHeader.classList.add("subpage-mobile-header");
             mainNav.classList.add("subpage-mobile-navigation");
-            let homeLink = mainNav.querySelector('a[href="index.html"], a[href="./index.html"], a[href="/"]');
-            if (!homeLink) {
-                homeLink = document.createElement("a");
-                homeLink.href = "index.html";
-                mainNav.prepend(homeLink);
+            const homeLink = mainNav.querySelector('a[href="index.html"]');
+            if (homeLink) {
+                homeLink.classList.add("mobile-home-link");
             }
-            homeLink.href = "index.html";
-            homeLink.textContent = "Powrót do strony głównej";
-            homeLink.className = "mobile-home-link";
-            homeLink.removeAttribute("aria-current");
-            mainNav.querySelectorAll("a").forEach(link => {
-                if (link !== homeLink) link.remove();
+            mobileSubpages.forEach(([file, label]) => {
+                const link = document.createElement("a");
+                link.href = file;
+                link.textContent = label;
+                link.className = "mobile-subpage-link";
+                if (file === currentFile) {
+                    link.classList.add("active");
+                    link.setAttribute("aria-current", "page");
+                }
+                mainNav.appendChild(link);
             });
-
         }
         mainNav.parentNode.insertBefore(navToggle, mainNav);
 
