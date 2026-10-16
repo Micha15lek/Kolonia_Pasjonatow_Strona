@@ -5153,13 +5153,12 @@ body {
 }
 
 
-/* =========================================================
-   NAWIGACJA PODSTRON — PRZEBUDOWANA WARSTWA MOBILNA
-   Desktop pozostaje bez zmian; reguły działają tylko na 6 podstronach.
-========================================================= */
+/* Linki dodatkowe są tworzone w DOM, ale poza telefonem nie zmieniają nawigacji. */
 .site-header nav .mobile-subpage-link,
-header nav .mobile-subpage-link { display: none; }
-
+header nav .mobile-subpage-link {
+    display: none;
+}
+/* PAGE QUICK NAV — MOBILE ONLY FOR THE SIX SUBPAGES */
 .page-quick-nav {
     display: none;
     width: min(100% - 32px, 1100px);
@@ -5172,6 +5171,7 @@ header nav .mobile-subpage-link { display: none; }
     border: 1px solid var(--border);
     border-radius: 16px;
     background: var(--glass, var(--bg-secondary));
+    box-sizing: border-box;
 }
 .page-quick-nav a {
     display: inline-flex;
@@ -5204,384 +5204,214 @@ html { scroll-padding-top: 110px; }
 [id^="galeria-"],
 [id^="zmiana-"],
 #widok-kalendarza,
-#legenda-kalendarza { scroll-margin-top: 110px; }
-
+#legenda-kalendarza {
+    scroll-margin-top: 110px;
+}
 @media (max-width: 720px) {
-    header.subpage-mobile-header {
-        width: calc(100% - 20px);
-        top: 10px;
-        max-height: calc(100dvh - 20px);
-        overflow: hidden;
-        border-radius: 20px;
-    }
-    header.subpage-mobile-header .header-inner {
-        display: grid !important;
-        grid-template-columns: minmax(0, 1fr) auto;
-        grid-template-areas: "logo actions" "toggle toggle" "navigation navigation";
-        align-items: center;
-        justify-items: stretch;
-        gap: 10px;
-        min-height: 0;
-        padding: 14px 14px 12px;
-        text-align: center;
-    }
-    header.subpage-mobile-header .logo {
-        grid-area: logo;
-        display: block;
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
-        justify-self: stretch;
-        margin: 0;
-        text-align: left;
-        font-size: clamp(13px, 3.7vw, 16px);
-        line-height: 1.25;
-        overflow-wrap: anywhere;
-    }
-    header.subpage-mobile-header .header-actions {
-        grid-area: actions;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        justify-self: end;
-        gap: 7px;
-        width: auto;
-        min-width: 0;
-        margin: 0;
-    }
-    header.subpage-mobile-header .mobile-nav-toggle {
-        grid-area: toggle;
-        display: inline-flex !important;
-        justify-self: center;
-        align-self: center;
-        min-width: 124px;
-        min-height: 44px;
-        margin: 0;
-        padding: 0 18px;
-        border-radius: 13px;
-        font-size: 13px;
-        font-weight: 800;
-    }
-    header.subpage-mobile-header nav {
-        grid-area: navigation;
-        display: none;
-        width: 100%;
-        min-width: 0;
-        max-height: min(58dvh, 430px);
-        overflow-x: hidden;
-        overflow-y: auto;
-        margin: 0;
-        padding: 8px;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-        gap: 6px;
-        border: 1px solid var(--border);
-        border-radius: 15px;
-        background: color-mix(in srgb, var(--bg-secondary) 96%, transparent);
-        box-shadow: 0 12px 30px rgba(0,0,0,.16);
-        -webkit-overflow-scrolling: touch;
-        overscroll-behavior: contain;
-    }
-    header.subpage-mobile-header nav.mobile-nav-open {
+    .subpage-mobile-navigation .mobile-home-link,
+    .subpage-mobile-navigation .mobile-subpage-link {
         display: flex !important;
     }
-    header.subpage-mobile-header nav .mobile-home-link,
-    header.subpage-mobile-header nav .mobile-subpage-link {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        min-width: 0;
-        min-height: 46px;
-        margin: 0;
-        padding: 11px 12px;
+    .subpage-mobile-navigation .mobile-subpage-link {
         border: 1px solid var(--border);
         border-radius: 11px;
         background: color-mix(in srgb, var(--accent) 4%, var(--bg-secondary));
-        color: var(--text);
-        font-size: 13px;
-        font-weight: 750;
-        line-height: 1.35;
-        text-align: center;
-        white-space: normal;
-        overflow-wrap: anywhere;
     }
-    header.subpage-mobile-header nav .mobile-home-link {
-        background: var(--glass-strong, var(--bg-secondary));
-    }
-    header.subpage-mobile-header nav .mobile-subpage-link.active {
+    .subpage-mobile-navigation .mobile-subpage-link.active {
         border-color: var(--accent);
-        background: color-mix(in srgb, var(--accent) 15%, var(--bg-secondary));
-        box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent);
+        background: color-mix(in srgb, var(--accent) 14%, var(--bg-secondary));
         font-weight: 850;
     }
-    header.subpage-mobile-header nav a::before,
-    header.subpage-mobile-header nav a::after { display: none !important; }
-    .page-quick-nav {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        align-items: stretch;
-        justify-content: stretch;
-        width: calc(100% - 24px);
-        margin: 14px auto 22px;
-        padding: 8px;
-        gap: 7px;
-        border-radius: 14px;
+    .subpage-mobile-navigation .mobile-home-link {
+        border: 1px solid var(--border);
+        border-radius: 11px;
+        background: var(--bg-secondary);
     }
-    .page-quick-nav a {
+    .page-quick-nav {
         display: flex;
-        width: 100%;
-        min-width: 0;
-        min-height: 46px;
-        padding: 10px 8px;
-        justify-content: center;
-        text-align: center;
-        font-size: 12px;
-        line-height: 1.3;
-        overflow-wrap: anywhere;
-    }
-    html { scroll-padding-top: 18px; }
-    [id^="historia-wpis-"],
-    [id^="regulamin-dzial-"],
-    [id^="administracja-grupa-"],
-    [id^="galeria-"],
-    [id^="zmiana-"],
-    #widok-kalendarza,
-    #legenda-kalendarza { scroll-margin-top: 18px; }
-}
-@media (max-width: 380px) {
-    header.subpage-mobile-header {
-        width: calc(100% - 14px);
-        top: 7px;
-        max-height: calc(100dvh - 14px);
-        border-radius: 17px;
-    }
-    header.subpage-mobile-header .header-inner {
-        gap: 8px;
-        padding: 11px 10px 10px;
-    }
-    header.subpage-mobile-header .logo { font-size: 12px; }
-    header.subpage-mobile-header .header-actions { gap: 5px; }
-    header.subpage-mobile-header .mobile-nav-toggle { min-width: 116px; }
-    .page-quick-nav {
-        grid-template-columns: minmax(0, 1fr);
-        width: calc(100% - 18px);
+        width: calc(100% - 24px);
+        margin: 12px auto 20px;
+        padding: 8px;
+        justify-content: stretch;
         gap: 6px;
+        border-radius: 13px;
     }
     .page-quick-nav a {
+        flex: 1 1 135px;
+        min-width: 0;
         min-height: 44px;
-        justify-content: center;
-        text-align: center;
+        padding: 10px 11px;
         font-size: 13px;
     }
 }
-@media (prefers-reduced-motion: reduce) {
-    header.subpage-mobile-header nav { animation: none !important; }
+@media (max-width: 380px) {
+    .page-quick-nav {
+        width: calc(100% - 18px);
+        gap: 5px;
+    }
+    .page-quick-nav a {
+        flex-basis: 100%;
+        justify-content: flex-start;
+        text-align: left;
+    }
 }
 
 
-/* PODSTRONY NA TELEFONIE: wyśrodkowany nagłówek i tylko powrót do strony głównej. */
+/* NAWIGACJA PODSTRON — PEŁNE WYŚRODKOWANIE NA TELEFONACH */
 @media (max-width: 720px) {
     header.subpage-mobile-header .header-inner {
-        display: flex !important;
         flex-direction: column;
+        flex-wrap: nowrap;
         align-items: center;
         justify-content: center;
         gap: 10px;
-        padding: 14px 12px;
+        padding: 13px 12px;
         text-align: center;
     }
     header.subpage-mobile-header .logo {
         order: 0;
+        flex: 0 1 auto;
         width: 100%;
         max-width: 100%;
         text-align: center;
         overflow-wrap: anywhere;
     }
-    header.subpage-mobile-header .header-actions {
+    header.subpage-mobile-header .mobile-nav-toggle {
         order: 1;
-        width: auto;
+        align-self: center;
         justify-content: center;
         margin: 0 auto;
     }
-    header.subpage-mobile-header .mobile-nav-toggle {
-        display: none !important;
-    }
-    header.subpage-mobile-header nav {
+    header.subpage-mobile-header .header-actions {
         order: 2;
-        display: flex !important;
-        width: 100%;
-        max-height: none;
-        overflow: visible;
+        display: flex;
         align-items: center;
         justify-content: center;
+        gap: 10px;
+        width: 100%;
         margin: 0;
-        padding: 0;
-        border: 0;
-        border-radius: 0;
-        background: transparent;
-        box-shadow: none;
     }
-    header.subpage-mobile-header nav .mobile-home-link {
-        display: inline-flex !important;
-        width: auto;
-        min-width: 190px;
-        max-width: 100%;
-        min-height: 46px;
-        justify-content: center;
-        align-self: center;
-        margin: 0 auto;
-        padding: 12px 20px;
-        border: 1px solid var(--accent);
-        border-radius: 14px;
-        background: color-mix(in srgb, var(--accent) 12%, var(--bg-secondary));
+    header.subpage-mobile-header nav {
+        order: 3;
+        align-items: center;
         text-align: center;
-        font-weight: 800;
+        margin: 2px 0 0;
     }
-    header.subpage-mobile-header nav .mobile-subpage-link {
-        display: none !important;
+    header.subpage-mobile-header nav a,
+    header.subpage-mobile-header nav .mobile-subpage-link,
+    header.subpage-mobile-header nav .mobile-home-link {
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        margin-inline: auto;
+    }
+    header.subpage-mobile-header nav .mobile-subpage-link.active {
+        box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 15%, transparent);
+    }
+    .page-quick-nav {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .page-quick-nav a {
+        flex: 0 1 auto;
+        justify-content: center;
+        text-align: center;
     }
 }
 @media (max-width: 380px) {
-    header.subpage-mobile-header nav .mobile-home-link {
-        min-width: 0;
-        width: min(100%, 240px);
+    header.subpage-mobile-header .header-inner {
+        padding-inline: 10px;
+        gap: 9px;
+    }
+    .page-quick-nav a {
+        flex-basis: 100%;
+        justify-content: center;
+        text-align: center;
     }
 }
 
-/* FINALNA POPRAWKA: na podstronach tylko wyśrodkowany powrót do strony głównej. */
-@media (max-width: 720px) {
-    header.subpage-mobile-header {
-        width: 100%;
-        max-height: none;
-        overflow: visible;
-        top: 0;
-        border-radius: 0 0 18px 18px;
+/* Wspólne wyśrodkowanie nawigacji — wszystkie strony, bez usuwania linków. */
+.site-header .header-inner > nav,
+header.site-header .header-inner > nav {
+    justify-content: center;
+}
+@media (min-width: 721px) {
+    .site-header .header-inner > nav,
+    header.site-header .header-inner > nav {
+        flex: 1 1 auto;
+        justify-content: center;
+        align-items: center;
+        margin-inline: auto;
     }
+}
+@media (max-width: 720px) {
     header.subpage-mobile-header .header-inner {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 10px !important;
-        padding: 14px 12px !important;
-        text-align: center !important;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 13px 12px;
+        text-align: center;
     }
     header.subpage-mobile-header .logo {
         order: 0;
+        flex: 0 1 auto;
         width: 100%;
-        text-align: center !important;
-        justify-self: auto;
-        font-size: clamp(14px, 4vw, 17px);
-    }
-    header.subpage-mobile-header .header-actions {
-        order: 1;
-        width: auto;
-        justify-content: center;
-        align-self: center;
-        margin: 0;
+        max-width: 100%;
+        text-align: center;
+        overflow-wrap: anywhere;
     }
     header.subpage-mobile-header .mobile-nav-toggle {
-        display: none !important;
-    }
-    header.subpage-mobile-header nav,
-    header.subpage-mobile-header nav.mobile-nav-open {
-        display: flex !important;
-        position: static;
-        width: 100%;
-        max-height: none;
-        overflow: visible;
-        flex-direction: row;
-        align-items: center;
+        order: 1;
+        align-self: center;
         justify-content: center;
-        margin: 0;
-        padding: 0;
-        gap: 0;
-        border: 0;
-        border-radius: 0;
-        background: transparent;
-        box-shadow: none;
-    }
-    header.subpage-mobile-header nav a.mobile-home-link {
-        display: inline-flex !important;
-        width: auto;
-        min-width: 180px;
-        max-width: 100%;
-        min-height: 44px;
-        justify-content: center;
-        align-items: center;
         margin: 0 auto;
-        padding: 11px 20px;
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        background: color-mix(in srgb, var(--accent) 12%, var(--bg-secondary));
-        text-align: center;
-        font-size: 14px;
-        font-weight: 800;
     }
-    header.subpage-mobile-header nav .mobile-subpage-link {
-        display: none !important;
+    header.subpage-mobile-header .header-actions {
+        order: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        margin: 0;
+    }
+    header.subpage-mobile-header nav {
+        order: 3;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 2px 0 0;
+    }
+    header.subpage-mobile-header nav a,
+    header.subpage-mobile-header nav .mobile-subpage-link,
+    header.subpage-mobile-header nav .mobile-home-link {
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        margin-inline: auto;
+    }
+    .page-quick-nav {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .page-quick-nav a {
+        justify-content: center;
+        text-align: center;
     }
 }
 @media (max-width: 380px) {
     header.subpage-mobile-header .header-inner {
-        padding: 12px 10px !important;
+        padding-inline: 10px;
+        gap: 9px;
     }
-    header.subpage-mobile-header nav a.mobile-home-link {
-        width: 100%;
-        min-width: 0;
+    .page-quick-nav a {
+        flex-basis: 100%;
+        justify-content: center;
+        text-align: center;
     }
-}
-
-/* Prosty, pojedynczy przycisk powrotu na podstronach mobilnych. */
-@media (max-width: 720px) {
-    header.subpage-mobile-header .mobile-nav-toggle { display: none !important; }
-    header.subpage-mobile-header nav,
-    header.subpage-mobile-header nav.mobile-nav-open {
-        display: flex !important;
-        position: static !important;
-        width: 100% !important;
-        max-height: none !important;
-        overflow: visible !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        justify-content: center !important;
-        margin: 8px auto 0 !important;
-        padding: 0 !important;
-        gap: 0 !important;
-        border: 0 !important;
-        border-radius: 0 !important;
-        background: transparent !important;
-        box-shadow: none !important;
-    }
-    header.subpage-mobile-header nav a.mobile-home-link {
-        display: inline-flex !important;
-        width: auto !important;
-        min-width: 0 !important;
-        max-width: calc(100% - 24px) !important;
-        min-height: 42px !important;
-        align-items: center !important;
-        justify-content: center !important;
-        margin: 0 auto !important;
-        padding: 10px 18px !important;
-        border: 1px solid var(--border) !important;
-        border-radius: 8px !important;
-        background: var(--bg-secondary) !important;
-        color: var(--text) !important;
-        font-family: var(--font-main) !important;
-        font-size: 14px !important;
-        font-weight: 600 !important;
-        line-height: 1.3 !important;
-        text-align: center !important;
-        text-decoration: none !important;
-        box-shadow: none !important;
-    }
-    header.subpage-mobile-header nav a.mobile-home-link::before,
-    header.subpage-mobile-header nav a.mobile-home-link::after {
-        content: none !important;
-        display: none !important;
-    }
-    header.subpage-mobile-header nav a:not(.mobile-home-link) { display: none !important; }
 }
 
