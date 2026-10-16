@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ];
         const currentFile = window.location.pathname.split("/").pop() || "index.html";
         if (mobileSubpages.some(([file]) => file === currentFile)) {
+            siteHeader.classList.add("subpage-mobile-header");
             mainNav.classList.add("subpage-mobile-navigation");
             const homeLink = mainNav.querySelector('a[href="index.html"]');
             if (homeLink) {
