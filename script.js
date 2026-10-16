@@ -31,8 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const homeLink = mainNav.querySelector('a[href="index.html"]');
             if (homeLink) {
                 homeLink.classList.add("mobile-home-link");
-                homeLink.classList.remove("active");
-                homeLink.removeAttribute("aria-current");
             }
             mobileSubpages.forEach(([file, label]) => {
                 const link = document.createElement("a");
