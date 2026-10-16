@@ -7,19 +7,47 @@
 <title>Galeria społeczności | Kolonia Pasjonatów</title>
 <link rel="stylesheet" href="style.css">
 <style>
-.gallery-intro{max-width:780px;margin:0 auto 32px;text-align:center;color:var(--text-secondary);line-height:1.7}.gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.gallery-card{padding:25px;border:1px solid var(--border);border-radius:22px;background:var(--card);box-shadow:var(--shadow);min-height:230px;display:flex;flex-direction:column;justify-content:space-between}.gallery-symbol{font-size:2.5rem;margin-bottom:18px}.gallery-card h2{font-size:1.2rem;margin:0 0 10px}.gallery-card p{color:var(--text-secondary);line-height:1.65;margin:0}.gallery-note{margin-top:26px;padding:18px 20px;border:1px dashed var(--border);border-radius:18px;color:var(--text-secondary);line-height:1.65}
-@media(max-width:800px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.gallery-grid{grid-template-columns:1fr}.gallery-card{min-height:180px}}
+.gallery-intro{max-width:780px;margin:0 auto 24px;text-align:center;color:var(--text-secondary);line-height:1.7}.gallery-tools{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(190px,1fr);gap:12px;max-width:850px;margin:0 auto 24px}.gallery-search,.gallery-category{width:100%;min-width:0;min-height:48px;padding:12px 14px;border:1px solid var(--border);border-radius:14px;background:var(--surface);color:var(--text);font:inherit}.gallery-result{max-width:850px;margin:0 auto 18px;color:var(--text-secondary);font-size:.9rem}.gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.gallery-card{padding:25px;border:1px solid var(--border);border-radius:22px;background:var(--card);box-shadow:var(--shadow);min-height:230px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s ease,border-color .2s ease}.gallery-card:hover{transform:translateY(-3px);border-color:var(--accent)}.gallery-card[hidden]{display:none!important}.gallery-symbol{font-size:2.5rem;margin-bottom:18px}.gallery-card h2{font-size:1.2rem;margin:0 0 10px}.gallery-card p{color:var(--text-secondary);line-height:1.65;margin:0}.gallery-note{margin-top:26px;padding:18px 20px;border:1px dashed var(--border);border-radius:18px;color:var(--text-secondary);line-height:1.65}.gallery-empty{padding:22px;border:1px dashed var(--border);border-radius:16px;text-align:center;color:var(--text-secondary)}.gallery-empty[hidden]{display:none!important}
+@media(max-width:800px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.gallery-tools{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr}.gallery-card{min-height:180px}.gallery-search,.gallery-category{font-size:16px}}@media(prefers-reduced-motion:reduce){.gallery-card{transition:none}}
 </style>
 </head>
 <body data-theme="blue" data-mode="dark">
 <header class="site-header"><div class="header-inner"><a href="index.html" class="logo" aria-label="Kolonia Pasjonatów — strona główna">KOLONIA PASJONATÓW</a><nav aria-label="Główna nawigacja"><a href="index.html" class="active" aria-current="page">🏠 Powrót na stronę główną</a></nav><div class="header-actions"><button id="themeToggle" class="theme-toggle" type="button" aria-label="Zmień tryb">🌙</button><a href="ustawienia.html" class="settings-button" aria-label="Ustawienia">⚙️</a></div></div></header>
 <main><section class="hero"><div class="hero-content"><span class="eyebrow">📸 WSPÓLNE ZAINTERESOWANIA</span><h1>Galeria <span>społeczności</span></h1><p>Miejsce na wspomnienia, pasje i materiały tworzone przez członków Kolonii.</p><div class="hero-buttons"><a class="btn btn-primary" href="index.html">← Strona główna</a><a class="btn" href="wydarzenia.html">Nasze wydarzenia</a></div></div></section>
-<section class="section"><div class="container"><p class="gallery-intro">Przygotowaliśmy układ galerii, który można uzupełniać zdjęciami ze spotkań, kolei, komunikacji i wspólnych aktywności. Na razie nie dodajemy fikcyjnych zdjęć ani nie podpisujemy materiałów, których jeszcze nie otrzymaliśmy.</p><div class="gallery-grid">
-<article class="gallery-card"><div><div class="gallery-symbol" aria-hidden="true">🚆</div><h2>Kolej i podróże</h2><p>Zdjęcia pociągów, stacji, linii kolejowych i kolejowych wypraw.</p></div><span class="status-badge">📷 Oczekuje na materiały</span></article>
-<article class="gallery-card"><div><div class="gallery-symbol" aria-hidden="true">🚌</div><h2>Komunikacja miejska</h2><p>Autobusy, tramwaje, tabor i ciekawe rozwiązania transportowe.</p></div><span class="status-badge">📷 Oczekuje na materiały</span></article>
-<article class="gallery-card"><div><div class="gallery-symbol" aria-hidden="true">🎮</div><h2>Gry i wspólne granie</h2><p>Zrzuty ekranu i wspomnienia z gier, w które gramy razem.</p></div><span class="status-badge">📷 Oczekuje na materiały</span></article>
-<article class="gallery-card"><div><div class="gallery-symbol" aria-hidden="true">🎉</div><h2>Wydarzenia Kolonii</h2><p>Fotorelacje i pamiątki z aktywności organizowanych przez społeczność.</p></div><span class="status-badge">📷 Oczekuje na materiały</span></article>
-<article class="gallery-card"><div><div class="gallery-symbol" aria-hidden="true">🌄</div><h2>Jesienne kadry</h2><p>Kolejowe krajobrazy, jesienne kolory i ulubione miejsca pasjonatów.</p></div><span class="status-badge">📷 Oczekuje na materiały</span></article>
-<article class="gallery-card"><div><div class="gallery-symbol" aria-hidden="true">⭐</div><h2>Ulubione momenty</h2><p>Różne pasje członków Kolonii zebrane w jednym miejscu.</p></div><span class="status-badge">📷 Oczekuje na materiały</span></article>
-</div><div class="gallery-note">🔐 Przed opublikowaniem zdjęć członków społeczności upewnij się, że masz ich zgodę. Materiały będzie można dodać po przygotowaniu zdjęć i podpisów.</div></div></section></main>
+<section class="section"><div class="container"><p class="gallery-intro">Przygotowaliśmy układ galerii, który można uzupełniać zdjęciami ze spotkań, kolei, komunikacji i wspólnych aktywności. Na razie nie dodajemy fikcyjnych zdjęć ani nie podpisujemy materiałów, których jeszcze nie otrzymaliśmy.</p>
+<div class="gallery-tools" role="search" aria-label="Wyszukiwanie galerii"><label><span class="visually-hidden">Szukaj kategorii galerii</span><input class="gallery-search" id="gallerySearch" type="search" placeholder="Szukaj kategorii, np. pociągi..." autocomplete="off"></label><label><span class="visually-hidden">Filtruj kategorię</span><select class="gallery-category" id="galleryCategory"><option value="all">Wszystkie kategorie</option><option value="kolej">🚆 Kolej i podróże</option><option value="komunikacja">🚌 Komunikacja miejska</option><option value="gry">🎮 Gry i wspólne granie</option><option value="wydarzenia">🎉 Wydarzenia Kolonii</option><option value="jesien">🌄 Jesienne kadry</option><option value="ulubione">⭐ Ulubione momenty</option></select></label></div><p class="gallery-result" id="galleryResult" aria-live="polite">Wyświetlono 6 kategorii.</p><div class="gallery-grid">
+<article class="gallery-card" data-category="kolej"><div><div class="gallery-symbol" aria-hidden="true">🚆</div><h2>Kolej i podróże</h2><p>Zdjęcia pociągów, stacji, linii kolejowych i kolejowych wypraw.</p></div><span class="status-badge">📷 Oczekuje na materiały</span></article>
+<article class="gallery-card" data-category="komunikacja"><div><div class="gallery-symbol" aria-hidden="true">🚌</div><h2>Komunikacja miejska</h2><p>Autobusy, tramwaje, tabor i ciekawe rozwiązania transportowe.</p></div><span class="status-badge">📷 Oczekuje na materiały</span></article>
+<article class="gallery-card" data-category="gry"><div><div class="gallery-symbol" aria-hidden="true">🎮</div><h2>Gry i wspólne granie</h2><p>Zrzuty ekranu i wspomnienia z gier, w które gramy razem.</p></div><span class="status-badge">📷 Oczekuje na materiały</span></article>
+<article class="gallery-card" data-category="wydarzenia"><div><div class="gallery-symbol" aria-hidden="true">🎉</div><h2>Wydarzenia Kolonii</h2><p>Fotorelacje i pamiątki z aktywności organizowanych przez społeczność.</p></div><span class="status-badge">📷 Oczekuje na materiały</span></article>
+<article class="gallery-card" data-category="jesien"><div><div class="gallery-symbol" aria-hidden="true">🌄</div><h2>Jesienne kadry</h2><p>Kolejowe krajobrazy, jesienne kolory i ulubione miejsca pasjonatów.</p></div><span class="status-badge">📷 Oczekuje na materiały</span></article>
+<article class="gallery-card" data-category="ulubione"><div><div class="gallery-symbol" aria-hidden="true">⭐</div><h2>Ulubione momenty</h2><p>Różne pasje członków Kolonii zebrane w jednym miejscu.</p></div><span class="status-badge">📷 Oczekuje na materiały</span></article>
+</div><p class="gallery-empty" id="galleryEmpty" hidden>Nie znaleziono kategorii pasującej do wyszukiwania. Zmień hasło lub wybierz wszystkie kategorie.</p><div class="gallery-note">🔐 Przed opublikowaniem zdjęć członków społeczności upewnij się, że masz ich zgodę. Materiały będzie można dodać po przygotowaniu zdjęć i podpisów.</div></div></section></main>
+<script>
+(function () {
+    const search = document.getElementById("gallerySearch");
+    const category = document.getElementById("galleryCategory");
+    const result = document.getElementById("galleryResult");
+    const empty = document.getElementById("galleryEmpty");
+    const cards = Array.from(document.querySelectorAll(".gallery-card[data-category]"));
+    if (!search || !category || !result || !empty || !cards.length) return;
+    function filterGallery() {
+        const query = search.value.trim().toLocaleLowerCase("pl");
+        const selected = category.value;
+        let visible = 0;
+        cards.forEach((card) => {
+            const matchesCategory = selected === "all" || card.dataset.category === selected;
+            const matchesText = !query || (card.textContent || "").toLocaleLowerCase("pl").includes(query);
+            const show = matchesCategory && matchesText;
+            card.hidden = !show;
+            if (show) visible += 1;
+        });
+        result.textContent = "Wyświetlono " + visible + (visible === 1 ? " kategorię." : visible >= 2 && visible <= 4 ? " kategorie." : " kategorii.");
+        empty.hidden = visible !== 0;
+    }
+    search.addEventListener("input", filterGallery);
+    category.addEventListener("change", filterGallery);
+    filterGallery();
+})();
+</script>
 <footer class="site-footer"><div class="container"><p>© 2026 Kolonia Pasjonatów</p><p>🌟 Oficjalna strona społeczności</p></div></footer><script src="script.js"></script></body></html>
