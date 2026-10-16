@@ -5164,7 +5164,6 @@ header nav .mobile-subpage-link {
     width: min(100% - 32px, 1100px);
     margin: 18px auto 26px;
     padding: 10px;
-    display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
@@ -5254,5 +5253,80 @@ html { scroll-padding-top: 110px; }
         flex-basis: 100%;
         justify-content: flex-start;
         text-align: left;
+    }
+}
+
+
+/* NAWIGACJA PODSTRON — PEŁNE WYŚRODKOWANIE NA TELEFONACH */
+@media (max-width: 720px) {
+    header.subpage-mobile-header .header-inner {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 13px 12px;
+        text-align: center;
+    }
+    header.subpage-mobile-header .logo {
+        order: 0;
+        flex: 0 1 auto;
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+    header.subpage-mobile-header .mobile-nav-toggle {
+        order: 1;
+        align-self: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+    header.subpage-mobile-header .header-actions {
+        order: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        margin: 0;
+    }
+    header.subpage-mobile-header nav {
+        order: 3;
+        align-items: center;
+        text-align: center;
+        margin: 2px 0 0;
+    }
+    header.subpage-mobile-header nav a,
+    header.subpage-mobile-header nav .mobile-subpage-link,
+    header.subpage-mobile-header nav .mobile-home-link {
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        margin-inline: auto;
+    }
+    header.subpage-mobile-header nav .mobile-subpage-link.active {
+        box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 15%, transparent);
+    }
+    .page-quick-nav {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .page-quick-nav a {
+        flex: 0 1 auto;
+        justify-content: center;
+        text-align: center;
+    }
+}
+@media (max-width: 380px) {
+    header.subpage-mobile-header .header-inner {
+        padding-inline: 10px;
+        gap: 9px;
+    }
+    .page-quick-nav a {
+        flex-basis: 100%;
+        justify-content: center;
+        text-align: center;
     }
 }
