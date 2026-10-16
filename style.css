@@ -5330,3 +5330,73 @@ html { scroll-padding-top: 110px; }
         text-align: center;
     }
 }
+
+/* WYŚRODKOWANIE NAWIGACJI NA PODSTRONACH — STRONA GŁÓWNA BEZ ZMIAN */
+header.subpage-mobile-header nav {
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+header.subpage-mobile-header nav a,
+header.subpage-mobile-header nav .mobile-home-link,
+header.subpage-mobile-header nav .mobile-subpage-link {
+    justify-content: center;
+    text-align: center;
+}
+.page-quick-nav {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.page-quick-nav a {
+    justify-content: center;
+    text-align: center;
+}
+@media (max-width: 720px) {
+    header.subpage-mobile-header .header-inner {
+        align-items: center !important;
+        text-align: center !important;
+    }
+    header.subpage-mobile-header .logo {
+        text-align: center !important;
+        margin-inline: auto !important;
+    }
+    header.subpage-mobile-header .mobile-nav-toggle {
+        margin-inline: auto !important;
+    }
+    header.subpage-mobile-header .header-actions {
+        justify-content: center !important;
+        margin-inline: auto !important;
+    }
+    header.subpage-mobile-header nav,
+    header.subpage-mobile-header nav.mobile-nav-open {
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    header.subpage-mobile-header nav a,
+    header.subpage-mobile-header nav .mobile-home-link,
+    header.subpage-mobile-header nav .mobile-subpage-link {
+        justify-content: center !important;
+        text-align: center !important;
+    }
+    .page-quick-nav {
+        display: flex;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        margin-inline: auto !important;
+    }
+    .page-quick-nav a {
+        justify-content: center !important;
+        text-align: center !important;
+    }
+}
+@media (max-width: 380px) {
+    .page-quick-nav a {
+        flex-basis: 100%;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+}
+
