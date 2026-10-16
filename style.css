@@ -5379,3 +5379,73 @@ html { scroll-padding-top: 110px; }
 @media (prefers-reduced-motion: reduce) {
     header.subpage-mobile-header nav { animation: none !important; }
 }
+
+
+/* PODSTRONY NA TELEFONIE: wyśrodkowany nagłówek i tylko powrót do strony głównej. */
+@media (max-width: 720px) {
+    header.subpage-mobile-header .header-inner {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 12px;
+        text-align: center;
+    }
+    header.subpage-mobile-header .logo {
+        order: 0;
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+    header.subpage-mobile-header .header-actions {
+        order: 1;
+        width: auto;
+        justify-content: center;
+        margin: 0 auto;
+    }
+    header.subpage-mobile-header .mobile-nav-toggle {
+        display: none !important;
+    }
+    header.subpage-mobile-header nav {
+        order: 2;
+        display: flex !important;
+        width: 100%;
+        max-height: none;
+        overflow: visible;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+    header.subpage-mobile-header nav .mobile-home-link {
+        display: inline-flex !important;
+        width: auto;
+        min-width: 190px;
+        max-width: 100%;
+        min-height: 46px;
+        justify-content: center;
+        align-self: center;
+        margin: 0 auto;
+        padding: 12px 20px;
+        border: 1px solid var(--accent);
+        border-radius: 14px;
+        background: color-mix(in srgb, var(--accent) 12%, var(--bg-secondary));
+        text-align: center;
+        font-weight: 800;
+    }
+    header.subpage-mobile-header nav .mobile-subpage-link {
+        display: none !important;
+    }
+}
+@media (max-width: 380px) {
+    header.subpage-mobile-header nav .mobile-home-link {
+        min-width: 0;
+        width: min(100%, 240px);
+    }
+}
