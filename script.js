@@ -1,6 +1,52 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================================
+       NAWIGACJA MOBILNA
+    ========================================= */
+    const mainNav = document.querySelector(".site-header nav, header nav");
+    const siteHeader = mainNav?.closest("header");
+    if (mainNav && siteHeader && !document.getElementById("mobileNavToggle")) {
+        const navToggle = document.createElement("button");
+        navToggle.id = "mobileNavToggle";
+        navToggle.className = "mobile-nav-toggle";
+        navToggle.type = "button";
+        navToggle.setAttribute("aria-controls", "primaryNavigation");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.innerHTML = '<span class="mobile-nav-icon" aria-hidden="true"><span></span><span></span><span></span></span><span class="mobile-nav-label">Menu</span>';
+        mainNav.id = "primaryNavigation";
+        mainNav.setAttribute("aria-label", "Główna nawigacja");
+        mainNav.parentNode.insertBefore(navToggle, mainNav);
+
+        const setNavOpen = (open) => {
+            mainNav.classList.toggle("mobile-nav-open", open);
+            navToggle.classList.toggle("is-open", open);
+            navToggle.setAttribute("aria-expanded", String(open));
+            navToggle.setAttribute("aria-label", open ? "Zamknij menu" : "Otwórz menu");
+            const label = navToggle.querySelector(".mobile-nav-label");
+            if (label) label.textContent = open ? "Zamknij" : "Menu";
+        };
+
+        navToggle.addEventListener("click", () => {
+            setNavOpen(navToggle.getAttribute("aria-expanded") !== "true");
+        });
+        mainNav.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => setNavOpen(false));
+        });
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") setNavOpen(false);
+        });
+        document.addEventListener("click", event => {
+            if (window.matchMedia("(max-width: 720px)").matches &&
+                !siteHeader.contains(event.target)) setNavOpen(false);
+        });
+        window.addEventListener("resize", () => {
+            if (!window.matchMedia("(max-width: 720px)").matches) setNavOpen(false);
+        });
+    }
+
+
+
+    /* =========================================
        KONFIGURACJA
     ========================================= */
 
