@@ -5553,10 +5553,64 @@ body[data-theme="sunset"][data-mode="light"]{--bg:#fff5f0;--bg-secondary:#ffe5dc
 @media(prefers-reduced-motion:reduce){.theme-option,.theme-option::before,.theme-option::after,.mode-option{transition:none!important}}
 
 
-/* NOWE MOTYWY: BURGUNDY GOLD I POLSKA KOLEJ */
-.theme-preview-burgundy { background: linear-gradient(135deg, #260812, #6f1832 52%, #d4ad55); }
-.theme-preview-polska { background: linear-gradient(135deg, #f7f7f7, #dc2438 52%, #b5122a); }
-body[data-theme="burgundy"][data-mode="dark"] { --bg:#16070d; --bg-secondary:#260d17; --card:rgba(53,18,32,.94); --card-hover:rgba(72,23,42,.98); --text:#fff8ee; --text-secondary:#e8d5d9; --muted:#c3a4ad; --accent:#d6ad55; --accent-hover:#f0d486; --accent-secondary:#b83e5d; --border:rgba(230,195,129,.19); --border-hover:rgba(214,173,85,.58); --glow:0 0 42px rgba(214,173,85,.15); }
-body[data-theme="burgundy"][data-mode="light"] { --bg:#fbf3f2; --bg-secondary:#f1e2e2; --card:rgba(255,255,255,.97); --card-hover:#fff; --text:#35121e; --text-secondary:#69424d; --muted:#86636c; --accent:#8f2343; --accent-hover:#6f1832; --accent-secondary:#b58a2b; --border:rgba(111,24,50,.19); --border-hover:rgba(143,35,67,.48); --glow:0 0 32px rgba(143,35,67,.10); }
-body[data-theme="polska"][data-mode="dark"] { --bg:#101014; --bg-secondary:#1d1c22; --card:rgba(39,36,42,.94); --card-hover:rgba(53,48,54,.98); --text:#fffafa; --text-secondary:#e0d5d6; --muted:#b7a8aa; --accent:#ed3348; --accent-hover:#ff7180; --accent-secondary:#f4f4f4; --border:rgba(255,220,224,.17); --border-hover:rgba(237,51,72,.56); --glow:0 0 42px rgba(237,51,72,.15); }
-body[data-theme="polska"][data-mode="light"] { --bg:#fff5f5; --bg-secondary:#f8e5e7; --card:rgba(255,255,255,.97); --card-hover:#fff; --text:#29171a; --text-secondary:#5e3d42; --muted:#805e63; --accent:#c91f35; --accent-hover:#a9172b; --accent-secondary:#77777d; --border:rgba(155,29,47,.18); --border-hover:rgba(201,31,53,.48); --glow:0 0 32px rgba(201,31,53,.10); }
+/* NOWE MOTYWY: PEŁNA PALETA KOLORÓW BURGUNDY GOLD I POLSKA KOLEJ */
+.theme-preview-burgundy {
+    background: linear-gradient(135deg, #260812 0%, #6f1832 52%, #e0bd62 100%) !important;
+}
+.theme-preview-polska {
+    background: linear-gradient(135deg, #ffffff 0%, #e52a40 52%, #9f1027 100%) !important;
+}
+
+/* Burgundy Gold — wyraźny burgund, krem i złote akcenty */
+body[data-theme="burgundy"][data-mode="dark"] {
+    --bg:#16070d; --bg-secondary:#260d17; --card:rgba(53,18,32,.90); --card-hover:rgba(76,24,44,.97);
+    --text:#fff8ee; --text-secondary:#ead7dc; --muted:#c3a4ad;
+    --accent:#e0bd62; --accent-hover:#f4d989; --accent-secondary:#c14b69;
+    --border:rgba(230,195,129,.24); --border-hover:rgba(224,189,98,.68);
+    --glass:rgba(224,189,98,.055); --glass-strong:rgba(224,189,98,.10);
+    --header-bg:rgba(38,13,23,.82); --header-border:rgba(230,195,129,.24);
+    --shadow:0 20px 60px rgba(0,0,0,.32); --shadow-hover:0 28px 75px rgba(0,0,0,.44);
+    --glow:0 0 45px rgba(224,189,98,.18);
+    background-color:var(--bg);
+}
+body[data-theme="burgundy"][data-mode="light"] {
+    --bg:#fbf3f2; --bg-secondary:#f1e2e2; --card:rgba(255,255,255,.88); --card-hover:rgba(255,255,255,.98);
+    --text:#35121e; --text-secondary:#69424d; --muted:#86636c;
+    --accent:#8f2343; --accent-hover:#6f1832; --accent-secondary:#b58a2b;
+    --border:rgba(111,24,50,.20); --border-hover:rgba(143,35,67,.52);
+    --glass:rgba(143,35,67,.035); --glass-strong:rgba(255,255,255,.72);
+    --header-bg:rgba(251,243,242,.88); --header-border:rgba(111,24,50,.17);
+    --shadow:0 20px 60px rgba(90,40,54,.11); --shadow-hover:0 28px 75px rgba(90,40,54,.18);
+    --glow:0 0 38px rgba(143,35,67,.12);
+    background-color:var(--bg);
+}
+
+/* Polska Kolej — jasne tło, kolejowa czerwień i stalowe akcenty */
+body[data-theme="polska"][data-mode="dark"] {
+    --bg:#101014; --bg-secondary:#1d1c22; --card:rgba(39,36,42,.92); --card-hover:rgba(58,49,54,.98);
+    --text:#fffafa; --text-secondary:#e5d9db; --muted:#b7a8aa;
+    --accent:#ed3348; --accent-hover:#ff7180; --accent-secondary:#f4f4f4;
+    --border:rgba(255,220,224,.20); --border-hover:rgba(237,51,72,.64);
+    --glass:rgba(237,51,72,.045); --glass-strong:rgba(255,255,255,.075);
+    --header-bg:rgba(16,16,20,.84); --header-border:rgba(255,220,224,.18);
+    --shadow:0 20px 60px rgba(0,0,0,.32); --shadow-hover:0 28px 75px rgba(0,0,0,.44);
+    --glow:0 0 45px rgba(237,51,72,.19);
+    background-color:var(--bg);
+}
+body[data-theme="polska"][data-mode="light"] {
+    --bg:#fff5f5; --bg-secondary:#f8e5e7; --card:rgba(255,255,255,.90); --card-hover:#fff;
+    --text:#29171a; --text-secondary:#5e3d42; --muted:#805e63;
+    --accent:#c91f35; --accent-hover:#a9172b; --accent-secondary:#77777d;
+    --border:rgba(155,29,47,.20); --border-hover:rgba(201,31,53,.54);
+    --glass:rgba(201,31,53,.035); --glass-strong:rgba(255,255,255,.76);
+    --header-bg:rgba(255,245,245,.90); --header-border:rgba(155,29,47,.17);
+    --shadow:0 20px 60px rgba(100,30,40,.10); --shadow-hover:0 28px 75px rgba(100,30,40,.17);
+    --glow:0 0 38px rgba(201,31,53,.12);
+    background-color:var(--bg);
+}
+
+/* Kolory motywów są przypisane do elementów całej strony */
+html[data-theme="burgundy"][data-mode="dark"],
+html[data-theme="polska"][data-mode="dark"] { color-scheme: dark; }
+html[data-theme="burgundy"][data-mode="light"],
+html[data-theme="polska"][data-mode="light"] { color-scheme: light; }
