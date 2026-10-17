@@ -117,12 +117,18 @@ language sql
 stable
 security definer
 set search_path = ''
-as $$
+as $
   select auth.uid() is not null and (
     public.has_colony_role(auth.uid(), 'admin'::public.colony_role)
     or public.has_colony_role(auth.uid(), 'moderator'::public.colony_role)
   );
-$$;
+$;
+
+-- Do not expose the generic role-check helper: it accepts arbitrary user IDs.
+-- Policies use only the caller-scoped admin/staff checks below.
+revoke all on function public.has_colony_role(uuid, public.colony_role) from public, anon, authenticated;
+grant execute on function public.is_colony_admin() to anon, authenticated;
+grant execute on function public.is_colony_staff() to authenticated;
 
 -- Create a member profile and default member role on Auth signup.
 create or replace function public.handle_new_colony_user()
