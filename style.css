@@ -5452,3 +5452,52 @@ header.subpage-mobile-header nav .mobile-subpage-link {
         padding-inline: 10px;
     }
 }
+
+
+/* Bezpieczne ujednolicenie nawigacji mobilnej podstron.
+   Zmiana ograniczona do telefonów i sześciu podstron obsługiwanych przez script.js. */
+@media (max-width: 720px) {
+    header.subpage-mobile-header .header-inner {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 10px;
+        margin-inline: auto;
+    }
+
+    header.subpage-mobile-header .logo,
+    header.subpage-mobile-header .mobile-nav-toggle,
+    header.subpage-mobile-header .header-actions {
+        align-self: center;
+        margin-inline: auto !important;
+        text-align: center;
+    }
+
+    header.subpage-mobile-header nav.subpage-mobile-navigation,
+    header.subpage-mobile-header nav.subpage-mobile-navigation.mobile-nav-open {
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+
+    header.subpage-mobile-header nav.subpage-mobile-navigation .mobile-home-link {
+        display: flex !important;
+        width: 100%;
+        justify-content: center !important;
+        text-align: center !important;
+        margin-inline: auto !important;
+    }
+
+    .page-quick-nav {
+        display: none !important;
+    }
+}
+
+@media (max-width: 380px) {
+    header.subpage-mobile-header .header-inner {
+        padding-inline: 10px;
+    }
+}
