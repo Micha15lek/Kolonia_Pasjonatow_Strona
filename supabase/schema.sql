@@ -117,12 +117,12 @@ language sql
 stable
 security definer
 set search_path = ''
-as $
+as $$
   select auth.uid() is not null and (
     public.has_colony_role(auth.uid(), 'admin'::public.colony_role)
     or public.has_colony_role(auth.uid(), 'moderator'::public.colony_role)
   );
-$;
+$$;
 
 -- Do not expose the generic role-check helper: it accepts arbitrary user IDs.
 -- Policies use only the caller-scoped admin/staff checks below.
