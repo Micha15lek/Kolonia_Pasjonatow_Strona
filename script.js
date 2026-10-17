@@ -85,6 +85,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         sunset: {
             name: "🌅 Sunset"
+        },
+
+        burgundy: {
+            name: "🍷 Burgundy Gold"
+        },
+
+        polska: {
+            name: "🚆 Polska Kolej"
         }
 
     };
@@ -143,34 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
     /* =========================================
        ELEMENTY USTAWIEŃ
     ========================================= */
-
-    /* DOSTĘPNOŚĆ — ROZMIAR TEKSTU */
-    const fontSizeButtons = document.querySelectorAll("[data-font-size]");
-    const fontSizeStatus = document.getElementById("fontSizeStatus");
-
-    function applyFontSize(size, save = true) {
-        const allowedSizes = ["14", "16", "18"];
-        const safeSize = allowedSizes.includes(String(size)) ? String(size) : "16";
-        document.documentElement.style.fontSize = safeSize + "px";
-
-        fontSizeButtons.forEach(button => {
-            const selected = button.dataset.fontSize === safeSize;
-            button.setAttribute("aria-pressed", selected ? "true" : "false");
-        });
-
-        if (fontSizeStatus) {
-            const labels = { "14": "mały", "16": "standardowy", "18": "duży" };
-            fontSizeStatus.textContent = "Wybrany rozmiar: " + labels[safeSize] + ".";
-        }
-
-        if (save) localStorage.setItem("koloniaFontSize", safeSize);
-    }
-
-    applyFontSize(localStorage.getItem("koloniaFontSize") || "16", false);
-    fontSizeButtons.forEach(button => {
-        button.addEventListener("click", () => applyFontSize(button.dataset.fontSize));
-    });
-
 
     const themeToggle =
         document.getElementById(
