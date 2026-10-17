@@ -5551,3 +5551,12 @@ body[data-theme="sunset"][data-mode="light"]{--bg:#fff5f0;--bg-secondary:#ffe5dc
 .theme-option:focus-visible,.mode-option:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
 .theme-preview{border-color:color-mix(in srgb,var(--accent) 38%,rgba(255,255,255,.22));box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 8px 22px rgba(0,0,0,.20)}
 @media(prefers-reduced-motion:reduce){.theme-option,.theme-option::before,.theme-option::after,.mode-option{transition:none!important}}
+
+
+/* NOWE MOTYWY: BURGUNDY GOLD I POLSKA KOLEJ */
+.theme-preview-burgundy { background: linear-gradient(135deg, #260812, #6f1832 52%, #d4ad55); }
+.theme-preview-polska { background: linear-gradient(135deg, #f7f7f7, #dc2438 52%, #b5122a); }
+body[data-theme="burgundy"][data-mode="dark"] { --bg:#16070d; --bg-secondary:#260d17; --card:rgba(53,18,32,.94); --card-hover:rgba(72,23,42,.98); --text:#fff8ee; --text-secondary:#e8d5d9; --muted:#c3a4ad; --accent:#d6ad55; --accent-hover:#f0d486; --accent-secondary:#b83e5d; --border:rgba(230,195,129,.19); --border-hover:rgba(214,173,85,.58); --glow:0 0 42px rgba(214,173,85,.15); }
+body[data-theme="burgundy"][data-mode="light"] { --bg:#fbf3f2; --bg-secondary:#f1e2e2; --card:rgba(255,255,255,.97); --card-hover:#fff; --text:#35121e; --text-secondary:#69424d; --muted:#86636c; --accent:#8f2343; --accent-hover:#6f1832; --accent-secondary:#b58a2b; --border:rgba(111,24,50,.19); --border-hover:rgba(143,35,67,.48); --glow:0 0 32px rgba(143,35,67,.10); }
+body[data-theme="polska"][data-mode="dark"] { --bg:#101014; --bg-secondary:#1d1c22; --card:rgba(39,36,42,.94); --card-hover:rgba(53,48,54,.98); --text:#fffafa; --text-secondary:#e0d5d6; --muted:#b7a8aa; --accent:#ed3348; --accent-hover:#ff7180; --accent-secondary:#f4f4f4; --border:rgba(255,220,224,.17); --border-hover:rgba(237,51,72,.56); --glow:0 0 42px rgba(237,51,72,.15); }
+body[data-theme="polska"][data-mode="light"] { --bg:#fff5f5; --bg-secondary:#f8e5e7; --card:rgba(255,255,255,.97); --card-hover:#fff; --text:#29171a; --text-secondary:#5e3d42; --muted:#805e63; --accent:#c91f35; --accent-hover:#a9172b; --accent-secondary:#77777d; --border:rgba(155,29,47,.18); --border-hover:rgba(201,31,53,.48); --glow:0 0 32px rgba(201,31,53,.10); }
