@@ -350,6 +350,44 @@ header.site-header .header-actions {
 }
 </style>
 
+<style id="page-navigation-fix">
+/* Nawigacja wyśrodkowana bez zmian we wspólnym pliku style.css */
+@media (min-width: 721px) {
+  header.subpage-mobile-header .header-inner { position: relative; }
+  header.subpage-mobile-header .header-inner > nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: calc(100% - 300px);
+    justify-content: center;
+    text-align: center;
+  }
+}
+@media (max-width: 720px) {
+  header.subpage-mobile-header .header-inner {
+    justify-content: center;
+    align-items: center;
+  }
+  header.subpage-mobile-header .logo {
+    flex: 1 0 100%;
+    max-width: 100%;
+    text-align: center;
+    margin-inline: auto;
+  }
+  header.subpage-mobile-header .mobile-nav-toggle {
+    margin-inline: auto;
+  }
+  header.subpage-mobile-header .header-actions {
+    margin-inline: auto;
+    justify-content: center;
+  }
+  header.subpage-mobile-header nav.mobile-nav-open a {
+    justify-content: center;
+    text-align: center;
+  }
+}
+</style>
 </head>
 
 
