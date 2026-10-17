@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ========================================= */
     const mainNav = document.querySelector(".site-header nav, header nav");
     const siteHeader = mainNav?.closest("header");
-    if (mainNav && siteHeader && !document.getElementById("mobileNavToggle")) {
+    if (mainNav && siteHeader && !mainNav.classList.contains("subpage-mobile-navigation") && !document.getElementById("mobileNavToggle")) {
         const navToggle = document.createElement("button");
         navToggle.id = "mobileNavToggle";
         navToggle.className = "mobile-nav-toggle";
