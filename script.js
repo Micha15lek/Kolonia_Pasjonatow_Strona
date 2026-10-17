@@ -16,35 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         mainNav.id = "primaryNavigation";
         mainNav.setAttribute("aria-label", "Główna nawigacja");
 
-        /* Rozszerzona nawigacja wyłącznie na sześciu podstronach — widok desktopowy bez zmian. */
-        const mobileSubpages = [
-            ["administracja.html", "🛡️ Administracja"],
-            ["kalendarz.html", "📅 Kalendarz"],
-            ["historia.html", "📜 Historia"],
-            ["regulamin.html", "📖 Regulamin"],
-            ["galeria.html", "🖼️ Galeria zdjęć"],
-            ["zmiany.html", "🆕 Dziennik zmian"]
-        ];
-        const currentFile = window.location.pathname.split("/").pop() || "index.html";
-        if (mobileSubpages.some(([file]) => file === currentFile)) {
-            siteHeader.classList.add("subpage-mobile-header");
-            mainNav.classList.add("subpage-mobile-navigation");
-            const homeLink = mainNav.querySelector('a[href="index.html"]');
-            if (homeLink) {
-                homeLink.classList.add("mobile-home-link");
-            }
-            mobileSubpages.forEach(([file, label]) => {
-                const link = document.createElement("a");
-                link.href = file;
-                link.textContent = label;
-                link.className = "mobile-subpage-link";
-                if (file === currentFile) {
-                    link.classList.add("active");
-                    link.setAttribute("aria-current", "page");
-                }
-                mainNav.appendChild(link);
-            });
-        }
+        /* Nawigacja pozostaje identyczna na każdej stronie. */
         mainNav.parentNode.insertBefore(navToggle, mainNav);
 
         const setNavOpen = (open) => {
