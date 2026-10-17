@@ -21,7 +21,7 @@
         rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20261018-themes2">
 
     <script>
         (function () {
@@ -960,7 +960,31 @@
             outline-offset: 3px;
         }
 
-    </style>
+    
+        /* Wyraźniejszy wygląd kart wszystkich motywów w ustawieniach */
+        .theme-option {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border, rgba(255,255,255,.16));
+            background: linear-gradient(135deg, color-mix(in srgb, var(--accent, #398fff) 12%, var(--card, #142033)), var(--card, #142033) 72%);
+            transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+        }
+        .theme-option:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent, #398fff);
+        }
+        .theme-option.selected,
+        .theme-option[aria-pressed="true"] {
+            border-color: var(--accent, #398fff);
+            background: linear-gradient(135deg, color-mix(in srgb, var(--accent, #398fff) 22%, var(--card, #142033)), var(--card, #142033) 82%);
+            box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent, #398fff) 30%, transparent), var(--glow, 0 0 28px rgba(57,143,255,.12));
+        }
+        .theme-option-content strong { color: var(--text, #fff); }
+        .theme-option-content small { color: var(--text-secondary, #b8c8dc); }
+        .theme-check { color: var(--accent, #398fff); }
+        .theme-preview-burgundy { background: linear-gradient(135deg,#260812,#6f1832 52%,#e0bd62) !important; }
+        .theme-preview-polska { background: linear-gradient(135deg,#fff 0%,#e52a40 52%,#9f1027 100%) !important; }
+</style>
 
 </head>
 
@@ -1387,7 +1411,7 @@
 </footer>
 
 
-<script src="script.js"></script>
+<script src="script.js?v=20261018-themes2"></script>
 
 </body>
 
