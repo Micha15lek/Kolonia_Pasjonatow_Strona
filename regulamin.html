@@ -539,6 +539,62 @@ header.site-header .header-actions {
   }
 }
 </style>
+
+<!-- NAPRAWA NAWIGACJI: style bezpośrednio w pliku HTML -->
+<style>
+@media (max-width: 720px) {
+    body header.site-header.subpage-mobile-header {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin-inline: auto !important;
+    }
+    body header.site-header.subpage-mobile-header .header-inner {
+        display: flex !important;
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-inline: auto !important;
+        text-align: center !important;
+    }
+    body header.site-header.subpage-mobile-header .logo,
+    body header.site-header.subpage-mobile-header #mobileNavToggle,
+    body header.site-header.subpage-mobile-header .header-actions,
+    body header.site-header.subpage-mobile-header nav {
+        align-self: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+    }
+    body header.site-header.subpage-mobile-header nav {
+        width: 100% !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    body header.site-header.subpage-mobile-header nav a {
+        display: flex !important;
+        width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box !important;
+    }
+    body header.site-header.subpage-mobile-header .header-actions {
+        display: flex !important;
+        width: 100% !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
+    }
+}
+</style>
+
 </head>
 
 
