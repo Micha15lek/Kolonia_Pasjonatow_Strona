@@ -488,10 +488,15 @@ header.site-header .header-actions {
 
 
 <header class="site-header subpage-mobile-header">
-    <div class="header-inner" style="display:flex;align-items:center;justify-content:center;text-align:center;width:100%;box-sizing:border-box;">
-        <nav class="subpage-mobile-navigation" style="display:flex;flex:1 1 auto;align-items:center;justify-content:center;text-align:center;width:100%;margin:0 auto;" aria-label="Nawigacja powrotna">
-            <a href="index.html" class="mobile-home-link" style="display:inline-flex;align-items:center;justify-content:center;text-align:center;width:100%;max-width:100%;margin-inline:auto;">🏠 Powrót do strony głównej</a>
+    <div class="header-inner">
+        <a href="index.html" class="logo" aria-label="Kolonia Pasjonatów — strona główna">KOLONIA PASJONATÓW</a>
+        <nav class="subpage-mobile-navigation" aria-label="Nawigacja powrotna">
+            <a href="index.html" class="mobile-home-link">🏠 Powrót do strony głównej</a>
         </nav>
+        <div class="header-actions">
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Zmień tryb" title="Zmień tryb jasny/ciemny">🌙</button>
+            <a href="ustawienia.html" class="settings-button" aria-label="Ustawienia" title="Ustawienia">⚙️</a>
+        </div>
     </div>
 </header>
 
