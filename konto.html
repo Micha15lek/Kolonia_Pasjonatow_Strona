@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Konto użytkownika i profil w społeczności Kolonia Pasjonatów.">
     <title>Konto użytkownika | Kolonia Pasjonatów</title>
-    <link rel="stylesheet" href="style.css?v=20261018-profilecheck3">
+    <link rel="stylesheet" href="style.css?v=20261018-authstatus2">
     <style>
         .account-main { width: min(100% - 32px, 900px); margin: 0 auto; padding: 54px 0 90px; }
         .account-intro { text-align: center; margin: 0 auto 28px; max-width: 680px; }
@@ -196,7 +196,7 @@
         loginButton.disabled = true;
         setStatus(authStatus, "Przekierowuję do Discorda…", "");
         try {
-            const redirectTo = window.location.origin + window.location.pathname;
+            const redirectTo = window.location.origin + window.location.pathname.replace(/[^/]*$/, "index.html");
             const result = await client.auth.signInWithOAuth({ provider: "discord", options: { redirectTo: redirectTo, scopes: "identify email" } });
             if (result.error) throw result.error;
             if (result.data && result.data.url) {
@@ -268,6 +268,6 @@
     });
 })();
 </script>
-<script src="script.js?v=20261018-profilecheck3"></script>
+<script src="script.js?v=20261018-authstatus2"></script>
 </body>
 </html>
