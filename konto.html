@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Konto użytkownika i profil w społeczności Kolonia Pasjonatów.">
     <title>Konto użytkownika | Kolonia Pasjonatów</title>
-    <link rel="stylesheet" href="style.css?v=20261018-themes2">
+    <link rel="stylesheet" href="style.css?v=20261018-accountfix1">
     <style>
         .account-main { width: min(100% - 32px, 900px); margin: 0 auto; padding: 54px 0 90px; }
         .account-intro { text-align: center; margin: 0 auto 28px; max-width: 680px; }
@@ -28,6 +28,38 @@
         .profile-heading h2 { margin: 0 0 5px; overflow-wrap: anywhere; } .profile-heading p { margin: 0; color: var(--text-secondary); overflow-wrap: anywhere; }
         .account-note { margin-top: 20px; font-size: .88rem; color: var(--text-secondary); line-height: 1.65; }
         @media (max-width: 580px) { .account-main { padding-top: 34px; } .account-tabs button { flex: 1 1 120px; } }
+        /* Konto: na telefonie nagłówek i rozwijana nawigacja nie mogą być obcinane. */
+        @media (max-width: 720px) {
+            body.subpage .site-header {
+                left: 7px !important;
+                right: 7px !important;
+                width: calc(100% - 14px) !important;
+                max-width: none !important;
+                height: auto !important;
+                max-height: none !important;
+                overflow: visible !important;
+                transform: none !important;
+                box-sizing: border-box !important;
+            }
+            body.subpage .site-header .header-inner {
+                width: 100% !important;
+                min-width: 0 !important;
+                min-height: 0 !important;
+                height: auto !important;
+                max-height: none !important;
+                flex-wrap: wrap !important;
+                overflow: visible !important;
+                box-sizing: border-box !important;
+            }
+            body.subpage .site-header nav {
+                box-sizing: border-box !important;
+                min-width: 0 !important;
+                max-width: 100% !important;
+                max-height: min(62vh, 420px) !important;
+                overflow-x: hidden !important;
+                overflow-y: auto !important;
+            }
+        }
     </style>
 </head>
 <body class="subpage" data-theme="blue" data-mode="dark">
@@ -97,7 +129,7 @@
 <script src="supabase-config.js?v=1"></script>
 <script src="supabase-client.js?v=1"></script>
 <script>
-(f<script>
+<script>
 (function () {
     "use strict";
     const client = window.koloniaSupabase;
@@ -167,7 +199,11 @@
             const redirectTo = window.location.origin + window.location.pathname;
             const result = await client.auth.signInWithOAuth({ provider: "discord", options: { redirectTo: redirectTo, scopes: "identify email" } });
             if (result.error) throw result.error;
-            if (result.data && result.data.url) window.location.assign(result.data.url);
+            if (result.data && result.data.url) {
+                window.location.assign(result.data.url);
+            } else {
+                throw new Error("Supabase nie zwrócił adresu logowania. Sprawdź, czy dostawca Discord jest włączony w Supabase i ma zapisane Client ID oraz Client Secret.");
+            }
         } catch (error) {
             setStatus(authStatus, error.message || "Nie udało się rozpocząć logowania przez Discord.", "error");
             loginButton.disabled = false;
@@ -223,6 +259,6 @@
     });
 })();
 </script>
-<script src="script.js?v=20261018-themes2"></script>
+<script src="script.js?v=20261018-accountfix1"></script>
 </body>
 </html>
