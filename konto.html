@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Konto użytkownika i profil w społeczności Kolonia Pasjonatów.">
     <title>Konto użytkownika | Kolonia Pasjonatów</title>
-    <link rel="stylesheet" href="style.css?v=20261018-accountfix1">
+    <link rel="stylesheet" href="style.css?v=20261018-discordprofile1">
     <style>
         .account-main { width: min(100% - 32px, 900px); margin: 0 auto; padding: 54px 0 90px; }
         .account-intro { text-align: center; margin: 0 auto 28px; max-width: 680px; }
@@ -102,7 +102,7 @@
     <section id="profilePanel" class="account-panel account-hidden" aria-labelledby="profileTitle">
         <div class="profile-heading">
             <div id="profileAvatar" class="profile-avatar" aria-hidden="true">K</div>
-            <div><h2 id="profileTitle">Twój profil</h2><p id="profileEmail"></p><p id="profileRole"></p></div>
+            <div><h2 id="profileTitle">Twój profil</h2><p id="discordGlobalName"></p><p id="discordUsername"></p><p id="profileEmail"></p><p id="profileRole"></p></div>
         </div>
         <form id="profileForm" class="account-form">
             <label class="account-field">Nazwa użytkownika (3–24 znaki, litery, cyfry i _)
@@ -157,8 +157,11 @@
         authPanel.classList.add("account-hidden");
         profilePanel.classList.remove("account-hidden");
         const metadata = user.user_metadata || {};
-        const discordName = metadata.global_name || metadata.name || metadata.full_name || "";
-        document.getElementById("profileEmail").textContent = discordName ? "Discord: " + discordName : "Konto połączone przez Discord";
+        const discordName = metadata.global_name || metadata.custom_claims?.global_name || metadata.name || metadata.full_name || metadata.preferred_username || "";
+        const discordUsername = metadata.user_name || metadata.username || metadata.preferred_username || metadata.custom_claims?.username || "";
+        document.getElementById("discordGlobalName").textContent = discordName ? "Nazwa wyświetlana na Discordzie: " + discordName : "Nazwa wyświetlana Discorda niedostępna";
+        document.getElementById("discordUsername").textContent = discordUsername ? "Login Discord: @" + discordUsername : "";
+        document.getElementById("profileEmail").textContent = user.email ? "E-mail konta: " + user.email : "Konto połączone przez Discord";
         setStatus(profileStatus, "Ładowanie profilu…", "");
         const result = await client.from("profiles").select("username, display_name, bio, is_public").eq("id", user.id).maybeSingle();
         if (result.error) {
@@ -166,14 +169,14 @@
             return;
         }
         const profile = result.data || {};
-        const displayName = profile.display_name || discordName || "Nowy członek";
+        const displayName = profile.display_name || discordName || discordUsername || "Nowy członek";
         document.getElementById("username").value = profile.username || "";
         document.getElementById("profileDisplayName").value = displayName;
         document.getElementById("bio").value = profile.bio || "";
         document.getElementById("isPublic").checked = profile.is_public !== false;
         document.getElementById("profileTitle").textContent = displayName;
         const avatar = document.getElementById("profileAvatar");
-        const avatarUrl = metadata.avatar_url || metadata.picture || "";
+        const avatarUrl = profile.avatar_url || metadata.avatar_url || metadata.picture || "";
         avatar.style.backgroundImage = "";
         avatar.textContent = displayName.trim().charAt(0).toUpperCase() || "K";
         if (avatarUrl && /^https:\/\//i.test(avatarUrl)) {
@@ -226,8 +229,11 @@
         saveButton.disabled = true;
         setStatus(profileStatus, "Zapisywanie zmian…", "");
         try {
+            const metadata = currentUser.user_metadata || {};
+            const avatarUrl = metadata.avatar_url || metadata.picture || null;
             const result = await client.from("profiles").update({
                 username: username || null, display_name: displayName, bio: bio,
+                avatar_url: avatarUrl,
                 is_public: document.getElementById("isPublic").checked
             }).eq("id", currentUser.id);
             if (result.error) throw result.error;
@@ -235,7 +241,13 @@
             const avatar = document.getElementById("profileAvatar");
             avatar.style.backgroundImage = "";
             avatar.textContent = displayName.trim().charAt(0).toUpperCase();
-            setStatus(profileStatus, "Profil został zapisany.", "success");
+            if (avatarUrl && /^https:\/\//i.test(avatarUrl)) {
+                avatar.textContent = "";
+                avatar.style.backgroundImage = "url('" + avatarUrl.replace(/['\\()]/g, "") + "')";
+                avatar.style.backgroundSize = "cover";
+                avatar.style.backgroundPosition = "center";
+            }
+            setStatus(profileStatus, "Profil został zapisany. Dane nazwy i awatara Discorda zostały zsynchronizowane.", "success");
         } catch (error) {
             const message = error.message || "Nie udało się zapisać profilu.";
             setStatus(profileStatus, message.includes("duplicate key") || message.includes("profiles_username_key") ? "Ta nazwa użytkownika jest już zajęta." : message, "error");
@@ -258,6 +270,6 @@
     });
 })();
 </script>
-<script src="script.js?v=20261018-accountfix1"></script>
+<script src="script.js?v=20261018-discordprofile1"></script>
 </body>
 </html>
