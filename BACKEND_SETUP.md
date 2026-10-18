@@ -4,20 +4,19 @@
 Uruchom plik `supabase/schema.sql` w SQL Editor w panelu Supabase.
 
 ## Logowanie przez Discord
-Strona `konto.html` loguje użytkowników przez Discord OAuth w Supabase Auth.
+Strona `konto.html` korzysta z Supabase Auth i OAuth Discord.
 
-1. Otwórz [Discord Developer Portal](https://discord.com/developers/applications) i utwórz aplikację albo wybierz istniejącą.
-2. W aplikacji przejdź do **OAuth2** i dodaj Redirect URL:
-   `https://ffykdmhkpbcrmfqhwrvf.supabase.co/auth/v1/callback`
-3. Skopiuj Client ID i Client Secret aplikacji Discord.
-4. W Supabase przejdź do **Authentication → Sign In / Providers → Discord**, włącz dostawcę Discord i wklej tam Client ID oraz Client Secret. Zapisz zmiany.
-5. W Supabase otwórz **Authentication → URL Configuration**. Ustaw Site URL na prawdziwy adres opublikowanej strony i dodaj go do Redirect URLs, w tym adres strony `konto.html`.
-6. Otwórz stronę, kliknij **Konto → Kontynuuj przez Discord** i zaakceptuj autoryzację.
+1. Otwórz [Discord Developer Portal](https://discord.com/developers/applications) i utwórz aplikację lub wybierz istniejącą.
+2. W aplikacji wejdź w **OAuth2** i dodaj Redirect URL: `https://ffykdmhkpbcrmfqhwrvf.supabase.co/auth/v1/callback`.
+3. Skopiuj Client ID oraz Client Secret z aplikacji Discord.
+4. W Supabase przejdź do **Authentication → Sign In / Providers → Discord**, włącz dostawcę Discord i wpisz tam Client ID oraz Client Secret. Zapisz zmiany.
+5. W Supabase w **Authentication → URL Configuration** ustaw Site URL na faktyczny adres opublikowanej strony i dodaj ten adres (w tym adres strony `konto.html`) do Redirect URLs.
+6. Na stronie wybierz **Konto → Kontynuuj przez Discord**.
 
-**Ważne:** Discord Client Secret wpisuj wyłącznie w panelu Supabase. Nie umieszczaj go w HTML, JavaScript ani repozytorium. W stronie używany jest tylko klucz Publishable.
+W przeglądarce używany jest wyłącznie Project URL i klucz Publishable. **Discord Client Secret** wklejaj tylko do panelu Supabase — nigdy do plików strony ani repozytorium.
 
-## Nadanie pierwszej roli administratora
-Po pierwszym zalogowaniu przez Discord otwórz **Authentication → Users**, skopiuj UUID swojego konta i w SQL Editor wykonaj polecenie z prawdziwym UUID:
+## Pierwszy administrator
+Po pierwszym zalogowaniu przez Discord otwórz **Authentication → Users**, skopiuj UUID użytkownika, a następnie w SQL Editor nadaj mu rolę administratora:
 
 ```sql
 insert into public.user_roles (user_id, role)
@@ -25,7 +24,4 @@ values ('YOUR-AUTH-USER-UUID', 'admin')
 on conflict do nothing;
 ```
 
-Role są nadawane w bazie, a nie przez formularz profilu. Dostęp do danych chronią polityki RLS.
-
-## Kolejne etapy
-Logowanie Discord i edycja własnego profilu to etap kont. Statystyki strony głównej i panel administratora będą podłączane osobno.
+Role są nadawane w bazie danych, a dostęp chronią polityki RLS. Statystyki strony i funkcje panelu administracyjnego będą podłączane w kolejnych etapach.
