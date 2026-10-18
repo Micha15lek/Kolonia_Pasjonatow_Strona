@@ -169,7 +169,7 @@
             return;
         }
         const profile = result.data || {};
-        const displayName = profile.display_name || discordName || discordUsername || "Nowy członek";
+        const displayName = discordName || discordUsername || profile.display_name || "Nowy członek";
         document.getElementById("username").value = profile.username || "";
         document.getElementById("profileDisplayName").value = displayName;
         document.getElementById("bio").value = profile.bio || "";
