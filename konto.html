@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Konto użytkownika i profil w społeczności Kolonia Pasjonatów.">
     <title>Konto użytkownika | Kolonia Pasjonatów</title>
-    <link rel="stylesheet" href="style.css?v=20261018-profilechoice1">
+    <link rel="stylesheet" href="style.css?v=20261018-profilechoice2">
     <style>
         .account-main { width: min(100% - 32px, 900px); margin: 0 auto; padding: 54px 0 90px; }
         .account-intro { text-align: center; margin: 0 auto 28px; max-width: 680px; }
@@ -102,7 +102,7 @@
     <section id="profilePanel" class="account-panel account-hidden" aria-labelledby="profileTitle">
         <div class="profile-heading">
             <div id="profileAvatar" class="profile-avatar" aria-hidden="true">K</div>
-            <div><h2 id="profileTitle">Twój profil</h2><p id="discordGlobalName"></p><p id="discordUsername"></p><p id="profileRole"></p></div>
+            <div><h2 id="profileTitle">Twój profil</h2><p id="discordGlobalName"></p><p id="discordUsername"></p></div>
         </div>
         <form id="profileForm" class="account-form">
             <label class="account-field">Nazwa Discorda (stała, pobierana z połączonego konta)
@@ -184,8 +184,6 @@
             avatar.style.backgroundSize = "cover";
             avatar.style.backgroundPosition = "center";
         }
-        const roleResult = await client.from("user_roles").select("role").eq("user_id", user.id).maybeSingle();
-        document.getElementById("profileRole").textContent = roleResult.error ? "Rola: członek społeczności" : "Rola: " + ((roleResult.data && roleResult.data.role) || "member");
         setStatus(profileStatus, "", "");
     }
     if (!client) {
@@ -241,7 +239,8 @@
                 avatar.style.backgroundSize = "cover";
                 avatar.style.backgroundPosition = "center";
             }
-            setStatus(profileStatus, "Profil został zapisany. Dane nazwy i awatara Discorda zostały zsynchronizowane.", "success");
+            setStatus(profileStatus, "Konfiguracja zakończona! Przenoszę na stronę główną…", "success");
+            window.setTimeout(function () { window.location.assign("index.html"); }, 1000);
         } catch (error) {
             const message = error.message || "Nie udało się zapisać profilu.";
             setStatus(profileStatus, message.includes("duplicate key") || message.includes("profiles_username_key") ? "Ta nazwa użytkownika jest już zajęta." : message, "error");
@@ -264,6 +263,6 @@
     });
 })();
 </script>
-<script src="script.js?v=20261018-profilechoice1"></script>
+<script src="script.js?v=20261018-profilechoice2"></script>
 </body>
 </html>
