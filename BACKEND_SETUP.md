@@ -1,23 +1,23 @@
 # Kolonia Pasjonatów — konfiguracja Supabase
 
-## Etap 1 — baza danych
-W panelu Supabase uruchom cały plik `supabase/schema.sql` w SQL Editor.
+## Baza danych
+Uruchom plik `supabase/schema.sql` w SQL Editor w panelu Supabase.
 
-## Etap 2 — połączenie i konta
-Pliki `supabase-config.js` i `supabase-client.js` tworzą połączenie strony z Supabase. W konfiguracji przeglądarkowej używany jest wyłącznie Project URL i klucz Publishable. Nie umieszczaj w repozytorium klucza Secret, service_role ani hasła do bazy.
+## Logowanie przez Discord
+Strona `konto.html` korzysta z Supabase Auth i logowania OAuth przez Discord. Aby je aktywować:
 
-Strona `konto.html` umożliwia:
-- rejestrację i logowanie przez e-mail oraz hasło;
-- wyświetlanie własnego profilu;
-- edycję nazwy użytkownika, nazwy wyświetlanej, opisu i widoczności profilu;
-- wylogowanie.
+1. Otwórz [Discord Developer Portal](https://discord.com/developers/applications) i utwórz aplikację (lub wybierz istniejącą).
+2. W aplikacji przejdź do **OAuth2** i dodaj Redirect URL:
+   `https://ffykdmhkpbcrmfqhwrvf.supabase.co/auth/v1/callback`
+3. Skopiuj Client ID i Client Secret z aplikacji Discord.
+4. W Supabase przejdź do **Authentication → Sign In / Providers → Discord**, włącz Discord i wpisz tam Client ID oraz Client Secret. Zapisz zmiany.
+5. W Supabase, w **Authentication → URL Configuration**, ustaw Site URL na dokładny adres opublikowanej strony i dodaj adres strony konta do Redirect URLs. Na przykład, jeśli repozytorium jest publikowane przez GitHub Pages, będzie to adres Twojej strony kończący się na `/konto.html`. Użyj faktycznego adresu strony.
+6. Otwórz stronę i wybierz **Konto → Kontynuuj przez Discord**.
 
-## Konfiguracja Supabase Auth
-1. W Authentication → URL Configuration ustaw Site URL na opublikowany adres strony GitHub Pages i dodaj ten adres do Redirect URLs.
-2. W Authentication → Providers upewnij się, że Email jest włączony.
-3. Jeśli włączono potwierdzanie e-maila, użytkownik musi potwierdzić adres przed pierwszym logowaniem.
-4. Po zarejestrowaniu własnego konta otwórz Authentication → Users i skopiuj UUID użytkownika.
-5. W SQL Editor nadaj sobie rolę administratora, podstawiając prawdziwy UUID:
+W przeglądarce używany jest wyłącznie Project URL i klucz Publishable. **Discord Client Secret** wklejaj wyłącznie w panelu Supabase — nigdy do plików strony ani repozytorium.
+
+## Pierwszy administrator
+Po pierwszym zalogowaniu przez Discord otwórz **Authentication → Users** i skopiuj UUID tego użytkownika. Następnie w SQL Editor wykonaj poniższe polecenie, podstawiając prawdziwy UUID:
 
 ```sql
 insert into public.user_roles (user_id, role)
@@ -25,7 +25,7 @@ values ('YOUR-AUTH-USER-UUID', 'admin')
 on conflict do nothing;
 ```
 
-Rola administratora jest przypisywana w bazie, nie przez formularz na stronie. Nie udostępniaj nikomu swojego hasła ani klucza Secret.
+Role są nadawane w bazie danych, a nie przez formularz profilu. Dostęp do danych chronią polityki RLS.
 
-## Ważne
-To jest etapowe wdrożenie. Rejestracja i profil korzystają z Supabase Auth oraz RLS. Statystyki na stronie głównej i funkcje administracyjne będą podłączane w kolejnych etapach.
+## Kolejne etapy
+Rejestracja/logowanie przez Discord i edycja własnego profilu to etap kont. Statystyki na stronie głównej oraz funkcje panelu administracyjnego będą podłączane oddzielnie.
