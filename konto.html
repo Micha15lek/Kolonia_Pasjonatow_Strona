@@ -60,12 +60,10 @@
         <div style="text-align:center;max-width:560px;margin:auto">
             <div style="font-size:3.2rem;margin-bottom:12px" aria-hidden="true">💬</div>
             <h2 id="authTitle" style="margin-top:0">Zaloguj się przez Discord</h2>
-            <p style="color:var(--text-secondary);line-height:1.7">Połącz swoje konto Discord z profilem w Kolonii Pasjonatów. Nie potrzebujesz osobnego hasła do naszej strony.</p>
-            <button id="discordLogin" class="account-button primary" type="button" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;margin:14px auto;padding:14px 22px">
-                <span aria-hidden="true">🎮</span> Kontynuuj przez Discord
-            </button>
+            <p style="color:var(--text-secondary);line-height:1.7">Połącz konto Discord z profilem w Kolonii Pasjonatów. Nie potrzebujesz osobnego hasła do naszej strony.</p>
+            <button id="discordLogin" class="account-button primary" type="button" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;margin:14px auto;padding:14px 22px"><span aria-hidden="true">🎮</span> Kontynuuj przez Discord</button>
             <p id="authStatus" class="account-status" role="status" aria-live="polite"></p>
-            <p class="account-note">Discord poprosi Cię o autoryzację. Kolonia Pasjonatów nie otrzymuje Twojego hasła do Discorda.</p>
+            <p class="account-note">Przy pierwszym logowaniu Discord poprosi Cię o autoryzację. Kolonia Pasjonatów nie otrzymuje Twojego hasła do Discorda.</p>
         </div>
     </section>
 
@@ -99,6 +97,7 @@
 <script src="supabase-config.js?v=1"></script>
 <script src="supabase-client.js?v=1"></script>
 <script>
+(f<script>
 (function () {
     "use strict";
     const client = window.koloniaSupabase;
@@ -108,113 +107,121 @@
     const profileStatus = document.getElementById("profileStatus");
     const loginButton = document.getElementById("discordLogin");
     let currentUser = null;
-    function status(el, message, type) {
+
+    function setStatus(el, message, type) {
         if (!el) return;
         el.textContent = message || "";
         el.className = "account-status" + (type ? " " + type : "");
     }
-    function signedOut(message) {
+    function showSignedOut(message) {
         currentUser = null;
         authPanel.classList.remove("account-hidden");
         profilePanel.classList.add("account-hidden");
-        loginButton.disabled = false;
-        status(authStatus, message || "", message ? "error" : "");
+        if (loginButton) loginButton.disabled = false;
+        setStatus(authStatus, message || "", message ? "error" : "");
     }
     async function loadProfile(user) {
         if (!user || !client) return;
         currentUser = user;
         authPanel.classList.add("account-hidden");
         profilePanel.classList.remove("account-hidden");
-        const meta = user.user_metadata || {};
-        document.getElementById("profileEmail").textContent = "Discord: " + (meta.global_name || meta.name || meta.full_name || "połączone konto");
-        status(profileStatus, "Ładowanie profilu…", "");
-        const { data: profile, error } = await client.from("profiles")
-            .select("username, display_name, bio, is_public").eq("id", user.id).maybeSingle();
-        if (error) { status(profileStatus, "Nie udało się pobrać profilu: " + error.message, "error"); return; }
-        const name = profile?.display_name || meta.global_name || meta.name || "Nowy członek";
-        document.getElementById("username").value = profile?.username || "";
-        document.getElementById("profileDisplayName").value = name;
-        document.getElementById("bio").value = profile?.bio || "";
-        document.getElementById("isPublic").checked = profile?.is_public !== false;
-        document.getElementById("profileTitle").textContent = name;
+        const metadata = user.user_metadata || {};
+        const discordName = metadata.global_name || metadata.name || metadata.full_name || "";
+        document.getElementById("profileEmail").textContent = discordName ? "Discord: " + discordName : "Konto połączone przez Discord";
+        setStatus(profileStatus, "Ładowanie profilu…", "");
+        const result = await client.from("profiles").select("username, display_name, bio, is_public").eq("id", user.id).maybeSingle();
+        if (result.error) {
+            setStatus(profileStatus, "Nie udało się pobrać profilu: " + result.error.message, "error");
+            return;
+        }
+        const profile = result.data || {};
+        const displayName = profile.display_name || discordName || "Nowy członek";
+        document.getElementById("username").value = profile.username || "";
+        document.getElementById("profileDisplayName").value = displayName;
+        document.getElementById("bio").value = profile.bio || "";
+        document.getElementById("isPublic").checked = profile.is_public !== false;
+        document.getElementById("profileTitle").textContent = displayName;
         const avatar = document.getElementById("profileAvatar");
-        avatar.textContent = name.charAt(0).toUpperCase() || "K";
+        const avatarUrl = metadata.avatar_url || metadata.picture || "";
         avatar.style.backgroundImage = "";
-        const avatarUrl = meta.avatar_url || meta.picture || "";
-        if (/^https:\/\//i.test(avatarUrl)) {
+        avatar.textContent = displayName.trim().charAt(0).toUpperCase() || "K";
+        if (avatarUrl && /^https:\/\//i.test(avatarUrl)) {
             avatar.textContent = "";
             avatar.style.backgroundImage = "url('" + avatarUrl.replace(/['\\()]/g, "") + "')";
             avatar.style.backgroundSize = "cover";
             avatar.style.backgroundPosition = "center";
         }
-        const role = await client.from("user_roles").select("role").eq("user_id", user.id).maybeSingle();
-        document.getElementById("profileRole").textContent = "Rola: " + (role.data?.role || "member");
-        status(profileStatus, "", "");
+        const roleResult = await client.from("user_roles").select("role").eq("user_id", user.id).maybeSingle();
+        document.getElementById("profileRole").textContent = roleResult.error ? "Rola: członek społeczności" : "Rola: " + ((roleResult.data && roleResult.data.role) || "member");
+        setStatus(profileStatus, "", "");
     }
     if (!client) {
-        status(authStatus, "Brak połączenia z Supabase. Sprawdź konfigurację.", "error");
+        setStatus(authStatus, "Nie udało się uruchomić połączenia z Supabase. Sprawdź konfigurację.", "error");
         loginButton.disabled = true;
         return;
     }
-    loginButton.addEventListener("click", async () => {
+    loginButton.addEventListener("click", async function () {
         loginButton.disabled = true;
-        status(authStatus, "Przekierowuję do Discorda…", "");
+        setStatus(authStatus, "Przekierowuję do Discorda…", "");
         try {
-            const { error } = await client.auth.signInWithOAuth({
-                provider: "discord",
-                options: { redirectTo: window.location.origin + window.location.pathname, scopes: "identify email" }
-            });
-            if (error) throw error;
-        } catch (e) {
-            status(authStatus, e.message || "Nie udało się rozpocząć logowania przez Discord.", "error");
+            const redirectTo = window.location.origin + window.location.pathname;
+            const result = await client.auth.signInWithOAuth({ provider: "discord", options: { redirectTo: redirectTo, scopes: "identify email" } });
+            if (result.error) throw result.error;
+            if (result.data && result.data.url) window.location.assign(result.data.url);
+        } catch (error) {
+            setStatus(authStatus, error.message || "Nie udało się rozpocząć logowania przez Discord.", "error");
             loginButton.disabled = false;
         }
     });
-    document.getElementById("profileForm").addEventListener("submit", async event => {
+    document.getElementById("profileForm").addEventListener("submit", async function (event) {
         event.preventDefault();
         if (!currentUser) return;
         const username = document.getElementById("username").value.trim();
         const displayName = document.getElementById("profileDisplayName").value.trim();
         const bio = document.getElementById("bio").value.trim();
         if (username && !/^[A-Za-z0-9_]{3,24}$/.test(username)) {
-            status(profileStatus, "Nazwa użytkownika musi mieć 3–24 znaki: litery, cyfry lub podkreślenia.", "error"); return;
+            setStatus(profileStatus, "Nazwa użytkownika musi mieć 3–24 znaki: litery, cyfry lub podkreślenia.", "error");
+            return;
         }
         if (!displayName || displayName.length > 60 || bio.length > 500) {
-            status(profileStatus, "Sprawdź nazwę wyświetlaną i opis profilu.", "error"); return;
+            setStatus(profileStatus, "Sprawdź nazwę wyświetlaną i opis profilu.", "error");
+            return;
         }
-        const button = document.querySelector("#profileForm button[type='submit']");
-        button.disabled = true;
-        status(profileStatus, "Zapisywanie zmian…", "");
+        const saveButton = document.querySelector("#profileForm button[type='submit']");
+        saveButton.disabled = true;
+        setStatus(profileStatus, "Zapisywanie zmian…", "");
         try {
-            const { error } = await client.from("profiles").update({
-                username: username || null, display_name: displayName, bio,
+            const result = await client.from("profiles").update({
+                username: username || null, display_name: displayName, bio: bio,
                 is_public: document.getElementById("isPublic").checked
             }).eq("id", currentUser.id);
-            if (error) throw error;
+            if (result.error) throw result.error;
             document.getElementById("profileTitle").textContent = displayName;
             const avatar = document.getElementById("profileAvatar");
             avatar.style.backgroundImage = "";
-            avatar.textContent = displayName.charAt(0).toUpperCase();
-            status(profileStatus, "Profil został zapisany.", "success");
-        } catch (e) {
-            const msg = e.message || "Nie udało się zapisać profilu.";
-            status(profileStatus, msg.toLowerCase().includes("duplicate") ? "Ta nazwa użytkownika jest już zajęta." : msg, "error");
-        } finally { button.disabled = false; }
+            avatar.textContent = displayName.trim().charAt(0).toUpperCase();
+            setStatus(profileStatus, "Profil został zapisany.", "success");
+        } catch (error) {
+            const message = error.message || "Nie udało się zapisać profilu.";
+            setStatus(profileStatus, message.includes("duplicate key") || message.includes("profiles_username_key") ? "Ta nazwa użytkownika jest już zajęta." : message, "error");
+        } finally {
+            saveButton.disabled = false;
+        }
     });
-    document.getElementById("logoutButton").addEventListener("click", async () => {
-        const { error } = await client.auth.signOut();
-        if (error) status(profileStatus, error.message, "error"); else signedOut("");
+    document.getElementById("logoutButton").addEventListener("click", async function () {
+        const result = await client.auth.signOut();
+        if (result.error) setStatus(profileStatus, result.error.message, "error");
+        else showSignedOut("");
     });
     client.auth.getSession().then(({ data, error }) => {
-        if (error) status(authStatus, error.message, "error");
-        if (data?.session) loadProfile(data.session.user);
+        if (error) setStatus(authStatus, error.message, "error");
+        if (data && data.session) loadProfile(data.session.user);
     });
     client.auth.onAuthStateChange((event, session) => {
-        if (event === "SIGNED_OUT") signedOut("");
-        else if (event === "SIGNED_IN" && session?.user && currentUser?.id !== session.user.id) loadProfile(session.user);
+        if (event === "SIGNED_OUT") showSignedOut("");
+        else if (event === "SIGNED_IN" && session && session.user && (!currentUser || currentUser.id !== session.user.id)) loadProfile(session.user);
     });
 })();
-</script>
-<script src="script.js?v=20261018-themes2"></script>
+</script>c="script.js?v=20261018-themes2"></script>
 </body>
 </html>
