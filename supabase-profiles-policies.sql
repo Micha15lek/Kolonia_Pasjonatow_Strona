@@ -5,6 +5,10 @@
 
 alter table public.profiles enable row level security;
 
+-- Nadaj wymagane uprawnienia SQL; RLS nadal ogranicza dostęp do własnych/publicznych wierszy.
+grant select on table public.profiles to anon, authenticated;
+grant insert, update on table public.profiles to authenticated;
+
 drop policy if exists "kolonia_public_profiles_read" on public.profiles;
 create policy "kolonia_public_profiles_read"
 on public.profiles
