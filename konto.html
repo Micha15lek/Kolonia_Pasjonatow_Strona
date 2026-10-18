@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Konto użytkownika i profil w społeczności Kolonia Pasjonatów.">
     <title>Konto użytkownika | Kolonia Pasjonatów</title>
-    <link rel="stylesheet" href="style.css?v=20261018-profilechoice2">
+    <link rel="stylesheet" href="style.css?v=20261018-profilecheck3">
     <style>
         .account-main { width: min(100% - 32px, 900px); margin: 0 auto; padding: 54px 0 90px; }
         .account-intro { text-align: center; margin: 0 auto 28px; max-width: 680px; }
@@ -162,7 +162,7 @@
         document.getElementById("discordGlobalName").textContent = discordName ? "Nazwa wyświetlana na Discordzie: " + discordName : "Nazwa wyświetlana Discorda niedostępna";
         document.getElementById("discordUsername").textContent = discordUsername ? "Login Discord: @" + discordUsername : "";
         setStatus(profileStatus, "Ładowanie profilu…", "");
-        const result = await client.from("profiles").select("username, display_name, bio, is_public").eq("id", user.id).maybeSingle();
+        const result = await client.from("profiles").select("username, display_name, bio, avatar_url, is_public").eq("id", user.id).maybeSingle();
         if (result.error) {
             setStatus(profileStatus, "Nie udało się pobrać profilu: " + result.error.message, "error");
             return;
@@ -223,11 +223,15 @@
         try {
             const metadata = currentUser.user_metadata || {};
             const avatarUrl = metadata.avatar_url || metadata.picture || null;
-            const result = await client.from("profiles").update({
-                display_name: displayName, bio: bio,
+            const discordUsername = metadata.user_name || metadata.username || metadata.preferred_username || metadata.custom_claims?.username || currentUser.id;
+            const result = await client.from("profiles").upsert({
+                id: currentUser.id,
+                username: discordUsername,
+                display_name: displayName,
+                bio: bio,
                 avatar_url: avatarUrl,
                 is_public: document.getElementById("isPublic").checked
-            }).eq("id", currentUser.id);
+            }, { onConflict: "id" });
             if (result.error) throw result.error;
             document.getElementById("profileTitle").textContent = displayName;
             const avatar = document.getElementById("profileAvatar");
@@ -263,6 +267,6 @@
     });
 })();
 </script>
-<script src="script.js?v=20261018-profilechoice2"></script>
+<script src="script.js?v=20261018-profilecheck3"></script>
 </body>
 </html>
