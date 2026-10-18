@@ -418,9 +418,10 @@
 
                 <strong
                     class="stat-number"
-                    data-target="23"
+                    id="colonyMemberCount"
+                    data-target="0"
                 >
-                    0
+                    —
                 </strong>
 
                 <span>
@@ -777,6 +778,32 @@
 
 
 <script src="script.js?v=20261018-themes2"></script>
+
+<script src="supabase-config.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-client.js?v=1"></script>
+<script>
+document.addEventListener("DOMContentLoaded", async function () {
+    const counter = document.getElementById("colonyMemberCount");
+    if (!counter || !window.koloniaSupabase) return;
+    try {
+        const result = await window.koloniaSupabase
+            .from("profiles")
+            .select("id", { count: "exact", head: true })
+            .eq("is_public", true);
+        if (result.error) throw result.error;
+        const count = Number(result.count || 0);
+        counter.dataset.target = String(count);
+        counter.textContent = count.toLocaleString("pl-PL");
+        counter.setAttribute("aria-label", count + " publicznych profili");
+    } catch (error) {
+        counter.textContent = "—";
+        counter.dataset.target = "0";
+        console.warn("Nie udało się pobrać liczby publicznych profili:", error.message);
+    }
+});
+</script>
+
 
 <script>
 
