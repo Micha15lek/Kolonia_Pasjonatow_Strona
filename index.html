@@ -13,12 +13,7 @@
     >
 
     <link rel="stylesheet" href="style.css?v=20261018-themes2">
-    <style>
-        .site-auth-status{display:inline-flex;align-items:center;gap:8px;max-width:220px;padding:9px 12px;border:1px solid var(--border);border-radius:999px;background:var(--glass-strong);color:var(--text-secondary);font-size:.82rem;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-        .site-auth-status.signed-in{color:var(--text);border-color:var(--accent)}
-        @media(max-width:720px){.site-auth-status{max-width:100%;white-space:normal;justify-content:center}.header-actions{flex-wrap:wrap}}
-    </style>
-    <style>
+<style>
         .site-updates {
             padding-top: 10px;
         }
@@ -157,17 +152,13 @@
         <a href="index.html" class="logo" aria-label="Kolonia Pasjonatów — strona główna">KOLONIA PASJONATÓW</a>
         <nav aria-label="Główna nawigacja">
             <a href="index.html" class="active" aria-current="page">🏠 Strona główna</a>
-            <a href="konto.html">👤 Konto</a>
-            <a href="czlonkowie.html">👥 Członkowie</a>
-            <a href="ranking.html">🏆 Ranking</a>
+            <a href="konto.html">👤 Konto</a><a href="ranking.html">🏆 Ranking</a>
             <a href="licznik.html">⏱️ Licznik</a>
             <a href="wydarzenia.html">📅 Wydarzenia</a>
             <a href="linki.html">🔗 Linki</a>
             <a href="kontakt.html">📞 Kontakt</a>
         </nav>
-        <div class="header-actions">
-            <span id="siteAuthStatus" class="site-auth-status" aria-live="polite">Sprawdzanie logowania…</span>
-            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Zmień tryb" title="Zmień tryb jasny/ciemny">🌙</button>
+        <div class="header-actions"><button id="themeToggle" class="theme-toggle" type="button" aria-label="Zmień tryb" title="Zmień tryb jasny/ciemny">🌙</button>
             <a href="ustawienia.html" class="settings-button" aria-label="Ustawienia" title="Ustawienia">⚙️</a>
         </div>
     </div>
@@ -417,28 +408,7 @@
 
         <div class="stats-grid">
 
-            <article class="stat-card reveal">
-
-                <div class="stat-icon">
-                    👥
-                </div>
-
-                <strong
-                    class="stat-number"
-                    id="colonyMemberCount"
-                    data-target="0"
-                >
-                    —
-                </strong>
-
-                <span>
-                    członków Kolonii
-                </span>
-
-            </article>
-
-
-            <article class="stat-card reveal">
+<article class="stat-card reveal">
 
                 <div class="stat-icon">
                     ⏱️
@@ -784,62 +754,7 @@
 </footer>
 
 
-<script src="script.js?v=20261018-sharedstats1"></script>
-
-<script src="supabase-config.js?v=1"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase-client.js?v=20261018-authstatus2"></script>
-<script>
-(function(){
-    const status=document.getElementById("siteAuthStatus");
-    const client=window.koloniaSupabase;
-    function render(session){
-        if(!status)return;
-        if(!session||!session.user){
-            status.classList.remove("signed-in");
-            status.textContent="👤 Niezalogowano";
-            status.title="Zaloguj się, aby edytować swój profil";
-            status.style.cursor="pointer";
-            status.onclick=()=>window.location.assign("konto.html");
-            return;
-        }
-        const meta=session.user.user_metadata||{};
-        const name=meta.global_name||meta.name||meta.full_name||meta.user_name||meta.username||"Użytkownik";
-        status.classList.add("signed-in");
-        status.textContent="● Zalogowano: "+name;
-        status.title="Jesteś połączony z Kolonią Pasjonatów. Kliknij, aby edytować profil.";
-        status.style.cursor="pointer";
-        status.onclick=()=>window.location.assign("konto.html");
-    }
-    if(!client){status.textContent="👤 Konto";status.onclick=()=>window.location.assign("konto.html");return;}
-    client.auth.getSession().then(({data})=>render(data&&data.session));
-    client.auth.onAuthStateChange((event,session)=>render(session));
-})();
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", async function () {
-    const counter = document.getElementById("colonyMemberCount");
-    if (!counter || !window.koloniaSupabase) return;
-    try {
-        const result = await window.koloniaSupabase
-            .from("profiles")
-            .select("id", { count: "exact", head: true })
-            .eq("is_public", true);
-        if (result.error) throw result.error;
-        const count = Number(result.count || 0);
-        counter.dataset.target = String(count);
-        counter.textContent = count.toLocaleString("pl-PL");
-        counter.setAttribute("aria-label", count + " publicznych profili");
-    } catch (error) {
-        counter.textContent = "—";
-        counter.dataset.target = "0";
-        console.warn("Nie udało się pobrać liczby publicznych profili:", error.message);
-    }
-});
-</script>
-
-
-<script>
+<script src="script.js?v=20261018-sharedstats1"></script><script>
 
     /* =========================================
        DATY STARTOWE
@@ -1103,7 +1018,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     document
         .querySelectorAll(
-            ".stat-number[data-target]:not(#colonyMemberCount)"
+            ".stat-number[data-target]"
         )
         .forEach(number => {
 
