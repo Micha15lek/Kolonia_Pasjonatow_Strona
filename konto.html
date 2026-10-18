@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Konto użytkownika i profil w społeczności Kolonia Pasjonatów.">
     <title>Konto użytkownika | Kolonia Pasjonatów</title>
-    <link rel="stylesheet" href="style.css?v=20261018-discordprofile1">
+    <link rel="stylesheet" href="style.css?v=20261018-discordprofile2">
     <style>
         .account-main { width: min(100% - 32px, 900px); margin: 0 auto; padding: 54px 0 90px; }
         .account-intro { text-align: center; margin: 0 auto 28px; max-width: 680px; }
@@ -102,7 +102,7 @@
     <section id="profilePanel" class="account-panel account-hidden" aria-labelledby="profileTitle">
         <div class="profile-heading">
             <div id="profileAvatar" class="profile-avatar" aria-hidden="true">K</div>
-            <div><h2 id="profileTitle">Twój profil</h2><p id="discordGlobalName"></p><p id="discordUsername"></p><p id="profileEmail"></p><p id="profileRole"></p></div>
+            <div><h2 id="profileTitle">Twój profil</h2><p id="discordGlobalName"></p><p id="discordUsername"></p><p id="profileRole"></p></div>
         </div>
         <form id="profileForm" class="account-form">
             <label class="account-field">Nazwa użytkownika (3–24 znaki, litery, cyfry i _)
@@ -161,7 +161,6 @@
         const discordUsername = metadata.user_name || metadata.username || metadata.preferred_username || metadata.custom_claims?.username || "";
         document.getElementById("discordGlobalName").textContent = discordName ? "Nazwa wyświetlana na Discordzie: " + discordName : "Nazwa wyświetlana Discorda niedostępna";
         document.getElementById("discordUsername").textContent = discordUsername ? "Login Discord: @" + discordUsername : "";
-        document.getElementById("profileEmail").textContent = user.email ? "E-mail konta: " + user.email : "Konto połączone przez Discord";
         setStatus(profileStatus, "Ładowanie profilu…", "");
         const result = await client.from("profiles").select("username, display_name, bio, is_public").eq("id", user.id).maybeSingle();
         if (result.error) {
@@ -270,6 +269,6 @@
     });
 })();
 </script>
-<script src="script.js?v=20261018-discordprofile1"></script>
+<script src="script.js?v=20261018-discordprofile2"></script>
 </body>
 </html>
