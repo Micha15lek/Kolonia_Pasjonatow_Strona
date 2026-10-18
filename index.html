@@ -14,6 +14,11 @@
 
     <link rel="stylesheet" href="style.css?v=20261018-themes2">
     <style>
+        .site-auth-status{display:inline-flex;align-items:center;gap:8px;max-width:220px;padding:9px 12px;border:1px solid var(--border);border-radius:999px;background:var(--glass-strong);color:var(--text-secondary);font-size:.82rem;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .site-auth-status.signed-in{color:var(--text);border-color:var(--accent)}
+        @media(max-width:720px){.site-auth-status{max-width:100%;white-space:normal;justify-content:center}.header-actions{flex-wrap:wrap}}
+    </style>
+    <style>
         .site-updates {
             padding-top: 10px;
         }
@@ -161,6 +166,7 @@
             <a href="kontakt.html">📞 Kontakt</a>
         </nav>
         <div class="header-actions">
+            <span id="siteAuthStatus" class="site-auth-status" aria-live="polite">Sprawdzanie logowania…</span>
             <button id="themeToggle" class="theme-toggle" type="button" aria-label="Zmień tryb" title="Zmień tryb jasny/ciemny">🌙</button>
             <a href="ustawienia.html" class="settings-button" aria-label="Ustawienia" title="Ustawienia">⚙️</a>
         </div>
@@ -782,7 +788,34 @@
 
 <script src="supabase-config.js?v=1"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase-client.js?v=1"></script>
+<script src="supabase-client.js?v=20261018-authstatus2"></script>
+<script>
+(function(){
+    const status=document.getElementById("siteAuthStatus");
+    const client=window.koloniaSupabase;
+    function render(session){
+        if(!status)return;
+        if(!session||!session.user){
+            status.classList.remove("signed-in");
+            status.textContent="👤 Niezalogowano";
+            status.title="Zaloguj się, aby edytować swój profil";
+            status.style.cursor="pointer";
+            status.onclick=()=>window.location.assign("konto.html");
+            return;
+        }
+        const meta=session.user.user_metadata||{};
+        const name=meta.global_name||meta.name||meta.full_name||meta.user_name||meta.username||"Użytkownik";
+        status.classList.add("signed-in");
+        status.textContent="● Zalogowano: "+name;
+        status.title="Jesteś połączony z Kolonią Pasjonatów. Kliknij, aby edytować profil.";
+        status.style.cursor="pointer";
+        status.onclick=()=>window.location.assign("konto.html");
+    }
+    if(!client){status.textContent="👤 Konto";status.onclick=()=>window.location.assign("konto.html");return;}
+    client.auth.getSession().then(({data})=>render(data&&data.session));
+    client.auth.onAuthStateChange((event,session)=>render(session));
+})();
+</script>
 <script>
 document.addEventListener("DOMContentLoaded", async function () {
     const counter = document.getElementById("colonyMemberCount");
