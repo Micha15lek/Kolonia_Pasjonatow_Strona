@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Konto użytkownika i profil w społeczności Kolonia Pasjonatów.">
     <title>Konto użytkownika | Kolonia Pasjonatów</title>
-    <link rel="stylesheet" href="style.css?v=20261018-discordprofile2">
+    <link rel="stylesheet" href="style.css?v=20261018-profilechoice1">
     <style>
         .account-main { width: min(100% - 32px, 900px); margin: 0 auto; padding: 54px 0 90px; }
         .account-intro { text-align: center; margin: 0 auto 28px; max-width: 680px; }
@@ -105,8 +105,8 @@
             <div><h2 id="profileTitle">Twój profil</h2><p id="discordGlobalName"></p><p id="discordUsername"></p><p id="profileRole"></p></div>
         </div>
         <form id="profileForm" class="account-form">
-            <label class="account-field">Nazwa użytkownika (3–24 znaki, litery, cyfry i _)
-                <input id="username" name="username" type="text" minlength="3" maxlength="24" pattern="[A-Za-z0-9_]{3,24}" autocomplete="username" placeholder="np. pasjonat_kolei">
+            <label class="account-field">Nazwa Discorda (stała, pobierana z połączonego konta)
+                <input id="discordUsernameField" type="text" readonly aria-readonly="true" value="" placeholder="Pobierana z Discorda">
             </label>
             <label class="account-field">Nazwa wyświetlana
                 <input id="profileDisplayName" name="profileDisplayName" type="text" minlength="1" maxlength="60" required>
@@ -168,8 +168,8 @@
             return;
         }
         const profile = result.data || {};
-        const displayName = discordName || discordUsername || profile.display_name || "Nowy członek";
-        document.getElementById("username").value = profile.username || "";
+        const displayName = (profile.display_name && profile.display_name !== "Nowy członek") ? profile.display_name : (discordName || discordUsername || profile.display_name || "Nowy członek");
+        document.getElementById("discordUsernameField").value = discordUsername ? "@" + discordUsername : (discordName || "Nie udało się pobrać nazwy Discorda");
         document.getElementById("profileDisplayName").value = displayName;
         document.getElementById("bio").value = profile.bio || "";
         document.getElementById("isPublic").checked = profile.is_public !== false;
@@ -213,13 +213,8 @@
     document.getElementById("profileForm").addEventListener("submit", async function (event) {
         event.preventDefault();
         if (!currentUser) return;
-        const username = document.getElementById("username").value.trim();
         const displayName = document.getElementById("profileDisplayName").value.trim();
         const bio = document.getElementById("bio").value.trim();
-        if (username && !/^[A-Za-z0-9_]{3,24}$/.test(username)) {
-            setStatus(profileStatus, "Nazwa użytkownika musi mieć 3–24 znaki: litery, cyfry lub podkreślenia.", "error");
-            return;
-        }
         if (!displayName || displayName.length > 60 || bio.length > 500) {
             setStatus(profileStatus, "Sprawdź nazwę wyświetlaną i opis profilu.", "error");
             return;
@@ -231,7 +226,7 @@
             const metadata = currentUser.user_metadata || {};
             const avatarUrl = metadata.avatar_url || metadata.picture || null;
             const result = await client.from("profiles").update({
-                username: username || null, display_name: displayName, bio: bio,
+                display_name: displayName, bio: bio,
                 avatar_url: avatarUrl,
                 is_public: document.getElementById("isPublic").checked
             }).eq("id", currentUser.id);
@@ -269,6 +264,6 @@
     });
 })();
 </script>
-<script src="script.js?v=20261018-discordprofile2"></script>
+<script src="script.js?v=20261018-profilechoice1"></script>
 </body>
 </html>
