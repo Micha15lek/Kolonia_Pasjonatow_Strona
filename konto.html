@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Konto użytkownika i profil w społeczności Kolonia Pasjonatów.">
+    <title>Konto użytkownika | Kolonia Pasjonatów</title>
+    <link rel="stylesheet" href="style.css?v=20261018-themes2">
+    <style>
+        .account-main { width: min(100% - 32px, 900px); margin: 0 auto; padding: 54px 0 90px; }
+        .account-intro { text-align: center; margin: 0 auto 28px; max-width: 680px; }
+        .account-intro h1 { margin: 0 0 12px; font-size: clamp(2rem, 5vw, 3.2rem); }
+        .account-intro p { color: var(--text-secondary); line-height: 1.7; margin: 0; }
+        .account-panel { padding: clamp(20px, 4vw, 34px); border: 1px solid var(--border); border-radius: 24px; background: var(--card); box-shadow: var(--shadow); }
+        .account-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+        .account-tabs button, .account-button { border: 1px solid var(--border); border-radius: 12px; padding: 12px 18px; background: var(--glass-strong); color: var(--text); font: inherit; font-weight: 800; cursor: pointer; }
+        .account-tabs button[aria-pressed="true"], .account-button.primary { background: var(--accent); color: white; border-color: var(--accent); }
+        .account-form { display: grid; gap: 16px; max-width: 540px; margin: 0 auto; }
+        .account-field { display: grid; gap: 7px; color: var(--text-secondary); font-weight: 700; font-size: .92rem; }
+        .account-field input, .account-field textarea { width: 100%; box-sizing: border-box; padding: 13px 14px; border: 1px solid var(--border); border-radius: 11px; color: var(--text); background: var(--bg-secondary); font: inherit; }
+        .account-field textarea { min-height: 105px; resize: vertical; }
+        .account-field input:focus, .account-field textarea:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+        .account-status { min-height: 24px; margin: 0; line-height: 1.6; color: var(--text-secondary); text-align: center; overflow-wrap: anywhere; }
+        .account-status.error { color: #ff8585; } .account-status.success { color: #55d99a; }
+        .account-hidden { display: none !important; }
+        .profile-heading { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+        .profile-avatar { display: grid; place-items: center; flex: 0 0 64px; width: 64px; height: 64px; border-radius: 50%; background: var(--accent); color: white; font-size: 1.7rem; font-weight: 900; }
+        .profile-heading h2 { margin: 0 0 5px; overflow-wrap: anywhere; } .profile-heading p { margin: 0; color: var(--text-secondary); overflow-wrap: anywhere; }
+        .account-note { margin-top: 20px; font-size: .88rem; color: var(--text-secondary); line-height: 1.65; }
+        @media (max-width: 580px) { .account-main { padding-top: 34px; } .account-tabs button { flex: 1 1 120px; } }
+    </style>
+</head>
+<body class="subpage" data-theme="blue" data-mode="dark">
+<header class="site-header">
+    <div class="header-inner">
+        <a href="index.html" class="logo" aria-label="Kolonia Pasjonatów — strona główna">KOLONIA PASJONATÓW</a>
+        <nav aria-label="Główna nawigacja">
+            <a href="index.html">🏠 Strona główna</a>
+            <a href="konto.html" class="active" aria-current="page">👤 Konto</a>
+            <a href="ranking.html">🏆 Ranking</a>
+            <a href="licznik.html">⏱️ Licznik</a>
+            <a href="wydarzenia.html">📅 Wydarzenia</a>
+            <a href="linki.html">🔗 Linki</a>
+            <a href="kontakt.html">📞 Kontakt</a>
+        </nav>
+        <div class="header-actions">
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Zmień tryb" title="Zmień tryb jasny/ciemny">🌙</button>
+            <a href="ustawienia.html" class="settings-button" aria-label="Ustawienia" title="Ustawienia">⚙️</a>
+        </div>
+    </div>
+</header>
+<main class="account-main">
+    <section class="account-intro">
+        <span class="eyebrow">TWOJE MIEJSCE W SPOŁECZNOŚCI</span>
+        <h1>Konto <span style="color:var(--accent)">Kolonii</span></h1>
+        <p>Utwórz konto, zaloguj się i uzupełnij profil widoczny dla społeczności. Twoje konto jest połączone z bazą Supabase.</p>
+    </section>
+
+    <section id="authPanel" class="account-panel" aria-labelledby="authTitle">
+        <div class="account-tabs" aria-label="Wybierz sposób logowania">
+            <button id="showLogin" type="button" aria-pressed="true">Logowanie</button>
+            <button id="showRegister" type="button" aria-pressed="false">Rejestracja</button>
+        </div>
+        <h2 id="authTitle" style="text-align:center;margin-top:0">Witaj ponownie!</h2>
+        <form id="authForm" class="account-form">
+            <label id="nameWrap" class="account-field account-hidden">Nazwa wyświetlana
+                <input id="displayName" name="displayName" type="text" maxlength="60" autocomplete="name" placeholder="Jak mamy Cię nazywać?">
+            </label>
+            <label class="account-field">Adres e-mail
+                <input id="email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="ty@example.com">
+            </label>
+            <label class="account-field">Hasło
+                <input id="password" name="password" type="password" autocomplete="current-password" required minlength="8" maxlength="128" placeholder="Co najmniej 8 znaków">
+            </label>
+            <button id="authSubmit" class="account-button primary" type="submit">Zaloguj się</button>
+            <p id="authStatus" class="account-status" role="status" aria-live="polite"></p>
+        </form>
+        <p class="account-note">Nie używaj hasła z innego serwisu. Jeśli w Supabase włączone jest potwierdzanie e-maila, po rejestracji sprawdź swoją skrzynkę.</p>
+    </section>
+
+    <section id="profilePanel" class="account-panel account-hidden" aria-labelledby="profileTitle">
+        <div class="profile-heading">
+            <div id="profileAvatar" class="profile-avatar" aria-hidden="true">K</div>
+            <div><h2 id="profileTitle">Twój profil</h2><p id="profileEmail"></p><p id="profileRole"></p></div>
+        </div>
+        <form id="profileForm" class="account-form">
+            <label class="account-field">Nazwa użytkownika (3–24 znaki, litery, cyfry i _)
+                <input id="username" name="username" type="text" minlength="3" maxlength="24" pattern="[A-Za-z0-9_]{3,24}" autocomplete="username" placeholder="np. pasjonat_kolei">
+            </label>
+            <label class="account-field">Nazwa wyświetlana
+                <input id="profileDisplayName" name="profileDisplayName" type="text" minlength="1" maxlength="60" required>
+            </label>
+            <label class="account-field">O mnie
+                <textarea id="bio" name="bio" maxlength="500" placeholder="Napisz kilka słów o swoich pasjach (maks. 500 znaków)."></textarea>
+            </label>
+            <label class="account-field" style="display:flex;align-items:center;grid-template-columns:auto 1fr;justify-content:start">
+                <input id="isPublic" name="isPublic" type="checkbox" style="width:18px;height:18px">
+                Profil publiczny — inni mogą zobaczyć Twoje dane profilowe
+            </label>
+            <button class="account-button primary" type="submit">Zapisz profil</button>
+            <p id="profileStatus" class="account-status" role="status" aria-live="polite"></p>
+            <button id="logoutButton" class="account-button" type="button">Wyloguj się</button>
+        </form>
+        <p class="account-note">Możesz edytować tylko własny profil. Uprawnienia i dostęp do danych są dodatkowo kontrolowane przez polityki bezpieczeństwa RLS w bazie danych.</p>
+    </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js?v=1"></script>
+<script src="supabase-client.js?v=1"></script>
+<script>
+(function () {
+    "use strict";
+    const client = window.koloniaSupabase;
+    const authPanel = document.getElementById("authPanel");
+    const profilePanel = document.getElementById("profilePanel");
+    const authForm = document.getElementById("authForm");
+    const authStatus = document.getElementById("authStatus");
+    const profileStatus = document.getElementById("profileStatus");
+    const showLogin = document.getElementById("showLogin");
+    const showRegister = document.getElementById("showRegister");
+    const nameWrap = document.getElementById("nameWrap");
+    const authTitle = document.getElementById("authTitle");
+    const authSubmit = document.getElementById("authSubmit");
+    let mode = "login";
+    let currentUser = null;
+
+    function setStatus(el, message, type) {
+        el.textContent = message || "";
+        el.className = "account-status" + (type ? " " + type : "");
+    }
+    function setMode(nextMode) {
+        mode = nextMode;
+        const registering = mode === "register";
+        nameWrap.classList.toggle("account-hidden", !registering);
+        document.getElementById("displayName").required = registering;
+        document.getElementById("password").autocomplete = registering ? "new-password" : "current-password";
+        showLogin.setAttribute("aria-pressed", String(!registering));
+        showRegister.setAttribute("aria-pressed", String(registering));
+        authTitle.textContent = registering ? "Utwórz konto" : "Witaj ponownie!";
+        authSubmit.textContent = registering ? "Zarejestruj się" : "Zaloguj się";
+        setStatus(authStatus, "", "");
+    }
+    showLogin.addEventListener("click", () => setMode("login"));
+    showRegister.addEventListener("click", () => setMode("register"));
+
+    function showSignedOut(message) {
+        currentUser = null;
+        authPanel.classList.remove("account-hidden");
+        profilePanel.classList.add("account-hidden");
+        if (message) setStatus(authStatus, message, "success");
+    }
+    async function loadProfile(user) {
+        currentUser = user;
+        authPanel.classList.add("account-hidden");
+        profilePanel.classList.remove("account-hidden");
+        document.getElementById("profileEmail").textContent = user.email || "";
+        setStatus(profileStatus, "Ładowanie profilu…", "");
+        const result = await client.from("profiles")
+            .select("username, display_name, bio, is_public")
+            .eq("id", user.id)
+            .maybeSingle();
+        if (result.error) {
+            setStatus(profileStatus, "Nie udało się pobrać profilu: " + result.error.message, "error");
+            return;
+        }
+        const profile = result.data || {};
+        document.getElementById("username").value = profile.username || "";
+        document.getElementById("profileDisplayName").value = profile.display_name || user.user_metadata?.display_name || "";
+        document.getElementById("bio").value = profile.bio || "";
+        document.getElementById("isPublic").checked = profile.is_public !== false;
+        document.getElementById("profileTitle").textContent = profile.display_name || "Twój profil";
+        document.getElementById("profileAvatar").textContent = (profile.display_name || user.email || "K").trim().charAt(0).toUpperCase();
+        const roleResult = await client.from("user_roles").select("role").eq("user_id", user.id).maybeSingle();
+        document.getElementById("profileRole").textContent = roleResult.error ? "Rola: członek społeczności" : "Rola: " + ((roleResult.data && roleResult.data.role) || "member");
+        setStatus(profileStatus, "", "");
+    }
+    authForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        if (!client) {
+            setStatus(authStatus, "Nie udało się uruchomić połączenia z bazą. Odśwież stronę i sprawdź konfigurację.", "error");
+            return;
+        }
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        authSubmit.disabled = true;
+        setStatus(authStatus, mode === "register" ? "Tworzenie konta…" : "Logowanie…", "");
+        try {
+            if (mode === "register") {
+                const displayName = document.getElementById("displayName").value.trim();
+                const result = await client.auth.signUp({
+                    email: email,
+                    password: password,
+                    options: { data: { display_name: displayName }, emailRedirectTo: window.location.href.split("#")[0] }
+                });
+                if (result.error) throw result.error;
+                if (result.data.session && result.data.user) {
+                    await loadProfile(result.data.user);
+                } else {
+                    setStatus(authStatus, "Konto utworzone. Jeśli wymagane jest potwierdzenie e-maila, kliknij link w wiadomości, a następnie zaloguj się.", "success");
+                }
+            } else {
+                const result = await client.auth.signInWithPassword({ email: email, password: password });
+                if (result.error) throw result.error;
+                await loadProfile(result.data.user);
+            }
+        } catch (error) {
+            setStatus(authStatus, error.message || "Wystąpił błąd. Spróbuj ponownie.", "error");
+        } finally {
+            authSubmit.disabled = false;
+        }
+    });
+    document.getElementById("profileForm").addEventListener("submit", async function (event) {
+        event.preventDefault();
+        if (!client || !currentUser) return;
+        const username = document.getElementById("username").value.trim();
+        const displayName = document.getElementById("profileDisplayName").value.trim();
+        const bio = document.getElementById("bio").value.trim();
+        if (username && !/^[A-Za-z0-9_]{3,24}$/.test(username)) {
+            setStatus(profileStatus, "Nazwa użytkownika musi mieć 3–24 znaki: litery, cyfry lub podkreślenia.", "error");
+            return;
+        }
+        if (!displayName || displayName.length > 60 || bio.length > 500) {
+            setStatus(profileStatus, "Sprawdź nazwę wyświetlaną i opis profilu.", "error");
+            return;
+        }
+        const saveButton = document.querySelector("#profileForm button[type='submit']");
+        saveButton.disabled = true;
+        setStatus(profileStatus, "Zapisywanie zmian…", "");
+        try {
+            const values = {
+                username: username || null,
+                display_name: displayName,
+                bio: bio,
+                is_public: document.getElementById("isPublic").checked
+            };
+            const result = await client.from("profiles").update(values).eq("id", currentUser.id);
+            if (result.error) throw result.error;
+            document.getElementById("profileTitle").textContent = displayName;
+            document.getElementById("profileAvatar").textContent = displayName.trim().charAt(0).toUpperCase();
+            setStatus(profileStatus, "Profil został zapisany.", "success");
+        } catch (error) {
+            const message = error.message || "Nie udało się zapisać profilu.";
+            setStatus(profileStatus, message.includes("duplicate key") || message.includes("profiles_username_key") ? "Ta nazwa użytkownika jest już zajęta." : message, "error");
+        } finally {
+            saveButton.disabled = false;
+        }
+    });
+    document.getElementById("logoutButton").addEventListener("click", async function () {
+        if (!client) return;
+        const result = await client.auth.signOut();
+        if (result.error) setStatus(profileStatus, result.error.message, "error");
+        else showSignedOut("Wylogowano pomyślnie.");
+    });
+    if (!client) {
+        setStatus(authStatus, "Połączenie z Supabase nie zostało uruchomione. Sprawdź pliki supabase-config.js i supabase-client.js.", "error");
+        return;
+    }
+    client.auth.getSession().then(({ data, error }) => {
+        if (error) setStatus(authStatus, error.message, "error");
+        if (data && data.session) loadProfile(data.session.user);
+    });
+    client.auth.onAuthStateChange((event, session) => {
+        if (event === "SIGNED_OUT" || !session) {
+            if (event === "SIGNED_OUT") showSignedOut("");
+            return;
+        }
+        if (event === "SIGNED_IN" && session.user && (!currentUser || currentUser.id !== session.user.id)) {
+            loadProfile(session.user);
+        }
+    });
+})();
+</script>
+<script src="script.js?v=20261018-themes2"></script>
+</body>
+</html>
