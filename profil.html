@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Publiczny profil członka społeczności Kolonia Pasjonatów.">
+<title>Profil członka | Kolonia Pasjonatów</title>
+<link rel="stylesheet" href="style.css?v=20261018-members1">
+<style>
+.public-profile-main{width:min(100% - 32px,820px);margin:0 auto;padding:54px 0 90px}
+.profile-back{display:inline-flex;color:var(--accent);font-weight:800;text-decoration:none;margin-bottom:20px}
+.public-profile-card{padding:clamp(22px,5vw,42px);border:1px solid var(--border);border-radius:24px;background:var(--card);box-shadow:var(--shadow)}
+.public-profile-head{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.public-profile-avatar{width:100px;height:100px;flex:0 0 100px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff;font-size:2.5rem;font-weight:900;background-size:cover;background-position:center}
+.public-profile-head h1{margin:0 0 8px;font-size:clamp(1.8rem,5vw,2.6rem);overflow-wrap:anywhere}
+.public-profile-label{color:var(--text-secondary);margin:0}
+.public-profile-bio{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.8;color:var(--text-secondary)}
+.public-profile-status{color:var(--text-secondary);line-height:1.7}
+</style>
+</head>
+<body data-theme="blue" data-mode="dark">
+<header class="site-header"><div class="header-inner">
+<a href="index.html" class="logo" aria-label="Kolonia Pasjonatów — strona główna">KOLONIA PASJONATÓW</a>
+<nav aria-label="Główna nawigacja">
+<a href="index.html">🏠 Strona główna</a><a href="konto.html">👤 Konto</a><a href="czlonkowie.html">👥 Członkowie</a><a href="ranking.html">🏆 Ranking</a><a href="licznik.html">⏱️ Licznik</a><a href="wydarzenia.html">📅 Wydarzenia</a><a href="linki.html">🔗 Linki</a><a href="kontakt.html">📞 Kontakt</a>
+</nav><div class="header-actions"><button id="themeToggle" class="theme-toggle" type="button" aria-label="Zmień tryb" title="Zmień tryb jasny/ciemny">🌙</button><a href="ustawienia.html" class="settings-button" aria-label="Ustawienia" title="Ustawienia">⚙️</a></div>
+</div></header>
+<main class="public-profile-main">
+<a class="profile-back" href="czlonkowie.html">← Wróć do członków</a>
+<section class="public-profile-card">
+<p id="profileStatus" class="public-profile-status" role="status" aria-live="polite">Ładowanie profilu…</p>
+<div id="profileContent" hidden>
+<div class="public-profile-head"><div id="publicAvatar" class="public-profile-avatar">K</div><div><span class="eyebrow">CZŁONEK KOLONII</span><h1 id="publicName"></h1><p class="public-profile-label">Publiczny profil</p></div></div>
+<h2>O mnie</h2><p id="publicBio" class="public-profile-bio"></p>
+</div>
+</section>
+</main>
+<footer><p>© 2026 Kolonia Pasjonatów</p><p>🌟 Oficjalna strona społeczności</p></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js?v=1"></script><script src="supabase-client.js?v=1"></script><script src="script.js?v=20261018-members1"></script>
+<script>
+(function(){
+"use strict";
+const status=document.getElementById("profileStatus");
+const content=document.getElementById("profileContent");
+const id=new URLSearchParams(window.location.search).get("id");
+async function load(){
+if(!id){status.textContent="Nie wskazano profilu.";return;}
+if(!window.koloniaSupabase){status.textContent="Nie udało się połączyć z bazą danych.";return;}
+try{
+const result=await window.koloniaSupabase.from("profiles").select("id, display_name, avatar_url, bio, is_public").eq("id",id).eq("is_public",true).maybeSingle();
+if(result.error)throw result.error;
+if(!result.data){status.textContent="Ten profil nie istnieje lub nie jest publiczny.";return;}
+const p=result.data;const name=p.display_name||"Członek Kolonii";
+document.getElementById("publicName").textContent=name;
+document.getElementById("publicBio").textContent=(p.bio||"").trim()||"Ten członek nie dodał jeszcze opisu.";
+const avatar=document.getElementById("publicAvatar");
+avatar.textContent=name.trim().charAt(0).toUpperCase()||"K";
+if(p.avatar_url&&/^https:\/\//i.test(p.avatar_url)){avatar.textContent="";avatar.style.backgroundImage='url("'+p.avatar_url.replace(/["\\()]/g,"")+'")';}
+status.hidden=true;content.hidden=false;document.title=name+" | Kolonia Pasjonatów";
+}catch(error){console.error(error);status.textContent="Nie udało się załadować profilu. Sprawdź połączenie lub uprawnienia bazy danych.";}
+}
+load();
+})();
+</script>
+</body></html>
