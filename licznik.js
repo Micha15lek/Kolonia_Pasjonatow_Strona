@@ -87,8 +87,8 @@ const COLONY_EVENTS = {
 
     sylwester: {
         start: "2026-12-30T17:00:00",
-        end: "2027-01-01T14:30:00",
-        activeMessage: "🎆 Sylwester w Kolonii trwa!"
+        end: "2027-01-01T16:00:00",
+        activeMessage: "🎆 Sylwester i Nowy Rok w Kolonii trwa! 🎉"
     },
 
     summer: {
