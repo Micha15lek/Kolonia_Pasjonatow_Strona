@@ -68,9 +68,9 @@ const YEAR_EVENTS = {
 const COLONY_EVENTS = {
 
     winter: {
-        start: "2026-11-20T00:00:00",
-        end: "2027-01-31T23:59:59",
-        activeMessage: "🟢 Strefa Zimowa trwa! ❄️"
+        start: "2026-11-20T18:00:00",
+        end: "2027-01-31T21:00:00",
+        activeMessage: "🟢 Winter Chill Zone trwa! ❄️"
     },
 
     mikolajki: {
