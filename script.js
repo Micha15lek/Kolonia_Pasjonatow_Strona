@@ -1,774 +1,484 @@
-<!DOCTYPE html>
-<html lang="pl">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Kolonia Pasjonatów — Oficjalna strona</title>
-
-    <meta
-        name="description"
-        content="Oficjalna strona społeczności Kolonia Pasjonatów. Kolej, autobusy, tramwaje, gry, wydarzenia i wspólna pasja."
-    >
-
-    <link rel="stylesheet" href="style.css?v=20261018-themes2">
-<style>
-        .site-updates {
-            padding-top: 10px;
-        }
-
-        .updates-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            align-items: stretch;
-            gap: 20px;
-        }
-
-        .updates-grid + .updates-grid {
-            margin-top: 20px;
-        }
-
-        .updates-grid > * {
-            min-width: 0;
-        }
-
-        .update-card {
-            box-sizing: border-box;
-            height: 100%;
-            padding: 24px;
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            background: var(--card-bg, var(--surface));
-            box-shadow: var(--shadow-sm, var(--shadow));
-            transition: transform .22s ease, border-color .22s ease;
-        }
-
-        .update-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--accent);
-        }
-
-        .update-meta {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 14px;
-            color: var(--text-secondary);
-            font-size: .78rem;
-            font-weight: 800;
-        }
-
-        .update-tag {
-            display: inline-flex;
-            padding: 5px 9px;
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            color: var(--accent);
-            background: var(--surface);
-        }
-
-        .update-card h3 {
-            margin: 0 0 10px;
-            font-size: 1.12rem;
-            line-height: 1.4;
-        }
-
-        .update-card p {
-            margin: 0;
-            color: var(--text-secondary);
-            line-height: 1.65;
-        }
-
-        .updates-link {
-            display: inline-flex;
-            margin-top: 24px;
-            color: var(--accent);
-            font-weight: 800;
-            text-decoration: none;
-        }
-
-        .updates-link:hover {
-            text-decoration: underline;
-        }
-
-        .updates-link:focus-visible {
-            outline: 3px solid var(--accent);
-            outline-offset: 5px;
-            border-radius: 5px;
-        }
-
-        @media (max-width: 720px) {
-            .site-updates {
-                padding-top: 0;
-            }
-
-            .updates-grid {
-                gap: 14px;
-            }
-
-            .update-meta {
-                align-items: flex-start;
-            }
-
-            .update-tag {
-                max-width: 100%;
-                overflow-wrap: anywhere;
-            }
-        }
-
-        @media (max-width: 850px) {
-            .updates-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 580px) {
-            .updates-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            .update-card {
-                padding: 20px;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .update-card {
-                transition: none;
-            }
-        }
-    </style>
-
-</head>
-
-<body class="home-page" data-theme="blue" data-mode="dark">
-
-
-<header class="site-header">
-    <div class="header-inner">
-        <a href="index.html" class="logo" aria-label="Kolonia Pasjonatów — strona główna">KOLONIA PASJONATÓW</a>
-        <nav aria-label="Główna nawigacja">
-            <a href="index.html" class="active" aria-current="page">🏠 Strona główna</a>
-            <a href="ranking.html">🏆 Ranking</a>
-            <a href="licznik.html">⏱️ Licznik</a>
-            <a href="wydarzenia.html">📅 Wydarzenia</a>
-            <a href="linki.html">🔗 Linki</a>
-            <a href="kontakt.html">📞 Kontakt</a>
-        </nav>
-        <div class="header-actions"><button id="themeToggle" class="theme-toggle" type="button" aria-label="Zmień tryb" title="Zmień tryb jasny/ciemny">🌙</button>
-            <a href="ustawienia.html" class="settings-button" aria-label="Ustawienia" title="Ustawienia">⚙️</a>
-        </div>
-    </div>
-</header>
-
-
-<main>
-
-    <!-- =========================
-         HERO
-    ========================== -->
-
-    <section class="hero">
-
-        <div class="hero-content">
-
-            <span class="eyebrow">
-                OFICJALNA STRONA SPOŁECZNOŚCI
-            </span>
-
-            <h1>
-                Witamy w
-                <span>Kolonii Pasjonatów!</span>
-            </h1>
-
-            <p>
-                Miejscu, w którym spotykają się pasjonaci kolei,
-                komunikacji, gier i wielu innych zainteresowań.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a
-                    href="https://discord.gg/886u97g22Q"
-                    class="btn btn-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    💬 Dołącz do Kolonii
-                </a>
-
-                <a
-                    href="#opis"
-                    class="btn"
-                >
-                    Poznaj Kolonię ↓
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         DISCORD / WHATSAPP
-    ========================== -->
-
-    <section class="community-grid">
-
-        <article class="discord-card reveal">
-
-            <span class="eyebrow">
-                GŁÓWNE MIEJSCE SPOŁECZNOŚCI
-            </span>
-
-            <div class="card-icon emoji-icon">
-                💬
-            </div>
-
-            <h2>
-                Discord
-            </h2>
-
-            <p>
-                Dołącz do naszej społeczności, poznaj innych pasjonatów,
-                porozmawiaj i bierz udział w wydarzeniach Kolonii Pasjonatów.
-            </p>
-
-            <a
-                href="https://discord.gg/886u97g22Q"
-                class="btn btn-primary"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Dołącz do Discorda →
-            </a>
-
-        </article>
-
-
-        <article class="whatsapp-card reveal">
-
-            <span class="eyebrow">
-                DODATKOWY KONTAKT
-            </span>
-
-            <div class="card-icon emoji-icon">
-                📱
-            </div>
-
-            <h2>
-                WhatsApp
-            </h2>
-
-            <p>
-                Dodatkowa forma kontaktu ze społecznością.
-                Szczegóły oraz możliwość dołączenia pojawią się wkrótce.
-            </p>
-
-            <span class="status-badge">
-                🔧 W przygotowaniu
-            </span>
-
-        </article>
-
-    </section>
-
-
-    <!-- =========================
-         OPIS SPOŁECZNOŚCI
-    ========================== -->
-
-    <section id="opis" class="section">
-
-        <div class="section-heading">
-
-            <span class="eyebrow">
-                KIM JESTEŚMY?
-            </span>
-
-            <h2>
-                Poznaj naszą społeczność
-            </h2>
-
-            <p>
-                Kolonia Pasjonatów to miejsce stworzone dla osób,
-                które chcą dzielić się swoimi zainteresowaniami,
-                poznawać innych i wspólnie spędzać czas.
-            </p>
-
-        </div>
-
-
-        <div class="cards-grid">
-
-            <article class="info-card reveal">
-
-                <div class="card-icon emoji-icon">
-                    🚉
-                </div>
-
-                <h3>
-                    Kolej
-                </h3>
-
-                <p>
-                    Rozmawiamy o pociągach, lokomotywach,
-                    stacjach, liniach kolejowych i wszystkim,
-                    co związane z koleją.
-                </p>
-
-            </article>
-
-
-            <article class="info-card reveal">
-
-                <div class="card-icon emoji-icon">
-                    🚌
-                </div>
-
-                <h3>
-                    Autobusy
-                </h3>
-
-                <p>
-                    Transport autobusowy, pojazdy,
-                    przewoźnicy oraz ciekawostki ze świata komunikacji.
-                </p>
-
-            </article>
-
-
-            <article class="info-card reveal">
-
-                <div class="card-icon emoji-icon">
-                    🚋
-                </div>
-
-                <h3>
-                    Tramwaje
-                </h3>
-
-                <p>
-                    Miłośnicy tramwajów znajdą tutaj miejsce
-                    do rozmów o taborze, sieciach i komunikacji miejskiej.
-                </p>
-
-            </article>
-
-
-            <article class="info-card reveal">
-
-                <div class="card-icon emoji-icon">
-                    🎮
-                </div>
-
-                <h3>
-                    Gry
-                </h3>
-
-                <p>
-                    Rozmawiamy również o grach,
-                    wspólnym graniu oraz naszych ulubionych produkcjach.
-                </p>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         STATYSTYKI
-    ========================== -->
-
-    <section class="section stats-section">
-
-        <div class="section-heading">
-
-            <span class="eyebrow">
-                KOLONIA W LICZBACH
-            </span>
-
-            <h2 >
-                Statystyki społeczności
-            </h2>
-
-            <p>
-                Kolonia cały czas się rozwija!
-            </p>
-
-        </div>
-
-
-        <div class="stats-grid">
-
-<article class="stat-card reveal">
-
-                <div class="stat-icon">
-                    ⏱️
-                </div>
-
-                <strong
-                    class="stat-number uptime-counter"
-                    id="colonyDays"
-                >
-                    0
-                </strong>
-
-                <span>
-                    dni działania Kolonii
-                </span>
-
-                <small>
-                    <span id="colonyHours">00</span>h
-                    <span id="colonyMinutes">00</span>m
-                    <span id="colonySeconds">00</span>s
-                </small>
-
-            </article>
-
-
-            <article class="stat-card reveal">
-
-                <div class="stat-icon">
-                    🌐
-                </div>
-
-                <strong
-                    class="stat-number uptime-counter"
-                    id="websiteDays"
-                >
-                    0
-                </strong>
-
-                <span>
-                    dni działania strony
-                </span>
-
-                <small>
-                    <span id="websiteHours">00</span>h
-                    <span id="websiteMinutes">00</span>m
-                    <span id="websiteSeconds">00</span>s
-                </small>
-
-            </article>
-
-
-            <article class="stat-card reveal">
-
-                <div class="stat-icon">
-                    📅
-                </div>
-
-                <strong
-                    class="stat-number"
-                    data-target="6"
-                >
-                    0
-                </strong>
-
-                <span>
-                    zaplanowane wydarzenia
-                </span>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         NADCHODZĄCE WYDARZENIA
-    ========================== -->
-
-    <section class="section">
-
-        <div class="section-heading">
-
-            <span class="eyebrow">
-                CO PRZED NAMI?
-            </span>
-
-            <h2 >
-                Nadchodzące wydarzenia
-            </h2>
-
-            <p>
-                Najważniejsze wydarzenia, które już niedługo odbędą się
-                w Kolonii Pasjonatów.
-            </p>
-
-        </div>
-
-
-        <div class="events-grid">
-
-            <article class="event-card reveal">
-
-                <div class="event-icon emoji-icon">
-                    ❄️
-                </div>
-
-                <div class="event-content">
-
-                    <span class="event-date">
-                        20.11.2026–31.01.2027
-                    </span>
-
-                    <h3>
-                        Strefa Zimowa 2026/2027
-                    </h3>
-
-                    <p>
-                        Zimowy okres pełen aktywności,
-                        wydarzeń i wspólnej zabawy.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="event-card reveal">
-
-                <div class="event-icon emoji-icon">
-                    ☀️
-                </div>
-
-                <div class="event-content">
-
-                    <span class="event-date">
-                        01.06–31.08.2027
-                    </span>
-
-                    <h3>
-                        Strefa Letnia 2027
-                    </h3>
-
-                    <p>
-                        Letni okres specjalnych wydarzeń
-                        i aktywności społeczności.
-                    </p>
-
-                </div>
-
-            </article>
-
-        </div>
-
-
-        <div class="section-action">
-
-            <a
-                href="wydarzenia.html"
-                class="btn"
-            >
-                📅 Zobacz wszystkie wydarzenia →
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- CENTRUM DOWODZENIA -->
-    <section class="section" aria-labelledby="dashboardTitle">
-        <div class="section-heading">
-            <span class="eyebrow">🧭 SZYBKI DOSTĘP</span>
-            <h2 id="dashboardTitle">Centrum Kolonii</h2>
-            <p>Najważniejsze miejsca i informacje w jednym miejscu — bez szukania po całej stronie.</p>
-        </div>
-        <div class="cards-grid">
-            <a class="info-card reveal" href="kalendarz.html"><div class="card-icon emoji-icon">🗓️</div><h3>Kalendarz Kolonii</h3><p>Zobacz ważne daty i wydarzenia społeczności.</p><span class="more-link">Otwórz kalendarz →</span></a>
-            <a class="info-card reveal" href="galeria.html"><div class="card-icon emoji-icon">📸</div><h3>Galeria społeczności</h3><p>Przestrzeń na kolejowe kadry, komunikację i wspólne pasje.</p><span class="more-link">Otwórz galerię →</span></a>
-            <a class="info-card reveal" href="zmiany.html"><div class="card-icon emoji-icon">🛠️</div><h3>Dziennik zmian</h3><p>Prześledź rozwój strony i najważniejsze aktualizacje.</p><span class="more-link">Zobacz aktualizacje →</span></a>
-        </div>
-    </section>
-
-
-    <!-- =========================
-         DODATKOWE PODSTRONY
-    ========================== -->
-
-    <section class="section">
-
-        <div class="section-heading">
-
-            <span class="eyebrow">
-                POZNAJ KOLONIĘ
-            </span>
-
-            <h2>
-                Najważniejsze informacje
-            </h2>
-
-            <p>
-                Sprawdź historię, administrację oraz zasady
-                obowiązujące w naszej społeczności.
-            </p>
-
-        </div>
-
-
-        <div class="cards-grid">
-
-            <a
-                href="historia.html"
-                class="info-card reveal"
-            >
-
-                <div class="card-icon emoji-icon">
-                    📜
-                </div>
-
-                <h3>
-                    Historia
-                </h3>
-
-                <p>
-                    Poznaj historię społeczności
-                    i najważniejsze momenty jej rozwoju.
-                </p>
-
-                <span class="more-link">
-                    Poznaj historię
-                </span>
-
-            </a>
-
-
-            <a
-                href="administracja.html"
-                class="info-card reveal"
-            >
-
-                <div class="card-icon emoji-icon">
-                    🛡️
-                </div>
-
-                <h3>
-                    Administracja
-                </h3>
-
-                <p>
-                    Poznaj osoby tworzące Kolonię Pasjonatów
-                    i dbające o jej rozwój.
-                </p>
-
-                <span class="more-link">
-                    Poznaj administrację
-                </span>
-
-            </a>
-
-
-            <a
-                href="regulamin.html"
-                class="info-card reveal"
-            >
-
-                <div class="card-icon emoji-icon">
-                    📖
-                </div>
-
-                <h3>
-                    Regulamin
-                </h3>
-
-                <p>
-                    Poznaj zasady naszej społeczności
-                    i najważniejsze informacje dotyczące korzystania z Kolonii.
-                </p>
-
-                <span class="more-link">
-                    Poznaj regulamin
-                </span>
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-
-
-    <!-- =========================
-         DISCORD CTA
-    ========================== -->
-
-    <section class="discord-cta reveal">
-
-        <div>
-
-            <span class="eyebrow">
-                DOŁĄCZ DO NAS
-            </span>
-
-            <h2>
-                Widzimy się w Kolonii Pasjonatów!
-            </h2>
-
-            <p>
-                Dołącz do naszej społeczności na Discordzie
-                i stań się częścią Kolonii.
-            </p>
-
-        </div>
-
-        <a
-            href="https://discord.gg/886u97g22Q"
-            class="btn btn-primary"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            💬 Dołącz na Discord →
-        </a>
-
-    </section>
-
-</main>
-
-
-<!-- =========================
-     FOOTER
-========================== -->
-
-<footer>
-
-    <p>
-        © 2026 Kolonia Pasjonatów
-    </p>
-
-    <p>
-        🌟 Oficjalna strona społeczności
-    </p>
-
-</footer>
-
-
-<script src="script.js?v=20261018-sharedstats1"></script><script>
+document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================================
-       DATY STARTOWE
+       NAWIGACJA MOBILNA
+    ========================================= */
+    const mainNav = document.querySelector(".site-header nav, header nav");
+    const siteHeader = mainNav?.closest("header");
+    if (mainNav && siteHeader && !mainNav.classList.contains("subpage-mobile-navigation") && !document.getElementById("mobileNavToggle")) {
+        const navToggle = document.createElement("button");
+        navToggle.id = "mobileNavToggle";
+        navToggle.className = "mobile-nav-toggle";
+        navToggle.type = "button";
+        navToggle.setAttribute("aria-controls", "primaryNavigation");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.innerHTML = '<span class="mobile-nav-icon" aria-hidden="true"><span></span><span></span><span></span></span><span class="mobile-nav-label">Menu</span>';
+        mainNav.id = "primaryNavigation";
+        mainNav.setAttribute("aria-label", "Główna nawigacja");
+
+        /* Nawigacja pozostaje identyczna na każdej stronie. */
+        mainNav.parentNode.insertBefore(navToggle, mainNav);
+
+        const setNavOpen = (open) => {
+            mainNav.classList.toggle("mobile-nav-open", open);
+            navToggle.classList.toggle("is-open", open);
+            navToggle.setAttribute("aria-expanded", String(open));
+            navToggle.setAttribute("aria-label", open ? "Zamknij menu" : "Otwórz menu");
+            const label = navToggle.querySelector(".mobile-nav-label");
+            if (label) label.textContent = open ? "Zamknij" : "Menu";
+        };
+
+        navToggle.addEventListener("click", () => {
+            setNavOpen(navToggle.getAttribute("aria-expanded") !== "true");
+        });
+        mainNav.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => setNavOpen(false));
+        });
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") setNavOpen(false);
+        });
+        document.addEventListener("click", event => {
+            if (window.matchMedia("(max-width: 720px)").matches &&
+                !siteHeader.contains(event.target)) setNavOpen(false);
+        });
+        window.addEventListener("resize", () => {
+            if (!window.matchMedia("(max-width: 720px)").matches) setNavOpen(false);
+        });
+    }
+
+
+
+    /* =========================================
+       KONFIGURACJA
     ========================================= */
 
-    const COLONY_START_DATE =
-        "2026-06-11T00:00:00";
-
-    const WEBSITE_START_DATE =
-        "2026-08-13T20:10:00";
+    const COLONY_START_DATE = "2026-06-11T00:00:00";
+    const WEBSITE_START_DATE = "2026-08-13T20:10:00";
+    const MEMBERS_COUNT = 21;
 
 
     /* =========================================
-       OBLICZANIE CZASU
+       SYSTEM MOTYWÓW
+    ========================================= */
+
+    const THEMES = {
+
+        blue: {
+            name: "🔵 Kolonia Blue"
+        },
+
+        purple: {
+            name: "🟣 Purple Galaxy"
+        },
+
+        railway: {
+            name: "🚉 Railway"
+        },
+
+        midnight: {
+            name: "🌌 Midnight"
+        },
+
+        nature: {
+            name: "🌿 Nature"
+        },
+
+        sunset: {
+            name: "🌅 Sunset"
+        },
+
+        burgundy: {
+            name: "🍷 Burgundy Gold"
+        },
+
+        polska: {
+            name: "🚆 Polska Kolej"
+        }
+
+    };
+
+
+    const MODES = {
+
+        dark: {
+            name: "🌙 Tryb ciemny"
+        },
+
+        light: {
+            name: "☀️ Tryb jasny"
+        }
+
+    };
+
+
+    const DEFAULT_THEME = "blue";
+    const DEFAULT_MODE = "dark";
+
+
+    function getSavedTheme() {
+
+        const saved =
+            localStorage.getItem(
+                "koloniaTheme"
+            );
+
+        return THEMES[saved]
+            ? saved
+            : DEFAULT_THEME;
+    }
+
+
+    function getSavedMode() {
+
+        const saved =
+            localStorage.getItem(
+                "koloniaMode"
+            );
+
+        return MODES[saved]
+            ? saved
+            : DEFAULT_MODE;
+    }
+
+
+    let currentTheme =
+        getSavedTheme();
+
+    let currentMode =
+        getSavedMode();
+
+
+    /* =========================================
+       ELEMENTY USTAWIEŃ
+    ========================================= */
+
+    const themeToggle =
+        document.getElementById(
+            "themeToggle"
+        );
+
+
+    const themeOptions =
+        document.querySelectorAll(
+            "[data-theme-option]"
+        );
+
+
+    const modeOptions =
+        document.querySelectorAll(
+            "[data-mode-option]"
+        );
+
+
+    const currentThemeName =
+        document.getElementById(
+            "currentThemeName"
+        );
+
+
+    const currentModeName =
+        document.getElementById(
+            "currentModeName"
+        );
+
+
+    /* =========================================
+       AKTUALIZACJA WYBORU MOTYWU
+    ========================================= */
+
+    function updateThemeButtons() {
+
+        themeOptions.forEach(
+            button => {
+
+                const theme =
+                    button.dataset.themeOption;
+
+                button.classList.toggle(
+                    "selected",
+                    theme === currentTheme
+                );
+
+                button.setAttribute(
+                    "aria-pressed",
+                    theme === currentTheme
+                        ? "true"
+                        : "false"
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =========================================
+       AKTUALIZACJA WYBORU TRYBU
+    ========================================= */
+
+    function updateModeButtons() {
+
+        modeOptions.forEach(
+            button => {
+
+                const mode =
+                    button.dataset.modeOption;
+
+                button.classList.toggle(
+                    "selected",
+                    mode === currentMode
+                );
+
+                button.setAttribute(
+                    "aria-pressed",
+                    mode === currentMode
+                        ? "true"
+                        : "false"
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =========================================
+       AKTUALIZACJA INFORMACJI
+    ========================================= */
+
+    function updateCurrentThemeInfo() {
+
+        if (currentThemeName) {
+
+            currentThemeName.textContent =
+                THEMES[currentTheme].name;
+
+        }
+
+
+        if (currentModeName) {
+
+            currentModeName.textContent =
+                MODES[currentMode].name;
+
+        }
+
+    }
+
+
+    /* =========================================
+       PRZEŁĄCZNIK W GÓRNYM PASKU
+    ========================================= */
+
+    function updateThemeToggle() {
+
+        if (!themeToggle) {
+            return;
+        }
+
+
+        if (currentMode === "dark") {
+
+            themeToggle.textContent =
+                "☀️";
+
+            themeToggle.setAttribute(
+                "aria-label",
+                "Włącz tryb jasny"
+            );
+
+            themeToggle.setAttribute(
+                "title",
+                "Włącz tryb jasny"
+            );
+
+        } else {
+
+            themeToggle.textContent =
+                "🌙";
+
+            themeToggle.setAttribute(
+                "aria-label",
+                "Włącz tryb ciemny"
+            );
+
+            themeToggle.setAttribute(
+                "title",
+                "Włącz tryb ciemny"
+            );
+
+        }
+
+    }
+
+
+    /* =========================================
+       ZASTOSOWANIE MOTYWU
+    ========================================= */
+
+    function applyTheme(
+        theme,
+        save = true
+    ) {
+
+        if (!THEMES[theme]) {
+            theme = DEFAULT_THEME;
+        }
+
+
+        currentTheme = theme;
+
+
+        document.documentElement.dataset.theme =
+            currentTheme;
+
+        document.body.dataset.theme =
+            currentTheme;
+
+
+        if (save) {
+
+            localStorage.setItem(
+                "koloniaTheme",
+                currentTheme
+            );
+
+        }
+
+
+        updateThemeButtons();
+        updateCurrentThemeInfo();
+
+    }
+
+
+    /* =========================================
+       ZASTOSOWANIE TRYBU
+    ========================================= */
+
+    function applyMode(
+        mode,
+        save = true
+    ) {
+
+        if (!MODES[mode]) {
+            mode = DEFAULT_MODE;
+        }
+
+
+        currentMode = mode;
+
+
+        document.documentElement.dataset.mode =
+            currentMode;
+
+        document.body.dataset.mode =
+            currentMode;
+
+
+        if (save) {
+
+            localStorage.setItem(
+                "koloniaMode",
+                currentMode
+            );
+
+        }
+
+
+        updateModeButtons();
+        updateCurrentThemeInfo();
+        updateThemeToggle();
+
+    }
+
+
+    /* =========================================
+       WYBÓR MOTYWU
+    ========================================= */
+
+    themeOptions.forEach(
+        button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const theme =
+                        button.dataset.themeOption;
+
+                    applyTheme(theme);
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =========================================
+       WYBÓR TRYBU
+    ========================================= */
+
+    modeOptions.forEach(
+        button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const mode =
+                        button.dataset.modeOption;
+
+                    applyMode(mode);
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =========================================
+       PRZYCISK TRYBU W NAGŁÓWKU
+    ========================================= */
+
+    if (themeToggle) {
+
+        themeToggle.addEventListener(
+            "click",
+            () => {
+
+                const newMode =
+                    currentMode === "dark"
+                        ? "light"
+                        : "dark";
+
+                applyMode(newMode);
+
+            }
+        );
+
+    }
+
+
+    /* =========================================
+       START SYSTEMU MOTYWÓW
+    ========================================= */
+
+    applyTheme(
+        currentTheme,
+        false
+    );
+
+    applyMode(
+        currentMode,
+        false
+    );
+
+
+    /* =========================================
+       DOKŁADNY LICZNIK CZASU
     ========================================= */
 
     function getTimeParts(startDate) {
@@ -779,202 +489,223 @@
         const now =
             new Date();
 
-        let difference =
-            now - start;
-
-        if (difference < 0) {
-            difference = 0;
-        }
+        const difference =
+            Math.max(
+                0,
+                now.getTime() -
+                start.getTime()
+            );
 
         const totalSeconds =
             Math.floor(
                 difference / 1000
             );
 
-        const days =
-            Math.floor(
-                totalSeconds / 86400
-            );
-
-        const hours =
-            Math.floor(
-                (totalSeconds % 86400) / 3600
-            );
-
-        const minutes =
-            Math.floor(
-                (totalSeconds % 3600) / 60
-            );
-
-        const seconds =
-            totalSeconds % 60;
-
         return {
-            days,
-            hours,
-            minutes,
-            seconds
+
+            days:
+                Math.floor(
+                    totalSeconds / 86400
+                ),
+
+            hours:
+                Math.floor(
+                    (totalSeconds % 86400) / 3600
+                ),
+
+            minutes:
+                Math.floor(
+                    (totalSeconds % 3600) / 60
+                ),
+
+            seconds:
+                totalSeconds % 60
+
         };
-    }
 
-
-    /* =========================================
-       AKTUALIZACJA LICZNIKÓW
-    ========================================= */
-
-    function updateTimeCounter(
-        startDate,
-        daysId,
-        hoursId,
-        minutesId,
-        secondsId
-    ) {
-
-        const time =
-            getTimeParts(startDate);
-
-        const daysElement =
-            document.getElementById(daysId);
-
-        const hoursElement =
-            document.getElementById(hoursId);
-
-        const minutesElement =
-            document.getElementById(minutesId);
-
-        const secondsElement =
-            document.getElementById(secondsId);
-
-
-        if (daysElement) {
-
-            daysElement.textContent =
-                time.days;
-
-        }
-
-        if (hoursElement) {
-
-            hoursElement.textContent =
-                String(time.hours)
-                    .padStart(2, "0");
-
-        }
-
-        if (minutesElement) {
-
-            minutesElement.textContent =
-                String(time.minutes)
-                    .padStart(2, "0");
-
-        }
-
-        if (secondsElement) {
-
-            secondsElement.textContent =
-                String(time.seconds)
-                    .padStart(2, "0");
-
-        }
     }
 
 
     function updateCounters() {
 
-        updateTimeCounter(
-            COLONY_START_DATE,
-            "colonyDays",
-            "colonyHours",
-            "colonyMinutes",
-            "colonySeconds"
-        );
+        /* =====================================
+           LICZBA CZŁONKÓW
+        ===================================== */
 
-        updateTimeCounter(
-            WEBSITE_START_DATE,
-            "websiteDays",
-            "websiteHours",
-            "websiteMinutes",
-            "websiteSeconds"
-        );
-    }
-
-
-    /* =========================================
-       ANIMACJA LICZB
-    ========================================= */
-
-    function animateNumber(element) {
-
-        const target =
-            Number(
-                element.dataset.target
+        const membersCount =
+            document.getElementById(
+                "membersCount"
             );
 
-        if (!Number.isFinite(target)) {
-            return;
-        }
 
-        const duration = 1200;
+        if (membersCount) {
 
-        const startTime =
-            performance.now();
+            membersCount.textContent =
+                MEMBERS_COUNT;
 
-
-        function animate(currentTime) {
-
-            const progress =
-                Math.min(
-                    (currentTime - startTime) /
-                    duration,
-                    1
-                );
-
-            const eased =
-                1 -
-                Math.pow(
-                    1 - progress,
-                    3
-                );
-
-            const value =
-                Math.floor(
-                    target * eased
-                );
-
-            element.textContent =
-                value.toLocaleString(
-                    "pl-PL"
-                );
-
-
-            if (progress < 1) {
-
-                requestAnimationFrame(
-                    animate
-                );
-
-            } else {
-
-                element.textContent =
-                    target.toLocaleString(
-                        "pl-PL"
-                    );
-
-            }
         }
 
 
-        requestAnimationFrame(
-            animate
-        );
+        /* =====================================
+           START KOLONII
+        ===================================== */
+
+        const colony =
+            getTimeParts(
+                COLONY_START_DATE
+            );
+
+
+        const colonyDays =
+            document.getElementById(
+                "colonyDays"
+            );
+
+        const colonyHours =
+            document.getElementById(
+                "colonyHours"
+            );
+
+        const colonyMinutes =
+            document.getElementById(
+                "colonyMinutes"
+            );
+
+        const colonySeconds =
+            document.getElementById(
+                "colonySeconds"
+            );
+
+
+        if (colonyDays) {
+
+            colonyDays.textContent =
+                colony.days;
+
+        }
+
+
+        if (colonyHours) {
+
+            colonyHours.textContent =
+                String(
+                    colony.hours
+                ).padStart(
+                    2,
+                    "0"
+                );
+
+        }
+
+
+        if (colonyMinutes) {
+
+            colonyMinutes.textContent =
+                String(
+                    colony.minutes
+                ).padStart(
+                    2,
+                    "0"
+                );
+
+        }
+
+
+        if (colonySeconds) {
+
+            colonySeconds.textContent =
+                String(
+                    colony.seconds
+                ).padStart(
+                    2,
+                    "0"
+                );
+
+        }
+
+
+        /* =====================================
+           START STRONY
+        ===================================== */
+
+        const website =
+            getTimeParts(
+                WEBSITE_START_DATE
+            );
+
+
+        const websiteDays =
+            document.getElementById(
+                "websiteDays"
+            );
+
+        const websiteHours =
+            document.getElementById(
+                "websiteHours"
+            );
+
+        const websiteMinutes =
+            document.getElementById(
+                "websiteMinutes"
+            );
+
+        const websiteSeconds =
+            document.getElementById(
+                "websiteSeconds"
+            );
+
+
+        if (websiteDays) {
+
+            websiteDays.textContent =
+                website.days;
+
+        }
+
+
+        if (websiteHours) {
+
+            websiteHours.textContent =
+                String(
+                    website.hours
+                ).padStart(
+                    2,
+                    "0"
+                );
+
+        }
+
+
+        if (websiteMinutes) {
+
+            websiteMinutes.textContent =
+                String(
+                    website.minutes
+                ).padStart(
+                    2,
+                    "0"
+                );
+
+        }
+
+
+        if (websiteSeconds) {
+
+            websiteSeconds.textContent =
+                String(
+                    website.seconds
+                ).padStart(
+                    2,
+                    "0"
+                );
+
+        }
+
     }
 
 
-    /* =========================================
-       START
-    ========================================= */
-
     updateCounters();
+
 
     setInterval(
         updateCounters,
@@ -983,190 +714,737 @@
 
 
     /* =========================================
-       ANIMACJA STATYSTYK
+       LICZNIKI ADMINISTRACJI
     ========================================= */
 
-    const statsObserver =
-        new IntersectionObserver(
-            (entries, observer) => {
+    function updateAdminCounters() {
 
-                entries.forEach(entry => {
+        const adminMembers =
+            document.querySelectorAll(
+                ".admin-member[data-join-date]"
+            );
 
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
 
-                    const number =
-                        entry.target;
+        const now =
+            new Date();
 
-                    animateNumber(
-                        number
+
+        adminMembers.forEach(
+            member => {
+
+                const joinDate =
+                    new Date(
+                        member.dataset.joinDate
                     );
 
-                    observer.unobserve(
-                        number
+
+                const difference =
+                    Math.max(
+                        0,
+                        now.getTime() -
+                        joinDate.getTime()
                     );
 
-                });
 
-            },
-            {
-                threshold: 0.35
+                const totalSeconds =
+                    Math.floor(
+                        difference / 1000
+                    );
+
+
+                const days =
+                    Math.floor(
+                        totalSeconds / 86400
+                    );
+
+
+                const hours =
+                    Math.floor(
+                        (totalSeconds % 86400) / 3600
+                    );
+
+
+                const minutes =
+                    Math.floor(
+                        (totalSeconds % 3600) / 60
+                    );
+
+
+                const seconds =
+                    totalSeconds % 60;
+
+
+                const daysElement =
+                    member.querySelector(
+                        "[data-days]"
+                    );
+
+
+                const hoursElement =
+                    member.querySelector(
+                        "[data-hours]"
+                    );
+
+
+                const minutesElement =
+                    member.querySelector(
+                        "[data-minutes]"
+                    );
+
+
+                const secondsElement =
+                    member.querySelector(
+                        "[data-seconds]"
+                    );
+
+
+                if (daysElement) {
+
+                    daysElement.textContent =
+                        days;
+
+                }
+
+
+                if (hoursElement) {
+
+                    hoursElement.textContent =
+                        String(
+                            hours
+                        ).padStart(
+                            2,
+                            "0"
+                        );
+
+                }
+
+
+                if (minutesElement) {
+
+                    minutesElement.textContent =
+                        String(
+                            minutes
+                        ).padStart(
+                            2,
+                            "0"
+                        );
+
+                }
+
+
+                if (secondsElement) {
+
+                    secondsElement.textContent =
+                        String(
+                            seconds
+                        ).padStart(
+                            2,
+                            "0"
+                        );
+
+                }
+
             }
         );
 
+    }
+
+
+    updateAdminCounters();
+
+
+    setInterval(
+        updateAdminCounters,
+        1000
+    );
+
+
+    /* =========================================
+       KALENDARZ
+    ========================================= */
+
+    const calendar =
+        document.getElementById(
+            "calendar"
+        );
+
+    const calendarMonth =
+        document.getElementById(
+            "calendarMonth"
+        );
+
+    const calendarYear =
+        document.getElementById(
+            "calendarYear"
+        );
+
+    const previousMonth =
+        document.getElementById(
+            "previousMonth"
+        );
+
+    const nextMonth =
+        document.getElementById(
+            "nextMonth"
+        );
+
+
+    let calendarDate =
+        new Date();
+
+
+    function renderCalendar() {
+
+        if (!calendar) {
+            return;
+        }
+
+
+        const deviceDate =
+            new Date();
+
+        const currentDay =
+            deviceDate.getDate();
+
+        const currentMonth =
+            deviceDate.getMonth();
+
+        const currentYear =
+            deviceDate.getFullYear();
+
+
+        const year =
+            calendarDate.getFullYear();
+
+        const month =
+            calendarDate.getMonth();
+
+
+        const monthName =
+            calendarDate.toLocaleDateString(
+                "pl-PL",
+                {
+                    month: "long"
+                }
+            );
+
+
+        if (calendarMonth) {
+
+            calendarMonth.textContent =
+                monthName.charAt(0).toUpperCase() +
+                monthName.slice(1);
+
+        }
+
+
+        if (calendarYear) {
+
+            calendarYear.textContent =
+                year;
+
+        }
+
+
+        const firstDay =
+            new Date(
+                year,
+                month,
+                1
+            ).getDay();
+
+
+        const startingDay =
+            firstDay === 0
+                ? 6
+                : firstDay - 1;
+
+
+        const daysInMonth =
+            new Date(
+                year,
+                month + 1,
+                0
+            ).getDate();
+
+
+        calendar.innerHTML = "";
+
+
+        for (
+            let i = 0;
+            i < startingDay;
+            i++
+        ) {
+
+            const emptyDay =
+                document.createElement(
+                    "div"
+                );
+
+            emptyDay.className =
+                "calendar-day empty";
+
+            calendar.appendChild(
+                emptyDay
+            );
+
+        }
+
+
+        for (
+            let day = 1;
+            day <= daysInMonth;
+            day++
+        ) {
+
+            const dayElement =
+                document.createElement(
+                    "div"
+                );
+
+
+            dayElement.className =
+                "calendar-day";
+
+
+            dayElement.textContent =
+                day;
+
+
+            if (
+                day === currentDay &&
+                month === currentMonth &&
+                year === currentYear
+            ) {
+
+                dayElement.classList.add(
+                    "today"
+                );
+
+            }
+
+
+            calendar.appendChild(
+                dayElement
+            );
+
+        }
+
+    }
+
+
+    if (previousMonth) {
+
+        previousMonth.addEventListener(
+            "click",
+            () => {
+
+                calendarDate.setMonth(
+                    calendarDate.getMonth() - 1
+                );
+
+                renderCalendar();
+
+            }
+        );
+
+    }
+
+
+    if (nextMonth) {
+
+        nextMonth.addEventListener(
+            "click",
+            () => {
+
+                calendarDate.setMonth(
+                    calendarDate.getMonth() + 1
+                );
+
+                renderCalendar();
+
+            }
+        );
+
+    }
+
+
+    renderCalendar();
+
+
+    /* =========================================
+       NAGŁÓWEK — SCROLL
+    ========================================= */
+
+    const header =
+        document.querySelector(
+            "header"
+        );
+
+
+    function handleHeaderScroll() {
+
+        if (!header) {
+            return;
+        }
+
+
+        if (window.scrollY > 20) {
+
+            header.classList.add(
+                "scrolled"
+            );
+
+        } else {
+
+            header.classList.remove(
+                "scrolled"
+            );
+
+        }
+
+    }
+
+
+    handleHeaderScroll();
+
+
+    window.addEventListener(
+        "scroll",
+        handleHeaderScroll,
+        {
+            passive: true
+        }
+    );
+
+
+    /* =========================================
+       AKTYWNA NAWIGACJA
+    ========================================= */
+
+    const currentPage =
+        window.location.pathname
+            .split("/")
+            .pop() ||
+        "index.html";
+
+
+    document
+        .querySelectorAll("nav a")
+        .forEach(
+            link => {
+
+                const href =
+                    link.getAttribute(
+                        "href"
+                    );
+
+
+                if (
+                    href === currentPage
+                ) {
+
+                    link.classList.add(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+
+    /* =========================================
+       PŁYNNE PRZEWIJANIE
+    ========================================= */
 
     document
         .querySelectorAll(
-            ".stat-number[data-target]"
+            'a[href^="#"]'
         )
-        .forEach(number => {
+        .forEach(
+            anchor => {
 
-            statsObserver.observe(
-                number
-            );
+                anchor.addEventListener(
+                    "click",
+                    event => {
 
-        });
+                        const targetId =
+                            anchor.getAttribute(
+                                "href"
+                            );
 
 
-    /* =========================================
-       ANIMACJA KART
-    ========================================= */
+                        if (
+                            targetId === "#"
+                        ) {
+                            return;
+                        }
 
-    const revealObserver =
-        new IntersectionObserver(
-            (entries, observer) => {
 
-                entries.forEach(entry => {
+                        const target =
+                            document.querySelector(
+                                targetId
+                            );
 
-                    if (!entry.isIntersecting) {
-                        return;
+
+                        if (!target) {
+                            return;
+                        }
+
+
+                        event.preventDefault();
+
+
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+
                     }
+                );
 
-                    entry.target.classList.add(
-                        "visible"
-                    );
-
-                    observer.unobserve(
-                        entry.target
-                    );
-
-                });
-
-            },
-            {
-                threshold: 0.12
             }
         );
 
 
-    document
-        .querySelectorAll(".reveal")
-        .forEach(element => {
+    /* =========================================
+       ANIMACJE REVEAL
+    ========================================= */
 
-            revealObserver.observe(
-                element
+    const revealElements =
+        document.querySelectorAll(
+            ".reveal"
+        );
+
+
+    if (
+        "IntersectionObserver" in window
+    ) {
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(
+                        entry => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.12
+                }
             );
 
-        
+
+        revealElements.forEach(
+            element =>
+                observer.observe(
+                    element
+                )
+        );
+
+    } else {
+
+        revealElements.forEach(
+            element =>
+                element.classList.add(
+                    "visible"
+                )
+        );
+
+    }
+
 
     /* =========================================
-       ZEGAR W NAGŁÓWKU + WYSZUKIWARKA STRONY
+       RIPPLE
     ========================================= */
-    const headerActions = document.querySelector(".header-actions");
-    if (headerActions && !document.getElementById("headerClock")) {
-        const clock = document.createElement("div");
-        clock.id = "headerClock";
-        clock.className = "header-clock";
-        clock.setAttribute("aria-label", "Aktualna data i godzina");
-        clock.innerHTML = '<span class="header-clock-time" id="headerClockTime">--:--:--</span><span class="header-clock-date" id="headerClockDate">Ładowanie daty…</span>';
-        headerActions.prepend(clock);
-        const timeNode = clock.querySelector("#headerClockTime");
-        const dateNode = clock.querySelector("#headerClockDate");
-        const updateClock = () => {
-            const now = new Date();
-            timeNode.textContent = new Intl.DateTimeFormat("pl-PL", {hour:"2-digit", minute:"2-digit", second:"2-digit", hour12:false}).format(now);
-            dateNode.textContent = new Intl.DateTimeFormat("pl-PL", {weekday:"short", day:"2-digit", month:"short", year:"numeric"}).format(now);
-        };
-        updateClock();
-        window.setInterval(updateClock, 1000);
+
+    document
+        .querySelectorAll(
+            ".button"
+        )
+        .forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    function (event) {
+
+                        const ripple =
+                            document.createElement(
+                                "span"
+                            );
+
+
+                        ripple.className =
+                            "button-ripple";
+
+
+                        const rect =
+                            this.getBoundingClientRect();
+
+
+                        const size =
+                            Math.max(
+                                rect.width,
+                                rect.height
+                            );
+
+
+                        ripple.style.width =
+                            `${size}px`;
+
+                        ripple.style.height =
+                            `${size}px`;
+
+
+                        ripple.style.left =
+                            `${event.clientX - rect.left - size / 2}px`;
+
+
+                        ripple.style.top =
+                            `${event.clientY - rect.top - size / 2}px`;
+
+
+                        this.appendChild(
+                            ripple
+                        );
+
+
+                        setTimeout(
+                            () => {
+
+                                ripple.remove();
+
+                            },
+                            600
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+    /* =========================================
+       LOGO
+    ========================================= */
+
+    const logo =
+        document.querySelector(
+            ".logo"
+        );
+
+
+    if (logo) {
+
+        logo.addEventListener(
+            "mouseenter",
+            () => {
+
+                logo.classList.add(
+                    "logo-hover"
+                );
+
+            }
+        );
+
+
+        logo.addEventListener(
+            "mouseleave",
+            () => {
+
+                logo.classList.remove(
+                    "logo-hover"
+                );
+
+            }
+        );
+
     }
 
-    if (headerActions && !document.getElementById("siteSearchButton")) {
-        const searchButton = document.createElement("button");
-        searchButton.id = "siteSearchButton";
-        searchButton.className = "header-search-button";
-        searchButton.type = "button";
-        searchButton.textContent = "⌕";
-        searchButton.setAttribute("aria-label", "Wyszukaj na stronie");
-        searchButton.title = "Wyszukaj (Ctrl+K)";
-        headerActions.prepend(searchButton);
 
-        const pages = [
-            ["Strona główna", "index.html", "Witamy w Kolonii Pasjonatów"],
-            ["Ranking", "ranking.html", "Ranking społeczności"],
-            ["Licznik", "licznik.html", "Zegar i liczniki"],
-            ["Wydarzenia", "wydarzenia.html", "Wydarzenia Kolonii"],
-            ["Linki", "linki.html", "Przydatne linki"],
-            ["Kontakt", "kontakt.html", "Kontakt ze społecznością"],
-            ["Ustawienia", "ustawienia.html", "Motyw i wygląd strony"],
-            ["Galeria", "galeria.html", "Galeria zdjęć"],
-            ["Historia", "historia.html", "Historia Kolonii"],
-            ["Regulamin", "regulamin.html", "Zasady społeczności"],
-            ["Administracja", "administracja.html", "Zespół administracji"],
-            ["Zmiany", "zmiany.html", "Lista zmian strony"]
-        ];
-        let backdrop = null;
-        let previousFocus = null;
-        const closeSearch = () => {
-            if (!backdrop) return;
-            backdrop.remove(); backdrop = null;
-            if (previousFocus) previousFocus.focus();
-        };
-        const openSearch = () => {
-            if (backdrop) return;
-            previousFocus = document.activeElement;
-            backdrop = document.createElement("div");
-            backdrop.className = "search-dialog-backdrop";
-            backdrop.innerHTML = '<section class="search-dialog" role="dialog" aria-modal="true" aria-labelledby="siteSearchTitle"><div class="search-dialog-head"><h2 id="siteSearchTitle">Szukaj w Kolonii</h2><button type="button" class="search-dialog-close" aria-label="Zamknij wyszukiwarkę">×</button></div><input type="search" id="siteSearchInput" placeholder="Wpisz szukaną frazę…" autocomplete="off"><div class="search-results" id="siteSearchResults" aria-live="polite"></div></section>';
-            document.body.appendChild(backdrop);
-            const input = backdrop.querySelector("#siteSearchInput");
-            const results = backdrop.querySelector("#siteSearchResults");
-            const closeButton = backdrop.querySelector(".search-dialog-close");
-            const renderResults = () => {
-                const query = input.value.trim().toLocaleLowerCase("pl-PL");
-                const currentText = (document.querySelector("main")?.innerText || document.body.innerText || "").replace(/\s+/g, " ").slice(0, 18000);
-                const pageResults = pages.filter(p => (p[0]+" "+p[1]+" "+p[2]).toLocaleLowerCase("pl-PL").includes(query));
-                const localMatch = query.length > 1 && currentText.toLocaleLowerCase("pl-PL").includes(query);
-                results.replaceChildren();
-                if (!query) {
-                    results.innerHTML = '<div class="search-empty">Wpisz frazę, aby znaleźć podstronę lub sprawdzić treść tej strony.</div>';
-                    return;
-                }
-                pageResults.forEach(p => {
-                    const a = document.createElement("a"); a.className = "search-result"; a.href = p[1];
-                    const title = document.createElement("strong"); title.textContent = p[0];
-                    const small = document.createElement("small"); small.textContent = p[2];
-                    a.append(title, small); results.appendChild(a);
-                });
-                if (localMatch) {
-                    const note = document.createElement("div"); note.className = "search-empty";
-                    note.textContent = "Znaleziono tę frazę w treści aktualnie otwartej strony.";
-                    results.appendChild(note);
-                }
-                if (!pageResults.length && !localMatch) results.innerHTML = '<div class="search-empty">Brak wyników. Spróbuj innej frazy.</div>';
-            };
-            input.addEventListener("input", renderResults);
-            closeButton.addEventListener("click", closeSearch);
-            backdrop.addEventListener("click", event => { if (event.target === backdrop) closeSearch(); });
-            backdrop.addEventListener("keydown", event => { if (event.key === "Escape") closeSearch(); });
-            input.addEventListener("keydown", event => { if (event.key === "Enter") { const first = results.querySelector("a"); if (first) window.location.href = first.href; } });
-            renderResults(); input.focus();
-        };
-        searchButton.addEventListener("click", openSearch);
-        document.addEventListener("keydown", event => {
-            if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") { event.preventDefault(); openSearch(); }
-        });
+    /* =========================================
+       ESC
+    ========================================= */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                document
+                    .querySelectorAll(
+                        ".open"
+                    )
+                    .forEach(
+                        element => {
+
+                            element.classList.remove(
+                                "open"
+                            );
+
+                        }
+                    );
+
+            }
+
+        }
+    );
+
+
+    /* =========================================
+       ROK W STOPCE
+    ========================================= */
+
+    const currentYearElement =
+        document.getElementById(
+            "currentYear"
+        );
+
+
+    if (currentYearElement) {
+
+        currentYearElement.textContent =
+            new Date().getFullYear();
+
     }
+
+
+    /* =========================================
+       ZAŁADOWANIE STRONY
+    ========================================= */
+
+    requestAnimationFrame(
+        () => {
+
+            document.body.classList.add(
+                "page-loaded"
+            );
+
+        }
+    );
 
 });
