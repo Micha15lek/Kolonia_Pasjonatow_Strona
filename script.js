@@ -1135,7 +1135,7 @@
             const closeButton = backdrop.querySelector(".search-dialog-close");
             const renderResults = () => {
                 const query = input.value.trim().toLocaleLowerCase("pl-PL");
-                const currentText = (document.querySelector("main")?.innerText || document.body.innerText || "").replace(/\\s+/g, " ").slice(0, 18000);
+                const currentText = (document.querySelector("main")?.innerText || document.body.innerText || "").replace(/\s+/g, " ").slice(0, 18000);
                 const pageResults = pages.filter(p => (p[0]+" "+p[1]+" "+p[2]).toLocaleLowerCase("pl-PL").includes(query));
                 const localMatch = query.length > 1 && currentText.toLocaleLowerCase("pl-PL").includes(query);
                 results.replaceChildren();
