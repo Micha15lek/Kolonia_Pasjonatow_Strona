@@ -141,8 +141,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    // Strona główna zachowuje jeden motyw kolorystyczny: Złota Polska Jesień.
+    // Na pozostałych podstronach pozostają dotychczasowe ustawienia użytkownika.
     let currentTheme =
-        getSavedTheme();
+        document.body.classList.contains("home-page")
+            ? "burgundy"
+            : getSavedTheme();
 
     let currentMode =
         getSavedMode();
