@@ -5614,3 +5614,341 @@ html[data-theme="burgundy"][data-mode="dark"],
 html[data-theme="polska"][data-mode="dark"] { color-scheme: dark; }
 html[data-theme="burgundy"][data-mode="light"],
 html[data-theme="polska"][data-mode="light"] { color-scheme: light; }
+
+
+/* =========================================================
+   KOLONIA PASJONATÓW — ZŁOTA POLSKA JESIEŃ
+   Motyw stały wyłącznie dla strony głównej.
+   Nawigacja mobilna i style podstron pozostają bez zmian.
+========================================================= */
+body.home-page {
+    --bg: #f7f0e2;
+    --bg-secondary: #eee2cb;
+    --card: #fffaf0;
+    --card-hover: #fffdf7;
+    --text: #38251c;
+    --text-secondary: #725747;
+    --muted: #927b68;
+    --accent: #a96e20;
+    --accent-hover: #815018;
+    --accent-secondary: #7b293b;
+    --border: rgba(125, 82, 39, .18);
+    --border-hover: rgba(169, 110, 32, .42);
+    --glass: rgba(255, 250, 240, .72);
+    --glass-strong: rgba(255, 252, 245, .94);
+    --header-bg: rgba(250, 244, 231, .94);
+    --header-border: rgba(153, 104, 43, .23);
+    --home-glass-border: rgba(137, 91, 40, .19);
+    --shadow: 0 16px 42px rgba(91, 59, 29, .08);
+    --shadow-hover: 0 24px 54px rgba(91, 59, 29, .14);
+    --glow: 0 0 28px rgba(196, 139, 49, .12);
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at 8% 9%, rgba(219, 168, 78, .16), transparent 34rem),
+        radial-gradient(ellipse at 92% 36%, rgba(123, 41, 59, .07), transparent 31rem),
+        linear-gradient(180deg, #fbf6eb 0%, #f5eddd 48%, #fbf7ed 100%);
+    background-attachment: fixed;
+}
+.home-page main::before { background: #d5a54e; opacity: .10; }
+.home-page main::after { background: #8a3948; opacity: .07; }
+
+.home-page .site-header {
+    background: rgba(255, 250, 240, .94);
+    border-color: rgba(153, 104, 43, .22);
+    box-shadow: 0 10px 32px rgba(91, 59, 29, .09);
+}
+.home-page .site-header::before { background: linear-gradient(115deg, rgba(255,255,255,.7), transparent 30%, transparent 68%, rgba(213,165,78,.12)); }
+.home-page .site-header::after {
+    background: linear-gradient(90deg, transparent, #d3a044, #8a3948, transparent);
+    opacity: .8;
+}
+.home-page .logo { color: #59321f; }
+.home-page nav a { color: #765d48; }
+.home-page nav a:hover,
+.home-page nav a.active {
+    color: #6f3f17;
+    background: rgba(215, 169, 87, .15);
+    border-color: rgba(169, 110, 32, .19);
+}
+.home-page .mobile-nav-toggle {
+    color: #59321f;
+    background: #fffaf0;
+    border-color: rgba(153, 104, 43, .24);
+}
+.home-page nav.mobile-nav-open {
+    background: #fffaf0;
+    border-color: rgba(153, 104, 43, .2);
+}
+
+.home-page .colony-welcome {
+    position: relative;
+    width: min(1120px, calc(100% - 40px));
+    margin: 126px auto 30px;
+    padding: clamp(30px, 5vw, 54px) 24px;
+    overflow: hidden;
+    border: 1px solid rgba(169, 110, 32, .22);
+    border-radius: 30px;
+    background:
+        radial-gradient(circle at 8% 12%, rgba(218, 171, 82, .16), transparent 18rem),
+        linear-gradient(135deg, #fffaf0, #f3e6ce);
+    box-shadow: 0 18px 48px rgba(91, 59, 29, .09);
+}
+.home-page .colony-welcome::before {
+    content: "🍂";
+    position: absolute;
+    top: 18px;
+    right: clamp(18px, 5vw, 58px);
+    font-size: clamp(34px, 5vw, 58px);
+    opacity: .24;
+    transform: rotate(18deg);
+}
+.home-page .colony-clock {
+    color: #70451f;
+    font-family: var(--font-display);
+    font-size: clamp(3.2rem, 9vw, 6.4rem);
+    font-weight: 800;
+    letter-spacing: -.055em;
+}
+.home-page .colony-current-date { color: #8a6b4c; }
+.home-page .colony-server-name { color: #512d22; letter-spacing: -.045em; }
+.home-page .colony-server-description { color: #806650; }
+.home-page .colony-live-event {
+    background: rgba(255,255,255,.72);
+    border-color: rgba(169,110,32,.2);
+    border-left-color: #b77b2d;
+}
+
+.home-page .hero {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    place-items: center;
+    width: min(1240px, calc(100% - 40px));
+    min-height: clamp(420px, 58vw, 610px);
+    margin: 0 auto clamp(34px, 5vw, 66px);
+    padding: clamp(56px, 8vw, 104px) 24px clamp(74px, 9vw, 112px);
+    overflow: hidden;
+    border: 1px solid rgba(163, 111, 45, .22);
+    border-radius: 34px;
+    text-align: center;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.78), transparent 52%),
+        linear-gradient(135deg, #f8e8c8 0%, #f1d9aa 48%, #e9d1b0 100%);
+    box-shadow: 0 24px 60px rgba(91, 59, 29, .12);
+}
+.home-page .hero::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 14px;
+    border: 1px solid rgba(145, 91, 34, .16);
+    border-radius: 25px;
+    background:
+        radial-gradient(circle at 12% 80%, rgba(123,41,59,.08), transparent 22rem),
+        radial-gradient(circle at 88% 18%, rgba(198,145,53,.2), transparent 20rem);
+    animation: none;
+}
+.home-page .hero-content { max-width: 850px; }
+.home-page .hero .eyebrow {
+    padding: 9px 14px;
+    border: 1px solid rgba(141, 93, 40, .22);
+    border-radius: 999px;
+    color: #80521f;
+    background: rgba(255,250,240,.55);
+    letter-spacing: .14em;
+}
+.home-page .hero-season {
+    margin: 22px 0 12px;
+    color: #8c6334;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .19em;
+}
+.home-page .hero h1 {
+    margin: 0;
+    color: #45291f;
+    font-size: clamp(2.8rem, 7vw, 5.7rem);
+    line-height: .99;
+    letter-spacing: -.065em;
+    animation: none;
+}
+.home-page .hero h1 span {
+    background: linear-gradient(100deg, #9a5e1e, #c28a31 48%, #7b293b);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: none;
+}
+.home-page .hero .hero-description {
+    max-width: 690px;
+    margin: 24px auto 0;
+    color: #725744;
+    font-size: clamp(15px, 1.7vw, 18px);
+    line-height: 1.8;
+    animation: none;
+}
+.home-page .hero-buttons { margin-top: 30px; }
+.home-page .hero .btn {
+    min-height: 50px;
+    padding-inline: 23px;
+    border-radius: 14px;
+    font-weight: 800;
+}
+.home-page .hero .btn-primary {
+    color: #fffaf0;
+    border-color: #7b293b;
+    background: linear-gradient(135deg, #8b3445, #682638);
+    box-shadow: 0 10px 24px rgba(104,38,56,.2);
+}
+.home-page .hero .btn-secondary {
+    color: #69441f;
+    border-color: rgba(141,93,40,.28);
+    background: rgba(255,250,240,.65);
+}
+.home-page .hero-decoration {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    filter: drop-shadow(0 12px 10px rgba(91,59,29,.12));
+    opacity: .7;
+}
+.home-page .hero-decoration-one { top: 12%; left: 8%; font-size: clamp(42px, 7vw, 82px); transform: rotate(-22deg); }
+.home-page .hero-decoration-two { right: 9%; bottom: 15%; font-size: clamp(38px, 6vw, 68px); transform: rotate(24deg); }
+.home-page .hero-bottom-note {
+    position: absolute;
+    bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #987447;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: .2em;
+}
+.home-page .hero-bottom-note span { width: 28px; height: 1px; background: rgba(152,116,71,.45); }
+
+.home-page .section {
+    width: min(1180px, calc(100% - 40px));
+    margin-inline: auto;
+    padding-block: clamp(42px, 5vw, 70px);
+}
+.home-page .section-heading { margin-bottom: clamp(26px, 3.5vw, 42px); }
+.home-page .section-heading .eyebrow {
+    border-color: rgba(169,110,32,.2);
+    color: #94621f;
+    background: rgba(255,250,240,.76);
+}
+.home-page .section-heading h2,
+.home-page section h2 { color: #4b2c20; }
+.home-page .section-heading p { color: #806650; }
+.home-page .community-grid {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto clamp(24px, 4vw, 48px);
+    gap: 22px;
+}
+.home-page .discord-card,
+.home-page .whatsapp-card,
+.home-page .info-card,
+.home-page .stat-card,
+.home-page .event-card,
+.home-page .update-card {
+    border: 1px solid rgba(150, 102, 45, .18);
+    border-radius: 24px;
+    background: linear-gradient(145deg, rgba(255,255,255,.9), rgba(250,242,225,.96));
+    box-shadow: 0 14px 36px rgba(91,59,29,.075);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+.home-page .discord-card::before,
+.home-page .whatsapp-card::before,
+.home-page .info-card::before,
+.home-page .stat-card::before,
+.home-page .event-card::before,
+.home-page .update-card::before { background: linear-gradient(90deg, transparent, rgba(191,143,65,.2), transparent); }
+.home-page .info-card:hover,
+.home-page .event-card:hover,
+.home-page .stat-card:hover,
+.home-page .update-card:hover {
+    border-color: rgba(169,110,32,.4);
+    box-shadow: 0 22px 44px rgba(91,59,29,.12);
+}
+.home-page .info-card h3,
+.home-page .event-card h3,
+.home-page .discord-card h2,
+.home-page .whatsapp-card h2 { color: #4b2c20; }
+.home-page .info-card p,
+.home-page .event-card p,
+.home-page .discord-card p,
+.home-page .whatsapp-card p { color: #806650; }
+.home-page .card-icon,
+.home-page .stat-icon { color: #a96e20; }
+.home-page .more-link,
+.home-page .updates-link { color: #8a561c; }
+.home-page .stat-number { color: #7b293b; }
+.home-page .event-date {
+    color: #805018;
+    background: rgba(211,160,68,.16);
+}
+.home-page .status-badge {
+    color: #805018;
+    background: rgba(211,160,68,.16);
+    border-color: rgba(169,110,32,.22);
+}
+.home-page .discord-card .btn-primary {
+    color: #fffaf0;
+    background: linear-gradient(135deg, #8b3445, #682638);
+    border-color: #7b293b;
+}
+.home-page .stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.home-page .events-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.home-page .discord-cta { display: none; }
+.home-page footer {
+    width: min(1180px, calc(100% - 40px));
+    margin: 12px auto 0;
+    border-top-color: rgba(150,102,45,.2);
+    color: #927b68;
+}
+.home-page footer p:first-child { color: #725747; }
+
+@media (max-width: 850px) {
+    .home-page .hero { min-height: 470px; }
+    .home-page .hero-decoration-one { left: 4%; }
+    .home-page .hero-decoration-two { right: 4%; }
+}
+@media (max-width: 720px) {
+    .home-page .colony-welcome {
+        width: calc(100% - 28px);
+        margin-top: 108px;
+        padding: 30px 16px;
+        border-radius: 22px;
+    }
+    .home-page .colony-welcome::before { top: 10px; right: 14px; font-size: 32px; }
+    .home-page .hero {
+        width: calc(100% - 28px);
+        min-height: 430px;
+        margin-bottom: 28px;
+        padding: 54px 18px 76px;
+        border-radius: 24px;
+    }
+    .home-page .hero::before { inset: 9px; border-radius: 17px; }
+    .home-page .hero-season { font-size: 9px; letter-spacing: .13em; }
+    .home-page .hero h1 { font-size: clamp(2.55rem, 11vw, 4rem); }
+    .home-page .hero .hero-description { font-size: 14px; }
+    .home-page .hero-decoration-one { top: 5%; left: 5%; font-size: 36px; }
+    .home-page .hero-decoration-two { right: 5%; bottom: 8%; font-size: 34px; }
+    .home-page .hero-bottom-note { bottom: 19px; font-size: 7px; letter-spacing: .12em; }
+    .home-page .community-grid { width: calc(100% - 28px); grid-template-columns: 1fr; }
+    .home-page .section { width: calc(100% - 28px); }
+    .home-page .stats-grid,
+    .home-page .events-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 420px) {
+    .home-page .hero-buttons { flex-direction: column; align-items: stretch; }
+    .home-page .hero-buttons .btn { width: 100%; }
+    .home-page .hero-decoration-one,
+    .home-page .hero-decoration-two { opacity: .38; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .home-page .hero-decoration,
+    .home-page .hero::before { animation: none !important; }
+}
